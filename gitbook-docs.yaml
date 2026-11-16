@@ -1,0 +1,11 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: OpenELAB Wiki
+  structure:
+    - type: space
+      key: space-1
+      title: OpenELAB Wiki
+      path: openelab-wiki
+      default: true
+      content:
+        directory: ./openelab-wiki
