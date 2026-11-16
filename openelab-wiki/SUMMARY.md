@@ -1,6 +1,6 @@
 # Table of contents
 
-* [🚀 Welcome to Our Wiki!](README.md)
+* [🚀 Welcome to OpenELAB Wiki!](README.md)
 
 ## AIoT
 
