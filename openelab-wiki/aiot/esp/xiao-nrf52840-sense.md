@@ -1,0 +1,379 @@
+---
+layout:
+  width: default
+  title:
+    visible: false
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+  anchors:
+    visible: true
+---
+
+# XIAO nRF52840 Sense
+
+### Seeed Studio XIAO nRF52840 Sense TinyML/TensorFlow Lite
+
+***
+
+### Product Link
+
+{% embed url="https://openelab.io/products/xiao-nrf52840" %}
+
+### Introduction <a href="#introduction" id="introduction"></a>
+
+As the first wireless product in the Seeed Studio XIAO family, **Seeed Studio XIAO nRF52840** is equipped with a powerful **Nordic nRF52840 MCU** which integrates **Bluetooth 5.0** connectivity. Meanwhile, it has a **small and exquisite form-factor** which can be used for wearable devices and Internet of Things projects. The **single-sided surface-mountable design** and the onboard **Bluetooth antenna** can greatly facilitate the rapid deployment of IoT projects.
+
+In addition, there is an advanced version of this board, **Seeed Studio XIAO nRF52840 Sense**. It is integrated with two extra onboard sensors. One of them is a **Pulse Density Modulation (PDM) Digital Microphone**. It can receive audio data in real-time which allows it to be used for audio recognition. The other one is a **6-axis Inertial Measurement Unit (IMU)**, this IMU can be very useful in TinyML projects like gesture recognition. These onboard sensors provide a great convenience for users while the board is ultra-small.
+
+Compared to Seeed Studio XIAO RP2040, Seeed Studio XIAO nRF52840 contains **richer interfaces**. The first thing to note is that the **Near Field Communication (NFC) interface** is functional on the board. Secondly, there is a tiny **reset button** on the side of the Type-C interface. On the other side, there is a **3-in-one LED (User LED)** along with a **Charge LED** to indicate the charging status when a battery is connected. There are **11 digital I/O** that can be used as **PWM pins** and **6 analog I/O** that can be used as **ADC pins**. It supports all three common serial interfaces such as **UART, I2C, and SPI**. Same as Seeed Studio XIAO RP2040, it has an **onboard 2 MB flash** which means it can also be programmed using **Arduino, MicroPython, CircuitPython, or other programming languages**.
+
+### Features[​](https://wiki.seeedstudio.com/XIAO_BLE/#features) <a href="#features" id="features"></a>
+
+* Powerful wireless capabilities: Bluetooth 5.0 with onboard antenna
+* Powerful CPU: Nordic nRF52840, ARM® Cortex®-M4 32-bit processor with FPU, 64 MHz
+* Ultra-Low Power: Standby power consumption is less than 5μA
+* Battery charging chip: Supports lithium battery charge and discharge management
+* Onboard 2 MB flash
+* Onboard PDM microphone (only in Seeed Studio XIAO nRF52840 Sense)
+* Onboard 6-axis LSM6DS3TR-C IMU (only in Seeed Studio XIAO nRF52840 Sense)
+* Ultra Small Size: 21 x 17.8mm, Seeed Studio XIAO series classic form-factor for wearable devices
+* Rich interfaces: 1xUART, 1xI2C, 1xSPI, 1xNFC, 1xSWD, 11xGPIO(PWM), 6xADC
+* Single-sided components, surface mounting design
+
+### Specifications comparison[​](https://wiki.seeedstudio.com/XIAO_BLE/#specifications-comparison) <a href="#specifications-comparison" id="specifications-comparison"></a>
+
+|          Item         |       Seeed Studio XIAO SAMD21      |    Seeed Seeed Studio XIAO RP2040   |     Seeed Seeed Studio XIAO nRF52840    |  Seeed Seeed Studio XIAO nRF52840 Sense |
+| :-------------------: | :---------------------------------: | :---------------------------------: | :-------------------------------------: | :-------------------------------------: |
+|       Processor       |           SAMD21 M0+@48MHz          |     RP2040 Dual-core M0+@133Mhz     |            nRF52840 M4F@64MHz           |            nRF52840 M4F@64MHz           |
+| Wireless Connectivity |                 N/A                 |                 N/A                 |          Bluetooth 5.0/BLE/NFC          |          Bluetooth 5.0/BLE/NFC          |
+|         Memory        |        32 KB SRAM 256KB FLASH       |    264 KB SRAM 2MB onboard Flash    | 256 KB RAM, 1MB Flash 2MB onboard Flash |  256 KB RAM,1MB Flash 2MB onboard Flash |
+|    Built-in Sensors   |                 N/A                 |                 N/A                 |                   N/A                   | 6 DOF IMU (LSM6DS3TR-C), PDM Microphone |
+|       Interfaces      |             I2C/UART/SPI            |             I2C/UART/SPI            |               I2C/UART/SPI              |               I2C/UART/SPI              |
+|    PWM/Analog Pins    |                11/11                |                 11/4                |                   11/6                  |                   11/6                  |
+|    Onboard Buttons    |                 N/A                 |          Reset/ Boot Button         |               Reset Button              |               Reset Button              |
+|      Onboard LEDs     |                 N/A                 |     Full-color RGB/ 3-in-one LED    |         3-in-one LED/ Charge LED        |         3-in-one LED/ Charge LED        |
+|  Battery Charge Chip  |                 N/A                 |                 N/A                 |                 BQ25101                 |                 BQ25101                 |
+| Programming Languages | Arduino/ MicroPython/ CircuitPython | Arduino/ MicroPython/ CircuitPython |   Arduino/ MicroPython/ CircuitPython   |   Arduino/ MicroPython/ CircuitPython   |
+
+### Hardware overview <a href="#hardware-overview" id="hardware-overview"></a>
+
+<figure><img src="../../.gitbook/assets/image (932).png" alt=""><figcaption></figcaption></figure>
+
+### Two Arduino Libraries[​](https://wiki.seeedstudio.com/XIAO_BLE/#two-arduino-libraries) <a href="#two-arduino-libraries" id="two-arduino-libraries"></a>
+
+Seeed Studio XIAO nRF52840 assembles many functions in one tiny board and sometimes may not perform the best of them. Hence, Seeed has published two Arduino libraries to let it **maximum the power of each function**. Therefore:
+
+* It is recommanded to use the `Seeed nRF52 Boards` library if you want to apply **Bluetooth function** and "**Low Energy Cost Function**".
+* It is recommanded to use the `Seeed nRF52 mbed-enabled Boards` library if you want to use it in **embedded Machine Learning Applications** or apply "**IMU & PDM advanced function**".
+* Both libraries support very well when it comes to the basic usage, such as **LED, Digital, Analog, Serial, I2C, SPI**.
+
+The Pin definition supported by these two libraries might be a little different and Seeed will keep update the wiki until it is clear.
+
+### Getting started[​](https://wiki.seeedstudio.com/XIAO_BLE/#getting-started) <a href="#getting-started" id="getting-started"></a>
+
+First, we are going to connect the Seeed Studio XIAO nRF52840 (Sense) to the computer and upload a simple code from Arduino IDE to check whether the board is functioning well.
+
+#### Hardware setup[​](https://wiki.seeedstudio.com/XIAO_BLE/#hardware-setup) <a href="#hardware-setup" id="hardware-setup"></a>
+
+You need to prepare the following:
+
+* 1 x [Seeed Studio XIAO nRF52840](https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html) or [Studio XIAO nRF52840 Sense](https://www.seeedstudio.com/Seeed-XIAO-BLE-Sense-nRF52840-p-5253.html)
+* 1 x Computer
+* 1 x USB Type-C cable
+
+Connect the Seeed Studio XIAO nRF52840 (Sense) to your computer via a USB Type-C cable.
+
+<img src="https://files.seeedstudio.com/wiki/XIAO-BLE/bletpyecconnect.png" alt="pir" width="500">
+
+#### Software setup[​](https://wiki.seeedstudio.com/XIAO_BLE/#software-setup) <a href="#software-setup" id="software-setup"></a>
+
+* **Step 1.** Download and Install the latest version of Arduino IDE according to your operating system
+
+[![pir](https://files.seeedstudio.com/wiki/Seeeduino_Stalker_V3_1/images/Download_IDE.png)](https://www.arduino.cc/en/software)
+
+* **Step 2.** Launch the Arduino application
+* **Step 3.** Add Seeed Studio XIAO nRF52840 (Sense) board package to your Arduino IDE
+
+Navigate to **File > Preferences**, and fill **"Additional Boards Manager URLs"** with the url below: [_https://files.seeedstudio.com/arduino/package\_seeeduino\_boards\_index.json_](https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json)
+
+<img src="https://files.seeedstudio.com/wiki/Wio-Terminal/img/Boardurl.png" alt="pir" width="700">
+
+Navigate to **Tools > Board > Boards Manager...**, type the keyword "**seeed nrf52**" in the search box, select the latest version of the board you want, and install it. You can install both.
+
+<img src="https://files.seeedstudio.com/wiki/XIAO-BLE/XIAO_nrf528401.png" alt="pir" width="700">
+
+* **Step 4.** Select your board and port
+
+**Board**
+
+After installing the board package, navigate to **Tools > Board** and choose the board you want, continue to select "**Seeed XIAO nRF52840 Sense**". Now we have finished setting up the Seeed Studio XIAO nRF52840 (Sense) for Arduino IDE.
+
+<img src="https://files.seeedstudio.com/wiki/XIAO-BLE/XIAO_nrf528402.png" alt="pir" width="700">
+
+**Port**
+
+Navigate to **Tools > Port** and select the serial port name of the connected Seeed Studio XIAO nRF52840 (Sense). This is likely to be COM3 or higher (**COM1** and **COM2** are usually reserved for hardware serial ports). The serial port of the connected Seeed Studio XIAO nRF52840 (Sense) usually contains parentheses that are written **Seeed Studio XIAO nRF52840** for **Seeed Studio XIAO nRF52840** or **Seeed Studio XIAO nRF52840 Sense** for **Seeed Studio XIAO nRF52840 Sense**.
+
+<img src="https://files.seeedstudio.com/wiki/XIAO-BLE/port.png" alt="pir" width="550">
+
+* **Step 5.** Navigate to **File > Examples > 01.Basics > Blink** to open **Blink** example
+
+<img src="https://files.seeedstudio.com/wiki/Seeeduino_GPRS/img/select_blink.png" alt="pir" width="550">
+
+* **Step 6.** Click the **Upload** button to upload the Blink example code to the board
+
+<img src="https://files.seeedstudio.com/wiki/Seeeduino_GPRS/img/upload_image.png" alt="pir" width="500">
+
+Once uploaded, you will see the built-in red LED blinking with a 1-second delay between each blink. This means the connection is successful and now you can explore more projects with the Seeed Studio XIAO nRF52840 (Sense)!
+
+### Playing with the built-in 3-in-one LED[​](https://wiki.seeedstudio.com/XIAO_BLE/#playing-with-the-built-in-3-in-one-led) <a href="#playing-with-the-built-in-3-in-one-led" id="playing-with-the-built-in-3-in-one-led"></a>
+
+Seeed Studio XIAO nRF52840 (Sense) has an **onboard 3-in-one LED** which is user-programmable. Now you will learn how to control the RGB colors one-by-one using Arduino!
+
+You first have to understand that the behavior of this LED is not as usual when controlled by the code. The **LED turns ON** when we give a **LOW signal** and it **turns OFF** when we give a **HIGH signal**. This is because this LED is controlled by a common anode and will light up only with a low-level signal.
+
+An example code would be:
+
+```
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);   
+}
+```
+
+Here, even though **HIGH** is used, the LED will be **OFF**. You need to replace **HIGH** with **LOW** to turn **ON** the LED.
+
+Refer to the following pin mappings of the LEDs and use them in your codes:
+
+* Red LED = LED\_BUILTIN or LED\_RED
+* Blue LED = LED\_BLUE
+* Green LED = LED\_GREEN
+
+### Power Consumption Verification[​](https://wiki.seeedstudio.com/XIAO_BLE/#power-consumption-verification) <a href="#power-consumption-verification" id="power-consumption-verification"></a>
+
+The Seeed Studio XIAO nRF52840 is low power consumption and here we provide a method to verify. It is highly recommend to use the `Seeed nRF52 Boards` library here.
+
+* **Step 1.** Use **JLink** Downloader to flash the [bootloader firmware](https://github.com/0hotpotman0/BLE_52840_Core/blob/main/bootloader/Seeed_XIAO_nRF52840_Sense/Seeed_XIAO_nRF52840_Sense_bootloader-0.6.1_s140_7.3.0.hex) for Seeed Studio XIAO nRF52840 (Sense).
+* **Step 2.** Use the`Seeed nRF52 Boards` library here.
+
+<img src="https://files.seeedstudio.com/wiki/XIAO-BLE/XIAO_nrf528403.png" alt="pir" width="800">
+
+* **Step 3.** Upload the deep\_sleep demo here and run it with **Arduino**
+
+```
+// The MIT License (MIT)
+// Copyright (c) 2019 Ha Thach for Adafruit Industries
+
+#include "SdFat.h"
+#include "Adafruit_SPIFlash.h"
+
+// Uncomment to run example with custom SPI and SS e.g with FRAM breakout
+// #define CUSTOM_CS   A5
+// #define CUSTOM_SPI  SPI
+
+#if defined(CUSTOM_CS) && defined(CUSTOM_SPI)
+  Adafruit_FlashTransport_SPI flashTransport(CUSTOM_CS, CUSTOM_SPI);
+
+#elif defined(ARDUINO_ARCH_ESP32)
+  // ESP32 use same flash device that store code.
+  // Therefore there is no need to specify the SPI and SS
+  Adafruit_FlashTransport_ESP32 flashTransport;
+
+#else
+  // On-board external flash (QSPI or SPI) macros should already
+  // defined in your board variant if supported
+  // - EXTERNAL_FLASH_USE_QSPI
+  // - EXTERNAL_FLASH_USE_CS/EXTERNAL_FLASH_USE_SPI
+  #if defined(EXTERNAL_FLASH_USE_QSPI)
+    Adafruit_FlashTransport_QSPI flashTransport;
+
+  #elif defined(EXTERNAL_FLASH_USE_SPI)
+    Adafruit_FlashTransport_SPI flashTransport(EXTERNAL_FLASH_USE_CS, EXTERNAL_FLASH_USE_SPI);
+
+  #else
+    #error No QSPI/SPI flash are defined on your board variant.h !
+  #endif
+#endif
+
+Adafruit_SPIFlash flash(&flashTransport);
+
+
+/*  If you want to use a specific flash device, for example for a custom built board, first look for it in Adafruit_SPIFlash\src\flash_devices.h
+ *  If it isn't in there you need to create your own definition like the W25Q80DLX_EXAMPLE example below.
+ *  These definitions need to be edited to match information on the data sheet of the flash device that you want to use.
+ *  If you are not sure what the manufacture ID, memory type and capacity values should be, try running the sketch anyway and look at the serial output
+ *  The flash device will report these values to you as a single hexadecimal value (the JDEC ID)
+ *  For example, the first device on the list - the W25Q80DLX - will report its JDEC ID as 0xef4014, which is made of these three values:
+ *  manufacturer_id = 0xef
+ *  memory_type     = 0x40
+ *  capacity        = 0x14
+ *  With this macro properly defined you can then create an array of device definitions as shown below, this can include any from the list of devices in flash_devices.h, and any you define yourself here
+ *  You need to update the variable on line 71 to reflect the number of items in the array
+ *  You also need to uncomment line 84 and comment out line 81 so this array will be passed to the flash memory driver. 
+ */
+//Example of a user defined flash memory device:
+//#define W25Q80DLX_EXAMPLE                                                               \
+//  {                                                                            \
+//    .total_size = (1 << 20), /* 1 MiB */                                       \
+//        .start_up_time_us = 5000, .manufacturer_id = 0xef,                     \
+//    .memory_type = 0x40, .capacity = 0x14, .max_clock_speed_mhz = 80,         \
+//    .quad_enable_bit_mask = 0x02, .has_sector_protection = false,              \
+//    .supports_fast_read = true, .supports_qspi = true,                         \
+//    .supports_qspi_writes = false, .write_status_register_split = false,       \
+//    .single_status_byte = false, .is_fram = false,                             \
+//  }
+
+/*
+ * Create an array of data structures and fill it with the settings we defined above.
+ * We are using two devices, but more can be added if you want.
+ */
+//static const SPIFlash_Device_t my_flash_devices[] = {
+//    W25Q80DLX_EXAMPLE,
+//};
+/*
+ * Specify the number of different devices that are listed in the array we just created. If you add more devices to the array, update this value to match.
+ */
+//const int flashDevices = 1;
+
+
+#include <bluefruit.h>
+void setup()
+{
+  flash.begin();
+  Bluefruit.begin(); 
+  if(flash.deepPowerDown() == false){
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWrite(LED_BUILTIN, LOW);
+    while(1)
+    {
+      yield();
+    }
+  }
+  flash.end();
+
+  sd_power_system_off(); 
+}
+
+void loop()
+{
+  // nothing to do
+}
+```
+
+**If you want to know about this example more detail inforation , Click** [**Here**](https://forum.seeedstudio.com/t/xiao-sense-accelerometer-examples-and-low-power/270801)
+
+### Battery Charging current[​](https://wiki.seeedstudio.com/XIAO_BLE/#battery-charging-current) <a href="#battery-charging-current" id="battery-charging-current"></a>
+
+The battery charging current is selectable as 50mA or 100mA, where you can set **Pin13** as high or low to change it to 50mA or 100mA. The low current charging current is at the input model set up as HIGH LEVEL and the high current charging current is at the output model set up as LOW LEVEL.
+
+**Low Charging Current**
+
+```
+void setup(){
+pinMode (P0_13, OUTPUT);
+}
+void loop() {
+digitalWrite(P0_13, HIGH);
+}
+```
+
+**High Charging Current**
+
+```
+void setup(){
+pinMode (P0_13, OUTPUT);
+}
+void loop() {
+digitalWrite(P0_13, LOW);
+}
+```
+
+### Access the SWD Pins for Debugging and Reflashing Bootloader[​](https://wiki.seeedstudio.com/XIAO_BLE/#access-the-swd-pins-for-debugging-and-reflashing-bootloader) <a href="#access-the-swd-pins-for-debugging-and-reflashing-bootloader" id="access-the-swd-pins-for-debugging-and-reflashing-bootloader"></a>
+
+**Hardware Required**
+
+* [Seeed Studio XIAO nRF52840](https://www.seeedstudio.com/Seeed-XIAO-BLE-Sense-nRF52840-p-5253.html)
+* Jlink
+
+**Software Required**
+
+It is required to download the [Segger](https://www.segger.com/downloads/jlink/) software from the website.
+
+* **Step 1.** Use Jlink to connect pins below:
+
+<img src="https://files.seeedstudio.com/wiki/XIAO-BLE/SWD1.png" alt="pir" width="300">
+
+* **Step 2.** Start the J-Flash and search nRF52840, creating a new project:
+
+<img src="https://files.seeedstudio.com/wiki/XIAO-BLE/SWD2.png" alt="pir" width="500">
+
+* **Step 3.** Click "Target" and then select "Connect".
+
+<img src="https://files.seeedstudio.com/wiki/XIAO-BLE/SWD3.png" alt="pir" width="500">
+
+* **Step 4.** Draw the bin or [hex file](https://files.seeedstudio.com/wiki/XIAO-BLE/Seeed_XIAO_nRF52840_Sense_bootloader-0.6.1_s140_7.3.0.hex) to software. Then press F4 and F5 in that order. The reflashing is done.
+
+### FAQ[​](https://wiki.seeedstudio.com/XIAO_BLE/#faq) <a href="#faq" id="faq"></a>
+
+<details>
+
+<summary>My Arduino IDE is stuck when uploading code to the board​</summary>
+
+You can first try to **reset** the board by clicking the "Reset Button" once. If that does not work, rapidly click it twice to enter **bootloader mode**. If that also doesn't work, disconnect the board from the PC, and connect the board again.
+
+</details>
+
+<details>
+
+<summary>My board is not showing up as a serial device on Arduino IDE​</summary>
+
+You can first try to **reset** the board by clicking the "Reset Button" once. If that does not work, rapidly click it twice to enter **bootloader mode**.
+
+</details>
+
+<details>
+
+<summary>What are the considerations when using XIAO nRF52840 (Sense) for battery charging?​</summary>
+
+When P0.14 (D14) turns off the ADC function at a high level of 3.3V, P0.31 will be at the input voltage limit of 3.6V. There is a risk of burning out the P0.31 pin.
+
+Currently for this issue, we recommend that users do not turn off the ADC function of P0.14 (D14) or set P0.14 (D14) to high during battery charging.
+
+<img src="https://files.seeedstudio.com/wiki/XIAO-BLE/14.png" alt="" data-size="original">
+
+</details>
+
+<details>
+
+<summary>How does the green light behave when powered on?​</summary>
+
+
+
+<img src="https://files.seeedstudio.com/wiki/XIAO-BLE/nRF_RGB.png" alt="nRF52840 RGB Schematic" data-size="original">
+
+The `P0.17` pin is used to control the green indicator light behavior, indicating the charging status:
+
+* Low level: when **charging** is in progress.
+* High level: when the battery is either **not charging** or **fully charged**.
+
+When it is at a low level, the `RED_CHG` LED will light up.
+
+For more details, check the PMIC datasheet: [BQ25100](https://www.ti.com/lit/ds/symlink/bq25100a.pdf) and [XIAO nRF52840 datasheet](https://files.seeedstudio.com/wiki/XIAO-BLE/nRF52840_PS_v1.5.pdf).
+
+</details>
+

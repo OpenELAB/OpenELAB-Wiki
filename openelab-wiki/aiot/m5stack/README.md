@@ -1,0 +1,30 @@
+---
+layout:
+  width: default
+  title:
+    visible: false
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+  anchors:
+    visible: true
+---
+
+# 🐶 M5Stack
+
+M5Stack is a leading provider of IoT solutions, committed to providing developers worldwide with convenient and flexible development components and tools. We offer stackable hardware modules and user-friendly graphical programming platform, as well as customized services, to provide clients in industrial IoT, smart agriculture, smart retail, STEM education, and many other fields with efficient and reliable Quick\&Easy IoT Development experience.
+
+### M5stack
+
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="m5stack-cardputer-kit-w-m5stamps3.md">m5stack-cardputer-kit-w-m5stamps3.md</a></td><td></td></tr><tr><td><a href="m5stack-dial-esp32-s3-smart-rotary-knob.md">m5stack-dial-esp32-s3-smart-rotary-knob.md</a></td><td></td></tr><tr><td><a href="m5stickc-plus-esp32-pico-mini-iot-development-kit.md">m5stickc-plus-esp32-pico-mini-iot-development-kit.md</a></td><td></td></tr><tr><td><a href="m5stickc-plus-esp32-pico-mini-iot-development-kit.md">m5stickc-plus-esp32-pico-mini-iot-development-kit.md</a></td><td></td></tr><tr><td><a href="m5stack-core2-esp32-iot-development-kit-for-aws-iot-kit.md">m5stack-core2-esp32-iot-development-kit-for-aws-iot-kit.md</a></td><td></td></tr><tr><td><a href="m5stack-core2-esp32-iot-development-kit.md">m5stack-core2-esp32-iot-development-kit.md</a></td><td></td></tr><tr><td><a href="m5stack-atoms3-lite-esp32s3-dev-kit.md">m5stack-atoms3-lite-esp32s3-dev-kit.md</a></td><td><a href="m5stack-atoms3-lite-esp32s3-dev-kit.md">m5stack-atoms3-lite-esp32s3-dev-kit.md</a></td></tr><tr><td><a href="m5stack-atoms3-dev-kit-w-0.85-inch-screen.md">m5stack-atoms3-dev-kit-w-0.85-inch-screen.md</a></td><td></td></tr><tr><td><a href="m5stack-atom-tailbat-battery-accessory-for-atom.md">m5stack-atom-tailbat-battery-accessory-for-atom.md</a></td><td></td></tr><tr><td><a href="m5stack-atom-matrix-esp32-development-kit.md">m5stack-atom-matrix-esp32-development-kit.md</a></td><td></td></tr><tr><td><a href="m5stack-atom-lite-esp32-iot-development-kit.md">m5stack-atom-lite-esp32-iot-development-kit.md</a></td><td></td></tr><tr><td><a href="m5stack-atom-echo-smart-speaker-development-ki.md">m5stack-atom-echo-smart-speaker-development-ki.md</a></td><td></td></tr></tbody></table>

@@ -1,0 +1,110 @@
+---
+layout:
+  width: default
+  title:
+    visible: false
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+  anchors:
+    visible: true
+---
+
+# M5Stack LoRa Module
+
+### M5Stack LoRa Module (433MHz)&#x20;
+
+***
+
+### Product Link
+
+{% embed url="https://openelab.io/products/lora-module-v1-1" %}
+
+### Description <a href="#description" id="description"></a>
+
+The **LoRa433\_V1.1 Module** is a part of the M5Stack stackable module series and is a LoRa communication module operating at a frequency of 433MHz, utilizing the **Ra-02 module** (SX1278 chip) solution. This module comes with a default **external SMA antenna** and also features two additional patch MCX pad interfaces, allowing users to switch between different types of antennas based on their needs. Additionally, the module is equipped with a **dip switch**, enabling users to easily switch between different communication pins. It supports multiple stackable uses simultaneously, offering more customization and flexibility. It is suitable for remote monitoring, smart cities, home and industrial automation, IoT devices, and more.
+
+### Features <a href="#features" id="features"></a>
+
+* Serial communication protocol: SPI
+* Operating frequency:410MHz\~525MHz
+* Supports FSK,GFSK,MSK,GMSK,LoRa™ and OOK modulation modes
+* Reception sensitivity: as low as -140 dBm
+* Programmable bit rate up to 300Kbps
+* External antenna interface
+* Built-in dip switch toggle pin
+* Development platform: Arduino, Micropython, UIFlow(Blockly)
+
+### Applications <a href="#applications" id="applications"></a>
+
+* Remote Control
+* Intelligent city
+* Home and industrial automation
+* Internet of Things (IoT) devices
+
+### Specification <a href="#specification" id="specification"></a>
+
+<table><thead><tr><th width="233">Resources</th><th>Parameters</th></tr></thead><tbody><tr><td>Spectral range</td><td>410MHz~525MHz</td></tr><tr><td>Communication interface</td><td>SPI</td></tr><tr><td>Programmable bit rate</td><td>Up to 300kbps</td></tr><tr><td>Antenna</td><td>Glue stick antenna @2.5dBi total length 110mm SMA inner needle</td></tr><tr><td>Operating temperature</td><td>0-40°C</td></tr><tr><td>Product Size</td><td>54*54*13.1mm</td></tr><tr><td>Package Size</td><td>92*63*25mm</td></tr><tr><td>Product Weight</td><td>16.1g</td></tr><tr><td>Package Weight</td><td>44.6g</td></tr></tbody></table>
+
+![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-df7edfb7-0825-4dac-b4f7-e891bd1fb2cd.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-6d4a69c2-0eaf-4938-bc8e-9dacddef0686.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-e511537d-4657-4816-a8ee-d84385c4fe48.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-d64e3825-3d1c-4c43-9888-b93854d75662.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-566f39c2-4eb1-4bd3-91d0-2139978b2918.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-976688b9-0be6-4911-bc9e-f06457fcf5c8.webp)
+
+### Related Link <a href="#related-link" id="related-link"></a>
+
+* [Ra-02\_CH](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module-LoRa433_V1.1/sx1278.pdf)
+* [Ra-02\_EN](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module-LoRa433_V1.1/c048ps01a1_ra-02_product_specification_v1.1.pdf)
+* [SX127X](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module-LoRa433_V1.1/sx1278.pdf)
+
+### Schematic <a href="#schematic" id="schematic"></a>
+
+<figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module-LoRa433_V1.1/%E5%8E%9F%E7%90%86%E5%9B%BE1.png" alt=""><figcaption></figcaption></figure>
+
+### PinMap <a href="#pinmap" id="pinmap"></a>
+
+<figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module-LoRa433_V1.1/b9c85869aabc06312f753e986990708.png" alt=""><figcaption></figcaption></figure>
+
+### Module Size <a href="#module-size" id="module-size"></a>
+
+<figure><img src="https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-cba38900-1914-4903-81e4-b5e49268d3f8.jpg" alt=""><figcaption></figcaption></figure>
+
+### Examples <a href="#examples" id="examples"></a>
+
+#### Arduino <a href="#arduino" id="arduino"></a>
+
+* [LoRa433\_V1.1 Module Arduino Library](https://github.com/m5stack/M5-SX127x/blob/master/examples)
+* [LoRa433\_V1.1 Module Arduino Demo(LoRaSender)](https://github.com/m5stack/M5-SX127x/blob/master/examples/LoRaSender/LoRaSender.ino)
+* [LoRa433\_V1.1 Module Arduino Demo(LoRaReceiver)](https://github.com/m5stack/M5-SX127x/tree/master/examples/LoRaReceiver)
+* [LoRa433\_V1.1 Module Arduino Demo(LoRaSetSpread)](https://github.com/m5stack/M5-SX127x/blob/master/examples/LoRaSetSpread/LoRaSetSpread.ino)
+* [LoRa433\_V1.1 Module Arduino Demo(LoRaDuplex)](https://github.com/m5stack/M5-SX127x/blob/master/examples/LoRaDuplex/LoRaDuplex.ino)
+
+### UIFlow <a href="#uiflow" id="uiflow"></a>
+
+![UIFlow1.0](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/static/assets/img/uiflow/uiflow1.0_banner_01.png)
+
+[UIFlow1.0 Module lora433 Docs](https://docs.m5stack.com/en/uiflow/blockly/module/lora433)[UIFlow1.0 Module lora433 Docs](https://docs.m5stack.com/en/uiflow/blockly/module/lora433)How to use Module lora433 on the UIFlow 1.0 graphical programming platform and related API instructions.
+
+### Version Change <a href="#version-change" id="version-change"></a>
+
+<table><thead><tr><th width="135">Listing Date</th><th width="265">Changed</th><th>Note</th></tr></thead><tbody><tr><td>/</td><td>Product Released LoRa433(SKU:M005)</td><td>/</td></tr><tr><td>2024.05.17</td><td>LoRa868_V1.1(SKU:M005_V11)</td><td>Compared with the previous version, the dip switch is added, which can switch different communication pins, suitable for M5Core\M5Core2\M5CoreS3 generation host, and can also be used for multiple stacks</td></tr></tbody></table>
+
+![](https://static-cdn.m5stack.com/resource/docs/products/module/lora/lora_01.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-dac09b0a-7367-4ed9-9374-b604f646ec3b.webp)
+
+### FAQ <a href="#faq" id="faq"></a>
+
+<details>
+
+<summary><strong>Use LoRa Module 433/868 V1.1 DIP switch to change IO to compatible with different controllers.</strong></summary>
+
+When the LoRa Module 433/868 V1.1 stack with different controllers, the SPI pins and RST, IRQ, and NSS are different, if some IO used another module or sensor, you could through the DIP switch to change the LoRa Module IO connection, you need to modify the pins define in the program: about the DIP switch and pins definition, you could refer to the documentation: https://docs.m5stack.com/en/module/Module-LoRa868\_V1.1
+
+</details>

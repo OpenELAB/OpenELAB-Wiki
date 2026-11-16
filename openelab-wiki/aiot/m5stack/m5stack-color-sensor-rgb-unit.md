@@ -1,0 +1,92 @@
+---
+layout:
+  width: default
+  title:
+    visible: false
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+  anchors:
+    visible: true
+---
+
+# M5Stack Color Sensor RGB Unit
+
+### M5Stack Color Sensor RGB Unit
+
+***
+
+### Product Link
+
+{% embed url="https://openelab.io/products/color-sensor-rgb-unit" %}
+
+### Description <a href="#description" id="description"></a>
+
+**COLOR** is color recognition unit integrated with **TCS3472** chipset. As the name says, **COLOR** is able to detect color value and return RGB data as response.
+
+### Features <a href="#features" id="features"></a>
+
+* Detection range: -40℃\~85℃
+* GROVE interface, support [UIFlow ](http://flow.m5stack.com/)and [Arduino](http://www.arduino.cc/)
+* Two Lego-compatible holes
+
+### Applications <a href="#applications" id="applications"></a>
+
+* Product Color Verification
+* Color tracking robot
+
+### Specification <a href="#specification" id="specification"></a>
+
+| Resources                 | Parameters        |
+| ------------------------- | ----------------- |
+| IC                        | TCS3472           |
+| Working temperature range | -40°C\~85°C       |
+| Communication protocol    | I2C:0x29          |
+| Product Size              | 32.2\*24.2\*8.2mm |
+| Package Size              | 136\* 92\* 13mm   |
+| Product Weight            | 4g                |
+| Package Weight            | 17g               |
+
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/COLOR/img-91e53454-e42d-4f33-87a2-2fa2f78c453a.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/COLOR/img-8a6ebbb4-f768-466a-b7d4-53ae5318f8ed.webp)
+
+### Related Link <a href="#related-link" id="related-link"></a>
+
+* [Datasheet - TCS3472](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/unit/TCS3472_en.pdf)
+
+### Schematic <a href="#schematic" id="schematic"></a>
+
+<figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/COLOR/img-ba549913-ddbd-4b74-ba3a-211ec698c1f7.webp" alt=""><figcaption></figcaption></figure>
+
+### EasyLoader <a href="#easyloader" id="easyloader"></a>
+
+* **Windows**
+  * [EasyLoader\_Color\_UNIT\_With\_M5Core](https://static-cdn.m5stack.com/resource/docs/products/unit/COLOR/ezLoader-8b2c7c7b-0391-4f39-9ade-c27aae193a13.exe)
+
+### Pinout <a href="#pinmap" id="pinmap"></a>
+
+<figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/COLOR/pinMap-a5ecacce-b6d7-44eb-9efc-76067fa1662b.png" alt=""><figcaption></figcaption></figure>
+
+### Examples <a href="#examples" id="examples"></a>
+
+#### Arduino <a href="#arduino" id="arduino"></a>
+
+* [The code below is incomplete. To get the complete code, please click here After burning this example firmware, PC serial terminal will print original value RGBC (red, green, blue, clear).](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/COLOR_TCS3472)
+
+<figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/COLOR/arduinoCase-1690885555515color_arduino_01.png" alt=""><figcaption></figcaption></figure>
+
+#### UIFlow <a href="#uiflow" id="uiflow"></a>
+
+* [Click here to download the UIFlow example](https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Unit/COLOR/UIFlow)
+
+<figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/COLOR/uiflowCase-1690885569743color_uiflow_01.png" alt=""><figcaption></figcaption></figure>
