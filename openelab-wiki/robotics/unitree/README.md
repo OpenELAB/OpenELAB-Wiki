@@ -20,3 +20,8 @@ Main site: [https://www.unitree.com/](https://www.unitree.com/)
 ### Unitree Motor Wiki List
 
 [Unitree GO-M8010-6 Motor User Manual](https://wiki.openelab.io/unitree-motor-docs/unitree-go-m8010-6-motor-user-manual)
+
+### Product documentation
+
+* [Unitree GO-M8010-6 Motor User Manual](unitree-go-m8010-6-motor-user-manual.md)
+* [Unitree L2 4D LiDAR Engineering Guide](unitree-l2-4d-lidar-engineering-guide.md)

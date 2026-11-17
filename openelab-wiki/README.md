@@ -47,117 +47,100 @@ Explore product manuals, hardware references, setup instructions and engineering
 
 ## AIoT
 
-Build connected devices, collect sensor data and develop applications at the edge. Browse by brand or platform, or explore the hardware categories below.
+Build connected devices, collect sensor data, and develop applications at the edge. Documentation is organized by manufacturer or brand, followed by individual products.
 
-### Brands and platforms
+### Manufacturers and brands
 
-| Brand or platform                                                                               | Documentation covers                                                                               |
-| ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| [**Espressif / ESP**](aiot/espressif/)                                                          | ESP32 and ESP8266 chips, modules and development boards.                                           |
-| [**M5Stack**](aiot/m5stack/)                                                                    | Controllers, development kits, sensors, displays and expansion units.                              |
-| [**Seeed Studio**](aiot/seeed-studio/)                                                          | XIAO boards, SenseCAP devices, Wio hardware and reComputer edge computers.                         |
-| [**LILYGO**](aiot/lilygo/)                                                                      | ESP32 boards, LoRa devices, displays and Meshtastic hardware.                                      |
-| [**Waveshare**](aiot/waveshare/)                                                                | Camera modules, with further display and expansion-board documentation in the hardware categories. |
-| [**AI-Thinker**](aiot/ai-thinker/)                                                              | Radar sensing and connected-device modules.                                                        |
-| [**Hi-Link**](aiot/hi-link/)                                                                    | Presence-sensing radar modules, with power modules listed under Power.                             |
-| [**Raspberry Pi**](aiot/raspbeery-pi/)                                                          | Single-board computers, Pico boards, cameras, HATs and accessories.                                |
-| [**Heltec**](aiot/heltec/)                                                                      | LoRa, LoRaWAN and Meshtastic devices, trackers and display-equipped boards.                        |
-| [**DFRobot**](aiot/dfrobot/)                                                                    | Sensors and HUSKYLENS AI vision hardware.                                                          |
-| [**Keyestudio**](aiot/keyestudio/)                                                              | EASY PLUG sensors, controller boards, Arduino learning kits and educational robots.                |
-| [**OpenELAB**](aiot/openelab/)                                                                  | Development-board and camera-module references.                                                    |
-| [**Hailo**](aiot/raspbeery-pi/hailo-8-m.2-ai-accelerator-module-suitable-for-raspberry-pi-5.md) | Hailo-8 M.2 AI acceleration hardware.                                                              |
-| [**SunLit / AUSTA**](aiot/power/sunlit-austa-solar-module.md)                                   | Solar-module documentation.                                                                        |
+* [AI-Thinker](aiot/ai-thinker/) — Ai-Thinker Rd 03D 24G Millimeter Wave Radar; Ai-Thinker AiPi-Eyes-S1 WifFi Camera
+* [AUSTA](aiot/austa/) — SunLit Austa Solar Module
+* [DFROBOT](aiot/dfrobot/) — Thin-film Pressure Sensor; DFRobot Gravity Huskylens AI Camera
+* [Espressif](aiot/espressif/) — ESP8266EX; ESP32-WROOM-32E
+* [Hailo](aiot/hailo/) — Hailo-8 M.2 AI Accelerator Module Suitable for Raspberry Pi 5
+* [Hello STEM](aiot/hello-stem/) — DHT11 Temperature-Humidity Sensor
+* [HELTEC](aiot/heltec/) — MeshPocket Qi2 Magnetic Charging Power; Wireless Tracker ESP32S3 SX1262 GPS Meshtastic LoRaWAN
+* [Hi-Link](aiot/hi-link/) — HLK-LD2410S Microamp Low Power Radar Sensing; HLK-LD2412 ±75° Human Presence Detection Distance Sensing Radar
+* [Keyestudio](aiot/keyestudio/) — Keyestudio EASY PLUG RGB TCS34725 Color Sensor Module I2C; Keyestudio EASY PLUG CCS811 CO2 Air Quality Sensor
+* [LILYGO](aiot/lilygo/) — T-Halow ESP32-S3 Long-range Low-power Dev Board; T-Embed CC1101 Module
+* [Lockzhiner](aiot/lockzhiner/) — DAQ SDK - Data Acquisition Device Development Kit
+* [M5Stack](aiot/m5stack/) — M5Stack Cardputer Kit w /M5StampS3; M5Stack Dial - ESP32-S3 Smart Rotary Knob
+* [OpenELAB](aiot/openelab/) — generic modules and accessories; manufacturer not specified
+* [Raspberry Pi](aiot/raspbeery-pi/) — Raspberry Pi Pico W Wireless RP2040 MCU Board; Raspberry Pi 5
+* [Seeed Studio](aiot/seeed-studio/) — XIAO SAMD21 Arduino Microcontroller; XIAO RP2040
+* [Waveshare](aiot/waveshare/) — OV5640 Camera Board (A), 5 Megapixel (2592x1944); OV2640 Camera Board (1622x1200)
+* [Wireless-Tag](aiot/wireless-tag/) — WT32S3-86S touch display screen with temp and humidity sensor; WT32S3-86S touch display screen with temp and humidity sensor
+* [WisdPi](aiot/wisdpi/) — USB 3.2 To 5GbE Adapter (WP-UT5) Realtek RTL8157
+* [WitMotion](aiot/witmotion/) — USB-CAN-P Instruction Manual
+* [XGRIDS](aiot/xgrids/) — XGRIDS PortalCam Standard Kit 3D Camera Engineering Guide; XGRIDS PortalCam Premium Kit 3D Spatial Camera Engineering Guide
 
-### Browse by hardware
-
-| Category                                           | Explore                                                                              |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [**Sensors**](aiot/sensors/)                       | Temperature, humidity, motion, distance, environmental sensing and data acquisition. |
-| [**Displays**](aiot/displays/)                     | LCD, OLED, touch displays, desktop monitors and e-paper.                             |
-| [**IoT & Communication**](aiot/iot-communication/) | Wireless modules, connectivity boards and communication interfaces.                  |
-| [**Power**](aiot/power/)                           | Power supplies, converters and energy-related modules.                               |
-| [**Accessories**](aiot/accessories/)               | Connectors, adapters, interface hardware and supporting components.                  |
-| [**Other Devices**](aiot/others/)                  | Additional camera and imaging hardware.                                              |
+Explore the full [AIoT manufacturer directory](aiot/aiot-wiki-home-page.md).
 
 ## Robotics
 
-Find the hardware documentation behind robot perception, motion and manipulation. Start with a brand to locate its manuals and engineering resources.
+Find the hardware documentation behind robot perception, motion, and manipulation. Choose a manufacturer to reach product manuals, engineering guides, and development references.
 
-### LiDAR, depth cameras and spatial sensing
+### Manufacturers and brands
 
-| Brand                                                                                  | Documentation covers                                                                                                                                                                                         |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [**Livox**](robotics/livox/)                                                           | LiDAR sensors, product manuals, Viewer 2 and MID-360S engineering guidance.                                                                                                                                  |
-| [**RoboSense**](robotics/robosense/)                                                   | LiDAR products and supporting documentation.                                                                                                                                                                 |
-| [**Orbbec**](robotics/orbbec/)                                                         | Gemini and Femto depth-camera families.                                                                                                                                                                      |
-| [**Hesai**](aiot/sensors/hesai-jt128-3d-lidar-engineering-guide.md)                    | JT128 3D LiDAR engineering guidance.                                                                                                                                                                         |
-| [**XGRIDS**](aiot/others/xgrids-portalcam-standard-kit-3d-camera-engineering-guide.md) | PortalCam [Standard](aiot/others/xgrids-portalcam-standard-kit-3d-camera-engineering-guide.md) and [Premium](aiot/others/xgrids-portalcam-premium-kit-3d-spatial-camera-engineering-guide.md) camera guides. |
+* [Agibot](robotics/agibot/) — AGIBOT G2 User Manual; AgiBot OmniPicker Product User Manual
+* [AgileX](robotics/agilex/) — RANGER MINI 3.0 USER MANUAL; Pika Product User Manual ROS2
+* [Cubemars](robotics/cubemars/) — CubeMars-AK60-6-V1.1-KV140; CubeMars AK60-6 V3.0 AK Series Actuator BLDC Motor
+* [DAMIAO](robotics/damiao/) — DAMIAO Host Computer User Manual; DAMIAO DM-J4310-2EC V1.1 Motor Instruction Manual
+* [DOBOT](robotics/dobot/) — DOBOT ROVER X1 User Manual; DOBOT Magician E6 Mini Training Station Operation Guide
+* [FEETECH](robotics/feetech/) — FEETECH Servo Host Computer User Manual; FEETECH SCS Protocol
+* [HESAI](robotics/hesai/) — Hesai JT128 3D LiDAR Engineering Guide
+* [Leadshine](robotics/leadshine/) — Leadshine DH116 Robotic Dexterous Hand
+* [LINKERBOT](robotics/linkerbot/) — Linker Hand L30 (Tendon-Driven) Product Manual; Linker Hand L20 Lite Product Manual
+* [LIVOX](robotics/livox/) — LIVOX Mid-360S User Manual; Livox MID-360S 3D LiDAR Sensor Engineering Guide
+* [LKMTECH](robotics/lkmtech/) — MG4010E-i10 V3 Dual Encoder Robot Motor; MG6010-i6 V3 Dual Encoder Robot Motor
+* [Orbbec](robotics/orbbec/) — Orbbec Femto Bolt User Manual; Orbbec Femto Mega User Manual
+* [Realman](robotics/realman/) — RealMan WHJ Series Joint Module User Manual; Embodied Double-Arm Lifting Platform User Manual
+* [RoboSense](robotics/robosense/) — Robosense Airy; Robosense E1R
+* [RobStride](robotics/robstride/) — RobStride 00 Instruction Manual; RobStride 01 Instruction Manual
+* [Unitree](robotics/unitree/) — Unitree GO-M8010-6 Motor User Manual; Unitree L2 4D LiDAR Engineering Guide
+* [Xiaomi](robotics/xiaomi/) — CyberGear micromotor instruction manual; Xiaomi CyberGear Micromotor
+* [Yahboom](robotics/yahboom/) — Raspberry Pi 5 Vision Car AI Development Board Camera Recognit…
 
-### Motors, actuators and servos
-
-| Brand                                                                  | Documentation covers                                         |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------ |
-| [**CubeMars**](robotics/cubemars/)                                     | Robot motors and actuator documentation.                     |
-| [**RobStride**](robotics/robstride/)                                   | Integrated robot actuators and operating references.         |
-| [**DaMiao**](robotics/damiao/)                                         | Robot motors, configuration tools and control documentation. |
-| [**Feetech**](robotics/feetech/)                                       | Servo hardware and supporting references.                    |
-| [**LKMTECH**](robotics/lkmtech/)                                       | Dual-encoder motors and robot joint motors.                  |
-| [**Xiaomi CyberGear**](robotics/motors/xiaomi-cybergear-micromotor.md) | CyberGear micromotor documentation.                          |
-
-### Robot platforms, arms and dexterous hands
-
-| Brand                                                                       | Documentation covers                                                                                                      |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| [**AgileX**](robotics/agilex/)                                              | Mobile robot platforms and operating manuals.                                                                             |
-| [**AgiBot**](robotics/agibot/)                                              | Robot hardware and development documentation.                                                                             |
-| [**DOBOT**](robotics/dobot/)                                                | Robotic arms, operating instructions and training platforms.                                                              |
-| [**RealMan**](robotics/realman/)                                            | Robotic-arm documentation.                                                                                                |
-| [**Linkerbot**](robotics/linkerbot/)                                        | Dexterous-hand hardware and product references.                                                                           |
-| [**Leadshine**](robotics/robotic/leadshine-dh116-robotic-dexterous-hand.md) | DH116 robotic dexterous-hand documentation.                                                                               |
-| [**Unitree**](robotics/unitree/)                                            | Motor documentation, with a separate [L2 LiDAR engineering guide](aiot/sensors/unitree-l2-4d-lidar-engineering-guide.md). |
-
-For additional components, explore [**Motors**](robotics/motors/) and [**Robotic Hardware**](robotics/robotic/).
+Explore the full [Robotics manufacturer directory](robotics/robotics-wiki-home-page.md).
 
 ## STEM & DIY
 
-Learn through hands-on projects, explore educational robotics and work with digital fabrication equipment.
+Learn through hands-on projects, explore educational robotics, and work with drone systems and digital fabrication equipment. Browse each manufacturer's product documentation.
 
-### Educational robotics and workshop equipment
+### Manufacturers and brands
 
-| Brand or project                                                                        | Documentation covers                                                 |
-| --------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| [**Keyestudio**](aiot/keyestudio/)                                                      | Sensor-learning kits, programmable robot cars and controller boards. |
-| [**Makeblock / mBot**](stem-and-diy/kits/mbot-mega.md)                                  | mBot Mega educational robot documentation.                           |
-| [**OpenDuck**](stem-and-diy/openduck/)                                                  | Open Duck Mini v2 engineering guidance.                              |
-| [**ELEGOO**](robotics/unitree/elegoo/)                                                  | Centauri Carbon 2 Combo and Saturn 4 Ultra 16K engineering guides.   |
-| [**Genmitsu**](stem-and-diy/kits/genmitsu-4040-pro-max-cnc-router-engineering-guide.md) | 4040-PRO MAX CNC router engineering guidance.                        |
-| [**HeyGears**](stem-and-diy/heygears-reflex.md)                                         | Reflex 3D printer documentation.                                     |
+* [DXW](stem-and-diy/dxw/) — DXW 4114 400KV High Power Brushless Motors; DXW D4250 800KV 3-7S Brushless Motor
+* [ELEGOO](stem-and-diy/elegoo/) — ELEGOO Centauri Carbon 2 Combo Engineering Guide; ELEGOO Saturn 4 Ultra 16K Engineering Guide
+* [Genmitsu](stem-and-diy/genmitsu/) — Genmitsu 4040-PRO MAX CNC Router Engineering Guide
+* [Gens ace](stem-and-diy/gens-ace/) — Gens ACE  Lipo Battery with T/XT60 Plug
+* [Happymodel](stem-and-diy/happymodel/) — Happymodel EP1 Dual Receiver 2.4Ghz ExpressLRS RX
+* [Hawkeye](stem-and-diy/hawkeye/) — Hawkeye Firefly 8SE/8S 4K Screen WiFi FPV Action Camera; Hawk eye FPV Monitor 5.8G 48CH 4.3 inch FPV HD Monito
+* [HeyGears](stem-and-diy/heygears/) — Heygears Reflex
+* [Hobbywing](stem-and-diy/hobbywing/) — Hobbywing Skywalker V2 Brushless ESC Speed Controller
+* [Holybro](stem-and-diy/holybro/) — Pixhawk PX4 Flight Controller; Holybro Pixhawk 6C
+* [Makeblock](stem-and-diy/makeblock/) — mBot Mega
+* [Mateksys](stem-and-diy/mateksys/) — Mateksys GNSS M9N-5883; Mateksys Power Distribution Board (PDB) XT60 W/ BEC 5V & 12V
+* [MyFlyDream](stem-and-diy/myflydream/) — MFD Crosshair Color OSD
+* [OpenDuck](stem-and-diy/openduck/) — Open Duck Mini v2 Engineering Guide
+* [OpenELAB](stem-and-diy/openelab/) — generic modules and accessories; manufacturer not specified
+* [OVONIC](stem-and-diy/ovonic/) — 2Pcs OVONIC 3S 4S 6S Lipo Battery For RC FPV
+* [RadioLink](stem-and-diy/radiolink/) — Radiolink M8N SE100 GPS Module; Radiolink M10N SE100 GPS for PX4/Pixhawk 2.4.8
+* [RUSHFPV](stem-and-diy/rushfpv/) — RUSH TANK MAX SOLO 5.8GHz 2.5W High Power 48CH VTX Video Trans…; RUSH TANK SOLO 5.8G VTX Video Transmitter CNC shell 1.6W
+* [TCBWORTH](stem-and-diy/tcbworth/) — LiPo Battery 3S 11.1V  for RC Drone
+* [YDHM](stem-and-diy/ydhm/) — ZD850 850mm Compact Folding Hexacopter Drone Frame Kit Full Ca…; 2 Pair Carbon Fiber CW CCW Propellers
+* [YRRC](stem-and-diy/yrrc/) — YRRC 5.8G 2.5W 40CH VTX Drone FPV Analog Image Transmission
 
-### Drones & FPV
-
-Explore the [**Drone / FPV documentation**](stem-and-diy/drone-fpv/) for flight controllers, motors, power systems, radio equipment and video hardware.
-
-| Area                                                | Brands and documentation                                                                                                                                                                                                                                                                                                                                         |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Motors & speed controllers**                      | [DXW](stem-and-diy/drone-fpv/dxw-4114-400kv-high-power-brushless-motors.md) · [Hobbywing](stem-and-diy/drone-fpv/hobbywing-skywalker-v2-brushless-esc-speed-controller.md)                                                                                                                                                                                       |
-| **Flight control, navigation & power distribution** | [Holybro](stem-and-diy/drone-fpv/holybro-pixhawk-6c.md) · [Radiolink](stem-and-diy/drone-fpv/radiolink-mini-pix-v1.2-flight-controller-m10n-gps-ts100-se100-pixhawk-alternative.md) · [Mateksys](stem-and-diy/drone-fpv/mateksys-gnss-m9n-5883.md)                                                                                                               |
-| **Batteries**                                       | [OVONIC](stem-and-diy/drone-fpv/2pcs-ovonic-3s-4s-6s-lipo-battery-for-rc-fpv.md) · [Gens ace](stem-and-diy/drone-fpv/gens-ace-lipo-battery-with-t-xt60-plug.md)                                                                                                                                                                                                  |
-| **FPV video, cameras & on-screen display**          | [Hawkeye](stem-and-diy/drone-fpv/hawkeye-firefly-8se-8s-4k-screen-wifi-fpv-action-camera.md) · [RUSH](stem-and-diy/drone-fpv/rush-tank-max-solo-5.8ghz-2.5w-high-power-48ch-vtx-video-transmitter.md) · [YRRC](stem-and-diy/drone-fpv/yrrc-5.8g-2.5w-40ch-vtx-drone-fpv-analog-image-transmission.md) · [MFD](stem-and-diy/drone-fpv/mfd-crosshair-color-osd.md) |
-| **Radio receivers**                                 | [Happymodel](stem-and-diy/drone-fpv/happymodel-ep1-dual-receiver-2.4ghz-expresslrs-rx.md)                                                                                                                                                                                                                                                                        |
-
-Platform reference: [**Pixhawk / PX4 Flight Controller**](stem-and-diy/drone-fpv/pixhawk-px4-flight-controller.md).
+Explore the full [STEM & DIY manufacturer directory](stem-and-diy/stem-and-diy-wiki-home-page.md).
 
 ## Selected engineering guides
 
 Looking for a starting point? Explore these device-focused guides.
 
-| Guide                                                                                                | Focus                                                             |
-| ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| [**Heltec WiFi LoRa 32 V4**](aiot/heltec/heltec-wifi-lora-32-v4.3.1-sx1262-engineering-guide.md)     | LoRa development hardware.                                        |
-| [**Livox MID-360S**](robotics/livox/livox-mid-360s-3d-lidar-sensor-engineering-guide.md)             | 3D LiDAR specifications, software and integration considerations. |
-| [**Orbbec Gemini 330 Series**](robotics/orbbec/orbbec-gemini-330-series-user-manual.md)              | Depth-camera hardware and operating reference.                    |
-| [**Open Duck Mini v2**](stem-and-diy/openduck/open-duck-mini-v2-engineering-guide.md)                | Robot hardware and engineering guidance.                          |
-| [**Genmitsu 4040-PRO MAX**](stem-and-diy/kits/genmitsu-4040-pro-max-cnc-router-engineering-guide.md) | CNC setup considerations and machining workflows.                 |
+| Guide                                                                                                    | Focus                                                             |
+| -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| [**Heltec WiFi LoRa 32 V4**](aiot/heltec/heltec-wifi-lora-32-v4.3.1-sx1262-engineering-guide.md)         | LoRa development hardware.                                        |
+| [**Livox MID-360S**](robotics/livox/livox-mid-360s-3d-lidar-sensor-engineering-guide.md)                 | 3D LiDAR specifications, software and integration considerations. |
+| [**Orbbec Gemini 330 Series**](robotics/orbbec/orbbec-gemini-330-series-user-manual.md)                  | Depth-camera hardware and operating reference.                    |
+| [**Open Duck Mini v2**](stem-and-diy/openduck/open-duck-mini-v2-engineering-guide.md)                    | Robot hardware and engineering guidance.                          |
+| [**Genmitsu 4040-PRO MAX**](stem-and-diy/genmitsu/genmitsu-4040-pro-max-cnc-router-engineering-guide.md) | CNC setup considerations and machining workflows.                 |
 
 ## Make the most of the documentation
 

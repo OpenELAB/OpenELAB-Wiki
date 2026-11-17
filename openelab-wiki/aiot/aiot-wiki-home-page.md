@@ -1,35 +1,35 @@
 # AIoT Wiki Home Page
 
-Connect devices, collect data, and bring AI to the edge. Browse by brand or platform when you know your device, or by hardware category when exploring components.
+Connect devices, collect data, and bring AI to the edge. Choose a manufacturer or brand, then open the guide for your product.
 
-#### Brands and platforms
+### Manufacturers and brands
 
-* [ESP](espressif/)
-* [M5Stack](m5stack/)
-* [Seeed Studio](seeed-studio/)
-* [LILYGO](lilygo/)
-* [Waveshare](waveshare/)
 * [AI-Thinker](ai-thinker/)
+* [AUSTA](austa/)
+* [DFROBOT](dfrobot/)
+* [Espressif](espressif/)
+* [Hailo](hailo/)
+* [Hello STEM](hello-stem/)
+* [HELTEC](heltec/)
 * [Hi-Link](hi-link/)
-* [Raspberry Pi](raspbeery-pi/)
-* [Heltec](heltec/)
-* [DFRobot](dfrobot/)
-* [OpenELAB](openelab/)
 * [Keyestudio](keyestudio/)
+* [LILYGO](lilygo/)
+* [Lockzhiner](lockzhiner/)
+* [M5Stack](m5stack/)
+* [OpenELAB](openelab/) — generic modules; manufacturer not specified in source documentation
+* [Raspberry Pi](raspbeery-pi/)
+* [Seeed Studio](seeed-studio/)
+* [Waveshare](waveshare/)
+* [Wireless-Tag](wireless-tag/)
+* [WisdPi](wisdpi/)
+* [WitMotion](witmotion/)
+* [XGRIDS](xgrids/)
 
-#### Hardware categories
+### Find a specific product
 
-* [Displays](displays/)
-* [Sensors](sensors/)
-* [IoT / Communication](iot-communication/)
-* [Power](power/)
-* [Accessories](accessories/)
+Choose the brand in the sidebar to browse its product guides. If you know your model, use the wiki search with its full model number and hardware revision.
 
-#### Other devices
+### Related documentation
 
-[Others](others/)
-
-#### Related documentation
-
-* [Robotics: LiDAR, depth cameras, actuators and robot platforms](../robotics/robotics-wiki-home-page.md)
-* [STEM & DIY: drones / FPV, kits and workshop equipment](../stem-and-diy/stem-and-diy-wiki-home-page.md)
+* [Robotics](../robotics/robotics-wiki-home-page.md)
+* [STEM & DIY](../stem-and-diy/stem-and-diy-wiki-home-page.md)

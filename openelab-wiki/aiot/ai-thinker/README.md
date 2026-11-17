@@ -27,4 +27,8 @@ AI-Thinker provides global IoT terminals with a wide range of communication modu
 
 ### AI-Thinker
 
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="ai-thinker-rd-03d-24g-millimeter-wave-radar.md">ai-thinker-rd-03d-24g-millimeter-wave-radar.md</a></td><td><a href="../../.gitbook/assets/55_a0e9f3d7-27ac-4b45-a69b-6ca696e8f5a9.webp">55_a0e9f3d7-27ac-4b45-a69b-6ca696e8f5a9.webp</a></td></tr></tbody></table>
+### Product documentation
+
+* [Ai-Thinker AiPi-Eyes-S1 WifFi Camera](ai-thinker-aipi-eyes-s1-wiffi-camera.md)
+* [Ai-Thinker AiPi-Eyes-S2 WifFi Camera](ai-thinker-aipi-eyes-s2-wiffi-camera.md)
+* [Ai-Thinker Rd 03D 24G Millimeter Wave Radar](ai-thinker-rd-03d-24g-millimeter-wave-radar.md)

@@ -4,4 +4,13 @@ The Raspberry Pi is a series of low-cost, credit-card-sized single-board compute
 
 #### Raspberry Pi
 
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="raspberry-pi-pico-w-wireless-rp2040-mcu-board.md">raspberry-pi-pico-w-wireless-rp2040-mcu-board.md</a></td></tr><tr><td><a href="raspberry-pi-5.md">raspberry-pi-5.md</a></td></tr><tr><td><a href="raspberry-pi-4b.md">raspberry-pi-4b.md</a></td></tr><tr><td><a href="elab-raspberry-pi-card-reader.md">elab-raspberry-pi-card-reader.md</a></td></tr><tr><td><a href="elab-raspberry-pi-5-active-cooler.md">elab-raspberry-pi-5-active-cooler.md</a></td></tr><tr><td><a href="elab-raspberry-pi-4-5-case-acrylic-case.md">elab-raspberry-pi-4-5-case-acrylic-case.md</a></td></tr><tr><td><a href="elab-raspberry-pi-4-heat-sink-copper.md">elab-raspberry-pi-4-heat-sink-copper.md</a></td></tr><tr><td><a href="camera-for-raspberry-pi.md">camera-for-raspberry-pi.md</a></td></tr></tbody></table>
+### Product documentation
+
+* [M.2 HAT for Raspberry Pi 5](m.2-hat-for-raspberry-pi-5.md)
+* [Raspberry Pi 4B](raspberry-pi-4b.md)
+* [Raspberry Pi 5](raspberry-pi-5.md)
+* [Raspberry Pi Compute Module 4 with WiFi](raspberry-pi-compute-module-4-with-wifi.md)
+* [Raspberry Pi Pico 2 RP2350](raspberry-pi-pico-2-rp2350.md)
+* [Raspberry Pi Pico W Wireless RP2040 MCU Board](raspberry-pi-pico-w-wireless-rp2040-mcu-board.md)
+* [Raspberry Pi Zero 2W with Bluetooth 4.2 Onboard Antenna](raspberry-pi-zero-2w-with-bluetooth-4.2-onboard-antenna.md)
+* [Raspberry Pi Zero WH WiFi/Bluetooth 4.1 Bluetooth Low Energy](raspberry-pi-zero-wh-wifi-bluetooth-4.1-bluetooth-low-energy.md)

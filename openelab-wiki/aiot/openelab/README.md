@@ -1,11 +1,59 @@
 # OpenELAB
 
-Arduino is an open-source platform with easy-to-use hardware and software. It has various microcontroller boards for creating digital and interactive projects, suitable for beginners to professionals.
+Documentation for OpenELAB-listed generic products and modules whose manufacturer is not identified in the source documentation. This grouping identifies the catalog source; it does not imply that OpenELAB manufactures every device.
 
-#### ARDUINO
+### Product documentation
 
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="atmega328dip-board-microcontroller-board.md">atmega328dip-board-microcontroller-board.md</a></td></tr></tbody></table>
-
-#### Keyestudio documentation
-
-[EASY PLUG sensors, starter kits, controller boards and educational robots](../keyestudio/)
+* [0.91 inch OLED I2C Display 128 x 32 pixels](0.91-inch-oled-i2c-display-128-x-32-pixels.md)
+* [0.96 inch OLED SSD1306 Display I2C 128 x 64 pixels](0.96-inch-oled-ssd1306-display-i2c-128-x-64-pixels.md)
+* [1 Digit 7-Segment LED Display 1 inch 25.4 mm](1-digit-7-segment-led-display-1-inch-25.4-mm.md)
+* [1.3 inch OLED I2C 128 x 64 Pixel Display](1.3-inch-oled-i2c-128-x-64-pixel-display.md)
+* [1.77 inch Spi TFT Display and 128x160 Pixels](1.77-inch-spi-tft-display-and-128x160-pixels.md)
+* [1.8 inch Spi TFT Display 128 x 160 pixels](1.8-inch-spi-tft-display-128-x-160-pixels.md)
+* [3.5-inch 320x480 capacitive touch display](3.5-inch-320x480-capacitive-touch-display.md)
+* [3.5-inch 320x480 resistive touch display](3.5-inch-320x480-resistive-touch-display.md)
+* [4 digit 7-segment LED Display](4-digit-7-segment-led-display.md)
+* [4 digit 7-segment LED Display](4-digit-7-segment-led-display-1.md)
+* [5V LED Traffic Signal Module](5v-led-traffic-signal-module.md)
+* [8\*8 Matrix LED Display Module](8-8-matrix-led-display-module.md)
+* [ATmega328DIP Board Microcontroller Board](atmega328dip-board-microcontroller-board.md)
+* [BME280 Humidity Pressure Temperature Sensors](bme280-humidity-pressure-temperature-sensors.md)
+* [Camera for Raspberry Pi](camera-for-raspberry-pi.md)
+* [Current Sensor ACS712ELC-20A](current-sensor-acs712elc-20a.md)
+* [D1 Mini Nodemcu with ESP8266-12F WLAN module](d1-mini-nodemcu-with-esp8266-12f-wlan-module.md)
+* [D1 Mini V3 Nodemcu with ESP8266-12F WLAN module](d1-mini-v3-nodemcu-with-esp8266-12f-wlan-module.md)
+* [DHT22 AM2302 Temperature sensor and humidity sensor](dht22-am2302-temperature-sensor-and-humidity-sensor.md)
+* [DS18B20 digital temperature sensor](ds18b20-digital-temperature-sensor.md)
+* [ELAB Raspberry Pi 4 Heat Sink (Copper)](elab-raspberry-pi-4-heat-sink-copper.md)
+* [ELAB Raspberry Pi 4/5 Case (Acrylic case)](elab-raspberry-pi-4-5-case-acrylic-case.md)
+* [ELAB Raspberry Pi 5 Active Cooler](elab-raspberry-pi-5-active-cooler.md)
+* [ELAB Raspberry Pi Card Reader](elab-raspberry-pi-card-reader.md)
+* [ESP32 D1 Mini Nodemcu Development Board](esp32-d1-mini-nodemcu-development-board.md)
+* [ESP32 NODEMCU Module WiFi Development Board with CP2102](esp32-nodemcu-module-wifi-development-board-with-cp2102.md)
+* [ESP32-CAM Camera Module](esp32-cam-camera-module.md)
+* [ESP32-CAM Camera Module](esp32-cam-camera-module-1.md)
+* [ESP32-S3 Rotary Switch LCD 2.1 inch Round LCD Screen](esp32-s3-rotary-switch-lcd-2.1-inch-round-lcd-screen.md)
+* [ESP32-S3 Rotary Switch LCD 2.1 inch Round LCD Screen](esp32-s3-rotary-switch-lcd-2.1-inch-round-lcd-screen-1.md)
+* [ESP8266 ESP-01S WiFi module](esp8266-esp-01s-wifi-module.md)
+* [GY-521 MPU-6050 3-axis gyroscope and acceleration sensor](gy-521-mpu-6050-3-axis-gyroscope-and-acceleration-sensor.md)
+* [HD44780 2004 LCD Display Bundle 4x20 characters](hd44780-2004-lcd-display-bundle-4x20-characters.md)
+* [HS-S30A](hs-s30a.md)
+* [HW-140 DC-DC Buck Boost Converter Step Up/Down, LCD display](hw-140-dc-dc-buck-boost-converter-step-up-down-lcd-display.md)
+* [HW-140 DC-DC Buck Boost Converter Step Up/Down, LCD display](hw-140-dc-dc-buck-boost-converter-step-up-down-lcd-display-1.md)
+* [IMX335 5MP USB Camera (B)](imx335-5mp-usb-camera-b.md)
+* [Key Switch Modules](key-switch-modules.md)
+* [LCD Display 1602 I2C](lcd-display-1602-i2c.md)
+* [LED Ring 5V RGB WS2812B 12-Bit 50mm](led-ring-5v-rgb-ws2812b-12-bit-50mm.md)
+* [LM2596S DC-DC power supply adapter step down module](lm2596s-dc-dc-power-supply-adapter-step-down-module.md)
+* [LM2596S Step-down DC-DC Buck Converter](lm2596s-step-down-dc-dc-buck-converter.md)
+* [Motion Sensor Motion Detection Module HC-SR501 PIR](motion-sensor-motion-detection-module-hc-sr501-pir.md)
+* [MT3608 DC-DC power supply adapter step up module](mt3608-dc-dc-power-supply-adapter-step-up-module.md)
+* [NodeMCU Lua Amica Module V2 ESP8266 ESP-12F WIFI](nodemcu-lua-amica-module-v2-esp8266-esp-12f-wifi.md)
+* [NRF24L01 with 2.4 GHz](nrf24l01-with-2.4-ghz.md)
+* [Shock Sensor Module](shock-sensor-module.md)
+* [Soil Moisture Sensor Hygrometer Module V1.2 capacitive](soil-moisture-sensor-hygrometer-module-v1.2-capacitive.md)
+* [Soil Temperature and Humidity Module](soil-temperature-and-humidity-module.md)
+* [Thermistor Module](thermistor-module.md)
+* [Ultrasonic Sensor](ultrasonic-sensor.md)
+* [Vibration Sensor](vibration-sensor.md)
+* [VL53L0X Time-of-Flight (TOF) Laser distance sensor](vl53l0x-time-of-flight-tof-laser-distance-sensor.md)

@@ -1,30 +1,33 @@
 # Robotics Wiki Home Page
 
-Find documentation for LiDAR, depth cameras, actuators and robot platforms. Choose a brand to access its product manuals and engineering resources.
+Find documentation for robot perception, actuators, dexterous hands, robotic arms, and mobile platforms. Start with the manufacturer or brand.
 
-#### Brands
+### Manufacturers and brands
 
-* [LIVOX](livox/)
-* [RoboSense](robosense/)
-* [Cubemars](cubemars/)
-* [RobStride](robstride/)
-* [DAMIAO](damiao/)
-* [FEETECH](feetech/)
-* [LINKERBOT](linkerbot/)
-* [Orbbec](orbbec/)
 * [Agibot](agibot/)
-* [Realman](realman/)
 * [AgileX](agilex/)
+* [Cubemars](cubemars/)
+* [DAMIAO](damiao/)
 * [DOBOT](dobot/)
-* [Unitree](unitree/)
+* [FEETECH](feetech/)
+* [HESAI](hesai/)
+* [Leadshine](leadshine/)
+* [LINKERBOT](linkerbot/)
+* [LIVOX](livox/)
 * [LKMTECH](lkmtech/)
+* [Orbbec](orbbec/)
+* [Realman](realman/)
+* [RoboSense](robosense/)
+* [RobStride](robstride/)
+* [Unitree](unitree/)
+* [Xiaomi](xiaomi/)
+* [Yahboom](yahboom/)
 
-#### Hardware categories
+### Find a specific product
 
-* [Motors](motors/)
-* [Robotic hardware](robotic/)
+Choose the brand in the sidebar to browse its product guides. If you know your model, use the wiki search with its full model number and hardware revision.
 
-#### Related documentation
+### Related documentation
 
-* [AIoT: development boards, sensors and connectivity](../aiot/aiot-wiki-home-page.md)
-* [STEM & DIY: educational kits and drones / FPV](../stem-and-diy/stem-and-diy-wiki-home-page.md)
+* [AIoT](../aiot/aiot-wiki-home-page.md)
+* [STEM & DIY](../stem-and-diy/stem-and-diy-wiki-home-page.md)
