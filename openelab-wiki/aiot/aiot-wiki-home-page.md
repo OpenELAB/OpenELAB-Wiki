@@ -37,6 +37,7 @@ Choose a manufacturer or brand to browse its product manuals and technical guide
 | [Hi-Link](hi-link/)           | Presence radar and AC/DC or DC/DC power modules.                            |
 | [AI-Thinker](ai-thinker/)     | AiPi camera boards and radar modules.                                       |
 | [DFRobot](dfrobot/)           | HUSKYLENS vision and pressure sensing.                                      |
+| [Elecrow](elecrow/)           | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
 | [Wireless-Tag](wireless-tag/) | WT32S3-86S smart display documentation.                                     |
 | [XGRIDS](xgrids/)             | PortalCam Standard and Premium spatial camera guides.                       |
 | [AUSTA](austa/)               | AU-series solar module references.                                          |
@@ -48,7 +49,6 @@ Choose a manufacturer or brand to browse its product manuals and technical guide
 | [Banana Pi](banana-pi.md)     | Single-board computers, router platforms, and expansion hardware.           |
 | [D-Robotics](d-robotics.md)   | RDK X3, X5, S100, and S100P embedded robot-computing platforms.             |
 | [EBYTE](ebyte.md)             | Wireless communication modules and the E49 evaluation kit.                  |
-| [Elecrow](elecrow.md)         | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
 | [GigaDevice](gigadevice.md)   | GD32 microcontroller boards, wireless platforms, and debug tools.           |
 | [Quectel](quectel.md)         | LTE and 5G modules, RedCap hardware, and cellular integration tools.        |
 | [RAKwireless](rakwireless.md) | WisBlock modules, LoRaWAN hardware, gateways, and WisMesh devices.          |

@@ -31,6 +31,9 @@ Waveshare supplies development boards, displays, cameras, and interface modules 
 
 ### Wiki product guides and manuals
 
+* [Waveshare Jetson Orin NX 16GB Dev Kit Development Guide](jetson-orin-nx-16gb-waveshare-development-guide.md)
+* [Waveshare 7-DSI-TOUCH-C Development Guide](7-dsi-touch-c-development-guide.md)
+
 Browse the available guides below. Match the full model number and hardware revision to your device.
 
 * [2.1 inch USB Monitor, Water Cooler Screen/ PC Case Secondary Screen](2.1-inch-usb-monitor-water-cooler-screen-pc-case-secondary-screen.md)

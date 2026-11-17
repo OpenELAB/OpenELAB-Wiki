@@ -51,6 +51,8 @@ Seeed Studio develops hardware for sensing, connectivity, and edge computing. It
 
 ### Wiki product guides and manuals
 
+* [Seeed Studio reComputer J4012 Development Guide](recomputer-j4012-original-development-guide.md)
+* [Seeed Studio reComputer Robotics J4012 Development Guide](recomputer-robotics-j4012-development-guide.md)
 * [Seeed Studio SenseCAP Solar Node P1-Pro Development Guide](sensecap-solar-node-p1-pro-development-guide.md)
 * [Seeed Studio Wio Tracker L1 Pro Development Guide](wio-tracker-l1-pro-development-guide.md)
 * [Seeed Studio SenseCAP MeshTracker X1 Development Guide](sensecap-meshtracker-x1-development-guide.md)

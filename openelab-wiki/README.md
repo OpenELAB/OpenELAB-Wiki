@@ -85,6 +85,7 @@ Browse the directories below for manufacturer introductions, product families, p
 | [Hi-Link](aiot/hi-link/)           | Presence radar and AC/DC or DC/DC power modules.                            |
 | [AI-Thinker](aiot/ai-thinker/)     | AiPi camera boards and radar modules.                                       |
 | [DFRobot](aiot/dfrobot/)           | HUSKYLENS vision and pressure sensing.                                      |
+| [Elecrow](aiot/elecrow/)           | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
 | [Wireless-Tag](aiot/wireless-tag/) | WT32S3-86S smart display documentation.                                     |
 | [XGRIDS](aiot/xgrids/)             | PortalCam Standard and Premium spatial camera guides.                       |
 | [AUSTA](aiot/austa/)               | AU-series solar module references.                                          |
@@ -96,7 +97,6 @@ Browse the directories below for manufacturer introductions, product families, p
 | [Banana Pi](aiot/banana-pi.md)     | Single-board computers, router platforms, and expansion hardware.           |
 | [D-Robotics](aiot/d-robotics.md)   | RDK X3, X5, S100, and S100P embedded robot-computing platforms.             |
 | [EBYTE](aiot/ebyte.md)             | Wireless communication modules and the E49 evaluation kit.                  |
-| [Elecrow](aiot/elecrow.md)         | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
 | [GigaDevice](aiot/gigadevice.md)   | GD32 microcontroller boards, wireless platforms, and debug tools.           |
 | [Quectel](aiot/quectel.md)         | LTE and 5G modules, RedCap hardware, and cellular integration tools.        |
 | [RAKwireless](aiot/rakwireless.md) | WisBlock modules, LoRaWAN hardware, gateways, and WisMesh devices.          |

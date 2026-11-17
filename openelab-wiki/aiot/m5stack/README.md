@@ -8,22 +8,22 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 
 [Browse M5Stack products on OpenELAB](https://openelab.io/collections/brands-m5stack)
 
-#### Product range
+### Product range
 
 * Core, M5Stick, ATOM, and Cardputer development platforms
 * Grove-compatible Units, HATs, bases, and communication modules
 * Displays, voice interfaces, cameras, and desktop robotics
 
-#### Popular products and starting points
+### Popular products and starting points
 
 | Product       | Typical use                                        | Links                                                                                                                                                        |
 | ------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Cardputer-Adv | Handheld programming and keyboard-based interfaces | [OpenELAB product](https://openelab.io/products/m5stack-cardputer-adv-esp32-s3a)                                                                             |
+| Cardputer-Adv | Handheld programming and keyboard-based interfaces | [Wiki guide](cardputer-adv-k132-development-guide.md) · [OpenELAB product](https://openelab.io/products/m5stack-cardputer-adv-esp32-s3a)                     |
 | M5StickS3     | Compact display, audio, and sensor prototypes      | [Wiki guide](m5sticks3-esp32-s3-mini-iot-dev-kit-engineering-guide.md) · [OpenELAB product](https://openelab.io/products/m5sticks3-esp32s3-mini-iot-dev-kit) |
 | ATOM Lite     | Small Wi-Fi controllers and sensor nodes           | [Wiki guide](m5stack-atom-lite-esp32-iot-development-kit.md) · [OpenELAB product](https://openelab.io/products/m5stackatomliteesp32)                         |
 | AtomS3 Lite   | Compact ESP32-S3 development                       | [Wiki guide](m5stack-atoms3-lite-esp32s3-dev-kit.md) · [OpenELAB product](https://openelab.io/products/m5stack-atoms3-lite)                                  |
 
-#### Popular applications
+### Popular applications
 
 * Build connected sensor dashboards and compact control panels.
 * Prototype voice interfaces, handheld tools, and smart-home devices.
@@ -31,8 +31,11 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 
 Cardputer-Adv and M5StickS3 are different products from the original Cardputer and M5StickC models. Use the guide for the exact board revision.
 
-#### Wiki product guides and manuals
+### Wiki product guides and manuals
 
+* [M5Stack PaperColor C151 Development Guide](papercolor-c151-development-guide.md)
+* [M5Stack PaperMono C153 Development Guide](papermono-c153-development-guide.md)
+* [M5Stack Cardputer-Adv K132-Adv Development Guide](cardputer-adv-k132-development-guide.md)
 * [M5Stack StackChan K151 Development Guide](stackchan-k151-development-guide.md)
 * [M5Stack StopWatch C152 Development Guide](stopwatch-c152-development-guide.md)
 
