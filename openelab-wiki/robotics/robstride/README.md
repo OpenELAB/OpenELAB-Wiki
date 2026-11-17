@@ -3,7 +3,7 @@ cover: ../../.gitbook/assets/robstride-logo.jpg
 coverY: 0
 ---
 
-# 🤖 RobStride
+# RobStride
 
 ### Overview
 

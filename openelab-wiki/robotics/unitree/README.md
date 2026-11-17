@@ -3,7 +3,7 @@ cover: ../../.gitbook/assets/unitree-wordmark.png
 coverY: 0
 ---
 
-# 🤖 Unitree
+# Unitree
 
 ### Overview
 

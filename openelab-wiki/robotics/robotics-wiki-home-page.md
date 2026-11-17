@@ -2,29 +2,29 @@
 
 Find documentation for LiDAR, depth cameras, actuators and robot platforms. Choose a brand to access its product manuals and engineering resources.
 
-### Brands
+#### Brands
 
 * [LIVOX](livox/)
 * [RoboSense](robosense/)
 * [Cubemars](cubemars/)
-* [🤖 RobStride](robstride/)
-* [⚙️ DAMIAO](damiao/)
-* [🔧 FEETECH](feetech/)
+* [RobStride](robstride/)
+* [DAMIAO](damiao/)
+* [FEETECH](feetech/)
 * [LINKERBOT](linkerbot/)
 * [Orbbec](orbbec/)
 * [Agibot](agibot/)
 * [Realman](realman/)
 * [AgileX](agilex/)
 * [DOBOT](dobot/)
-* [🤖 Unitree](unitree/)
+* [Unitree](unitree/)
 * [LKMTECH](lkmtech/)
 
-### Hardware categories
+#### Hardware categories
 
 * [Motors](motors/)
 * [Robotic hardware](robotic/)
 
-### Related documentation
+#### Related documentation
 
 * [AIoT: development boards, sensors and connectivity](../aiot/aiot-wiki-home-page.md)
 * [STEM & DIY: educational kits and drones / FPV](../stem-and-diy/stem-and-diy-wiki-home-page.md)

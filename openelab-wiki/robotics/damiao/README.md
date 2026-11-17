@@ -3,7 +3,7 @@ cover: ../../.gitbook/assets/damiao-logo.jpg
 coverY: 0
 ---
 
-# ⚙️ DAMIAO
+# DAMIAO
 
 ### Overview
 

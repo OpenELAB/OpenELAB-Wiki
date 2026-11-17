@@ -3,7 +3,7 @@ cover: ../../.gitbook/assets/feetech-logo.jpg
 coverY: 0
 ---
 
-# 🔧 FEETECH
+# FEETECH
 
 ### Overview
 
