@@ -73,34 +73,34 @@ Browse the directories below for manufacturer introductions, product families, p
 
 | Manufacturer / brand               | Products and documentation                                                  |
 | ---------------------------------- | --------------------------------------------------------------------------- |
-| [AI-Thinker](aiot/ai-thinker/)     | AiPi camera boards and radar modules.                                       |
-| [AUSTA](aiot/austa/)               | AU-series solar module references.                                          |
-| [Banana Pi](aiot/banana-pi.md)     | Single-board computers, router platforms, and expansion hardware.           |
-| [D-Robotics](aiot/d-robotics.md)   | RDK X3, X5, S100, and S100P embedded robot-computing platforms.             |
-| [DFRobot](aiot/dfrobot/)           | HUSKYLENS vision and pressure sensing.                                      |
-| [EBYTE](aiot/ebyte.md)             | Wireless communication modules and the E49 evaluation kit.                  |
-| [Elecrow](aiot/elecrow.md)         | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
-| [Espressif](aiot/espressif/)       | ESP32 and ESP8266 chips, modules and development boards.                    |
-| [GigaDevice](aiot/gigadevice.md)   | GD32 microcontroller boards, wireless platforms, and debug tools.           |
-| [Hailo](aiot/hailo/)               | Hailo-8 M.2 AI accelerator documentation.                                   |
-| [Hello STEM](aiot/hello-stem/)     | DHT11 temperature and humidity sensing.                                     |
-| [HELTEC](aiot/heltec/)             | LoRa boards, mesh nodes, trackers, e-paper devices, and product guides.     |
-| [Hi-Link](aiot/hi-link/)           | Presence radar and AC/DC or DC/DC power modules.                            |
-| [Keyestudio](aiot/keyestudio/)     | EASY PLUG sensors, controller boards and learning kits.                     |
-| [LILYGO](aiot/lilygo/)             | Handheld boards, LoRa and cellular platforms, CAN, and RS485 interfaces.    |
-| [Lockzhiner](aiot/lockzhiner/)     | Data acquisition devices and DAQ SDK references.                            |
 | [M5Stack](aiot/m5stack/)           | Modular controllers, sensors, displays, voice hardware, and product guides. |
 | [OpenELAB](aiot/openelab/)         | Generic modules, electronics and accessories.                               |
-| [Quectel](aiot/quectel.md)         | LTE and 5G modules, RedCap hardware, and cellular integration tools.        |
-| [RAKwireless](aiot/rakwireless.md) | WisBlock modules, LoRaWAN hardware, gateways, and WisMesh devices.          |
-| [Raspberry Pi](aiot/raspbeery-pi/) | Single-board computers, Pico boards and Compute Modules.                    |
-| [Seeed Studio](aiot/seeed-studio/) | XIAO, Grove, SenseCAP, Wio, ReSpeaker, and edge-AI platforms.               |
-| [SONOFF](aiot/sonoff.md)           | Zigbee USB coordinators, sensors, buttons, and home-automation devices.     |
 | [Waveshare](aiot/waveshare/)       | Displays, ESP32 boards, Raspberry Pi HATs, cameras, and industrial I/O.     |
+| [Seeed Studio](aiot/seeed-studio/) | XIAO, Grove, SenseCAP, Wio, ReSpeaker, and edge-AI platforms.               |
+| [Keyestudio](aiot/keyestudio/)     | EASY PLUG sensors, controller boards and learning kits.                     |
+| [HELTEC](aiot/heltec/)             | LoRa boards, mesh nodes, trackers, e-paper devices, and product guides.     |
+| [LILYGO](aiot/lilygo/)             | Handheld boards, LoRa and cellular platforms, CAN, and RS485 interfaces.    |
+| [Raspberry Pi](aiot/raspbeery-pi/) | Single-board computers, Pico boards and Compute Modules.                    |
+| [Espressif](aiot/espressif/)       | ESP32 and ESP8266 chips, modules and development boards.                    |
+| [Hi-Link](aiot/hi-link/)           | Presence radar and AC/DC or DC/DC power modules.                            |
+| [AI-Thinker](aiot/ai-thinker/)     | AiPi camera boards and radar modules.                                       |
+| [DFRobot](aiot/dfrobot/)           | HUSKYLENS vision and pressure sensing.                                      |
 | [Wireless-Tag](aiot/wireless-tag/) | WT32S3-86S smart display documentation.                                     |
+| [XGRIDS](aiot/xgrids/)             | PortalCam Standard and Premium spatial camera guides.                       |
+| [AUSTA](aiot/austa/)               | AU-series solar module references.                                          |
+| [Hailo](aiot/hailo/)               | Hailo-8 M.2 AI accelerator documentation.                                   |
+| [Hello STEM](aiot/hello-stem/)     | DHT11 temperature and humidity sensing.                                     |
+| [Lockzhiner](aiot/lockzhiner/)     | Data acquisition devices and DAQ SDK references.                            |
 | [WisdPi](aiot/wisdpi/)             | WP-UT5 USB Ethernet adapter references.                                     |
 | [WitMotion](aiot/witmotion/)       | USB-CAN-P adapter configuration and communication.                          |
-| [XGRIDS](aiot/xgrids/)             | PortalCam Standard and Premium spatial camera guides.                       |
+| [Banana Pi](aiot/banana-pi.md)     | Single-board computers, router platforms, and expansion hardware.           |
+| [D-Robotics](aiot/d-robotics.md)   | RDK X3, X5, S100, and S100P embedded robot-computing platforms.             |
+| [EBYTE](aiot/ebyte.md)             | Wireless communication modules and the E49 evaluation kit.                  |
+| [Elecrow](aiot/elecrow.md)         | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
+| [GigaDevice](aiot/gigadevice.md)   | GD32 microcontroller boards, wireless platforms, and debug tools.           |
+| [Quectel](aiot/quectel.md)         | LTE and 5G modules, RedCap hardware, and cellular integration tools.        |
+| [RAKwireless](aiot/rakwireless.md) | WisBlock modules, LoRaWAN hardware, gateways, and WisMesh devices.          |
+| [SONOFF](aiot/sonoff.md)           | Zigbee USB coordinators, sensors, buttons, and home-automation devices.     |
 
 #### Robotics — Perception, motion and platforms
 
@@ -108,35 +108,35 @@ Browse the directories below for manufacturer introductions, product families, p
 
 | Manufacturer / brand                               | Products and documentation                                               |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| [AgiBot](robotics/agibot/)                         | Robot platforms, OmniHand devices and OmniPicker.                        |
-| [AgileX](robotics/agilex/)                         | UGVs, LIMO platforms, PiPER and NERO arms, and PiKA data tools.          |
-| [ChangingTek](robotics/changingtek.md)             | Electric grippers, adaptive hands, and manipulation-data tools.          |
+| [DOBOT](robotics/dobot/)                           | Desktop arms, collaborative robots, workstations, and embodied-AI tools. |
 | [CubeMars](robotics/cubemars/)                     | Robot actuators, gimbal motors, underwater thrusters, and setup guides.  |
 | [DAMIAO](robotics/damiao/)                         | Joint and hub motors, CAN debugging tools, and model-specific manuals.   |
-| [DOBOT](robotics/dobot/)                           | Desktop arms, collaborative robots, workstations, and embodied-AI tools. |
-| [Elephant Robotics](robotics/elephant-robotics.md) | myCobot desktop arms, grippers, cameras, and learning accessories.       |
+| [RoboSense](robotics/robosense/)                   | Airy, Fairy, solid-state LiDAR, and AC1 robot perception hardware.       |
+| [AgiBot](robotics/agibot/)                         | Robot platforms, OmniHand devices and OmniPicker.                        |
 | [FEETECH](robotics/feetech/)                       | Bus servos, control protocols, memory tables, SDKs, and debug tools.     |
+| [Livox](robotics/livox/)                           | MID, HAP, TELE, and AVIA LiDAR families and integration guides.          |
+| [AgileX](robotics/agilex/)                         | UGVs, LIMO platforms, PiPER and NERO arms, and PiKA data tools.          |
+| [Orbbec](robotics/orbbec/)                         | Gemini and Femto depth cameras for robot vision and 3D sensing.          |
+| [RobStride](robotics/robstride/)                   | Integrated CAN robot joints, actuator manuals, and debugging tools.      |
+| [LINKERBOT](robotics/linkerbot/)                   | Linker Hand dexterous hand product manuals.                              |
+| [RealMan](robotics/realman/)                       | RM and ECO robot arms, WHJ joint modules, grippers, and manuals.         |
+| [LKMTECH](robotics/lkmtech/)                       | Robot joint motors and encoder references.                               |
+| [Unitree](robotics/unitree/)                       | L2 LiDAR and GO-M8010-6 motor documentation.                             |
+| [Xiaomi](robotics/xiaomi/)                         | CyberGear micromotor references.                                         |
 | [HESAI](robotics/hesai/)                           | JT and XT LiDAR families and JT128 integration documentation.            |
+| [Leadshine](robotics/leadshine/)                   | DH116 dexterous robot hand documentation.                                |
+| [Yahboom](robotics/yahboom/)                       | ROSMASTER, MicroROS, DOFBOT, and JetCobot robotics platforms.            |
+| [ChangingTek](robotics/changingtek.md)             | Electric grippers, adaptive hands, and manipulation-data tools.          |
+| [Elephant Robotics](robotics/elephant-robotics.md) | myCobot desktop arms, grippers, cameras, and learning accessories.       |
 | [Hiwonder](robotics/hiwonder.md)                   | ROS robot cars, hexapods, robotic arms, bus servos, and chassis.         |
 | [LDROBOT](robotics/ldrobot.md)                     | Compact 2D LiDAR, developer kits, and single-point ranging sensors.      |
-| [Leadshine](robotics/leadshine/)                   | DH116 dexterous robot hand documentation.                                |
-| [LINKERBOT](robotics/linkerbot/)                   | Linker Hand dexterous hand product manuals.                              |
-| [Livox](robotics/livox/)                           | MID, HAP, TELE, and AVIA LiDAR families and integration guides.          |
-| [LKMTECH](robotics/lkmtech/)                       | Robot joint motors and encoder references.                               |
 | [LSLiDAR](robotics/lslidar.md)                     | 2D and 3D LiDAR sensors for navigation, mapping, and spatial sensing.    |
 | [MyActuator](robotics/myactuator.md)               | RMD-X geared actuators, RMD-L direct-drive motors, and control adapters. |
-| [Orbbec](robotics/orbbec/)                         | Gemini and Femto depth cameras for robot vision and 3D sensing.          |
-| [RealMan](robotics/realman/)                       | RM and ECO robot arms, WHJ joint modules, grippers, and manuals.         |
 | [RealSense](robotics/realsense.md)                 | Stereo depth cameras for close-range vision and robot perception.        |
-| [RoboSense](robotics/robosense/)                   | Airy, Fairy, solid-state LiDAR, and AC1 robot perception hardware.       |
-| [RobStride](robotics/robstride/)                   | Integrated CAN robot joints, actuator manuals, and debugging tools.      |
 | [SLAMTEC](robotics/slamtec.md)                     | RPLIDAR, Mapper, Aurora, and industrial laser scanners.                  |
 | [SteadyWin](robotics/steadywin.md)                 | GIM robot joint actuators and motor-control hardware.                    |
-| [Unitree](robotics/unitree/)                       | L2 LiDAR and GO-M8010-6 motor documentation.                             |
 | [WHEELTEC](robotics/wheeltec.md)                   | Control learning kits, balance robots, ROS platforms, and components.    |
 | [WowRobo](robotics/wowrobo.md)                     | SO-ARM101, XLeRobot, LeKiwi, robotic hands, and tactile-sensing kits.    |
-| [Xiaomi](robotics/xiaomi/)                         | CyberGear micromotor references.                                         |
-| [Yahboom](robotics/yahboom/)                       | ROSMASTER, MicroROS, DOFBOT, and JetCobot robotics platforms.            |
 
 #### STEM & DIY — Learning, building and fabrication
 
@@ -144,25 +144,25 @@ Browse the directories below for manufacturer introductions, product families, p
 
 | Manufacturer / brand                   | Products and documentation                                            |
 | -------------------------------------- | --------------------------------------------------------------------- |
+| [Holybro](stem-and-diy/holybro/)       | Pixhawk controllers, GPS modules and power systems.                   |
+| [OpenELAB](stem-and-diy/openelab/)     | Generic modules, electronics and accessories.                         |
 | [DXW](stem-and-diy/dxw/)               | Brushless motors for drone projects.                                  |
+| [RadioLink](stem-and-diy/radiolink/)   | RC transmitters, flight controllers and GPS modules.                  |
+| [Hawkeye](stem-and-diy/hawkeye/)       | FPV monitors and Firefly action cameras.                              |
+| [Mateksys](stem-and-diy/mateksys/)     | GNSS, power distribution and BEC modules.                             |
 | [ELEGOO](stem-and-diy/elegoo/)         | Centauri Carbon and Saturn 3D printer guides.                         |
+| [RUSHFPV](stem-and-diy/rushfpv/)       | TANK-series FPV video transmitter documentation.                      |
+| [YDHM](stem-and-diy/ydhm/)             | Drone frames and carbon-fiber propellers.                             |
 | [Genmitsu](stem-and-diy/genmitsu/)     | Desktop CNC routers, fabrication accessories, and engineering guides. |
 | [Gens ace](stem-and-diy/gens-ace/)     | LiPo battery references.                                              |
 | [Happymodel](stem-and-diy/happymodel/) | ExpressLRS receiver documentation.                                    |
-| [Hawkeye](stem-and-diy/hawkeye/)       | FPV monitors and Firefly action cameras.                              |
 | [HeyGears](stem-and-diy/heygears/)     | Reflex printing, washing, curing and maintenance.                     |
 | [Hobbywing](stem-and-diy/hobbywing/)   | Skywalker brushless ESC documentation.                                |
-| [Holybro](stem-and-diy/holybro/)       | Pixhawk controllers, GPS modules and power systems.                   |
 | [Makeblock](stem-and-diy/makeblock/)   | mBot Mega educational robot documentation.                            |
-| [Mateksys](stem-and-diy/mateksys/)     | GNSS, power distribution and BEC modules.                             |
 | [MyFlyDream](stem-and-diy/myflydream/) | Crosshair OSD documentation.                                          |
 | [OpenDuck](stem-and-diy/openduck/)     | Open Duck Mini v2 engineering guide.                                  |
-| [OpenELAB](stem-and-diy/openelab/)     | Generic modules, electronics and accessories.                         |
 | [OVONIC](stem-and-diy/ovonic/)         | RC and FPV LiPo battery references.                                   |
-| [RadioLink](stem-and-diy/radiolink/)   | RC transmitters, flight controllers and GPS modules.                  |
-| [RUSHFPV](stem-and-diy/rushfpv/)       | TANK-series FPV video transmitter documentation.                      |
 | [TCBWORTH](stem-and-diy/tcbworth/)     | 3S LiPo battery documentation.                                        |
-| [YDHM](stem-and-diy/ydhm/)             | Drone frames and carbon-fiber propellers.                             |
 | [YRRC](stem-and-diy/yrrc/)             | FPV analog video transmitter documentation.                           |
 
 OpenELAB entries group generic catalog products and accessories for which a separate manufacturer is not named in the source documentation.

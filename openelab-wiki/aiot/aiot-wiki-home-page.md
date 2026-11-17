@@ -25,34 +25,34 @@ Choose a manufacturer or brand to browse its product manuals and technical guide
 
 | Manufacturer / brand          | Products and documentation                                                  |
 | ----------------------------- | --------------------------------------------------------------------------- |
-| [AI-Thinker](ai-thinker/)     | AiPi camera boards and radar modules.                                       |
-| [AUSTA](austa/)               | AU-series solar module references.                                          |
-| [Banana Pi](banana-pi.md)     | Single-board computers, router platforms, and expansion hardware.           |
-| [D-Robotics](d-robotics.md)   | RDK X3, X5, S100, and S100P embedded robot-computing platforms.             |
-| [DFRobot](dfrobot/)           | HUSKYLENS vision and pressure sensing.                                      |
-| [EBYTE](ebyte.md)             | Wireless communication modules and the E49 evaluation kit.                  |
-| [Elecrow](elecrow.md)         | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
-| [Espressif](espressif/)       | ESP32 and ESP8266 chips, modules and development boards.                    |
-| [GigaDevice](gigadevice.md)   | GD32 microcontroller boards, wireless platforms, and debug tools.           |
-| [Hailo](hailo/)               | Hailo-8 M.2 AI accelerator documentation.                                   |
-| [Hello STEM](hello-stem/)     | DHT11 temperature and humidity sensing.                                     |
-| [HELTEC](heltec/)             | LoRa boards, mesh nodes, trackers, e-paper devices, and product guides.     |
-| [Hi-Link](hi-link/)           | Presence radar and AC/DC or DC/DC power modules.                            |
-| [Keyestudio](keyestudio/)     | EASY PLUG sensors, controller boards and learning kits.                     |
-| [LILYGO](lilygo/)             | Handheld boards, LoRa and cellular platforms, CAN, and RS485 interfaces.    |
-| [Lockzhiner](lockzhiner/)     | Data acquisition devices and DAQ SDK references.                            |
 | [M5Stack](m5stack/)           | Modular controllers, sensors, displays, voice hardware, and product guides. |
 | [OpenELAB](openelab/)         | Generic modules, electronics and accessories.                               |
-| [Quectel](quectel.md)         | LTE and 5G modules, RedCap hardware, and cellular integration tools.        |
-| [RAKwireless](rakwireless.md) | WisBlock modules, LoRaWAN hardware, gateways, and WisMesh devices.          |
-| [Raspberry Pi](raspbeery-pi/) | Single-board computers, Pico boards and Compute Modules.                    |
-| [Seeed Studio](seeed-studio/) | XIAO, Grove, SenseCAP, Wio, ReSpeaker, and edge-AI platforms.               |
-| [SONOFF](sonoff.md)           | Zigbee USB coordinators, sensors, buttons, and home-automation devices.     |
 | [Waveshare](waveshare/)       | Displays, ESP32 boards, Raspberry Pi HATs, cameras, and industrial I/O.     |
+| [Seeed Studio](seeed-studio/) | XIAO, Grove, SenseCAP, Wio, ReSpeaker, and edge-AI platforms.               |
+| [Keyestudio](keyestudio/)     | EASY PLUG sensors, controller boards and learning kits.                     |
+| [HELTEC](heltec/)             | LoRa boards, mesh nodes, trackers, e-paper devices, and product guides.     |
+| [LILYGO](lilygo/)             | Handheld boards, LoRa and cellular platforms, CAN, and RS485 interfaces.    |
+| [Raspberry Pi](raspbeery-pi/) | Single-board computers, Pico boards and Compute Modules.                    |
+| [Espressif](espressif/)       | ESP32 and ESP8266 chips, modules and development boards.                    |
+| [Hi-Link](hi-link/)           | Presence radar and AC/DC or DC/DC power modules.                            |
+| [AI-Thinker](ai-thinker/)     | AiPi camera boards and radar modules.                                       |
+| [DFRobot](dfrobot/)           | HUSKYLENS vision and pressure sensing.                                      |
 | [Wireless-Tag](wireless-tag/) | WT32S3-86S smart display documentation.                                     |
+| [XGRIDS](xgrids/)             | PortalCam Standard and Premium spatial camera guides.                       |
+| [AUSTA](austa/)               | AU-series solar module references.                                          |
+| [Hailo](hailo/)               | Hailo-8 M.2 AI accelerator documentation.                                   |
+| [Hello STEM](hello-stem/)     | DHT11 temperature and humidity sensing.                                     |
+| [Lockzhiner](lockzhiner/)     | Data acquisition devices and DAQ SDK references.                            |
 | [WisdPi](wisdpi/)             | WP-UT5 USB Ethernet adapter references.                                     |
 | [WitMotion](witmotion/)       | USB-CAN-P adapter configuration and communication.                          |
-| [XGRIDS](xgrids/)             | PortalCam Standard and Premium spatial camera guides.                       |
+| [Banana Pi](banana-pi.md)     | Single-board computers, router platforms, and expansion hardware.           |
+| [D-Robotics](d-robotics.md)   | RDK X3, X5, S100, and S100P embedded robot-computing platforms.             |
+| [EBYTE](ebyte.md)             | Wireless communication modules and the E49 evaluation kit.                  |
+| [Elecrow](elecrow.md)         | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
+| [GigaDevice](gigadevice.md)   | GD32 microcontroller boards, wireless platforms, and debug tools.           |
+| [Quectel](quectel.md)         | LTE and 5G modules, RedCap hardware, and cellular integration tools.        |
+| [RAKwireless](rakwireless.md) | WisBlock modules, LoRaWAN hardware, gateways, and WisMesh devices.          |
+| [SONOFF](sonoff.md)           | Zigbee USB coordinators, sensors, buttons, and home-automation devices.     |
 
 OpenELAB groups generic modules and accessories whose source documentation does not identify a separate manufacturer.
 

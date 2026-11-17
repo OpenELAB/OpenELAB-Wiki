@@ -25,25 +25,25 @@ Choose a manufacturer or brand to browse its product manuals and technical guide
 
 | Manufacturer / brand      | Products and documentation                                            |
 | ------------------------- | --------------------------------------------------------------------- |
+| [Holybro](holybro/)       | Pixhawk controllers, GPS modules and power systems.                   |
+| [OpenELAB](openelab/)     | Generic modules, electronics and accessories.                         |
 | [DXW](dxw/)               | Brushless motors for drone projects.                                  |
+| [RadioLink](radiolink/)   | RC transmitters, flight controllers and GPS modules.                  |
+| [Hawkeye](hawkeye/)       | FPV monitors and Firefly action cameras.                              |
+| [Mateksys](mateksys/)     | GNSS, power distribution and BEC modules.                             |
 | [ELEGOO](elegoo/)         | Centauri Carbon and Saturn 3D printer guides.                         |
+| [RUSHFPV](rushfpv/)       | TANK-series FPV video transmitter documentation.                      |
+| [YDHM](ydhm/)             | Drone frames and carbon-fiber propellers.                             |
 | [Genmitsu](genmitsu/)     | Desktop CNC routers, fabrication accessories, and engineering guides. |
 | [Gens ace](gens-ace/)     | LiPo battery references.                                              |
 | [Happymodel](happymodel/) | ExpressLRS receiver documentation.                                    |
-| [Hawkeye](hawkeye/)       | FPV monitors and Firefly action cameras.                              |
 | [HeyGears](heygears/)     | Reflex printing, washing, curing and maintenance.                     |
 | [Hobbywing](hobbywing/)   | Skywalker brushless ESC documentation.                                |
-| [Holybro](holybro/)       | Pixhawk controllers, GPS modules and power systems.                   |
 | [Makeblock](makeblock/)   | mBot Mega educational robot documentation.                            |
-| [Mateksys](mateksys/)     | GNSS, power distribution and BEC modules.                             |
 | [MyFlyDream](myflydream/) | Crosshair OSD documentation.                                          |
 | [OpenDuck](openduck/)     | Open Duck Mini v2 engineering guide.                                  |
-| [OpenELAB](openelab/)     | Generic modules, electronics and accessories.                         |
 | [OVONIC](ovonic/)         | RC and FPV LiPo battery references.                                   |
-| [RadioLink](radiolink/)   | RC transmitters, flight controllers and GPS modules.                  |
-| [RUSHFPV](rushfpv/)       | TANK-series FPV video transmitter documentation.                      |
 | [TCBWORTH](tcbworth/)     | 3S LiPo battery documentation.                                        |
-| [YDHM](ydhm/)             | Drone frames and carbon-fiber propellers.                             |
 | [YRRC](yrrc/)             | FPV analog video transmitter documentation.                           |
 
 OpenELAB groups generic modules and accessories whose source documentation does not identify a separate manufacturer.
