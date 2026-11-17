@@ -233,6 +233,7 @@
   * [M5Stack RF UNIT 433MHz Receiver (SYN513R)](aiot/m5stack/m5stack-rf-unit-433mhz-receiver-syn513r.md)
   * [M5StickS3 ESP32-S3 Mini IoT Dev Kit Engineering Guide](aiot/m5stack/m5sticks3-esp32-s3-mini-iot-dev-kit-engineering-guide.md)
   * [M5Stack Cardputer Mesh Kit for Meshtastic Engineering Guide](aiot/m5stack/m5stack-cardputer-mesh-kit-for-meshtastic-engineering-guide.md)
+  * [M5Stack StackChan K151 Development Guide](aiot/m5stack/stackchan-k151-development-guide.md)
 * [OpenELAB](aiot/openelab/README.md)
   * [ATmega328DIP Board Microcontroller Board](aiot/openelab/atmega328dip-board-microcontroller-board.md)
   * [ESP32-CAM Camera Module](aiot/openelab/esp32-cam-camera-module.md)
