@@ -1,6 +1,6 @@
 # XGRIDS PortalCam Standard Kit 3D Camera Engineering Guide
 
-**Product link:** [XGRIDS PortalCam Standard Kit Handheld 3D Spatial Camera LiDAR+3DGS on OpenELAB](https://openelab.io/products/xgrids-portalcam-standard-kit-3d-camera)
+**Product link:** XGRIDS PortalCam Standard Kit Handheld 3D Spatial Camera LiDAR+3DGS on OpenELAB (exact version not currently listed on OpenELAB.io)
 
 ## XGRIDS PortalCam Standard Kit 3D Camera Engineering Guide
 
@@ -59,18 +59,18 @@ Capture quality depends on scene planning. Avoid very fast walking, excessive ro
 
 ### Software and Resource Links
 
-| Resource                       | Use It For                                                                  | Link                                                                                                    |
-| ------------------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| OpenELAB product page          | Purchase, SKU, kit contents, and OpenELAB support                           | [OpenELAB PortalCam product page](https://openelab.io/products/xgrids-portalcam-standard-kit-3d-camera) |
-| XGRIDS PortalCam official page | Manufacturer overview, applications, workflow, and sample-data entry points | [XGRIDS PortalCam](https://www.xgrids.com/portalcam)                                                    |
-| XGRIDS download center         | Firmware, LCC Studio, LCC Scan, user manuals, and release notes             | [XGRIDS downloads](https://www.xgrids.com/support/download)                                             |
-| PortalCam download page        | PortalCam firmware and PortalCam-specific files                             | [PortalCam downloads](https://www.xgrids.com/support/download?page=PortalCam)                           |
-| LCC Studio download page       | Windows desktop reconstruction, editing, export, and publishing             | [LCC Studio downloads](https://www.xgrids.com/support/download?page=LCCStudio)                          |
-| LCC Scan download page         | Mobile app for device connection, live feed, settings, and scan data        | [LCC Scan downloads](https://www.xgrids.com/support/download?page=LCCScan)                              |
-| XGRIDS Docs/FAQ                | Manufacturer FAQs, software notes, and support articles                     | [XGRIDS Docs/FAQ](https://www.xgrids.com/support/docs-faq)                                              |
-| Lixel CyberColor               | Background on the LCC/3DGS processing platform                              | [Lixel CyberColor](https://www.xgrids.com/lixel-cyber-color)                                            |
-| Developer resources            | SDK and platform information                                                | [XGRIDS developer page](https://www.xgrids.com/developer)                                               |
-| LCC Unity SDK                  | Unity integration for LCC assets                                            | [xgrids/LCC-Unity-SDK on GitHub](https://github.com/xgrids/LCC-Unity-SDK)                               |
+| Resource                       | Use It For                                                                  | Link                                                                                |
+| ------------------------------ | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| OpenELAB product page          | Purchase, SKU, kit contents, and OpenELAB support                           | OpenELAB PortalCam product page (exact version not currently listed on OpenELAB.io) |
+| XGRIDS PortalCam official page | Manufacturer overview, applications, workflow, and sample-data entry points | [XGRIDS PortalCam](https://www.xgrids.com/portalcam)                                |
+| XGRIDS download center         | Firmware, LCC Studio, LCC Scan, user manuals, and release notes             | [XGRIDS downloads](https://www.xgrids.com/support/download)                         |
+| PortalCam download page        | PortalCam firmware and PortalCam-specific files                             | [PortalCam downloads](https://www.xgrids.com/support/download?page=PortalCam)       |
+| LCC Studio download page       | Windows desktop reconstruction, editing, export, and publishing             | [LCC Studio downloads](https://www.xgrids.com/support/download?page=LCCStudio)      |
+| LCC Scan download page         | Mobile app for device connection, live feed, settings, and scan data        | [LCC Scan downloads](https://www.xgrids.com/support/download?page=LCCScan)          |
+| XGRIDS Docs/FAQ                | Manufacturer FAQs, software notes, and support articles                     | [XGRIDS Docs/FAQ](https://www.xgrids.com/support/docs-faq)                          |
+| Lixel CyberColor               | Background on the LCC/3DGS processing platform                              | [Lixel CyberColor](https://www.xgrids.com/lixel-cyber-color)                        |
+| Developer resources            | SDK and platform information                                                | [XGRIDS developer page](https://www.xgrids.com/developer)                           |
+| LCC Unity SDK                  | Unity integration for LCC assets                                            | [xgrids/LCC-Unity-SDK on GitHub](https://github.com/xgrids/LCC-Unity-SDK)           |
 
 ### Current Software Notes
 
@@ -157,7 +157,7 @@ PortalCam is primarily a spatial-content and 3DGS capture system. For measuremen
 
 ### Source Notes
 
-* Product details and kit information: [OpenELAB PortalCam product page](https://openelab.io/products/xgrids-portalcam-standard-kit-3d-camera)
+* Product details and kit information: OpenELAB PortalCam product page (exact version not currently listed on OpenELAB.io)
 * Manufacturer overview and workflow claims: [XGRIDS PortalCam official page](https://www.xgrids.com/portalcam)
 * Downloads, versions, manuals, and release notes: [XGRIDS download center](https://www.xgrids.com/support/download)
 * Software and SDK ecosystem: [XGRIDS developer page](https://www.xgrids.com/developer), [LCC Unity SDK](https://github.com/xgrids/LCC-Unity-SDK), [Lixel CyberColor](https://www.xgrids.com/lixel-cyber-color)

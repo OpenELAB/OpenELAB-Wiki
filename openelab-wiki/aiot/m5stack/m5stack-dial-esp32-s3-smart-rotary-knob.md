@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/m5stackdial?_pos=1&_sid=32748f506&_ss=r" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Description
 

@@ -886,6 +886,6 @@ D1 1000BASE-T1 N D2 1000BASE-T1 P
 
 * Review date: 2026-06-04.
 * Local source file: `RS-EM4_UserGuide_v1.1_EN.pdf`.
-* Product link: [https://openelab.io/products/robosense-em4-thousand-beam-long-range-digital-lidar.](https://openelab.io/products/robosense-em4-thousand-beam-long-range-digital-lidar.)
+* Product link: [https://openelab.io/products/robosense-em4-thousand-beam-long-range-digital-lidar](https://openelab.io/products/robosense-em4-thousand-beam-long-range-digital-lidar)
 * Content basis: local PDF text extraction with page markers preserved.
 * Omitted content: manufacturer contact emails, phone numbers, addresses, working hours, and support contact blocks.

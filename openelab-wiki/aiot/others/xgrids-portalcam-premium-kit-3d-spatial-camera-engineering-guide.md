@@ -1,6 +1,6 @@
 # XGRIDS PortalCam Premium Kit 3D Spatial Camera Engineering Guide
 
-**Product link:** [XGRIDS PortalCam Premium Kit Handheld 3D Spatial Camera LiDAR+3DGS on OpenELAB](https://openelab.io/products/xgrids-portalcam-premium-kit-3d-spatial-camera)
+**Product link:** XGRIDS PortalCam Premium Kit Handheld 3D Spatial Camera LiDAR+3DGS on OpenELAB (exact version not currently listed on OpenELAB.io)
 
 ## XGRIDS PortalCam Premium Kit 3D Spatial Camera Engineering Guide
 
@@ -72,7 +72,7 @@ Because PortalCam is a multi-sensor spatial system, quality depends on capture d
 
 | Resource                           | Use It For                                                                      | Link                                                                                                                                   |
 | ---------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| OpenELAB Premium Kit page          | Purchase, SKU XGRIDS-10618, kit contents, and OpenELAB support                  | [OpenELAB PortalCam Premium Kit](https://openelab.io/products/xgrids-portalcam-premium-kit-3d-spatial-camera)                          |
+| OpenELAB Premium Kit page          | Purchase, SKU XGRIDS-10618, kit contents, and OpenELAB support                  | OpenELAB PortalCam Premium Kit (exact version not currently listed on OpenELAB.io)                                                     |
 | Related OpenELAB Standard Kit wiki | Compare the Standard Kit engineering notes                                      | [PortalCam Standard Kit Engineering Guide](https://wiki.openelab.io/cameras/xgrids-portalcam-standard-kit-3d-camera-engineering-guide) |
 | XGRIDS PortalCam official page     | Manufacturer overview, applications, workflow, and sample-data entry point      | [XGRIDS PortalCam](https://www.xgrids.com/portalcam)                                                                                   |
 | XGRIDS download center             | Firmware, LCC Studio, LCC Scan, user manuals, and release notes                 | [XGRIDS downloads](https://www.xgrids.com/support/download)                                                                            |
@@ -178,7 +178,7 @@ PortalCam is primarily a spatial-content and 3DGS capture system. For measuremen
 
 ### Source Notes
 
-* Product details and Premium Kit contents: [OpenELAB PortalCam Premium Kit product page](https://openelab.io/products/xgrids-portalcam-premium-kit-3d-spatial-camera)
+* Product details and Premium Kit contents: OpenELAB PortalCam Premium Kit product page (exact version not currently listed on OpenELAB.io)
 * Manufacturer overview and workflow claims: [XGRIDS PortalCam official page](https://www.xgrids.com/portalcam)
 * Downloads, versions, manuals, and release notes: [XGRIDS download center](https://www.xgrids.com/support/download)
 * Software and SDK ecosystem: [XGRIDS developer portal](https://developer.xgrids.com/), [LCC Unity SDK](https://github.com/xgrids/LCC-Unity-SDK), [Lixel CyberColor](https://www.xgrids.com/lixel-cyber-color)

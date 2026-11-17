@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/lipo-battery-rc-drone?_pos=1&_psq=LiPo+Battery+3S+11.1V+1300%2F2200%2F3500%2F4200%2F5200%2F6000%2F10000%2F12000mAh+for+RC+Drone&_ss=e&_v=1.0" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Introduction
 

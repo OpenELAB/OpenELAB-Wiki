@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/seeed-studio-recomputer-j4011b-nx" %}
+{% embed url="https://openelab.io/products/seeed-studio-recomputer-j4011b" %}
 
 ### Description
 
@@ -140,16 +140,20 @@ We will explain how to do a simple benchmark on the connected SSD.
 
 * **Step 1:** Check the write speed by executing the below command.
 
+{% code collapsedlinecount="10" %}
 ```sh
 sudo dd if=/dev/zero of=/home/nvidia/test bs=1M count=512 conv=fdatasync
 ```
+{% endcode %}
 
 * **Step 2:** Check the read speed by executing the below commands. Make sure to execute this after executing the above command for write speed.
 
+{% code collapsedlinecount="10" %}
 ```sh
 sudo sh -c "sync && echo 3 > /proc/sys/vm/drop_caches"
 sudo dd if=/home/nvidia/test of=/dev/null bs=1M count=512
 ```
+{% endcode %}
 
 ### M.2 Key E[​](https://wiki.seeedstudio.com/recomputer_j401b_interfaces_usage/#m2-key-e) <a href="#m2-key-e" id="m2-key-e"></a>
 
@@ -167,14 +171,17 @@ After installing wifi/bluetooth module, you can see the wifi/bluetooth icon in t
 
 **Wi-Fi test**[**​**](https://wiki.seeedstudio.com/recomputer_j401b_interfaces_usage/#wi-fi-test)
 
+{% code collapsedlinecount="10" %}
 ```
 ifconfig
 ```
+{% endcode %}
 
 <div align="center"><img src="https://files.seeedstudio.com/wiki/reComputer-Jetson/A608/J401-wifi-test.png" alt="" width="1000"></div>
 
 **Bluetooth test**[**​**](https://wiki.seeedstudio.com/recomputer_j401b_interfaces_usage/#bluetooth-test)
 
+{% code collapsedlinecount="10" %}
 ```
 bluetoothctl
 power on   #open bluetooth
@@ -183,6 +190,7 @@ scan on    #search other bluetooths
 connect xx:xx:xx:xx #connect target bluetooth
 paired-devices #show all paired devices
 ```
+{% endcode %}
 
 <div align="center"><img src="https://files.seeedstudio.com/wiki/reComputer-Jetson/A608/J401-bluetooth-test.png" alt="" width="1000"></div>
 
@@ -214,23 +222,29 @@ Here the 2 CSI camera connectors are marked as **CAM0 and CAM1**. You can either
 
 Open your terminal(Ctrl+Alt+T) and input command like below:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo /opt/nvidia/jetson-io/jetson-io.py
 ```
+{% endcode %}
 
 <div align="center"><img src="https://files.seeedstudio.com/wiki/reComputer-Jetson/A608/J401-cameral.gif" alt="" width="1000"></div>
 
 For CAM0 port
 
+{% code collapsedlinecount="10" %}
 ```
 nvgstcapture-1.0 sensor-id=0 
 ```
+{% endcode %}
 
 For CAM1 port
 
+{% code collapsedlinecount="10" %}
 ```
 nvgstcapture-1.0 sensor-id=1  
 ```
+{% endcode %}
 
 **note:**
 
@@ -260,9 +274,11 @@ If you have not connected to internet via Ethernet, you can manually set the dat
 
 * **Step 4:** Open a terminal window, and execute the below command to check the hardware clock time.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo hwclock
 ```
+{% endcode %}
 
 You will see the output something like below which is not the correct date/time.
 
@@ -270,45 +286,58 @@ You will see the output something like below which is not the correct date/time.
 
 * **Step 5:** Change the hardware clock time to the current system clock time by entering the below command.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo hwclock --systohc
 ```
+{% endcode %}
 
 * **Step 6:** Remove any Ethernet cables connected to make sure it will not grab the time from the internet and reboot the board.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo reboot
 ```
+{% endcode %}
 
 * **Step 7:** Check hardware clock time to verify that the date/ time stays the same eventhough the device was powered off.
 * **Step 8:** Create a new shell script using any text editor of your preference. Here we use **vi** text editor.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo vi /usr/bin/hwtosys.sh 
 ```
+{% endcode %}
 
 * **Step 9:** Enter **insert mode** by pressing **i**, copy and paste the following content inside the file.
 
+{% code collapsedlinecount="10" %}
 ```
 #!/bin/bash
 
 sudo hwclock --hctosys
 ```
+{% endcode %}
 
 * **Step 10:** Make the script executable.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo chmod +x /usr/bin/hwtosys.sh 
 ```
+{% endcode %}
 
 * **Step 11:** Create a systemd file.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo nano /lib/systemd/system/hwtosys.service 
 ```
+{% endcode %}
 
 * **Step 12:** Add the following inside the file.
 
+{% code collapsedlinecount="10" %}
 ```
 [Unit]
 Description=Change system clock from hardware clock
@@ -319,25 +348,32 @@ ExecStart=/usr/bin/hwtosys.sh
 [Install]
 WantedBy=multi-user.target
 ```
+{% endcode %}
 
 * **Step 13:** Reload systemctl daemon.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo systemctl daemon-reload 
 ```
+{% endcode %}
 
 * **Step 14:** Enable the newly created service to start on boot and start the service.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo systemctl enable hwtosys.service
 sudo systemctl start hwtosys.service
 ```
+{% endcode %}
 
 * **Step 15:** Verify the script is up and running as a systemd service.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo systemctl status hwtosys.service
 ```
+{% endcode %}
 
 * **Step 16:** Reboot the board and you will the system clock is now in sync with the hardware clock.
 
@@ -355,15 +391,19 @@ If you want to change nvfancontrol.conf make sure you have read [it](https://doc
 
 * **Step 1:** Stop the nvfancontrol systemd service.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo systemctl stop nvfancontrol
 ```
+{% endcode %}
 
 * **Step 2:** Change nvfancontrol.conf.
 
+{% code collapsedlinecount="10" %}
 ```
 vi /etc/nvfancontrol.conf 
 ```
+{% endcode %}
 
 **note:**
 
@@ -371,15 +411,19 @@ After you change nvfancontrol.conf, print `Ese` and `:q` to quit
 
 * **Step 3:** Remove the status file.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo rm /var/lib/nvfancontrol/status
 ```
+{% endcode %}
 
 * **Step 4:** Restart nvfancontrol systemd service.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo systemctl restart nvfancontrol
 ```
+{% endcode %}
 
 ### GPIO[​](https://wiki.seeedstudio.com/recomputer_j401b_interfaces_usage/#gpio) <a href="#gpio" id="gpio"></a>
 
@@ -460,9 +504,11 @@ Connect the J401 with TTL with UART as below:
 
 * **Step 2:** Install PuTTy on Jetson, open your terminal(ALT+Ctrl+T) and type the following command.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt install putty
 ```
+{% endcode %}
 
 * **Step 3:** Use PuTTy on Windows send 'hello linux' to Jetson, and use PuTTy on Jetson send 'hello windows' to windwos.
 
@@ -504,9 +550,11 @@ Connect the J401 to Grove-3-Axis Digital Accelerometer with I2C as below:
 
 Open your terminal(ALT+Ctrl+T) and type the following command:
 
+{% code collapsedlinecount="10" %}
 ```
 i2cdetect -y -r 7
 ```
+{% endcode %}
 
 note
 

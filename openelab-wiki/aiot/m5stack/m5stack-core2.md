@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/m5stack-core2-esp32" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Description <a href="#description" id="description"></a>
 
@@ -167,11 +167,11 @@ LCD :320x240 TF card Maximum size 16GB
 | BM8563     | SDA    | SCL    |
 | FT6336U    | SDA    | SCL    |
 
-M5Core2 M-BUS Schematic diagram
+#### M5Core2 M-BUS Schematic diagram <a href="#m5core2-m-bus-schematic-diagram" id="m5core2-m-bus-schematic-diagram"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/core/core2/core2_mbus_01.webp" alt=""><figcaption></figcaption></figure>
 
-M5Core2 BUS(compared to M5Stack)
+#### M5Core2 BUS(compared to M5Stack) <a href="#m5core2-bus-compared-to-m5stack" id="m5core2-bus-compared-to-m5stack"></a>
 
 <figure><img src="https://www.gwendesign.com/kb/m5stack/img/M5StackM5Core2GPIO.png" alt=""><figcaption></figcaption></figure>
 
@@ -183,7 +183,7 @@ M5Core2 BUS(compared to M5Stack)
 | PORT-B(Black) | 26/36 | DAC/AD |
 | PORT-C(Blue)  | 13/14 | UART   |
 
-ESP32 ADC/DAC
+#### ESP32 ADC/DAC <a href="#esp32-adc-dac" id="esp32-adc-dac"></a>
 
 | ADC1       | ADC2               | DAC1       | DAC2       |
 | ---------- | ------------------ | ---------- | ---------- |

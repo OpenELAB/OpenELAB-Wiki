@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/raspberry-pi-4-respeaker-speech-recognition" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Introduction
 
@@ -72,9 +72,11 @@ Insert the ReSpeaker 2-Mics Pi HAT into the Raspberry Pi, making sure the pins a
 
 !!!Note
 
+{% code collapsedlinecount="10" %}
 ```
 Do not hot-swap the ReSpeaker 2-Mics Pi HAT while it is powered up.
 ```
+{% endcode %}
 
 <figure><img src="https://files.seeedstudio.com/wiki/MIC_HATv1.0_for_raspberrypi/img/connection2.jpg?raw=true" alt=""><figcaption></figcaption></figure>
 
@@ -88,25 +90,32 @@ Since the current Pi kernel does not currently support the wm8960 codec, we need
 2. You can use VNC or PUTTY to connect to the Raspberry Pi, but please configure the wifi beforehand!
 3. Before installing the driver, please switch the source to Tsinghua according to the following procedure.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo nano /etc/apt/sources.list
 ```
+{% endcode %}
 
 If you are commenting out the contents of the original file with #, replace it with the following：
 
+{% code collapsedlinecount="10" %}
 ```
 deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib
 deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib
 ```
+{% endcode %}
 
 !!!Note
 
+{% code collapsedlinecount="10" %}
 ```
 If it is before 2019-06-20 you need to change `buster` to `Stretch` you can check when it was released by `cat /etc/rpi-issue`.
 ```
+{% endcode %}
 
 Step 3. Download and install the driver Run the following command
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -115,15 +124,19 @@ cd seeed-voicecard #Download Sound Card Driver
 sudo ./install.sh  --compat-kernel #Installing the sound card driver
 reboot  #reboot
 ```
+{% endcode %}
 
 !!!Note
 
+{% code collapsedlinecount="10" %}
 ```
 If the driver installation fails you can skip to Q1 of FAQ to solve the driver installation failure problem.
 ```
+{% endcode %}
 
 Step 4. Check that the sound card name matches the source code seeed-voicecard.
 
+{% code collapsedlinecount="10" %}
 ```
 pi@raspberrypi:~/seeed-voicecard $ aplay -l
 **** List of PLAYBACK Hardware Devices ****
@@ -151,22 +164,27 @@ card 1: seeed2micvoicec [seeed-2mic-voicecard], device 0: bcm2835-i2s-wm8960-hif
   Subdevice #0: subdevice #0
 pi@raspberrypi:~/seeed-voicecard $
 ```
+{% endcode %}
 
 2. Audio playback tests
 
 Step 1. Recording Test You can record with arecord and play it back with aplay: (don't forget to plug in headphones or speakers).
 
+{% code collapsedlinecount="10" %}
 ```
 arecord -f cd -Dhw:1 | aplay -Dhw:1
 ```
+{% endcode %}
 
 It can also be tested by audacity software. After opening Audacity, select AC108 and 2 channels as inputs and bcm2835 alsa: - (hw: 0, 0) as outputs to test:
 
+{% code collapsedlinecount="10" %}
 ```
 $ sudo apt update
 $ sudo apt install audacity
 $ audacity                      // be in motion audacity
 ```
+{% endcode %}
 
 ![](https://files.seeedstudio.com/wiki/ReSpeaker-4-Mic-Array-for-Raspberry-Pi/img/audacity.png?raw=true)
 
@@ -174,17 +192,21 @@ Step 2. Adjust the volume (can be skipped)
 
 **alsamixer** is a graphical mixer program for configuring sound settings and adjusting volume, Advanced Linux Sound Architecture (ALSA).
 
+{% code collapsedlinecount="10" %}
 ```
 alsamixer
 ```
+{% endcode %}
 
 ![](https://files.seeedstudio.com/wiki/MIC_HATv1.0_for_raspberrypi/img/alsamixer.png?raw=true)
 
 !!!Note
 
+{% code collapsedlinecount="10" %}
 ```
 First of all, please use F6 to select seeed-2mic's sound card device.
 ```
+{% endcode %}
 
 The left and right arrow keys are used to select a channel or device, and the "up and down arrows" control the volume of the currently selected device. To exit the programme use ALT + Q or press Esc. More information
 
@@ -196,6 +218,7 @@ Each on-board APA102 LED has an additional driver chip which sets the colour of 
 
 Please open SPI before execution as follows.
 
+{% code collapsedlinecount="10" %}
 ```
 - input： `sudo raspi-config`;
 - select "Interfacing Options";
@@ -204,9 +227,11 @@ Please open SPI before execution as follows.
 - select “OK”
 - select “Finish”
 ```
+{% endcode %}
 
 After configuration, you can run the led example by executing the following command line
 
+{% code collapsedlinecount="10" %}
 ```
 cd ~/
 git clone https://github.com/respeaker/mic_hat.git
@@ -214,16 +239,20 @@ sudo pip install spidev #Installation of spi drivers
 cd mic_hat
 python pixels.py
 ```
+{% endcode %}
 
 ### How to use user-defined buttons[​](https://wiki.seeedstudio.com/cn/ReSpeaker_2_Mics_Pi_HAT/#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%89%E9%92%AE) <a href="#ru-he-shi-yong-yong-hu-zi-ding-yi-an-niu" id="ru-he-shi-yong-yong-hu-zi-ding-yi-an-niu"></a>
 
 There is a user-defined button on the top of the board that connects to GPIO17. We can call python and RPi.GPIO to read the state。
 
+{% code collapsedlinecount="10" %}
 ```
 sudo pip install rpi.gpio    // install RPi.GPIO library
 nano button.py               // copy the following code in button.py
 ```
+{% endcode %}
 
+{% code collapsedlinecount="10" %}
 ```
 import RPi.GPIO as GPIO
 import time
@@ -241,9 +270,11 @@ while True:
         print("on")
     time.sleep(1)
 ```
+{% endcode %}
 
 Save the code as button.py, then run it. It should display "on" when you press the button:
 
+{% code collapsedlinecount="10" %}
 ```
 
 python button.py
@@ -253,6 +284,7 @@ on
 on
 off
 ```
+{% endcode %}
 
 ### FAQ
 
@@ -279,9 +311,11 @@ Please perform the following steps:
 
 At the command line, enter the following command
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get install portaudio19-dev
 ```
+{% endcode %}
 
 </details>
 
@@ -307,12 +341,14 @@ When testing, I found that sudo executes from the system environment by default,
 
 We have 3 players (mpv, mpg123 and gstreamer) available. mpg123 is more suitable for speech recognition and wakeup more, it is more responsive; while AudioPlayer is more suitable for gstreamer> mpv> mpg123. Gstreamer supports more audio formats and works well on raspberry pi. We can also specify the player for AudioPlayer using the environment variable PLAYER. So try the following command to enable voice \*\*\* Translated with www.DeepL.com/Translator (free version) \*\*\*。
 
+{% code collapsedlinecount="10" %}
 ```
 
   sudo apt install mpg123
   PLAYER=mpg123 python ns_kws_doa_alexa_with_light.py
 
 ```
+{% endcode %}
 
 </details>
 

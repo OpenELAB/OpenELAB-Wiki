@@ -290,6 +290,6 @@ No. Manufacturer contact emails, phone numbers, addresses, working hours, and di
 * Primary source: local user-provided `AC1 .pdf`.
 * Manual version noted in PDF: 1.0.
 * Manual revision date noted in PDF: 2025-04-11.
-* Product page: [https://openelab.io/products/robosense-ac1-lidar-depth-camera-pre-sale.](https://openelab.io/products/robosense-ac1-lidar-depth-camera-pre-sale.)
+* Product page: [https://openelab.io/products/robosense-ac1-lidar-depth-camera-pre-sale](https://openelab.io/products/robosense-ac1-lidar-depth-camera-pre-sale)
 * Content style reference: existing OpenELAB Wiki page `robosense/robosense-emx`.
 * Contact/support blocks, emails, phone numbers, addresses, and working hours were omitted.

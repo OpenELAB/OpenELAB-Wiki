@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/18inch-colorful-display" %}
+{% embed url="https://openelab.io/products/waveshare-colorful-display-module-bit" %}
 
 ### Introduction
 

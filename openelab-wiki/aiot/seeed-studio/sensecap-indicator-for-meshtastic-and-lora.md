@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/seeed-studio-sensecap-indicator-for-meshtastic-lora" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Description
 

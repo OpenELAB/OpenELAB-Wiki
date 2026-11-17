@@ -29,6 +29,6 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/elab-raspberry-pi-card-reader?_pos=1&_sid=0f29a0a06&_ss=r" %}
+{% embed url="https://openelab.io/products/raspberrypicardreader" %}
 
 <figure><img src="../../.gitbook/assets/ELAB Raspberry Pi Card Reader.png" alt=""><figcaption></figcaption></figure>

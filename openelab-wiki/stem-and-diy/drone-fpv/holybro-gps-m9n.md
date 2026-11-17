@@ -29,7 +29,9 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/holybro-gps-m9n" %}
+The current OpenELAB.io listing uses an IST8308 compass. This guide describes the earlier IST8310-equipped version; check the listing for current hardware and connector options.
+
+{% embed url="https://openelab.io/products/holybro-m9n-gps" %}
 
 ### Introduction
 

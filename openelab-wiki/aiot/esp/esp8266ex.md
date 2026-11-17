@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/espressif-cost-esp8266-ic-module?_pos=1&_sid=69bd27698&_ss=r" %}
+{% embed url="https://openelab.io/products/esp8266-ic-module" %}
 
 <figure><img src="../../.gitbook/assets/image (733).png" alt=""><figcaption></figcaption></figure>
 

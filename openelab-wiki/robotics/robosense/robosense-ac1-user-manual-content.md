@@ -406,6 +406,6 @@ Liuxian Avenue, Taoyuan Street, Nanshan District, Shenzhen, China www.robosense.
 
 * Review date: 2026-06-04.
 * Local source file: `AC1 .pdf`.
-* Product link: [https://openelab.io/products/robosense-ac1-lidar-depth-camera-pre-sale.](https://openelab.io/products/robosense-ac1-lidar-depth-camera-pre-sale.)
+* Product link: [https://openelab.io/products/robosense-ac1-lidar-depth-camera-pre-sale](https://openelab.io/products/robosense-ac1-lidar-depth-camera-pre-sale)
 * Content basis: local PDF text extraction with page markers preserved.
 * Omitted content: manufacturer contact emails, phone numbers, addresses, working hours, and support contact blocks.

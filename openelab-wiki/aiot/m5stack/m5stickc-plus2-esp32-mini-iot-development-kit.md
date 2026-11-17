@@ -36,11 +36,11 @@ layout:
 
 #### M5StickC Plus2
 
-{% embed url="https://openelab.io/products/m5stickcplus2?_pos=2&_psq=Plus&_ss=e&_v=1.0" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 #### M5StickC Plus2 with Watch
 
-{% embed url="https://openelab.io/products/m5stickc-plus2-watch-accessories" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Description <a href="#description" id="description"></a>
 

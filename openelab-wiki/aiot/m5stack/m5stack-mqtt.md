@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/m5stack-mqtt-unit" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Description <a href="#description" id="description"></a>
 
@@ -83,111 +83,131 @@ Note: Send a carriage return and line feed `\r` at the end of each command
 
 -The MAC address must be in the following format: XX-XX-XX-XX-XX-XX
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+NETMAC=12-34-56-78-90-AB
 +NETMAC=OK
  
 ```
+{% endcode %}
 
 `AT+NETSTATICIP=`IP address`,`subnet mask`,`gateway\`\`
 
 * Command description: Set the static IP address of the module (AT+NETSTATICIP=`IP address`,`subnet mask`,`gateway`) ?`Note: When the DHCP function is turned on, the static IP setting will not be enabled.`br``IP address` (text), which means the local IP address, you can use the IP address or domain name`br``subnet mask `(text), must be in IP address format`br\`\`gateway\`(text), must be in IP address format
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+NETSTATICIP="192.168.0.101","255.255.255.0","192.168.0.1"
 +NETSTATICIP=OK
  
 ```
+{% endcode %}
 
 `AT+NETDHCPEN=`1/0\`\`
 
 * Command description: Enable/disable DHCP function `1/0``br`1: Enable DHCP function`br`0: Disable DHCP function
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+NETDHCPEN=1
 +NETDHCPEN=OK
  
 ```
+{% endcode %}
 
 `AT+MQCLIENTID=`client name\`\`
 
 * Command description: Set MQTT server `br``client name``br`(text) MQTT client name
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //使用示例
 AT+MQCLIENTID="CLIENT ID"
 +MQCLIENTID=OK
  
 ```
+{% endcode %}
 
 `AT+MQKEEP=`heartbeat duration\`\`
 
 * Command description: Set the length of the heartbeat time for connecting to the MQTT server`br``heartbeat time``br`The time interval for automatically sending PINGREQ packets, unit: second, range 5\~300
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQKEEP=500
 +MQKEEP=OK
  
 ```
+{% endcode %}
 
 `AT+MQSUBSCRIBE=`subject serial number`,`1/0`,`subject name`,`quality of service\`\`
 
 * Command description: Set the topic subscribed to the MQTT server. This module can subscribe 4 topics to the server at the same time. After modifying the subscription topic through this command, the topic will not be subscribed or unsubscribed immediately. It will take effect the next time you connect to MQTT.`br` `Subject Number` Numbers 1-4 `br``1/0`1 Open the subscription of this topic, 0 Close the subscription of the changed topic, when the parameter is changed to 0, the latter two parameters must be empty`br``topic name`(text)`quality of service` Must be one of 0, 1, 2
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQSUBSCRIBE=1,1,"sub",0
 +MQSUBSCRIBE=OK
  
 ```
+{% endcode %}
 
 `AT+MQSERVER=`server address`,`server port\`\`
 
 * Command description: Set the address and port number of the MQTT server`br``server address``br`(text), you can use IP address or domain name`br``server port` number 0\~65535
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQSERVER="xxx.mqttserver.com",1883
 +MQSERVER=OK
  
 ```
+{% endcode %}
 
 `AT+MQUSERPWD=`user name`,`password\`\`
 
 * Command description: `br`set user name and password `user name` (text) MQTT user name`br``password` (text) MQTT login password
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQUSERPWD="user","123456"
 +MQUSERPWD=OK
  
 ```
+{% endcode %}
 
 `AT+MQAUTO=`1/0\`\`
 
 * Command description: `br`Set whether to directly connect to the server when powering on.`br``1/0`0: Do not directly start the connection when powering on, 1: Start the connection directly according to the configured parameters when powering on
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQAUTO=1
 +MQAUTO=OK
  
 ```
+{% endcode %}
 
 `AT+MQRESETCFG`
 
 * Command description: Set to restore factory settings related to MQTT`br`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQRESETCFG
 +MQRESETCFG=OK
  
 ```
+{% endcode %}
 
 `AT+MQPUBLISH=`topic`,`message`,`quality of service\`\`
 
@@ -197,34 +217,40 @@ AT+MQRESETCFG
 
 * Command description: Set the serial port baud rate`br``baud rate` The baud rate can only be the following values/4800/9600/19200/34800/115200/230400
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+BAUD=115200
 +BAUD=OK
  
 ```
+{% endcode %}
 
 `AT+SAVE`
 
 * Command description: Set the save parameters, `After configuring the MQTT parameters, you need to execute the SAVE command, and perform a RESET soft reset, the configuration will take effect`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+SAVE
 +SAVE=OK
  
 ```
+{% endcode %}
 
 `AT+RESET`
 
 * Command description: Set the module soft reset, `After configuring the MQTT parameters, you need to execute the SAVE command, and perform a RESET soft reset, the configuration will take effect`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+RESET
 +RESET=OK
  
 ```
+{% endcode %}
 
 #### Query AT commands <a href="#query-at-commands" id="query-at-commands"></a>
 
@@ -232,83 +258,98 @@ AT+RESET
 
 * Command description: Test whether the communication with the module is successful, response: AT
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT
 AT
  
 ```
+{% endcode %}
 
 `AT+MQSUBSCRIBE=`subject serial number`?`
 
 * Command description: query the subscribed topic, response: +MQSUBSCRIBE=OK:`topic number`,`on/off`,`topic name`,`service quality level``br``topic number` can only be 1\~4 One of the `br``on/off` is 1 when the current subscription is on, and 0 means when the subscription is invalid.`br``topic name``service level quality` can only be 0,1,2, one of which means MQTT service QOS0, QOS1, QOS2 in quality
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQSUBSCRIBE=1?
 +MQSUBSCRIBE=OK:1,1,"/topic",0
  
 ```
+{% endcode %}
 
 `AT+MQAUTO?`
 
 * Command description: Query whether to start the connection directly when powering on, response: +MQAUTO=OK:`on/off` 0: Do not start the connection directly when powering on, 1: Start the connection directly according to the configured parameters when powering on
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQAUTO?
 +MQAUTO=OK:1
  
 ```
+{% endcode %}
 
 `AT+NETMAC?`
 
 * Command description: Query the current MAC address of the module, response: +NETMAC=OK:`MAC address` The format is: XX-XX-XX-XX-XX-XX
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+NETMAC?
 +NETMAC=OK:12-34-56-78-90-AB
  
 ```
+{% endcode %}
 
 `AT+NETSTATICIP?`
 
 * Command description: Query the static IP settings of the module, response: +NETSTATICIP=OK:`static IP address`,`subnet mask`,`gateway`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+NETSTATICIP?
 +NETSTATICIP=OK:"192.168.1.2","255.255.255.0","192.168.1.1"
  
 ```
+{% endcode %}
 
 `AT+NETDHCPEN?`
 
 * Command description: Inquire about enabling/disabling of the DHCP function, response: +NETDHCPEN=OK:`start/disable` 1: Enable the DHCP function, 0: Disable the DHCP function
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+NETDHCPEN?
 +NETDHCPEN=OK:1
  
 ```
+{% endcode %}
 
 `AT+MQCLIENTID?`
 
 * Command description: View the client name of MQTT, response: +MQCLIENTID=OK:`client IP`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQCLIENTID?
 +MQCLIENTID=OK:"clientID"
  
 ```
+{% endcode %}
 
 `AT+MQSERVER?`
 
 * Command description: Query the address and port number of the MQTT server, response: +MQSERVER=OK:`server address`,`server port number`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQSERVER?
@@ -316,75 +357,89 @@ AT+MQSERVER?
 +MQSERVER=OK:"192.168.1.55",1883
  
 ```
+{% endcode %}
 
 `AT+MQUSERPWD?`
 
 * Command description: Query the user name and password of the MQTT server that has been set, response: +MQUSERPWD=OK:`username`,`password`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQUSERPWD?
 +MQUSERPWD=OK:"USER","123456"
  
 ```
+{% endcode %}
 
 `AT+MQKEEP?`
 
 * Command description: Query the length of the heartbeat interval when connecting to the MQTT server, response: +MQKEEP=OK:`heartbeat interval`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQKEEP?
 +MQKEEP=OK:60
  
 ```
+{% endcode %}
 
 `AT+BAUD?`
 
 * Command description: Query the baud rate of the serial port, response: +BAUD=OK:`baud rate` The default baud rate is 9600
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+BAUD?
 +BAUD=OK:9600
  
 ```
+{% endcode %}
 
 `AT+VERSION?`
 
 * Command description: Query the current version number, response: +VERSION=OK:`current firmware version number`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+VERSION?
 +VERSION=OK:1.0
  
 ```
+{% endcode %}
 
 `AT+MQSTATUS?`
 
 * Command description: Query MQTT connection/connection has been disconnected`br`Response: +MQSTATUS=OK:`connection status`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+MQSTATUS?
 +MQSTATUS=OK:1
  
 ```
+{% endcode %}
 
 `AT+NETIP?`
 
 * Command description: Query the current actual IP address of the module`br`Response: +NETIP=OK:`IP address`,`subnet mask`,`gateway`,`DNS server address`
 
+{% code collapsedlinecount="10" %}
 ```cpp
 //Example
 AT+NETIP?
 +NETIP=OK:"192.168.2.121","255.255.255.0","192.168.2.1","192.168.2.1"
  
 ```
+{% endcode %}
 
 #### AT commands sent actively <a href="#at-commands-sent-actively" id="at-commands-sent-actively"></a>
 
+{% code collapsedlinecount="10" %}
 ```cpp
 
 //The network is not connected
@@ -399,9 +454,11 @@ AT+NETIP?
 //Received topic message
 +MQRECV:`subject`,`length`,`message`
 ```
+{% endcode %}
 
 #### Error code returned when the instruction is wrong <a href="#error-code-returned-when-the-instruction-is-wrong" id="error-code-returned-when-the-instruction-is-wrong"></a>
 
+{% code collapsedlinecount="10" %}
 ```cpp
 
 //Parameter content error
@@ -422,6 +479,7 @@ ERROR: MQTT Connect Fail
 //The server did not respond when publishing the message (Qos1 and Qos2)
 ERROR: MQTT Publish Fail
 ```
+{% endcode %}
 
 ### Compatible
 

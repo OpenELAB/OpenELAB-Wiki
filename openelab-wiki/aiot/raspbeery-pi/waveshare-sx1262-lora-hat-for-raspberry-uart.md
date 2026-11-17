@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/sx1262lorahat" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Introduction
 
@@ -138,11 +138,13 @@ This test uses a Windows PC to connect to the LoRa HAT, and the jump settings wi
 
 2\. Enter the path of python3 into the terminal, the default address is generally as shown in the picture below, pay attention to check your python3 path, and install pyserial.
 
+{% code collapsedlinecount="10" %}
 ```
 path=%path%;C:\Users\zhongshaohua\AppData\Local\Programs\Python\Python37\Scripts\
 path=%path%;C:\Users\zhongshaohua\AppData\Local\Programs\Python\Python37\
 pip3 install pyserial
 ```
+{% endcode %}
 
 3\. Use the upper computer software to set up LoRa HAT, unplug the M1 jumper when setting, connect to the M1 jumper, and close the serial port of the upper computer after the setting is completed. Set the parameters as follows:
 
@@ -174,6 +176,7 @@ In this chapter, we will demonstrate two examples. Demo 1: the test of two LoRa 
 \
 Enter the following commands one by one to install the Python library, the first command enables the Raspberry Pi serial port.
 
+{% code collapsedlinecount="10" %}
 ```
 #The system higher than version 2021.10.30 no longer needs to install the serial library.
 #sudo apt install python-serial
@@ -182,6 +185,7 @@ cd Documents
 wget https://files.waveshare.com/upload/1/18/SX126X_LoRa_HAT_CODE.zip
 unzip SX126X_LoRa_HAT_CODE.zip
 ```
+{% endcode %}
 
 2\. Enable serial port.
 
@@ -193,10 +197,12 @@ Open the Terminal of Raspberry Pi.Run command sudo raspi-config to open Configur
 
 After executing the following command, the node will automatically print to the terminal when it receives the data sent by other nodes. When the node needs to send data to other nodes, press the keyboard i, and then enter the input according to the prompt, as shown in the figure below:
 
+{% code collapsedlinecount="10" %}
 ```
 cd ~/Documents/SX126X_LoRa_HAT_Code/raspberrypi/python/
 sudo python3 main.py
 ```
+{% endcode %}
 
 *
 
@@ -237,11 +243,13 @@ Relay communication is a method for ultra-long-distance communication. Setting u
 
 After LoRa module A is connected to the Raspberry Pi, open the main.py file, change line 66, change realy=False to realy=True, and execute the following command, LoRa module C will print the data from the serial port after receiving the data, and relay the LoRa module B will not print any data from the serial port, enter the following command:
 
+{% code collapsedlinecount="10" %}
 ```
 cd ~/Documents/SX126X_LoRa_HAT_Code/RaspberryPi/python/
 # node = sx126x.sx126x(serial_num = "/dev/ttyS0",freq=868,addr=0,power=22,rssi=True,air_speed=2400,relay=True)
 sudo python3 main.py
 ```
+{% endcode %}
 
 ### Working with STM32
 
@@ -267,11 +275,13 @@ Connect the jumper cap to B, and remove the M0, and M1 jumper caps instead of us
 * The settings of the LoRa module connected to the computer USB are the same as in the above three demos.
 * Open the Keil project document and use different definitions in communication methods in lines 75 to 77 of the main.c file.
 
+{% code collapsedlinecount="10" %}
 ```
 #define TRASNSPARENT
 //#define RELAY
 //#define WOR
 ```
+{% endcode %}
 
 * Select the communication method above and press F7 to compile, press F8 to download to STM32.
 
@@ -281,6 +291,7 @@ In this section, we briefly describe the working process and Python program of t
 
 * After powering on, and setting up /dev/ttyS0 serial port and 9600 baud rate, the M0 (BCM22) pin of the module is in low level, M1 (BCM27) pin is in high level, the module enters the configuration mode:
 
+{% code collapsedlinecount="10" %}
 ```
  def __init__(self,serial_num,freq,addr,power,rssi,air_speed=2400,\
                  net_id=0,buffer_size = 240,crypt=0,\
@@ -303,9 +314,11 @@ In this section, we briefly describe the working process and Python program of t
         self.ser.flushInput()
         self.set(freq,addr,power,rssi,air_speed,net_id,buffer_size,crypt,relay,lbt,wor)
 ```
+{% endcode %}
 
 * Lines 11 to 77 in the following code set the LoRa module's low address, high address, network ID, frequency, airspeed size, cache size, power size, RSSI input enable, encryption key and whether it is enabled the relay mode parameters, click to check [register description](https://www.waveshare.com/wiki/LoRa-HAT-Reg)and [LoRa Configuration](https://www.waveshare.com/wiki/LoRa-HAT-Control). Lines 79 to 113 are the serial port sending configuration commands to the LoRa module. If the configuration is correct, pull down the M1 pin to enter the transceiver mode.
 
+{% code collapsedlinecount="10" %}
 ```
  def set(self,freq,addr,power,rssi,air_speed=2400,\
             net_id=0,buffer_size = 240,crypt=0,\
@@ -434,9 +447,11 @@ In this section, we briefly describe the working process and Python program of t
             # self.get_channel_rssi()
         time.sleep(0.1)
 ```
+{% endcode %}
 
 * Data received by the receiver send to the controller from the serial output and pay attention to the third line of code. If the amount of received data is too large, please increase the delay accordingly and wait for all the data to be received before reading. Lines 10 to 15 are based on whether RSSI Enable to print RSSI value.
 
+{% code collapsedlinecount="10" %}
 ```
  def receive(self):
         if self.ser.inWaiting() > 0:
@@ -455,9 +470,11 @@ In this section, we briefly describe the working process and Python program of t
                 pass
                 #print('\x1b[2A',end='\r')
 ```
+{% endcode %}
 
 * In the main.py file, after the program runs, wait for the user to press the keyboard to perform the corresponding operation, enter Esc to exit the loop, enter i to enter the application information to be sent, and enter s to broadcast the CPU temperature every 10 seconds:
 
+{% code collapsedlinecount="10" %}
 ```
  try:
     time.sleep(1)
@@ -499,6 +516,7 @@ In this section, we briefly describe the working process and Python program of t
  except:
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, old_settings)
 ```
+{% endcode %}
 
 ### Resources
 
@@ -567,9 +585,11 @@ Additional instructions: In the OSI model of a computer network, LoRa is located
 
 It may be the serial port issue, the default serial port used by the program is ttyS0, Raspberry Pi serial port may not be, you can use the following command to confirm (serial0 corresponds to the selected serial port):<br>
 
+{% code collapsedlinecount="10" %}
 ```
 ls -l /dev/serial*
 ```
+{% endcode %}
 
 [![SX12XM LoRa HAT FAQ.png](https://www.waveshare.com/w/upload/d/dd/SX12XM_LoRa_HAT_FAQ.png)](https://www.waveshare.com/wiki/File:SX12XM_LoRa_HAT_FAQ.png)\
 470M and 433M module demos are the same, and the default use of 433M program; 915M and 868M are used 868M program, the default program is 433M, change the comment:\

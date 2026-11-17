@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/m5stack-scales-unit" %}
+{% embed url="https://openelab.io/products/scales-unit" %}
 
 ### Introduction
 

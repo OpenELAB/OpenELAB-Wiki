@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/m5stack-glass-unit-w" %}
+{% embed url="https://openelab.io/products/glass-unit-w-transparent-oled" %}
 
 ### Description <a href="#description" id="description"></a>
 

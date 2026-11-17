@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/gps-stand-1" %}
+{% embed url="https://openelab.io/products/gps-stand" %}
 
 ### Introduction
 

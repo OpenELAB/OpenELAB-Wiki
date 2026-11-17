@@ -727,13 +727,13 @@ Clear All
 
 ![Scantech 3DeVOK MT Professional 3D Scanner All in One 3D Scanning Technology](<../../.gitbook/assets/1_3a7f5132 f354 4166 a04e 2a3be2475e4c (1).webp>)
 
-[Scantech 3DeVOK MT Professional 3D Scanner All in One 3D Scanning Technology](https://openelab.io/products/3devok-mt-professional-3d-scanner)
+Scantech 3DeVOK MT Professional 3D Scanner All in One 3D Scanning Technology (exact version not currently listed on OpenELAB.io)
 
 Regular price7.918,90 €Sale price6.818,90 €
 
 ![XGRIDS PortalCam Premium Kit Handheld 3D Spatial Camera LiDAR+3DGS](<../../.gitbook/assets/1_61882e7e d85d 4dff 995d 2094b4aab6d2 (2).webp>)
 
-[XGRIDS PortalCam Premium Kit Handheld 3D Spatial Camera LiDAR+3DGS](https://openelab.io/products/xgrids-portalcam-premium-kit-3d-spatial-camera)
+XGRIDS PortalCam Premium Kit Handheld 3D Spatial Camera LiDAR+3DGS (exact version not currently listed on OpenELAB.io)
 
 Regular price7.132,40 €Sale price6.598,90 €
 
@@ -809,8 +809,6 @@ Reload
 
 This page has been blocked by an extension
 
-![](https://openelab.io/products/Base64-Image-Removed) ![](https://openelab.io/products/Base64-Image-Removed)
-
 openelab.io
 
 ## openelab.io is blocked
@@ -825,8 +823,6 @@ Reload
 
 This page has been blocked by an extension
 
-![](https://openelab.io/products/Base64-Image-Removed) ![](https://openelab.io/products/Base64-Image-Removed)
-
 shop.app
 
 ## shop.app is blocked
@@ -840,8 +836,6 @@ ERR\_BLOCKED\_BY\_CLIENT
 Reload
 
 This page has been blocked by an extension
-
-![](https://openelab.io/products/Base64-Image-Removed) ![](https://openelab.io/products/Base64-Image-Removed)
 
 [Judge.me](https://openelab.io/products/robosense-emx-192-beam-automotive?variant=45731804414150)
 

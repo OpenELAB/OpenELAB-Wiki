@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://security.feishu.cn/link/safety?target=https%3A%2F%2Fopenelab.io%2Fproducts%2Fm5stack-glass-unit-w&scene=ccm&logParams=%7B%22location%22%3A%22ccm_sheet%22%7D&lang=zh-CN&from=from_parent_sheet" %}
+{% embed url="https://openelab.io/products/glass-unit-w-transparent-oled" %}
 
 ### Introduction
 

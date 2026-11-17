@@ -29,7 +29,9 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/m5stamp-esp32s3-module" %}
+Current OpenELAB.io listing: M5StampS3 versions with 1.27 mm or 2.54 mm header pins. Select the required connector option.
+
+{% embed url="https://openelab.io/products/m5stack-m5stamps3" %}
 
 ### Description <a href="#description" id="description"></a>
 

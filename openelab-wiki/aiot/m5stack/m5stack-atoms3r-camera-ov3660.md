@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/m5stack-atoms3r-camera-kit-m12-version-ov3660" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Description <a href="#description" id="description"></a>
 

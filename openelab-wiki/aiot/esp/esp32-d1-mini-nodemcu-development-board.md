@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/esp32-d1-mini-nodemcu-with-arduino?_pos=1&_sid=957276183&_ss=r" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Introduction
 

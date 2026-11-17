@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/m5stack-m5stickv" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Introduction
 

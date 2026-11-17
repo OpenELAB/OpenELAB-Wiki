@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/gy-bme280-barometric-sensor?variant=43511648551110" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Introduction
 
@@ -82,6 +82,7 @@ The BME280 is a high-performance sensor that measures humidity, pressure, and te
 
 
 
+{% code collapsedlinecount="10" %}
 ```cpp
 // Example code for Arduino
 
@@ -119,3 +120,4 @@ void loop() {
 }
 
 ```
+{% endcode %}

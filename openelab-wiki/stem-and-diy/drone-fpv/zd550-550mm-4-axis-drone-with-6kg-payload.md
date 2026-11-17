@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/zd550-open-sourced-fly-ready-drone" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Introduction
 

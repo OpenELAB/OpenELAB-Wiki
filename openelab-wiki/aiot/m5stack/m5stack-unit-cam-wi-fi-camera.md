@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/cam-wifi-camera" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Description <a href="#description" id="description"></a>
 
@@ -148,9 +148,11 @@ Unit CAM does not include a program download circuit. When the user needs to dow
 * [HTTP Stream](https://github.com/m5stack/M5_Camera_Examples/tree/main/idf/http-stream)
 * [Wireless-send](https://github.com/m5stack/M5_Camera_Examples/tree/main/idf/wireless-send)
 
+{% code collapsedlinecount="10" %}
 ```cpp
 idf.py menuconfig
 ```
+{% endcode %}
 
 `Component config`->`ESP32-specific`->`Hardware brownout detect & reset`（disable）
 

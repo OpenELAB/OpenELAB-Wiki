@@ -1332,6 +1332,6 @@ delay（ns） 00-07 0 24-31 28160 08-15 5280 32-39 42240 16-23 14080 40-47 51040
 
 * Review date: 2026-06-04.
 * Local source file: `Fairy_EN_48TX_V1.0.pdf`.
-* Product link: [https://openelab.io/products/robosense-fairy-mid-range-lidar.](https://openelab.io/products/robosense-fairy-mid-range-lidar.)
+* Product link: [https://openelab.io/products/robosense-fairy-mid-range-lidar](https://openelab.io/products/robosense-fairy-mid-range-lidar)
 * Content basis: local PDF text extraction with page markers preserved.
 * Omitted content: manufacturer contact emails, phone numbers, addresses, working hours, and support contact blocks.

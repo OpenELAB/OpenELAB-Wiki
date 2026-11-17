@@ -34,7 +34,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/zd850-open-sourced-drone" %}
+No matching current OpenELAB.io listing was found for the product version documented here.
 
 ### Introduction
 
