@@ -1,7 +1,5 @@
 # OpenELAB
 
-Documentation for OpenELAB-listed generic products and modules whose manufacturer is not identified in the source documentation. This grouping identifies the catalog source; it does not imply that OpenELAB manufactures every device.
-
 ### Product documentation
 
 * [0.91 inch OLED I2C Display 128 x 32 pixels](0.91-inch-oled-i2c-display-128-x-32-pixels.md)
