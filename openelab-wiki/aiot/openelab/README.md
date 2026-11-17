@@ -1,27 +1,4 @@
----
-layout:
-  width: default
-  title:
-    visible: false
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
-  tags:
-    visible: true
-  actions:
-    visible: true
-  anchors:
-    visible: true
----
-
-# 🦊 ARDUINO
+# OpenELAB
 
 Arduino is an open-source platform with easy-to-use hardware and software. It has various microcontroller boards for creating digital and interactive projects, suitable for beginners to professionals.
 

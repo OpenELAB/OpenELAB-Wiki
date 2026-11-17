@@ -2,9 +2,9 @@
 layout:
   width: default
   title:
-    visible: false
+    visible: true
   description:
-    visible: false
+    visible: true
   tableOfContents:
     visible: true
   outline:
@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# 🐯 SENSORS
+# SENSORS
 
 Sensors are devices that detect changes in their environment, such as temperature, light, pressure, or motion, and convert these physical phenomena into electrical signals. These signals provide useful information for various applications, like monitoring conditions in smart homes, controlling industrial processes, or enhancing safety in security systems.
 

@@ -29,7 +29,7 @@ layout:
 
 ### Product Link
 
-{% embed url="https://openelab.io/products/husky-lensai-camera-vision" %}
+{% embed url="https://openelab.io/products/huskylens-ai-camera" %}
 
 ### Overview
 
