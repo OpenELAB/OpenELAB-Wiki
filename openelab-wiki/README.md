@@ -29,7 +29,7 @@ layout:
 
 # 🚀 Welcome to OpenELAB Wiki!
 
-#### Welcome to Our Wiki!
+**Welcome to Our Wiki!**
 
 **Get your hardware running. Build your next project.**
 
@@ -39,19 +39,19 @@ Start with a category, choose your brand, and find the documentation for your pr
 
 ***
 
-#### [AIoT](aiot/aiot-wiki-home-page.md) Products
+[**AIoT**](aiot/aiot-wiki-home-page.md) **Products**
 
 **Connect devices. Collect data. Bring AI to the edge.**
 
 Explore development boards, sensors, wireless devices, and edge AI platforms. Get started with hardware setup, firmware installation, connectivity, and application development.
 
-**Brands and platforms:** [ESP](aiot/esp/) · [M5Stack](aiot/m5stack/) · [Seeed Studio](aiot/seeed-studio/) · [LILYGO](aiot/lilygo/) · [Waveshare](aiot/waveshare/) · [AI-Thinker](aiot/ai-thinker/) · [Hi-Link](aiot/hi-link/) · [Raspberry Pi](aiot/raspbeery-pi/) · [Heltec](aiot/heltec/) · [DFRobot](aiot/dfrobot/) · [OpenELAB](aiot/openelab/)
+**Brands and platforms:** [ESP](aiot/esp/) · [M5Stack](aiot/m5stack/) · [Seeed Studio](aiot/seeed-studio/) · [LILYGO](aiot/lilygo/) · [Waveshare](aiot/waveshare/) · [AI-Thinker](aiot/ai-thinker/) · [Hi-Link](aiot/hi-link/) · [Raspberry Pi](aiot/raspbeery-pi/) · [Heltec](aiot/heltec/) · [DFRobot](aiot/dfrobot/) · [OpenELAB](aiot/openelab/) · [Keyestudio](aiot/keyestudio/)
 
 **Hardware categories:** [Displays](aiot/displays/) · [Sensors](aiot/sensors/) · [IoT / Communication](aiot/iot-communication/) · [Power](aiot/power/) · [Accessories](aiot/accessories/)
 
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="aiot/aiot-wiki-home-page.md">aiot-wiki-home-page.md</a></td></tr></tbody></table>
 
-#### [Robotics](robotics/robotics-wiki-home-page.md) Products
+[**Robotics**](robotics/robotics-wiki-home-page.md) **Products**
 
 **Build systems that sense, move, and interact.**
 
@@ -61,7 +61,7 @@ Find documentation for LiDAR, depth cameras, robot actuators, and robotics devel
 
 [Browse all robotics documentation](robotics/robotics-wiki-home-page.md).
 
-#### [STEM & DIY](stem-and-diy/stem-and-diy-wiki-home-page.md) Products
+[**STEM & DIY**](stem-and-diy/stem-and-diy-wiki-home-page.md) **Products**
 
 **Learn by building. Turn ideas into working projects.**
 

@@ -2,7 +2,7 @@
 
 Connect devices, collect data, and bring AI to the edge. Browse by brand or platform when you know your device, or by hardware category when exploring components.
 
-### Brands and platforms
+#### Brands and platforms
 
 * [ESP](esp/)
 * [M5Stack](m5stack/)
@@ -15,8 +15,9 @@ Connect devices, collect data, and bring AI to the edge. Browse by brand or plat
 * [Heltec](heltec/)
 * [DFRobot](dfrobot/)
 * [OpenELAB](openelab/)
+* [Keyestudio](keyestudio/)
 
-### Hardware categories
+#### Hardware categories
 
 * [Displays](displays/)
 * [Sensors](sensors/)
@@ -24,11 +25,11 @@ Connect devices, collect data, and bring AI to the edge. Browse by brand or plat
 * [Power](power/)
 * [Accessories](accessories/)
 
-### Other devices
+#### Other devices
 
 [Others](others/)
 
-### Related documentation
+#### Related documentation
 
 * [Robotics: LiDAR, depth cameras, actuators and robot platforms](../robotics/robotics-wiki-home-page.md)
 * [STEM & DIY: drones / FPV, kits and workshop equipment](../stem-and-diy/stem-and-diy-wiki-home-page.md)
