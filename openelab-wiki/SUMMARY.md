@@ -695,7 +695,7 @@
   * [DXW D4250 800KV 3-7S Brushless Motor](stem-and-diy/dxw/dxw-d4250-800kv-3-7s-brushless-motor.md)
   * [DXW D3536 1200KV 2-4S Brushless Motor](stem-and-diy/dxw/dxw-d3536-1200kv-2-4s-brushless-motor.md)
   * [DXW A2212/C2826 3.17mm Outrunner Brushless Motor](stem-and-diy/dxw/dxw-a2212-c2826-3.17mm-outrunner-brushless-motor.md)
-* [🖨️ ELEGOO](stem-and-diy/elegoo/README.md)
+* [ELEGOO](stem-and-diy/elegoo/README.md)
   * [ELEGOO Centauri Carbon 2 Combo Engineering Guide](stem-and-diy/elegoo/elegoo-centauri-carbon-2-combo-engineering-guide.md)
   * [ELEGOO Saturn 4 Ultra 16K Engineering Guide](stem-and-diy/elegoo/elegoo-saturn-4-ultra-16k-engineering-guide.md)
 * [Genmitsu](stem-and-diy/genmitsu/README.md)
