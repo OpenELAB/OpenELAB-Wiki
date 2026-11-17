@@ -1,4 +1,5 @@
 ---
+description: XIAO, Grove, SenseCAP, Wio, ReSpeaker, and edge-AI platforms.
 layout:
   width: default
   title:
@@ -23,13 +24,34 @@ layout:
 
 # Seeed Studio
 
-Seeed Technology (also known as, Seeed Studio) is an innovative IoT technology company, which specializes in hardware research, production and sales for edge computing, network communication, and smart sensing applications. Moreover, the company provides a wide variety of R\&D support and services for customized products.
+Seeed Studio develops hardware for sensing, connectivity, and edge computing. Its ecosystem spans miniature XIAO boards, Grove modules, SenseCAP devices, and edge-AI computers, supporting projects from a single sensor to a connected deployment.
 
-Adhering to its mission of “making technology accessible for all”, the company has professional capabilities in both design, R\&D, and agile manufacturing of IoT hardware. Through working closely with global developers, it integrates new information technologies in its complete and open production system, that is epitomized into “modules-devices-solutions”. Thereby, the firm continues to serve emerging IoT scenarios, with a focus on smart manufacturing, agriculture, energy, and cities. By providing IoT hardware products and technical support to a wide range of clients, it aims to facilitate traditional industries to achieve digital transformation towards a sustainable planet.
+[Browse Seeed Studio products on OpenELAB](https://openelab.io/collections/brands-seeed-studio)
 
-### Seeed Studio
+### Product range
 
-### Product documentation
+* XIAO microcontrollers and Grove sensors and expansion modules
+* SenseCAP monitoring, tracking, and LoRaWAN devices
+* Wio and Meshtastic hardware, ReSpeaker audio, and reComputer edge-AI systems
+
+### Popular products and starting points
+
+| Product                   | Typical use                                   | Links                                                                                                                                                                       |
+| ------------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SenseCAP T1000-E          | Off-grid messaging and location sharing       | [Wiki guide](sensecap-card-tracker-t1000-e-for-meshtastic.md) · [OpenELAB product](https://openelab.io/products/seeed-studio-sensecap-tracker-t1000)                        |
+| XIAO ESP32S3 + Wio-SX1262 | A compact Meshtastic development platform     | [Wiki guide](xiao-esp32s3-and-wio-sx1262-kit-for-meshtastic.md) · [OpenELAB product](https://openelab.io/products/seeed-studio-xiao-esp32s30-wio-sx1262-kit-for-meshtastic) |
+| XIAO ESP32C6              | Wi-Fi 6 and Bluetooth embedded prototypes     | [Wiki guide](xiao-esp32-c6-dev-board.md) · [OpenELAB product](https://openelab.io/products/seeed-studio-xiao-esp32c6)                                                       |
+| Wio Tracker L1 Pro        | Portable LoRa tracking and mesh communication | [OpenELAB product](https://openelab.io/products/seeed-studio-wio-l1-pro)                                                                                                    |
+
+### Popular applications
+
+* Develop low-power sensor nodes and asset-tracking prototypes.
+* Connect field measurements to IoT dashboards and gateways.
+* Run edge vision, voice interaction, and robotics experiments.
+
+### Wiki product guides and manuals
+
+Browse the available guides below. Match the full model number and hardware revision to your device.
 
 * [6x10 RGB MATRIX](6x10-rgb-matrix.md)
 * [EdgeBox Raspberry Pi IoT Edge Device 4GB RAM 32GB eMMC WiFi](edgebox-raspberry-pi-iot-edge-device-4gb-ram-32gb-emmc-wifi.md)
@@ -65,3 +87,5 @@ Adhering to its mission of “making technology accessible for all”, the compa
 * [XIAO RP2350 Raspberry Pi](xiao-rp2350-raspberry-pi.md)
 * [XIAO SAMD21 Arduino Microcontroller](xiao-samd21-arduino-microcontroller.md)
 * [XIAO SAMD21 Arduino Microcontroller](xiao-samd21-arduino-microcontroller-1.md)
+
+[Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)

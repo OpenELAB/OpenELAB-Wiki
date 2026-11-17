@@ -1,4 +1,5 @@
 ---
+description: Handheld boards, LoRa and cellular platforms, CAN, and RS485 interfaces.
 layout:
   width: default
   title:
@@ -23,8 +24,43 @@ layout:
 
 # LILYGO
 
-LILYGO® is a company integrating R\&D, production, and sales.They are committed to promoting the development of the Internet of Things (IoT) industry.
+LILYGO develops connected development boards that combine microcontrollers with radios, displays, and other peripherals. Its T-series hardware is used for handheld interfaces, LoRa projects, cellular connectivity, and embedded communication experiments.
 
-### LILYGO
+[Browse LILYGO products on OpenELAB](https://openelab.io/collections/brands-lilygo)
 
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="t-halow-esp32-s3-long-range-low-power-dev-board.md">t-halow-esp32-s3-long-range-low-power-dev-board.md</a></td><td><a href="../../.gitbook/assets/lilygo-T-Halow_4.webp">lilygo-T-Halow_4.webp</a></td></tr><tr><td><a href="t-embed-cc1101-module.md">t-embed-cc1101-module.md</a></td><td><a href="../../.gitbook/assets/T-Embed-CC1101-lilygo_2.webp">T-Embed-CC1101-lilygo_2.webp</a></td></tr><tr><td><a href="t-dongle-s3-esp32-s3.md">t-dongle-s3-esp32-s3.md</a></td><td><a href="../../.gitbook/assets/T-Dongle-LILYGO_4.webp">T-Dongle-LILYGO_4.webp</a></td></tr><tr><td><a href="t-deck-plus-meshtastic.md">t-deck-plus-meshtastic.md</a></td><td><a href="../../.gitbook/assets/10001_49fa4d9f-54c6-491b-932e-a06b699c93cf.webp">10001_49fa4d9f-54c6-491b-932e-a06b699c93cf.webp</a></td></tr><tr><td><a href="t3-s3-meshtastic-esp32-s3-lora.md">t3-s3-meshtastic-esp32-s3-lora.md</a></td><td><a href="../../.gitbook/assets/T3S3-LILYGO--1.webp">T3S3-LILYGO--1.webp</a></td></tr><tr><td><a href="t-echo-bme280-meshtastic-lora-sx1262-wireless-module.md">t-echo-bme280-meshtastic-lora-sx1262-wireless-module.md</a></td><td><a href="../../.gitbook/assets/2024-10-28T094825.239_75214d83-f9e2-40c3-8809-3a505781a18d (1).webp">2024-10-28T094825.239_75214d83-f9e2-40c3-8809-3a505781a18d (1).webp</a></td></tr><tr><td><a href="t-beam-meshtastic-or-esp32-lora-gps.md">t-beam-meshtastic-or-esp32-lora-gps.md</a></td><td><a href="../../.gitbook/assets/shipping-list2_1024x1024_86aa366f-b125-4e93-8059-d672a4f96dcd (1).webp">shipping-list2_1024x1024_86aa366f-b125-4e93-8059-d672a4f96dcd (1).webp</a></td></tr><tr><td><a href="t3-s3-e-paper-or-esp32-s3-lora-display.md">t3-s3-e-paper-or-esp32-s3-lora-display.md</a></td><td><a href="../../.gitbook/assets/LILYGO_T3_S3_E-paper-01 (2).webp">LILYGO_T3_S3_E-paper-01 (2).webp</a></td></tr><tr><td><a href="lora32-v2.1-esp32-sd-card-wifi-module.md">lora32-v2.1-esp32-sd-card-wifi-module.md</a></td><td><a href="../../.gitbook/assets/P-DIAPLAY.webp">P-DIAPLAY.webp</a></td></tr></tbody></table>
+### Product range
+
+* T-Deck, T-Embed, and other handheld or display-equipped boards
+* LoRa and Meshtastic platforms including T-Beam and T-Echo
+* Cellular, Wi-Fi HaLow, CAN, and RS485 development boards
+
+### Popular products and starting points
+
+| Product        | Typical use                            | Links                                                                                                           |
+| -------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| T-Deck Plus    | Keyboard-equipped Meshtastic messaging | [Wiki guide](t-deck-plus-meshtastic.md) · [OpenELAB product](https://openelab.io/products/lilygo-t-deck-plus)   |
+| T-Embed CC1101 | Embedded display and radio experiments | [Wiki guide](t-embed-cc1101-module.md) · [OpenELAB product](https://openelab.io/products/lilygo-t-embed-cc1101) |
+| T-CAN485       | CAN and RS485 communication projects   | [OpenELAB product](https://openelab.io/products/lilygo-t-can485)                                                |
+| T-SIM7080G S3  | Cellular and GNSS connected prototypes | [OpenELAB product](https://openelab.io/products/lilygo-t-sim7080g-s3)                                           |
+
+### Popular applications
+
+* Build portable messaging tools and wireless sensor interfaces.
+* Prototype remote monitoring with LoRa or cellular connectivity.
+* Connect embedded controllers to CAN or RS485 equipment.
+
+### Wiki product guides and manuals
+
+Browse the available guides below. Match the full model number and hardware revision to your device.
+
+* [LoRa32 V2.1 ESP32 SD Card WIFI Module](lora32-v2.1-esp32-sd-card-wifi-module.md)
+* [T-Beam Meshtastic | ESP32 LoRa GPS](t-beam-meshtastic-or-esp32-lora-gps.md)
+* [T-Deck Plus Meshtastic](t-deck-plus-meshtastic.md)
+* [T-Dongle S3 ESP32-S3](t-dongle-s3-esp32-s3.md)
+* [T-ECHO BME280 Meshtastic LoRa SX1262 Wireless Module](t-echo-bme280-meshtastic-lora-sx1262-wireless-module.md)
+* [T-Embed CC1101 Module](t-embed-cc1101-module.md)
+* [T-Halow ESP32-S3 Long-range Low-power Dev Board](t-halow-esp32-s3-long-range-low-power-dev-board.md)
+* [T3 S3 E-Paper | ESP32-S3 LoRa Display](t3-s3-e-paper-or-esp32-s3-lora-display.md)
+* [T3 S3 Meshtastic ESP32-S3 LoRa](t3-s3-meshtastic-esp32-s3-lora.md)
+
+[Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)

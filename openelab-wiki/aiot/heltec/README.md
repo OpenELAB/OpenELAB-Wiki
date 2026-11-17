@@ -1,4 +1,5 @@
 ---
+description: LoRa boards, mesh nodes, trackers, e-paper devices, and product guides.
 layout:
   width: default
   title:
@@ -23,8 +24,50 @@ layout:
 
 # HELTEC
 
-Chengdu Heltec Automation Technology Co., Ltd. was founded in 2014, and is a team with enthusiasm and creativity. Since its establishment, it has had an integrated system in the following processes: research and development, production, testing, sales, quality management, supply chain management, after-sales service, and technical support.&#x20;
+HELTEC develops wireless boards and devices for IoT and low-power communication. Its range combines microcontrollers with LoRa radios, displays, GNSS options, and portable or outdoor form factors for connected sensing and mesh projects.
 
-### HELTEC
+[Browse HELTEC products on OpenELAB](https://openelab.io/collections/brands-heltec)
 
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="meshpocket-qi2-magnetic-charging-power.md">meshpocket-qi2-magnetic-charging-power.md</a></td><td><a href="../../.gitbook/assets/HELTEC_MeshPocket_Qi2_Magnetic_Charging_Power_Bank_Meshtastic_868Mhz-5.webp">HELTEC_MeshPocket_Qi2_Magnetic_Charging_Power_Bank_Meshtastic_868Mhz-5.webp</a></td></tr><tr><td><a href="wireless-tracker-esp32s3-sx1262-gps-meshtastic-lorawan.md">wireless-tracker-esp32s3-sx1262-gps-meshtastic-lorawan.md</a></td><td><a href="../../.gitbook/assets/1_2410fdbf-947e-4098-b3a4-cce71c5720f9.webp">1_2410fdbf-947e-4098-b3a4-cce71c5720f9.webp</a></td></tr><tr><td><a href="wireless-stick-lite-esp32s3-sx1262-meshtastic-lorawan-v3.md">wireless-stick-lite-esp32s3-sx1262-meshtastic-lorawan-v3.md</a></td><td><a href="../../.gitbook/assets/1_4b6d5403-9c5f-42e4-ad3f-cec8799d0db1.webp">1_4b6d5403-9c5f-42e4-ad3f-cec8799d0db1.webp</a></td></tr><tr><td><a href="wireless-stick-esp32s3-sx1262-meshtastic-lorawan-v3.md">wireless-stick-esp32s3-sx1262-meshtastic-lorawan-v3.md</a></td><td><a href="../../.gitbook/assets/1_3c3c1e11-f461-4a87-971f-2f6531ea98b2.webp">1_3c3c1e11-f461-4a87-971f-2f6531ea98b2.webp</a></td></tr><tr><td><a href="wireless-paper-esp32s3-sx1262-e-paper-meshtastic-lorawan.md">wireless-paper-esp32s3-sx1262-e-paper-meshtastic-lorawan.md</a></td><td><a href="../../.gitbook/assets/1_ef88cd55-0281-472f-a12f-721936b5dba2.webp">1_ef88cd55-0281-472f-a12f-721936b5dba2.webp</a></td></tr><tr><td><a href="wifi-lora-esp32-sx1262-lora-node-meshtastic-lorawan.md">wifi-lora-esp32-sx1262-lora-node-meshtastic-lorawan.md</a></td><td><a href="../../.gitbook/assets/1_dd160136-170a-4801-a770-565ba6cd7218.webp">1_dd160136-170a-4801-a770-565ba6cd7218.webp</a></td></tr><tr><td><a href="wifi-lora-esp32-sx1262-lora-node-meshtastic-lorawan-v2.md">wifi-lora-esp32-sx1262-lora-node-meshtastic-lorawan-v2.md</a></td><td><a href="../../.gitbook/assets/4_e18844cd-71b1-44bd-9ed7-eadb79d0130b.webp">4_e18844cd-71b1-44bd-9ed7-eadb79d0130b.webp</a></td></tr><tr><td><a href="nrf52840-sx1262-mesh-node-n5262m-module-meshtastic.md">nrf52840-sx1262-mesh-node-n5262m-module-meshtastic.md</a></td><td><a href="../../.gitbook/assets/3_87457037-e6ef-4a87-b18f-af430185e3ca.webp">3_87457037-e6ef-4a87-b18f-af430185e3ca.webp</a></td></tr><tr><td><a href="mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan.md">mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan.md</a></td><td><a href="../../.gitbook/assets/HELTEC_Mesh_Node_T114_nRF52840_SX1262_GPS_Meshtastic_LoRaWAN_868Mhz-1.webp">HELTEC_Mesh_Node_T114_nRF52840_SX1262_GPS_Meshtastic_LoRaWAN_868Mhz-1.webp</a></td></tr><tr><td><a href="ht-ct62-esp32c3-sx1262-lora-node-meshtastic-lorawan.md">ht-ct62-esp32c3-sx1262-lora-node-meshtastic-lorawan.md</a></td><td><a href="../../.gitbook/assets/HELTEC_HT-CT62_ESP32C3_SX1262_LoRa_Node_Meshtastic_LoRaWAN_868Mhz-02.webp">HELTEC_HT-CT62_ESP32C3_SX1262_LoRa_Node_Meshtastic_LoRaWAN_868Mhz-02.webp</a></td></tr><tr><td><a href="esp32s3-sx1262-e-paper-lora-meshtastic-lorawan-2.13-inch.md">esp32s3-sx1262-e-paper-lora-meshtastic-lorawan-2.13-inch.md</a></td><td><a href="../../.gitbook/assets/1_38bd0547-f0a0-477a-85aa-50368177c00b.webp">1_38bd0547-f0a0-477a-85aa-50368177c00b.webp</a></td></tr><tr><td><a href="esp32s3-sx1262-e-paper-lora-meshtastic-lorawan-2.9-inch.md">esp32s3-sx1262-e-paper-lora-meshtastic-lorawan-2.9-inch.md</a></td><td><a href="../../.gitbook/assets/2_ae391aa7-7853-40be-b237-426e36655e45.webp">2_ae391aa7-7853-40be-b237-426e36655e45.webp</a></td></tr><tr><td><a href="esp32s3-sx1262-1.9-inch-lora-meshtastic-lorawan.md">esp32s3-sx1262-1.9-inch-lora-meshtastic-lorawan.md</a></td><td><a href="../../.gitbook/assets/4_86422660-e08b-4a09-a431-6d1e6775d63d.webp">4_86422660-e08b-4a09-a431-6d1e6775d63d.webp</a></td></tr></tbody></table>
+### Product range
+
+* WiFi LoRa 32 and Wireless Stick development boards
+* Mesh Node, MeshPocket, and Wireless Tracker devices
+* Wireless Paper displays and outdoor mesh hardware
+
+### Popular products and starting points
+
+| Product                           | Typical use                                               | Links                                                                                                                                                                                                |
+| --------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| WiFi LoRa 32 V4.3.1 (without GPS) | ESP32 and SX1262 mesh-node development                    | [Wiki guide](heltec-wifi-lora-32-v4.3.1-sx1262-engineering-guide.md) · [OpenELAB product](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps)               |
+| Mesh Node T114 V2                 | nRF52840-based mesh and tracking projects                 | [T114 family guide](mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan.md) · [OpenELAB product](https://openelab.io/products/heltec-mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan-868mhz) |
+| Wireless Paper                    | E-paper mesh information displays                         | [Wiki guide](wireless-paper-esp32s3-sx1262-e-paper-meshtastic-lorawan.md) · [OpenELAB product](https://openelab.io/products/heltec-wireless-paper-esp32s3-meshtastic)                                |
+| MeshPocket                        | Portable mesh communication with power-bank functionality | [Wiki guide](meshpocket-qi2-magnetic-charging-power.md) · [OpenELAB product](https://openelab.io/products/heltec-meshpocket-qi2-magnetic-meshtastic)                                                 |
+
+### Popular applications
+
+* Build Meshtastic messaging and position-sharing nodes.
+* Prototype LoRaWAN sensing and remote monitoring.
+* Create portable or low-power status displays for field devices.
+
+The linked WiFi LoRa 32 V4.3.1 listing is the version without a GPS module. Radio band, GNSS hardware, and firmware support vary by product.
+
+### Wiki product guides and manuals
+
+Browse the available guides below. Match the full model number and hardware revision to your device.
+
+* [ESP32S3 SX1262 1.9 inch LoRa Meshtastic LoRaWAN](esp32s3-sx1262-1.9-inch-lora-meshtastic-lorawan.md)
+* [ESP32S3 SX1262 E-Paper LoRa Meshtastic LoRaWAN 2.13 inch](esp32s3-sx1262-e-paper-lora-meshtastic-lorawan-2.13-inch.md)
+* [ESP32S3 SX1262 E-Paper LoRa Meshtastic LoRaWAN 2.9 inch](esp32s3-sx1262-e-paper-lora-meshtastic-lorawan-2.9-inch.md)
+* [HELTEC WiFi LoRa 32 V4.3.1 SX1262 Engineering Guide](heltec-wifi-lora-32-v4.3.1-sx1262-engineering-guide.md)
+* [HT-CT62 ESP32C3 SX1262 LoRa Node Meshtastic LoRaWAN](ht-ct62-esp32c3-sx1262-lora-node-meshtastic-lorawan.md)
+* [Mesh Node T114 nRF52840 SX1262 GPS Meshtastic LoRaWAN](mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan.md)
+* [MeshPocket Qi2 Magnetic Charging Power](meshpocket-qi2-magnetic-charging-power.md)
+* [nRF52840 SX1262 Mesh Node N5262M Module Meshtastic](nrf52840-sx1262-mesh-node-n5262m-module-meshtastic.md)
+* [WiFi LoRa ESP32 SX1262 LoRa Node Meshtastic LoRaWAN](wifi-lora-esp32-sx1262-lora-node-meshtastic-lorawan.md)
+* [WiFi LoRa ESP32 SX1262 LoRa Node Meshtastic LoRaWAN V2](wifi-lora-esp32-sx1262-lora-node-meshtastic-lorawan-v2.md)
+* [Wireless Paper ESP32S3 SX1262 E-paper Meshtastic LoRaWAN](wireless-paper-esp32s3-sx1262-e-paper-meshtastic-lorawan.md)
+* [Wireless Stick ESP32S3 SX1262 Meshtastic LoRaWAN V3](wireless-stick-esp32s3-sx1262-meshtastic-lorawan-v3.md)
+* [Wireless Stick Lite ESP32S3 SX1262 Meshtastic LoRaWAN V3](wireless-stick-lite-esp32s3-sx1262-meshtastic-lorawan-v3.md)
+* [Wireless Tracker ESP32S3 SX1262 GPS Meshtastic LoRaWAN](wireless-tracker-esp32s3-sx1262-gps-meshtastic-lorawan.md)
+
+[Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)

@@ -1,46 +1,57 @@
 ---
+description: MID, HAP, TELE, and AVIA LiDAR families and integration guides.
 cover: ../../.gitbook/assets/livox-logo.jpg
 coverY: 0
 ---
 
-# LIVOX
+# Livox
 
-#### Overview
+Livox develops LiDAR sensors for 3D perception and mapping. Its product families include compact wide-field sensors for mobile robots and longer-range devices for mapping and forward perception.
 
-> LIVOX LiDAR: High-performance, low-cost sensors for autonomous driving, robotics, mapping, and smart cities. Revolutionize perception.
+[Browse Livox products on OpenELAB](https://openelab.io/collections/brands-livox)
 
-#### LIVOX Official Site
+### Product range
 
-Main Site: [https://www.livoxtech.com/](https://www.livoxtech.com/)
+* MID-series compact 3D LiDAR sensors
+* HAP automotive-oriented LiDAR and TELE long-range sensing
+* AVIA-family mapping sensors, connection accessories, and visualization tools
 
-Download Center: [https://www.livoxtech.com/downloads](https://www.livoxtech.com/downloads)
+### Popular products and starting points
 
-#### Product Collections
+| Product     | Typical use                            | Links                                                                                                                              |
+| ----------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| MID-360S    | Compact 360-degree robotic SLAM        | [Wiki guide](livox-mid-360s-3d-lidar-sensor-engineering-guide.md) · [OpenELAB product](https://openelab.io/products/livox-mid360)  |
+| HAP T1 / TX | Forward perception and HAP integration | [HAP T1 manual](livox-hap-t1-user-manual.md) · [OpenELAB product](https://openelab.io/products/livox-hap-automotive-grade-lidar3d) |
+| MID-360L    | AMR and autonomous-forklift perception | [OpenELAB product](https://openelab.io/products/livox-mid-360l-3d-lidar)                                                           |
+| MID-70      | Wide-angle mobile-robot sensing        | [Wiki guide](livox-mid-70-user-manual.md) · [OpenELAB product](https://openelab.io/products/livox-mid-70-compact-lidar3d)          |
 
-{% embed url="https://openelab.io/collections/brands-livox" %}
+### Popular applications
 
-#### Engineering guides
+* Build LiDAR-based SLAM and localization for mobile robots.
+* Capture point clouds for mapping and spatial measurement.
+* Evaluate 3D obstacle detection and forward-perception systems.
 
-[Livox MID-360S 3D LiDAR Sensor Engineering Guide](livox-mid-360s-3d-lidar-sensor-engineering-guide.md)
+HAP T1 and TX have separate manuals. Select the manual for your variant; the complete documentation index also includes legacy Livox models.
 
-#### LIVOX Wiki List
+### Wiki product guides and manuals
 
-[LIVOX Mid-360S User Manual](livox-mid-360s-user-manual.md)
+Browse the available guides below. Match the full model number and hardware revision to your device.
 
-[LIVOX AVIA User Manual](livox-avia-user-manual.md)
+* [LIVOX AVIA User Manual](livox-avia-user-manual.md)
+* [LIVOX HAP (TX) User Manual](livox-hap-tx-user-manual.md)
+* [LIVOX HAP(T1) User Manual](livox-hap-t1-user-manual.md)
+* [LIVOX HUB User Manual](livox-hub-user-manual.md)
+* [LIVOX Mid Series User Manual](livox-mid-series-user-manual.md)
+* [LIVOX Mid-360 User Manual](livox-mid-360-user-manual.md)
+* [Livox MID-360S 3D LiDAR Sensor Engineering Guide](livox-mid-360s-3d-lidar-sensor-engineering-guide.md)
+* [LIVOX Mid-360S User Manual](livox-mid-360s-user-manual.md)
+* [LIVOX MID-70 User Manual](livox-mid-70-user-manual.md)
+* [LIVOX TELE-15 User Manual](livox-tele-15-user-manual.md)
+* [LIVOX Viewer 2 User Manual](livox-viewer-2-user-manual.md)
 
-[LIVOX MID-70 User Manual](livox-mid-70-user-manual.md)
+### Manufacturer resources
 
-[LIVOX TELE-15 User Manual](livox-tele-15-user-manual.md)
+* [Livox](https://www.livoxtech.com/)
+* [Livox downloads](https://www.livoxtech.com/downloads)
 
-[LIVOX Viewer 2 User Manual](livox-viewer-2-user-manual.md)
-
-[LIVOX HUB User Manual](livox-hub-user-manual.md)
-
-[LIVOX Mid-360 User Manual](livox-mid-360-user-manual.md)
-
-[LIVOX HAP(T1) User Manual](livox-hap-t1-user-manual.md)
-
-[LIVOX HAP (TX) User Manual](livox-hap-tx-user-manual.md)
-
-[LIVOX Mid Series User Manual](livox-mid-series-user-manual.md)
+[Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
