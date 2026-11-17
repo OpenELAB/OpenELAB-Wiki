@@ -29,9 +29,7 @@ layout:
 
 # 🚀 Welcome to OpenELAB Wiki!
 
-### Welcome to Our Wiki!
-
-
+#### Welcome to Our Wiki!
 
 **Get your hardware running. Build your next project.**
 
@@ -41,24 +39,32 @@ Start with a category, choose your brand, and find the documentation for your pr
 
 ***
 
-### [AIoT](https://app.gitbook.com/s/tgOfPnscWebs1eh82EKq/aiot) Products
+#### [AIoT](aiot/aiot-wiki-home-page.md) Products
 
-#### Connect devices. Collect data. Bring AI to the edge.
+**Connect devices. Collect data. Bring AI to the edge.**
 
 Explore development boards, sensors, wireless devices, and edge AI platforms. Get started with hardware setup, firmware installation, connectivity, and application development.
 
-<table data-column-title-hidden data-view="cards" data-full-width="false"><thead><tr><th data-type="content-ref"></th><th data-hidden></th></tr></thead><tbody><tr><td><a href="aiot/m5stack/">m5stack</a></td><td><ol><li>M5Stack</li></ol></td></tr><tr><td><a href="aiot/esp/">esp</a></td><td><ol start="2"><li>ESP</li></ol></td></tr><tr><td><a href="stem-and-diy/drone-fpv/">drone-fpv</a></td><td><ol start="3"><li>Drone / FPV</li></ol></td></tr><tr><td><a href="aiot/raspbeery-pi/">raspbeery-pi</a></td><td><ol start="4"><li>Raspberry Pi</li></ol></td></tr><tr><td><a href="aiot/openelab/">openelab</a></td><td><ol start="5"><li>Arduino</li></ol></td></tr><tr><td><a href="aiot/displays/">displays</a></td><td><ol start="6"><li>Displays</li></ol></td></tr><tr><td><a href="aiot/others/">others</a></td><td><ol start="7"><li>Cameras</li></ol></td></tr><tr><td><a href="aiot/sensors/">sensors</a></td><td><ol start="8"><li>Sensors</li></ol></td></tr><tr><td><a href="aiot/iot-communication/">iot-communication</a></td><td><ol start="9"><li>IoT / Communication</li></ol></td></tr><tr><td><a href="aiot/seeed-studio/">seeed-studio</a></td><td></td></tr><tr><td><a href="robotics/robosense/">robosense</a></td><td></td></tr><tr><td><a href="aiot/lilygo/">lilygo</a></td><td></td></tr><tr><td><a href="aiot/ai-thinker/">ai-thinker</a></td><td></td></tr><tr><td><a href="aiot/hi-link/">hi-link</a></td><td></td></tr><tr><td><a href="aiot/dfrobot/">dfrobot</a></td><td></td></tr><tr><td><a href="aiot/heltec/">heltec</a></td><td></td></tr><tr><td><a href="stem-and-diy/kits/">kits</a></td><td></td></tr><tr><td><a href="aiot/power/">power</a></td><td><ol start="11"><li>Power</li></ol></td></tr><tr><td><a href="aiot/accessories/">accessories</a></td><td><ol start="12"><li>Accessories</li></ol></td></tr></tbody></table>
+**Brands and platforms:** [ESP](aiot/esp/) · [M5Stack](aiot/m5stack/) · [Seeed Studio](aiot/seeed-studio/) · [LILYGO](aiot/lilygo/) · [Waveshare](aiot/waveshare/) · [AI-Thinker](aiot/ai-thinker/) · [Hi-Link](aiot/hi-link/) · [Raspberry Pi](aiot/raspbeery-pi/) · [Heltec](aiot/heltec/) · [DFRobot](aiot/dfrobot/) · [OpenELAB](aiot/openelab/)
 
-### [Robotics](https://app.gitbook.com/s/tgOfPnscWebs1eh82EKq/robotics) Products
+**Hardware categories:** [Displays](aiot/displays/) · [Sensors](aiot/sensors/) · [IoT / Communication](aiot/iot-communication/) · [Power](aiot/power/) · [Accessories](aiot/accessories/)
 
-#### Build systems that sense, move, and interact.
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="aiot/aiot-wiki-home-page.md">aiot-wiki-home-page.md</a></td></tr></tbody></table>
+
+#### [Robotics](robotics/robotics-wiki-home-page.md) Products
+
+**Build systems that sense, move, and interact.**
 
 Find documentation for LiDAR, depth cameras, robot actuators, and robotics development hardware. Work through device connections, software setup, calibration, and integration with your robot.
 
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="robotics/livox/">livox</a></td></tr><tr><td><a href="robotics/robosense/">robosense</a></td></tr><tr><td><a href="robotics/orbbec/">orbbec</a></td></tr></tbody></table>
 
+[Browse all robotics documentation](robotics/robotics-wiki-home-page.md).
 
-### [STEM & DIY](https://app.gitbook.com/s/tgOfPnscWebs1eh82EKq/stem-and-diy) Products
+#### [STEM & DIY](stem-and-diy/stem-and-diy-wiki-home-page.md) Products
 
-#### Learn by building. Turn ideas into working projects.
+**Learn by building. Turn ideas into working projects.**
 
 Explore educational robots, programmable kits, 3D printers, and workshop equipment. Follow assembly instructions, run your first example, and build your skills through hands-on projects.
+
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="stem-and-diy/openduck/">openduck</a></td></tr><tr><td><a href="stem-and-diy/drone-fpv/">drone-fpv</a></td></tr><tr><td><a href="stem-and-diy/kits/">kits</a></td></tr><tr><td><a href="stem-and-diy/heygears-reflex.md">heygears-reflex.md</a></td></tr></tbody></table>
