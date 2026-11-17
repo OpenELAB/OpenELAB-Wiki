@@ -38,7 +38,7 @@ Welcome to the OpenELAB Wiki: product manuals, setup instructions, hardware refe
 
 Find your manufacturer, open the documentation for your exact product, and move from specifications to a working setup.
 
-### Choose your area
+#### Choose your area
 
 | Explore                                                   | What you’ll find                                                                                   |
 | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -46,13 +46,13 @@ Find your manufacturer, open the documentation for your exact product, and move 
 | [Robotics](robotics/robotics-wiki-home-page.md)           | LiDAR, depth cameras, actuators, dexterous hands, robotic arms and mobile platforms.               |
 | [STEM & DIY](stem-and-diy/stem-and-diy-wiki-home-page.md) | Educational robots, electronics projects, drones and FPV, 3D printing and CNC equipment.           |
 
-### Find the right guide
+#### Find the right guide
 
 * **Know your model?** Search for its full model number, including the hardware revision where relevant.
 * **Know the brand?** Open its manufacturer page inside AIoT, Robotics or STEM & DIY, then choose the product.
 * **Exploring a new area?** Start with one of the category overviews for a map of the available documentation and selected guides.
 
-### Selected product guides
+#### Selected product guides
 
 | Guide                                                                                                     | Focus                                            |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
@@ -63,11 +63,11 @@ Find your manufacturer, open the documentation for your exact product, and move 
 | [ELEGOO Centauri Carbon 2 Combo](stem-and-diy/elegoo/elegoo-centauri-carbon-2-combo-engineering-guide.md) | 3D printing workflows.                           |
 | [Genmitsu 4040-PRO MAX](stem-and-diy/genmitsu/genmitsu-4040-pro-max-cnc-router-engineering-guide.md)      | Desktop CNC workflows.                           |
 
-### Browse all manufacturers and brands
+#### Browse all manufacturers and brands
 
 Browse the directories below for manufacturer introductions, product families, popular applications, store links, and available wiki guides.
 
-#### AIoT — Connected devices and edge computing
+**AIoT — Connected devices and edge computing**
 
 [Explore AIoT documentation](aiot/aiot-wiki-home-page.md) for development boards, sensing, wireless devices and embedded interfaces.
 
@@ -102,7 +102,7 @@ Browse the directories below for manufacturer introductions, product families, p
 | [RAKwireless](aiot/rakwireless.md) | WisBlock modules, LoRaWAN hardware, gateways, and WisMesh devices.          |
 | [SONOFF](aiot/sonoff.md)           | Zigbee USB coordinators, sensors, buttons, and home-automation devices.     |
 
-#### Robotics — Perception, motion and platforms
+**Robotics — Perception, motion and platforms**
 
 [Explore Robotics documentation](robotics/robotics-wiki-home-page.md) for sensors, actuators, manipulators and robot platforms.
 
@@ -125,20 +125,20 @@ Browse the directories below for manufacturer introductions, product families, p
 | [Xiaomi](robotics/xiaomi/)                         | CyberGear micromotor references.                                         |
 | [HESAI](robotics/hesai/)                           | JT and XT LiDAR families and JT128 integration documentation.            |
 | [Leadshine](robotics/leadshine/)                   | DH116 dexterous robot hand documentation.                                |
+| [MyActuator](robotics/myactuator/)                 | RMD-X geared actuators, RMD-L direct-drive motors, and control adapters. |
 | [Yahboom](robotics/yahboom/)                       | ROSMASTER, MicroROS, DOFBOT, and JetCobot robotics platforms.            |
 | [ChangingTek](robotics/changingtek.md)             | Electric grippers, adaptive hands, and manipulation-data tools.          |
 | [Elephant Robotics](robotics/elephant-robotics.md) | myCobot desktop arms, grippers, cameras, and learning accessories.       |
 | [Hiwonder](robotics/hiwonder.md)                   | ROS robot cars, hexapods, robotic arms, bus servos, and chassis.         |
 | [LDROBOT](robotics/ldrobot.md)                     | Compact 2D LiDAR, developer kits, and single-point ranging sensors.      |
 | [LSLiDAR](robotics/lslidar.md)                     | 2D and 3D LiDAR sensors for navigation, mapping, and spatial sensing.    |
-| [MyActuator](robotics/myactuator.md)               | RMD-X geared actuators, RMD-L direct-drive motors, and control adapters. |
 | [RealSense](robotics/realsense.md)                 | Stereo depth cameras for close-range vision and robot perception.        |
 | [SLAMTEC](robotics/slamtec.md)                     | RPLIDAR, Mapper, Aurora, and industrial laser scanners.                  |
 | [SteadyWin](robotics/steadywin.md)                 | GIM robot joint actuators and motor-control hardware.                    |
 | [WHEELTEC](robotics/wheeltec.md)                   | Control learning kits, balance robots, ROS platforms, and components.    |
 | [WowRobo](robotics/wowrobo.md)                     | SO-ARM101, XLeRobot, LeKiwi, robotic hands, and tactile-sensing kits.    |
 
-#### STEM & DIY — Learning, building and fabrication
+**STEM & DIY — Learning, building and fabrication**
 
 [Explore STEM & DIY documentation](stem-and-diy/stem-and-diy-wiki-home-page.md) for educational robotics, drone systems and workshop equipment.
 
@@ -167,13 +167,13 @@ Browse the directories below for manufacturer introductions, product families, p
 
 OpenELAB entries group generic catalog products and accessories for which a separate manufacturer is not named in the source documentation.
 
-### Before you begin
+#### Before you begin
 
 * Match the guide to your exact product model and hardware revision.
 * Check the required power supply, connector pinout and software or firmware version before following a procedure.
 * Use the product-specific instructions for setup, calibration and operation; keep a record of the versions used in your project.
 
-### Need help or found something outdated?
+#### Need help or found something outdated?
 
 Send us the wiki page link, product model, hardware revision, operating system, firmware or SDK version, and any complete error message. For a documentation correction, include the section that needs updating and a supporting reference if available.
 

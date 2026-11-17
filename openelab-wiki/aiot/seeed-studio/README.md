@@ -28,13 +28,13 @@ Seeed Studio develops hardware for sensing, connectivity, and edge computing. It
 
 [Browse Seeed Studio products on OpenELAB](https://openelab.io/collections/brands-seeed-studio)
 
-### Product range
+**Product range**
 
 * XIAO microcontrollers and Grove sensors and expansion modules
 * SenseCAP monitoring, tracking, and LoRaWAN devices
 * Wio and Meshtastic hardware, ReSpeaker audio, and reComputer edge-AI systems
 
-### Popular products and starting points
+**Popular products and starting points**
 
 | Product                   | Typical use                                   | Links                                                                                                                                                                       |
 | ------------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -43,13 +43,22 @@ Seeed Studio develops hardware for sensing, connectivity, and edge computing. It
 | XIAO ESP32C6              | Wi-Fi 6 and Bluetooth embedded prototypes     | [Wiki guide](xiao-esp32-c6-dev-board.md) · [OpenELAB product](https://openelab.io/products/seeed-studio-xiao-esp32c6)                                                       |
 | Wio Tracker L1 Pro        | Portable LoRa tracking and mesh communication | [OpenELAB product](https://openelab.io/products/seeed-studio-wio-l1-pro)                                                                                                    |
 
-### Popular applications
+**Popular applications**
 
 * Develop low-power sensor nodes and asset-tracking prototypes.
 * Connect field measurements to IoT dashboards and gateways.
 * Run edge vision, voice interaction, and robotics experiments.
 
-### Wiki product guides and manuals
+**Wiki product guides and manuals**
+
+* [Seeed Studio SO-ARM101 Pro Development Guide](so-arm101-pro-development-guide.md)
+* [Seeed Studio reServer Industrial J4012 Development Guide](reserver-industrial-j4012-development-guide.md)
+* [Seeed Studio reComputer Super J4012 Development Guide](recomputer-super-j4012-development-guide.md)
+* [Seeed Studio reSpeaker XVF3800 Four-Mic Array Development Guide](respeaker-xvf3800-four-mic-development-guide.md)
+* [Seeed Studio reTerminal E1001 Development Guide](reterminal-e1001-development-guide.md)
+* [Seeed Studio reTerminal E1002 Development Guide](reterminal-e1002-development-guide.md)
+* [Seeed Studio reTerminal E1003 Development Guide](reterminal-e1003-development-guide.md)
+* [Seeed Studio reTerminal E1004 Development Guide](reterminal-e1004-development-guide.md)
 
 Browse the available guides below. Match the full model number and hardware revision to your device.
 

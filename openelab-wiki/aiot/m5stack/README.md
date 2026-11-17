@@ -8,13 +8,13 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 
 [Browse M5Stack products on OpenELAB](https://openelab.io/collections/brands-m5stack)
 
-### Product range
+#### Product range
 
 * Core, M5Stick, ATOM, and Cardputer development platforms
 * Grove-compatible Units, HATs, bases, and communication modules
 * Displays, voice interfaces, cameras, and desktop robotics
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product       | Typical use                                        | Links                                                                                                                                                        |
 | ------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -23,7 +23,7 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 | ATOM Lite     | Small Wi-Fi controllers and sensor nodes           | [Wiki guide](m5stack-atom-lite-esp32-iot-development-kit.md) · [OpenELAB product](https://openelab.io/products/m5stackatomliteesp32)                         |
 | AtomS3 Lite   | Compact ESP32-S3 development                       | [Wiki guide](m5stack-atoms3-lite-esp32s3-dev-kit.md) · [OpenELAB product](https://openelab.io/products/m5stack-atoms3-lite)                                  |
 
-### Popular applications
+#### Popular applications
 
 * Build connected sensor dashboards and compact control panels.
 * Prototype voice interfaces, handheld tools, and smart-home devices.
@@ -31,11 +31,14 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 
 Cardputer-Adv and M5StickS3 are different products from the original Cardputer and M5StickC models. Use the guide for the exact board revision.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
+
+* [M5Stack StackChan K151 Development Guide](stackchan-k151-development-guide.md)
+* [M5Stack StopWatch C152 Development Guide](stopwatch-c152-development-guide.md)
 
 Browse the available guides below. Match the full model number and hardware revision to your device.
 
-#### Controllers and core boards
+**Controllers and core boards**
 
 * [M5Paper ESP32 Development Kit](m5paper-esp32-development-kit.md)
 * [M5Stack Cardputer Kit w /M5StampS3](m5stack-cardputer-kit-w-m5stamps3.md)
@@ -55,7 +58,7 @@ Browse the available guides below. Match the full model number and hardware revi
 * [M5Stack Tab5 IoT Development Kit](m5stack-tab5-iot-development-kit.md)
 * [M5Stamp ESP32S3](m5stamp-esp32s3.md)
 
-#### ATOM and ATOMIC
+**ATOM and ATOMIC**
 
 * [ATOMIC Barcode/QR-Code Scanner](atomic-barcode-qr-code-scanner.md)
 * [ATOMIC CANBus Base](atomic-canbus-base.md)
@@ -75,7 +78,7 @@ Browse the available guides below. Match the full model number and hardware revi
 * [M5Stack ATOMS3R Development Kit](m5stack-atoms3r-development-kit.md)
 * [M5Stack ATOMS3R Proto Kit](m5stack-atoms3r-proto-kit.md)
 
-#### M5Stick and HATs
+**M5Stick and HATs**
 
 * [M5Stack BugC2 w/ M5StickC PLUS2](m5stack-bugc2-w-m5stickc-plus2.md)
 * [M5Stack Fingerprint HAT](m5stack-fingerprint-hat.md)
@@ -101,7 +104,7 @@ Browse the available guides below. Match the full model number and hardware revi
 * [M5StickS3 ESP32-S3 Mini IoT Dev Kit Engineering Guide](m5sticks3-esp32-s3-mini-iot-dev-kit-engineering-guide.md)
 * [M5StickV K210 AI Camera](m5stickv-k210-ai-camera.md)
 
-#### Sensors and interface Units
+**Sensors and interface Units**
 
 * [Gesture recognition sensor](gesture-recognition-sensor.md)
 * [Hall Effect Unit](hall-effect-unit.md)
@@ -179,7 +182,7 @@ Browse the available guides below. Match the full model number and hardware revi
 * [M5Stack Watering Unit with Mositure Sensor and Pump](m5stack-watering-unit-with-mositure-sensor-and-pump.md)
 * [NCIR 2 Thermometer Unit](ncir-2-thermometer-unit.md)
 
-#### Modules, accessories, and other guides
+**Modules, accessories, and other guides**
 
 * [8-Channel Servo Driver](8-channel-servo-driver.md)
 * [HEX RGB LED Board](hex-rgb-led-board.md)

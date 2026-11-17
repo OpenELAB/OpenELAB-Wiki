@@ -10,16 +10,17 @@ description: >-
 
 Find manuals and engineering references for LiDAR, depth cameras, joint actuators, servos, dexterous hands, robotic arms and mobile robots. Begin with the manufacturer, then select the exact model and revision used in your system.
 
-### Start here
+#### Start here
 
 | What you want to do                      | Where to find documentation                                                                         |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | Find LiDAR or depth camera documentation | [LIVOX](livox/) · [HESAI](hesai/) · [RoboSense](robosense/) · [Orbbec](orbbec/)                     |
 | Configure a joint actuator or servo      | [CubeMars](cubemars/) · [DAMIAO](damiao/) · [RobStride](robstride/) · [FEETECH](feetech/)           |
+| [MyActuator](myactuator/)                | RMD-X geared actuators, RMD-L direct-drive motors, and control adapters.                            |
 | Explore robotic arms or mobile platforms | [AgileX](agilex/) · [DOBOT](dobot/) · [RealMan](realman/) · [AgiBot](agibot/) · [Yahboom](yahboom/) |
 | Work with a dexterous hand               | [LINKERBOT](linkerbot/) · [Leadshine](leadshine/) · [AgiBot](agibot/)                               |
 
-### Manufacturer directory
+#### Manufacturer directory
 
 Choose a manufacturer or brand to browse its product manuals and technical guides.
 
@@ -48,14 +49,13 @@ Choose a manufacturer or brand to browse its product manuals and technical guide
 | [Hiwonder](hiwonder.md)                   | ROS robot cars, hexapods, robotic arms, bus servos, and chassis.         |
 | [LDROBOT](ldrobot.md)                     | Compact 2D LiDAR, developer kits, and single-point ranging sensors.      |
 | [LSLiDAR](lslidar.md)                     | 2D and 3D LiDAR sensors for navigation, mapping, and spatial sensing.    |
-| [MyActuator](myactuator.md)               | RMD-X geared actuators, RMD-L direct-drive motors, and control adapters. |
 | [RealSense](realsense.md)                 | Stereo depth cameras for close-range vision and robot perception.        |
 | [SLAMTEC](slamtec.md)                     | RPLIDAR, Mapper, Aurora, and industrial laser scanners.                  |
 | [SteadyWin](steadywin.md)                 | GIM robot joint actuators and motor-control hardware.                    |
 | [WHEELTEC](wheeltec.md)                   | Control learning kits, balance robots, ROS platforms, and components.    |
 | [WowRobo](wowrobo.md)                     | SO-ARM101, XLeRobot, LeKiwi, robotic hands, and tactile-sensing kits.    |
 
-### Selected product guides
+#### Selected product guides
 
 | Product guide                                                               | What it covers                                                   |
 | --------------------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -66,13 +66,13 @@ Choose a manufacturer or brand to browse its product manuals and technical guide
 | [AgileX PiPER](agilex/piper-product-user-manual.md)                         | Robotic arm product manual.                                      |
 | [Linker Hand L6](linkerbot/linker-hand-l6-product-manual.md)                | Dexterous hand product reference.                                |
 
-### Before you begin
+#### Before you begin
 
 * Check the exact hardware model, firmware and communication interface against the manual.
 * Review the manufacturer’s power, mounting and safety instructions before enabling motion.
 * For software integration, record the SDK or driver version, operating system and relevant coordinate-frame or calibration settings.
 
-### Explore other areas
+#### Explore other areas
 
 | Explore                                                      | Documentation coverage                                                                             |
 | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
