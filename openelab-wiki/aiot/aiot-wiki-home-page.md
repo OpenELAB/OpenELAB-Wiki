@@ -14,9 +14,9 @@ Explore documentation for microcontrollers, single-board computers, wireless dev
 
 | What you want to do                                      | Where to find documentation                                                                                                 |
 | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Start a microcontroller or modular electronics project   | [Espressif](espressif/) · [M5Stack](m5stack/) · [Seeed Studio](seeed-studio/)                                               |
 | Work with a single-board computer or AI accelerator      | [Raspberry Pi](raspbeery-pi/) · [Seeed Studio](seeed-studio/) · [Hailo](hailo/)                                             |
 | Explore LoRa, Meshtastic and wireless development boards | [HELTEC](heltec/) · [LILYGO](lilygo/) · [Seeed Studio](seeed-studio/)                                                       |
+| Start a microcontroller or modular electronics project   | [Espressif](espressif/) · [M5Stack](m5stack/) · [Seeed Studio](seeed-studio/)                                               |
 | Add a display, camera, sensor or communication interface | [Waveshare](waveshare/) · [DFRobot](dfrobot/) · [Wireless-Tag](wireless-tag/) · [WisdPi](wisdpi/) · [WitMotion](witmotion/) |
 
 ### Manufacturer directory

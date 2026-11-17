@@ -38,7 +38,7 @@ Welcome to the OpenELAB Wiki: product manuals, setup instructions, hardware refe
 
 Find your manufacturer, open the documentation for your exact product, and move from specifications to a working setup.
 
-#### Choose your area
+### Choose your area
 
 | Explore                                                   | What you’ll find                                                                                   |
 | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -46,13 +46,13 @@ Find your manufacturer, open the documentation for your exact product, and move 
 | [Robotics](robotics/robotics-wiki-home-page.md)           | LiDAR, depth cameras, actuators, dexterous hands, robotic arms and mobile platforms.               |
 | [STEM & DIY](stem-and-diy/stem-and-diy-wiki-home-page.md) | Educational robots, electronics projects, drones and FPV, 3D printing and CNC equipment.           |
 
-#### Find the right guide
+### Find the right guide
 
 * **Know your model?** Search for its full model number, including the hardware revision where relevant.
 * **Know the brand?** Open its manufacturer page inside AIoT, Robotics or STEM & DIY, then choose the product.
 * **Exploring a new area?** Start with one of the category overviews for a map of the available documentation and selected guides.
 
-#### Selected product guides
+### Selected product guides
 
 | Guide                                                                                                     | Focus                                            |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
@@ -63,7 +63,7 @@ Find your manufacturer, open the documentation for your exact product, and move 
 | [ELEGOO Centauri Carbon 2 Combo](stem-and-diy/elegoo/elegoo-centauri-carbon-2-combo-engineering-guide.md) | 3D printing workflows.                           |
 | [Genmitsu 4040-PRO MAX](stem-and-diy/genmitsu/genmitsu-4040-pro-max-cnc-router-engineering-guide.md)      | Desktop CNC workflows.                           |
 
-#### Browse all manufacturers and brands
+### Browse all manufacturers and brands
 
 Browse the directories below for manufacturer introductions, product families, popular applications, store links, and available wiki guides.
 
@@ -75,8 +75,8 @@ Browse the directories below for manufacturer introductions, product families, p
 | ---------------------------------- | --------------------------------------------------------------------------- |
 | [M5Stack](aiot/m5stack/)           | Modular controllers, sensors, displays, voice hardware, and product guides. |
 | [OpenELAB](aiot/openelab/)         | Generic modules, electronics and accessories.                               |
-| [Waveshare](aiot/waveshare/)       | Displays, ESP32 boards, Raspberry Pi HATs, cameras, and industrial I/O.     |
 | [Seeed Studio](aiot/seeed-studio/) | XIAO, Grove, SenseCAP, Wio, ReSpeaker, and edge-AI platforms.               |
+| [Waveshare](aiot/waveshare/)       | Displays, ESP32 boards, Raspberry Pi HATs, cameras, and industrial I/O.     |
 | [Keyestudio](aiot/keyestudio/)     | EASY PLUG sensors, controller boards and learning kits.                     |
 | [HELTEC](aiot/heltec/)             | LoRa boards, mesh nodes, trackers, e-paper devices, and product guides.     |
 | [LILYGO](aiot/lilygo/)             | Handheld boards, LoRa and cellular platforms, CAN, and RS485 interfaces.    |
@@ -167,13 +167,13 @@ Browse the directories below for manufacturer introductions, product families, p
 
 OpenELAB entries group generic catalog products and accessories for which a separate manufacturer is not named in the source documentation.
 
-#### Before you begin
+### Before you begin
 
 * Match the guide to your exact product model and hardware revision.
 * Check the required power supply, connector pinout and software or firmware version before following a procedure.
 * Use the product-specific instructions for setup, calibration and operation; keep a record of the versions used in your project.
 
-#### Need help or found something outdated?
+### Need help or found something outdated?
 
 Send us the wiki page link, product model, hardware revision, operating system, firmware or SDK version, and any complete error message. For a documentation correction, include the section that needs updating and a supporting reference if available.
 
