@@ -35,9 +35,9 @@ Choose a manufacturer or brand to browse its product manuals and technical guide
 | [Raspberry Pi](raspbeery-pi/) | Single-board computers, Pico boards and Compute Modules.                    |
 | [Espressif](espressif/)       | ESP32 and ESP8266 chips, modules and development boards.                    |
 | [Hi-Link](hi-link/)           | Presence radar and AC/DC or DC/DC power modules.                            |
+| [Elecrow](elecrow/)           | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
 | [AI-Thinker](ai-thinker/)     | AiPi camera boards and radar modules.                                       |
 | [DFRobot](dfrobot/)           | HUSKYLENS vision and pressure sensing.                                      |
-| [Elecrow](elecrow/)           | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
 | [Wireless-Tag](wireless-tag/) | WT32S3-86S smart display documentation.                                     |
 | [XGRIDS](xgrids/)             | PortalCam Standard and Premium spatial camera guides.                       |
 | [AUSTA](austa/)               | AU-series solar module references.                                          |

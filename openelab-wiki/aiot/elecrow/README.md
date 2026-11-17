@@ -20,7 +20,7 @@ Elecrow develops electronics modules, display platforms, and hands-on learning h
 | ---------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | ThinkNode M1     | Portable Meshtastic communication with an e-paper display | [Wiki guide](thinknode-m1-development-guide.md) · [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m1-lora-transceiver)  |
 | ThinkNode M5     | Handheld LoRa messaging                                   | [Wiki guide](thinknode-m5-development-guide.md) · [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m5-walkie-talkie-pro) |
-| ThinkNode M6     | Solar-powered outdoor mesh deployment                     | [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m6-outdoor-solar)                                                       |
+| ThinkNode M6     | Solar-powered outdoor mesh deployment                     | [Wiki guide](thinknode-m6-development-guide.md) · [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m6-outdoor-solar)     |
 | Meshstick SX1262 | USB-based LoRa development                                | [OpenELAB product](https://openelab.io/products/elecrow-meshstick-usb-to-spi-sx1262-tcxo-lora-usb-stick)                                  |
 
 ### Popular applications
@@ -31,6 +31,8 @@ Elecrow develops electronics modules, display platforms, and hands-on learning h
 
 ### Wiki product guides and manuals
 
+* [Elecrow ThinkNode M9 MeshCore Development Guide](thinknode-m9-meshcore-development-guide.md)
+* [Elecrow ThinkNode M6 Development Guide](thinknode-m6-development-guide.md)
 * [Elecrow ThinkNode M1 Development Guide](thinknode-m1-development-guide.md)
 * [Elecrow ThinkNode M5 Development Guide](thinknode-m5-development-guide.md)
 

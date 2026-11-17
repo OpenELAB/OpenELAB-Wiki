@@ -33,6 +33,8 @@ Cardputer-Adv and M5StickS3 are different products from the original Cardputer a
 
 ### Wiki product guides and manuals
 
+* [M5Stack Dial v1.1 Development Guide](dial-v11-development-guide.md)
+* [M5Stack Atom VoiceS3R Development Guide](atom-voices3r-development-guide.md)
 * [M5Stack PaperColor C151 Development Guide](papercolor-c151-development-guide.md)
 * [M5Stack PaperMono C153 Development Guide](papermono-c153-development-guide.md)
 * [M5Stack Cardputer-Adv K132-Adv Development Guide](cardputer-adv-k132-development-guide.md)

@@ -35,6 +35,8 @@ Check the exact model, firmware, and protection variant before using a manual or
 
 ### Wiki product guides and manuals
 
+* [RobStride LeRobot Humanoid Motor Set Development Guide](lerobot-humanoid-motor-set-development-guide.md)
+
 Browse the available guides below. Match the full model number and hardware revision to your device.
 
 * [EduLite 05 Instruction Manual](edulite-05-instruction-manual.md)

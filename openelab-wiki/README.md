@@ -83,9 +83,9 @@ Browse the directories below for manufacturer introductions, product families, p
 | [Raspberry Pi](aiot/raspbeery-pi/) | Single-board computers, Pico boards and Compute Modules.                    |
 | [Espressif](aiot/espressif/)       | ESP32 and ESP8266 chips, modules and development boards.                    |
 | [Hi-Link](aiot/hi-link/)           | Presence radar and AC/DC or DC/DC power modules.                            |
+| [Elecrow](aiot/elecrow/)           | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
 | [AI-Thinker](aiot/ai-thinker/)     | AiPi camera boards and radar modules.                                       |
 | [DFRobot](aiot/dfrobot/)           | HUSKYLENS vision and pressure sensing.                                      |
-| [Elecrow](aiot/elecrow/)           | ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.  |
 | [Wireless-Tag](aiot/wireless-tag/) | WT32S3-86S smart display documentation.                                     |
 | [XGRIDS](aiot/xgrids/)             | PortalCam Standard and Premium spatial camera guides.                       |
 | [AUSTA](aiot/austa/)               | AU-series solar module references.                                          |
