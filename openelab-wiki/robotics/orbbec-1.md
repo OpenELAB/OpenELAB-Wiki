@@ -22,7 +22,7 @@ layout:
     visible: true
 ---
 
-# 🦇 ORBBEC
+# ORBBEC
 
 Orbbec documentation is now organized in one place: [browse Orbbec documentation](orbbec/).
 

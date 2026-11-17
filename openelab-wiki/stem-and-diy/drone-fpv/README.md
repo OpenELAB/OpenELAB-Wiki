@@ -1,27 +1,4 @@
----
-layout:
-  width: default
-  title:
-    visible: false
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
-  tags:
-    visible: true
-  actions:
-    visible: true
-  anchors:
-    visible: true
----
-
-# 🐭 DRONE / FPV
+# DRONE / FPV
 
 A drone is an unmanned aerial vehicle (UAV), often remotely controlled or capable of autonomous flight through onboard computers and sensors. Drones have gained widespread use in various industries due to their versatility, efficiency, and ability to access hard-to-reach areas.&#x20;
 

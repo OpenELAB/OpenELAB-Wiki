@@ -1,27 +1,4 @@
----
-layout:
-  width: default
-  title:
-    visible: false
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
-  tags:
-    visible: true
-  actions:
-    visible: true
-  anchors:
-    visible: true
----
-
-# 🐹 ESP
+# Espressif
 
 ESP refers to a family of microcontroller chips developed by Espressif Systems, primarily designed for IoT (Internet of Things) applications. These chips are popular for their built-in Wi-Fi and Bluetooth capabilities, which enable seamless wireless connectivity.&#x20;
 

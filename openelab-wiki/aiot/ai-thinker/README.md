@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# 🐼 AI-Thinker
+# AI-Thinker
 
 AI-Thinker provides global IoT terminals with a wide range of communication modules, including WiFi, Bluetooth, LoRa, offline voice, UWB, NB-IoT, 2.4G, GPS, and 4G, as well as wireless connectivity solutions for the Internet of Things. Its products are mainly used to support IoT applications and work in synergy to create smart cities, smart homes, smart wearables, smart security, and intelligent breeding industry terminals. Anxinke serves the IoT sector, focuses on the field of wireless connectivity, and is committed to making wireless networking simpler.
 

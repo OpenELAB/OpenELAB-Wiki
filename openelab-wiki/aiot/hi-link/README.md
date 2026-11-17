@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# 🦅 Hi-Link
+# Hi-Link
 
 Hilink Electronics is a high-tech enterprise specializing in the research and development, production and sale of internet of Things module products. The company's main products are communication module, sensing module and power module.Our products are widely used in various intelligent control industries and occasions.
 

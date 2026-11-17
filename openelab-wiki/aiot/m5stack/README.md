@@ -1,26 +1,3 @@
----
-layout:
-  width: default
-  title:
-    visible: false
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
-  tags:
-    visible: true
-  actions:
-    visible: true
-  anchors:
-    visible: true
----
-
 # M5Stack
 
 M5Stack is a leading provider of IoT solutions, committed to providing developers worldwide with convenient and flexible development components and tools. We offer stackable hardware modules and user-friendly graphical programming platform, as well as customized services, to provide clients in industrial IoT, smart agriculture, smart retail, STEM education, and many other fields with efficient and reliable Quick\&Easy IoT Development experience.

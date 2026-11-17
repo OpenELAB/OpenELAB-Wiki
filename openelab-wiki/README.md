@@ -53,7 +53,7 @@ Build connected devices, collect sensor data and develop applications at the edg
 
 | Brand or platform                                                                               | Documentation covers                                                                               |
 | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| [**Espressif / ESP**](aiot/esp/)                                                                | ESP32 and ESP8266 chips, modules and development boards.                                           |
+| [**Espressif / ESP**](aiot/espressif/)                                                          | ESP32 and ESP8266 chips, modules and development boards.                                           |
 | [**M5Stack**](aiot/m5stack/)                                                                    | Controllers, development kits, sensors, displays and expansion units.                              |
 | [**Seeed Studio**](aiot/seeed-studio/)                                                          | XIAO boards, SenseCAP devices, Wio hardware and reComputer edge computers.                         |
 | [**LILYGO**](aiot/lilygo/)                                                                      | ESP32 boards, LoRa devices, displays and Meshtastic hardware.                                      |

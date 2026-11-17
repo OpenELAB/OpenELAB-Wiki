@@ -4,7 +4,7 @@ Connect devices, collect data, and bring AI to the edge. Browse by brand or plat
 
 #### Brands and platforms
 
-* [ESP](esp/)
+* [ESP](espressif/)
 * [M5Stack](m5stack/)
 * [Seeed Studio](seeed-studio/)
 * [LILYGO](lilygo/)

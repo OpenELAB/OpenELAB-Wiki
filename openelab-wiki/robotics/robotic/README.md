@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# 🤖 Robotic
+# Robotic
 
 
 

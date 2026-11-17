@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# 🐺 HELTEC
+# HELTEC
 
 Chengdu Heltec Automation Technology Co., Ltd. was founded in 2014, and is a team with enthusiasm and creativity. Since its establishment, it has had an integrated system in the following processes: research and development, production, testing, sales, quality management, supply chain management, after-sales service, and technical support.&#x20;
 

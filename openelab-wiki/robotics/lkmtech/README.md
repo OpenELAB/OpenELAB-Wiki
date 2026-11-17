@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# 🫎 LKMTECH
+# LKMTECH
 
 LKMTECH from Ling Kong Technology and motor of the abbreviation, Shanghai Tank Control Technology Co., Ltd. based on scientific and technological research and development, to provide customers with high-performance, high-quality, integrated, intelligent motor servo motor products.
 

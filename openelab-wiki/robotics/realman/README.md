@@ -1,6 +1,2 @@
----
-icon: user-robot
----
-
 # Realman
 

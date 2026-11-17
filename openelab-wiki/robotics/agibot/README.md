@@ -1,6 +1,2 @@
----
-icon: robot-astromech
----
-
 # Agibot
 

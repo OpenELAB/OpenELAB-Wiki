@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# 🦉 DFROBOT
+# DFROBOT
 
 DFRobot was founded from a local maker community in 2008, among the first to embrace open source hardware, we keep creating innovative, user-friendly hardware & software products that become the building blocks in all kinds of electronic projects and fostering a strong community of learners around it.\
 After a decade, DFRobot has expanded from open source hardware to STEM education, manufacturing, and other industries. The company’s production lines cover from gadgets around Arduino, LattePanda, Raspberry Pi, micro:bit, to comprehensive learning kits for K12 students such as Boson kit, micro:Maqueen series and Mind Plus.

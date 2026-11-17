@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# 🐤 LILYGO
+# LILYGO
 
 LILYGO® is a company integrating R\&D, production, and sales.They are committed to promoting the development of the Internet of Things (IoT) industry.
 

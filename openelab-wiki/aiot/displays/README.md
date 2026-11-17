@@ -1,27 +1,4 @@
----
-layout:
-  width: default
-  title:
-    visible: false
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
-  tags:
-    visible: true
-  actions:
-    visible: true
-  anchors:
-    visible: true
----
-
-# 🐻 DISPLAYS
+# DISPLAYS
 
 Displays are electronic devices that show visual information to users. They can display simple text, like on a digital watch, or complex full-color graphics and videos, like on a smartphone or TV. Displays are used in many places, such as in cars to show speed, in medical equipment to display images, and in everyday gadgets like tablets and computers.
 

@@ -1,27 +1,4 @@
----
-layout:
-  width: default
-  title:
-    visible: false
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
-  tags:
-    visible: true
-  actions:
-    visible: true
-  anchors:
-    visible: true
----
-
-# 🐰 Raspberry Pi
+# Raspberry Pi
 
 The Raspberry Pi is a series of low-cost, credit-card-sized single-board computers developed by the Raspberry Pi Foundation. Originally designed to promote computer science education in schools, it has grown into a versatile and widely-used platform that has found applications in a variety of fields, from hobbyist projects to industrial automation.
 

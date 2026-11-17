@@ -1,27 +1,4 @@
----
-layout:
-  width: default
-  title:
-    visible: false
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
-  tags:
-    visible: true
-  actions:
-    visible: true
-  anchors:
-    visible: true
----
-
-# 🐮 MOTORS
+# MOTORS
 
 Motors are devices that turn electrical energy into mechanical motion. They’re used everywhere, from spinning the blades in your fan or powering your washing machine at home, to driving electric cars and operating heavy machinery in factories. They help things move and work!
 
