@@ -1,12 +1,18 @@
 # Seeed Studio reCamera Pro 2GB Engineering Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reCamera Pro 2GB on OpenELAB**](https://openelab.io/products/seeed-studio-recamera-pro-2gb-open-ai-camera)
+
+**Model:** Seeed Studio reCamera Pro 2GB · **OpenELAB SKU:** `Seeed-100092895` · **Variant:** verify exact purchased revision/option before development or flashing.
+{% endhint %}
+
 [Seeed-100092895](https://openelab.io/products/seeed-studio-recamera-pro-2gb-open-ai-camera)
 
-### Product and scope
+## Product and scope
 
 This guide covers **Seeed-100092895, reCamera Pro 2GB** for local vision inference and event-driven camera applications. The original reCamera and current 4GB Pro packages have different hardware or memory scope; select binaries and models for the actual device.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item             | Reference                                                                    |
 | ---------------- | ---------------------------------------------------------------------------- |
@@ -19,7 +25,7 @@ This guide covers **Seeed-100092895, reCamera Pro 2GB** for local vision inferen
 
 Use the **Pro hardware-specification diagrams** for connector orientation and signal levels. Processor/NPU capability is distinct from a model's measured throughput. The official image and an alternative OS may expose different features.
 
-### Getting started
+## Getting started
 
 1. Check the model and installed firmware. Boot using the documented Pro power/USB connection.
 2. Follow the official first-detection guide to reach the Web UI. The factory USB virtual-network path uses **192.168.42.1** when supported.
@@ -29,11 +35,11 @@ Use the **Pro hardware-specification diagrams** for connector orientation and si
 
 **Expected checkpoint:** a live image and plausible detection results in the browser before custom model/API work.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the Pro **development-path selector**, API documentation and Downloads/Release Notes. Select model conversion and native application tools for RV1126B. Preserve firmware, model and application versions. Follow the Pro recovery procedure before replacing the OS; the official documentation notes that alternative software can remove the original USB-network interface or Bluetooth support.
 
-### FAQs
+## FAQs
 
 **Cannot reach the factory address?** Check firmware type, USB data capability and host network adapter; try the documented Ethernet/Wi-Fi path.
 
@@ -41,7 +47,7 @@ Use the Pro **development-path selector**, API documentation and Downloads/Relea
 
 **Is a 4GB image/package identical?** Confirm supported firmware and memory requirements rather than inferring from the Pro name.
 
-### Sources and validation
+## Sources and validation
 
 * [First detection](https://wiki.seeedstudio.com/recamera_pro_getting_started/)
 * [Hardware specifications](https://wiki.seeedstudio.com/recamera_pro_hardware_specifications/)

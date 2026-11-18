@@ -1,6 +1,18 @@
 # RealSense D435 D435i D455f and D405 Engineering Guide
 
-### Product family and model boundaries
+{% hint style="info" %}
+[**RealSense D435i on OpenELAB**](https://openelab.io/products/intel-realsense-d435i-for-unitree) · SKU `Intel-D435i`
+
+[**RealSense D455F on OpenELAB**](https://openelab.io/products/intel-realsense-d455f-depth-camera) · SKU `Intel-D455F`
+
+[**RealSense D435 on OpenELAB**](https://openelab.io/products/intel-realsense-d435-depth-camera3d) · SKU `Intel-D435`
+
+[**RealSense D405 on OpenELAB**](https://openelab.io/products/intel-realsense-d405-depth-camera) · SKU `Intel-D405`
+
+**Scope:** these models differ in IMU, IR filtering, optical range and calibration; select the actual camera profile before configuring librealsense/ROS.
+{% endhint %}
+
+## Product family and model boundaries
 
 This guide covers **D435, D435i, D455f and D405 USB depth cameras**. They share a software ecosystem, but differ in optics, useful distance, motion sensing and filtering. Select the camera according to the working distance and scene, not merely the shared D400 name.
 
@@ -13,13 +25,13 @@ This guide covers **D435, D435i, D455f and D405 USB depth cameras**. They share 
 
 The manufacturer datasheet documents depth/RGB stream modes, FOV, operating limits and model-specific geometry. D435-family depth supports up to **1280 × 720** and up to **90 FPS**, but available combinations vary by mode. Treat those maxima separately; do not assume every resolution supports every frame rate.
 
-### Technical documents and development software
+## Technical documents and development software
 
 Use the current **D400 datasheet** and mechanical drawings for your exact camera when designing brackets or assessing minimum distance. D435i's IMU and D455f's filter are not features of the plain D435. An IR-pass filter can help in some illumination conditions; it does not eliminate all depth failures on reflective or transparent surfaces.
 
 The official **librealsense SDK** provides RealSense Viewer, C/C++ APIs, examples and Python bindings. Select a release whose compatibility table covers the camera, firmware and host OS. Keep those versions together rather than updating firmware independently of the application.
 
-### Getting started: depth first, application second
+## Getting started: depth first, application second
 
 1. Install the SDK for the host OS using its supported installation path.
 2. Connect one camera directly to a suitable USB 3 host port with a known-good data cable. Avoid an unpowered hub for the first test.
@@ -29,11 +41,11 @@ The official **librealsense SDK** provides RealSense Viewer, C/C++ APIs, example
 
 **Checkpoint:** repeatable streaming with an identified USB mode and the expected streams. Viewer success does not yet establish calibrated hand-eye transforms, time synchronization or robot perception accuracy.
 
-### Application integration
+## Application integration
 
 Start from an SDK example matching the programming language. Query device capabilities rather than hard-coding another model's streams. For robotics, define the optical coordinate frame, depth units, camera intrinsics and any color/depth alignment deliberately. Preserve original calibration metadata with recordings.
 
-### FAQs
+## FAQs
 
 **Camera appears only as USB 2?** Check cable, port and hubs; reduce the stream configuration while diagnosing bandwidth.
 
@@ -45,7 +57,7 @@ Start from an SDK example matching the programming language. Query device capabi
 
 **Recovery?** Follow the SDK's supported firmware update/recovery flow and compatibility table. Save application configuration and recordings before changes.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer model comparison](https://www.realsenseai.com/compare-depth-cameras/)
 * [D400-family datasheet, March 2026](https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf)

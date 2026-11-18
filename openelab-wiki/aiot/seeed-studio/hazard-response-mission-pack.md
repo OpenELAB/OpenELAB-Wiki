@@ -1,12 +1,18 @@
 # Seeed Hazard Response Mission Pack: system inventory and first integration
 
+{% hint style="info" %}
+[**View Seeed Hazard Response Mission Pack: system inventory and first integration on OpenELAB**](https://openelab.io/products/seeed-studio-hazard-response-mission-pack-all-in-one-compact-kit-meshtastic)
+
+**Product/variant:** Seeed Hazard Response Mission Pack: system inventory and first integration · **OpenELAB SKU:** `Seeed-E24101801`
+{% endhint %}
+
 [Seeed-E24101801](https://openelab.io/products/seeed-studio-hazard-response-mission-pack-all-in-one-compact-kit-meshtastic)
 
-### Product and scope
+## Product and scope
 
 The E24101801 Mission Pack combines edge computing, a display, mesh communication and interfaces for field-sensing experiments. Applications include environmental observation, remote telemetry and local dashboards. This guide covers the commercial kit; the evolving V3 project is not a guarantee of the same BOM or a certified emergency-response system.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                  | Reference                                                                                  |
 | --------------------- | ------------------------------------------------------------------------------------------ |
@@ -17,7 +23,7 @@ The E24101801 Mission Pack combines edge computing, a display, mesh communicatio
 
 The manufacturer product page provides the kit part list and links the Hazard-Response-Mission-Pack repository. Record the actual gateway, Meshtastic radio, router and tracker revisions because software examples and V3 hardware evolve. Follow each included board's own connector and power diagram; a shared case does not make every connector a 12 V input.
 
-### Getting started
+## Getting started
 
 1. Inventory the case against E24101801 and label each supply/connector. Attach the matching radio antennas before operation.
 2. Boot the reComputer with the supplied image and verify display, keyboard and router access. Record the OS and installed service versions before changing software.
@@ -27,11 +33,11 @@ The manufacturer product page provides the kit part list and links the Hazard-Re
 
 **Expected checkpoint:** A locally accessible gateway and a verified message/telemetry path from one known device, with hardware and software versions recorded.
 
-### Development software and recovery
+## Development software and recovery
 
 The official repository is the system integration resource; individual devices retain their own firmware and APIs. Inspect the checked-out branch's BOM and prerequisites before running deployment scripts. Keep network credentials outside shared logs. Diagnose radio delivery, sensor parsing and dashboard ingestion separately when data disappears.
 
-### FAQs
+## FAQs
 
 **Is every illustrated sensor supplied?** No. The product distinguishes the base kit from optional ecosystem sensors.
 
@@ -39,7 +45,7 @@ The official repository is the system integration resource; individual devices r
 
 **Is it a substitute for a certified alarm system?** No such certification or assured emergency availability was established by the reviewed material.
 
-### Sources and validation
+## Sources and validation
 
 * [Commercial E24101801 kit and part list](https://www.seeedstudio.com/Mission-Pack.html)
 * [Manufacturer system repository](https://github.com/Seeed-Studio/Hazard-Response-Mission-Pack)

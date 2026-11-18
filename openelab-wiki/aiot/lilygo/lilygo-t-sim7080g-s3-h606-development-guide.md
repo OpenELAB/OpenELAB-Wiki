@@ -1,12 +1,18 @@
 # LILYGO T-SIM7080G S3 H606 Engineering Guide
 
+{% hint style="info" %}
+[**View LILYGO T-SIM7080G S3 H606 on OpenELAB**](https://openelab.io/products/lilygo-t-sim7080g-s3)
+
+**Product model/family:** LILYGO T-SIM7080G S3 H606 · **OpenELAB SKU:** `LILYGO-H606`
+{% endhint %}
+
 [LILYGO-H606](https://openelab.io/products/lilygo-t-sim7080g-s3)
 
-### Product and scope
+## Product and scope
 
 **H606 T-SIM7080G S3** combines ESP32-S3 with a SIM7080G **LTE-M / NB-IoT** modem and positioning capability. It is intended for low-bandwidth telemetry. It is not a conventional LTE Cat4 modem; a general mobile-data SIM may lack the required service.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                 | Reference                                           |
 | -------------------- | --------------------------------------------------- |
@@ -18,7 +24,7 @@
 
 The legacy manufacturer repository contains the **H606 pinout, schematic, power-control sequence and antenna connections**. Use it for the delivered hardware. Modem peak current, SIM voltage and RF routing must follow that design; a USB-connected MCU does not prove the modem is powered.
 
-### Getting started
+## Getting started
 
 1. With power off, install a provisioned LTE-M/NB-IoT SIM and the correct cellular/GNSS antennas.
 2. Open the H606 repository and select its **ATDebug** example with the documented board configuration.
@@ -28,11 +34,11 @@ The legacy manufacturer repository contains the **H606 pinout, schematic, power-
 
 **Expected checkpoint:** AT communication, SIM recognition and registration on a supported service.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the H606 examples and required library versions. The newer **LilyGo-Modem-Series** distinguishes board variants and uses its own TinyGSM fork; retain the target/commit rather than mixing dependencies. Recover the ESP32 application and modem firmware as separate devices.
 
-### FAQs
+## FAQs
 
 **SIM works in a phone but not here?** Verify LTE-M/NB-IoT provisioning, APN, bands and local network support.
 
@@ -40,7 +46,7 @@ Use the H606 examples and required library versions. The newer **LilyGo-Modem-Se
 
 **AT is silent?** Check modem power key sequence, supply and H606 UART pins.
 
-### Sources and validation
+## Sources and validation
 
 * [Exact legacy manufacturer repository](https://github.com/Xinyuan-LilyGO/LilyGo-T-SIM7080G/blob/master/README.MD)
 * [Current modem-series target distinctions](https://github.com/Xinyuan-LilyGO/LilyGo-Modem-Series)

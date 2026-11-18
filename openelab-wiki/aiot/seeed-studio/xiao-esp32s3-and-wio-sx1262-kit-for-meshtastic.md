@@ -23,15 +23,21 @@ layout:
 
 # XIAO ESP32S3 & Wio-SX1262 Kit for Meshtastic
 
-### Seeed Studio XIAO ESP32S3 & Wio-SX1262 Kit for Meshtastic
+{% hint style="info" %}
+[**View XIAO ESP32S3 & Wio-SX1262 Kit for Meshtastic on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-esp32s30-wio-sx1262-kit-for-meshtastic)
+
+**Model/kit:** XIAO ESP32S3 & Wio-SX1262 Kit for Meshtastic · **OpenELAB SKU:** `Seeed-102010611`
+{% endhint %}
+
+## Seeed Studio XIAO ESP32S3 & Wio-SX1262 Kit for Meshtastic
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/seeed-studio-xiao-esp32s30-wio-sx1262-kit-for-meshtastic" %}
 
-### Description
+## Description
 
 This thumb-sized LoRa development kit, which consists of the XIAO ESP32S3 and the Wio-SX1262 LoRa module, is an ideal starter kit for Meshtastic and LoRa/LoRaWAN projects. Supporting WiFi, BLE, and LoRa, it includes a built-in power management chip and can be extended via IIC, UART, and other GPIO interfaces, and is compatible with Arduino development. The XIAO ESP32S3 & Wio-SX1262 Kit is a single-channel LoRaWAN LoRa module with a low price and high cost performance. It is suitable for application scenarios with long distance, low power consumption, and small data volume. It supports more than 30 node devices (depending on upload interval, data payload, etc.).
 
@@ -41,7 +47,7 @@ applications:
 * Configuring as LoRaWAN node
 * Configuring as LoRaWAN gateway
 
-### Features
+## Features
 
 * **Meshtactic works out of the box**: Pre-flashed with Meshtastic firmware, it is ready to work once powered on.
 * **Outstanding RF performance**: Supports LoRa(862-930MHz) 2.4GHz Wi-Fi and BLE 5.0 dual wireless communication, support 2\~5km(LoRa) and 100m+(Wi-Fi/BLE) remote communication when connected with U.FL antenna.
@@ -49,7 +55,7 @@ applications:
 * **Powerful MCU Board**: Incorporate the ESP32S3 32-bit, dual-core, Xtensa processor running at up to 240MHz, mounted multiple development ports, Arduino / MicroPython supported.
 * **Elaborate Power Design**: Includes a Type-C USB interface and lithium battery charge management.
 
-### Specification
+## Specification
 
 | Feature                | Details                                                                                                                               |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -63,7 +69,7 @@ applications:
 | Working Temperature    | -40°C \~ 65°C                                                                                                                         |
 | Dimensions             | 21 x 17.8mm                                                                                                                           |
 
-### Hardware
+## Hardware
 
 Wio-SX1262 extension board diagram
 
@@ -85,7 +91,7 @@ Video Instruction
 
 {% embed url="https://www.youtube.com/watch?v=AGPZ9xnX3gs" %}
 
-### Resource
+## Resource
 
 * [Wio-SX1262 Module Datasheet](https://files.seeedstudio.com/products/SenseCAP/Wio_SX1262/Wio-SX1262_Module_Datasheet.pdf)
 * [Wio-SX1262 Schemetic Diagram](https://files.seeedstudio.com/products/SenseCAP/Wio_SX1262/Schematic_Diagram_Wio-SX1262_for_XIAO.pdf)

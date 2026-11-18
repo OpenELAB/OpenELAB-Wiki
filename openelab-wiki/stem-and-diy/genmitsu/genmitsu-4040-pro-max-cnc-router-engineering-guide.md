@@ -1,5 +1,11 @@
 # Genmitsu 4040-PRO MAX CNC Router Engineering Guide
 
+{% hint style="info" %}
+[**View Genmitsu 4040-PRO MAX CNC Router on OpenELAB**](https://openelab.io/products/genmitsu-4040-pro-max-cnc-router)
+
+**Model/kit:** Genmitsu 4040-PRO MAX CNC Router · **OpenELAB SKU:** `101-60-4040PM-E`
+{% endhint %}
+
 **Product link:** [https://openelab.io/products/genmitsu-4040-pro-max-cnc-router](https://openelab.io/products/genmitsu-4040-pro-max-cnc-router)
 
 ## Genmitsu 4040-PRO MAX CNC Router Engineering Guide

@@ -23,15 +23,21 @@ layout:
 
 # Mesh Node T114 nRF52840 SX1262 GPS Meshtastic LoRaWAN
 
-### HELTEC Mesh Node T114 nRF52840 SX1262 GPS Meshtastic LoRaWAN 868Mhz
+{% hint style="info" %}
+[**View Mesh Node T114 nRF52840 SX1262 GPS Meshtastic LoRaWAN on OpenELAB**](https://openelab.io/products/heltec-mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan-868mhz?variant=44692588757190)
+
+**Product/variant:** Mesh Node T114 nRF52840 SX1262 GPS Meshtastic LoRaWAN · **OpenELAB SKU:** `HT-T114D`
+{% endhint %}
+
+## HELTEC Mesh Node T114 nRF52840 SX1262 GPS Meshtastic LoRaWAN 868Mhz
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/heltec-mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan-868mhz?variant=44692588757190" %}
 
-### Description
+## Description
 
 {% embed url="https://www.youtube.com/watch?v=TGNeAgeDcaE" %}
 
@@ -41,14 +47,14 @@ With Heltec nRF52 development environment and libraries. you can use it for LoRa
 
 **Mesh Node T114 has been upgraded to the Rev2.0 version with the following changes made :**
 
-* &#x20;The circuit board was changed from 4 layers to 6 layers so that both the RF part and the crystal oscillator part can obtain a more complete ground.
+* The circuit board was changed from 4 layers to 6 layers so that both the RF part and the crystal oscillator part can obtain a more complete ground.
 * The circuit was changed from lead-free to immersion gold process, which is more friendly to signal transmission.
 * The position of some components was adjusted.
-* &#x20;The RF path was optimized according to the six-layer board structure.
+* The RF path was optimized according to the six-layer board structure.
 * The direction of the 2.4GHz Bluetooth antenna and IPEX LoRa antenna interface was changed to make them farther away.
 * Now the high-frequency Mesh node T114 can stably send long data packets in the “Long\_Fast” channel of Meshtastic.
 
-### Feature
+## Feature
 
 <figure><img src="../../.gitbook/assets/image (247).png" alt=""><figcaption></figcaption></figure>
 
@@ -60,27 +66,27 @@ With Heltec nRF52 development environment and libraries. you can use it for LoRa
 * Compatible with Arduino, we provide development frameworks and libraries.
 * Various Interfaces: 1.25\*2P LiPo connector, 1.25\*2P Solar panel connector, 1.25\*8P GNSS module connector, which greatly increase the extensibility of the board.
 
-### Specification
+## Specification
 
-| Parameters                 | Description                                                                                                                                                        |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| MCU                        | nRF52840                                                                                                                                                           |
-| LoRa Node Chip             | SX1262                                                                                                                                                             |
-| Frequency                  | <p>470~510MHz;<br>863~870MHz;<br>902~928MHZ.</p>                                                                                                                   |
-| Max. TX Power              | 21±1dBm                                                                                                                                                            |
-| Max. Receiving sensitivity | -135dBm@SF12 BW=125KHz                                                                                                                                             |
-|                            |                                                                                                                                                                    |
-| Bluetooth                  | Bluetooth LE: Bluetooth 5, Bluetooth mesh                                                                                                                          |
-| Hardware Resource          | USB 2.0, 4 \* SPI, 2 \* TWI, 2 \* UART, 4 \* PWM, QPSI, 12S, PDM, QDEC Etc.                                                                                        |
-| Memory                     | <p>1M ROM<br>256KB SRAM</p>                                                                                                                                        |
-| Interface                  | <p>Type-C USB<br>2*1.25 lithium battery connector<br>2*1.25 solar panel connector<br>LoRa ANT (IPEX1.0)<br>8*1.25 GPS module connector<br>2*13*2.54 Header Pin</p> |
-| Battery                    | 3\~4.2V battery power supply and charge.                                                                                                                           |
-| Operating Temperature      | -20 \~ 70 ℃                                                                                                                                                        |
-| Dimensions                 | 50.80\*22.86mm                                                                                                                                                     |
-| Electrical characteristics | <p>Deep Sleep: ~11uA<br>Tracker mode sleep: ~22uA<br>GPS OFF, TFT OFF: ~9mA<br>GPS OFF, TFT ON: ~20mA<br>GPS ON, TFT ON: ~51mA</p>                                 |
-| Display                    | onboard 1.14 inch TFT-LCD display                                                                                                                                  |
+| Parameters                 | Description                                                                                                                                                                                        |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MCU                        | nRF52840                                                                                                                                                                                           |
+| LoRa Node Chip             | SX1262                                                                                                                                                                                             |
+| Frequency                  | <p>470<del>510MHz;</del><br><del>863</del>870MHz;<br>902~928MHZ.</p>                                                                                                                               |
+| Max. TX Power              | 21±1dBm                                                                                                                                                                                            |
+| Max. Receiving sensitivity | -135dBm@SF12 BW=125KHz                                                                                                                                                                             |
+|                            |                                                                                                                                                                                                    |
+| Bluetooth                  | Bluetooth LE: Bluetooth 5, Bluetooth mesh                                                                                                                                                          |
+| Hardware Resource          | USB 2.0, 4 \* SPI, 2 \* TWI, 2 \* UART, 4 \* PWM, QPSI, 12S, PDM, QDEC Etc.                                                                                                                        |
+| Memory                     | <p>1M ROM<br>256KB SRAM</p>                                                                                                                                                                        |
+| Interface                  | <p>Type-C USB<br>2<em>1.25 lithium battery connector</em><br><em>2</em>1.25 solar panel connector<br>LoRa ANT (IPEX1.0)<br>8<em>1.25 GPS module connector</em><br><em>2</em>13*2.54 Header Pin</p> |
+| Battery                    | 3\~4.2V battery power supply and charge.                                                                                                                                                           |
+| Operating Temperature      | -20 \~ 70 ℃                                                                                                                                                                                        |
+| Dimensions                 | 50.80\*22.86mm                                                                                                                                                                                     |
+| Electrical characteristics | <p>Deep Sleep: ~11uA<br>Tracker mode sleep: ~22uA<br>GPS OFF, TFT OFF: ~9mA<br>GPS OFF, TFT ON: ~20mA<br>GPS ON, TFT ON: ~51mA</p>                                                                 |
+| Display                    | onboard 1.14 inch TFT-LCD display                                                                                                                                                                  |
 
-### Pin Map
+## Pin Map
 
 <figure><img src="../../.gitbook/assets/image (248).png" alt=""><figcaption></figcaption></figure>
 
@@ -120,7 +126,7 @@ provid abundant pins and hardware resources.
 
 <figure><img src="../../.gitbook/assets/image (253).png" alt=""><figcaption></figcaption></figure>
 
-### Resource
+## Resource
 
 * [User Manual](https://docs.heltec.org/en/node/nrf/index.html)
 * [Heltec nRF52 framework and Lib](https://github.com/HelTecAutomation/Heltec_nRF52)
@@ -129,9 +135,9 @@ provid abundant pins and hardware resources.
 * [Schematic diagram](https://resource.heltec.cn/download/Mesh_Node_T114/MeshNode-T114_V2.0_SCH\(2\).pdf)
 * [Datasheet](https://resource.heltec.cn/download/Mesh_Node_T114/Datasheet.pdf)
 * [TFT-LCD Datasheet](https://resource.heltec.cn/download/Mesh_Node_T114/1.14inch%20LH114T-IF03%20VER%20C.pdf)
-* [Related Resources](https://resource.heltec.cn/download/Mesh_Node_T114)&#x20;
+* [Related Resources](https://resource.heltec.cn/download/Mesh_Node_T114)
 
-### FAQ
+## FAQ
 
 {% stepper %}
 {% step %}
@@ -191,7 +197,7 @@ But in response to users’ demand for the 433 and 470 hardware V2 versions, our
 {% endstep %}
 {% endstepper %}
 
-### Project
+## Project
 
 <figure><img src="../../.gitbook/assets/image (254).png" alt=""><figcaption></figcaption></figure>
 

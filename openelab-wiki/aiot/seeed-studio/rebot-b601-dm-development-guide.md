@@ -1,12 +1,18 @@
 # Seeed Studio reBot Arm B601-DM Engineering Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reBot Arm B601-DM Assembled Kit on OpenELAB**](https://openelab.io/products/seeed-studio-rebot-arm-b601-dm-assembled-kit)
+
+**Model:** reBot Arm B601-DM, with gripper · **SKU:** `Seeed-100065783` · **Scope:** DAMIAO motor configuration. The assembled kit excludes the 24 V power adapter and G-clamp; verify required accessories before first motion.
+{% endhint %}
+
 [Seeed-100065783](https://openelab.de/products/seeed-studio-rebot-arm-b601-dm-assembled-kit)
 
-### Product and scope
+## Product and scope
 
 **100065783 B601-DM** is the DAMIAO-actuated reBot follower arm with gripper. Use it for teleoperation, motion-planning and robot-learning experiments. B601-RS is a different actuator/power configuration; its calibration and CAN settings must not be substituted.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item       | Reference                                                                |
 | ---------- | ------------------------------------------------------------------------ |
@@ -18,7 +24,7 @@
 
 The current **reBot-DevArm** repository contains BOM and hardware resources. Use the DM-specific CAD, joint map, CAN topology and connector diagrams. This package excludes the main supply by default. Prefer a correctly assembled supported supply; do not follow an RS supply diagram for the DM arm.
 
-### Getting started
+## Getting started
 
 1. Clamp the arm to a rigid bench, clear its workspace and arrange accessible power isolation. Do not fit a payload.
 2. Identify the actual USB-CAN adapter and serial device; record the joint inventory before changing any IDs.
@@ -28,11 +34,11 @@ The current **reBot-DevArm** repository contains BOM and hardware resources. Use
 
 **Expected checkpoint:** all expected joints identify correctly, calibration succeeds and one small motion follows the intended direction without abnormal noise.
 
-### Development software and recovery
+## Development software and recovery
 
 The current DM quick start uses **MotorBridge** for calibration/first run and links a Python SDK; older workflows may use different applications. Keep application, adapter driver, firmware and calibration records together. Use the DM-specific LeRobot or Pinocchio tutorial only after this baseline. Recovery starts with supply/cabling/ID checks, not increasing gains.
 
-### FAQs
+## FAQs
 
 **Can I use the B601-RS 48V supply?** The DM guide specifies 24V. Use the correct model's supported supply.
 
@@ -40,7 +46,7 @@ The current DM quick start uses **MotorBridge** for calibration/first run and li
 
 **Missing joints or startup noise?** Stop, inspect bus connections, IDs, actuator parameters and the actual voltage under load.
 
-### Sources and validation
+## Sources and validation
 
 * [Current DM quick start](https://wiki.seeedstudio.com/rebot_b601_dm_getting_started/)
 * [Open hardware/BOM/software](https://github.com/Seeed-Projects/reBot-DevArm)

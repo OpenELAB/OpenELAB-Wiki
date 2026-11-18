@@ -1,5 +1,11 @@
 # RoboSense Fairy 48 Beam Digital LiDAR Engineering Guide
 
+{% hint style="info" %}
+[**View RoboSense Fairy 48 Beam Digital LiDAR on OpenELAB**](https://openelab.io/products/robosense-fairy-mid-range-lidar)
+
+**Product/variant:** RoboSense Fairy 48 Beam Digital LiDAR · **OpenELAB SKU:** `RS-Fairy48`
+{% endhint %}
+
 Product link: https://openelab.io/products/robosense-fairy-mid-range-lidar
 
 ![RoboSense Fairy product image](<../../.gitbook/assets/robosense fairy product.jpg>)

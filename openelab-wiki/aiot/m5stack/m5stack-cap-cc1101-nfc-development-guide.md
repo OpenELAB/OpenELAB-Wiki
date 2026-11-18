@@ -1,8 +1,14 @@
 # M5Stack Cap CC1101 and NFC U219 Development Guide
 
+{% hint style="info" %}
+[**View M5Stack Cap CC1101 and NFC U219 on OpenELAB**](https://openelab.io/products/m5stack-cap-cc1101-nfc-for-cardputer-adv)
+
+**Product model/family:** M5Stack Cap CC1101 and NFC U219 · **OpenELAB SKU:** `M5-U219`
+{% endhint %}
+
 [Product at OpenELAB](https://openelab.io/products/m5stack-cap-cc1101-nfc-for-cardputer-adv)
 
-### Product and interfaces
+## Product and interfaces
 
 **U219 Cap CC1101** adds sub-GHz RF and NFC to **Cardputer-Adv / CardputerZero**. It is a different accessory from the SX1262 LoRa cap.
 
@@ -18,7 +24,7 @@
 
 Use it for your own wireless-device prototypes and NFC tag interfaces. Select a permitted RF band and compatible antenna for the deployment region.
 
-### Getting started: NFC tag detection
+## Getting started: NFC tag detection
 
 1. Power off the Cardputer host and attach the cap correctly.
 2. Prepare the manufacturer's Cardputer-Adv development environment.
@@ -28,13 +34,13 @@ Use it for your own wireless-device prototypes and NFC tag interfaces. Select a 
 
 **Checkpoint:** the example identifies your test tag repeatedly. Preserve the example and dependency versions as a baseline.
 
-### Development resources
+## Development resources
 
 The U219 page contains the **pin map, schematic and dimensional links**. Check SPI bus sharing, NFC IRQ and separate chip selects before adding other accessories. The official library includes target-dependent functionality; a generic NFC example can initialize a different chip or bus.
 
 Treat the CC1101 and NFC paths as separate bring-up tasks. For RF, begin with the official configuration for a known band and your own compatible transmitter/receiver; attach the correct antenna before transmission.
 
-### FAQs and recovery
+## FAQs and recovery
 
 **Does CC1101 provide LoRa?** It is a different radio from the LoRa-cap SX1262; match protocol and modulation explicitly.
 
@@ -44,7 +50,7 @@ Treat the CC1101 and NFC paths as separate bring-up tasks. For RF, begin with th
 
 **Firmware no longer boots?** Remove the cap, recover the host using its documented download procedure, then restore the known-working example.
 
-### Sources and validation
+## Sources and validation
 
 * [U219 hardware, pin map and technical resources](https://docs.m5stack.com/en/cap/Cap_CC1101)
 * [Official Arduino NFC examples](https://docs.m5stack.com/en/arduino/projects/cap/cap_cc1101)

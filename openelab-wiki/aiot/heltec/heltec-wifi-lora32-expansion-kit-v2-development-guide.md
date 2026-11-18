@@ -1,12 +1,18 @@
 # HELTEC WiFi LoRa 32 Expansion Kit V2 Engineering Guide
 
+{% hint style="info" %}
+[**View HELTEC WiFi LoRa 32 Expansion Kit V2 on OpenELAB**](https://openelab.io/products/heltec-wifi-lora-32-expansion-kit-v2-v4-r8-touch-gnss)
+
+**Product/variant:** HELTEC WiFi LoRa 32 Expansion Kit V2 · **OpenELAB SKU:** `HT-ExpansionT-V2`
+{% endhint %}
+
 [HT-ExpansionT-V2](https://openelab.io/products/heltec-wifi-lora-32-expansion-kit-v2-v4-r8-touch-gnss)
 
-### Product and scope
+## Product and scope
 
 **HT-ExpansionT-V2** is the touch/GNSS expansion-kit configuration for **WiFi LoRa 32 V4-R8**. The manufacturer says the complete kit includes the V4 board; verify the actual OpenELAB order contents, especially battery. V1 firmware is incompatible with V2.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item       | Reference                                                |
 | ---------- | -------------------------------------------------------- |
@@ -19,7 +25,7 @@
 
 The product page supplies the **pin map and component datasheets**. Use the V2 enclosure and expansion connections; generic V4 examples may not initialize the display, GNSS, buzzer or SD power correctly.
 
-### Getting started
+## Getting started
 
 1. Confirm V4-R8 and V2 labels; inspect fitted battery/GNSS and attach the antenna.
 2. Connect USB-C to a computer and preserve the delivered configuration.
@@ -29,11 +35,11 @@ The product page supplies the **pin map and component datasheets**. Use the V2 e
 
 **Expected checkpoint:** a functioning V2 touch interface and a received message, followed by independent GNSS/storage checks.
 
-### Development software and recovery
+## Development software and recovery
 
 Use a V2/V4-R8-compatible source and record firmware revision. HELTEC's page distinguishes touch mode, companion mode and programming mode; Bluetooth availability depends on the selected mode. Restore the matching factory image through the same download-mode sequence if custom firmware fails.
 
-### FAQs
+## FAQs
 
 **Can ordinary V4 or V1 kit firmware be used?** Match the V4-R8 memory and V2 peripheral configuration explicitly.
 
@@ -41,7 +47,7 @@ Use a V2/V4-R8-compatible source and record firmware revision. HELTEC's page dis
 
 **Unusual buzzer during GNSS acquisition?** HELTEC documents a timing interaction during initial acquisition; check the current firmware notes.
 
-### Sources and validation
+## Sources and validation
 
 * [Official V2 hardware and firmware notes](https://heltec.org/project/v4-r8-ex/)
 * [HELTEC documentation](https://wiki.heltec.org/docs/platform/f%26t/flash)

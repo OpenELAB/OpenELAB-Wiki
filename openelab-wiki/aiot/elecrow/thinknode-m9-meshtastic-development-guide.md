@@ -1,12 +1,18 @@
 # Elecrow ThinkNode M9 Meshtastic Engineering Guide
 
+{% hint style="info" %}
+[**View Elecrow ThinkNode M9 Meshtastic on OpenELAB**](https://openelab.io/products/elecrow-thinknode-m9-meshtastic-2-4inch-lcd-keyboard)
+
+**Product model/family:** Elecrow ThinkNode M9 Meshtastic · **OpenELAB SKU:** `ELECROW-LMM15409D-868`
+{% endhint %}
+
 [ELECROW-LMM15409D-868](https://openelab.io/products/elecrow-thinknode-m9-meshtastic-2-4inch-lcd-keyboard)
 
-### Product and scope
+## Product and scope
 
 This page covers the **LMM15409D Meshtastic M9**, including OpenELAB's 868MHz configuration. The separately sold **LMM16509D MeshCore M9** has a different firmware/application scope.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item         | Reference                                         |
 | ------------ | ------------------------------------------------- |
@@ -18,7 +24,7 @@ This page covers the **LMM15409D Meshtastic M9**, including OpenELAB's 868MHz co
 
 Elecrow's **M9 V1.0 manual, document version 2026-08-26**, provides the device controls, charging, setup and resource links. Use its physical layout and electrical requirements when building accessories; do not take MeshCore menu behavior as a Meshtastic reference.
 
-### Getting started
+## Getting started
 
 1. Attach the correct antenna and charge/power using the supplied instructions.
 2. Boot the unit and confirm the installed firmware is Meshtastic for M9.
@@ -28,11 +34,11 @@ Elecrow's **M9 V1.0 manual, document version 2026-08-26**, provides the device c
 
 **Expected checkpoint:** messages exchanged between two matching nodes and predictable local keyboard/UI operation.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the **ThinkNode M9 Meshtastic** hardware target and its supported release. The official Meshtastic hardware page names the target's capabilities. Save configuration before switching firmware or erasing flash. Restore via the M9-specific manufacturer update/recovery procedure.
 
-### FAQs
+## FAQs
 
 **Can a MeshCore M9 receive these messages?** The protocols differ; matching LoRa hardware is insufficient.
 
@@ -40,7 +46,7 @@ Use the **ThinkNode M9 Meshtastic** hardware target and its supported release. T
 
 **No keyboard response after an update?** Verify the exact M9 hardware/firmware target and release support.
 
-### Sources and validation
+## Sources and validation
 
 * [Model-specific manual](https://www.elecrow.com/wiki/ThinkNode_M9_Meshtastic_Communication_Terminal_with_Full_Keyboard.html)
 * [Official Meshtastic hardware support](https://meshtastic.org/docs/hardware/devices/elecrow/thinknode/)

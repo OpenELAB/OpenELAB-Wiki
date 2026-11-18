@@ -1,6 +1,14 @@
 # Seeed Studio reComputer R1024 R1025 and R1126 Engineering Guide
 
-### Model selection and applications
+{% hint style="info" %}
+[**View reComputer R1024-10 on OpenELAB**](https://openelab.io/products/seeed-studio-recomputer-r1024-10) · SKU `Seeed-113991294`
+
+[**View reComputer R1126-10 on OpenELAB**](https://openelab.io/products/seeed-studio-recomputer-r1126-10-iot-gateway-controller-4gb-ram-64gb-emmc) · SKU `Seeed-100040889`
+
+**Also covered:** reComputer R1025-10 · SKU `Seeed-113991274`. Its **openelab.io** product page has not been verified; do not substitute an unconfirmed link. Follow only the exact model's I/O, OS image and electrical documentation.
+{% endhint %}
+
+## Model selection and applications
 
 These **Raspberry Pi CM4** gateways target building-management integration, fieldbus data collection and edge services.
 
@@ -12,13 +20,13 @@ These **Raspberry Pi CM4** gateways target building-management integration, fiel
 
 The manufacturer's October 2026 update explicitly maps R1125-10 to R1126-10. A storage refresh does not make R1000 and R1100 connector layouts interchangeable.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 Both families provide Linux computing and dual Ethernet. Optional cellular/LoRa, PoE, UPS and AI modules depend on the actual configuration. Check the model-specific manual for power input, isolation, terminal pinout, mounting dimensions and fitted expansion modules.
 
 **RS232, RS485 and digital I/O are different electrical interfaces.** Do not use an R1100 terminal diagram to wire an R1000. PoE operation requires the appropriate supported hardware; an Ethernet socket alone is not evidence that it is fitted.
 
-### Getting started: inspect before connecting a fieldbus
+## Getting started: inspect before connecting a fieldbus
 
 1. Boot the supplied image using the model's documented supply. Connect one Ethernet port to an isolated bench network.
 2. Log in with the delivered setup instructions; change initial credentials when applicable.
@@ -37,7 +45,7 @@ ls /dev/tty*
 
 **Checkpoint:** a stable OS boot and repeatable communication on the correct port. Confirm polarity and reference grounding before connecting a site bus.
 
-### Software, recovery and FAQs
+## Software, recovery and FAQs
 
 Linux applications can use the documented serial interfaces, Node-RED or a suitable protocol library. Protocol support still requires a matching driver/application and device register map.
 
@@ -47,7 +55,7 @@ Linux applications can use the documented serial interfaces, Node-RED or a suita
 
 **No serial response?** Verify physical interface type, device mapping, direction control, settings and register addressing before changing the OS.
 
-### Sources and validation
+## Sources and validation
 
 * [R1000 setup, flashing and fieldbus tutorial index](https://wiki.seeedstudio.com/recomputer_r1000_intro/)
 * [R1100 hardware, electrical limits and dimensions](https://wiki.seeedstudio.com/recomputer_r1100_intro/)

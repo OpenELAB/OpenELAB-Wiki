@@ -1,5 +1,11 @@
 # ELEGOO Centauri Carbon 2 Combo Engineering Guide
 
+{% hint style="info" %}
+[**View ELEGOO Centauri Carbon 2 Combo on OpenELAB**](https://openelab.io/products/elegoo-centauri-carbon-2-500mms?variant=45907987005638)
+
+**Model:** ELEGOO Centauri Carbon 2 Combo · **OpenELAB SKU:** `Elegoo-Centauri-Carbon-2` · **Variant:** verify exact purchased revision/option before development or flashing.
+{% endhint %}
+
 **Product link:** [https://openelab.io/products/elegoo-centauri-carbon-2-500mms?variant=45907987005638](https://openelab.io/products/elegoo-centauri-carbon-2-500mms?variant=45907987005638)
 
 ## Overview

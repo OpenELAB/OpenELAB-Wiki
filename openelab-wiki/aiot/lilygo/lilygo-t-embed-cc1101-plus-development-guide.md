@@ -1,12 +1,18 @@
 # LILYGO T-Embed CC1101 Plus Engineering Guide
 
+{% hint style="info" %}
+[**View LILYGO T-Embed CC1101 Plus on OpenELAB**](https://openelab.io/products/lilygo-t-embed-cc1101-plus)
+
+**Model:** LILYGO T-Embed CC1101 Plus · **OpenELAB SKU:** `LILYGO-K268-01` · **Variant:** verify exact purchased revision/option before development or flashing.
+{% endhint %}
+
 [LILYGO-K268-01](https://openelab.io/products/lilygo-t-embed-cc1101-plus)
 
-### Product and scope
+## Product and scope
 
 **K268-01** is the external-antenna **T-Embed CC1101 Plus** configuration. LILYGO describes Plus as a T-Embed CC1101 with an added nRF24L01 module. Use it for your own RF/NFC/IR prototypes and portable instrumentation.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item             | Reference                                                 |
 | ---------------- | --------------------------------------------------------- |
@@ -18,7 +24,7 @@
 
 The manufacturer-linked repository contains **schematics, chip datasheets, pin definitions and STEP/3D files**. K268 internal-antenna and K268-01 external-antenna configurations differ physically. Do not replace the case casually; LILYGO notes risks to the IR assembly.
 
-### Getting started
+## Getting started
 
 1. Record the board revision, antenna version and factory firmware before changes.
 2. Open **Xinyuan-LilyGO/T-Embed-CC1101** in PlatformIO and retain its supplied dependency configuration.
@@ -28,11 +34,11 @@ The manufacturer-linked repository contains **schematics, chip datasheets, pin d
 
 **Expected checkpoint:** a working display/encoder baseline before any radio integration.
 
-### Development software and recovery
+## Development software and recovery
 
 The reviewed repository documents software **v1.3-250822** and hardware **v1.0-241103** for its base board; confirm the Plus/module-specific configuration. Its examples include radio receive/send, PN532 and factory tests. Preserve the exact commit and dependencies. Restore the matching factory image and boot procedure if uploads fail.
 
-### FAQs
+## FAQs
 
 **Does CC1101 mean LoRa?** CC1101 is a different modem; use matching modulation and protocol.
 
@@ -40,7 +46,7 @@ The reviewed repository documents software **v1.3-250822** and hardware **v1.0-2
 
 **NFC code for ST25R3916 fails?** This documented device uses PN532.
 
-### Sources and validation
+## Sources and validation
 
 * [Exact Plus product and antenna variants](https://lilygo.cc/products/t-embed-cc1101-plus)
 * [Manufacturer software/hardware repository](https://github.com/Xinyuan-LilyGO/T-Embed-CC1101)

@@ -23,15 +23,21 @@ layout:
 
 # M5Stack AtomS3 Lite ESP32S3 Dev Kit
 
-### M5Stack AtomS3 Lite ESP32S3 Dev Kit
+{% hint style="info" %}
+[**View M5Stack AtomS3 Lite ESP32S3 Dev Kit on OpenELAB**](https://openelab.io/products/m5stack-atoms3-lite)
+
+**Model/kit:** M5Stack AtomS3 Lite ESP32S3 Dev Kit · **OpenELAB SKU:** `M5-C124`
+{% endhint %}
+
+## M5Stack AtomS3 Lite ESP32S3 Dev Kit
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/m5stack-atoms3-lite" %}
 
-### Introduction
+## Introduction
 
 ATOM S3 Lite is a versatile programmable controller that belongs to the Atom Series in the M5Stack Development Kit lineup. Powered by the [ESP32 S3](https://shop.m5stack.com/products/m5stamp-esp32s3-module) FN8 scheme, this compact controller measures only 24x24x9.5mm, making it an ideal choice for space-constrained projects. It boasts an impressive 8MB SPI flash memory, providing ample storage capacity for your applications. With integrated Wi-Fi functionality and a built-in 3D antenna, the ATOM S3 Lite ensures seamless connectivity and reliable wireless communication.\
 \
@@ -41,7 +47,7 @@ Equipped with a 5V to 3.3V power circuit, the ATOM S3 Lite offers stable and eff
 
 With a convenient Type-C interface, the ATOM S3 Lite allows hassle-free program downloading and seamless serial port communication. The device also comes with an M2 screw hole on the back, providing a secure mounting option for your projects. Whether you're working on embedded smart devices, IoT applications, or prototyping projects, the ATOM S3 Lite is a reliable and compact solution that empowers your creativity and enables endless possibilities.
 
-### Features
+## Features
 
 * Developed based on ESP32-S3FN8
 * Comes with USB download function
@@ -50,7 +56,7 @@ With a convenient Type-C interface, the ATOM S3 Lite allows hassle-free program 
 * Expandable pins and interfaces
 * Development platform: Arduino, UIFlow
 
-### Specification <a href="#specification" id="specification"></a>
+## Specification <a href="#specification" id="specification"></a>
 
 | Resources             | Parameters           |
 | --------------------- | -------------------- |
@@ -67,23 +73,23 @@ With a convenient Type-C interface, the ATOM S3 Lite allows hassle-free program 
 | Product Weight        | 5.3g                 |
 | Package Weight        | 9.5g                 |
 
-### Pinout
+## Pinout
 
 <figure><img src="../../.gitbook/assets/image (753).png" alt=""><figcaption></figcaption></figure>
 
-### Dimensions
+## Dimensions
 
 <figure><img src="../../.gitbook/assets/image (752).png" alt=""><figcaption></figcaption></figure>
 
-### How to Use
+## How to Use
 
-### 1. Preparations <a href="#preparations" id="preparations"></a>
+## 1. Preparations <a href="#preparations" id="preparations"></a>
 
 * Arduino IDE Installation: Refer to the [Arduino IDE Installation Guide ](https://docs.m5stack.com/en/arduino/arduino_ide)to complete the IDE installation.
 * Board Manager Installation: Refer to the [Basic Environment Setup Guide ](https://docs.m5stack.com/en/arduino/arduino_board)to complete the IDE, M5Stack Board Manager installation, and select the development board `M5AtomS3`.
 * Dependency Library Installation: Refer to the [Library Management Installation Guide ](https://docs.m5stack.com/en/arduino/arduino_library)to complete the installation of the `M5AtomS3` driver library.
 
-### 2. Download Mode <a href="#download-mode" id="download-mode"></a>
+## 2. Download Mode <a href="#download-mode" id="download-mode"></a>
 
 * Press and hold the reset button (about 2 seconds) until the internal green LED lights up, then release it. The device is now in download mode, ready for burning.
 
@@ -91,7 +97,7 @@ With a convenient Type-C interface, the ATOM S3 Lite allows hassle-free program 
 
 <figure><img src="../../.gitbook/assets/image (754).png" alt=""><figcaption></figcaption></figure>
 
-### 3. Download Control Board <a href="#download-control-board" id="download-control-board"></a>
+## 3. Download Control Board <a href="#download-control-board" id="download-control-board"></a>
 
 Refer to the [Basic Environment Setup Guide ](https://docs.m5stack.com/en/arduino/arduino_board)to complete the IDE, M5Stack Board Manager installation, and select the development board `M5AtomS3`.
 
@@ -99,7 +105,7 @@ Refer to the [Basic Environment Setup Guide ](https://docs.m5stack.com/en/arduin
 
 <figure><img src="../../.gitbook/assets/image (756).png" alt=""><figcaption></figcaption></figure>
 
-### 4. Install Library Files <a href="#install-library-files" id="install-library-files"></a>
+## 4. Install Library Files <a href="#install-library-files" id="install-library-files"></a>
 
 Dependency Library Installation: Refer to the [Library Management Installation Guide ](https://docs.m5stack.com/en/arduino/arduino_library)to complete the installation of the `M5AtomS3` driver library.
 
@@ -107,13 +113,13 @@ Dependency Library Installation: Refer to the [Library Management Installation G
 
 <figure><img src="../../.gitbook/assets/image (758).png" alt=""><figcaption></figcaption></figure>
 
-### 5. Port Selection <a href="#port-selection" id="port-selection"></a>
+## 5. Port Selection <a href="#port-selection" id="port-selection"></a>
 
 Connect the device to the computer via USB cable. After completing the driver installation, you can select the corresponding device port in the Arduino IDE.
 
 <figure><img src="../../.gitbook/assets/image (759).png" alt=""><figcaption></figcaption></figure>
 
-### 6. Program Compilation & Burning <a href="#program-compilation-burning" id="program-compilation-burning"></a>
+## 6. Program Compilation & Burning <a href="#program-compilation-burning" id="program-compilation-burning"></a>
 
 Open the example program “LEDDisplay” in the driver library. Click the upload button to automatically compile and burn the program.
 

@@ -1,12 +1,18 @@
 # Waveshare Jetson Orin NX 8GB Dev Kit Engineering Guide
 
+{% hint style="info" %}
+[**View Waveshare Jetson Orin NX 8GB Dev Kit on OpenELAB**](https://openelab.io/products/jetson-orin-nx-dev-kit-8gb)
+
+**Product/variant:** Waveshare Jetson Orin NX 8GB Dev Kit · **OpenELAB SKU:** `Waveshare-24444`
+{% endhint %}
+
 [Waveshare-24444](https://openelab.io/products/jetson-orin-nx-dev-kit-8gb)
 
-### Product and scope
+## Product and scope
 
 **24444** is a Waveshare **Orin NX 8GB carrier-board kit** for edge AI and robotics. It is not NVIDIA's AGX Orin developer kit or the 16GB NX configuration. The store's eMMC wording must not be interpreted as onboard Orin NX storage.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item         | Reference                                                                                        |
 | ------------ | ------------------------------------------------------------------------------------------------ |
@@ -18,7 +24,7 @@
 
 Use the 8GB kit's **carrier manual, schematic/resource links and mounting diagram**. Match the exact module/carrier combination when choosing BSP, recovery wiring and peripherals.
 
-### Getting started
+## Getting started
 
 1. Keep the fitted cooling and use the supported supply. Attach monitor, keyboard and Ethernet while powered off.
 2. Boot the delivered image and complete its initial setup.
@@ -28,11 +34,11 @@ Use the 8GB kit's **carrier manual, schematic/resource links and mounting diagra
 
 **Expected checkpoint:** stable boot, correct 8GB-class memory identification and visible external storage.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the Waveshare **8G-DEV-KIT** image/instructions. JetPack, carrier drivers, firmware and containers must be compatible. Back up data before flashing. Super performance requires a supported software, cooling and power configuration, not a renamed product label.
 
-### FAQs
+## FAQs
 
 **Where is eMMC?** The NX module does not provide built-in system storage; inspect the fitted NVMe.
 
@@ -40,7 +46,7 @@ Use the Waveshare **8G-DEV-KIT** image/instructions. JetPack, carrier drivers, f
 
 **Recovery fails?** Check the kit's recovery jumper/button sequence, USB data cable and supported host.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer kit/module comparison](https://www.waveshare.com/jetson-orin-nx-16g-dev-kit.htm)
 * [Exact 8GB setup wiki](https://www.waveshare.com/wiki/JETSON-ORIN-NX-8G-DEV-KIT)

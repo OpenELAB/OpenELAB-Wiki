@@ -1,8 +1,14 @@
 # Seeed Studio reSpeaker Lite and Voice Assistant Kit Development Guide
 
+{% hint style="info" %}
+[**View reSpeaker Lite on OpenELAB**](https://openelab.io/products/seeed-studio-respeaker-lite-2) · [**View reSpeaker Lite Voice Assistant Kit on OpenELAB**](https://openelab.io/products/seeed-studio-respeaker-lite-voice-assistant-kit)
+
+**Product model/family:** Seeed Studio reSpeaker Lite and Voice Assistant Kit · **OpenELAB SKUs:** `Seeed-110061601`, `Seeed-E24072601` · Check exact board/kit option and revision for firmware selection.
+{% endhint %}
+
 [Lite listing](https://openelab.io/products/seeed-studio-respeaker-lite-2) · [Voice Assistant Kit listing](https://openelab.io/products/seeed-studio-respeaker-lite-voice-assistant-kit)
 
-### Identity and applications
+## Identity and applications
 
 The reSpeaker Lite is a **two-microphone** voice front end. OpenELAB **Seeed-110061601** and **Seeed-E24072601** describe different package configurations; inspect whether the XIAO ESP32S3, speaker, enclosure and cables are included before selecting a workflow.
 
@@ -16,7 +22,7 @@ Use the board for USB voice capture or as an I2S audio front end for a XIAO appl
 | Power contract      | 5V through USB or the documented 5V pad                |
 | Firmware processors | XMOS audio firmware and ESP32 application are separate |
 
-### Quick start: prove the microphone path first
+## Quick start: prove the microphone path first
 
 1. Connect the **Lite board's USB data port** to the computer with a data cable.
 2. With USB-mode firmware, select **ReSpeaker Lite** as the recording input. Record a short phrase, then play the file through a known-working output.
@@ -25,13 +31,13 @@ Use the board for USB voice capture or as an I2S audio front end for a XIAO appl
 
 **Expected result:** a visible capture device and intelligible audio. If the unit is already configured for XIAO/I2S, follow the official switch-to-USB firmware procedure before expecting a sound card.
 
-### Home Assistant and development
+## Home Assistant and development
 
 Follow the manufacturer-linked Home Assistant tutorial for the kit. Its XMOS I2S image and the ESPHome configuration must agree on sample rate and clocking. The tutorial identifies `respeaker_lite_i2s_dfu_firmware_48k_v1.1.0.bin` for its playback workflow; confirm the currently supported configuration before adopting a different image.
 
 Use the project's current ESPHome requirements and record its commit and your ESPHome version. Build and test the audio pipeline before enabling wake-word automations.
 
-### Resources, recovery and FAQs
+## Resources, recovery and FAQs
 
 The board guide's Resources section links firmware, source and a **3D file**. Consult it for the current hardware package rather than assuming compatibility with XVF3800/Flex drawings.
 
@@ -43,7 +49,7 @@ The board guide's Resources section links firmware, source and a **3D file**. Co
 
 **Does flashing ESPHome update XMOS?** No. Treat recovery and version records for both processors separately.
 
-### Sources and validation
+## Sources and validation
 
 * [Lite board, firmware, SDK and 3D resource links](https://wiki.seeedstudio.com/reSpeaker_usb_v3/)
 * [Voice Assistant Kit](https://wiki.seeedstudio.com/xiao_respeaker/)

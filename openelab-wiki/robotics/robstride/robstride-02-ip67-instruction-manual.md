@@ -1,5 +1,11 @@
 # RobStride 02-IP67 Instruction Manual
 
+{% hint style="info" %}
+[**View RobStride 02-IP67 Instruction Manual on OpenELAB**](https://openelab.io/products/robstride02-ip67-robot-joint-actuator)
+
+**Product model/family:** RobStride 02-IP67 Instruction Manual · **OpenELAB SKU:** `ROBSTRIDE-02IP67`
+{% endhint %}
+
 > 17N.M IP67 Quasi-Direct Drive Integrated Motor Module User Manual
 
 [**ROBSTRIDE 02 IP67 Motor**ROBSTRIDE 02 IP67 Motor: 17N.m peak torque, 44.73N.m/Kg density. Integrated drive, motor, gearbox, dual encoder. 490g. For robotic joints & AGVs.openelab.io](https://openelab.io/products/robstride02-ip67-robot-joint-actuator)
@@ -50,30 +56,47 @@ When fixing, the screw depth should not exceed the depth of the casing thread.
 12. T-N curve (36V)
 13.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/8fd82a6b-48d4-4e57-86d7-1717239c9d75/image/w=1920,quality=90,fit=scale-down" alt="image" height="289.12998976458545" width="528">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/8fd82a6b-48d4-4e57-86d7-1717239c9d75/image/w=1920,quality=90,fit=scale-down" alt="image" height="289.12998976458545" width="528">
+```
+
 14. T-N curve (48V)
 15.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/9871c0ae-a952-496b-87bf-d82be0bfe3ab/image/w=1920,quality=90,fit=scale-down" alt="image" height="258.8659160696008" width="528">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/9871c0ae-a952-496b-87bf-d82be0bfe3ab/image/w=1920,quality=90,fit=scale-down" alt="image" height="258.8659160696008" width="528">
+```
+
 16. Maximum overload curve
 17. Test conditions: Ambient temperature: 25℃ Winding limit temperature: 135℃ (this is the constraint temperature, the actual is 180 degrees) Speed: 24rpm
 18.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/120ba076-c0a4-49b5-a9d6-30e006f1b95e/image/w=1920,quality=90,fit=scale-down" alt="image" height="314.41478439425055" width="528">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/120ba076-c0a4-49b5-a9d6-30e006f1b95e/image/w=1920,quality=90,fit=scale-down" alt="image" height="314.41478439425055" width="528">
+```
+
 19. Test data
 20.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/1113f60d-98f5-4eaf-9f82-06484d7908c7/image/w=1920,quality=90,fit=scale-down" alt="image" height="237.68674698795184" width="288">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/1113f60d-98f5-4eaf-9f82-06484d7908c7/image/w=1920,quality=90,fit=scale-down" alt="image" height="237.68674698795184" width="288">
+```
+
 21. Thermal testing Test Conditions:
 22. Heat sink size: 260mm x 280mm Ambient temperature: 25℃ Winding protection temperature: 145℃
 23. Test condition 1: Motor rotates at 100rpm, monitor the motor thermistor temperature, and record the time it takes for the motor thermistor temperature to rise from 25℃ to 145℃.
 24.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/2b807017-75fa-451e-99b5-a2189b26c5fe/image/w=1920,quality=90,fit=scale-down" alt="image" height="236.46918489065607" width="288">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/2b807017-75fa-451e-99b5-a2189b26c5fe/image/w=1920,quality=90,fit=scale-down" alt="image" height="236.46918489065607" width="288">
+```
+
 25. Motor locked-rotor condition 2: According to the current formula, the average phase current during locked-rotor is approximately 1.414 times that of rotation. This is used to obtain the overload time table for the locked-rotor condition.
 26.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/53b9a92a-0b22-4b4a-91b9-8852c06f0ff6/image/w=1920,quality=90,fit=scale-down" alt="image" height="151.64418938307028" width="288">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/53b9a92a-0b22-4b4a-91b9-8852c06f0ff6/image/w=1920,quality=90,fit=scale-down" alt="image" height="151.64418938307028" width="288">
+```
 
 ### 1.4 Mechanical characteristic <a href="#block-33ad4c79856d817ea3b6d2ae98c27520" id="block-33ad4c79856d817ea3b6d2ae98c27520"></a>
 

@@ -1,5 +1,11 @@
 # HELTEC WiFi LoRa 32 V4.3.1 SX1262 Engineering Guide
 
+{% hint style="info" %}
+[**View HELTEC WiFi LoRa 32 V4.3.1 SX1262 on OpenELAB**](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps)
+
+**Product model/family:** HELTEC WiFi LoRa 32 V4.3.1 SX1262 · **OpenELAB SKUs:** `HT-LoRa32V4-R8`, `HT-LoRa32V4` · Check exact board/kit option and revision for firmware selection.
+{% endhint %}
+
 **Product link:** [HELTEC WiFi LoRa 32 V4.3.1 SX1262 LoRa Node on OpenELAB](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps)
 
 The HELTEC WiFi LoRa 32 V4.3.1 is an ESP32-S3R2 + SX1262 development board for Meshtastic, MeshCore, LoRaWAN, private LoRa telemetry, solar-assisted field nodes, and general ESP32-S3 wireless projects. It combines Wi-Fi, Bluetooth LE, Bluetooth Mesh, LoRa, an onboard 0.96 inch OLED, Li-Po battery management, solar input, IPEX antenna ports, 2 MB PSRAM, 16 MB flash, and a GNSS expansion connector in a compact 51.7 x 25.4 mm board. This guide collects the practical details engineers need for firmware selection, hardware bring-up, low-power operation, radio configuration, and field deployment.

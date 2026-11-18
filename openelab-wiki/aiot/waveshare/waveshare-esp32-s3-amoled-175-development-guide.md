@@ -1,12 +1,18 @@
 # Waveshare ESP32-S3 Touch AMOLED 1.75 Engineering Guide
 
+{% hint style="info" %}
+[**View Waveshare ESP32-S3 Touch AMOLED 1.75 on OpenELAB**](https://openelab.io/products/waveshare-esp32-s3-amoled-touch-display)
+
+**Product model/family:** Waveshare ESP32-S3 Touch AMOLED 1.75 · **OpenELAB SKUs:** `Waveshare-31264`, `Waveshare-31262`, `Waveshare-31261` · Check exact board/kit option and revision for firmware selection.
+{% endhint %}
+
 [Waveshare-31264](https://openelab.io/products/waveshare-esp32-s3-amoled-touch-display) · [Waveshare-31262](https://openelab.io/products/waveshare-esp32-s3-amoled-touch-display) · [Waveshare-31261](https://openelab.io/products/waveshare-esp32-s3-amoled-touch-display)
 
-### Product and scope
+## Product and scope
 
 The **1.75-inch AMOLED** family supports portable interfaces, audio and sensor prototypes. Some store titles say GPS for the whole family, but **only 31264 (-G) contains the documented GNSS hardware**.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item            | Reference                                     |
 | --------------- | --------------------------------------------- |
@@ -19,7 +25,7 @@ The **1.75-inch AMOLED** family supports portable interfaces, audio and sensor p
 
 The official **HARDWARE\_REFERENCE.md** contains the complete GPIO/I2C map and links to schematics. Audio MCLK is **GPIO42**, while GPIO16 is an expansion GPIO. On -G, GPIO17/18 may be routed to GNSS; check availability before adding UART devices.
 
-### Getting started
+## Getting started
 
 1. Identify the printed SKU and preserve factory firmware details.
 2. Open the official **waveshareteam/ESP32-S3-Touch-AMOLED-1.75** project and use its documented Arduino/ESP-IDF environment.
@@ -29,11 +35,11 @@ The official **HARDWARE\_REFERENCE.md** contains the complete GPIO/I2C map and l
 
 **Expected checkpoint:** a stable display/touch baseline; GNSS capability is verified by hardware identity, not the listing title.
 
-### Development software and recovery
+## Development software and recovery
 
 The repository includes board-specific examples, release firmware and a complete factory recovery image. Record its commit/toolchain and retain BSP power/expander initialization. Use the documented recovery image and flashing offsets for restoration.
 
-### FAQs
+## FAQs
 
 **No GPS on 31261 or 31262?** These are the standard configurations; -G is the documented GNSS variant.
 
@@ -41,7 +47,7 @@ The repository includes board-specific examples, release firmware and a complete
 
 **Audio fails with another screen's pin map?** Use this board's schematic/BSP; its codec and clocks are model-specific.
 
-### Sources and validation
+## Sources and validation
 
 * [Official hardware map and exact SKU distinctions](https://github.com/waveshareteam/ESP32-S3-Touch-AMOLED-1.75/blob/main/HARDWARE_REFERENCE.md)
 * [Examples, firmware and factory recovery](https://github.com/waveshareteam/ESP32-S3-Touch-AMOLED-1.75)

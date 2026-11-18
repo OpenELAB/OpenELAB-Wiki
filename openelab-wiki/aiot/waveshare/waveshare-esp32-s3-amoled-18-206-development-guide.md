@@ -1,12 +1,18 @@
 # Waveshare ESP32-S3 AMOLED 1.8 and 2.06 Engineering Guide
 
+{% hint style="info" %}
+[**View Waveshare ESP32-S3 AMOLED 1.8 and 2.06 on OpenELAB**](https://openelab.io/products/waveshare-esp32-s3-amoled-1-8)
+
+**Product/variant:** Waveshare ESP32-S3 AMOLED 1.8 and 2.06 · **OpenELAB SKUs:** `Waveshare-29957`, `Waveshare-31957` · Select the documented hardware variant before using a pinout or firmware image.
+{% endhint %}
+
 [Waveshare-29957](https://openelab.io/products/waveshare-esp32-s3-amoled-1-8) · [Waveshare-31957](https://openelab.io/products/waveshare-esp32-s3-amoled-watch)
 
-### Product and scope
+## Product and scope
 
 These ESP32-S3 touch-AMOLED boards target portable HMIs and wearable prototypes. **29957 is the 1.8-inch board; 31957 is the 2.06-inch watch configuration.** Their display, audio and power pin maps must remain separate.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item             | Reference                                                       |
 | ---------------- | --------------------------------------------------------------- |
@@ -18,7 +24,7 @@ These ESP32-S3 touch-AMOLED boards target portable HMIs and wearable prototypes.
 
 Each official page links its **schematic, dimensions, chip datasheets and demo**. Check the battery connector polarity/charging contract and actual supplied battery. A compatible-looking display connector does not justify using the other board's settings.
 
-### Getting started
+## Getting started
 
 1. Read the PCB/model label and save the delivered firmware information.
 2. Open the **matching model's** example archive/repository, keeping its dependency versions.
@@ -28,11 +34,11 @@ Each official page links its **schematic, dimensions, chip datasheets and demo**
 
 **Expected checkpoint:** a complete, responsive display/touch test on the exact model.
 
-### Development software and recovery
+## Development software and recovery
 
 The 2.06-inch repository provides a managed BSP component named **waveshare/esp32\_s3\_touch\_amoled\_2\_06** and release firmware. Use the 1.8-inch resources for 29957; do not swap BSPs. Preserve versions and restore through the model's factory/download-mode procedure.
 
-### FAQs
+## FAQs
 
 **Blank screen after upload?** Check model target, PMU, display controller and reset sequence.
 
@@ -40,7 +46,7 @@ The 2.06-inch repository provides a managed BSP component named **waveshare/esp3
 
 **Battery does not charge?** Verify supported chemistry, connector/polarity and charging configuration before replacement.
 
-### Sources and validation
+## Sources and validation
 
 * [1.8-inch hardware and demo](https://www.waveshare.com/wiki/ESP32-S3-Touch-AMOLED-1.8)
 * [2.06-inch hardware and demo](https://www.waveshare.com/wiki/ESP32-S3-Touch-AMOLED-2.06)

@@ -1,12 +1,18 @@
 # DAMIAO DM-J4310-2EC and DM-J8009P-2EC Engineering Guide
 
+{% hint style="info" %}
+[**View DAMIAO DM-J4310-2EC and DM-J8009P-2EC — option 1 on OpenELAB**](https://openelab.io/products/damiao-brushless-servo-dm-j4310) · [**View DAMIAO DM-J4310-2EC and DM-J8009P-2EC — option 2 on OpenELAB**](https://openelab.io/products/damiao-brushless-servo-dm-j8009p)
+
+**Product model/family:** DAMIAO DM-J4310-2EC and DM-J8009P-2EC · **OpenELAB SKUs:** `DM-J4310-2EC-24V-V3`, `DM-J8009P-2EC-V3` · Verify motor protocol, firmware and kit-specific instructions before applying power.
+{% endhint %}
+
 [DM-J4310-2EC-24V-V3](https://openelab.io/products/damiao-brushless-servo-dm-j4310) · [DM-J8009P-2EC-V3](https://openelab.io/products/damiao-brushless-servo-dm-j8009p)
 
-### Product and scope
+## Product and scope
 
 This guide distinguishes **DM-J4310-2EC** from **DM-J8009P-2EC**. OpenELAB's SKU suffix **V3** must be reconciled with the physical motor/driver revision; it is not proof that a manufacturer manual labeled V1.1 describes the same revision.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item          | Reference                                                                |
 | ------------- | ------------------------------------------------------------------------ |
@@ -18,7 +24,7 @@ This guide distinguishes **DM-J4310-2EC** from **DM-J8009P-2EC**. OpenELAB's SKU
 
 The model manual index links separate **DM-J4310-2EC V1.1** and **DM-J8009P-2EC** documents, connector maps and control references. Confirm supply, current, torque scaling and mechanical drawings for the delivered revision before powering or designing a bracket.
 
-### Getting started
+## Getting started
 
 1. Fixture one unloaded motor and record its model, voltage label, firmware and CAN IDs.
 2. Connect the documented supply and compatible USB-CAN interface; check termination.
@@ -28,11 +34,11 @@ The model manual index links separate **DM-J4310-2EC V1.1** and **DM-J8009P-2EC*
 
 **Expected checkpoint:** correct identity/status and predictable motion using verified model scaling.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the manufacturer's model-specific command protocol and the **dmBots motor-debugging-tool** workflow linked by Seeed's DM quick start. Do not mix MIT-style packed control with position/velocity modes or another motor's scaling. Back up parameters and zero/calibration data before firmware or ID changes.
 
-### FAQs
+## FAQs
 
 **Does V3 automatically mean manual V1.1?** No; verify the physical/firmware revision.
 
@@ -40,7 +46,7 @@ Use the manufacturer's model-specific command protocol and the **dmBots motor-de
 
 **Unexpected high speed or torque?** Disable immediately and inspect units, model limits, gearing and control-mode selection.
 
-### Sources and validation
+## Sources and validation
 
 * [Model-specific English manual index](https://damiao.enactic.ai/en/)
 * [Official application/tool route in Seeed DM guide](https://wiki.seeedstudio.com/rebot_b601_dm_getting_started/)

@@ -23,15 +23,21 @@ layout:
 
 # CubeMars AK10-9 V3.0 Actuator Motor Compact High-Torque Power Module
 
-### CubeMars AK10-9 V3.0 Actuator Motor Compact High-Torque Power Module
+{% hint style="info" %}
+[**View CubeMars AK10-9 V3.0 Actuator Motor Compact High-Torque Power Module on OpenELAB**](https://openelab.io/products/cubemars-ak10-9-v3-0-actuator)
+
+**Product/variant:** CubeMars AK10-9 V3.0 Actuator Motor Compact High-Torque Power Module · **OpenELAB SKU:** `CubeMars-AK10-9-V3.0D`
+{% endhint %}
+
+## CubeMars AK10-9 V3.0 Actuator Motor Compact High-Torque Power Module
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/cubemars-ak10-9-v3-0-actuator" %}
 
-### Description
+## Description
 
 The AK10-9 V3.0 actuator integrates a high-performance brushless DC motor, a self-developed planetary reducer, an encoder, and an integrated drive, enabling smooth operation with high torque.
 
@@ -49,7 +55,7 @@ Utilizing a portable drive solution, the AK10-9 V3.0 Power Module supports both 
 
 <figure><img src="../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
 
-### Specification
+## Specification
 
 | Application                   | Foot Robots, Exoskeleton Robots, AGV | Rated Voltage (v)             | 48   |
 | ----------------------------- | ------------------------------------ | ----------------------------- | ---- |
@@ -74,11 +80,11 @@ Analysis Chart
 
 <figure><img src="../../.gitbook/assets/image (122).png" alt=""><figcaption></figcaption></figure>
 
-### Dimensions
+## Dimensions
 
 <figure><img src="../../.gitbook/assets/image (123).png" alt=""><figcaption></figcaption></figure>
 
-### Resource
+## Resource
 
 * [AK10-9 KV60 V3.0.pdf](https://www.cubemars.com/images/file/20241126/1732601780310205.pdf)
 * [AK Series Module Product Manual v3.0.1 Download](https://www.cubemars.com/images/file/20241217/1734428582786471.pdf)

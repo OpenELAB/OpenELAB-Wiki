@@ -1,8 +1,14 @@
 # M5Stack Core2 v1.3 K010-V13 Development Guide
 
+{% hint style="info" %}
+[**View M5Stack Core2 v1.3 K010-V13 on OpenELAB**](https://openelab.io/products/m5stack-core2-esp32-v1-3)
+
+**Product model/family:** M5Stack Core2 v1.3 K010-V13 · **OpenELAB SKU:** `M5-K010-V13`
+{% endhint %}
+
 [Product at OpenELAB](https://openelab.io/products/m5stack-core2-esp32-v1-3)
 
-### Product and revision
+## Product and revision
 
 This page covers **K010-V13, Core2 v1.3**. It is an ESP32 touch controller for dashboards, sensor logging and interactive devices. Earlier Core2, Core2 v1.1 and CoreS3 guides do not establish exact v1.3 peripheral support.
 
@@ -18,7 +24,7 @@ This page covers **K010-V13, Core2 v1.3**. It is an ESP32 touch controller for d
 
 The **BMI270** differs from earlier Core2 motion-sensor examples. Use the current library's supported API and the v1.3 schematic.
 
-### First program
+## First program
 
 1. Begin with the supplied unit and no stacked expansion module. Connect a USB data cable.
 2. Follow the v1.3 Arduino setup or use the manufacturer's PlatformIO reference, which identifies **espressif32 6.12.0**, board **m5stack-core2**, and **default\_16MB.csv** partitions.
@@ -28,11 +34,11 @@ The **BMI270** differs from earlier Core2 motion-sensor examples. Use the curren
 
 **Expected result:** a visible screen update and reliable restart. A new display test is more useful than flashing a complex network demo before basic hardware is verified.
 
-### Electrical integration and drawings
+## Electrical integration and drawings
 
 Use the product's **Core Section** and **Bottom Section** schematics and pin table. The manufacturer warns **not to stack Core2 v1.3 with Base-series expansion bases**. When using M5 modules, follow its instructions concerning removal or replacement of the battery bottom; do not stack solely because the connector fits.
 
-### Recovery and FAQs
+## Recovery and FAQs
 
 Restore using the model's official factory firmware if a custom application fails. Confirm the selected serial port, USB cable and upload mode before erasing flash.
 
@@ -42,7 +48,7 @@ Restore using the model's official factory firmware if a custom application fail
 
 **Can an ESP32-S3 board target be used?** Core2 uses an ESP32 LX6 processor. Select the actual Core2 target.
 
-### Sources and validation
+## Sources and validation
 
 * [Core2 v1.3 hardware and software reference](https://docs.m5stack.com/en/core/Core2_v1.3)
 * [Core and bottom schematics, pinouts and dimensions](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/static/pdf/static/en/core/Core2_v1.3.pdf)

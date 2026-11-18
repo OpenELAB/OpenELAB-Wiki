@@ -1,8 +1,14 @@
 # Seeed Studio reComputer Industrial R2245-12 Engineering Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reComputer Industrial R2245-12 on OpenELAB**](https://openelab.io/products/seeed-studio-recomputer-r2245-26tops)
+
+**Model/kit:** Seeed Studio reComputer Industrial R2245-12 · **OpenELAB SKU:** `Seeed-100077451`
+{% endhint %}
+
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-recomputer-r2245-26tops)
 
-### Product, applications and specification scope
+## Product, applications and specification scope
 
 **100077451, reComputer Industrial R2245-12** is a Raspberry Pi **CM5** industrial edge-AI/NVR configuration with **Hailo-8 acceleration advertised at 26 TOPS**. Use it for camera analytics and industrial data integration. It is not a CM4 R1000 gateway or a Jetson.
 
@@ -17,7 +23,7 @@
 
 The official R22xx page contains conflicting copied CPU/Ethernet/PoE descriptions in some sections. Its CM5 specification and detailed per-port map should be checked against the received unit; **do not energize an assumed PoE port from a generic summary**. Confirm PSE versus PD behavior and power budget before attaching cameras.
 
-### Getting started: OS and accelerator enumeration
+## Getting started: OS and accelerator enumeration
 
 1. Check the exact nameplate, supply requirements, boot switch and storage before powering the unit.
 2. Boot the delivered model-specific image. Keep a backup before replacement.
@@ -32,11 +38,11 @@ hailortcli fw-control identify
 
 **Checkpoint:** the accelerator identifies successfully and a supported example produces detections. Measure your own throughput rather than treating 26 TOPS as an NVR channel-count guarantee.
 
-### Technical resources and integration
+## Technical resources and integration
 
 Use the assembly guide for module access and the hardware guide's **pinouts and installation diagrams**. Observe the DI/DO electrical limits and isolated-interface reference grounds. Hailo runtime, firmware and compiled **HEF** model compatibility must be kept together.
 
-### FAQs and recovery
+## FAQs and recovery
 
 **No display or eMMC while flashing?** Follow the R22xx boot-switch/USB procedure and its FAQ; do not substitute a CM4 recovery sequence.
 
@@ -46,7 +52,7 @@ Use the assembly guide for module access and the hardware guide's **pinouts and 
 
 **Can I install a generic OS?** Confirm Seeed's current driver and OS support, especially Hailo and industrial interfaces, before replacing the supplied image.
 
-### Sources and validation
+## Sources and validation
 
 * [R22xx manufacturer hardware and interface guide](https://wiki.seeedstudio.com/recomputer_industrial_r22xx_getting_start/)
 * [R22xx assembly and expansion](https://wiki.seeedstudio.com/recomputer_industrial_r22xx_assembly_guide/)

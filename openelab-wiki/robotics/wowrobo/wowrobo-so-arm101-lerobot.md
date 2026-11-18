@@ -1,12 +1,18 @@
 # WowRobo SO-ARM101 leader–follower kit: identify, calibrate and teleoperate
 
+{% hint style="info" %}
+[**View WowRobo SO-ARM101 leader–follower kit: identify, calibrate and teleoperate on OpenELAB**](https://openelab.io/products/wowrobo-robotics-so-arm101-diy)
+
+**Product model/family:** WowRobo SO-ARM101 leader–follower kit: identify, calibrate and teleoperate · **OpenELAB SKU:** `WR-ARM101-Kit`
+{% endhint %}
+
 [WR-ARM101-Kit](https://openelab.io/products/wowrobo-robotics-so-arm101-diy)
 
-### Product and scope
+## Product and scope
 
 The WR-ARM101-Kit is a leader–follower robot-learning platform for teleoperation, demonstration datasets and imitation learning with LeRobot. DIY and assembled versions differ in preparation. Treat the WowRobo kit BOM and power supplies as the authority for this kit; Seeed's Pro-edition voltage rules do not identify the WowRobo variant.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                     | Reference                                                                      |
 | ------------------------ | ------------------------------------------------------------------------------ |
@@ -17,7 +23,7 @@ The WR-ARM101-Kit is a leader–follower robot-learning platform for teleoperati
 
 Inventory servos, controllers, brackets, printed parts, clamps, cables and supplies against the purchased option. The manufacturer offers DIY and assembled versions. The exact WR-Kit leader/follower voltage combination was not independently established in accessible documentation; confirm it from the supplied BOM or WowRobo before applying power. Secure both bases and provide an accessible power disconnect.
 
-### Getting started
+## Getting started
 
 1. For a DIY kit, follow the SO-101 mechanical files and supplier assembly instructions. Configure one unconfigured servo at a time, using the correct voltage and target role/ID; do not connect a chain of duplicate default IDs.
 2. Install the LeRobot environment from its installation guide. Record the release/commit and optional dependencies instead of mixing commands from different releases.
@@ -27,17 +33,17 @@ Inventory servos, controllers, brackets, printed parts, clamps, cables and suppl
 
 **Expected checkpoint:** The follower tracks deliberate leader movements without hitting limits, with stable port identities and saved calibration.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the LeRobot SO-101 guide for camera setup, dataset recording, replay and policy training. The repository supplies code; the robot CAD repository supplies mechanical files and BOM. Check each repository's license before distributing derivatives. Keep the calibration with the individual arm, not just with a shared workstation.
 
-### FAQs
+## FAQs
 
 **The controller is visible but no servo responds.** Check the separately supplied servo power, connector seating and correct voltage; USB enumeration alone does not establish servo power.
 
 **Can I reuse calibration from another arm?** Calibrate the actual physical assembly; horn indexing and joint offsets vary.
 
-### Sources and validation
+## Sources and validation
 
 * [WowRobo manufacturer's kit](https://shop.wowrobo.com/products/so-arm101-diy-kit-assembled-version-1)
 * [OpenELAB exact kit](https://openelab.io/products/wowrobo-robotics-so-arm101-diy)

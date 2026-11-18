@@ -1,12 +1,18 @@
 # M5Stack Cap LoRa-1262 U214 Development Guide
 
+{% hint style="info" %}
+[**View M5Stack Cap LoRa-1262 U214 on OpenELAB**](https://openelab.io/products/m5stack-cap-lora-1262)
+
+**Product model/family:** M5Stack Cap LoRa-1262 U214 · **OpenELAB SKU:** `M5-U214`
+{% endhint %}
+
 [M5-U214](https://openelab.io/products/m5stack-cap-lora-1262)
 
-### Product and scope
+## Product and scope
 
 **U214** is the SX1262/GNSS expansion cap for Cardputer-Adv. It is related to the Cardputer Mesh Kit but is an accessory, not a complete host. It differs from the older Cap LoRa868 in RF-switch control.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                      | Reference                                    |
 | ------------------------- | -------------------------------------------- |
@@ -18,7 +24,7 @@
 
 The U214 page links its **schematic, model-size PDF, structure files**, SX1262 datasheet and CASIC GNSS protocol. Follow that pin map; the radio must not be initialized with another cap's RF-switch assumptions.
 
-### Getting started
+## Getting started
 
 1. Power off the compatible Cardputer host, fit the cap and attach its antenna.
 2. Install the host's Arduino environment plus **M5Unified, M5GFX, RadioLib and M5Stack's TinyGPSPlus fork**.
@@ -28,11 +34,11 @@ The U214 page links its **schematic, model-size PDF, structure files**, SX1262 d
 
 **Expected checkpoint:** a received packet on a matched link and separately verified GNSS data; a satellite fix is not required to prove LoRa reception.
 
-### Development software and recovery
+## Development software and recovery
 
 For Meshtastic, use the complete **Cardputer-Adv + U214** target supported by the firmware, rather than a generic SX1262 image. Preserve radio region, channel settings and firmware version. Recover the host through its documented download mode and restore the matching kit image.
 
-### FAQs
+## FAQs
 
 **Older cap code transmits nothing?** Check I/O-expander RF switching and the correct example.
 
@@ -40,7 +46,7 @@ For Meshtastic, use the complete **Cardputer-Adv + U214** target supported by th
 
 **Does the cap alone run a mesh app?** It requires the compatible host and firmware.
 
-### Sources and validation
+## Sources and validation
 
 * [Hardware and downloads](https://docs.m5stack.com/en/cap/Cap_LoRa-1262)
 * [Official Arduino bring-up](https://docs.m5stack.com/en/arduino/projects/cap/cap_lora868)

@@ -1,5 +1,11 @@
 # Hesai JT128 3D LiDAR Engineering Guide
 
+{% hint style="info" %}
+[**View Hesai JT128 3D LiDAR on OpenELAB**](https://openelab.io/products/hesai-jt128-3d-lidar-avg)
+
+**Product model/family:** Hesai JT128 3D LiDAR · **OpenELAB SKU:** `HESAI-JT128`
+{% endhint %}
+
 [Product link](https://openelab.io/products/hesai-jt128-3d-lidar-avg)
 
 ## Hesai JT128 3D LiDAR Engineering Guide

@@ -23,19 +23,25 @@ layout:
 
 # MG4010E-i10 V3 Dual Encoder Robot Motor
 
-### MG4010E-i10 V3 Dual Encoder Robot Motor
+{% hint style="info" %}
+[**View MG4010E-i10 V3 Dual Encoder Robot Motor on OpenELAB**](https://openelab.io/products/mg4010e-i10-v3-dual-encoder-robot-motor)
+
+**Product/variant:** MG4010E-i10 V3 Dual Encoder Robot Motor · **OpenELAB SKU:** `TB-LKM-MG4010E-i10C`
+{% endhint %}
+
+## MG4010E-i10 V3 Dual Encoder Robot Motor
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/mg4010e-i10-v3-dual-encoder-robot-motor" %}
 
-### Description
+## Description
 
 The **MG4010E-i10 V3** is a high-performance dual encoder motor designed for advanced robotics applications, offering **precise control** and **reliable performance**. Featuring a **planetary gear system** with a **1:10 gear ratio**, it provides a **high torque output** in a compact package. With a **rated torque of 2.5 Nm** and a **peak torque of 4.5 Nm**, this motor is ideal for **robotic arms**, **mobile robots**, and other **automation systems** that require both **precision** and **durability**.
 
-### Feature
+## Feature
 
 * **Rated Torque**: 2.5 Nm | **Peak Torque**: 4.5 Nm
 * **Rated Speed**: 260 rpm | **Max Speed**: 320 rpm
@@ -51,7 +57,7 @@ The **MG4010E-i10 V3** is a high-performance dual encoder motor designed for adv
 
 <figure><img src="../../.gitbook/assets/image (1079).png" alt=""><figcaption></figcaption></figure>
 
-### Specification
+## Specification
 
 | Parameter               | Value                        |
 | ----------------------- | ---------------------------- |
@@ -69,7 +75,7 @@ The **MG4010E-i10 V3** is a high-performance dual encoder motor designed for adv
 | Communication Interface | RS485 / CAN                  |
 | Motor Weight            | 250 g                        |
 
-### Resource
+## Resource
 
 * 3D:
 

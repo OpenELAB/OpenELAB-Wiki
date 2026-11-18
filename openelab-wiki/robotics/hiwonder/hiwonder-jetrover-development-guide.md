@@ -1,12 +1,18 @@
 # Hiwonder JetRover Engineering Guide
 
+{% hint style="info" %}
+[**View Hiwonder JetRover on OpenELAB**](https://openelab.io/products/hiwonder-jetrover-ai-car)
+
+**Model/kit:** Hiwonder JetRover · **OpenELAB SKU:** `Hiwonder-21030861`
+{% endhint %}
+
 [Hiwonder-21030861](https://openelab.io/products/hiwonder-jetrover-ai-car)
 
-### Product and scope
+## Product and scope
 
 JetRover is a composite mobile-manipulation platform. **Hiwonder-21030861** must be matched to the ordered controller and chassis; JetRover supports multiple host and mobility configurations rather than one universal image.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item              | Reference                                                |
 | ----------------- | -------------------------------------------------------- |
@@ -18,7 +24,7 @@ JetRover is a composite mobile-manipulation platform. **Hiwonder-21030861** must
 
 The manufacturer's portal links **schematics, source, system images, tutorials and experiment resources**. Use the actual chassis assembly and motor layout. The kinematic model for Ackermann steering differs from an omnidirectional chassis.
 
-### Getting started
+## Getting started
 
 1. Verify chassis type, host, supply/battery and fitted peripherals. Keep the robot stationary and the arm unloaded.
 2. Start from the corresponding factory image and follow its remote-desktop setup.
@@ -28,11 +34,11 @@ The manufacturer's portal links **schematics, source, system images, tutorials a
 
 **Expected checkpoint:** predictable motion for the fitted chassis, coherent odometry and live perception streams.
 
-### Development software and recovery
+## Development software and recovery
 
 Follow the official JetRover documentation branch for the installed host and ROS generation. Preserve launch files, image revision and calibration before upgrades. For recovery, use that branch's image and controller firmware; a JetRover name match alone does not establish compatibility.
 
-### FAQs
+## FAQs
 
 **Why does the robot move sideways unexpectedly?** Confirm selected chassis model and wheel/motor mapping.
 
@@ -40,7 +46,7 @@ Follow the official JetRover documentation branch for the installed host and ROS
 
 **Can I reuse an arm action during navigation?** First confirm payload, clearance, stability and coordinate transforms on a stationary robot.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer product and kit options](https://www.hiwonder.com/products/jetrover)
 * [Official documentation and resource links](https://docs.hiwonder.com/projects/JetRover/en/jetson-orin-nano/)
