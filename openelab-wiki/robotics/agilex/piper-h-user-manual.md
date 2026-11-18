@@ -1,5 +1,11 @@
 # PiPER-H User Manual
 
+{% hint style="info" %}
+[**View PiPER-H on OpenELAB**](https://openelab.io/products/agilex-piper-h-robotic-arm)
+
+**Product model/family:** PiPER-H · **OpenELAB SKU:** `Agilex-PiPER-H`
+{% endhint %}
+
 ### AgileX PiPER-H Robotic Arm for AI Research
 
 {% embed url="https://openelab.io/products/agilex-piper-h-robotic-arm" %}
@@ -13,11 +19,11 @@ Version update notes:
 | 1             | V.1.0.0 | 2026/1/5  | Dennis      | <p>​<br></p> | File creation               |
 | 2             | V.1.1.0 | 2026/1/25 | Dennis      | <p>​<br></p> | Final draft of the document |
 
-## **Important security information**  <a href="#odniv" id="odniv"></a>
+## **Important security information** <a href="#odniv" id="odniv"></a>
 
 This chapter contains important safety information that every individual or organization must read and understand before using the device, especially before first powering it on. It is crucial to strictly adhere to and follow all assembly instructions and guidelines in this manual. Pay particular attention to the text associated with warning labels. Always obtain and read the PiPER-H User Manual before using the device. For any questions regarding its use, please contact support@agilex.ai.
 
-> **Warning sign: ⚠** This indicates a potentially dangerous situation that, if not avoided, could result in personal injury, property damage, and serious equipment damage.&#x20;
+> **Warning sign: ⚠** This indicates a potentially dangerous situation that, if not avoided, could result in personal injury, property damage, and serious equipment damage.
 
 > WARNING ⚠ : Songling Robotics will not be liable for any damage, alteration, or modification to the robotic arm in any way. Songling Robotics is not responsible for any damage to the robotic arm or any other equipment caused by programming errors or operational malfunctions.
 
@@ -29,7 +35,7 @@ Robotic arm integrators and end customers have a responsibility to ensure compli
 
 This includes, but is not limited to, the following:
 
-1. **Validity**&#x20;
+1. **Validity**
 
 * Conduct a risk assessment for the complete robotic arm system.
 * Connect together additional safety equipment for other machinery as defined in the risk assessment.
@@ -64,14 +70,14 @@ This includes, but is not limited to, the following:
 
 * Ensure that the robotic arm and tool/end effector are always correctly and securely fixed in place.
 * When it is unavoidable to enter the workspace of the robotic arm, goggles and protective equipment must be worn.
-* Ensure that the robotic arm has enough space to move freely.&#x20;
-* Please do not wear loose clothing when operating the robotic arm. Please ensure that long hair is tied back when operating the robotic arm.&#x20;
+* Ensure that the robotic arm has enough space to move freely.
+* Please do not wear loose clothing when operating the robotic arm. Please ensure that long hair is tied back when operating the robotic arm.
 * Do not use the robotic arm if it is damaged or malfunctioning.
-* If the host computer software displays an error message, please immediately perform an emergency stop and contact relevant technical personnel.&#x20;
-* Ensure that the head, face, or other body parts remain outside the reach of the operating or soon-to-be-operational robotic arm.&#x20;
-* Do not modify the robotic arm. Modifications to the robotic arm may cause unforeseen dangers for the integrator.&#x20;
+* If the host computer software displays an error message, please immediately perform an emergency stop and contact relevant technical personnel.
+* Ensure that the head, face, or other body parts remain outside the reach of the operating or soon-to-be-operational robotic arm.
+* Do not modify the robotic arm. Modifications to the robotic arm may cause unforeseen dangers for the integrator.
 * Do not expose the robotic arm to a permanent magnetic field. Strong magnetic fields can damage the robotic arm.
-* The robotic arm generates heat during operation. Do not operate or touch the robotic arm while it is in operation or immediately after operation, as prolonged contact may cause discomfort. Disconnect the power and wait one hour for the robotic arm to cool down.&#x20;
+* The robotic arm generates heat during operation. Do not operate or touch the robotic arm while it is in operation or immediately after operation, as prolonged contact may cause discomfort. Disconnect the power and wait one hour for the robotic arm to cool down.
 * Connecting different machines may exacerbate existing hazards or introduce new ones. Always conduct a comprehensive risk assessment of the entire installation. Depending on the risk assessment, different functional safety levels may apply; therefore, always select the highest performance level when different safety and emergency stop performance levels are required. Always read and understand the manuals for all equipment used in the installation.
 * The robotic arm is not suitable for use by persons under the age of 18 or other persons who do not have full civil capacity.
 
@@ -173,7 +179,7 @@ This robotic arm features 6 degrees of freedom, a 2k end effector load, and 6 ro
 
 This robotic arm accessory includes an aviation plug, a USB to CAN module, a data cable, an adapter, and an XT30 2+2 interface reserved for the end effector motor. Please refer to the following instructions for specific usage.
 
-**2.1.1 Diagram of electrical interface on the arm base:** &#x20;
+**2.1.1 Diagram of electrical interface on the arm base:**
 
 <img src="../../.gitbook/assets/PiPER-H User Manual image 3" alt="PiPER-H User Manual image 3" width="1441">
 
@@ -337,7 +343,7 @@ Different settings are required for the robotic arm depending on the installatio
 
 ## 3. Connecting and preparing <a href="#acbtv" id="acbtv"></a>
 
-Lead out the CAN cable from the connector, and connect CAN\_H and CAN\_L of the CAN cable to the CAN\_TO\_USB adapter respectively ; &#x20;
+Lead out the CAN cable from the connector, and connect CAN\_H and CAN\_L of the CAN cable to the CAN\_TO\_USB adapter respectively ;
 
 Connect the CAN\_TO\_USB port to the laptop's USB port. The connection diagram is shown in the figure.
 
@@ -476,6 +482,8 @@ robotic arm emergency stop button
 
 <img src="../../.gitbook/assets/PiPER-H User Manual image 34" alt="PiPER-H User Manual image 34" width="1672">
 
+&#x20;
+
 <img src="../../.gitbook/assets/PiPER-H User Manual image 35" alt="PiPER-H User Manual image 35" width="1672">
 
 ### 4.7 Window resize and close buttons <a href="#huhog" id="huhog"></a>
@@ -548,7 +556,7 @@ The image below shows the joint settings area, where you can edit the maximum an
 
 <img src="../../.gitbook/assets/PiPER-H User Manual image 43" alt="PiPER-H User Manual image 43" width="1672">
 
-&#x20;Joint setting area
+Joint setting area
 
 ### 4.13 Pace Setting Area <a href="#je1j0" id="je1j0"></a>
 
@@ -568,9 +576,11 @@ The image below shows the collision level settings. You can configure collision 
 
 <img src="../../.gitbook/assets/PiPER-H User Manual image 46" alt="PiPER-H User Manual image 46" width="1672">
 
+&#x20;
+
 <img src="../../.gitbook/assets/PiPER-H User Manual image 47" alt="PiPER-H User Manual image 47" width="1672">
 
-&#x20;Collision level setting area
+Collision level setting area
 
 ### 4.15 Joint Information <a href="#loov1" id="loov1"></a>
 
@@ -578,7 +588,11 @@ The image below shows the joint information view, which allows you to view the j
 
 <img src="../../.gitbook/assets/PiPER-H User Manual image 48" alt="PiPER-H User Manual image 48" width="1672">
 
+&#x20;
+
 <img src="../../.gitbook/assets/PiPER-H User Manual image 49" alt="PiPER-H User Manual image 49" width="1672">
+
+&#x20;
 
 <img src="../../.gitbook/assets/PiPER-H User Manual image 50" alt="PiPER-H User Manual image 50" width="1672">
 
@@ -587,6 +601,8 @@ The image below shows the joint information view, which allows you to view the j
 The image below shows the motor settings, which allow you to configure the status (enable, disable), zero point setting, and error clearing for the six joint motors of the robotic arm.
 
 <img src="../../.gitbook/assets/PiPER-H User Manual image 51" alt="PiPER-H User Manual image 51" width="1672">
+
+&#x20;
 
 <img src="../../.gitbook/assets/PiPER-H User Manual image 52" alt="PiPER-H User Manual image 52" width="1672">
 
@@ -604,7 +620,11 @@ The image below shows the page related to the robotic arm version upgrade. The u
 
 <img src="../../.gitbook/assets/PiPER-H User Manual image 53" alt="PiPER-H User Manual image 53" width="1498">
 
+&#x20;
+
 <img src="../../.gitbook/assets/PiPER-H User Manual image 54" alt="PiPER-H User Manual image 54" width="1265">
+
+&#x20;
 
 <img src="../../.gitbook/assets/PiPER-H User Manual image 55" alt="PiPER-H User Manual image 55" width="1672">
 
@@ -719,8 +739,7 @@ In an emergency, the power can be cut off by directly plugging and unplugging th
 
 When connected to a host computer, the robotic arm's movements can be paused and resumed via the pause button on the host computer.
 
-<br>
-
+\
 <br>
 
 ## 8-dimensional drawings <a href="#wkqun" id="wkqun"></a>
@@ -733,9 +752,11 @@ When connected to a host computer, the robotic arm's movements can be paused and
 
 <img src="../../.gitbook/assets/image (9).png" alt="image.png" width="1192.4999526143092">
 
+&#x20;
+
 <img src="../../.gitbook/assets/image (10).png" alt="image.png" width="999.9999602635718">
 
-### 8.4 Base  <a href="#dnp30" id="dnp30"></a>
+### 8.4 Base <a href="#dnp30" id="dnp30"></a>
 
 ![PiPER-H User Manual image 65](../../.gitbook/assets/piper-h-65.png)
 
@@ -762,8 +783,6 @@ When connected to a host computer, the robotic arm's movements can be paused and
 ### Exploded view of 8.10 100mm gripper: <a href="#zo9zh" id="zo9zh"></a>
 
 <img src="../../.gitbook/assets/WeChat image_20260610102303_2_2.png" alt="WeChat image_20260610102303_2_2.png" width="1020">
-
-
 
 ### Development Resources
 

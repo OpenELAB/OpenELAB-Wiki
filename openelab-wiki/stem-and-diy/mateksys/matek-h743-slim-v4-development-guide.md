@@ -1,14 +1,20 @@
 # MATEKSYS H743-SLIM V4 Flight Controller Engineering Guide
 
+{% hint style="info" %}
+[**View MATEKSYS H743-SLIM V4 Flight Controller on OpenELAB**](https://openelab.io/products/matek-h743-slim-v4-drone-flight-controller)
+
+**Product model/family:** MATEKSYS H743-SLIM V4 Flight Controller · **OpenELAB SKU:** `MATEK-H743-SLIM-V4`
+{% endhint %}
+
 [Product at OpenELAB](https://openelab.io/products/matek-h743-slim-v4-drone-flight-controller)
 
-### Identity and development scope
+## Identity and development scope
 
 **MATEK-H743-SLIM-V4** is a flight-controller board for custom vehicles and autopilot development. The SLIM V4 has a different sensor and power configuration from WING, MINI, WLITE and older SLIM boards. Family firmware support does not make their wiring interchangeable.
 
 The manufacturer currently labels this board EOL. Preserve the exact revision's wiring diagram and known-working firmware when maintaining an existing vehicle.
 
-### Specifications and connections
+## Specifications and connections
 
 | Item                | SLIM V4                                                 |
 | ------------------- | ------------------------------------------------------- |
@@ -25,7 +31,7 @@ The manufacturer currently labels this board EOL. Preserve the exact revision's 
 
 The official product page contains the board drawings and pin maps. Verify pad names against the physical PCB. Do not substitute WING-family sensor or servo-BEC values into a SLIM V4 design.
 
-### Bench setup before installing a vehicle
+## Bench setup before installing a vehicle
 
 1. Remove propellers and disconnect actuators or other hazardous loads. Photograph the board revision and current wiring.
 2. Connect the controller to the computer with a USB data cable. Use the configuration software for the selected autopilot ecosystem.
@@ -35,13 +41,13 @@ The official product page contains the board drawings and pin maps. Verify pad n
 
 **Expected result:** reliable configuration access and correct attitude response on a stationary bench. This is not flight readiness.
 
-### Software, diagnostics and recovery
+## Software, diagnostics and recovery
 
 Save a parameter export and the exact firmware version after the initial checks. Use the official firmware project's supported configuration tools; there is no universal Python SDK that replaces autopilot setup.
 
 If USB does not enumerate, first change the cable/port and disconnect peripherals. For firmware recovery, use the board's documented boot/DFU procedure and the chosen project's flashing guide.
 
-### FAQs
+## FAQs
 
 **Why does a family guide show different IMUs?** The family includes multiple revisions; SLIM V4's product-specific specification takes precedence.
 
@@ -49,7 +55,7 @@ If USB does not enumerate, first change the cable/port and disconnect peripheral
 
 **Can any PWM/DShot mix be used?** Timer-group constraints depend on firmware and output grouping. Check the selected firmware documentation before assigning outputs.
 
-### Sources and validation
+## Sources and validation
 
 * [MATEKSYS H743-SLIM V4 specifications and wiring](https://www.mateksys.com/?portfolio=h743-slim-v4)
 * [MATEKSYS firmware target references](https://www.mateksys.com/?p=5159)

@@ -23,6 +23,12 @@ layout:
 
 # CubeMars AK80-64 Actuator BLDC Motor Compact High-Torque Power
 
+{% hint style="info" %}
+[**View CubeMars AK80-64 actuator on OpenELAB**](https://openelab.io/products/cubemars-ak80-64-actuator-motor)
+
+**Model:** AK80-64 · **SKU:** `CubeMars-AK80-64D` · **Revision:** confirm the motor/controller variant before powering.
+{% endhint %}
+
 ### CubeMars AK80-64 Actuator BLDC Motor Compact High-Torque Power
 
 ***
@@ -50,7 +56,7 @@ The **AK80-64 actuator** integrates a high-performance brushless DC motor, a sel
 ### Specification
 
 * **Operating Voltage:** 48V
-* &#x20;**Rated Torque:** 48Nm
+* **Rated Torque:** 48Nm
 * **Rated Speed:** 40rpm
 
 <figure><img src="../../.gitbook/assets/image (191).png" alt=""><figcaption></figcaption></figure>

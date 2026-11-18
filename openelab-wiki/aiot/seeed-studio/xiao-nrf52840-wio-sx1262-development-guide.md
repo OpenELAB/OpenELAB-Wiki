@@ -1,8 +1,14 @@
 # Seeed Studio XIAO nRF52840 and Wio-SX1262 Kit Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO nRF52840 and Wio-SX1262 Kit on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-nrf52840-wio-sx1262-kit)
+
+**Product model/family:** Seeed Studio XIAO nRF52840 and Wio-SX1262 Kit · **OpenELAB SKU:** `Seeed-102010710`
+{% endhint %}
+
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-xiao-nrf52840-wio-sx1262-kit)
 
-### Identity and hardware
+## Identity and hardware
 
 **102010710** combines **XIAO nRF52840** with **Wio-SX1262** for a compact LoRa mesh node. It is not the similarly named ESP32-S3 kit.
 
@@ -16,7 +22,7 @@
 
 The S3 expansion uses a different board-to-board connector. Do not interchange these expansion boards based on the Wio name. The kit guide links the **XIAO schematic and radio hardware resources** for wiring and integration.
 
-### Quick start: one message between two nodes
+## Quick start: one message between two nodes
 
 1. Assemble the correct board pair and attach its region-compatible antenna before transmission.
 2. Connect USB to a computer and open the Meshtastic flasher.
@@ -27,7 +33,7 @@ The S3 expansion uses a different board-to-board connector. Do not interchange t
 
 **Expected result:** a recognized node and an acknowledged/reliably received test message. Save the firmware release, region, modem preset and channel settings.
 
-### Development, recovery and FAQs
+## Development, recovery and FAQs
 
 Use Meshtastic source and this kit's target for firmware development. Protect exported channel keys and configuration.
 
@@ -39,7 +45,7 @@ Use Meshtastic source and this kit's target for firmware development. Protect ex
 
 **Can two mesh protocols communicate?** Matching RF hardware does not make Meshtastic and MeshCore message formats compatible.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer kit setup and technical resources](https://wiki.seeedstudio.com/xiao_nrf52840&_wio_SX1262_kit_for_meshtastic/)
 * [Official Meshtastic flasher](https://flasher.meshtastic.org/)

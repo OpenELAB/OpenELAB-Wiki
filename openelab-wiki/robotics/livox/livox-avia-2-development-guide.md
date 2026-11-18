@@ -1,12 +1,18 @@
 # Livox Avia 2 With-Fan LiDAR Engineering Guide
 
+{% hint style="info" %}
+[**View Livox Avia 2 with fan on OpenELAB**](https://openelab.io/products/livox-avia2-fiber-laser-lidar)
+
+**Exact model:** Livox Avia 2 (with fan) · **OpenELAB SKU:** `Livox-AVIA2` · **Variant:** choose the with-fan option; Avia 2 NF is different hardware.
+{% endhint %}
+
 [Product at OpenELAB](https://openelab.de/products/livox-avia2-lidar-luefter) · [Livox hub](./)
 
-### Product and applications
+## Product and applications
 
 This page covers the **Livox Avia 2 with fan**, OpenELAB **Livox-AVIA2**. It is a long-range 3D LiDAR for infrastructure monitoring, volumetric measurement and distant-target perception. Avia, Avia 2 and Avia 2 NF are separate hardware scopes.
 
-### Key specifications
+## Key specifications
 
 | Item               | Avia 2                                                                                          |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
@@ -23,13 +29,13 @@ This page covers the **Livox Avia 2 with fan**, OpenELAB **Livox-AVIA2**. It is 
 
 Use the specifications page for accuracy definitions, test conditions and thermal restrictions. Maximum cutoff range is not a guaranteed range for every surface or weather condition.
 
-### Technical documents and software
+## Technical documents and software
 
 The model-specific Downloads page provides the **Avia 2 User Manual**, product information, Viewer 2 for Windows/Linux, firmware/release notes, the sensor CAD model, FOV model and breakout-cable CAD. Select the with-fan model's files; do not substitute NF geometry.
 
 Viewer 2 is the first bring-up path. Before adopting SDK2 or a ROS driver, confirm the chosen release explicitly supports **Avia 2** and its firmware. The public SDK2 repository's general description names older supported models; a Livox brand match alone is insufficient evidence of Avia 2 support. No unverified ROS launch command is supplied here.
 
-### Getting started: acquire a live cloud
+## Getting started: acquire a live cloud
 
 1. Mount the sensor securely with the fan unobstructed. Check the manual's connector orientation, pinout and recommended supply sizing before energizing.
 2. Connect the correct breakout cable, Ethernet and regulated supply. Use a dedicated wired network for initial testing.
@@ -39,7 +45,7 @@ Viewer 2 is the first bring-up path. Before adopting SDK2 or a ROS driver, confi
 
 **Expected result:** continuous point-cloud updates from the correct sensor, with coherent static geometry. Check packet reception and timestamps before integrating mapping software.
 
-### Troubleshooting
+## Troubleshooting
 
 **No device discovery:** inspect supply under load, Ethernet link, host subnet, firewall and the selected network adapter.
 
@@ -49,7 +55,7 @@ Viewer 2 is the first bring-up path. Before adopting SDK2 or a ROS driver, confi
 
 **Can it replace a safety scanner?** Validate the complete application and required certifications separately; a ranging sensor is not automatically a safety system.
 
-### Sources and validation
+## Sources and validation
 
 * [Avia 2 manufacturer specifications](https://www.livoxtech.com/avia-2/specs)
 * [Avia 2 manuals, Viewer 2, firmware and CAD](https://www.livoxtech.com/avia-2/downloads)

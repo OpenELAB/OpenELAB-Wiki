@@ -1,12 +1,18 @@
 # RoboSense Airy Lite LiDAR Engineering Guide
 
+{% hint style="info" %}
+[**View RoboSense Airy Lite LiDAR on OpenELAB**](https://openelab.io/products/robosense-airy-lite-lidar-compact360)
+
+**Product model/family:** RoboSense Airy Lite LiDAR · **OpenELAB SKU:** `RS-Airy-Lite`
+{% endhint %}
+
 [RS-Airy-Lite](https://openelab.io/products/robosense-airy-lite-lidar-compact360)
 
-### Product and scope
+## Product and scope
 
 **Airy Lite** is a compact 3D LiDAR for mobile-robot blind-spot perception and mapping inputs. It is a separate model from Airy 96; their packet decoding, field of view and limits must not be interchanged.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item          | Reference                                                |
 | ------------- | -------------------------------------------------------- |
@@ -19,7 +25,7 @@
 
 The official **Airy Lite product manual** contains mechanical/FOV diagrams, connector wiring, packet information and operating-condition notes. Preserve that manual's revision and use its cable/power diagram before energizing.
 
-### Getting started
+## Getting started
 
 1. Mount the sensor securely and connect the correct regulated supply/cable with power off.
 2. Connect a dedicated Ethernet interface and set the host subnet according to the Airy Lite manual.
@@ -29,11 +35,11 @@ The official **Airy Lite product manual** contains mechanical/FOV diagrams, conn
 
 **Expected checkpoint:** a coherent continuously updating cloud from the correct model, without sustained packet loss.
 
-### Development software and recovery
+## Development software and recovery
 
 The manufacturer links **rslidar\_sdk**, **rs\_driver** and ROS2 message dependencies. Match model support, ROS version and firmware; retain the source commit/configuration. Use the manual's firmware/recovery procedure instead of an Airy 96 image.
 
-### FAQs
+## FAQs
 
 **Why are there occasional angular gaps?** The Airy Lite manual documents scan-pattern behavior; compare it with packet-loss diagnostics.
 
@@ -41,7 +47,7 @@ The manufacturer links **rslidar\_sdk**, **rs\_driver** and ROS2 message depende
 
 **Is maximum range guaranteed on every surface?** Apply the manufacturer's reflectivity, illumination and accuracy conditions.
 
-### Sources and validation
+## Sources and validation
 
 * [Exact manufacturer manual](https://robosense-robotics.github.io/product-manual/en/AiryLite/)
 * [Official ROS SDK](https://github.com/RoboSense-LiDAR/rsLiDAR_sdk)

@@ -1,6 +1,16 @@
 # Seeed Studio Spectra 6 Panels and XIAO ePaper Kit Development Guide
 
-### Product boundaries and applications
+{% hint style="info" %}
+[**View Seeed 13.3-inch Spectra 6 ePaper panel on OpenELAB**](https://openelab.io/products/seeed-studio-13-3-inch-epaper) · SKU `Seeed-100088646`
+
+[**View Seeed 7.3-inch Spectra 6 ePaper panel on OpenELAB**](https://openelab.io/products/seeed-studio-7-3-epaper) · SKU `Seeed-100064541`
+
+[**View Seeed XIAO 7.3-inch ePaper DIY kit on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-epaper-7-3-inch-diy-kit) · SKU `Seeed-E25102101`
+
+**Model scope:** the bare panels and XIAO DIY kit are different configurations. Verify the driver board, FPC orientation and selected panel profile before uploading code.
+{% endhint %}
+
+## Product boundaries and applications
 
 These products support low-refresh color signage, information boards and photo displays. **A bare panel requires a compatible driver board and host.** It is not a complete reTerminal E1002/E1004.
 
@@ -12,13 +22,13 @@ These products support low-refresh color signage, information boards and photo d
 
 Spectra 6 provides six-color ePaper. Panel resolution, FPC connection, waveform and driver selection matter independently. The current selection matrix identifies **EE02 for the 13.3-inch panel** and **EE04 support for compatible 7.3-inch panels**; inspect the delivered kit before using those instructions.
 
-### Hardware documents and software
+## Hardware documents and software
 
 Use each panel page's **datasheet and dimensional drawing**, plus the fitted board's **schematic/PCB/CAD**. Do not connect a panel by pin count alone or hot-plug an FPC. Follow the controller's power and panel-connector instructions.
 
 **Seeed\_GFX2** and the official board-specific firmware collection provide development paths. Select the exact board and **Spectra 6** panel; a monochrome 7.5-inch example is not a substitute. Retain the example's required library/toolchain versions.
 
-### First display test
+## First display test
 
 1. With power disconnected, fit the panel to the correct connector, confirm contact orientation and set documented jumpers.
 2. Connect the driver board through USB. Install its supported Arduino setup.
@@ -28,7 +38,7 @@ Use each panel page's **datasheet and dimensional drawing**, plus the fitted boa
 
 **Checkpoint:** a complete, repeatable refresh with correct geometry. Add networking or image conversion after this baseline succeeds.
 
-### FAQs and recovery
+## FAQs and recovery
 
 **A picture remains with power off?** Image persistence is normal for ePaper.
 
@@ -40,7 +50,7 @@ Use each panel page's **datasheet and dimensional drawing**, plus the fitted boa
 
 **Factory restoration?** Select the fitted board and panel in the official firmware collection, preserving any application configuration first.
 
-### Sources and validation
+## Sources and validation
 
 * [7.3-inch panel product and technical downloads](https://www.seeedstudio.com/7-3inch-Six-Color-eInk-ePaper-Display-with-800x480-Pixels-p-6567.html)
 * [13.3-inch panel product and technical downloads](https://www.seeedstudio.com/13-3inch-Six-Color-eInk-ePaper-Display-with-1200x1600-Pixels-p-6569.html)

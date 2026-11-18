@@ -23,15 +23,21 @@ layout:
 
 # M5Stack Tab5 IoT Development Kit
 
-### M5Stack Tab5 IoT Development Kit (ESP32-P4)
+{% hint style="info" %}
+[**View M5Stack Tab5 IoT Development Kit on OpenELAB**](https://openelab.io/products/m5stack-tab5-iot-development-kit)
+
+**Product model/family:** M5Stack Tab5 IoT Development Kit · **OpenELAB SKU:** `M5-K145`
+{% endhint %}
+
+## M5Stack Tab5 IoT Development Kit (ESP32-P4)
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/m5stack-tab5-iot-development-kit" %}
 
-### Description
+## Description
 
 **Tab5** is a highly extensible, portable smart IoT terminal development device designed for developers, integrating a dual-chip architecture and abundant hardware resources. Its main controller adopts the RISC‑V–based **ESP32‑P4** SoC, equipped with 16 MB Flash and 32 MB PSRAM; the wireless module uses the ESP32‑C6‑MINI‑1U, supporting Wi‑Fi 6. Its antenna system can freely switch between the built-in 3D antenna and the external MMCX antenna interface, flexibly adapting to different deployment environments to ensure data throughput and low-latency control.
 
@@ -47,7 +53,7 @@ Structurally, Tab5 features a standard 1/4″‑20 tripod mount on the side, all
 
 Tab5 is suitable for smart home control, remote monitoring, industrial automation, IoT prototyping, education, and research—providing developers and enterprises a comprehensive, easily expandable, high-performance development platform.
 
-### Features
+## Features
 
 * ESP32‑P4 dual-core main controller
 * ESP32‑C6 wireless module
@@ -72,7 +78,7 @@ Tab5 is suitable for smart home control, remote monitoring, industrial automatio
 * Development platform:
   * ESP-IDF
 
-### Specifications
+## Specifications
 
 | Specification         | Parameters                                                                                                                                                                                                                                                                         |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -136,12 +142,12 @@ When powered by USB cable or battery: to power on from off, single-click the pow
 
 <div><figure><img src="../../.gitbook/assets/Power_On.gif" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/ShutDown.gif" alt="" width="324"><figcaption></figcaption></figure></div>
 
-### Schematics <a href="#schematics" id="schematics"></a>
+## Schematics <a href="#schematics" id="schematics"></a>
 
 * [Tab5 Overall Design Block Diagram](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1132/Tab5_Overall_Design_Block_Diagram.pdf)
 * [Tab5 Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1132/Tab5_Schematics_PDF.pdf)
 
-### PinMap <a href="#pinmap" id="pinmap"></a>
+## PinMap <a href="#pinmap" id="pinmap"></a>
 
 #### PI4IOE5V6408 <a href="#pi4ioe5v6408" id="pi4ioe5v6408"></a>
 
@@ -258,11 +264,11 @@ When powered by USB cable or battery: to power on from off, single-click the pow
 
 <figure><img src="https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1132/C145_Pinmap_Overview.png" alt=""><figcaption></figcaption></figure>
 
-### Model Size <a href="#model-size" id="model-size"></a>
+## Model Size <a href="#model-size" id="model-size"></a>
 
 <figure><img src="../../.gitbook/assets/image (1010).png" alt=""><figcaption></figcaption></figure>
 
-### Datasheets <a href="#datasheets" id="datasheets"></a>
+## Datasheets <a href="#datasheets" id="datasheets"></a>
 
 * [ESP32-P4](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1132/ESP32-P4_Datasheet.pdf)
 * [BMI270](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/app/Stamp%20Fly/BMI270.PDF)
@@ -274,7 +280,7 @@ When powered by USB cable or battery: to power on from off, single-click the pow
 * [IP2326](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1132/IP2326.pdf)
 * [NP‑F550 Battery Report](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1132/K145_Battery_Product_Report.zip)
 
-### Softwares <a href="#softwares" id="softwares"></a>
+## Softwares <a href="#softwares" id="softwares"></a>
 
 #### Quick Start <a href="#quick-start" id="quick-start"></a>
 

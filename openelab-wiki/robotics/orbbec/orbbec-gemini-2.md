@@ -4,21 +4,25 @@ description: Orbbec Gemini 2 Compact 3D Stereo Vision Camera with IMU
 
 # Orbbec Gemini 2
 
+{% hint style="info" %}
+[**View Orbbec Gemini 2 on OpenELAB**](https://openelab.io/products/orbbec-gemini-2-compact-3d-stereo-vision-camera-with-imu)
+
+**Model:** Orbbec Gemini 2 · **OpenELAB SKU:** `ORBBEC-Gemini2`
+{% endhint %}
+
 {% embed url="https://openelab.io/products/orbbec-gemini-2-compact-3d-stereo-vision-camera-with-imu" %}
 
-### Gemini2
+## Gemini2
 
-\
+\
 The compact Gemini 2 3D camera, released in 2023, is based on Active Stereo IR technologyand is equipped with Orbbec's latest custom ASIC for high quality depth processing, IMU andsingle cable USB 3.0 power + connectivity. The wide FOV and the wide depth sensing rangemakes Gemini 2 adaptable for many applications, especially for robotics. It is easy to set upand operate with the orbbec sDK, and delivers extremely accurate and reliable data in variouslighting conditions from pitch black to semi-outdoor.
 
-### &#xD; Applications
+## Applications
 
-Wide Field of View at 91 Horizontal and 66° Vertical\
-High quality depth data output from 0.15m to 10mUp to 30 fps at 1280x800 depth resolution\
-USB Type-C for power and data connectivity\
+Wide Field of View at 91 Horizontal and 66° Vertical\
+High quality depth data output from 0.15m to 10mUp to 30 fps at 1280x800 depth resolution\
+USB Type-C for power and data connectivity\
 Multi-camera synchronization and IMU supported
-
-
 
 #### Camera Specifications
 
@@ -50,15 +54,15 @@ Multi-camera synchronization and IMU supported
 | **Weight**                | 98 g                                   |
 | **Installation**          | Bottom: ¼‑20 UNC；Back: 2 × M3          |
 
-### Orbbec SDK
+## Orbbec SDK
 
 Orbbec SDK, designed for Orbbec® 3D cameras, is a versatile cross-platform library supporting various platforms and languages. Since version 2.0.0, we launched the Open Source Orbbec SDK (Orbbec SDK v2). The Orbbec SDK v2 supports many of our major products, with more to be added. Notably, the Gemini 335Lg and all forthcoming products released after October 2024 will be exclusively backed by the Orbbec SDK v2.
 
-We highly recommend using the Orbbec SDK v2 for supported products.   [Learn why](https://github.com/orbbec/OrbbecSDK_v2/blob/main/docs/tutorial/orbbecsdkv1_to_openorbbecsdkv2.md)
+We highly recommend using the Orbbec SDK v2 for supported products. [Learn why](https://github.com/orbbec/OrbbecSDK_v2/blob/main/docs/tutorial/orbbecsdkv1_to_openorbbecsdkv2.md)
 
 <img src="https://new-orbbec3d-s3.s3.amazonaws.com/wp-content/uploads/2023/05/17085357/windows-e1684477451302.png" alt="" height="63" width="320">
 
-### System Requirements:
+## System Requirements:
 
 [Windows 10+](https://www.orbbec.com/developers/orbbec-sdk/)[USB 3.0 / Gigabit Ethernet](https://www.orbbec.com/developers/orbbec-sdk/)[Quad-core, 2.9GHz+](https://www.orbbec.com/developers/orbbec-sdk/)[8GB+ RAM](https://www.orbbec.com/developers/orbbec-sdk/)[Orbbec SDK v2 for Windows(Recommended)](https://github.com/orbbec/OrbbecSDK_v2/releases)
 
@@ -74,7 +78,7 @@ Supports DaBai(DCW/DW), Astra Pro Plus, Gemini, Astra+, Femto (W), Astra Mini (S
 
 <img src="https://new-orbbec3d-s3.s3.amazonaws.com/wp-content/uploads/2023/05/17085356/ubuntu-e1684477410374.png" alt="" height="90" width="258">
 
-### System Requirements:
+## System Requirements:
 
 [Ubuntu 20.04/22.04+](https://www.orbbec.com/developers/orbbec-sdk/)[USB 3.0 / Gigabit Ethernet](https://www.orbbec.com/developers/orbbec-sdk/)[Quad-core, 2.9GHz+](https://www.orbbec.com/developers/orbbec-sdk/)[8GB+ RAM](https://www.orbbec.com/developers/orbbec-sdk/)[Orbbec SDK v2 for Linux(Recommended)](https://github.com/orbbec/OrbbecSDK_v2/releases)
 
@@ -86,7 +90,7 @@ Supports DaBai(DCW/DW), Astra Pro Plus, Gemini, Astra+, Femto (W), Astra Mini (S
 
 <img src="https://new-orbbec3d-s3.s3.amazonaws.com/wp-content/uploads/2023/08/18160044/MacOS_logo.svg-1-300x300.png" alt="" height="300" width="300">
 
-### System Requirements:
+## System Requirements:
 
 [macOS 13.0+](https://www.orbbec.com/developers/orbbec-sdk/)[USB 3.0 / Gigabit Ethernet](https://www.orbbec.com/developers/orbbec-sdk/)[Quad-core, 2.9GHz+](https://www.orbbec.com/developers/orbbec-sdk/)[8GB+ RAM](https://www.orbbec.com/developers/orbbec-sdk/)[Orbbec SDK v2 for macOS(Recommended)](https://github.com/orbbec/OrbbecSDK_v2/releases)
 
@@ -98,7 +102,7 @@ Supports Astra+, Femto (W), Astra Mini (S) Pro, Astra Embedded S, Astra Stereo S
 
 <img src="https://new-orbbec3d-s3.s3.amazonaws.com/wp-content/uploads/2023/05/17085356/android.png" alt="" height="98" width="112">
 
-### System Requirements:
+## System Requirements:
 
 [Android 6.0+](https://www.orbbec.com/developers/orbbec-sdk/)[USB 3.0](https://www.orbbec.com/developers/orbbec-sdk/)[Quad Core 2GHz+](https://www.orbbec.com/developers/orbbec-sdk/)[2GB+ RAM](https://www.orbbec.com/developers/orbbec-sdk/)[Orbbec SDK v2 for Android(Recommended)](https://github.com/orbbec/OrbbecSDK-Android-Wrapper/tree/v2-main)
 
@@ -108,7 +112,7 @@ Supports Gemini 215, Gemini 210, Gemini 335/336(L), Gemini 330(L), Gemini 2 (L),
 
 Supports Astra+, Femto (W), Astra Mini Pro, Astra Embedded S, Astra Stereo S U3, Gemini 2 (L), Gemini E, Astra 2, Gemini 2 XL, Gemini 335/336(L)
 
-### Wrappers for Orbbec SDK
+## Wrappers for Orbbec SDK
 
 <img src="https://d1cd332k3pgc17.cloudfront.net/wp-content/uploads/2023/05/ros2.svg" alt="" height="50" width="188">
 
@@ -157,4 +161,3 @@ Supports Femto Mega (I), Femto Bolt
 Supports Femto Mega (I), Femto Bolt
 
 {% file src="../../.gitbook/assets/Orbbec-Gemini-2-Series-DatasheetPublicV1.720240316.pdf" %}
-

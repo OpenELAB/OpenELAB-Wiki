@@ -1,5 +1,11 @@
 # Orbbec Gemini 305 User Manual
 
+{% hint style="info" %}
+[**View Orbbec Gemini 305 on OpenELAB**](https://openelab.io/products/orbbec-gemini-305-range-stereo-vision-camera)
+
+**Product model/family:** Orbbec Gemini 305 · **OpenELAB SKU:** `ORBBEC-Gemini-305`
+{% endhint %}
+
 ## Orbbec Gemini 305 Range Stereo Vision Camera for Robotic Wrist Mounting
 
 {% embed url="https://openelab.io/products/orbbec-gemini-305-range-stereo-vision-camera" %}

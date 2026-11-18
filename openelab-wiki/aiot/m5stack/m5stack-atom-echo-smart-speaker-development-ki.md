@@ -23,17 +23,23 @@ layout:
 
 # M5Stack ATOM Echo Smart Speaker Development Ki
 
-### M5Stack ATOM Echo Smart Speaker Development Ki
+{% hint style="info" %}
+[**View M5Stack ATOM Echo Smart Speaker Development Ki on OpenELAB**](https://openelab.io/products/m5stackatomecho)
+
+**Product model/family:** M5Stack ATOM Echo Smart Speaker Development Ki · **OpenELAB SKU:** `M5-C008-C`
+{% endhint %}
+
+## M5Stack ATOM Echo Smart Speaker Development Ki
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/m5stackatomecho" %}
 
-### Introduction
+## Introduction
 
-**ATOM ECHO**  is a Programmable Smart Speaker based on the M5ATOM design. With its compact form factor measuring only 24 \* 24 \* 17 mm, this speaker delivers impressive capabilities. Easily play music wirelessly using the BT capabilities of the [ESP32 ](https://shop.m5stack.com/)from your mobile phone or tablet.\
+**ATOM ECHO** is a Programmable Smart Speaker based on the M5ATOM design. With its compact form factor measuring only 24 \* 24 \* 17 mm, this speaker delivers impressive capabilities. Easily play music wirelessly using the BT capabilities of the [ESP32 ](https://shop.m5stack.com/)from your mobile phone or tablet.\
 What sets ATOM ECHO apart is its programmability and integration with cloud platforms such as AWS and Baidu. Utilizing the built-in microphone and speaker, it enables voice interaction and AI functionality. Experience voice control, story-telling, and seamless integration with the Internet of Things (IoT).
 
 <figure><img src="../../.gitbook/assets/image (761).png" alt=""><figcaption></figcaption></figure>
@@ -41,7 +47,7 @@ What sets ATOM ECHO apart is its programmability and integration with cloud plat
 The speaker is equipped with an embedded RGB LED (SK6812), allowing for visual display of connection status. Beyond its role as a Bluetooth speaker, ATOM ECHO retains the control abilities of the Atom series. The convenient screw hole on the back facilitates easy installation for users.\
 With ATOM ECHO, you have a powerful, programmable smart speaker that combines compact design, AI capabilities, and seamless IoT integration for an enhanced audio experience in any setting
 
-### Features
+## Features
 
 * Light and compact
 * Support STT services
@@ -54,7 +60,7 @@ With ATOM ECHO, you have a powerful, programmable smart speaker that combines co
 * Programmable key
 * Programming platform:Arduino, ESP-IDF/ADF
 
-### Specification <a href="#specification" id="specification"></a>
+## Specification <a href="#specification" id="specification"></a>
 
 | Resources     | Parameter                                   |
 | ------------- | ------------------------------------------- |
@@ -71,7 +77,7 @@ With ATOM ECHO, you have a powerful, programmable smart speaker that combines co
 | Package Size  | 63\*63\*12mm                                |
 | Case Material | Plastic ( PC )                              |
 
-### Pinout
+## Pinout
 
 | DataOut | BCLK | DataIn | LRCK | RGB | Btn |
 | ------- | ---- | ------ | ---- | --- | --- |
@@ -79,17 +85,17 @@ With ATOM ECHO, you have a powerful, programmable smart speaker that combines co
 
 <figure><img src="../../.gitbook/assets/image (642).png" alt=""><figcaption></figcaption></figure>
 
-### How to Use
+## How to Use
 
-### Driver Installation <a href="#driver-installation" id="driver-installation"></a>
+## Driver Installation <a href="#driver-installation" id="driver-installation"></a>
 
 Connect the device to the PC, open the device manager to install [FTDI driver ](https://ftdichip.com/drivers/vcp-drivers/)for the device. Take the win10 environment as an example, download the driver file that matches the operating system, unzip it, and install it through the device manager. (Note: In some system environments, the driver needs to be installed twice for the driver to take effect. The unrecognized device name is usually `M5Stack` or `USB Serial`. Windows recommends using the driver file to install directly in the device manager (custom Update), the executable file installation method may not work properly). [Click here to download FTDI driver](https://ftdichip.com/drivers/vcp-drivers/)
 
-![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc/ftdi_01.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc/ftdi_02.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc/ftdi_03.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc/ftdi_01.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc/ftdi_02.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc/ftdi_03.webp)
 
 For MacOS users, please tick `System Preferences` -> `Security and Privacy` -> `General` -> `Allow downloadable apps from the following locations` -> `App Store and Approved Developer Options`.
 
-### BT Speaker <a href="#bt-speaker" id="bt-speaker"></a>
+## BT Speaker <a href="#bt-speaker" id="bt-speaker"></a>
 
 The factory firmware is configured as a BT speaker by default. Users can connect devices such as mobile phones, tablets, PCs and so on with ATOM ECHO to output audio to ATOM ECHO for playback.
 

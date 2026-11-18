@@ -1,5 +1,11 @@
 # PiPER Product User Manual
 
+{% hint style="info" %}
+[**View PiPER Product on OpenELAB**](https://openelab.io/products/agilex-piper-ros-ai-arm)
+
+**Product model/family:** PiPER Product · **OpenELAB SKU:** `Agilex-PiPER`
+{% endhint %}
+
 AgileX PiPER 6-DOF 1.5kg Payload Robotic Arm for ROS & AI
 
 {% embed url="https://openelab.io/products/agilex-piper-ros-ai-arm" %}
@@ -14,13 +20,13 @@ AgileX PiPER 6-DOF 1.5kg Payload Robotic Arm for ROS & AI
 
 {% embed url="https://openelab.io/products/agilex-piper-teacher-control-pendant" %}
 
-
-
 **Firmware applicability: teacher-pendant-related SDK functions require firmware V1.5-2 or later. Confirm the installed firmware before use.**
 
 **PiPER ROBOTIC ARM**
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 1" alt="PiPER Product User Manual image 1" width="597">
+
+&#x20;
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 2" alt="PiPER Product User Manual image 2" width="414">
 
@@ -117,10 +123,8 @@ Safety Instructions for Use:
 
 * Switching at non-zero positions may cause sudden drops or abnormal movements due to disabling.
 
-<br>
-
-<br>
-
+\
+\
 <br>
 
 **Catalogue**
@@ -233,10 +237,8 @@ Safety Instructions for Use:
 
 9.6. End of the arm - 45 -
 
-<br>
-
-<br>
-
+\
+\
 <br>
 
 ## 1 Introduction <a href="#ka0bu" id="ka0bu"></a>
@@ -297,10 +299,8 @@ This 6 DOFs robotic arm is specifically designed for the education and research 
 | Working environment                          | Temperature:-20-50;℃humidity: 25%-85%, non-condensing                                             |
 | Noise                                        | <60dB                                                                                             |
 
-<br>
-
-<br>
-
+\
+\
 <br>
 
 | Teaching device parameters (optional) |                                                                                            |
@@ -327,8 +327,7 @@ Modified DH
 
 The robotic arm has 6 DOFs and a 1.5kg payload at the end. The six rotating joints provide full-range operational flexibility, ensuring high precision and repeatability. It features a lightweight design, allowing the robotic arm to achieve fast motion capabilities while maintaining a relatively high payload capacity. It can be widely used in embodied intelligence for real-world data collection.
 
-<br>
-
+\
 <br>
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 4" alt="PiPER Product User Manual image 4" width="589">
@@ -391,12 +390,9 @@ When there are more than two arms, one of the arms opens 1 (downward) and closes
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 8" alt="PiPER Product User Manual image 8" width="563">
 
-<br>
-
-<br>
-
-<br>
-
+\
+\
+\
 <br>
 
 ### 2.2 Robotic Arm Teach/Demonstration Mode Instructions <a href="#id-3rwat" id="id-3rwat"></a>
@@ -415,12 +411,9 @@ The user coordinate system is the robot arm base coordinate system.
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 10" alt="PiPER Product User Manual image 10" width="732">
 
-<br>
-
-<br>
-
-<br>
-
+\
+\
+\
 <br>
 
 ### 2.2.3 Singular Position <a href="#zlasw" id="zlasw"></a>
@@ -435,8 +428,7 @@ The user coordinate system is the robot arm base coordinate system.
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 12" alt="PiPER Product User Manual image 12" width="410">
 
-<br>
-
+\
 <br>
 
 3\. Shoulder singular position: when the intersection of the axes of J5 and J6 lies on the axis of J1, it’s shoulder singular position.
@@ -513,6 +505,8 @@ The desktop installation module is an optional module. The standard product does
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 25" alt="PiPER Product User Manual image 25" width="809">
 
+&#x20;
+
 <img src="../../.gitbook/assets/PiPER Product User Manual image 26" alt="PiPER Product User Manual image 26" width="869">
 
 ### 2.7 Instructions for the installation method of the robotic arm <a href="#dtfb0" id="dtfb0"></a>
@@ -529,8 +523,7 @@ Connect the CAN\_TO\_USB adapter to the laptop's USB port. The connection diagra
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 28" alt="PiPER Product User Manual image 28" width="1280">
 
-<br>
-
+\
 <br>
 
 Note: If using a non-standard charger, the power input must not exceed 26V, and the current must be no less than 10A.
@@ -732,10 +725,8 @@ The 3 buttons below are ①Return to zero button, ②Load button, and ③Send bu
 
 Joint button
 
-<br>
-
-<br>
-
+\
+\
 <br>
 
 The picture below shows the lighting control area. If the joint light board is installed, the lighting control of the six joints of the robot arm can be realized.
@@ -831,6 +822,8 @@ On the right side of the window is the real-time 3D simulation model of the robo
 Click the \[TraceLib] below the vertical menu bar, and a pop-up window will appear. Users can customize and edit a complete robot arm motion trajectory and run it.
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 61" alt="PiPER Product User Manual image 61" width="1280">
+
+&#x20;
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 62" alt="PiPER Product User Manual image 62" width="1010">
 
@@ -956,8 +949,6 @@ When connected to the host computer, the robotic arm can be paused or resumed by
 ### 9.6 End of the arm <a href="#bf5qo" id="bf5qo"></a>
 
 <img src="../../.gitbook/assets/PiPER Product User Manual image 73" alt="PiPER Product User Manual image 73" width="693">
-
-
 
 ### Development Resources
 

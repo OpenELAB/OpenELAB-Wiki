@@ -1,12 +1,18 @@
 # LKMTECH MG Dual-Encoder V3 Actuator Engineering Guide
 
+{% hint style="info" %}
+[**View LKMTECH MG Dual-Encoder V3 Actuator on OpenELAB**](https://openelab.io/products/mg4010e-i36-v3-dual-encoder-robot-motor)
+
+**Product model/family:** LKMTECH MG Dual-Encoder V3 Actuator · **OpenELAB SKUs:** `TB-LKM-MG4010E-i36C`, `TB-LKM-MG4005E-i10C`, `TB-LKM-MG5010E-i10C` · Confirm the matching motor, firmware and encoder variant.
+{% endhint %}
+
 [TB-LKM-MG4010E-i36C](https://openelab.io/products/mg4010e-i36-v3-dual-encoder-robot-motor) · [TB-LKM-MG4005E-i10C](https://openelab.io/products/mg4005e-i10-v3-dual-encoder-robot-motor) · [TB-LKM-MG5010E-i10C](https://openelab.io/products/mg5010e-i10-v3-high-torque-dual-encoder-drive-motor)
 
-### Product and scope
+## Product and scope
 
 This page covers **MG4010E-i36 V3**, **MG4005E-i10 V3** and **MG5010E-i10 V3**. They share an integrated-actuator concept but have different gearing, drive limits and torque/speed ratings. CAN and RS485 variants must be identified from the supplied unit.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item              | Reference                                                           |
 | ----------------- | ------------------------------------------------------------------- |
@@ -18,7 +24,7 @@ This page covers **MG4010E-i36 V3**, **MG4005E-i10 V3** and **MG5010E-i10 V3**. 
 
 The linked **LK product catalogue** and model-specific **dimension/driver datasheets** are the technical starting points. Public sheets disagree on some speed, torque/current constants and driver voltage ranges. **Do not combine them into a single V3 rating.** Match the exact order/label to its signed-off parameter sheet before final sizing or powering.
 
-### Getting started
+## Getting started
 
 1. Record the full model, CAN/RS485 option and driver revision. Select the corresponding manual and pinout.
 2. Mount one unloaded motor, verify the confirmed supply rating and wire power/data with power off.
@@ -28,11 +34,11 @@ The linked **LK product catalogue** and model-specific **dimension/driver datash
 
 **Expected checkpoint:** valid status readings from the identified actuator. Numeric motion limits remain subject to exact revision confirmation where public sheets conflict.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the exact LK protocol/tool package supplied with the motor. A public universal SDK/version was not established in this review; no speculative command bytes are provided. Preserve drive parameters, zero reference and protocol revision with application code.
 
-### FAQs
+## FAQs
 
 **Can i10 scaling be reused for i36?** No; verify shaft units, gearing and model scaling.
 
@@ -40,7 +46,7 @@ Use the exact LK protocol/tool package supplied with the motor. A public univers
 
 **Which conflicting datasheet should be used?** Obtain the exact unit's manufacturer-approved parameter sheet before design sign-off.
 
-### Sources and validation
+## Sources and validation
 
 * [LK product catalogue, manufacturer literature hosted by a supplier](https://makerselectronics.com/wp-content/uploads/2025/05/LK%E4%BA%A7%E5%93%81%E6%89%8B%E5%86%8C%EF%BC%88%E8%8B%B1%E6%96%87%EF%BC%8925.02.11-1-MG4.pdf)
 * [MG4005E-i10 V3 dimensional/driver sheet hosted by Riotech](https://riotech.co.kr/wp-content/uploads/2024/10/MG4005E-i10-V3.pdf)

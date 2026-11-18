@@ -1,12 +1,16 @@
 # NERO User Manual
 
+{% hint style="info" %}
+[**View NERO gripper on OpenELAB**](https://openelab.io/products/agilex-nero-gripper) · [**View NERO robotic arm on OpenELAB**](https://openelab.io/products/agilex-nero-embodied-ai-arm)
+
+**Model:** NERO User Manual · **OpenELAB SKU:** `Agilex-NERO` · Arm and gripper are distinct product options.
+{% endhint %}
+
 ### AgileX NERO 7-DOF 3kg Payload Robotic Arm for Embodied A
 
 ### AgileX NERO Gripper
 
 {% embed url="https://openelab.io/products/agilex-nero-gripper" %}
-
-
 
 Accessory reference see Gripper Master-Slave Control and Legacy Gripper Compatibility in this manual.
 
@@ -160,6 +164,8 @@ Electrical Panel Status Light Indication
 
 <img src="../../.gitbook/assets/电器面板 (2).png" alt="电器面板.png" width="764.3636363636364">
 
+&#x20;
+
 <img src="../../.gitbook/assets/image (1173).png" alt="image.png" width="680.48828125">
 
 > **Note**: Align the red dot on the base panel with the red dot on the cable. The textured part of the aviation connector is a retractable area under force. For insertion, align the red dots and insert directly. For pulling out, press the textured part and pull out.
@@ -175,6 +181,8 @@ The end joint reserves an XT30 2+2 interface, with power and CAN definitions sho
 This chapter clearly defines the motion space boundaries and joint movement ranges of the robotic arm through kinematic diagrams, providing a basis for users to design workstation layouts, plan trajectories, and implement safety protection measures.
 
 <img src="../../.gitbook/assets/image (1174).png" alt="image.png" width="1074">
+
+&#x20;
 
 <img src="../../.gitbook/assets/image (1175).png" alt="image.png" width="964">
 
@@ -392,6 +400,8 @@ This interface allows users to precisely define **the motion range** and **maxim
 
 <img src="../../.gitbook/assets/image (1191).png" alt="image.png" width="783.763916015625">
 
+&#x20;
+
 <img src="../../.gitbook/assets/image (1192).png" alt="image.png" width="613">
 
 #### 6.8.3 Collision Protection Settings <a href="#mapdt" id="mapdt"></a>
@@ -513,8 +523,6 @@ In case of an emergency, you can unplug the aviation connector directly to cut o
 ### 5 Dexterous Hand Flange Mounting Diagram <a href="#wif9z" id="wif9z"></a>
 
 <img src="../../.gitbook/assets/image (1205).png" alt="image.png" width="952">
-
-
 
 ### Development Resources
 

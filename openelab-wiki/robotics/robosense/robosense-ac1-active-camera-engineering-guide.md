@@ -1,5 +1,11 @@
 # RoboSense AC1 Active Camera Engineering Guide
 
+{% hint style="info" %}
+[**View RoboSense AC1 Active Camera on OpenELAB**](https://openelab.io/products/robosense-ac1-lidar-depth-camera-pre-sale)
+
+**Product model/family:** RoboSense AC1 Active Camera · **OpenELAB SKU:** `RS-AC1`
+{% endhint %}
+
 Product link: https://openelab.io/products/robosense-ac1-lidar-depth-camera-pre-sale
 
 ![RoboSense AC1 product image](<../../.gitbook/assets/robosense ac1 product.jpg>)

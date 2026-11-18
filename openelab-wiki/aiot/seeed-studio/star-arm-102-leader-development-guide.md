@@ -1,8 +1,14 @@
 # Seeed Studio Star Arm 102 Leader Arm Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio Star Arm 102 Leader Arm on OpenELAB**](https://openelab.io/products/seeed-studio-rebot-arm-b601-dm-leader-arm)
+
+**Product model/family:** Seeed Studio Star Arm 102 Leader Arm · **OpenELAB SKU:** `Seeed-100004723`
+{% endhint %}
+
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-rebot-arm-b601-dm-leader-arm) · [Seeed Studio hub](./)
 
-### Product role and scope
+## Product role and scope
 
 The **Star Arm 102**, Seeed ordering code **100004723**, is the leader arm used to command a reBot B601-DM or B601-RS follower. Use it for teleoperation practice, demonstration collection and robot-learning experiments. A leader device records the operator's intended joint movement; it is not a replacement for the follower's actuators, controller or power system.
 
@@ -17,7 +23,7 @@ The **Star Arm 102**, Seeed ordering code **100004723**, is the leader arm used 
 
 Use the manufacturer's product resource links for the current hardware/CAD package. Confirm dimensions and mounting geometry from that package before making a fixture; dimensions are not inferred from photographs.
 
-### Getting started: leader recognition before follower movement
+## Getting started: leader recognition before follower movement
 
 1. Secure the leader and follower to the bench. Keep the follower's workspace clear and make its power isolation accessible.
 2. Identify the leader, follower and any USB-CAN adapters by unplug/replug comparison. On Linux, inspect persistent device names:
@@ -32,13 +38,13 @@ ls -l /dev/serial/by-id/
 
 **Checkpoint:** the application identifies both devices and small leader motions map to the expected follower joints without jumps or reversed motion. Stop if IDs, limits or calibration fail.
 
-### Development software and data
+## Development software and data
 
 SenseCraft Robotics provides a guided setup path. The linked Seeed tutorial connects hardware preparation to camera binding, teleoperation and later dataset collection. Use the matching robot implementation when moving into LeRobot; do not combine a generic SO-ARM configuration with a B601 follower.
 
 Record software version, serial bindings, calibration files and camera configuration with each dataset. Successful teleoperation alone does not validate camera synchronization or training-data quality.
 
-### FAQs
+## FAQs
 
 **Can the leader use the follower supply?** Use the documented leader adapter. DM and RS followers have separate power requirements.
 
@@ -48,7 +54,7 @@ Record software version, serial bindings, calibration files and camera configura
 
 **Is the full CAD or protocol reproduced here?** No. The manufacturer's current resource package is the technical reference; verify its revision before fabrication.
 
-### Sources and validation
+## Sources and validation
 
 * [Star Arm 102 manufacturer product and resource links](https://www.seeedstudio.com/Star-Arm-102-p-6765.html)
 * [Seeed hardware and teleoperation workflow](https://wiki.seeedstudio.com/robotics/paper_reading_hardware_and_teleoperation/)

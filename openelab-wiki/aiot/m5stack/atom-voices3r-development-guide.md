@@ -1,16 +1,22 @@
 # M5Stack Atom VoiceS3R Development Guide
 
+{% hint style="info" %}
+[**View M5Stack Atom VoiceS3R on OpenELAB**](https://openelab.io/products/m5stack-atom-echos3r-smart-speaker)
+
+**Product model/family:** M5Stack Atom VoiceS3R · **OpenELAB SKU:** `M5-C126-Echo`
+{% endhint %}
+
 ![M5Stack Atom VoiceS3R Development Guide](../../.gitbook/assets/atom-voices3r-development-guide.webp)
 
 _Manufacturer image: M5Stack._ [_Image source_](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1182/Atom_EchoS3R_01.webp)_._
 
 [Product at OpenELAB](https://openelab.io/products/m5stack-atom-echos3r-smart-speaker) · [Manufacturer wiki hub](./)
 
-### Product identity and applications
+## Product identity and applications
 
 **M5Stack Atom VoiceS3R, C126-ECHO**, is a compact ESP32-S3 audio controller for voice-interface prototypes, audio playback and smart-home voice endpoints. It is also referenced by the older **Atom EchoS3R** name in tutorial paths and source assets. It is different from the original ESP32-based ATOM Echo/Atom Voice and needs the S3R board/memory/audio configuration.
 
-### Hardware specifications and pin map
+## Hardware specifications and pin map
 
 | Item           | Atom VoiceS3R                                 |
 | -------------- | --------------------------------------------- |
@@ -35,13 +41,13 @@ Source: [manufacturer hardware reference](https://docs.m5stack.com/en/core/Atom_
 
 Use the codec signal names from the schematic when relating device DIN/DOUT to MCU receive/transmit directions. The port's 5 V supply is separate from logic-level tolerance; do not assume GPIO1/2 accept 5 V.
 
-### Development environment and firmware choices
+## Development environment and firmware choices
 
 The [official Arduino quick-start](https://docs.m5stack.com/en/arduino/atom_echos3r/program) selects **M5AtomS3R** from the M5Stack board package and uses **M5Unified** and **M5GFX**. Retain the model preset's octal-PSRAM configuration, install prompted dependencies and record their versions. The M5Unified API was reviewed at commit **96576a14247ddc935149145aa6b51943464120f1**.
 
 UiFlow2, factory USB-audio firmware, XiaoZhi and Home Assistant voice integrations are separate firmware/workflow choices. A cloud voice application can require its own account, network, backend and credentials; microphone/speaker hardware alone does not provide a speech model or service. Keep the offline audio test as the first checkpoint.
 
-### Getting started: one offline audio event
+## Getting started: one offline audio event
 
 Prepare USB-C data/power, Arduino IDE and the exact board preset. Save any needed factory configuration before flashing.
 
@@ -69,7 +75,7 @@ void loop() {
 
 Expected result: one short tone per application start without a Wi-Fi account. It verifies upload, audio initialization and output, not microphone capture or speech recognition. This adapted example remains uncompiled and untested on physical hardware for this guide.
 
-### Microphone, voice software and recovery
+## Microphone, voice software and recovery
 
 After playback works, use the model's microphone example to check actual input data before adding recognition. Check sample rate, buffer sizes, codec configuration and speaker/microphone sequencing in the chosen firmware. Hearing a tone does not validate microphone wiring or acoustic echo cancellation.
 
@@ -77,7 +83,7 @@ For Home Assistant or XiaoZhi follow the exact model tutorial linked from the ha
 
 The hardware reference links a **mainboard** and **audio baseboard** schematic; use both to trace a complete audio path. Some asset filenames retain EchoS3R/AtomS3R naming. Check the fitted board and drawing revision before designing extensions.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Symptom                              | Check and next step                                                                                                |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
@@ -88,7 +94,7 @@ The hardware reference links a **mainboard** and **audio baseboard** schematic; 
 | PC no longer sees USB audio          | Restore the exact factory UAC application; an Arduino sketch may not implement USB audio.                          |
 | Voice service cannot connect         | Network/backend/account and application firmware version after local audio is verified.                            |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                                      | Use                                                                 |
 | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |

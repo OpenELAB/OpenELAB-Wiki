@@ -1,16 +1,22 @@
 # Seeed Studio reComputer Robotics J4012 Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reComputer Robotics J4012 on OpenELAB**](https://openelab.io/products/seeedstudio-recomputer-robotics-j4012-intelligent)
+
+**Product model/family:** Seeed Studio reComputer Robotics J4012 · **OpenELAB SKUs:** `Seeed-114110310`, `Seeed-100026552` · Verify each ordered model/kit option against the instructions below.
+{% endhint %}
+
 ![Seeed Studio reComputer Robotics J4012 Development Guide](../../.gitbook/assets/recomputer-robotics-j4012-development-guide.jpg)
 
 _Manufacturer image: Seeed Studio._ [_Image source_](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/1/-/1-114110310-recomputer-robotics_2.jpg)_._
 
 [Product at OpenELAB](https://openelab.io/products/seeedstudio-recomputer-robotics-j4012-intelligent) · [Manufacturer wiki hub](./)
 
-### Product and variant scope
+## Product and variant scope
 
 **reComputer Robotics J4012** combines Orin NX 16 GB with Seeed's Robotics J401 carrier for robot perception and control integration. This guide covers the base configuration **114110310** and the same carrier sold with optional **GMSL expansion**. That expansion and its supported cameras require a corresponding driver/image; the base system must not be assumed to include it.
 
-### Hardware specifications
+## Hardware specifications
 
 | Item          | Robotics J4012                                                 |
 | ------------- | -------------------------------------------------------------- |
@@ -26,7 +32,7 @@ _Manufacturer image: Seeed Studio._ [_Image source_](https://media-cdn.seeedstud
 
 Several physical connectors share the same CAN bus. Do not count every connector as an independent channel. Sources: [Robotics J401 setup](https://wiki.seeedstudio.com/recomputer_robotics_j401_getting_started/), [carrier datasheet](https://files.seeedstudio.com/products/NVIDIA-Jetson/reComputer_robotics_J401_datasheet.pdf).
 
-### First boot and a useful baseline
+## First boot and a useful baseline
 
 Prepare the correct manufacturer power supply, monitor/HDMI cable, keyboard and wired network. Attach peripherals while powered off, then apply power and finish the Linux first-run setup. Start with the installed image if it boots; reflashing is a recovery or version-management operation and can overwrite the system disk.
 
@@ -48,19 +54,19 @@ Do not use a desktop-PC CUDA installer or an arbitrary x86 container. Select Jet
 
 Sources: [NVIDIA Jetson Linux developer guide](https://docs.nvidia.com/jetson/archives/r36.4.3/DeveloperGuide/), [tegrastats reference](https://docs.nvidia.com/jetson/archives/r36.4.3/DeveloperGuide/AT/JetsonLinuxDevelopmentTools/TegrastatsUtility.html).
 
-### Camera, CAN and power integration
+## Camera, CAN and power integration
 
 For the first video check, use one supported camera and its stock driver/example. With GMSL, match the fitted extension, camera sensor, serializer, cable and power-over-coax arrangement to the release's supported configuration. A Mini-Fakra connector is not sufficient evidence of camera compatibility.
 
 Read the XT30 power/signal drawing and header tables before connecting a robot battery or CAN bus. Use the supported transceiver/termination configuration and distinguish the two bus identities. First inspect feedback/interface errors without sending arbitrary control traffic to a connected robot.
 
-### Firmware recovery and software
+## Firmware recovery and software
 
 Select **Robotics J401 / Orin NX 16 GB** and the **fitted GMSL option** in the manufacturer image matrix. Back up data, use its specified Ubuntu host and follow the REC-switch/USB procedure for this carrier. A Super J4012 or original J401 image is not the correct default just because the module name matches.
 
 Complete the vendor flash procedure and return recovery controls to normal operation. Recheck boot, storage, network and cameras before installing Isaac ROS, ROS or inference packages. Keep their versions compatible with the actual JetPack/L4T release and selected image.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Symptom                                  | Check                                                                                                              |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -70,7 +76,7 @@ Complete the vendor flash procedure and return recovery controls to normal opera
 | System resets under workload             | Correct supply, XT30 seating, cooling and power-mode configuration.                                                |
 | After flashing, interfaces are missing   | Verify Robotics carrier/module/optional-GMSL image rather than another J4012 family.                               |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                           | Use                                     |
 | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------- |

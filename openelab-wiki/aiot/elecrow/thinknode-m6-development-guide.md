@@ -1,16 +1,22 @@
 # Elecrow ThinkNode M6 Development Guide
 
+{% hint style="info" %}
+[**View Elecrow ThinkNode M6 on OpenELAB**](https://openelab.io/products/elecrow-thinknode-m6-outdoor-solar)
+
+**Product model/family:** Elecrow ThinkNode M6 · **OpenELAB SKU:** `ELECROW-LMM14106D`
+{% endhint %}
+
 ![Elecrow ThinkNode M6 Development Guide](../../.gitbook/assets/thinknode-m6-development-guide.webp)
 
 _Product image: OpenELAB._ [_Image source_](https://cdn.shopify.com/s/files/1/0621/0050/4774/files/thinknode_m6_1_1_1.webp?v=1770871902)_._
 
 [Product at OpenELAB](https://openelab.io/products/elecrow-thinknode-m6-outdoor-solar) · [Manufacturer wiki hub](./)
 
-### Product and applications
+## Product and applications
 
 **Elecrow ThinkNode M6, LMM14106D**, is an outdoor solar-powered LoRa node for fixed mesh coverage, remote-site messaging and experimental sensor telemetry. This first-run workflow uses its documented **Meshtastic** configuration. MeshCore is a separate firmware/network path; confirm exact M6 support and application role in its current flasher before changing ecosystems.
 
-### Hardware specifications and power
+## Hardware specifications and power
 
 | Item           | M6 reference configuration                             |
 | -------------- | ------------------------------------------------------ |
@@ -25,7 +31,7 @@ _Product image: OpenELAB._ [_Image source_](https://cdn.shopify.com/s/files/1/06
 
 Sources: [manufacturer specifications](https://www.elecrow.com/thinknode-m6-outdoor-solar-power-for-meshtastic-powered-by-nrf52840-supports-gps.html), [usage wiki](https://www.elecrow.com/wiki/ThinkNode_M6_Outdoor_Solar_Power_for_Meshtastic_Powered_By_nRF52840_Supports_GPS.html) and the manual below. Battery capacity and panel rating do not guarantee continuous service at every season, location or transmit/GNSS duty cycle. Keep seals/connectors correctly assembled to maintain weather protection; IP65 is not an immersion rating.
 
-### Controls and external interfaces
+## Controls and external interfaces
 
 The documented **PWR** button powers the device on/off with a long press; double-click updates location and triple-click toggles GPS. A single **Reset** restarts the node. With USB connected, two reset presses within about **250 ms** enter its programming/DFU path.
 
@@ -33,7 +39,7 @@ The I²C SP11 port is the one near the antenna; the UART port is lower. Before a
 
 The power indicator is deliberately not a permanent activity light in normal battery operation. Use application telemetry and fresh messages to verify the node; a dark LED alone is not proof that it has powered off.
 
-### Getting started: verify before outdoor mounting
+## Getting started: verify before outdoor mounting
 
 Prepare the M6, correct LoRa and GNSS antennas, a USB data cable, Meshtastic phone app and a second compatible Meshtastic node. Perform this test on the bench before closing/mounting the enclosure.
 
@@ -45,7 +51,7 @@ Prepare the M6, correct LoRa and GNSS antennas, a USB data cable, Meshtastic pho
 
 Expected result: fresh messages in both directions, a separately confirmed outdoor GNSS fix and observable charging behavior. This is a functional acceptance sequence, not a measured maximum range or annual solar energy guarantee.
 
-### Firmware update and development
+## Firmware update and development
 
 Back up configuration and record the installed release. From the [Meshtastic flasher](https://flasher.meshtastic.org/), select **ThinkNode M6** and the matching released target. Use the manufacturer's double-reset/USB procedure. If directed to a download, follow its UF2 drive-copy workflow with the exact M6 file and wait for completion/restart. Do not use an ESP32 ThinkNode's `.bin` image on this nRF52840 device.
 
@@ -53,7 +59,7 @@ For custom development, start from the M6 board definition in the [Meshtastic fi
 
 For a MeshCore deployment, select the exact M6 hardware and intended role in the official ecosystem's flasher and repeat the message/energy test with compatible peers. A Meshtastic node and a MeshCore client/repeater do not form one interoperable network merely by using the same band.
 
-### Deployment, troubleshooting and FAQ
+## Deployment, troubleshooting and FAQ
 
 | Symptom or question                          | Check and next step                                                                                                               |
 | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -66,7 +72,7 @@ For a MeshCore deployment, select the exact M6 hardware and intended role in the
 
 For integration support include hardware/firmware revision, node role, region/preset, antenna and mounting arrangement, battery/charging log and the minimal reproducible failure. Obtain a matching complete schematic or mechanical CAD package before designing custom wiring/enclosures when the supplied documentation is insufficient.
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                                                     | Use                                                  |
 | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |

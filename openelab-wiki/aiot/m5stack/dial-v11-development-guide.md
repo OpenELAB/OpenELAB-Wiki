@@ -1,16 +1,22 @@
 # M5Stack Dial v1.1 Development Guide
 
+{% hint style="info" %}
+[**View M5Stack Dial v1.1 on OpenELAB**](https://openelab.io/products/m5stack-dial-v1-1)
+
+**Product model/family:** M5Stack Dial v1.1 · **OpenELAB SKU:** `M5-K130-V11`
+{% endhint %}
+
 ![M5Stack Dial v1.1 Development Guide](../../.gitbook/assets/dial-v11-development-guide.webp)
 
 _Manufacturer image: M5Stack._ [_Image source_](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1126/K130_v11_01.webp)_._
 
 [Product at OpenELAB](https://openelab.io/products/m5stack-dial-v1-1) · [Manufacturer wiki hub](./)
 
-### Product and applications
+## Product and applications
 
 **M5Stack Dial v1.1, K130-V11**, is a rotary/touch control terminal for embedded dashboards, menu navigation, access-control prototypes and smart-home interfaces. It uses **Stamp-S3A** rather than the original Dial's StampS3. Match that revision when selecting enclosure files, firmware and power expectations.
 
-### Hardware specifications and expansion
+## Hardware specifications and expansion
 
 | Item         | Dial v1.1                                                                  |
 | ------------ | -------------------------------------------------------------------------- |
@@ -32,11 +38,11 @@ Source: [manufacturer model reference](https://docs.m5stack.com/en/core/Dial_v1.
 
 The red wire's 5 V supply does not establish 5 V GPIO tolerance. Use the pin map and schematic for signal functions and logic-level compatibility. The internal encoder uses GPIO41/A and GPIO40/B; let the model driver handle it for first-run tests.
 
-### Development environment
+## Development environment
 
 Install Arduino IDE and the [M5Stack board package](https://docs.m5stack.com/en/arduino/arduino_board). The [official Arduino route](https://docs.m5stack.com/en/arduino/m5dial/program) selects **M5Dial** and installs the **M5Dial** library plus its M5Unified/M5GFX dependencies. Record their installed versions. UiFlow2 and the ESP-IDF BSP are alternative development paths with separate dependencies.
 
-### Getting started: display and rotary count
+## Getting started: display and rotary count
 
 Prepare a USB-C data cable and computer. Save needed factory configuration before replacing its application.
 
@@ -49,13 +55,13 @@ Expected result: a working screen followed by an encoder count that changes with
 
 The reviewed [encoder source](https://github.com/m5stack/M5Dial/blob/735eb55beefe6577c646ebf164a19793a01375d4/examples/Basic/encoder/encoder.ino) also contains a long-press behavior that writes a count of 100. Keep the example's behavior separate from a final control application.
 
-### Add touch, RFID, RTC and networking
+## Add touch, RFID, RTC and networking
 
 Test each peripheral with its dedicated Basic example before combining features. Confirm touch coordinates/rotation, a known RFID tag, RTC operation and any external Grove module separately. A read RFID UID is useful for identification demonstrations but does not alone create a secure access-control system.
 
 For a network dashboard or Home Assistant integration, use the selected firmware's current installation and service requirements. First establish a local display/encoder baseline; network/backend failures should not be mistaken for defective input hardware. For battery applications, measure the selected firmware's real sleep current and wake behavior rather than applying a datasheet's battery-only figure to a USB-powered test.
 
-### Recovery and troubleshooting
+## Recovery and troubleshooting
 
 | Symptom                    | Check and next step                                                                                           |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -68,7 +74,7 @@ For a network dashboard or Home Assistant integration, use the selected firmware
 
 Provide model/revision, board-package and library versions, minimal sketch, compiler output and the observed count/serial log when reporting a problem.
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                        | Use                                                                    |
 | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |

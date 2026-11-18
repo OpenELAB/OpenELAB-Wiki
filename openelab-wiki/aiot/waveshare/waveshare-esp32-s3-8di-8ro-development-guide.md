@@ -1,12 +1,18 @@
 # Waveshare ESP32-S3 8DI 8RO Relay Controller Engineering Guide
 
+{% hint style="info" %}
+[**View Waveshare ESP32-S3 8DI 8RO Relay Controller Engineering Guide on OpenELAB**](https://openelab.io/products/waveshare-industrial-8-channel-esp32-s3-wifi-relay-eth-8di-8ro-module-rs485)
+
+**Model:** Waveshare ESP32-S3 8DI 8RO Relay Controller Engineering Guide · **OpenELAB SKUs:** `Waveshare-30838`, `Waveshare-31130` · Verify the hardware variant before use.
+{% endhint %}
+
 [Waveshare-30838](https://openelab.io/products/waveshare-industrial-8-channel-esp32-s3-wifi-relay-eth-8di-8ro-module-rs485) · [Waveshare-31130](https://openelab.io/products/waveshare-industrial-8-channel-esp32-s3-wifi-relay-eth-8di-8ro-module-rs485)
 
-### Product and scope
+## Product and scope
 
 These **eight-input/eight-relay** controllers support networked switching and automation prototypes. **30838 is the PoE version; 31130 is the non-PoE version.** The similarly named 8DI-8DO transistor-output board is different.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item       | Reference                                                                |
 | ---------- | ------------------------------------------------------------------------ |
@@ -19,7 +25,7 @@ These **eight-input/eight-relay** controllers support networked switching and au
 
 Use the **exact controller schematic, terminal diagram and dimensional drawing** from the manufacturer's resource page. Relay contacts are not powered logic outputs. Initial tests should use a low-voltage isolated test load; contact ratings do not replace load/inrush and enclosure design.
 
-### Getting started
+## Getting started
 
 1. Identify the full model label and disconnect external loads.
 2. Connect documented bench power and USB data; inspect host enumeration.
@@ -29,11 +35,11 @@ Use the **exact controller schematic, terminal diagram and dimensional drawing**
 
 **Expected checkpoint:** one input and one relay channel behave predictably before adding the remaining channels or network automation.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the exact Arduino demo, libraries and pin map in the manufacturer's resources. Save factory firmware and serial/network configuration. Enter its BOOT/download mode for restoration if custom firmware prevents normal communication.
 
-### FAQs
+## FAQs
 
 **Does SKU 31130 accept PoE?** The manufacturer maps PoE to 30838; inspect the fitted model.
 
@@ -41,7 +47,7 @@ Use the exact Arduino demo, libraries and pin map in the manufacturer's resource
 
 **USB powers the board but no port appears?** Check data cable, boot mode and host device enumeration before declaring a hardware fault.
 
-### Sources and validation
+## Sources and validation
 
 * [Exact SKU 30838](https://www.waveshare.com/esp32-s3-eth-8di-8ro.htm?sku=30838)
 * [Exact SKU 31130](https://www.waveshare.com/esp32-s3-eth-8di-8ro.htm?sku=31130)

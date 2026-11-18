@@ -1,12 +1,18 @@
 # HeyGears Reflex 2 Pro and Reflex RS Turbo: model-specific setup
 
+{% hint style="info" %}
+[**View HeyGears Reflex 2 Pro and Reflex RS Turbo: model-specific setup on OpenELAB**](https://openelab.io/products/heygears-ultracraft-reflex-2-pro)
+
+**Product model/family:** HeyGears Reflex 2 Pro and Reflex RS Turbo: model-specific setup · **OpenELAB SKUs:** `11030301147`, `11030301140` · This guide covers multiple catalog options; confirm the selected device/kit before using a procedure.
+{% endhint %}
+
 [11030301147](https://openelab.io/products/heygears-ultracraft-reflex-2-pro) · [11030301140](https://openelab.de/products/heygears-ultracraft-reflex-turbo-3d)
 
-### Product and scope
+## Product and scope
 
 Two distinct MSLA resin printers for detailed prototypes, tooling models and small production runs. Select the exact printer in the slicer; an original Reflex profile is not a substitute. This page separates the confirmed model specifications and follows the manufacturer-managed print workflow.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                         | Reference                                                  |
 | ---------------------------- | ---------------------------------------------------------- |
@@ -18,7 +24,7 @@ Two distinct MSLA resin printers for detailed prototypes, tooling models and sma
 
 Use the exact model's quick-start instructions for shipping restraints, tank installation, leveling and resin handling. The manufacturer store page contains model specifications and included parts; external dimensions and mechanical tolerances must come from the current drawing/manual. A CAD package or public printer-control SDK was not confirmed. Check whether wash, cure and pulsing-release accessories are included or separate.
 
-### Getting started
+## Getting started
 
 1. Record the printer model, firmware version, resin name/lot and installed tank/accessories. Remove transport restraints using the supplied quick-start guide.
 2. Install HeyGears Blueprint from the official software page. Select the exact printer and a currently supported resin profile; review required accessory compatibility.
@@ -28,11 +34,11 @@ Use the exact model's quick-start instructions for shipping restraints, tank ins
 
 **Expected checkpoint:** A completed small print with no platform/tank errors, documented post-curing and a repeatable saved job.
 
-### Development software and recovery
+## Development software and recovery
 
 Blueprint is the supported preparation and job-management path. Do not infer exposure settings from the other printer's wavelength or pixel pitch. Export job diagnostics and record firmware/profile versions before troubleshooting. Resolve adhesion, tank condition and profile selection before tuning a material. Manufacturer accuracy and speed claims depend on the stated test conditions; validate your own part tolerances.
 
-### FAQs
+## FAQs
 
 **Can the two printers share a sliced job?** Re-slice for the destination model and its supported material/accessory combination.
 
@@ -40,7 +46,7 @@ Blueprint is the supported preparation and job-management path. Do not infer exp
 
 **Why is my cured part distorted?** Check support placement, orientation, cleaning and curing recipe before changing printer calibration.
 
-### Sources and validation
+## Sources and validation
 
 * [Reflex 2 Pro specifications](https://store.heygears.com/products/reflex-2-pro-3d-printer)
 * [Reflex RS Turbo specifications](https://store.heygears.com/products/ultracraft-reflex-rs-turbo-3d-printer)

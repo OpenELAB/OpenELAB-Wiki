@@ -1,12 +1,18 @@
 # Seeed Studio SenseCAP S2120 LoRaWAN Weather Sensor Engineering Guide
 
+{% hint style="info" %}
+[**View Seeed Studio SenseCAP S2120 LoRaWAN Weather Sensor on OpenELAB**](https://openelab.io/products/seeed-studio-sensecap-s2120-8)
+
+**Product model/family:** Seeed Studio SenseCAP S2120 LoRaWAN Weather Sensor · **OpenELAB SKU:** `Seeed-101990961`
+{% endhint %}
+
 [Seeed-101990961](https://openelab.io/products/seeed-studio-sensecap-s2120-8)
 
-### Product and scope
+## Product and scope
 
 **101990961 S2120** is a battery-powered eight-measurement **LoRaWAN** weather sensor for remote environmental monitoring. A LoRaWAN gateway and network/application server are separate from the sensor; this is not a Meshtastic node or a wired S700-A.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item          | Reference                                                                                 |
 | ------------- | ----------------------------------------------------------------------------------------- |
@@ -17,7 +23,7 @@
 
 The official product page links the **sensor catalogue and installation resources** for physical dimensions, mounting, measurement limits and battery instructions. Follow its wind-direction orientation and siting requirements; sheltered bench data cannot validate outdoor weather accuracy.
 
-### Getting started
+## Getting started
 
 1. Identify the sensor's frequency-plan variant and record its device identifiers.
 2. Follow the manufacturer's app procedure to inspect configuration and set the applicable regional plan.
@@ -27,11 +33,11 @@ The official product page links the **sensor catalogue and installation resource
 
 **Expected checkpoint:** a received uplink that decodes into the expected measurement fields and units. Record timestamp and link metadata alongside readings.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the supported network-server integration and the **S2120 payload specification**, not an S210x or wired-SenseCAP register map. Retain firmware version, decoder revision and network configuration. For recovery/reset, follow the model's official procedure and preserve activation credentials securely.
 
-### FAQs
+## FAQs
 
 **Can it work without a gateway?** LoRaWAN uplinks require gateway coverage and a configured network.
 
@@ -39,7 +45,7 @@ Use the supported network-server integration and the **S2120 payload specificati
 
 **Can an 868MHz node simply switch to 915MHz?** Confirm the purchased RF hardware's supported plan; software configuration alone does not establish compatibility.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer introduction](https://wiki.seeedstudio.com/Sensor/SenseCAP/SenseCAP_LoRaWAN_Sensor/SenseCAP_S2120_8-in-1_LoRaWAN_Weather_Sensor/SenseCAP_S2120_8-in-1_LoRaWAN_Weather_Sensor_Introduction/)
 * [Product and catalogue](https://www.seeedstudio.com/sensecap-s2120-lorawan-8-in-1-weather-sensor-p-5436.html)

@@ -1,12 +1,18 @@
 # Hiwonder SpiderPi Pro Engineering Guide
 
+{% hint style="info" %}
+[**View Hiwonder SpiderPi Pro on OpenELAB**](https://openelab.io/products/spiderpi-pro-pi5)
+
+**Model/family:** Hiwonder SpiderPi Pro · **OpenELAB SKUs:** `Hiwonder-21060060`, `Hiwonder-21060050` · Confirm exact purchased model and option before following wiring/firmware instructions.
+{% endhint %}
+
 [Hiwonder-21060060](https://openelab.io/products/spiderpi-pro-pi5) · [Hiwonder-21060050](https://openelab.io/products/spiderpi-pro-pi5)
 
-### Product and scope
+## Product and scope
 
 This page covers **SpiderPi Pro**, including OpenELAB **21060060 / 21060050** package rows. Inspect Raspberry Pi generation, included accessories and power equipment against the order. The non-Pro SpiderPi does not include the same manipulation scope.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                        | Reference                                                    |
 | --------------------------- | ------------------------------------------------------------ |
@@ -19,7 +25,7 @@ This page covers **SpiderPi Pro**, including OpenELAB **21060060 / 21060050** pa
 
 The manufacturer page supplies a **dimensional diagram, kit packing list** and official documentation links. Use those resources to verify the specific package, servo types, charging equipment and physical assembly.
 
-### Getting started
+## Getting started
 
 1. Check mechanical fasteners and servo connections with power off. Support the chassis above the bench for first tests.
 2. Use the supplied image matched to the Raspberry Pi generation; avoid replacing it with an arbitrary desktop image.
@@ -29,11 +35,11 @@ The manufacturer page supplies a **dimensional diagram, kit packing list** and o
 
 **Expected checkpoint:** stable neutral posture, a working camera and predictable low-speed action playback.
 
-### Development software and recovery
+## Development software and recovery
 
 Official examples cover gait, OpenCV vision and arm coordination. Use **Hiwonder/SpiderPi-Pro** with the matching image and document the versions. For recovery, restore the correct image and preserve device-specific calibration. ROSpider launch files are not a drop-in SpiderPi Pro software stack.
 
-### FAQs
+## FAQs
 
 **Why are there two order codes?** They represent package/configuration rows; confirm included controller and accessories rather than assuming equal contents.
 
@@ -41,7 +47,7 @@ Official examples cover gait, OpenCV vision and arm coordination. Use **Hiwonder
 
 **Can I apply another robot's battery?** Match voltage, connector polarity and the specified charger exactly.
 
-### Sources and validation
+## Sources and validation
 
 * [Model specifications and drawings](https://www.hiwonder.com/products/spiderpi-pro)
 * [Official tutorials and hardware resources](https://docs.hiwonder.com/projects/SpiderPi_Pro/en/latest/)

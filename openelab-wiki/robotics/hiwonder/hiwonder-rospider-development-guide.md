@@ -1,12 +1,18 @@
 # Hiwonder ROSpider Engineering Guide
 
+{% hint style="info" %}
+[**View Hiwonder ROSpider on OpenELAB**](https://openelab.io/products/rospider-ros2)
+
+**Model/family:** Hiwonder ROSpider · **OpenELAB SKU:** `Hiwonder-21060103`
+{% endhint %}
+
 [Hiwonder-21060103](https://openelab.io/products/rospider-ros2)
 
-### Product and scope
+## Product and scope
 
 **ROSpider** is a ROS hexapod platform with controller and kit options. OpenELAB **Hiwonder-21060103** is advertised with 3D vision and an arm; verify its fitted host and perception package before using a tutorial. SpiderPi/SpiderPi Pro are separate products.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                      | Reference                                                   |
 | ------------------------- | ----------------------------------------------------------- |
@@ -17,7 +23,7 @@
 
 The manufacturer's **ROSpider User Manual** contains assembly, port diagrams and kit inventories. Use the branch for the actual host. Detailed electrical ratings and mounting geometry come from that branch's hardware resources, not from a generic hexapod diagram.
 
-### Getting started
+## Getting started
 
 1. Support the body so the legs can move without carrying or striking a load. Check servo connections with power off.
 2. Boot the matching delivered image and use the manual's remote-access procedure.
@@ -27,11 +33,11 @@ The manufacturer's **ROSpider User Manual** contains assembly, port diagrams and
 
 **Expected checkpoint:** stable posture and controlled short movement with all expected joints/sensors visible.
 
-### Development software and recovery
+## Development software and recovery
 
 The official **Hiwonder/ROSpider** repository and manual supply application code and ROS workflows. Retain the exact image, repository branch and calibration/action data. A controller update and a Linux-image update are different operations. Restore from the matching official image if system changes break startup.
 
-### FAQs
+## FAQs
 
 **Why does the tutorial show different hardware?** ROSpider has multiple host and kit versions; change the documentation branch.
 
@@ -39,7 +45,7 @@ The official **Hiwonder/ROSpider** repository and manual supply application code
 
 **No LiDAR or depth camera?** Check whether that accessory is included and its driver matches the actual model.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer model page](https://www.hiwonder.com/products/rospider)
 * [Host-specific manual](https://docs.hiwonder.com/projects/ROSpider/en/jetson-orin-nano-version/)

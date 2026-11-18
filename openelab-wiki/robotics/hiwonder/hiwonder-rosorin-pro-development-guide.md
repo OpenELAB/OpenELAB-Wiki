@@ -1,12 +1,18 @@
 # Hiwonder ROSOrin and ROSOrin Pro Engineering Guide
 
+{% hint style="info" %}
+[**View Hiwonder ROSOrin and ROSOrin Pro (Pro) on OpenELAB**](https://openelab.io/products/hiwonder-rosorin-pro-smart-car) · [**View Hiwonder ROSOrin and ROSOrin Pro (standard) on OpenELAB**](https://openelab.io/products/hiwonder-rosorin-smart-car)
+
+**Model/family:** Hiwonder ROSOrin and ROSOrin Pro · **OpenELAB SKUs:** `Hiwonder-21031913`, `Hiwonder-21031729` · Confirm exact purchased model and option before following wiring/firmware instructions.
+{% endhint %}
+
 [Hiwonder-21031913](https://openelab.io/products/hiwonder-rosorin-pro-smart-car) · [Hiwonder-21031729](https://openelab.io/products/hiwonder-rosorin-smart-car)
 
-### Product and scope
+## Product and scope
 
 ROSOrin and ROSOrin Pro are related ROS2 mobile-robot platforms, with separate chassis/manipulation packages and Jetson/Raspberry Pi options. This page explicitly covers **21031729 ROSOrin** and **21031913 ROSOrin Pro**; select each model's manual and host branch.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item        | Reference                                                      |
 | ----------- | -------------------------------------------------------------- |
@@ -17,7 +23,7 @@ ROSOrin and ROSOrin Pro are related ROS2 mobile-robot platforms, with separate c
 
 Use each official model page for the **kit inventory, dimensions and electrical specification**, and the corresponding user manual for connector diagrams. An arm or depth camera shown in a family photograph is not proof it is included in every package.
 
-### Getting started
+## Getting started
 
 1. Verify model, host, battery and all fitted peripherals against the order. Keep wheels restrained and the arm unloaded initially.
 2. Boot the matching factory image and use the documented WonderAi/remote-access route.
@@ -27,11 +33,11 @@ Use each official model page for the **kit inventory, dimensions and electrical 
 
 **Expected checkpoint:** correct chassis direction, a reliable stop, and stable sensor streams; Pro arm motion must also pass its own calibration check.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the model-specific manufacturer repository/manual, including **Hiwonder/ROSOrin-Pro** for Pro. Preserve image, launch configuration and calibration versions. Restore the appropriate image when recovering the host; motor/controller firmware requires its own procedure.
 
-### FAQs
+## FAQs
 
 **Can the Pro image be used on the non-Pro?** Only if Hiwonder explicitly supports that hardware combination.
 
@@ -39,7 +45,7 @@ Use the model-specific manufacturer repository/manual, including **Hiwonder/ROSO
 
 **Navigation behaves incorrectly?** Inspect odometry, transforms and installed LiDAR selection before tuning parameters.
 
-### Sources and validation
+## Sources and validation
 
 * [ROSOrin product and tutorial route](https://www.hiwonder.com/products/rosorin)
 * [ROSOrin host-specific docs](https://docs.hiwonder.com/projects/ROSOrin/en/jetson-orin-nano-version/)

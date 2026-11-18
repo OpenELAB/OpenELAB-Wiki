@@ -1,18 +1,24 @@
 # Elecrow ThinkNode M9 MeshCore Development Guide
 
+{% hint style="info" %}
+[**View Elecrow ThinkNode M9 MeshCore on OpenELAB**](https://openelab.io/products/elecrow-thinknode-m9-meshcore-with-2-4inch-lcd-keyboard)
+
+**Product model/family:** Elecrow ThinkNode M9 MeshCore · **OpenELAB SKU:** `ELECROW-LMM16509D-868`
+{% endhint %}
+
 ![Elecrow ThinkNode M9 MeshCore Development Guide](../../.gitbook/assets/thinknode-m9-meshcore-development-guide.webp)
 
 _Product image: OpenELAB._ [_Image source_](https://cdn.shopify.com/s/files/1/0621/0050/4774/files/global-elecrow-lmm16509d-01-thinknode-m9-white.webp?v=1786354648)_._
 
 [Product at OpenELAB](https://openelab.io/products/elecrow-thinknode-m9-meshcore-with-2-4inch-lcd-keyboard) · [Manufacturer wiki hub](./)
 
-### Product and firmware scope
+## Product and firmware scope
 
 **Elecrow ThinkNode M9, LMM16509D**, is a handheld LoRa terminal with a physical keyboard and screen. This page covers the **MeshCore/Ripple** configuration sold as EU868 or US915 with case. Elecrow's reviewed guide is for **M9 V1.0, Ripple v12.0**, document version 13 August 2026. Check the installed firmware: M9 also has a separate Meshtastic guide, and the two ecosystems do not exchange messages simply because both use LoRa.
 
 Use it for standalone text communication, contact/channel management, location sharing and mesh diagnostics. In its default client/standalone role it can use a compatible repeater, but it does not automatically forward traffic as a repeater.
 
-### Hardware and developer interfaces
+## Hardware and developer interfaces
 
 | Item                | M9 reference configuration                                      |
 | ------------------- | --------------------------------------------------------------- |
@@ -34,7 +40,7 @@ Source: [Elecrow's model guide](https://www.elecrow.com/wiki/ThinkNode_M9_MeshCo
 
 Keyboard matrix pins belong to the ESP32-S2; do not treat them as the main controller's GPIOs. Follow the full guide for peripheral rails, GNSS UART and coprocessor wake lines before custom firmware work.
 
-### Getting started: a two-terminal message exchange
+## Getting started: a two-terminal message exchange
 
 Prepare two compatible MeshCore nodes with adequate charge and matching-band antennas. Start with the installed application when it already boots correctly.
 
@@ -46,13 +52,13 @@ Prepare two compatible MeshCore nodes with adequate charge and matching-band ant
 
 Expected result: fresh messages received in both directions. A message in the sending terminal's history, an enabled Wi-Fi icon or a detected contact alone does not prove delivery. Record application version, selected preset, node identities and results.
 
-### GNSS, maps and service dependencies
+## GNSS, maps and service dependencies
 
 Test GNSS outdoors with sky visibility and check **GPS Info** for a current fix/time. A stored map position is not a fresh fix. The reviewed guide recommends a reliable **FAT32 microSD**; map directories and tile formats depend on firmware. Validate map browsing separately from GNSS.
 
 Wi-Fi features and automatic map downloading in the reviewed Ripple application can require an **official paid unlock**. Check the installed release and its licensing before depending on those functions. Hardware Wi-Fi availability alone does not establish that the application feature is enabled. Do not place credentials or private channel keys in public logs.
 
-### Firmware, recovery and development
+## Firmware, recovery and development
 
 Back up profile/channel settings and keys before an update. Follow the model guide's maintenance section and the [MeshCore flasher](https://meshcore.io/flasher), selecting firmware that explicitly names **ThinkNode M9** and the intended application. Preserve the currently working binary/version and any provided checksum. An ESP32-S3 image for another ThinkNode is not a safe substitute.
 
@@ -60,7 +66,7 @@ The [MeshCore repository](https://github.com/meshcore-dev/MeshCore) supplies pro
 
 The official wiki provides architecture and detailed pin tables. A complete revision-specific schematic/CAD download was not identified in the reviewed resources; request it from Elecrow before a PCB or enclosure redesign.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Symptom                            | Check and next step                                                                                                                            |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -71,7 +77,7 @@ The official wiki provides architecture and detailed pin tables. A complete revi
 | Custom firmware breaks radio or SD | Shared SPI chip selects and peripheral rail sequencing; return to an exact M9 stock build.                                                     |
 | Can it serve as a repeater?        | The default standalone/client role does not forward other clients' traffic; use explicitly supported repeater firmware/hardware for that role. |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                                      | Use                                                |
 | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
