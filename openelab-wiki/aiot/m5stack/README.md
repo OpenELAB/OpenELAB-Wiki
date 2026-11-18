@@ -8,13 +8,13 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 
 [Browse M5Stack products on OpenELAB](https://openelab.io/collections/brands-m5stack)
 
-### Product range
+#### Product range
 
 * Core, M5Stick, ATOM, and Cardputer development platforms
 * Grove-compatible Units, HATs, bases, and communication modules
 * Displays, voice interfaces, cameras, and desktop robotics
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product       | Typical use                                        | Links                                                                                                                                                        |
 | ------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -23,7 +23,7 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 | ATOM Lite     | Small Wi-Fi controllers and sensor nodes           | [Wiki guide](m5stack-atom-lite-esp32-iot-development-kit.md) · [OpenELAB product](https://openelab.io/products/m5stackatomliteesp32)                         |
 | AtomS3 Lite   | Compact ESP32-S3 development                       | [Wiki guide](m5stack-atoms3-lite-esp32s3-dev-kit.md) · [OpenELAB product](https://openelab.io/products/m5stack-atoms3-lite)                                  |
 
-### Popular applications
+#### Popular applications
 
 * Build connected sensor dashboards and compact control panels.
 * Prototype voice interfaces, handheld tools, and smart-home devices.
@@ -31,7 +31,7 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 
 Cardputer-Adv and M5StickS3 are different products from the original Cardputer and M5StickC models. Use the guide for the exact board revision.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 * [M5Stack Dial v1.1 Development Guide](dial-v11-development-guide.md)
 * [M5Stack Atom VoiceS3R Development Guide](atom-voices3r-development-guide.md)
@@ -286,3 +286,13 @@ Browse the available guides below. Match the full model number and hardware revi
 * [Voltage and Amperage Meter](voltage-and-amperage-meter.md)
 
 [Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [M5Stack CoreS3-SE K128-SE Development Guide](m5stack-cores3-se-development-guide.md)
+* [M5Stack Core2 v1.3 K010-V13 Development Guide](m5stack-core2-v13-development-guide.md)
+* [M5Stack Cap CC1101 and NFC U219 Development Guide](m5stack-cap-cc1101-nfc-development-guide.md)
+* [M5Stack Cap LoRa-1262 U214 Development Guide](m5stack-cap-lora1262-development-guide.md)
+* [M5Stack Unit C6L U202 Development Guide](m5stack-unit-c6l-development-guide.md)
+* [M5Stack Unit NFC U216 Development Guide](m5stack-unit-nfc-u216-development-guide.md)
+* [M5Stack Mystery Box: identify the hardware and find its development guide](mystery-box-hardware-identification.md)

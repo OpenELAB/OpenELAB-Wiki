@@ -10,13 +10,13 @@ DAMIAO develops motor modules and control tools for robotic joints and motion sy
 
 [Browse DAMIAO products on OpenELAB](https://openelab.io/collections/brands-damiao)
 
-### Product range
+#### Product range
 
 * DM-J integrated robotic joint motors
 * DM-H and other specialized motor families
 * USB-CAN tools, host-computer software, and communication documentation
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product      | Typical use                                                | Links                                                                                                                                                               |
 | ------------ | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ DAMIAO develops motor modules and control tools for robotic joints and motion sy
 | DM-J3507-2EC | Small joint-actuator development                           | [Wiki guide](damiao-dm-j3507-2ec-v1.1-motor-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/damiao-brushless-servo-dm-j3507)               |
 | DM-USB-CAN   | Connecting a development computer to compatible CAN motors | [Host computer manual](damiao-host-computer-user-manual.md) · [OpenELAB product](https://openelab.io/products/damiao-brushless-servo-usb-can)                       |
 
-### Popular applications
+#### Popular applications
 
 * Develop robot-arm, legged-robot, and articulated-mechanism joints.
 * Prototype CAN-based position, velocity, and torque control.
@@ -33,7 +33,7 @@ DAMIAO develops motor modules and control tools for robotic joints and motion sy
 
 Confirm the full motor suffix and hardware version before applying settings. The documentation index includes separate manuals for several revisions.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 Browse the available guides below. Match the full model number and hardware revision to your device.
 
@@ -60,9 +60,13 @@ Browse the available guides below. Match the full model number and hardware revi
 * [DAMIAO DM-S3519-1EC V1.1 Motor Instruction Manual](damiao-dm-s3519-1ec-v1.1-motor-instruction-manual.md)
 * [DAMIAO Host Computer User Manual](damiao-host-computer-user-manual.md)
 
-### Manufacturer resources
+#### Manufacturer resources
 
 * [DAMIAO](https://www.mdmbot.com/)
 * [DAMIAO code resources](https://gitee.com/kit-miao/damiao)
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [DAMIAO DM-J4310-2EC and DM-J8009P-2EC Engineering Guide](damiao-2ec-j4310-j8009p-development-guide.md)

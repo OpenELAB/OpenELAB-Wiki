@@ -8,13 +8,13 @@ Waveshare supplies development boards, displays, cameras, and interface modules 
 
 [Browse Waveshare products on OpenELAB](https://openelab.io/collections/brands-waveshare)
 
-### Product range
+#### Product range
 
 * LCD, AMOLED, OLED, and e-paper displays and touch interfaces
 * ESP32 boards, Raspberry Pi HATs, cameras, and sensors
 * Ethernet, cellular, LoRa, RS485, and relay-control modules
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product                         | Typical use                                   | Links                                                                                                                        |
 | ------------------------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -23,13 +23,13 @@ Waveshare supplies development boards, displays, cameras, and interface modules 
 | ESP32-S3-ePaper-1.54            | Low-power status and information displays     | [OpenELAB product](https://openelab.io/products/waveshare-esp32-s3-epaper-aiot)                                              |
 | ESP32-S3-Touch-AMOLED-1.8       | Compact AMOLED touch interfaces               | [OpenELAB product](https://openelab.io/products/waveshare-esp32-s3-amoled-1-8)                                               |
 
-### Popular applications
+#### Popular applications
 
 * Create touch-screen dashboards and low-power information displays.
 * Add network connectivity and sensor interfaces to embedded systems.
 * Prototype relay control, data acquisition, and automation interfaces.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 * [Waveshare Jetson Orin NX 16GB Dev Kit Development Guide](jetson-orin-nx-16gb-waveshare-development-guide.md)
 * [Waveshare 7-DSI-TOUCH-C Development Guide](7-dsi-touch-c-development-guide.md)
@@ -85,3 +85,18 @@ Browse the available guides below. Match the full model number and hardware revi
 * [Waveshare SX1268 LoRa HAT for Raspberry UART](waveshare-sx1268-lora-hat-for-raspberry-uart.md)
 
 [Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [Waveshare ESP32-S3 8DI 8RO Relay Controller Engineering Guide](waveshare-esp32-s3-8di-8ro-development-guide.md)
+* [Waveshare ESP32-S3 PoE 8DI 8DO Controller Engineering Guide](waveshare-esp32-s3-poe-8di-8do-development-guide.md)
+* [Waveshare ESP32-S3 Touch AMOLED 1.75 Engineering Guide](waveshare-esp32-s3-amoled-175-development-guide.md)
+* [Waveshare ESP32-S3 AMOLED 1.8 and 2.06 Engineering Guide](waveshare-esp32-s3-amoled-18-206-development-guide.md)
+* [Waveshare ESP32-S3 Touch LCD 1.85C BOX Engineering Guide](waveshare-esp32-s3-lcd-185c-box-development-guide.md)
+* [Waveshare ESP32-S3 Touch LCD 4 and 4B Engineering Guide](waveshare-esp32-s3-lcd-4-4b-development-guide.md)
+* [Waveshare ESP32-P4-NANO Engineering Guide](waveshare-esp32-p4-nano-development-guide.md)
+* [Waveshare ESP32-S3-ETH Engineering Guide](waveshare-esp32-s3-eth-development-guide.md)
+* [Waveshare SIM7600G-H 4G Module Engineering Guide](waveshare-sim7600g-h-module-development-guide.md)
+* [Waveshare Jetson Orin NX 8GB Dev Kit Engineering Guide](waveshare-jetson-orin-nx-8gb-development-guide.md)
+* [Waveshare 27-inch FHD Touch Monitor Engineering Guide](waveshare-27inch-fhd-touch-monitor-development-guide.md)
+* [Waveshare UGV Beast Engineering Guide](waveshare-ugv-beast-development-guide.md)

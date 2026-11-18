@@ -28,13 +28,13 @@ LILYGO develops connected development boards that combine microcontrollers with 
 
 [Browse LILYGO products on OpenELAB](https://openelab.io/collections/brands-lilygo)
 
-### Product range
+#### Product range
 
 * T-Deck, T-Embed, and other handheld or display-equipped boards
 * LoRa and Meshtastic platforms including T-Beam and T-Echo
 * Cellular, Wi-Fi HaLow, CAN, and RS485 development boards
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product        | Typical use                            | Links                                                                                                           |
 | -------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -43,13 +43,13 @@ LILYGO develops connected development boards that combine microcontrollers with 
 | T-CAN485       | CAN and RS485 communication projects   | [OpenELAB product](https://openelab.io/products/lilygo-t-can485)                                                |
 | T-SIM7080G S3  | Cellular and GNSS connected prototypes | [OpenELAB product](https://openelab.io/products/lilygo-t-sim7080g-s3)                                           |
 
-### Popular applications
+#### Popular applications
 
 * Build portable messaging tools and wireless sensor interfaces.
 * Prototype remote monitoring with LoRa or cellular connectivity.
 * Connect embedded controllers to CAN or RS485 equipment.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 Browse the available guides below. Match the full model number and hardware revision to your device.
 
@@ -64,3 +64,11 @@ Browse the available guides below. Match the full model number and hardware revi
 * [T3 S3 Meshtastic ESP32-S3 LoRa](t3-s3-meshtastic-esp32-s3-lora.md)
 
 [Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [LILYGO T-Embed CC1101 Plus Engineering Guide](lilygo-t-embed-cc1101-plus-development-guide.md)
+* [LILYGO T-Watch Ultra Engineering Guide](lilygo-t-watch-ultra-development-guide.md)
+* [LILYGO T-2CAN and T-2CAN-FD Engineering Guide](lilygo-t-2can-fd-development-guide.md)
+* [LILYGO T-SIM7080G S3 H606 Engineering Guide](lilygo-t-sim7080g-s3-h606-development-guide.md)
+* [LILYGO T5 E-Paper S3 Pro H752-01 Engineering Guide](lilygo-t5-epaper-s3-pro-h752-development-guide.md)

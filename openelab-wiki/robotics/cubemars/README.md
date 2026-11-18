@@ -28,13 +28,13 @@ CubeMars develops motors and actuator modules for robotics and motion systems. I
 
 [Browse CubeMars products on OpenELAB](https://openelab.io/collections/brands-cubemars)
 
-### Product range
+#### Product range
 
 * AK, AKE, and AKA integrated robot actuators
 * GL gimbal motors and related drive hardware
 * DW underwater thrusters, encoders, and R-LINK debugging tools
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product       | Typical use                        | Links                                                                                                                                                                |
 | ------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -43,7 +43,7 @@ CubeMars develops motors and actuator modules for robotics and motion systems. I
 | AK40-10 KV170 | Small articulated mechanisms       | [Wiki guide](cubemars-ak40-10-actuator-motor-compact-high-torque-power-module.md) · [OpenELAB product](https://openelab.io/products/cubemars-ak40-10-actuator-motor) |
 | GL60 II KV28  | Gimbal and pan-tilt motion systems | [OpenELAB product](https://openelab.io/products/cubemars-gl60-ii-bldc-gimbal)                                                                                        |
 
-### Popular applications
+#### Popular applications
 
 * Build legged robots, robot arms, and research actuators.
 * Develop camera gimbals and stabilized mechanisms.
@@ -51,7 +51,7 @@ CubeMars develops motors and actuator modules for robotics and motion systems. I
 
 CubeMars hardware revisions can use different drivers and setup procedures. Match the actuator version and KV rating to the documentation.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 Browse the available guides below. Match the full model number and hardware revision to your device.
 
@@ -80,3 +80,7 @@ Browse the available guides below. Match the full model number and hardware revi
 * [CubeMars-AK60-6-V1.1-KV140](cubemars-ak60-6-v1.1-kv140.md)
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [CubeMars AKH70-48 V1.0 KV41 Engineering Guide](cubemars-akh70-48-v1-kv41-development-guide.md)

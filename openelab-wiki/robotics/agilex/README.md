@@ -8,13 +8,13 @@ AgileX develops mobile robot platforms, robotic arms, and data-collection tools.
 
 [Browse AgileX products on OpenELAB](https://openelab.io/collections/brands-agilex)
 
-### Product range
+#### Product range
 
 * SCOUT, RANGER, TRACER, and other mobile robot platforms
 * LIMO education and mobile-manipulation platforms
 * PiPER and NERO robotic arms, PiKA data tools, and control accessories
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product    | Typical use                                | Links                                                                                                                                                            |
 | ---------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,13 +23,13 @@ AgileX develops mobile robot platforms, robotic arms, and data-collection tools.
 | NERO       | Seven-axis embodied-AI research            | [Wiki guide](nero-user-manual.md) · [OpenELAB product](https://openelab.io/products/agilex-nero-embodied-ai-arm)                                                 |
 | LIMO PRO   | ROS 2 navigation learning                  | [Platform manual (ROS 2 Foxy)](limo-pro-ros-2-foxy-user-manual.md) · [OpenELAB product](https://openelab.io/products/agilex-limo-pro-ros2-mobile-robot-platform) |
 
-### Popular applications
+#### Popular applications
 
 * Prototype autonomous navigation and outdoor or indoor mobile robots.
 * Combine a mobile base and arm for mobile-manipulation research.
 * Develop teleoperation and robot-learning data pipelines.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 Browse the available guides below. Match the full model number and hardware revision to your device.
 
@@ -45,3 +45,7 @@ Browse the available guides below. Match the full model number and hardware revi
 * [SCOUT MINI User Manual](scout-mini-user-manual.md)
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [AgileX PiPER desktop fixture: installation and mechanical checks](piper-desktop-fixture.md)

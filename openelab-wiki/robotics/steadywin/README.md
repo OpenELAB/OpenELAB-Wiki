@@ -8,13 +8,13 @@ SteadyWin develops motor and actuator hardware for robotic motion. Its GIM serie
 
 [Browse SteadyWin products on OpenELAB](https://openelab.io/collections/brands-steadywin)
 
-### Product range
+#### Product range
 
 * GIM-series integrated motor and geared-actuator models
 * Different frame sizes and gear-ratio configurations
 * Motor drivers and integration accessories
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product    | Typical use                     | Links                                                                                                   |
 | ---------- | ------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -23,14 +23,18 @@ SteadyWin develops motor and actuator hardware for robotic motion. Its GIM serie
 | GIM3510-8  | Small articulated mechanisms    | [OpenELAB product](https://openelab.io/products/steadywin-gim3510-8-robot-gear-motor-reducer-planetary) |
 | GIM8108-48 | Higher-reduction rotary motion  | [OpenELAB product](https://openelab.io/products/steadywin-gim8108-48-robot-actuator)                    |
 
-### Popular applications
+#### Popular applications
 
 * Prototype articulated robot joints and custom manipulators.
 * Build rotary mechanisms with controlled position and speed.
 * Evaluate actuator size, gearing, and control behavior for research robots.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
-Product wiki guides are not yet available for this manufacturer. Start with the OpenELAB product links above for specifications, configuration options, and available product resources.
+Product guides are listed below. Start with the OpenELAB product links above for specifications, configuration options, and available product resources.
 
-[Explore Robotics documentation](robotics-wiki-home-page.md) · [OpenELAB Wiki home](../)
+[Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [SteadyWin GIM8108-8 GDS68 Dual-Encoder Engineering Guide](steadywin-gim8108-8-gds68-development-guide.md)

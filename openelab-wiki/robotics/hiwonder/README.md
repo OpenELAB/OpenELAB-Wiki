@@ -8,13 +8,13 @@ Hiwonder develops educational robots, servo systems, and robotics components. It
 
 [Browse Hiwonder products on OpenELAB](https://openelab.io/collections/brands-hiwonder)
 
-### Product range
+#### Product range
 
 * ROS robot cars and mobile manipulators such as ROSOrin and LanderPi
 * SpiderPi and ROSpider hexapods and vision-equipped robot arms
 * Serial bus servos, mecanum chassis, motor drivers, and expansion hardware
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product          | Typical use                                       | Links                                                                       |
 | ---------------- | ------------------------------------------------- | --------------------------------------------------------------------------- |
@@ -23,14 +23,23 @@ Hiwonder develops educational robots, servo systems, and robotics components. It
 | LanderPi         | Mobile manipulation with a robot arm and LiDAR    | [OpenELAB product](https://openelab.io/products/landerpi-robot-car)         |
 | LX-16A bus servo | Custom serial-bus robotic joints                  | [OpenELAB product](https://openelab.io/products/lx-16a-bus-servo)           |
 
-### Popular applications
+#### Popular applications
 
 * Teach mobile-robot control, mapping, and navigation.
 * Explore color recognition, grasping, and mobile manipulation.
 * Build custom articulated robots with serial bus servos.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
-Product wiki guides are not yet available for this manufacturer. Start with the OpenELAB product links above for specifications, configuration options, and available product resources.
+Product guides are listed below. Start with the OpenELAB product links above for specifications, configuration options, and available product resources.
 
-[Explore Robotics documentation](robotics-wiki-home-page.md) · [OpenELAB Wiki home](../)
+[Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [Hiwonder ROSpider Engineering Guide](hiwonder-rospider-development-guide.md)
+* [Hiwonder SpiderPi Pro Engineering Guide](hiwonder-spiderpi-pro-development-guide.md)
+* [Hiwonder ROSOrin and ROSOrin Pro Engineering Guide](hiwonder-rosorin-pro-development-guide.md)
+* [Hiwonder JetRover Engineering Guide](hiwonder-jetrover-development-guide.md)
+* [Hiwonder NexArm ROS Version Engineering Guide](hiwonder-nexarm-ros-development-guide.md)
+* [Hiwonder LanderPi Engineering Guide](hiwonder-landerpi-development-guide.md)

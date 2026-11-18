@@ -10,13 +10,13 @@ RobStride develops integrated robotic joint actuators that combine a motor, tran
 
 [Browse RobStride products on OpenELAB](https://openelab.io/collections/brands-robstride-dynamics)
 
-### Product range
+#### Product range
 
 * ROBSTRIDE00–06 integrated joint motor families
 * Compact and higher-torque quasi-direct-drive actuators
 * CAN debugging tools and model-specific control documentation
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product     | Typical use                        | Links                                                                                                                                                      |
 | ----------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ RobStride develops integrated robotic joint actuators that combine a motor, tran
 | ROBSTRIDE04 | Higher-torque robot joints         | [Wiki guide](robstride-04-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/robstride04-qdd-120n-m-integrated-joint-motor-module)   |
 | ROBSTRIDE05 | Lightweight actuator experiments   | [Wiki guide](robstride-05-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/robstride05-qdd-joint-motor-module)                     |
 
-### Popular applications
+#### Popular applications
 
 * Prototype robot arms and articulated mechanisms.
 * Develop quadruped, humanoid, and legged-robot joints.
@@ -33,7 +33,7 @@ RobStride develops integrated robotic joint actuators that combine a motor, tran
 
 Check the exact model, firmware, and protection variant before using a manual or CAN example.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 * [RobStride LeRobot Humanoid Motor Set Development Guide](lerobot-humanoid-motor-set-development-guide.md)
 
@@ -49,9 +49,14 @@ Browse the available guides below. Match the full model number and hardware revi
 * [RobStride 05 Instruction Manual](robstride-05-instruction-manual.md)
 * [RobStride 06 Instruction Manual](robstride-06-instruction-manual.md)
 
-### Manufacturer resources
+#### Manufacturer resources
 
 * [RobStride](https://robstride.com/)
 * [RobStride code resources](https://github.com/RobStride)
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [RobStride 10P CAN and CAN-FD Engineering Guide](robstride-10p-development-guide.md)
+* [RobStride Debug Board and Power Board Integration Guide](robstride-debug-power-boards-development-guide.md)

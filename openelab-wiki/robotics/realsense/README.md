@@ -8,13 +8,13 @@ RealSense develops depth cameras that combine image sensing with distance inform
 
 [Browse RealSense products on OpenELAB](https://openelab.io/collections/brands-intel-realsense)
 
-### Product range
+#### Product range
 
 * D400-series stereo depth cameras
 * Compact close-range cameras such as D405
 * Different baseline, IMU, optical-filter, and enclosure configurations
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product | Typical use                             | Links                                                                                   |
 | ------- | --------------------------------------- | --------------------------------------------------------------------------------------- |
@@ -23,7 +23,7 @@ RealSense develops depth cameras that combine image sensing with distance inform
 | D435    | General stereo depth-camera development | [OpenELAB product](https://openelab.io/products/intel-realsense-d435-depth-camera3d)    |
 | D455    | Longer-baseline depth sensing           | [OpenELAB product](https://openelab.io/products/intel-realsense-d455-for-unitree-robot) |
 
-### Popular applications
+#### Popular applications
 
 * Provide depth data for robotic grasping and manipulation.
 * Develop mobile-robot obstacle detection and scene understanding.
@@ -31,8 +31,12 @@ RealSense develops depth cameras that combine image sensing with distance inform
 
 Choose the exact camera variant for working distance, synchronization, IMU, optical filtering, and environmental requirements.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
-Product wiki guides are not yet available for this manufacturer. Start with the OpenELAB product links above for specifications, configuration options, and available product resources.
+Product guides are listed below. Start with the OpenELAB product links above for specifications, configuration options, and available product resources.
 
-[Explore Robotics documentation](robotics-wiki-home-page.md) · [OpenELAB Wiki home](../)
+[Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [RealSense D435 D435i D455f and D405 Engineering Guide](realsense-d400-usb-cameras-development-guide.md)

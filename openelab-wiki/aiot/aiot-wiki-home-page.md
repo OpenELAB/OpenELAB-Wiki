@@ -46,12 +46,12 @@ Choose a manufacturer or brand to browse its product manuals and technical guide
 | [Lockzhiner](lockzhiner/)     | Data acquisition devices and DAQ SDK references.                            |
 | [WisdPi](wisdpi/)             | WP-UT5 USB Ethernet adapter references.                                     |
 | [WitMotion](witmotion/)       | USB-CAN-P adapter configuration and communication.                          |
-| [Banana Pi](banana-pi.md)     | Single-board computers, router platforms, and expansion hardware.           |
+| [Banana Pi](banana-pi/)       | Single-board computers, router platforms, and expansion hardware.           |
 | [D-Robotics](d-robotics.md)   | RDK X3, X5, S100, and S100P embedded robot-computing platforms.             |
 | [EBYTE](ebyte.md)             | Wireless communication modules and the E49 evaluation kit.                  |
 | [GigaDevice](gigadevice.md)   | GD32 microcontroller boards, wireless platforms, and debug tools.           |
 | [Quectel](quectel.md)         | LTE and 5G modules, RedCap hardware, and cellular integration tools.        |
-| [RAKwireless](rakwireless.md) | WisBlock modules, LoRaWAN hardware, gateways, and WisMesh devices.          |
+| [RAKwireless](rakwireless/)   | WisBlock modules, LoRaWAN hardware, gateways, and WisMesh devices.          |
 | [SONOFF](sonoff.md)           | Zigbee USB coordinators, sensors, buttons, and home-automation devices.     |
 
 OpenELAB groups generic modules and accessories whose source documentation does not identify a separate manufacturer.

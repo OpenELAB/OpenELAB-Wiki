@@ -28,13 +28,13 @@ HELTEC develops wireless boards and devices for IoT and low-power communication.
 
 [Browse HELTEC products on OpenELAB](https://openelab.io/collections/brands-heltec)
 
-### Product range
+#### Product range
 
 * WiFi LoRa 32 and Wireless Stick development boards
 * Mesh Node, MeshPocket, and Wireless Tracker devices
 * Wireless Paper displays and outdoor mesh hardware
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product                           | Typical use                                               | Links                                                                                                                                                                                                |
 | --------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -43,7 +43,7 @@ HELTEC develops wireless boards and devices for IoT and low-power communication.
 | Wireless Paper                    | E-paper mesh information displays                         | [Wiki guide](wireless-paper-esp32s3-sx1262-e-paper-meshtastic-lorawan.md) · [OpenELAB product](https://openelab.io/products/heltec-wireless-paper-esp32s3-meshtastic)                                |
 | MeshPocket                        | Portable mesh communication with power-bank functionality | [Wiki guide](meshpocket-qi2-magnetic-charging-power.md) · [OpenELAB product](https://openelab.io/products/heltec-meshpocket-qi2-magnetic-meshtastic)                                                 |
 
-### Popular applications
+#### Popular applications
 
 * Build Meshtastic messaging and position-sharing nodes.
 * Prototype LoRaWAN sensing and remote monitoring.
@@ -51,7 +51,7 @@ HELTEC develops wireless boards and devices for IoT and low-power communication.
 
 The linked WiFi LoRa 32 V4.3.1 listing is the version without a GPS module. Radio band, GNSS hardware, and firmware support vary by product.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 Browse the available guides below. Match the full model number and hardware revision to your device.
 
@@ -71,3 +71,8 @@ Browse the available guides below. Match the full model number and hardware revi
 * [Wireless Tracker ESP32S3 SX1262 GPS Meshtastic LoRaWAN](wireless-tracker-esp32s3-sx1262-gps-meshtastic-lorawan.md)
 
 [Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [HELTEC Mesh Node T1 and T096 Engineering Guide](heltec-mesh-node-t1-t096-development-guide.md)
+* [HELTEC WiFi LoRa 32 Expansion Kit V2 Engineering Guide](heltec-wifi-lora32-expansion-kit-v2-development-guide.md)

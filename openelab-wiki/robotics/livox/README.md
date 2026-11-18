@@ -10,13 +10,13 @@ Livox develops LiDAR sensors for 3D perception and mapping. Its product families
 
 [Browse Livox products on OpenELAB](https://openelab.io/collections/brands-livox)
 
-### Product range
+#### Product range
 
 * MID-series compact 3D LiDAR sensors
 * HAP automotive-oriented LiDAR and TELE long-range sensing
 * AVIA-family mapping sensors, connection accessories, and visualization tools
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product     | Typical use                            | Links                                                                                                                              |
 | ----------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ Livox develops LiDAR sensors for 3D perception and mapping. Its product families
 | MID-360L    | AMR and autonomous-forklift perception | [OpenELAB product](https://openelab.io/products/livox-mid-360l-3d-lidar)                                                           |
 | MID-70      | Wide-angle mobile-robot sensing        | [Wiki guide](livox-mid-70-user-manual.md) · [OpenELAB product](https://openelab.io/products/livox-mid-70-compact-lidar3d)          |
 
-### Popular applications
+#### Popular applications
 
 * Build LiDAR-based SLAM and localization for mobile robots.
 * Capture point clouds for mapping and spatial measurement.
@@ -33,7 +33,7 @@ Livox develops LiDAR sensors for 3D perception and mapping. Its product families
 
 HAP T1 and TX have separate manuals. Select the manual for your variant; the complete documentation index also includes legacy Livox models.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 Browse the available guides below. Match the full model number and hardware revision to your device.
 
@@ -49,9 +49,14 @@ Browse the available guides below. Match the full model number and hardware revi
 * [LIVOX TELE-15 User Manual](livox-tele-15-user-manual.md)
 * [LIVOX Viewer 2 User Manual](livox-viewer-2-user-manual.md)
 
-### Manufacturer resources
+#### Manufacturer resources
 
 * [Livox](https://www.livoxtech.com/)
 * [Livox downloads](https://www.livoxtech.com/downloads)
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [Livox Avia 2 With-Fan LiDAR Engineering Guide](livox-avia-2-development-guide.md)
+* [Livox MID-360L LiDAR Engineering Guide](livox-mid-360l-development-guide.md)

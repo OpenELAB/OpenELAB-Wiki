@@ -8,13 +8,13 @@ Elecrow develops electronics modules, display platforms, and hands-on learning h
 
 [Browse Elecrow products on OpenELAB](https://openelab.io/collections/brands-elecrow)
 
-### Product range
+#### Product range
 
 * ThinkNode mesh communication devices and gateways
 * CrowPanel HMI displays and embedded user interfaces
 * CrowPi learning platforms, sensors, and prototyping modules
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product          | Typical use                                               | Links                                                                                                                                     |
 | ---------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,13 +23,13 @@ Elecrow develops electronics modules, display platforms, and hands-on learning h
 | ThinkNode M6     | Solar-powered outdoor mesh deployment                     | [Wiki guide](thinknode-m6-development-guide.md) · [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m6-outdoor-solar)     |
 | Meshstick SX1262 | USB-based LoRa development                                | [OpenELAB product](https://openelab.io/products/elecrow-meshstick-usb-to-spi-sx1262-tcxo-lora-usb-stick)                                  |
 
-### Popular applications
+#### Popular applications
 
 * Build off-grid messaging and outdoor mesh nodes.
 * Create embedded control panels and monitoring displays.
 * Teach electronics and single-board-computer programming.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 * [Elecrow ThinkNode M9 MeshCore Development Guide](thinknode-m9-meshcore-development-guide.md)
 * [Elecrow ThinkNode M6 Development Guide](thinknode-m6-development-guide.md)
@@ -38,8 +38,13 @@ Elecrow develops electronics modules, display platforms, and hands-on learning h
 
 Match the exact model and hardware revision to your device before selecting firmware.
 
-### Manufacturer resources
+#### Manufacturer resources
 
 * [Elecrow](https://www.elecrow.com/)
 
 [Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [Elecrow ThinkNode M9 Meshtastic Engineering Guide](thinknode-m9-meshtastic-development-guide.md)
+* [Elecrow ThinkNode M7 Meshtastic Gateway Engineering Guide](thinknode-m7-meshtastic-development-guide.md)

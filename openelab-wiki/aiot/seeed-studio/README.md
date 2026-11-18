@@ -28,13 +28,13 @@ Seeed Studio develops hardware for sensing, connectivity, and edge computing. It
 
 [Browse Seeed Studio products on OpenELAB](https://openelab.io/collections/brands-seeed-studio)
 
-### Product range
+#### Product range
 
 * XIAO microcontrollers and Grove sensors and expansion modules
 * SenseCAP monitoring, tracking, and LoRaWAN devices
 * Wio and Meshtastic hardware, ReSpeaker audio, and reComputer edge-AI systems
 
-### Popular products and starting points
+#### Popular products and starting points
 
 | Product                   | Typical use                                   | Links                                                                                                                                                                       |
 | ------------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -43,13 +43,13 @@ Seeed Studio develops hardware for sensing, connectivity, and edge computing. It
 | XIAO ESP32C6              | Wi-Fi 6 and Bluetooth embedded prototypes     | [Wiki guide](xiao-esp32-c6-dev-board.md) · [OpenELAB product](https://openelab.io/products/seeed-studio-xiao-esp32c6)                                                       |
 | Wio Tracker L1 Pro        | Portable LoRa tracking and mesh communication | [OpenELAB product](https://openelab.io/products/seeed-studio-wio-l1-pro)                                                                                                    |
 
-### Popular applications
+#### Popular applications
 
 * Develop low-power sensor nodes and asset-tracking prototypes.
 * Connect field measurements to IoT dashboards and gateways.
 * Run edge vision, voice interaction, and robotics experiments.
 
-### Wiki product guides and manuals
+#### Wiki product guides and manuals
 
 * [Seeed Studio reComputer J4012 Development Guide](recomputer-j4012-original-development-guide.md)
 * [Seeed Studio reComputer Robotics J4012 Development Guide](recomputer-robotics-j4012-development-guide.md)
@@ -108,3 +108,23 @@ Browse the available guides below. Match the full model number and hardware revi
 * [XIAO SAMD21 Arduino Microcontroller](xiao-samd21-arduino-microcontroller-1.md)
 
 [Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Engineering development guides
+
+* [Seeed Studio Star Arm 102 Leader Arm Development Guide](star-arm-102-leader-development-guide.md)
+* [Seeed Studio reSpeaker Flex XVF3800 Development Guide](respeaker-flex-xvf3800-development-guide.md)
+* [Seeed Studio XIAO Smart IR Mate Development Guide](xiao-smart-ir-mate-development-guide.md)
+* [Seeed Studio reSpeaker Lite and Voice Assistant Kit Development Guide](respeaker-lite-voice-kit-development-guide.md)
+* [Seeed Studio XIAO ESP32-C5 Development Guide](xiao-esp32-c5-development-guide.md)
+* [Seeed Studio Semtech LR2021 LoRa Plus Evaluation Kit Development Guide](semtech-lr2021-evaluation-kit-development-guide.md)
+* [Seeed Studio XIAO nRF52840 and Wio-SX1262 Kit Development Guide](xiao-nrf52840-wio-sx1262-development-guide.md)
+* [Seeed Studio Spectra 6 Panels and XIAO ePaper Kit Development Guide](spectra-6-panels-xiao-epaper-development-guide.md)
+* [Seeed Studio reComputer R1024 R1025 and R1126 Engineering Guide](recomputer-r1024-r1025-r1126-development-guide.md)
+* [Seeed Studio reComputer Industrial R2245-12 Engineering Guide](recomputer-industrial-r2245-12-development-guide.md)
+* [Seeed Studio SenseCAP ONE S700-A and S500 V2 Engineering Guide](sensecap-one-s700a-s500-v2-development-guide.md)
+* [Seeed Studio SenseCAP S2120 LoRaWAN Weather Sensor Engineering Guide](sensecap-s2120-development-guide.md)
+* [Seeed Studio reCamera Pro 2GB Engineering Guide](recamera-pro-2gb-development-guide.md)
+* [Seeed Studio reBot Arm B601-DM Engineering Guide](rebot-b601-dm-development-guide.md)
+* [Seeed Studio reComputer J3011 Orin Nano 8GB Engineering Guide](recomputer-j3011-orin-nano-8gb-development-guide.md)
+* [Seeed SO-101 Pro Servo Motor Kit: assembly and role configuration](so101-pro-servo-motor-kit.md)
+* [Seeed Hazard Response Mission Pack: system inventory and first integration](hazard-response-mission-pack.md)
