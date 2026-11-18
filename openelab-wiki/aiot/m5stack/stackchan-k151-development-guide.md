@@ -6,6 +6,12 @@ description: >-
 
 # M5Stack StackChan K151 Development Guide
 
+{% hint style="info" %}
+[**View M5Stack StackChan K151 on OpenELAB**](https://openelab.io/products/m5stack-stackchan-open-source-ai-desktop-robot)
+
+**Model:** StackChan K151 · **OpenELAB SKU:** `M5-K151` · **Manufacturer SKU:** `K151` · **Scope:** assembled desktop robot (not the K151-R remote-controller bundle).
+{% endhint %}
+
 **Build a programmable desktop character with an ESP32-S3 controller, touch display, camera, audio, RGB lighting and two motorized axes.** This guide covers the **M5Stack StackChan K151**. It starts with an offline LED test, then points to motion, sensing and connected applications.
 
 ![M5Stack StackChan K151 desktop robot](../../.gitbook/assets/stackchan-k151-product.webp)
@@ -14,7 +20,7 @@ _Product photograph: M5Stack._ [_Original image_](https://m5stack-doc.oss-cn-she
 
 [Buy StackChan at OpenELAB](https://openelab.io/products/m5stack-stackchan-open-source-ai-desktop-robot) · [M5Stack wiki hub](./) · [Manufacturer documentation](https://docs.m5stack.com/en/StackChan)
 
-#### Product overview and applications
+## Product overview and applications
 
 StackChan combines a CoreS3 main controller with a robot body containing feedback servos, a battery, lighting and additional interfaces. Developers can combine facial animation, touch input, sound and physical movement in one device. The official Arduino board support package exposes the body peripherals alongside M5Unified's controller functions.
 
@@ -26,7 +32,7 @@ The factory application offers a separate connected experience. An ESP32-S3 cont
 
 Sources: [official BSP overview](https://github.com/m5stack/StackChan-BSP/blob/e2f3b02dbe7f28e26a02adc72bef3aa2c545e4a0/README.md), [factory firmware project](https://github.com/m5stack/StackChan), [manufacturer model notes](https://docs.m5stack.com/en/StackChan).
 
-#### Key specifications
+## Key specifications
 
 | Item              | Specification                                                                       |
 | ----------------- | ----------------------------------------------------------------------------------- |
@@ -45,7 +51,7 @@ Sources: [official BSP overview](https://github.com/m5stack/StackChan-BSP/blob/e
 
 Sources: [BSP overview](https://github.com/m5stack/StackChan-BSP/blob/e2f3b02dbe7f28e26a02adc72bef3aa2c545e4a0/README.md), [CoreS3 specifications](https://docs.m5stack.com/en/core/CoreS3), [mechanical dimensions](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1205/Model_Size.pdf). Dimensions are the manufacturer's nominal product dimensions; use the drawing/CAD for enclosure design. Battery capacity is not a runtime guarantee.
 
-#### Hardware orientation and expansion
+## Hardware orientation and expansion
 
 Use the **USB-C connector on the robot base** for the first programming session. Route the cable so it cannot catch when the head moves. Place the robot on a clear, stable surface; the factory application can move the head during startup. Keep fingers and cables clear of the moving joints.
 
@@ -67,7 +73,7 @@ The red wire's supply voltage does not establish the allowable voltage on a GPIO
 
 Source: [StackChan interfaces and pin map](https://docs.m5stack.com/en/StackChan).
 
-#### Choose a software path
+## Choose a software path
 
 | Path                  | Use it for                                                         | Start here                                                                                                                                                                        |
 | --------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -77,7 +83,7 @@ Source: [StackChan interfaces and pin map](https://docs.m5stack.com/en/StackChan
 
 Uploading an Arduino sketch replaces the application currently running on the controller. Record the current firmware/package first if you plan to return to it. Configuration and account requirements depend on the application; consult that application's restoration instructions.
 
-#### Getting started: an offline RGB test
+## Getting started: an offline RGB test
 
 **Goal:** compile and upload a small C++ application, initialize the robot body and cycle its LEDs. This provides a first checkpoint before adding networking, audio or movement.
 
@@ -153,7 +159,7 @@ A successful test checks the application upload path and RGB control. It does no
 
 The source calls and initialization behavior were checked against [M5StackChan.h](https://github.com/m5stack/StackChan-BSP/blob/e2f3b02dbe7f28e26a02adc72bef3aa2c545e4a0/src/M5StackChan.h) and [M5StackChan.cpp](https://github.com/m5stack/StackChan-BSP/blob/e2f3b02dbe7f28e26a02adc72bef3aa2c545e4a0/src/M5StackChan.cpp). This example still requires compilation and physical-device validation before it can be described as tested.
 
-#### Firmware recovery and return to factory software
+## Firmware recovery and return to factory software
 
 If no upload port appears, first try a known data cable and a direct computer USB connection. To enter download mode, connect through the base USB-C port and hold the bottom **RST** button until the green indicator appears. Release the button, recheck the port list and retry the upload. The manufacturer's animation above shows the physical operation.
 
@@ -161,7 +167,7 @@ To restore the manufacturer's application, open **M5Burner**, select the officia
 
 References: [download-mode instructions](https://docs.m5stack.com/en/arduino/stackchan/program), [official StackChan firmware entry](https://burner.m5stack.com/device/stackchan). M5Stack notes that its [public factory-project repository](https://github.com/m5stack/StackChan) may lag released firmware, so distinguish repository builds from the application distributed through M5Burner.
 
-#### Developing movement and other peripherals
+## Developing movement and other peripherals
 
 For motion, read the [official servo guide](https://docs.m5stack.com/en/arduino/stackchan/servo) before enabling servo power. Its API uses **0.1° units**: a command value of 450 represents 45°. M5Stack recommends keeping vertical movement within **5–85°**; convert this to **50–850** when using that API. Mechanical travel limits are different from safe starting positions.
 
@@ -169,7 +175,7 @@ Begin with a small movement near the current position, a clear workspace and con
 
 For the next development steps, use the BSP's [examples directory](https://github.com/m5stack/StackChan-BSP/tree/e2f3b02dbe7f28e26a02adc72bef3aa2c545e4a0/examples) for body peripherals and [M5Unified](https://github.com/m5stack/M5Unified) for controller functions. Keep one small, reproducible test per subsystem before combining movement, sound and networking into a larger application.
 
-#### Troubleshooting and FAQs
+## Troubleshooting and FAQs
 
 | Symptom or question                                        | Check and next action                                                                                                                                                                                                                                                        |
 | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -185,7 +191,7 @@ For the next development steps, use the BSP's [examples directory](https://githu
 
 References: [BSP initialization source](https://github.com/m5stack/StackChan-BSP/blob/e2f3b02dbe7f28e26a02adc72bef3aa2c545e4a0/src/M5StackChan.cpp), [factory setup and FAQ](https://docs.m5stack.com/en/StackChan), [Arduino setup](https://docs.m5stack.com/en/arduino/stackchan/program).
 
-#### Drawings, software and technical resources
+## Drawings, software and technical resources
 
 | Resource                                                                                                               | Engineering use                                                               |
 | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
@@ -204,4 +210,4 @@ References: [BSP initialization source](https://github.com/m5stack/StackChan-BSP
 | [Factory application source](https://github.com/m5stack/StackChan)                                                     | Advanced application investigation; observe upstream release caveats          |
 | [Official factory firmware](https://burner.m5stack.com/device/stackchan)                                               | Return to the manufacturer-distributed application                            |
 
-**Documentation review:** 17 November 2026. **Validation status:** manufacturer documentation, drawings and SDK source reviewed; the example has not yet been compiled or run on physical hardware. Bench validation remains pending.
+**Documentation review:** 17 November 2026. **Opening product-link and heading update:** 18 November 2026. **Validation status:** manufacturer documentation, drawings and SDK source reviewed; the example has not yet been compiled or run on physical hardware. Bench validation remains pending.

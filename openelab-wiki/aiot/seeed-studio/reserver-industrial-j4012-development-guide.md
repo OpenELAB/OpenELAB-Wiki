@@ -6,17 +6,31 @@ description: >-
 
 # Seeed Studio reServer Industrial J4012 Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reServer Industrial J4012 on OpenELAB**](https://openelab.io/products/seeed-studio-reserver-industrial-j4012ai)
+
+**Model:** reServer Industrial J4012 (Jetson Orin NX 16 GB) · **OpenELAB SKU:** `Seeed-114110247` · **Seeed ordering code:** `114110247`
+{% endhint %}
+
 ![Seeed Studio reServer Industrial J4012 Development Guide](../../.gitbook/assets/reserver-industrial-j4012-development-guide.png)
 
 _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.com/wiki/reServer-Industrial/1.png)_._
 
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-reserver-industrial-j4012ai) · [Manufacturer wiki hub](./)
 
-### Product and model scope
+## Product and model scope
 
 **reServer Industrial J4012, SKU 114110247**, is a fanless Jetson Orin NX edge server for multi-camera analytics and industrial integration. Its four PoE camera ports and local storage expansion suit an AI-enabled NVR, inspection station or on-site video-processing gateway. It is different from reComputer J4012 and reComputer Super J4012: their images and connector instructions are not interchangeable.
 
-### Hardware specifications
+## Applications
+
+* **Edge video analytics / network video recorder:** process footage from supported IP cameras connected through the four PoE PSE ports.
+* **Industrial inspection gateway:** combine on-device inference, wired networking and documented industrial I/O in a locally managed system.
+* **Robotics edge computer:** use the Jetson Orin NX with a model-specific carrier BSP for local perception or control workloads.
+
+_These are integration applications, not validated end-to-end performance claims. See_ [_Seeed's reServer Industrial guide_](https://wiki.seeedstudio.com/reServer_Industrial_Getting_Started/)_._
+
+## Hardware specifications
 
 | Item                              | J4012 configuration                                                                        |
 | --------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -33,7 +47,7 @@ Check the actual order for included SSD, adapter and wireless modules. A PoE PSE
 
 Sources: [manufacturer setup](https://wiki.seeedstudio.com/reServer_Industrial_Getting_Started/), [datasheet](https://files.seeedstudio.com/wiki/reServer-Industrial/reServer-Industrial-Datasheet.pdf), [hardware reference](https://files.seeedstudio.com/wiki/reServer-Industrial/reServer-Industrial-Reference-Guide.pdf).
 
-### First boot and a useful baseline
+## First boot and a useful baseline
 
 Prepare the correct manufacturer power supply, monitor/HDMI cable, keyboard and wired network. Attach peripherals while powered off, then apply power and finish the Linux first-run setup. Start with the installed image if it boots; reflashing is a recovery or version-management operation and can overwrite the system disk.
 
@@ -55,13 +69,13 @@ Do not use a desktop-PC CUDA installer or an arbitrary x86 container. Select Jet
 
 Sources: [NVIDIA Jetson Linux developer guide](https://docs.nvidia.com/jetson/archives/r36.4.3/DeveloperGuide/), [tegrastats reference](https://docs.nvidia.com/jetson/archives/r36.4.3/DeveloperGuide/AT/JetsonLinuxDevelopmentTools/TegrastatsUtility.html).
 
-### Camera and industrial I/O bring-up
+## Camera and industrial I/O bring-up
 
 For the first network test, connect the upstream LAN port to your network and one supported PoE camera to a PoE port. Record which interface owns each IP address; camera discovery can fail when the camera and host are on different subnets. Confirm an individual stream before increasing the camera count. Use the [official PoE camera guide](https://wiki.seeedstudio.com/reserver_industrial_poe_camera_usage/) for the model's power and network configuration.
 
 For RS485/CAN, inspect the terminal/DB9 mapping and configure the documented operating mode before attaching a field device. RS232 and RS485 are electrically different; connector shape does not establish compatibility. Bring up one bus at a time and use the [interface guide](https://wiki.seeedstudio.com/reserver_industrial_hardware_interface_usage/) for transceivers, termination and driver settings.
 
-### Recovery and firmware selection
+## Recovery and firmware selection
 
 Use the reServer **Industrial J4012 / Orin NX 16 GB** image and its matching driver package from Seeed's release table. For example, the documented JetPack 6.2 baseline pairs with L4T 36.4.3; choose the host OS required by that specific release.
 
@@ -69,7 +83,7 @@ The model has a **DEVICE** USB-C connector and a **REC** recovery button. Follow
 
 Before executing the vendor's flash command, back up required data and verify the target image/module combination. Use the command supplied with that image archive; filenames and board configurations change between releases. After flashing, return to normal boot and repeat the baseline checks above.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Symptom                                  | Next check                                                                                                                |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -79,7 +93,7 @@ Before executing the vendor's flash command, back up required data and verify th
 | Performance below the TOPS figure        | Check power mode, cooling, model precision, data-transfer costs and the actual inference pipeline.                        |
 | Flash host cannot find the device        | Use DEVICE, a data cable and the correct REC/power sequence; recheck `lsusb`.                                             |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                           | Use                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
@@ -89,4 +103,4 @@ Before executing the vendor's flash command, back up required data and verify th
 | [Mechanical STEP model](https://files.seeedstudio.com/wiki/reServer-Industrial/reServer-Industrial-3D.stp)         | Mechanical integration                                    |
 | [JetPack SDK](https://developer.nvidia.com/embedded/jetpack)                                                       | NVIDIA software stack; combine with Seeed carrier support |
 
-**Review date:** 17 November 2026. **Validation:** official documentation and the cited software interfaces reviewed. Commands and examples have not been compiled or run on physical hardware by OpenELAB for this guide. Record your hardware revision, firmware, software versions and actual results when reproducing it.
+**Documentation review:** 17 November 2026. **Formatting and scope update:** 18 November 2026. **Software execution:** not run. **Hardware validation:** not run. The instructions are based on [Seeed's reServer Industrial product guide and image table](https://wiki.seeedstudio.com/reServer_Industrial_Getting_Started/); record hardware revision, JetPack/L4T version and actual results when reproducing them.
