@@ -1,3 +1,10 @@
+---
+description: >-
+  Orbbec Femto Mega ToF depth camera • OpenELAB SKU ORBBEC-Femto-Mega • Product:
+  https://openelab.io/products/orbbec-femto-mega-tof-camera. Full manufacturer
+  manual retained unchanged.
+---
+
 # Orbbec Femto Mega User Manual
 
 ### Orbbec Femto Mega 4K RGB + ToF Depth Camera for AI & Robotics

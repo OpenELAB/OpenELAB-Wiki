@@ -1,3 +1,10 @@
+---
+description: >-
+  Orbbec Femto Bolt ToF camera • OpenELAB SKU ORBBEC-Femto-Bolt • Product:
+  https://openelab.io/products/orbbec-femto-bolt-tof-camera. Full manufacturer
+  manual retained unchanged.
+---
+
 # Orbbec Femto Bolt User Manual
 
 ### Orbbec Femto Bolt 4K RGB + ToF Depth Camera for AI & Robotics
