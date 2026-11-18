@@ -1,12 +1,18 @@
 # Hiwonder NexArm ROS Version Engineering Guide
 
+{% hint style="info" %}
+[**View Hiwonder NexArm ROS robotic arm on OpenELAB**](https://openelab.io/products/hiwonder-nexarm-ros-robotic-arm)
+
+**Model:** NexArm ROS · **OpenELAB SKU:** `Hiwonder-21010737` · **Kit scope:** Raspberry Pi-ready and Jetson-ready configurations differ. Some variants exclude the external host controller; confirm the selected kit before using host images or enabling arm movement.
+{% endhint %}
+
 [Hiwonder-21010737](https://openelab.de/products/hiwonder-nexarm-ros-robotic-arm)
 
-### Product and scope
+## Product and scope
 
 This guide covers the **NexArm ROS kit**, OpenELAB **21010737**, rather than the separate ESP32 starter version. Match the Jetson/Raspberry Pi host and purchased perception/AI options before selecting software.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item            | Reference                                                           |
 | --------------- | ------------------------------------------------------------------- |
@@ -17,7 +23,7 @@ This guide covers the **NexArm ROS kit**, OpenELAB **21010737**, rather than the
 
 Use the **ROS-version** hardware/assembly and Appendix resources for supply, servo map, mounting, dimensions and accessory wiring. The ESP32 starter manual's power and connection table is not sufficient to validate a ROS package.
 
-### Getting started
+## Getting started
 
 1. Identify the actual host, arm controller, supplied power equipment and cameras. Secure the arm and clear its swept volume.
 2. Obtain the matching factory image/materials from the official ROS Appendix. Hiwonder explicitly requests an order number for some downloads.
@@ -27,11 +33,11 @@ Use the **ROS-version** hardware/assembly and Appendix resources for supply, ser
 
 **Expected checkpoint:** recognized joints and a predictable small movement, with the correct host image documented.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the official ROS-version source and development environment. A VLA demonstration also requires its supported model, compute and dataset configuration; arm communication alone does not provide that capability. Preserve firmware, image and calibration records before recovery or update.
 
-### FAQs
+## FAQs
 
 **The ESP32 instructions show a different app?** Use the ROS-version manual for this kit.
 
@@ -39,7 +45,7 @@ Use the official ROS-version source and development environment. A VLA demonstra
 
 **Motion or vision is inconsistent?** Validate joint calibration, camera identity and transforms before changing a trained policy.
 
-### Sources and validation
+## Sources and validation
 
 * [Official ROS Appendix and downloads](https://wiki.hiwonder.com/projects/NexArm/en/ros-version/docs/Appendix.html)
 * [ESP32 version for explicit comparison only](https://wiki.hiwonder.com/projects/NexArm/en/esp32-version/docs/1_Getting_Started_NexArm.html)

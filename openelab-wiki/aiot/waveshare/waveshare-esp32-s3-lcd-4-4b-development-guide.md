@@ -1,12 +1,18 @@
 # Waveshare ESP32-S3 Touch LCD 4 and 4B Engineering Guide
 
+{% hint style="info" %}
+[**View Waveshare ESP32-S3 4-inch display family on OpenELAB**](https://openelab.io/products/waveshare-esp32-s3-4inch-display-development-board) · [**Related smart 86-box variant**](https://openelab.io/products/waveshare-esp32-s3-smart-86-box)
+
+**Model/option:** Waveshare ESP32-S3 Touch LCD 4 and 4B · **Top-200 SKUs:** `Waveshare-32052`, `Waveshare-28154` · Verify the exact 4-inch versus 4B display and board layout before using an example.
+{% endhint %}
+
 [Waveshare-32052](https://openelab.io/products/waveshare-esp32-s3-smart-86-box) · [Waveshare-28154](https://openelab.io/products/waveshare-esp32-s3-4inch-display-development-board)
 
-### Product and scope
+## Product and scope
 
 **28154 Touch-LCD-4** and **32052 Touch-LCD-4B** are distinct four-inch HMI boards. Both use 480 × 480 displays, but enclosure, power and connector wiring differ. Do not transfer a pin map solely because the screen resolution matches.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item           | Reference                                                |
 | -------------- | -------------------------------------------------------- |
@@ -18,7 +24,7 @@
 
 Use each model's **schematic, dimensional drawing and terminal map**. The non-touch LCD-4 variant is another SKU. Verify supported supply and external-interface electrical levels from the chosen model's manual before connecting terminal blocks.
 
-### Getting started
+## Getting started
 
 1. Check model/PCB label and use its own power instructions, leaving external loads disconnected.
 2. Install the corresponding vendor demo and retain its library/LVGL versions.
@@ -28,11 +34,11 @@ Use each model's **schematic, dimensional drawing and terminal map**. The non-to
 
 **Expected checkpoint:** a correct local touch UI before field wiring and network services are introduced.
 
-### Development software and recovery
+## Development software and recovery
 
 Keep the exact example target, LVGL version, panel timings and power initialization. Use the appropriate board's factory firmware and download-mode instructions for recovery. Avoid mixing an example's LVGL API generation with an arbitrary newer library.
 
-### FAQs
+## FAQs
 
 **Why does a 480 × 480 demo show nothing?** Panel timings, bus pins, reset and power are board-specific.
 
@@ -40,7 +46,7 @@ Keep the exact example target, LVGL version, panel timings and power initializat
 
 **Can an 86-box enclosure go outdoors?** Use documented protection/installation ratings; form factor is not an ingress rating.
 
-### Sources and validation
+## Sources and validation
 
 * [LCD-4 exact SKU and hardware](https://docs.waveshare.net/ESP32-S3-Touch-LCD-4/)
 * [LCD-4 English resource index](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-4)

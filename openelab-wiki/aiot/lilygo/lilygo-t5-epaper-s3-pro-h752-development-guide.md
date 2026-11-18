@@ -1,12 +1,18 @@
 # LILYGO T5 E-Paper S3 Pro H752-01 Engineering Guide
 
+{% hint style="info" %}
+[**View LILYGO T5 E-Paper S3 Pro H752-01 on OpenELAB**](https://openelab.io/products/lilygo-t5-s3-pro)
+
+**Model/option:** LILYGO T5 E-Paper S3 Pro H752-01 · **OpenELAB SKU:** `LILYGO-H752-01`
+{% endhint %}
+
 [LILYGO-H752-01](https://openelab.io/products/lilygo-t5-s3-pro)
 
-### Product and scope
+## Product and scope
 
 **H752-01 T5 E-Paper S3 Pro** is a connected ePaper development device. Distinguish it from the older H752 and **Lite**, which omits GPS/LoRa. Panel power hardware and firmware must match the actual revision.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item           | Reference                                               |
 | -------------- | ------------------------------------------------------- |
@@ -18,7 +24,7 @@
 
 The official hardware guide links **pin maps, schematics and software resources**. Use the fitted panel's drive/VCOM requirements; do not tune display voltages using another revision's defaults.
 
-### Getting started
+## Getting started
 
 1. Identify H752-01 and the RF/GNSS configuration; preserve factory firmware details.
 2. Install the manufacturer-recommended library/build environment for this Pro revision.
@@ -28,11 +34,11 @@ The official hardware guide links **pin maps, schematics and software resources*
 
 **Expected checkpoint:** a complete, repeatable image refresh with correct orientation before networking is added.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the current Pro hardware documentation and its linked SDK/examples, preserving source and dependency versions. The H752-01 revision adds a different display-power path and GPS; old firmware is not automatically compatible. Restore the matching factory image if custom firmware fails.
 
-### FAQs
+## FAQs
 
 **Image remains after shutdown?** That is normal ePaper persistence.
 
@@ -40,7 +46,7 @@ Use the current Pro hardware documentation and its linked SDK/examples, preservi
 
 **Lite code has no GPS/LoRa?** Lite is a different peripheral configuration.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer product](https://lilygo.cc/products/t5-e-paper-s3-pro)
 * [Exact Pro hardware documentation](https://wiki.lilygo.cc/products/t5-series/t5-e-paper-s3-pro/)

@@ -1,12 +1,18 @@
 # RobStride Debug Board and Power Board Integration Guide
 
+{% hint style="info" %}
+[**View ROBSTRIDE USB-CAN debug module on OpenELAB**](https://openelab.io/products/robstride-can-to-usb-debugging-module) · [**View ROBSTRIDE power supply board on OpenELAB**](https://openelab.io/products/robstride-power-supply-board)
+
+**Product/option:** RobStride Debug Board and Power Board Integration Guide · **Workbook SKUs:** `ROBSTRIDE-Debug`, `ROBSTRIDE-Power` · The debug interface and power distribution board are separate accessories; they have different power and control roles.
+{% endhint %}
+
 [ROBSTRIDE-Debug](https://openelab.io/products/robstride04-qdd-120n-m-integrated-joint-motor-module) · [ROBSTRIDE-Power](https://openelab.io/products/robstride-power-supply-board)
 
-### Product and scope
+## Product and scope
 
 **ROBSTRIDE-Debug** is a debugging accessory, not a ROBSTRIDE04 motor. **ROBSTRIDE-Power** is a power-board accessory. The motor and accessory variants share store navigation but have different functions and electrical requirements.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item          | Reference                                                                                |
 | ------------- | ---------------------------------------------------------------------------------------- |
@@ -17,7 +23,7 @@
 
 The store's variant/packing table explicitly identifies the Debug Board separately. The manufacturer repository lists **Power supply board instructions V1.3\_20251226**, a **POWER\_PCB\_V1.3\_1105 STEP**, and a newer Chinese **V1.5\_20260507** manual. Match the physical board; these revision labels are not interchangeable.
 
-### Getting started
+## Getting started
 
 1. Identify the board and its connectors/revision before connecting a motor or external supply.
 2. For the debug board, install the manufacturer-supported tool/driver and verify host enumeration.
@@ -27,11 +33,11 @@ The store's variant/packing table explicitly identifies the Debug Board separate
 
 **Expected checkpoint:** host/interface recognition and valid motor status, or a verified power-board installation against its exact manual.
 
-### Development software and recovery
+## Development software and recovery
 
 Use RobStride's current download/tool resources and the motor's matching protocol. A power-distribution board has no general application SDK. Save board/motor revision and wiring records. **Manual file availability was verified, but power-board PDF contents were not readable through this review environment**, so no unverified voltage/current rating is published.
 
-### FAQs
+## FAQs
 
 **Does the Debug Board option include a motor?** The checked store listing says it contains the accessory only.
 
@@ -39,7 +45,7 @@ Use RobStride's current download/tool resources and the motor's matching protoco
 
 **Can board V1.3 wiring be applied to V1.5?** Only after confirming the current manual and hardware.
 
-### Sources and validation
+## Sources and validation
 
 * [Verified Debug Board variant identity](https://openelab.io/products/robstride04-qdd-120n-m-integrated-joint-motor-module)
 * [Official English power-board manual/CAD folder](https://github.com/RobStride/Product_Information/tree/main/Product%20Literature/powerBoard)

@@ -1,12 +1,18 @@
 # Waveshare 27-inch FHD Touch Monitor Engineering Guide
 
+{% hint style="info" %}
+[**View Waveshare 27-inch FHD Touch Monitor on OpenELAB**](https://openelab.io/products/waveshare-27inch-capacitive-touch-monitor)
+
+**Product/option:** Waveshare 27-inch FHD Touch Monitor · **Workbook SKU:** `Waveshare-33975`
+{% endhint %}
+
 [Waveshare-33975](https://openelab.io/products/waveshare-27inch-capacitive-touch-monitor)
 
-### Product and scope
+## Product and scope
 
 **33975 27inch FHD Monitor** is an external HDMI/USB touch monitor for PCs and supported SBCs. It differs from MCU display boards and DSI panels; video and touch use separate connections.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item              | Reference                                                     |
 | ----------------- | ------------------------------------------------------------- |
@@ -19,7 +25,7 @@
 
 The manufacturer documentation supplies **connection diagrams, specifications and dimensional resources**. Use the supported external supply and stand/mount instructions. USB-C touch connectivity does not imply video-over-USB-C support.
 
-### Getting started
+## Getting started
 
 1. Connect the correct monitor supply and HDMI source.
 2. Connect the separate USB touch cable to the host.
@@ -29,11 +35,11 @@ The manufacturer documentation supplies **connection diagrams, specifications an
 
 **Expected checkpoint:** a correct full-resolution image and touch events on the intended display.
 
-### Development software and recovery
+## Development software and recovery
 
 The host graphics and USB-HID stack provide the integration; no ESP32 SDK is required. Retain OS/display-driver versions and any rotation/touch mapping configuration. Use OSD reset for display settings; diagnose source/cables before changing OS software.
 
-### FAQs
+## FAQs
 
 **Image works but touch does not?** Check the separate USB data cable and host input-device detection.
 
@@ -41,7 +47,7 @@ The host graphics and USB-HID stack provide the integration; no ESP32 SDK is req
 
 **No sound?** Select the host's HDMI audio device and check monitor volume.
 
-### Sources and validation
+## Sources and validation
 
 * [Exact SKU matrix and setup](https://docs.waveshare.com/27inch_FHD_Monitor)
 * [Manufacturer hardware and dimensions](https://www.waveshare.com/product/ai/displays/27inch-fhd-monitor.htm)

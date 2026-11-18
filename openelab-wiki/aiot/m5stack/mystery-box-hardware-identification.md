@@ -1,12 +1,18 @@
 # M5Stack Mystery Box: identify the hardware and find its development guide
 
+{% hint style="info" %}
+[**View M5Stack Mystery Box: identify the hardware and find its on OpenELAB**](https://openelab.io/products/m5stack-ultimate-blind-box)
+
+**Model/option:** M5Stack Mystery Box: identify the hardware and find its · **OpenELAB SKU:** `M5-Box` · Blind/mystery box contents vary by shipment. Identify each physical component before selecting a firmware, pinout or tutorial.
+{% endhint %}
+
 [M5-Box](https://openelab.io/products/m5stack-ultimate-blind-box)
 
-### Product and scope
+## Product and scope
 
 M5-Box is a variable-content bundle, not a single development board. Its engineering documentation starts with an inventory of the actual contents. Use this page to identify each device and reach its correct schematic, power information, firmware and first example.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                       | Reference                                                                           |
 | -------------------------- | ----------------------------------------------------------------------------------- |
@@ -17,7 +23,7 @@ M5-Box is a variable-content bundle, not a single development board. Its enginee
 
 Photograph each label and record the manufacturer product code. Find the exact entry in M5Stack's product documentation and check the board pin map, power input and peripheral addresses. A Grove-style connector or stacking shape does not establish identical voltage or pin assignments. Units and bases may require a separate host; passive accessories do not need firmware.
 
-### Getting started
+## Getting started
 
 1. Inventory all items before powering them. Separate controllers, Units, bases, cables and mechanical accessories.
 2. Match each item to the exact manufacturer documentation entry. Record any unknown label as unresolved rather than guessing a near-looking board.
@@ -27,11 +33,11 @@ Photograph each label and record the manufacturer product code. Find the exact e
 
 **Expected checkpoint:** An itemized bundle in which each powered device has a confirmed model, documentation link and reproducible first example.
 
-### Development software and recovery
+## Development software and recovery
 
 Maintain a per-device inventory instead of one fictitious box BOM. M5Stack's product pages link the appropriate tools, examples and hardware documents. For an unrecognized item, provide clear front/back photos and label text to support before attempting a firmware flash.
 
-### FAQs
+## FAQs
 
 **Why is there no single pinout or SDK?** Contents vary and different devices expose different interfaces and software support.
 
@@ -39,7 +45,7 @@ Maintain a per-device inventory instead of one fictitious box BOM. M5Stack's pro
 
 **Can two boxes use identical firmware?** Only where the identified hardware model and revision actually match.
 
-### Sources and validation
+## Sources and validation
 
 * [OpenELAB Mystery Box listing](https://openelab.io/products/m5stack-ultimate-blind-box)
 * [M5Stack product documentation](https://docs.m5stack.com/en/products)

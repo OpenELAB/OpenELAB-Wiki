@@ -1,12 +1,18 @@
 # Waveshare ESP32-S3-ETH Engineering Guide
 
+{% hint style="info" %}
+[**View Waveshare ESP32-S3-ETH on OpenELAB**](https://openelab.io/products/esp32-s3-eth-dev-board)
+
+**Model/variant:** Waveshare ESP32-S3-ETH · **OpenELAB SKU:** `Waveshare-28972`
+{% endhint %}
+
 [Waveshare-28972](https://openelab.io/products/esp32-s3-eth-dev-board)
 
-### Product and scope
+## Product and scope
 
 **28972 ESP32-S3-ETH** is the base Ethernet development board. **PoE and camera kits are separate configurations**; a reserved PoE connector does not mean a PoE module is included.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item      | Reference                                             |
 | --------- | ----------------------------------------------------- |
@@ -19,7 +25,7 @@
 
 Use the official **schematic, pin map and camera/PoE diagrams**. Verify supply and signal levels before using Pico-compatible accessories. External-antenna selection may require the documented RF resistor change; plugging in an antenna alone does not switch the path.
 
-### Getting started
+## Getting started
 
 1. Begin with USB-C data/power and no camera or external expansion.
 2. Install the model's documented environment and open its W5500 Ethernet example.
@@ -29,11 +35,11 @@ Use the official **schematic, pin map and camera/PoE diagrams**. Verify supply a
 
 **Expected checkpoint:** stable Ethernet link and a valid network configuration from the W5500 path.
 
-### Development software and recovery
+## Development software and recovery
 
 Use model-specific Arduino/ESP-IDF examples and save the source/toolchain versions. SPI bus sharing and camera pins must be checked before combining peripherals. Restore the official factory example through its BOOT/download sequence if required.
 
-### FAQs
+## FAQs
 
 **No power over Ethernet?** The base SKU lacks the separately specified PoE module.
 
@@ -41,7 +47,7 @@ Use model-specific Arduino/ESP-IDF examples and save the source/toolchain versio
 
 **A Pico accessory conflicts?** Compare every used signal and power pin; compatible shape is not universal electrical compatibility.
 
-### Sources and validation
+## Sources and validation
 
 * [Current model/SKU matrix, pinout and resources](https://docs.waveshare.com/ESP32-S3-ETH)
 * [Manufacturer detailed hardware reference](https://docs.waveshare.net/ESP32-S3-ETH/)

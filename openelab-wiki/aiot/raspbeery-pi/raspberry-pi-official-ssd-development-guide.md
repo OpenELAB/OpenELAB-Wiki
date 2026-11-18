@@ -1,12 +1,18 @@
 # Raspberry Pi Official SSD Integration Guide
 
+{% hint style="info" %}
+[**View Waveshare Official Raspberry Pi SSD on OpenELAB**](https://openelab.io/products/waveshare-official-raspberry-pi-ssd)
+
+**Product:** Raspberry Pi SSD, M.2 2230 NVMe · **OpenELAB SKU:** `Waveshare-32467` · **Variant:** 1 TB capacity. Raspberry Pi 5 requires a compatible M.2 HAT or carrier (sold separately); this is a storage device and needs no separate firmware SDK.
+{% endhint %}
+
 [Waveshare-32467](https://openelab.de/products/waveshare-official-raspberry-pi-ssd)
 
-### Product and scope
+## Product and scope
 
 This guide covers the **official Raspberry Pi NVMe SSD**, sold under the OpenELAB/Waveshare **32467** listing. Verify capacity from the ordered variant and drive label. The SSD is separate from an M.2 adapter or complete HAT/drive kit.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                | Reference                                               |
 | ------------------- | ------------------------------------------------------- |
@@ -18,7 +24,7 @@ This guide covers the **official Raspberry Pi NVMe SSD**, sold under the OpenELA
 
 Use the SSD **product brief** and the actual adapter's mechanical/power/FFC guide. An M.2 SATA adapter is not a substitute for NVMe. Power off before fitting the SSD and securing it with the correct standoff/screw.
 
-### Getting started
+## Getting started
 
 1. Install the drive in a supported Pi 5 M.2 adapter with power disconnected.
 2. Boot a supported Raspberry Pi OS using existing known-good media.
@@ -28,11 +34,11 @@ Use the SSD **product brief** and the actual adapter's mechanical/power/FFC guid
 
 **Expected checkpoint:** the NVMe device appears with the expected model/capacity. Data migration and OS installation are separate steps that can erase the selected drive.
 
-### Development software and recovery
+## Development software and recovery
 
 No product-specific development SDK is required; use the OS NVMe/block-storage stack. Record bootloader/OS version and adapter model. Back up data before firmware, partition or boot-order changes.
 
-### FAQs
+## FAQs
 
 **No drive detected?** Check adapter compatibility, FFC seating/orientation, power and host PCIe support.
 
@@ -40,7 +46,7 @@ No product-specific development SDK is required; use the OS NVMe/block-storage s
 
 **Can it plug directly into the Pi board?** A compatible M.2 adapter is required.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer specifications and product brief](https://www.raspberrypi.com/products/ssd/)
 * [Raspberry Pi official documentation](https://www.raspberrypi.com/documentation/)

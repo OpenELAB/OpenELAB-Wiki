@@ -1,5 +1,11 @@
 # Unitree L2 4D LiDAR Engineering Guide
 
+{% hint style="info" %}
+[**View Unitree L2 4D LiDAR on OpenELAB**](https://openelab.io/products/unitree-l2-4dlidar-navigation-obstacle-avoidance-slam-360-depth-scan)
+
+**Product/option:** Unitree L2 4D LiDAR · **Workbook SKU:** `Unitree-L24DLiDAR`
+{% endhint %}
+
 **Product link:** [Unitree L2 4D LiDAR Navigation Obstacle Avoidance SLAM 360 Depth Scan on OpenELAB](https://openelab.io/products/unitree-l2-4dlidar-navigation-obstacle-avoidance-slam-360-depth-scan)
 
 ## Unitree L2 4D LiDAR Engineering Guide

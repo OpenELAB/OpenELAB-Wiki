@@ -1,12 +1,18 @@
 # RobStride 10P CAN and CAN-FD Engineering Guide
 
+{% hint style="info" %}
+[**View RobStride 10P CAN and CAN-FD on OpenELAB**](https://openelab.io/products/robstride-10p-qdd-joint-actuator)
+
+**Model/variant:** RobStride 10P CAN and CAN-FD · **OpenELAB SKU:** `ROBSTRIDE-10P`
+{% endhint %}
+
 [ROBSTRIDE-10P](https://openelab.io/products/robstride-10p-qdd-joint-actuator)
 
-### Product and scope
+## Product and scope
 
 **ROBSTRIDE-10P** is an integrated robotic joint. The current manufacturer repository separates **CAN2.0 10P** and **RS10P-CANFD** documentation. Confirm the purchased protocol variant before choosing a parser, adapter or firmware.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                 | Reference                                                |
 | -------------------- | -------------------------------------------------------- |
@@ -18,7 +24,7 @@
 
 The official repository contains **model-specific manual and STEP files**. Their existence and exact paths were verified; the PDF contents could not be fetched in this review. **Supply, pinout, current/torque limits and scaling must be checked in the matching manual before power or motion.** No RS00–RS06 parameter table is silently applied to 10P.
 
-### Getting started
+## Getting started
 
 1. Identify CAN2.0 versus CAN-FD and obtain/read that manual.
 2. Fixture one unloaded actuator and verify its electrical and connector requirements.
@@ -28,11 +34,11 @@ The official repository contains **model-specific manual and STEP files**. Their
 
 **Expected checkpoint:** valid identity/status from the correct protocol variant before enabling motion.
 
-### Development software and recovery
+## Development software and recovery
 
 The manufacturer maintains separate protocol-generation folders. A SocketCAN example for older RS00–RS06 is not evidence of 10P support. Preserve manual revision and firmware with the application. Use only the documented 10P update/recovery path.
 
-### FAQs
+## FAQs
 
 **Can an RS06 configuration be reused?** No; gearing, limits and protocol scope differ.
 
@@ -40,7 +46,7 @@ The manufacturer maintains separate protocol-generation folders. A SocketCAN exa
 
 **Why are some numeric fields absent?** The exact manual must be read before publishing unverified electrical or control limits.
 
-### Sources and validation
+## Sources and validation
 
 * [Official CAN2.0 manual and CAD folder](https://github.com/RobStride/Product_Information/tree/main/Product%20Literature/CAN2.0/10P)
 * [Official CAN-FD manual and CAD folder](https://github.com/RobStride/Product_Information/tree/main/Product%20Literature/CANFD/RS10P-CANFD)

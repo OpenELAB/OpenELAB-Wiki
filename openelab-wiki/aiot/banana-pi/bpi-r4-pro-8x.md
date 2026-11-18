@@ -1,12 +1,18 @@
 # Banana Pi BPI-R4 Pro 8X: image selection and first network setup
 
+{% hint style="info" %}
+[**View Banana Pi BPI-R4 Pro 8X: image selection and first network setup on OpenELAB**](https://openelab.io/products/banana-pi-bpi-r4-pro)
+
+**Model/variant:** Banana Pi BPI-R4 Pro 8X: image selection and first network setup · **OpenELAB SKU:** `BPI-R4P-8X`
+{% endhint %}
+
 [BPI-R4P-8X](https://openelab.io/products/banana-pi-bpi-r4-pro)
 
-### Product and scope
+## Product and scope
 
 The BPI-R4P-8X is the 8 GB BPI-R4 Pro router platform for network development, edge gateways and high-speed routing experiments. R4, R4 Pro 8X and R4 Pro 4E are separate image targets. Optional wireless modules and cellular hardware must be identified independently.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item              | Reference                                                                      |
 | ----------------- | ------------------------------------------------------------------------------ |
@@ -17,7 +23,7 @@ The BPI-R4P-8X is the 8 GB BPI-R4 Pro router platform for network development, e
 
 Use the official Pro documentation for the port map, power input, boot selection, schematics and mechanical files. The board is not an ordinary Raspberry Pi GPIO replacement. Confirm the exact copper/SFP port arrangement and fitted wireless modules from the 8X revision's labels; do not infer included Wi-Fi hardware from a Wi-Fi 7 headline.
 
-### Getting started
+## Getting started
 
 1. Record board revision, memory, fitted modules and power-supply specification. Keep console/recovery instructions and a configuration backup available.
 2. Choose the official image explicitly labeled BPI-R4-Pro 8X. Verify its download integrity and write it to the documented removable boot medium, checking the destination device carefully.
@@ -27,11 +33,11 @@ Use the official Pro documentation for the port map, power input, boot selection
 
 **Expected checkpoint:** A repeatable wired login, correctly identified interfaces and a saved configuration for the exact 8X image.
 
-### Development software and recovery
+## Development software and recovery
 
 The official image release notes and board documentation define boot/recovery behavior. Avoid immediately overwriting eMMC or NAND; preserve a known-working removable boot path. For upgrades, follow the exact image release's method and model-specific filenames rather than another OpenWrt device's procedure. Keep a serial boot log when diagnosing failure to start.
 
-### FAQs
+## FAQs
 
 **Can I flash the 4E image to an 8X?** No; the official release explicitly separates those targets.
 
@@ -39,7 +45,7 @@ The official image release notes and board documentation define boot/recovery be
 
 **Why did an interface change after an upgrade?** Compare image configuration and port mapping before reusing older network settings.
 
-### Sources and validation
+## Sources and validation
 
 * [Banana Pi R4 Pro hardware documentation](https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro)
 * [Official BpiRouterOS v1.6.0 release](https://forum.banana-pi.org/t/bpirouteros-v1-6-0-official-version-released/28490)

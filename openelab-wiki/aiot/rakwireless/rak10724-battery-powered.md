@@ -1,12 +1,18 @@
 # RAK10724 battery-powered WisMesh booster kit: power and Meshtastic setup
 
+{% hint style="info" %}
+[**View RAK10724 battery-powered WisMesh booster kit: power and Meshtastic setup on OpenELAB**](https://openelab.io/products/rakwireless-wismesh-1w-booster-starter)
+
+**Model/option:** RAK10724 battery-powered WisMesh booster kit: power and Meshtastic setup · **Top-200 SKU:** `Rak-115280`
+{% endhint %}
+
 [Rak-115280](https://openelab.io/products/rakwireless-wismesh-1w-booster-starter)
 
-### Product and scope
+## Product and scope
 
 The battery-powered RAK10724 WisMesh kit supports Meshtastic mesh experiments, repeaters and portable/off-grid nodes. OpenELAB Rak-115280 is scoped here as the battery-powered variant. Current battery and external-5 V kits use different amplifier power hardware; a software setting does not convert one into the other.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                | Reference                                                                                 |
 | ------------------- | ----------------------------------------------------------------------------------------- |
@@ -18,7 +24,7 @@ The battery-powered RAK10724 WisMesh kit supports Meshtastic mesh experiments, r
 
 Download the battery-powered RAK10724 quick-start PDF from RAK's Meshtastic download center. Follow that exact diagram for battery connector polarity, supported cell and charging input. The external-5 V variant's instructions are different. Attach the correct antenna before transmitting and inspect RF connectors with power removed.
 
-### Getting started
+## Getting started
 
 1. Check kit labels and verify it is the battery-powered version. Compare board revisions with the battery quick-start guide.
 2. Connect the specified battery with verified polarity. Do not expect USB or the solar input alone to operate this version's amplifier.
@@ -28,11 +34,11 @@ Download the battery-powered RAK10724 quick-start PDF from RAK's Meshtastic down
 
 **Expected checkpoint:** Stable operation from the correct battery supply and a successful two-node message exchange with documented radio settings.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the manufacturer quick-start guide and Meshtastic tools for the supported target. A 1 W hardware ceiling is not a recommendation to transmit at that setting. Investigate supply sag and antenna path before raising power when messages fail. Preserve a configuration backup before reflashing.
 
-### FAQs
+## FAQs
 
 **Why does the node connect over USB but fail to transmit reliably?** USB can expose the controller while the booster still lacks its required battery power.
 
@@ -40,7 +46,7 @@ Use the manufacturer quick-start guide and Meshtastic tools for the supported ta
 
 **Does 1 W guarantee longer range?** Range also depends on antennas, terrain, placement and radio settings.
 
-### Sources and validation
+## Sources and validation
 
 * [RAK10724 manufacturer hardware and variant notes](https://store.rakwireless.com/products/meshtastic-1w-lora-booster-kit-rak3401)
 * [RAK quick-start PDF download center](https://downloads.rakwireless.com/Meshtastic/)

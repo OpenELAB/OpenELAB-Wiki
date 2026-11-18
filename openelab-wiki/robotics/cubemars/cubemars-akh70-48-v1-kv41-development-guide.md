@@ -1,12 +1,18 @@
 # CubeMars AKH70-48 V1.0 KV41 Engineering Guide
 
+{% hint style="info" %}
+[**View CubeMars AKH70-48 V1.0 KV41 on OpenELAB**](https://openelab.io/products/cubemars-akh70-48-kv41)
+
+**Product/option:** CubeMars AKH70-48 V1.0 KV41 · **Workbook SKU:** `CubeMars-AKH70-48-KV41`
+{% endhint %}
+
 [CubeMars-AKH70-48-KV41](https://openelab.io/products/cubemars-akh70-48-kv41)
 
-### Product and scope
+## Product and scope
 
 **AKH70-48 V1.0 KV41** is a hollow-shaft integrated actuator for articulated robots and other high-torque joints. It is distinct from AK70-10, AK80-64 and other AK/AKH revisions.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                   | Reference                                            |
 | ---------------------- | ---------------------------------------------------- |
@@ -19,7 +25,7 @@
 
 The exact product page provides the **technical drawing, performance curves, wiring pack and support/download links**. Distinguish motor-side torque constant from output torque scaling. Mounting and hollow-shaft cable routing must allow the full intended motion.
 
-### Getting started
+## Getting started
 
 1. Fixture the unloaded actuator, record revision/firmware and inspect connector polarity.
 2. Use the documented supply and matching CubeMars setup interface.
@@ -29,11 +35,11 @@ The exact product page provides the **technical drawing, performance curves, wir
 
 **Expected checkpoint:** correct model/status and bounded, predictable output motion.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the **October 2026 AK-series V3 driver software manual** only where its supported-model table covers this AKH70-48 configuration. MIT-style packing, servo modes and torque/current definitions differ. Preserve parameters and zero reference before firmware changes; use the documented recovery procedure.
 
-### FAQs
+## FAQs
 
 **Can a generic AK70 torque constant be used?** No; use this model's mode-specific units and output scaling.
 
@@ -41,7 +47,7 @@ Use the **October 2026 AK-series V3 driver software manual** only where its supp
 
 **A packet produces unexpected motion?** Disable and check model selection, units, scaling and control mode.
 
-### Sources and validation
+## Sources and validation
 
 * [Exact specifications, drawing and downloads](https://www.cubemars.com/product/akh70-48-v-1-0-kv41-hollow-shaft-planetary-actuator.html)
 * [Manufacturer driver manual](https://www.cubemars.com/data/cms/202610/ak-series-motor-module-v3-driver-software-user-manual-en.pdf)

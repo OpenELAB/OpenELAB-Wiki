@@ -1,8 +1,14 @@
 # Seeed Studio Semtech LR2021 LoRa Plus Evaluation Kit Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio Semtech LR2021 LoRa Plus Evaluation Kit on OpenELAB**](https://openelab.io/products/seeed-studio-semtech-lr2021-lora)
+
+**Model/variant:** Seeed Studio Semtech LR2021 LoRa Plus Evaluation Kit · **OpenELAB SKU:** `Seeed-100039980`
+{% endhint %}
+
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-semtech-lr2021-lora)
 
-### Exact kit and applications
+## Exact kit and applications
 
 This page covers the **Semtech LR2021 LoRa Plus evaluation kit**, including OpenELAB **Seeed-100039980**. It uses a **XIAO nRF54L15** core board and an LR2021 expansion board. The separately documented **Wio-LR2021 Dev Kit uses ESP32-S3** and requires a different software target.
 
@@ -17,7 +23,7 @@ This page covers the **Semtech LR2021 LoRa Plus evaluation kit**, including Open
 
 Use it for radio evaluation and custom telemetry prototypes. A raw radio example is not automatically a configured LoRaWAN or Meshtastic node.
 
-### Documents and first build
+## Documents and first build
 
 The manufacturer guide supplies **board diagrams, signal mapping and hardware references**. Match the region-specific RF board and antenna before enabling transmit.
 
@@ -29,7 +35,7 @@ The manufacturer guide supplies **board diagrams, signal mapping and hardware re
 
 **Checkpoint:** a reproducible build and packet reception with the selected RF configuration. Record both nodes' manifests, radio settings and firmware revisions.
 
-### FAQs and recovery
+## FAQs and recovery
 
 **Can I copy an ESP32-S3 Wio build command?** No; these are different host processors.
 
@@ -39,7 +45,7 @@ The manufacturer guide supplies **board diagrams, signal mapping and hardware re
 
 **Recovery?** Follow the nRF54L15 kit's documented flashing/debug procedure. Do not use an nRF52840 UF2 or an ESP32 image.
 
-### Sources and validation
+## Sources and validation
 
 * [Exact evaluation-kit hardware and setup](https://wiki.seeedstudio.com/semtech_lr2021_evk_getting_started/)
 * [Semtech USP Zephyr software](https://github.com/Lora-net/usp_zephyr)

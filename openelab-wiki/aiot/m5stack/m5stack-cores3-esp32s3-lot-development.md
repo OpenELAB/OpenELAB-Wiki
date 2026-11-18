@@ -23,15 +23,21 @@ layout:
 
 # M5Stack CoreS3 ESP32S3 loT Development
 
-### M5Stack CoreS3 ESP32S3 loT Development Kit
+{% hint style="info" %}
+[**View M5Stack CoreS3 ESP32S3 loT Development on OpenELAB**](https://openelab.io/products/m5stack-cores3-esp32s3)
+
+**Model/option:** M5Stack CoreS3 ESP32S3 loT Development · **Top-200 SKU:** `M5-K128`
+{% endhint %}
+
+## M5Stack CoreS3 ESP32S3 loT Development Kit
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/m5stack-cores3-esp32s3" %}
 
-### Description <a href="#description" id="description"></a>
+## Description <a href="#description" id="description"></a>
 
 CoreS3 is the third generation of the M5Stack Core series. Powered by the ESP32-S3 solution, this kit features a dual-core Xtensa LX7 processor running at 240MHz. CoreS3 comes equipped with built-in Wi-Fi functionality, enabling seamless connectivity. It boasts 16MB of onboard flash memory and 8MB of PSRAM, providing ample space for program storage.
 
@@ -39,7 +45,7 @@ CoreS3 offers convenient programming options through its TYPE-C interface, suppo
 
 Sound output on CoreS3 is optimized with the high-fidelity 16-bit I2S power amplifier chip AW88298, accompanied by a built-in 1W speaker for clear audio playback. For sound input, the kit incorporates the ES7210 audio decoding chip and dual-microphone input. The side of the device includes an independent power button and restart (RST) button, complemented by a self-built delay circuit. By long-pressing the reset button, users can easily enter the program download mode. The CoreS3 kit comes with the DinBase Base, providing convenient options for Din rail, wall, and screw fixing. It can be powered by an external DC 12V (supports 9\~24V) or an internal 500mAh lithium battery. The DinBase also offers multiple proto locations for users to customize and expand their projects. CoreS3 is an ideal choice for IoT development, various DIY project development, smart home control systems, and industrial automation control systems.
 
-### Features <a href="#features" id="features"></a>
+## Features <a href="#features" id="features"></a>
 
 * Developed based on ESP32, support WiFi @16M Flash, 8M PSRAM
 * Built-in camera, proximity sensor, speaker, power indicator, RTC, I2S amplifier, dual microphone, condenser touch screen, power button, reset button, gyroscope
@@ -49,14 +55,14 @@ Sound output on CoreS3 is optimized with the high-fidelity 16-bit I2S power ampl
 * AXP2101 power management, low power design
 * Supported programming platforms: Arduino, UIFlow
 
-### Applications <a href="#applications" id="applications"></a>
+## Applications <a href="#applications" id="applications"></a>
 
 * IoT development
 * Various DIY project development
 * Smart home control system
 * Industrial automation control system
 
-### Specifications <a href="#specifications" id="specifications"></a>
+## Specifications <a href="#specifications" id="specifications"></a>
 
 | Resources                | Parameters                                                                           |
 | ------------------------ | ------------------------------------------------------------------------------------ |
@@ -76,7 +82,7 @@ Sound output on CoreS3 is optimized with the high-fidelity 16-bit I2S power ampl
 | Product Weight           | 73.3g                                                                                |
 | Package Weight           | 97.8g                                                                                |
 
-### I2C Address <a href="#i2c-address" id="i2c-address"></a>
+## I2C Address <a href="#i2c-address" id="i2c-address"></a>
 
 | Chip         | ADDRESS |
 | ------------ | ------- |
@@ -91,7 +97,7 @@ Sound output on CoreS3 is optimized with the high-fidelity 16-bit I2S power ampl
 | BMI270 ADDR  | 0x69    |
 | BMM150 ADDR  | 0x10    |
 
-### PinMap <a href="#pinmap" id="pinmap"></a>
+## PinMap <a href="#pinmap" id="pinmap"></a>
 
 **LCD Screen & TF Card**
 
@@ -162,27 +168,27 @@ The LTR-553ALS-WA proximity sensor and camera are integrated in a single line, u
 | PORT-B(BLACK) | G9/G8   | GPIO        |
 | PORT-C(BLUE)  | G18/G17 | UART(RX/TX) |
 
-### M5CoreS3 M-BUS Schematic diagram <a href="#m5cores3-m-bus-schematic-diagram" id="m5cores3-m-bus-schematic-diagram"></a>
+## M5CoreS3 M-BUS Schematic diagram <a href="#m5cores3-m-bus-schematic-diagram" id="m5cores3-m-bus-schematic-diagram"></a>
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/M5CORES3%20SE/c9024cfa50b8d7c31ca7505668770ee.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (969).png" alt=""><figcaption></figcaption></figure>
 
-### Power Management <a href="#power-management" id="power-management"></a>
+## Power Management <a href="#power-management" id="power-management"></a>
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/CoreS3/%E7%94%B5%E6%BA%90.png" alt=""><figcaption></figcaption></figure>
 
-### Schematics <a href="#schematics" id="schematics"></a>
+## Schematics <a href="#schematics" id="schematics"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-513d30d4-3378-44b9-9d75-4f3f3ac6fb1f.png" alt=""><figcaption></figcaption></figure>
 
 * [Complete schematic pdf](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/Sch_M5_CoreS3_v1.0.pdf)
 
-### Model Size <a href="#model-size" id="model-size"></a>
+## Model Size <a href="#model-size" id="model-size"></a>
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/CoreS3/%E5%B0%BA%E5%AF%B8%E5%9B%BE.png" alt=""><figcaption></figcaption></figure>
 
-### Related Link <a href="#related-link" id="related-link"></a>
+## Related Link <a href="#related-link" id="related-link"></a>
 
 * [LTR-553ALS-WA](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/LTR-553ALS-WA.PDF)
 * [GC0308](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/GC0308.PDF)

@@ -1,12 +1,18 @@
 # Waveshare ESP32-S3 Touch LCD 1.85C BOX Engineering Guide
 
+{% hint style="info" %}
+[**View Waveshare ESP32-S3 Touch LCD 1.85C BOX on OpenELAB**](https://openelab.io/products/waveshare-esp32-s3-1-85-round-lcd)
+
+**Product/option:** Waveshare ESP32-S3 Touch LCD 1.85C BOX · **Workbook SKU:** `Waveshare-30684`
+{% endhint %}
+
 [Waveshare-30684](https://openelab.io/products/waveshare-esp32-s3-1-85-round-lcd)
 
-### Product and scope
+## Product and scope
 
 **30684 ESP32-S3-Touch-LCD-1.85C-BOX** combines a touch-display MCU board with a speaker enclosure and battery configuration. The manufacturer replaced V1 with **V2 from 30 January 2026**; identify the received revision before flashing.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item            | Reference                                                |
 | --------------- | -------------------------------------------------------- |
@@ -18,7 +24,7 @@
 
 The official **version compatibility notes, schematic and pin map** govern display/audio initialization and power. Use the BOX enclosure/dimensional resources; bare-board photographs do not establish battery or speaker inclusion.
 
-### Getting started
+## Getting started
 
 1. Identify V1/V2 and verify the battery/speaker connections against that revision.
 2. Record the factory firmware and test it before erasing.
@@ -28,11 +34,11 @@ The official **version compatibility notes, schematic and pin map** govern displ
 
 **Expected checkpoint:** a responsive local UI and independently working audio path without resets under load.
 
-### Development software and recovery
+## Development software and recovery
 
 Keep the exact hardware revision, example commit and toolchain. Use the manufacturer-supported factory binary and flash layout for recovery. A generic ESP32-S3 image can omit power and audio initialization even if flashing succeeds.
 
-### FAQs
+## FAQs
 
 **A V1 example compiles but fails?** Check V2 compatibility and changed peripheral definitions.
 
@@ -40,7 +46,7 @@ Keep the exact hardware revision, example commit and toolchain. Use the manufact
 
 **Powered but USB absent?** Check data cable and documented download mode.
 
-### Sources and validation
+## Sources and validation
 
 * [Current model and revision compatibility](https://docs.waveshare.com/ESP32-S3-Touch-LCD-1.85C)
 * [Legacy model resource index](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-1.85C)

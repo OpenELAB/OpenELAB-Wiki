@@ -1,12 +1,18 @@
 # Waveshare UGV Beast Engineering Guide
 
+{% hint style="info" %}
+[**View Waveshare UGV Beast on OpenELAB**](https://openelab.io/products/waveshare-ugv-beast-ros2-robot)
+
+**Model/option:** Waveshare UGV Beast · **Top-200 SKU:** `Waveshare-28695`
+{% endhint %}
+
 [Waveshare-28695](https://openelab.io/products/waveshare-ugv-beast-ros2-robot)
 
-### Product and scope
+## Product and scope
 
 **28695 UGV Beast** is a tracked mobile-robot platform with Raspberry Pi host options and an ESP32 lower controller. Confirm the actual Pi, pan-tilt and software package; UGV Rover and different ROS kits have separate scopes.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                 | Reference                                                                   |
 | -------------------- | --------------------------------------------------------------------------- |
@@ -18,7 +24,7 @@
 
 The UGV-Beast wiki supplies **assembly, battery/power, wiring, host-image and controller resources**. Verify the actual battery/polarity and controller interface before starting. A store title mentioning ROS2 does not establish that every factory image runs the same ROS stack.
 
-### Getting started
+## Getting started
 
 1. Check track/mechanical assembly and battery wiring, keeping the tracks clear of the bench.
 2. Boot the manufacturer image matched to the installed Pi.
@@ -28,11 +34,11 @@ The UGV-Beast wiki supplies **assembly, battery/power, wiring, host-image and co
 
 **Expected checkpoint:** reliable low-level control and stop behavior with a working host-camera connection.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the UGV-Beast manufacturer's source/firmware resources and preserve both Raspberry Pi image and ESP32 firmware revisions. Host and lower-controller recovery are separate. Do not flash a Rover lower-controller image merely because both robots use ESP32.
 
-### FAQs
+## FAQs
 
 **The web UI works but motors do not?** Check lower-controller link, battery, power enable and selected chassis configuration.
 
@@ -40,7 +46,7 @@ Use the UGV-Beast manufacturer's source/firmware resources and preserve both Ras
 
 **Can I run a generic ROS launch file?** Confirm topics, transforms and controller protocol first.
 
-### Sources and validation
+## Sources and validation
 
 * [Official hardware/setup wiki](https://www.waveshare.com/wiki/UGV-Beast)
 * [Manufacturer kit options](https://www.waveshare.com/product/ugv-beast.htm)

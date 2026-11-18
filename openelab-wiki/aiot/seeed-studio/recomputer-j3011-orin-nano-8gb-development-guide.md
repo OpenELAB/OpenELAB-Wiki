@@ -1,12 +1,18 @@
 # Seeed Studio reComputer J3011 Orin Nano 8GB Engineering Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reComputer J3011 Orin Nano 8GB on OpenELAB**](https://openelab.io/products/seeed-studio-recomputer-j3011-edge)
+
+**Model/variant:** Seeed Studio reComputer J3011 Orin Nano 8GB · **OpenELAB SKU:** `Seeed-110110147`
+{% endhint %}
+
 [Seeed-110110147](https://openelab.io/products/seeed-studio-recomputer-j3011-edge)
 
-### Product and scope
+## Product and scope
 
 **110110147 reComputer J3011** is the original J30/40-family **Jetson Orin Nano 8GB** system. Mini, Robotics, Super and Industrial J3011 packages use different carrier/configuration scopes.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item         | Reference                                               |
 | ------------ | ------------------------------------------------------- |
@@ -18,7 +24,7 @@
 
 Use the J30/40 setup guide's **hardware specifications, carrier diagrams and resource links**. Do not transfer GMSL, power or connector assumptions from a Robotics J4012 or AGX Orin kit.
 
-### Getting started
+## Getting started
 
 1. Identify the module/carrier and retain cooling and supported supply.
 2. Boot the delivered image, complete user setup and connect Ethernet.
@@ -28,11 +34,11 @@ Use the J30/40 setup guide's **hardware specifications, carrier diagrams and res
 
 **Expected checkpoint:** stable boot with the correct Orin Nano memory/module identity and a reproducible software baseline.
 
-### Development software and recovery
+## Development software and recovery
 
 Use Seeed's flashing selector for the **original/classic J3011 carrier**. Preserve JetPack/L4T, BSP, container and model versions together. Back up storage before the carrier-specific force-recovery/flash procedure.
 
-### FAQs
+## FAQs
 
 **Can the Super J3011 guide be reused?** Confirm hardware/BSP compatibility; the product names identify different scopes.
 
@@ -40,7 +46,7 @@ Use Seeed's flashing selector for the **original/classic J3011 carrier**. Preser
 
 **Why is peak AI performance different?** Power/software generation and model precision affect it; measure the actual workload.
 
-### Sources and validation
+## Sources and validation
 
 * [Exact J30/40 family setup and resources](https://wiki.seeedstudio.com/reComputer_J30_40_with_Jetson_getting_start/)
 * [Manufacturer model comparison](https://www.seeed.cc/product/recomputer-classic-jetson)

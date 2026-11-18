@@ -23,23 +23,29 @@ layout:
 
 # MG6010-i6 V3 Dual Encoder Robot Motor
 
-### MG6010-i6 V3 Dual Encoder Robot Motor
+{% hint style="info" %}
+[**View MG6010-i6 V3 Dual Encoder Robot Motor on OpenELAB**](https://openelab.io/products/mg6010-i6-v3-dual-encoder-robot-motor)
+
+**Model/variant:** MG6010-i6 V3 Dual Encoder Robot Motor · **OpenELAB SKU:** `TB-LKM-MG6010-i6C`
+{% endhint %}
+
+## MG6010-i6 V3 Dual Encoder Robot Motor
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/mg6010-i6-v3-dual-encoder-robot-motor" %}
 
-### Description
+## Description
 
 The **MG6010E-i6V3** is a high-efficiency brushless servo motor with a compact form factor, integrated planetary gearbox, and **dual encoder system (18-bit motor + 14-bit reducer)** for precision motion control. Engineered for demanding robotics applications, it delivers **5 Nm rated torque** and **10 Nm peak torque**, making it ideal for robotic joints, AGVs, and quadruped platforms that require compact power and accuracy.
 
-### Resource
+## Resource
 
 {% file src="../../.gitbook/assets/MG60.zip" %}
 
-### Feature
+## Feature
 
 * **Torque**: 5 Nm rated / 10 Nm peak
 * **Speed**: 170 rpm (24V) / 391 rpm (48V), max 505 rpm
@@ -55,7 +61,7 @@ The **MG6010E-i6V3** is a high-efficiency brushless servo motor with a compact f
 
 <figure><img src="../../.gitbook/assets/image (1082).png" alt=""><figcaption></figcaption></figure>
 
-### Specification
+## Specification
 
 | Parameter       | Value                                 |
 | --------------- | ------------------------------------- |
@@ -76,4 +82,3 @@ The **MG6010E-i6V3** is a high-efficiency brushless servo motor with a compact f
 <figure><img src="../../.gitbook/assets/image (1084).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (1085).png" alt=""><figcaption></figcaption></figure>
-

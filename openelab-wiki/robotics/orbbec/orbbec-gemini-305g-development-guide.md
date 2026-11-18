@@ -1,12 +1,18 @@
 # Orbbec Gemini 305g Engineering Guide
 
+{% hint style="info" %}
+[**View Orbbec Gemini 305g on OpenELAB**](https://openelab.io/products/orbbec-gemini-305g-wrist-camera)
+
+**Model/option:** Orbbec Gemini 305g · **OpenELAB SKU:** `ORBBEC-Gemini-305G`
+{% endhint %}
+
 [ORBBEC-Gemini-305G](https://openelab.io/products/orbbec-gemini-305g-wrist-camera)
 
-### Product and scope
+## Product and scope
 
 **Gemini 305g** is a close-range stereo RGB-D camera for robot wrists and manipulation. It adds a **GMSL2/FAKRA** path to the Gemini 305 design and also provides USB-C. GMSL host integration is separate from USB SDK installation.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item             | Reference                                       |
 | ---------------- | ----------------------------------------------- |
@@ -19,7 +25,7 @@
 
 Use the product's **mechanical drawing, mounting/thread details and GMSL system guide**. USB power follows its USB contract; do not apply GMSL's 12V to USB. Confirm deserializer, carrier and cable compatibility before integration.
 
-### Getting started
+## Getting started
 
 1. For initial evaluation, use the supported USB setup and **Orbbec SDK v2 / Viewer** to confirm camera identity and a depth image.
 2. Place a matte target within the ideal near-field range and select a supported stream pair.
@@ -29,11 +35,11 @@ Use the product's **mechanical drawing, mounting/thread details and GMSL system 
 
 **Expected checkpoint:** stable depth/color streaming on the selected interface with recorded firmware and SDK/driver versions.
 
-### Development software and recovery
+## Development software and recovery
 
 Use **OrbbecSDK\_v2**. GMSL additionally requires **MIPI\_Camera\_Platform\_Driver** and the exact carrier's device-tree/driver support. The official compatibility guide lists Gemini 305g support from driver **v1.2.12 or above** for its stated solutions; verify the current platform matrix. Follow model-specific firmware recovery instructions.
 
-### FAQs
+## FAQs
 
 **A FAKRA connector fits but there is no image?** Verify serializer/deserializer and carrier-driver support.
 
@@ -41,7 +47,7 @@ Use **OrbbecSDK\_v2**. GMSL additionally requires **MIPI\_Camera\_Platform\_Driv
 
 **Grasping coordinates are wrong?** Validate intrinsics, stream alignment, optical frames and hand-eye transform.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer model specifications/drawings](https://www.orbbec.com/gemini-305g/)
 * [Power/interface comparison](https://store.orbbec.com/products/gemini-305g)

@@ -1,12 +1,18 @@
 # M5Stack Unit NFC U216 Development Guide
 
+{% hint style="info" %}
+[**View M5Stack Unit NFC U216 on OpenELAB**](https://openelab.io/products/m5stack-nfc-universal-unit-st25r3916)
+
+**Product/option:** M5Stack Unit NFC U216 · **Workbook SKU:** `M5-U216`
+{% endhint %}
+
 [M5-U216](https://openelab.io/products/m5stack-nfc-universal-unit-st25r3916)
 
-### Product and scope
+## Product and scope
 
 **U216 Unit NFC** is a 13.56MHz NFC front end for tag interfaces, identification prototypes and your own contactless applications. It uses a different host connection from the ST25R3916-based Cap CC1101 accessory.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item               | Reference                                                          |
 | ------------------ | ------------------------------------------------------------------ |
@@ -18,7 +24,7 @@
 
 The official page links the **schematic and dimensional drawing**. Read its **CoreS3 Grove-port connection note** before wiring: a matching plug does not establish correct signal routing. Protocol support and tag permissions/lock bits constrain write operations.
 
-### Getting started
+## Getting started
 
 1. Connect the unit to the supported host with power off, following its pin map.
 2. Install **M5Unit-NFC**, M5UnitUnified and the documented host dependencies.
@@ -28,11 +34,11 @@ The official page links the **schematic and dimensional drawing**. Read its **Co
 
 **Expected checkpoint:** repeatable identification of a compatible test tag with the correct unit target.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the official Arduino example and library target matrix. Record library/host versions. Reader, writer and emulation examples have different support; the library release notes explicitly distinguish modes. Recover the host application through its normal flashing procedure; this unit is not an independent ESP32 controller.
 
-### FAQs
+## FAQs
 
 **I2C scans but NFC fails?** Check the target, host port wiring, IRQ/control requirements and tag standard.
 
@@ -40,7 +46,7 @@ Use the official Arduino example and library target matrix. Record library/host 
 
 **Read range is short?** Check tag orientation, antenna proximity and metal near the coil.
 
-### Sources and validation
+## Sources and validation
 
 * [Hardware, CoreS3 note and schematic](https://docs.m5stack.com/en/unit/Unit_NFC)
 * [Official Arduino example](https://docs.m5stack.com/en/arduino/projects/unit/unit_nfc)

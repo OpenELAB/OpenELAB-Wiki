@@ -1,12 +1,18 @@
 # LSLiDAR C1 Mechanical LiDAR Engineering Guide
 
+{% hint style="info" %}
+[**View LSLiDAR C1 Mechanical LiDAR on OpenELAB**](https://openelab.io/products/lslidar-c1-mechanical-lidar-sensor)
+
+**Model/option:** LSLiDAR C1 Mechanical LiDAR · **OpenELAB SKU:** `LSLiDAR-C1`
+{% endhint %}
+
 [LSLiDAR-C1](https://openelab.io/products/lslidar-c1-mechanical-lidar-sensor)
 
-### Product and scope
+## Product and scope
 
 **C1** is a single-line 360° mechanical LiDAR for planar localization and obstacle sensing. It is distinct from M10 PHY and multi-channel C16/C32 products. Check the received revision against the current C1 reference.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item                    | Reference                                                            |
 | ----------------------- | -------------------------------------------------------------------- |
@@ -18,7 +24,7 @@
 
 Use the manufacturer's **C1 product parameters, dimensional drawing and integration manual** for actual interface, power and cable pinout. Do not transfer a C16 connector diagram or range specification to C1.
 
-### Getting started
+## Getting started
 
 1. Identify C1 revision and obtain the matching manual/connection package.
 2. Mount securely with unobstructed scan plane, then connect the specified supply/data cable.
@@ -28,11 +34,11 @@ Use the manufacturer's **C1 product parameters, dimensional drawing and integrat
 
 **Expected checkpoint:** a stable planar scan using a confirmed C1 decoder.
 
-### Development software and recovery
+## Development software and recovery
 
 Select the C1-specific SDK/ROS package from the manufacturer support resources or supplied integration package. A generic LSLiDAR repository name is insufficient evidence of C1 compatibility. Preserve firmware, driver revision and packet/configuration documents. Use model-specific firmware/recovery instructions.
 
-### FAQs
+## FAQs
 
 **Why are older specifications different?** Confirm revision and measurement conditions against the exact manual.
 
@@ -40,7 +46,7 @@ Select the C1-specific SDK/ROS package from the manufacturer support resources o
 
 **Can it replace a certified safety scanner?** A ranging sensor alone does not establish the system's required safety functions.
 
-### Sources and validation
+## Sources and validation
 
 * [Exact manufacturer C1 page and technical resources](https://www.lslidar.com/product/c1-single-line-mechanical-lidar/)
 

@@ -1,12 +1,18 @@
 # Hiwonder LanderPi Engineering Guide
 
+{% hint style="info" %}
+[**View Hiwonder LanderPi on OpenELAB**](https://openelab.io/products/landerpi-robot-car)
+
+**Model/option:** Hiwonder LanderPi · **OpenELAB SKU:** `Hiwonder-21031623`
+{% endhint %}
+
 [Hiwonder-21031623](https://openelab.io/products/landerpi-robot-car)
 
-### Product and scope
+## Product and scope
 
 **LanderPi**, OpenELAB **21031623**, combines a Raspberry Pi mobile base, arm and perception hardware for ROS development. Confirm the kit's Pi generation, LiDAR and camera; do not select a driver from an older LanderPi photograph.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item          | Reference                                            |
 | ------------- | ---------------------------------------------------- |
@@ -18,7 +24,7 @@
 
 The model's **User Manual** supplies assembly, connection diagrams and software resources. Use the actual LiDAR label and the documented type-selection tool when a sensor revision changes. Verify power/charging specifications from the supplied equipment and manual.
 
-### Getting started
+## Getting started
 
 1. Check mechanical assembly and wiring with power off; restrain the wheels for first startup and unload the arm.
 2. Boot the supplied image and connect using the manual's Wi-Fi/app or remote-desktop workflow.
@@ -28,11 +34,11 @@ The model's **User Manual** supplies assembly, connection diagrams and software 
 
 **Expected checkpoint:** controlled movement, live scan/camera data and an arm that moves predictably in the configured coordinate frame.
 
-### Development software and recovery
+## Development software and recovery
 
 Use the LanderPi image, source and tutorials matching the received hardware. Save image version, sensor model selections, serial mapping and calibration. Restore the supported system image for host recovery; changing a LiDAR driver cannot repair a poor cable connection.
 
-### FAQs
+## FAQs
 
 **LiDAR has power but no serial data?** Check both cable ends, interface enumeration, permissions and the selected model.
 
@@ -40,7 +46,7 @@ Use the LanderPi image, source and tutorials matching the received hardware. Sav
 
 **Can another Hiwonder robot image be used?** Use a LanderPi-supported image with the correct controller/sensor configuration.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer product](https://www.hiwonder.com/products/landerpi)
 * [Official user manual and tutorial navigation](https://wiki.hiwonder.com/projects/LanderPi/en/latest/docs/1_LanderPi_User_Manual.html)

@@ -1,12 +1,18 @@
 # HELTEC Mesh Node T1 and T096 Engineering Guide
 
+{% hint style="info" %}
+[**View HELTEC Mesh Node T1 on OpenELAB**](https://openelab.io/products/heltec-mesh-node-t1-lora-position-tag) · [**View HELTEC Mesh Node T096 on OpenELAB**](https://openelab.io/products/heltec-mesh-node-t096-863-870mhz)
+
+**Product/option:** HELTEC Mesh Node T1 and T096 · **Workbook SKUs:** `HT-Mesh-T1`, `HT-MeshT096` · Select the purchased hardware revision and firmware/radio option.
+{% endhint %}
+
 [HT-Mesh-T1](https://openelab.io/products/heltec-mesh-node-t1-lora-position-tag) · [HT-MeshT096](https://openelab.io/products/heltec-mesh-node-t096-863-870mhz)
 
-### Product and scope
+## Product and scope
 
 HELTEC **T1** and **T096** are nRF52840/SX1262 LoRa positioning devices. They support model-specific firmware paths including Meshtastic and MeshCore; factory features, buttons and recovery sequences differ.
 
-### Hardware and technical documents
+## Hardware and technical documents
 
 | Item              | Reference                                                                 |
 | ----------------- | ------------------------------------------------------------------------- |
@@ -18,7 +24,7 @@ HELTEC **T1** and **T096** are nRF52840/SX1262 LoRa positioning devices. They su
 
 Use each product page's **specifications, pin map and resource downloads**. T1's protection rating is not automatically the T096 rating. Confirm battery, antenna and charging/solar requirements from the actual model; do not substitute a different board's power circuit.
 
-### Getting started
+## Getting started
 
 1. Identify the model and RF variant. Attach the correct antenna before transmitting.
 2. For the factory application, follow HELTEC's Quick Start. For a mesh app, select the exact supported model and protocol.
@@ -28,11 +34,11 @@ Use each product page's **specifications, pin map and resource downloads**. T1's
 
 **Expected checkpoint:** recognized model, successful peer communication and separately verified GNSS data.
 
-### Development software and recovery
+## Development software and recovery
 
 HELTEC links its nRF52840 Arduino framework for custom development. Record target and library versions, and do not confuse LoRa PHY support with a complete LoRaWAN stack. Preserve configuration before flashing; use the model's supported bootloader/DFU route for recovery.
 
-### FAQs
+## FAQs
 
 **Can T1 and T096 use one binary?** Use distinct model targets unless HELTEC explicitly provides a common build.
 
@@ -40,7 +46,7 @@ HELTEC links its nRF52840 Arduino framework for custom development. Record targe
 
 **Can factory and MeshCore nodes exchange application messages?** Only when they run a compatible protocol and configuration.
 
-### Sources and validation
+## Sources and validation
 
 * [T1 hardware and resources](https://heltec.org/project/mesh-node-t1/)
 * [T096 hardware and resources](https://heltec.org/project/t096/)

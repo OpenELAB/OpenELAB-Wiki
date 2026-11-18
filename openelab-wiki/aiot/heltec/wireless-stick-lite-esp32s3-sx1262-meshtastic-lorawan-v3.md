@@ -23,15 +23,21 @@ layout:
 
 # Wireless Stick Lite ESP32S3 SX1262 Meshtastic LoRaWAN V3
 
-### HELTEC Wireless Stick Lite ESP32S3 SX1262 Meshtastic LoRaWAN 868Mhz V3
+{% hint style="info" %}
+[**View Wireless Stick Lite ESP32S3 SX1262 Meshtastic LoRaWAN V3 on OpenELAB**](https://openelab.io/products/heltec-wireless-stick-lite-esp32s3)
+
+**Model/option:** Wireless Stick Lite ESP32S3 SX1262 Meshtastic LoRaWAN V3 · **Top-200 SKU:** `HT-WS-Lite-V3`
+{% endhint %}
+
+## HELTEC Wireless Stick Lite ESP32S3 SX1262 Meshtastic LoRaWAN 868Mhz V3
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/heltec-wireless-stick-lite-esp32s3" %}
 
-### Description
+## Description
 
 HTIT-WSL is a development board for Wi-Fi, Bluetooth and LoRa. Because some customers do not need OLED screen when using WiFi Lora32, we launched this product.
 
@@ -39,7 +45,7 @@ The HTIT-WSL is composed up of an MCU (ESP32-S3FN8) and Semtech LoRa Transceiver
 
 <figure><img src="../../.gitbook/assets/image (282).png" alt=""><figcaption></figcaption></figure>
 
-### Features
+## Features
 
 * Microprocessor: ESP32-S3FN8 (Xtensa® 32-bit LX7 dual core processor, five stage pipeline rack Structure, main frequency up to 240MHz).
 * SX1262 LoRa node chip.
@@ -50,39 +56,39 @@ The HTIT-WSL is composed up of an MCU (ESP32-S3FN8) and Semtech LoRa Transceiver
 * Support the Arduino development environment;
 * With good RF circuit design and basic low-power design (sleep current ≤800uA), it is convenient for IoT application vendors to quickly verify solutions and deploy applications;
 
-### Specification
+## Specification
 
-| Parameters                 | Description                                                                                                                 |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Master Chip                | ESP32-S3FN8 (Xtensa®32-bit lx7 dual core processor)                                                                         |
-| LoRa Chipset               | SX1262                                                                                                                      |
-| USB to Serial Chip         | CP2102                                                                                                                      |
-| Frequency                  | <p>470~510MHz,<br>863~928MHz</p>                                                                                            |
-| Max. TX Power              | 21d B ± 1d B                                                                                                                |
-| Max. Receiving sensitivity | -134dBm                                                                                                                     |
-| Wi-Fi                      | 802.11 b/g/n, up to 150Mbps                                                                                                 |
-| Bluetooth LE               | Bluetooth 5, Bluetooth mesh                                                                                                 |
-| Hardware Resource          | <p>7*ADC1 + 9*ADC2;<br>8*Touch;<br>3*UART;<br>2*I2C;<br>2*SPI; etc.</p>                                                     |
-| Memory                     | <p>384KB ROM;<br>512KB SRAM;<br>16KB RTC SRAM;<br>8MB SiP Flash</p>                                                         |
-| Battery                    | 3.7V lithium battery power supply and charging                                                                              |
-| Operating temperature      | -20 \~ 70 ℃                                                                                                                 |
-| Dimensions                 | 58.08 \* 22.6\* 8.2 mm                                                                                                      |
-| Interface                  | <p>Type-C USB;<br>2*1.25 lithium battery interface;<br>LoRa ANT(IPEX1.0);<br>2.4G ANT(IPEX1.0);<br>2*20*2.54 Header Pin</p> |
+| Parameters                 | Description                                                                                                                                                   |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Master Chip                | ESP32-S3FN8 (Xtensa®32-bit lx7 dual core processor)                                                                                                           |
+| LoRa Chipset               | SX1262                                                                                                                                                        |
+| USB to Serial Chip         | CP2102                                                                                                                                                        |
+| Frequency                  | <p>470<del>510MHz,</del><br><del>863</del>928MHz</p>                                                                                                          |
+| Max. TX Power              | 21d B ± 1d B                                                                                                                                                  |
+| Max. Receiving sensitivity | -134dBm                                                                                                                                                       |
+| Wi-Fi                      | 802.11 b/g/n, up to 150Mbps                                                                                                                                   |
+| Bluetooth LE               | Bluetooth 5, Bluetooth mesh                                                                                                                                   |
+| Hardware Resource          | <p>7<em>ADC1 + 9</em>ADC2;<br>8<em>Touch;</em><br><em>3</em>UART;<br>2<em>I2C;</em><br><em>2</em>SPI; etc.</p>                                                |
+| Memory                     | <p>384KB ROM;<br>512KB SRAM;<br>16KB RTC SRAM;<br>8MB SiP Flash</p>                                                                                           |
+| Battery                    | 3.7V lithium battery power supply and charging                                                                                                                |
+| Operating temperature      | -20 \~ 70 ℃                                                                                                                                                   |
+| Dimensions                 | 58.08 \* 22.6\* 8.2 mm                                                                                                                                        |
+| Interface                  | <p>Type-C USB;<br>2<em>1.25 lithium battery interface;</em><br><em>LoRa ANT(IPEX1.0);</em><br><em>2.4G ANT(IPEX1.0);</em><br><em>2</em>20*2.54 Header Pin</p> |
 
-### Pin Map
+## Pin Map
 
 <figure><img src="../../.gitbook/assets/image (283).png" alt=""><figcaption></figcaption></figure>
 
-### Resource
+## Resource
 
-* [Heltec ESP32 framework and lib installation](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series)&#x20;
+* [Heltec ESP32 framework and lib installation](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series)
 * [Hardware Update Logs](https://docs.heltec.org/en/node/esp32/wireless_stick/hardware_update_log.html)
 * [Datasheet](https://resource.heltec.cn/download/Wireless_Stick_Lite_V3/HTIT-WSL_V3\(Rev1.1\).pdf)
 * [Schematic\_Diagram](https://resource.heltec.cn/download/Wireless_Stick_Lite_V3/HTIT-WSL_V3_Schematic_Diagram.pdf)
 * [User Manual Document](https://docs.heltec.org/en/node/esp32/wireless_stick/index.html)
 * [Heltec LoRaWAN test server based on SnapEmu](https://platform.snapemu.com/dashboard/)
 
-### FAQ
+## FAQ
 
 {% stepper %}
 {% step %}

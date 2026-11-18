@@ -1,8 +1,14 @@
 # Seeed Studio XIAO ESP32-C5 Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO ESP32-C5 on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-esp32-c5)
+
+**Model/option:** Seeed Studio XIAO ESP32-C5 · **OpenELAB SKU:** `Seeed-100010048`
+{% endhint %}
+
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-xiao-esp32-c5)
 
-### Product, applications and hardware
+## Product, applications and hardware
 
 **100010048** is the XIAO **ESP32-C5** for compact dual-band Wi-Fi devices and sensor prototypes. C3, C5, C6 and S3 boards have different processors, pin maps and firmware targets.
 
@@ -17,7 +23,7 @@
 
 Consult the manufacturer's schematic and complete pin table before wiring. For example, **D4/D5 map to GPIO23/GPIO24**, and D10 is GPIO10. Board labels are not chip pin numbers. Keep GPIO within the board's documented logic limits.
 
-### Getting started: offline LED test
+## Getting started: offline LED test
 
 1. Connect a USB-C data cable. Leave external hardware disconnected.
 2. Install Arduino IDE and **Espressif ESP32 board package 3.3.5 or later**, as specified in the reviewed manufacturer guide.
@@ -38,13 +44,13 @@ void loop() {
 
 **Expected result:** the user LED alternates once per second. This checks build, upload and execution without needing Wi-Fi credentials.
 
-### Development and recovery
+## Development and recovery
 
 Use the official C5 board definition for PlatformIO, or a supported ESP-IDF/MicroPython build for this exact model. Record the board package and toolchain version; a generic ESP32 target is insufficient.
 
 If the application prevents uploads, use the guide's BOOT/reset download-mode sequence, reselect the new port and retry the minimal sketch. Back up flash/configuration before erasing.
 
-### FAQs
+## FAQs
 
 **No USB port?** Check cable, port, driver and boot mode.
 
@@ -52,7 +58,7 @@ If the application prevents uploads, use the guide's BOOT/reset download-mode se
 
 **Old XIAO code behaves differently?** Recheck pin mapping, target, PSRAM settings and dependencies before connecting external loads.
 
-### Sources and validation
+## Sources and validation
 
 * [Manufacturer getting started, schematic and pinout links](https://wiki.seeedstudio.com/xiao_esp32c5_getting_started/)
 * [Official board definition](https://github.com/Seeed-Studio/platform-seeedboards/blob/main/boards/seeed-xiao-esp32-c5.json)
