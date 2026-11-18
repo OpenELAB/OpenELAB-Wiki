@@ -1,9 +1,9 @@
 # Seeed SO-101 Pro Servo Motor Kit: assembly and role configuration
 
 {% hint style="info" %}
-[**View Seeed SO-101 Pro Servo Motor Kit: assembly and role configuration on OpenELAB**](https://openelab.io/products/seeed-studio-so-101-pro-servo-motor-kit-lerobot)
+[**View Seeed Studio SO-101 Pro Servo Motor Kit on OpenELAB**](https://openelab.io/products/seeed-studio-so-101-pro-servo-motor-kit-lerobot)
 
-**Model/variant:** Seeed SO-101 Pro Servo Motor Kit: assembly and role configuration · **OpenELAB SKU:** `Seeed-114993667` · Match the model and gear/ID to the leader or follower arm before installation.
+**Model/variant:** Seeed Studio SO-101 Pro Servo Motor Kit · **OpenELAB SKU:** `Seeed-114993667` · Match the model and gear/ID to the leader or follower arm before installation.
 {% endhint %}
 
 [Seeed-114993667](https://openelab.io/products/seeed-studio-so-101-pro-servo-motor-kit-lerobot)

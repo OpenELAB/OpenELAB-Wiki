@@ -1,9 +1,9 @@
 # AgileX PiPER desktop fixture: installation and mechanical checks
 
 {% hint style="info" %}
-[**View AgileX PiPER desktop fixture: installation and mechanical checks on OpenELAB**](https://openelab.io/products/agilex-piper-desktop-fixture-kit)
+[**View AgileX PiPER desktop fixture on OpenELAB**](https://openelab.io/products/agilex-piper-desktop-fixture-kit)
 
-**Product/option:** AgileX PiPER desktop fixture: installation and mechanical checks · **Workbook SKU:** `Agilex-PiPER-Desktop-Fixture`
+**Product/option:** AgileX PiPER desktop fixture · **Workbook SKU:** `Agilex-PiPER-Desktop-Fixture`
 {% endhint %}
 
 [Agilex-PiPER-Desktop-Fixture](https://openelab.io/products/agilex-piper-desktop-fixture-kit)

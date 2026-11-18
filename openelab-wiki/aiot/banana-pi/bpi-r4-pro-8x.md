@@ -1,9 +1,9 @@
 # Banana Pi BPI-R4 Pro 8X: image selection and first network setup
 
 {% hint style="info" %}
-[**View Banana Pi BPI-R4 Pro 8X: image selection and first network setup on OpenELAB**](https://openelab.io/products/banana-pi-bpi-r4-pro)
+[**View Banana Pi BPI-R4 Pro 8X on OpenELAB**](https://openelab.io/products/banana-pi-bpi-r4-pro)
 
-**Model/variant:** Banana Pi BPI-R4 Pro 8X: image selection and first network setup · **OpenELAB SKU:** `BPI-R4P-8X`
+**Model/variant:** Banana Pi BPI-R4 Pro 8X · **OpenELAB SKU:** `BPI-R4P-8X`
 {% endhint %}
 
 [BPI-R4P-8X](https://openelab.io/products/banana-pi-bpi-r4-pro)

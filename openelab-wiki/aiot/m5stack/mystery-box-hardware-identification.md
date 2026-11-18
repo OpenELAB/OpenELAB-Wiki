@@ -1,9 +1,9 @@
 # M5Stack Mystery Box: identify the hardware and find its development guide
 
 {% hint style="info" %}
-[**View M5Stack Mystery Box: identify the hardware and find its on OpenELAB**](https://openelab.io/products/m5stack-ultimate-blind-box)
+[**View M5Stack Mystery Box on OpenELAB**](https://openelab.io/products/m5stack-ultimate-blind-box)
 
-**Model/option:** M5Stack Mystery Box: identify the hardware and find its · **OpenELAB SKU:** `M5-Box` · Blind/mystery box contents vary by shipment. Identify each physical component before selecting a firmware, pinout or tutorial.
+**Model/option:** M5Stack Mystery Box · **OpenELAB SKU:** `M5-Box` · Blind/mystery box contents vary by shipment. Identify each physical component before selecting a firmware, pinout or tutorial.
 {% endhint %}
 
 [M5-Box](https://openelab.io/products/m5stack-ultimate-blind-box)

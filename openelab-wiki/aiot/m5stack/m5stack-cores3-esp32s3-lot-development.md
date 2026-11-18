@@ -24,9 +24,9 @@ layout:
 # M5Stack CoreS3 ESP32S3 loT Development
 
 {% hint style="info" %}
-[**View M5Stack CoreS3 ESP32S3 loT Development on OpenELAB**](https://openelab.io/products/m5stack-cores3-esp32s3)
+[**View M5Stack CoreS3 (ESP32-S3) on OpenELAB**](https://openelab.io/products/m5stack-cores3-esp32s3)
 
-**Model/option:** M5Stack CoreS3 ESP32S3 loT Development · **Top-200 SKU:** `M5-K128`
+**Model/option:** M5Stack CoreS3 (ESP32-S3) · **Top-200 SKU:** `M5-K128`
 {% endhint %}
 
 ## M5Stack CoreS3 ESP32S3 loT Development Kit

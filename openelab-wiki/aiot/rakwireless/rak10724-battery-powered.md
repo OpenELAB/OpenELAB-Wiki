@@ -1,9 +1,9 @@
 # RAK10724 battery-powered WisMesh booster kit: power and Meshtastic setup
 
 {% hint style="info" %}
-[**View RAK10724 battery-powered WisMesh booster kit: power and Meshtastic setup on OpenELAB**](https://openelab.io/products/rakwireless-wismesh-1w-booster-starter)
+[**View RAK10724 battery-powered WisMesh booster kit on OpenELAB**](https://openelab.io/products/rakwireless-wismesh-1w-booster-starter)
 
-**Model/option:** RAK10724 battery-powered WisMesh booster kit: power and Meshtastic setup · **Top-200 SKU:** `Rak-115280`
+**Model/option:** RAK10724 battery-powered WisMesh booster kit · **Top-200 SKU:** `Rak-115280`
 {% endhint %}
 
 [Rak-115280](https://openelab.io/products/rakwireless-wismesh-1w-booster-starter)

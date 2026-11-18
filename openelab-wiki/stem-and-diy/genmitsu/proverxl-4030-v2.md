@@ -1,9 +1,9 @@
 # Genmitsu PROVerXL 4030 V2: assembly, control and first dry run
 
 {% hint style="info" %}
-[**View Genmitsu PROVerXL 4030 V2: assembly, control and first dry run on OpenELAB**](https://openelab.io/products/proverxl-4030-v2-cnc-router)
+[**View Genmitsu PROVerXL 4030 V2 CNC router on OpenELAB**](https://openelab.io/products/proverxl-4030-v2-cnc-router)
 
-**Product/option:** Genmitsu PROVerXL 4030 V2: assembly, control and first dry run · **Workbook SKU:** `101-60-XL4030V2-EB`
+**Product/option:** Genmitsu PROVerXL 4030 V2 CNC router · **Workbook SKU:** `101-60-XL4030V2-EB`
 {% endhint %}
 
 [101-60-XL4030V2-EB](https://openelab.io/products/proverxl-4030-v2-cnc-router)
