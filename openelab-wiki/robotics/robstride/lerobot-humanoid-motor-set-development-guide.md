@@ -1,18 +1,24 @@
 # RobStride LeRobot Humanoid Motor Set Development Guide
 
+{% hint style="info" %}
+[**View ROBSTRIDE LeRobot Humanoid Motor Set on OpenELAB**](https://openelab.io/products/lerobot-humanoid-robstride-motor-set)
+
+**Model/family:** ROBSTRIDE LeRobot Humanoid Motor Set · **OpenELAB SKU:** `ROBSTRIDE-Huggingface`
+{% endhint %}
+
 ![RobStride LeRobot Humanoid Motor Set Development Guide](../../.gitbook/assets/lerobot-humanoid-motor-set-development-guide.webp)
 
 _Product image: OpenELAB._ [_Image source_](https://cdn.shopify.com/s/files/1/0621/0050/4774/files/TB-ROBSTRIDE-huggingface_01.webp?v=1779450854)_._
 
 [Product at OpenELAB](https://openelab.io/products/lerobot-humanoid-robstride-motor-set) · [Manufacturer wiki hub](./)
 
-### Product scope and applications
+## Product scope and applications
 
 The **Hugging Face LeRobot Humanoid Motor Set, ROBSTRIDE-Huggingface**, supplies 12 integrated RobStride actuators for biped development. The current OpenELAB packing list matches the motor counts in the upstream **LeRobot Humanoid biped** BOM. This is an actuator set: controller, IMU, CAN adapter, power system, printed structure, bearings and fasteners are separate build requirements unless expressly included in your quotation.
 
 Use it for actuator commissioning, joint-mechanism experiments and the documented 12-DOF biped build. The upstream hardware repository currently scopes its build assets to the biped platform; an upper-body CAD view is not a complete upper-body kit or a validated walking policy. HOPE-Jr arm/hand instructions describe a different hardware path.
 
-### Confirmed contents and integration map
+## Confirmed contents and integration map
 
 | Actuator    | Quantity | Upstream BOM location | Reference final IDs |
 | ----------- | -------: | --------------------- | ------------------- |
@@ -25,13 +31,13 @@ Sources: [current set contents](https://openelab.io/products/lerobot-humanoid-ro
 
 Read the individual [00 manual](robstride-00-instruction-manual.md), [02 manual](robstride-02-instruction-manual.md), [03 manual](robstride-03-instruction-manual.md) and [05 manual](robstride-05-instruction-manual.md) for model-specific supply limits, torque ratings, mounting, connector drawings and protocol details. Peak torque is not a continuous operating rating. Do not apply one actuator's wiring or thermal limits to the entire set.
 
-### Hardware and software prerequisites
+## Hardware and software prerequisites
 
 The reference BOM specifies a **Raspberry Pi 5**, **BNO055 or BNO085 IMU**, and a **SAVVYCANFD dual-channel USB CAN-FD adapter**. Use the full BOM for mechanical parts and the project's wiring resources for each branch. Specify the supply and protection for the actual actuator combination and operating loads; a logic-only bench current limit is not the full robot's supply requirement.
 
 The runtime README reviewed at commit **e4dc62795e83b2e69580cad4d3229bdb558e912e** documents **Ubuntu, Python 3.13 and uv**. Follow its dependency profiles and record hardware, runtime and robot-model revisions together. This runtime is a separate repository; installing the main LeRobot Python package alone does not complete the biped's CAN/IMU integration.
 
-### Getting started: inspect and commission one actuator
+## Getting started: inspect and commission one actuator
 
 Prepare a secured, unloaded actuator with an accessible hardware power cutoff. Keep the output clear of people and mechanisms. Follow the exact model's power polarity, supply range and CAN wiring before energizing it. Commission one motor at a time before installing it in a limb.
 
@@ -56,7 +62,7 @@ This **changes protocol/ID and requests power cycling**; it is not a read-only d
 
 Expected commissioning result: the tool reports the selected ID in **MIT mode** after the requested restarts, without running its default sway. Record serial number, model, physical joint, final ID, protocol and firmware. Investigate any unexpected device/protocol result before connecting the next motor.
 
-### Assembly, first power and runtime progression
+## Assembly, first power and runtime progression
 
 Use the project's [assembly guide](https://github.com/huggingface/lerobot-humanoid-hardware/blob/8171f5799b046f8a696e7b787a34226f119c4797/docs/assembly/assembly_guide.md), connector photos and cabling diagrams. Connector documentation marks several harness pin maps as partial: verify actual polarity/continuity rather than filling the gaps from color or plug shape. Use correct bus-end termination and check CAN-H/CAN-L and ground policy for the actual harness.
 
@@ -64,7 +70,7 @@ After wiring checks, follow the [first-power procedure](https://github.com/huggi
 
 Start the assembled robot runtime in **state\_only** with automatic motor enable disabled. Check all IDs, valid joint states, IMU orientation, offsets, watchdogs and mechanical limits. Complete the runtime's zeroing/calibration and one-joint direction validation before a supported low-amplitude test. Keep the structure supported; policy inference and free-standing locomotion require a separately validated model, calibration and policy.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Symptom or question                      | Check and next step                                                                                                                             |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -75,7 +81,7 @@ Start the assembled robot runtime in **state\_only** with automatic motor enable
 | Can I run a LeRobot example immediately? | Use the biped runtime and its state-only/calibration sequence; examples for an arm, hand or unrelated motor bus do not establish compatibility. |
 | Is the set a complete humanoid?          | It is the listed motor set. Compare all remaining mechanical/electrical parts with the selected BOM revision.                                   |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                                                                           | Use                                                      |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |

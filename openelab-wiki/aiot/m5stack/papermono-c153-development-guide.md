@@ -1,16 +1,22 @@
 # M5Stack PaperMono C153 Development Guide
 
+{% hint style="info" %}
+[**View M5Stack M5Paper Mono C153 on OpenELAB**](https://openelab.io/products/m5stack-m5papermono-with-lora-nfc-800x480-3-97-eink-display)
+
+**Model/family:** M5Stack M5Paper Mono C153 · **OpenELAB SKU:** `M5-C153`
+{% endhint %}
+
 ![M5Stack PaperMono C153 Development Guide](../../.gitbook/assets/papermono-c153-development-guide.webp)
 
 _Manufacturer image: M5Stack._ [_Image source_](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1267/C153_PaperMono_main_pictures_01.webp)_._
 
 [Product at OpenELAB](https://openelab.io/products/m5stack-m5papermono-with-lora-nfc-800x480-3-97-eink-display) · [Manufacturer wiki hub](./)
 
-### Product and model scope
+## Product and model scope
 
 **M5Stack PaperMono C153** is an ESP32-S3 ePaper development device for reading interfaces, battery information terminals, identification prototypes and radio-linked status displays. It is separate from the original M5Paper and PaperS3; those boards' display drivers, pin maps and power arrangements must not be assumed compatible.
 
-### Hardware specifications
+## Hardware specifications
 
 | Item              | PaperMono                                                              |
 | ----------------- | ---------------------------------------------------------------------- |
@@ -24,13 +30,13 @@ _Manufacturer image: M5Stack._ [_Image source_](https://m5stack-doc.oss-cn-shenz
 
 Source: [manufacturer hardware reference](https://docs.m5stack.com/en/core/PaperMono). Use the schematic and dimensions linked below for wiring and mechanical work. Battery capacity is a component specification, not a measured application runtime.
 
-### Development environment
+## Development environment
 
 Install Arduino IDE and the [M5Stack board package](https://docs.m5stack.com/en/arduino/arduino_board), then select **M5PaperMono**. Install **M5Unified, M5GFX, M5PM1 and M5IOE1; add M5UnitUnified/M5Unit-NFC/RadioLib for their peripherals** and accept their dependencies. Record the board-package and library versions alongside your project.
 
 The [PaperMono Arduino guide](https://docs.m5stack.com/en/arduino/papermono/program) is the primary reference for the preset, download mode and current dependency requirements. A generic ESP32-S3 preset can build a sketch while selecting the wrong display/power configuration. UiFlow2 and the factory firmware are alternative applications with their own setup procedures.
 
-### Getting started: one static display update
+## Getting started: one static display update
 
 Prepare the device, a USB-C data cable and a computer. This example needs no Wi-Fi account. It replaces the application currently on the device; keep a recovery reference and export needed settings first.
 
@@ -68,7 +74,7 @@ void loop() {
 
 Expected result: a settled white page with the black test label. A retained image after power-off is normal ePaper behavior. This checks the upload/display path, not every fitted peripheral. The API sequence is based on the official M5Unified/M5GFX example pattern; it remains uncompiled and untested on physical hardware for this guide.
 
-### Touch, NFC, LoRa and refresh limits
+## Touch, NFC, LoRa and refresh limits
 
 This guide covers **C153**, including its NFC and LoRa hardware. PaperMono-Lite is a separate configuration and must not inherit those capabilities. Use the maintained NFC and RadioLib examples for the fitted hardware; confirm radio configuration and antenna requirements before transmitting.
 
@@ -76,7 +82,7 @@ M5Stack's panel guidance recommends a full refresh after roughly ten partial fas
 
 For sleep/frontlight control, follow the M5PM1/M5IOE1 guide and record which rails remain enabled. A working display does not by itself validate NFC, LoRa, microphone or measured sleep current.
 
-### Recovery and troubleshooting
+## Recovery and troubleshooting
 
 | Symptom                              | Check and next step                                                                                     |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------- |
@@ -89,7 +95,7 @@ For sleep/frontlight control, follow the M5PM1/M5IOE1 guide and record which rai
 
 For support, provide board revision, board-package/library versions, firmware/commit, the minimal failing sketch and actual compiler/serial output.
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                     | Use                                           |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------- |

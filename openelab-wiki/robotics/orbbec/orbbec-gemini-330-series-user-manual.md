@@ -1,5 +1,11 @@
 # Orbbec Gemini 330 Series User Manual
 
+{% hint style="info" %}
+[**View Orbbec Gemini 330 camera family on OpenELAB**](https://openelab.io/products/orbbec-gemini-335-stereo-vision-camera-with-infrared-imaging)
+
+**Model/family:** Orbbec Gemini 330 camera family · **OpenELAB SKUs:** `ORBBEC-Gemini-336L`, `ORBBEC-Gemini-335L`, `ORBBEC-Gemini-336`, `ORBBEC-Gemini-335Le` · Check the exact variant and documented differences before using shared instructions.
+{% endhint %}
+
 ## Orbbec Gemini 335 Stereo Vision Camera with Infrared Imaging
 
 {% embed url="https://openelab.io/products/orbbec-gemini-335-stereo-vision-camera-with-infrared-imaging" %}

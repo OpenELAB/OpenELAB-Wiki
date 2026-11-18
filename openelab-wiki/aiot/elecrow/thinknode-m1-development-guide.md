@@ -1,16 +1,22 @@
 # Elecrow ThinkNode M1 Development Guide
 
+{% hint style="info" %}
+[**View Elecrow ThinkNode M1 on OpenELAB**](https://openelab.io/products/elecrow-thinknode-m1-lora-transceiver)
+
+**Model/family:** Elecrow ThinkNode M1 · **OpenELAB SKU:** `ELECROW-CIL12901M-1-868`
+{% endhint %}
+
 ![Elecrow ThinkNode M1 Development Guide](../../.gitbook/assets/thinknode-m1-development-guide.webp)
 
 _Manufacturer image: Elecrow._ [_Image source_](https://elecrow.com/wiki/assets/images/ThinkNode-M1_Transceiver_Device\(Meshtastic\)_Power_By_nRF52840/ThinkNode-M1-A.webp)_._
 
 [Product at OpenELAB](https://openelab.io/products/elecrow-thinknode-m1-lora-transceiver) · [Manufacturer wiki hub](./)
 
-### Product and applications
+## Product and applications
 
 **Elecrow ThinkNode M1, CIL12901M-1**, is a handheld LoRa mesh endpoint for short messages, location sharing and portable mesh experiments. Its Meshtastic application uses a phone for configuration and messaging. “Walkie-talkie” styling or store wording should not be used as evidence of voice-streaming support; this guide covers the documented Meshtastic messaging workflow.
 
-### Hardware and firmware scope
+## Hardware and firmware scope
 
 | Item              | ThinkNode M1                                                                   |
 | ----------------- | ------------------------------------------------------------------------------ |
@@ -24,7 +30,7 @@ _Manufacturer image: Elecrow._ [_Image source_](https://elecrow.com/wiki/assets/
 
 Sources: [Elecrow's model wiki](https://elecrow.com/wiki/ThinkNode-M1_Transceiver_Device\(Meshtastic\)_Power_By_nRF52840.html) and [Meshtastic's ThinkNode hardware reference](https://meshtastic.org/docs/hardware/devices/elecrow/thinknode/). M1 and M5 use different MCU families and firmware formats. Select the exact hardware target, not a visually similar model.
 
-### Getting started: send a message between two nodes
+## Getting started: send a message between two nodes
 
 Prepare the charged ThinkNode M1, its matching antenna, the official Meshtastic phone app and a second compatible node. Start with factory firmware when it already runs the intended ecosystem.
 
@@ -36,7 +42,7 @@ Prepare the charged ThinkNode M1, its matching antenna, the official Meshtastic 
 
 Expected result: two fresh messages received in opposite directions on the selected nodes. Record firmware versions, node IDs, radio settings, antenna orientation and delivery results before increasing distance.
 
-### Updating firmware and developing applications
+## Updating firmware and developing applications
 
 Back up the current configuration first. Use the [Meshtastic flasher](https://flasher.meshtastic.org/) and the **ThinkNode M1** target, following the model wiki's bootloader/USB steps. Use a stable released firmware compatible with that exact target and record its version. Do not feed an M1 UF2 file to the ESP32-based M5 or an M5 binary to the nRF52840 M1.
 
@@ -44,7 +50,7 @@ The [Meshtastic firmware repository](https://github.com/meshtastic/firmware) sup
 
 The model wiki includes control/connection illustrations. Use those and any model-specific hardware repository below for technical documents. Where a complete schematic/CAD package is unavailable, obtain the matching revision before designing a daughterboard or enclosure; an inferred generic pinout is insufficient.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Symptom                                   | Check and next action                                                                                                                     |
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,7 +61,7 @@ The model wiki includes control/connection illustrations. Use those and any mode
 | Runtime differs from marketing examples   | Measure your GNSS/display/radio duty cycle and power source rather than treating battery capacity as a runtime measurement.               |
 | Can it join an arbitrary LoRaWAN gateway? | The documented Meshtastic application uses a different network/application stack; LoRa hardware alone does not establish LoRaWAN support. |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                                                             | Use                                             |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |

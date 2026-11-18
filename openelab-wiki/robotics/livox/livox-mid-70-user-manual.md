@@ -1,5 +1,13 @@
 # LIVOX MID-70 User Manual
 
+**Software and revision note:** This page documents the original MID-70. Obtain its own manual and firmware from the manufacturer; firmware or network settings for MID-360, MID-360S or newer Livox models are not interchangeable without explicit support. Bench/SDK execution has not been performed in this documentation update.
+
+{% hint style="info" %}
+[**View Livox MID-70 on OpenELAB**](https://openelab.io/products/livox-mid-70-compact-lidar3d)
+
+**Model/family:** Livox MID-70 · **OpenELAB SKU:** `Livox-MID-70`
+{% endhint %}
+
 > LIVOX MID-70 User Manual
 
 {% embed url="https://openelab.io/products/livox-mid-70-compact-lidar3d" %}
@@ -222,6 +230,8 @@ Read and understand the following warnings before mounting the Mid-70.
 The bottom surface of the Mid-70 has four M3 mounting holes with a depth of 5mm. Refer to the dimensions and the mounting holes in the diagrams below to mount or embed the Mid-70 to or in an appropriate place on the target base.
 
 <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/e36a4a1e-addd-497f-bcf4-f6209a8cbb2a/image/w=1920,quality=90,fit=scale-down" alt="image" height="205.10989899486663" width="724.8375244140625">
+
+&#x20;
 
 <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/944aaadc-db37-4934-be8b-3c9ed79c6426/image/w=1920,quality=90,fit=scale-down" alt="Figure 3.2.1 The Mid-70 Dimensions (refer to Appendix 1)" height="259.27373889970295" width="724.8250122070312">
 

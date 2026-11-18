@@ -23,26 +23,32 @@ layout:
 
 # SenseCAP Card Tracker T1000-E for Meshtastic
 
-### Seeed Studio SenseCAP Card Tracker T1000-E for Meshtastic
+{% hint style="info" %}
+[**View Seeed Studio SenseCAP Card Tracker T1000-E on OpenELAB**](https://openelab.io/products/seeed-studio-sensecap-tracker-t1000)
+
+**Model/family:** Seeed Studio SenseCAP Card Tracker T1000-E · **OpenELAB SKU:** `Seeed-114993369`
+{% endhint %}
+
+## Seeed Studio SenseCAP Card Tracker T1000-E for Meshtastic
 
 ***
 
-### Product Link
+## Product Link
 
 {% embed url="https://openelab.io/products/seeed-studio-sensecap-tracker-t1000" %}
 
-### Description
+## Description
 
 It is a high-performance tracker designed for [Meshtastic](http://meshtastic.org/), as small as a credit card, effortlessly fitting in your pocket or attaching to your assets. It embeds Semtech's LR1110 (Supports 863-928 MHz range), Nordic's nRF52840, and Mediatek's AG3335 GPS module, providing Meshtastic users with a high-precision, low-power positioning and communication solution.
 
-### Feature
+## Feature
 
 * **Multi-protocol support:** Featuring nRF52840 and LR1110, it supports LoRa (global ISM bands in the 863-928 MHz range). After purchasing the T1000-E, you can freely choose your region in the [Meshtastic app](https://meshtastic.org/docs/configuration/radio/lora/#region). It also supports Bluetooth 5.0, Thread, and Zigbee, ensuring compatibility with a wide range of devices and networks.
 * **Powerful Positioning Capabilities**: Integrated with the Mediatek‘s AG3335 GPS chip, it provides high-precision positioning services.
 * **Expandable Interfaces**: Designed with four pogo pins, it supports USB interface for DFU (Device Firmware Upgrade), serial logging, and API interface, simplifying device management and debugging.
 * **Open Source Support**: Compatible with the Meshtastic open-source mesh networking protocol, suitable for long-range and low-power communication needs.
 
-### Specification
+## Specification
 
 * **General**
 
@@ -71,11 +77,11 @@ It is a high-performance tracker designed for [Meshtastic](http://meshtastic.org
 | **Power Input Voltage**                                                            | 4.7 to 5.5V DC                       |
 | **Charging Temperature Limit**                                                     | 0 to +45℃                            |
 
-### Hardware
+## Hardware
 
 <figure><img src="../../.gitbook/assets/image (350).png" alt=""><figcaption></figcaption></figure>
 
-### Get Started
+## Get Started
 
 #### video Tutorial
 

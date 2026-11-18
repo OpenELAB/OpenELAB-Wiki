@@ -6,17 +6,23 @@ description: >-
 
 # Seeed Studio reComputer Classic J5012 Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reComputer Classic J5012 on OpenELAB**](https://openelab.io/products/seeed-studio-recomputer-classic-j5012-with-nvidia-jetson-agx-orin-64gb)
+
+**Model/family:** Seeed Studio reComputer Classic J5012 · **OpenELAB SKU:** `Seeed-100003716`
+{% endhint %}
+
 ![Seeed Studio reComputer Classic J5012 Development Guide](../../.gitbook/assets/recomputer-classic-j5012-development-guide.jpg)
 
 _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.com/wiki/reComputer-Jetson/Classic_J501/100006184-gallery_img_1.jpg)_._
 
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-recomputer-classic-j5012-with-nvidia-jetson-agx-orin-64gb) · [Manufacturer wiki hub](./)
 
-### Product and applications
+## Product and applications
 
 **reComputer Classic J5012** is Seeed's AGX Orin **64 GB** edge computer for local inference, development and high-memory vision workloads. It uses the Classic J501 carrier, which differs substantially from Robotics J501. The reviewed Classic documentation explicitly says it **does not have GMSL**.
 
-### Model-specific hardware
+## Model-specific hardware
 
 | Item                  | Classic J5012                                                           |
 | --------------------- | ----------------------------------------------------------------------- |
@@ -32,7 +38,7 @@ _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.c
 
 Sources: [Classic J501 guide](https://wiki.seeedstudio.com/ai_robotics_seeed_agx_orin_dev_kit_getting_started/), [Classic carrier datasheet](https://files.seeedstudio.com/wiki/reComputer-Jetson/Classic_J501/reComputer_classic_j501_datasheet.pdf). Confirm module and included SSD/Wi-Fi components from the actual order rather than transferring Robotics-series specifications.
 
-### First boot and a useful baseline
+## First boot and a useful baseline
 
 Prepare the correct manufacturer power supply, monitor/HDMI cable, keyboard and wired network. Attach peripherals while powered off, then apply power and finish the Linux first-run setup. Start with the installed image if it boots; reflashing is a recovery or version-management operation and can overwrite the system disk.
 
@@ -54,7 +60,7 @@ Do not use a desktop-PC CUDA installer or an arbitrary x86 container. Select Jet
 
 Sources: [NVIDIA Jetson Linux developer guide](https://docs.nvidia.com/jetson/archives/r36.4.3/DeveloperGuide/), [tegrastats reference](https://docs.nvidia.com/jetson/archives/r36.4.3/DeveloperGuide/AT/JetsonLinuxDevelopmentTools/TegrastatsUtility.html).
 
-### Expansion and development
+## Expansion and development
 
 Use DisplayPort for the first desktop check; an HDMI-only monitor needs the appropriate supported adapter/cable. For PCIe and CSI, power down before installing hardware and confirm signal/lane mapping and driver support.
 
@@ -62,13 +68,13 @@ The 40-pin connector's CAN pins are **controller-level signals** in the reviewed
 
 For software, record the actual JetPack/L4T release and use its matching Jetson packages or containers. Test a small application first, then measure RAM and thermal behavior under the intended model. A large memory configuration does not make every desktop/x86 package compatible.
 
-### Recovery and firmware
+## Recovery and firmware
 
 Use the **Classic J501 / AGX Orin 64 GB** release table and host-OS requirements. Back up data, connect the carrier's USB-C **flashing** port, and follow the Classic recovery-button/power sequence. The manufacturer lists `0955:7023` for the 64 GB AGX Orin recovery device in `lsusb`.
 
 Flash the exact Classic image and target storage specified by that package; do not choose a Robotics J501 GMSL image. Complete normal first-boot configuration and repeat the baseline checks before restoring applications.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Problem                               | Check                                                                                                                  |
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -78,7 +84,7 @@ Flash the exact Classic image and target storage specified by that package; do n
 | Recovery host cannot detect board     | Correct flashing USB port, data cable, recovery-button sequence and 64 GB image target.                                |
 | New package fails on a working system | Check aarch64/Jetson architecture and JetPack/L4T dependency compatibility before reflashing the entire device.        |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                                             | Use                                 |
 | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |

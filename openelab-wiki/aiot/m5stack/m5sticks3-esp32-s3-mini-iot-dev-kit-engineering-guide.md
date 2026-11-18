@@ -1,5 +1,11 @@
 # M5StickS3 ESP32-S3 Mini IoT Dev Kit Engineering Guide
 
+{% hint style="info" %}
+[**View M5Stack M5StickS3 K150 on OpenELAB**](https://openelab.io/products/m5sticks3-esp32s3-mini-iot-dev-kit)
+
+**Covered model:** M5Stack M5StickS3 K150 · **OpenELAB SKU:** `M5-K150`
+{% endhint %}
+
 <a href="https://openelab.io/products/m5sticks3-esp32s3-mini-iot-dev-kit" class="button primary">Product link: M5StickS3 ESP32S3 Mini IoT Dev Kit on OpenELAB</a>
 
 ## M5StickS3 ESP32-S3 Mini IoT Dev Kit Engineering Guide

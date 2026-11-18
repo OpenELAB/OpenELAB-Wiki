@@ -1,5 +1,11 @@
 # Orbbec Gemini 335 User Manual
 
+{% hint style="info" %}
+[**View Orbbec Gemini 335 on OpenELAB**](https://openelab.io/products/orbbec-gemini-335-stereo-vision-camera-with-infrared-imaging)
+
+**Model/family:** Orbbec Gemini 335 · **OpenELAB SKU:** `ORBBEC-Gemini-335`
+{% endhint %}
+
 ## Orbbec Gemini 335 Stereo Vision Camera with Infrared Imaging
 
 {% embed url="https://openelab.io/products/orbbec-gemini-335-stereo-vision-camera-with-infrared-imaging" %}

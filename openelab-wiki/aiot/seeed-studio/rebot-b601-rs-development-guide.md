@@ -6,19 +6,25 @@ description: >-
 
 # Seeed Studio reBot Arm B601-RS Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reBot Arm B601-RS on OpenELAB**](https://openelab.io/products/seeed-studio-rebot-arm-b601-rs-assembled-kit-with-gripper-without-power-supply)
+
+**Covered model:** Seeed Studio reBot Arm B601-RS · **OpenELAB SKU:** `Seeed-100019336`
+{% endhint %}
+
 ![Seeed Studio reBot Arm B601-RS Development Guide](../../.gitbook/assets/rebot-b601-rs-development-guide.webp)
 
 _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.com/wiki/robotics/projects/rebot_arm/RS5_56.webp)_._
 
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-rebot-arm-b601-rs-assembled-kit-with-gripper-without-power-supply) · [Manufacturer wiki hub](./)
 
-### Product and exact kit scope
+## Product and exact kit scope
 
 **reBot Arm B601-RS** is Seeed's open-source six-axis robotic arm based on RobStride actuators. The structural design, BOM and software are published for developers building manipulation, teleoperation and learning-based robotics experiments. The **B601-DM** uses different actuators and requires its own motor/protocol configuration; similar appearance does not establish compatibility.
 
 This page covers the **assembled B601-RS with gripper, code 100019336**, sold without a power supply. Inspect the actual gripper, cables and USB-CAN adapter supplied with the order. The reBot Arm 102/Star Arm 102 leader is a separate product and power path.
 
-### Hardware and software map
+## Hardware and software map
 
 | Subsystem       | Development reference                                                                       |
 | --------------- | ------------------------------------------------------------------------------------------- |
@@ -31,13 +37,13 @@ This page covers the **assembled B601-RS with gripper, code 100019336**, sold wi
 
 Use the [RS quick-start](https://wiki.seeedstudio.com/rebot_b601_rs_getting_started/) and [open hardware/software repository](https://github.com/Seeed-Projects/reBot-DevArm) for exact joint/BOM revisions, mounting drawings, assembly and load guidance. No payload, reach or accuracy figure is inferred from another reBot revision here.
 
-### Prepare the bench
+## Prepare the bench
 
 Use a rigid fixture or the specified clamps to secure the follower. Support links that could fall when torque is off. Prepare the correct supplied cable assemblies, a suitable preassembled supply, a computer and a physical way to remove drive power. Wire and inspect the low-voltage connections with power off; do not hot-plug motor connectors. Keep the travel area clear before enabling a motor.
 
 This guide uses the manufacturer's MotorBridge first-run workflow. Its current quick-start recommends a physical Ubuntu 24.04 host for that route and also documents Windows/macOS support. Treat the Python/LeRobot environment as a separate software choice: the [LeRobot integration guide](https://wiki.seeedstudio.com/rebot_arm_b601_rs_lerobot/) has its own OS, PyTorch, plugin and communication requirements.
 
-### Getting started: identify all joints before moving
+## Getting started: identify all joints before moving
 
 1. **Confirm RS hardware.** Record motor labels, adapter type and assembly revision. Open the RS hardware/BOM files and match the installed power/communication path.
 2. **Connect while unpowered.** Follow the RS wiring figure for USB-CAN, splitter, first motor and subsequent links. The documented PCAN setup uses the adapter's **120R** setting; verify which adapter you received before applying that setting to a different interface.
@@ -48,13 +54,13 @@ This guide uses the manufacturer's MotorBridge first-run workflow. Its current q
 
 The first checkpoint is **all required joints detected with plausible feedback**, followed by a completed RS calibration and controlled small motion. Launching a GUI or detecting the USB adapter alone is insufficient.
 
-### LeRobot and application development
+## LeRobot and application development
 
 The official [B601 plugin](https://github.com/Seeed-Projects/lerobot-robot-seeed-b601) provides the LeRobot-specific integration. Follow its matching installation/configuration guide and supported bus backend. Pin the selected repository/plugin revision with the installed LeRobot release; do not assume the same commands apply to every fork or package version.
 
 For a graphical path, use the [reBot Arm 102 + B601-RS SenseCraft training guide](https://wiki.seeedstudio.com/sensecraft_robotics_rebot_arm_102_b601_rs/). Keep follower and leader calibration, power, port identity and cameras consistent. Begin with verified teleoperation, then collect a short dataset with a single task before adding autonomous policy execution. ROS and simulation support live in the project ecosystem; use the RS-specific model and joint limits.
 
-### Troubleshooting and recovery
+## Troubleshooting and recovery
 
 | Symptom                                 | Check and next action                                                                                                                |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -66,7 +72,7 @@ For a graphical path, use the [reBot Arm 102 + B601-RS SenseCraft training guide
 | LeRobot cannot connect but Studio works | Inspect plugin version, bus backend, port ownership/permissions and configured arm type separately from hardware.                    |
 | Need to update motor firmware           | Use the exact RobStride model/revision procedure and retain settings/calibration; do not use a DM image or an arbitrary full reset.  |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                             | Use                                         |
 | ---------------------------------------------------------------------------------------------------- | ------------------------------------------- |

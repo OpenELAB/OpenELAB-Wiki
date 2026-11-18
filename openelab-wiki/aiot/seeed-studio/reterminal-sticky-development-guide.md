@@ -6,17 +6,23 @@ description: >-
 
 # Seeed Studio reTerminal Sticky Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reTerminal Sticky on OpenELAB**](https://openelab.io/products/seeed-studio-reterminal-sticky-3-97-inch-ai-magnetic-epaper-display)
+
+**Covered model:** Seeed Studio reTerminal Sticky · **OpenELAB SKU:** `Seeed-100056818`
+{% endhint %}
+
 ![Seeed Studio reTerminal Sticky Development Guide](../../.gitbook/assets/reterminal-sticky-development-guide.png)
 
 _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.com/wiki/reterminal_sticky/img/developer_docs/Hardware_Diagram.png)_._
 
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-reterminal-sticky-3-97-inch-ai-magnetic-epaper-display) · [Manufacturer wiki hub](./)
 
-### Product and applications
+## Product and applications
 
 **reTerminal Sticky, Seeed code 100056818**, is a card-sized ESP32-S3 ePaper terminal with magnetic mounting and capacitive touch. It suits a compact status display, room label, note interface or battery-powered information panel. Voice/cloud capabilities depend on the selected application; the onboard microphone alone does not supply a conversational AI model.
 
-### Hardware specifications
+## Hardware specifications
 
 | Item              | Documented configuration                                    |
 | ----------------- | ----------------------------------------------------------- |
@@ -31,11 +37,11 @@ _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.c
 
 The [hardware reference](https://www.seeedstudio.com/sticky/docs/en/device-guide/hardware-overview/) maps the display's SPI, touch's I2C and peripheral power/control signals. Sticky is not waterproof. Keep its magnetic mounting and glass front in mind when designing a fixture; use the official CAD rather than another reTerminal enclosure.
 
-### Software choices
+## Software choices
 
 The factory Seeedash application is a ready-to-use route for pairing and content. Arduino offers display/peripheral development; ESP-IDF offers the manufacturer's fuller dashboard demo and firmware structure. Third-party applications in the Playground have their own capabilities, licenses and server requirements. Flashing any of them replaces the current application; preserve needed settings/content first.
 
-### Getting started with ESP-IDF: build the official dashboard
+## Getting started with ESP-IDF: build the official dashboard
 
 Prepare Sticky, a USB data cable, a Windows/Linux/macOS computer, and an **ESP-IDF v5.4** terminal. The [manufacturer ESP-IDF tutorial](https://www.seeedstudio.com/sticky/docs/en/device-guide/esp-basics/) identifies v5.4 as its hardware-tested upstream baseline; OpenELAB has not repeated that bench test.
 
@@ -59,13 +65,13 @@ Allow the first complete panel refresh to finish. Expected behavior from this de
 
 The current official demo handles the supported SSD1677/SSD2677 controller variants automatically. Use that maintained board configuration instead of manually forcing a generic display driver. A successful build does not prove the hardware works; the physical display/touch/peripheral checks are separate steps.
 
-### Arduino and factory setup routes
+## Arduino and factory setup routes
 
 The [Arduino guide](https://www.seeedstudio.com/sticky/docs/en/device-guide/arduino-basics/) uses **Seeed\_GFX2**, the **XIAO\_ESP32S3** preset and its Sticky-specific HelloWorld example. Follow its PSRAM requirements when adding grayscale or SD-image examples. Select the actual CH343 serial port; this is different from assuming a native USB-CDC connection.
 
 To use the factory experience, follow the [official quick-start](https://www.seeedstudio.com/sticky/docs/en/quick-start/) to power on, pair the matching serial number in the Seeedash app and join 2.4 GHz Wi-Fi. Use the app/device's documented update flow for that firmware. The [Playground firmware page](https://www.seeedstudio.com/sticky/playground/firmware/) lists alternative applications; review the selected application's data/backup and restore instructions before switching.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Symptom                                  | Check and next action                                                                                                                          |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -77,7 +83,7 @@ To use the factory experience, follow the [official quick-start](https://www.see
 | Factory pairing selects the wrong device | Match the serial number shown on Sticky; keep the phone close during pairing.                                                                  |
 | Need the original application            | Use the official Sticky restoration/update route; back up needed content before application replacement.                                       |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                             | Use                                    |
 | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |

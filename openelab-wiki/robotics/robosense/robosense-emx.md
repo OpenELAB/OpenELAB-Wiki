@@ -1,5 +1,11 @@
 # Robosense EMX
 
+{% hint style="info" %}
+[**View RoboSense EMX on OpenELAB**](https://openelab.io/products/robosense-emx-192-beam-automotive?variant=45731804414150)
+
+**Covered model:** RoboSense EMX · **OpenELAB SKU:** `RS-EMX`
+{% endhint %}
+
 Product link: [https://openelab.io/products/robosense-emx-192-beam-automotive?variant=45731804414150](https://openelab.io/products/robosense-emx-192-beam-automotive?variant=45731804414150)
 
 ## Robosense EMX 192-Beam Automotive-Grade Digital LiDAR Engineering Guide
@@ -85,6 +91,8 @@ Z = range * direction_vector_Z
 ```
 
 ![EMX coordinate system](<../../.gitbook/assets/coordinate system.png>)EMX coordinate system
+
+**Interface compatibility:** RoboSense's [EMX official manual](https://robosense-robotics.github.io/product-manual/en/EMX/) describes a **1000BASE-T1 automotive Ethernet** sensor connector and a corresponding interface box with RJ45 for the host. Do not assume the sensor's vehicle connector is standard RJ45 Ethernet, or that its Ethernet interface supplies PoE power. Verify the exact kit harness and input supply before energizing it.
 
 ### Wiring And Pinout
 

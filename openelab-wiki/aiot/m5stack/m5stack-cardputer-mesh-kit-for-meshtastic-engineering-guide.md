@@ -1,5 +1,11 @@
 # M5Stack Cardputer Mesh Kit for Meshtastic Engineering Guide
 
+{% hint style="info" %}
+[**View M5Stack Cardputer Mesh Kit K152 on OpenELAB**](https://openelab.io/products/m5stack-cardputer-mesh-kit)
+
+**Covered model:** M5Stack Cardputer Mesh Kit K152 · **OpenELAB SKU:** `M5-K152`
+{% endhint %}
+
 **Product link:** [M5Stack Cardputer Mesh Kit for Meshtastic on OpenELAB](https://openelab.io/products/m5stack-cardputer-mesh-kit)
 
 ## M5Stack Cardputer Mesh Kit for Meshtastic Engineering Guide

@@ -6,19 +6,25 @@ description: >-
 
 # Seeed Studio Wio Tracker L1 Pro Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio Wio Tracker L1 Pro on OpenELAB**](https://openelab.io/products/seeed-studio-wio-l1-pro)
+
+**Covered model:** Seeed Studio Wio Tracker L1 Pro · **OpenELAB SKUs:** `Seeed-100030144`, `Seeed-114993649` · Confirm the purchased model/kit option before using a shared guide.
+{% endhint %}
+
 ![Seeed Studio Wio Tracker L1 Pro Development Guide](../../.gitbook/assets/wio-tracker-l1-pro-development-guide.jpg)
 
 _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.com/wiki/SenseCAP/Meshtastic/wio-tracker-l1.jpg)_._
 
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-wio-l1-pro) · [Manufacturer wiki hub](./)
 
-### Product and development scope
+## Product and development scope
 
 **Wio Tracker L1 Pro** is an enclosed nRF52840/SX1262 LoRa tracker with an OLED, GNSS and an internal battery. It suits a phone-linked mesh endpoint, portable location-sharing experiments or a platform for low-rate field sensors.
 
 The **Pro** has an enclosure and built-in battery. L1 Lite, L1 and **L1 E-Ink** differ in packaging/display; the E-Ink firmware target is separate. This page covers OpenELAB Pro configurations 114993649 and 100030144, with Meshtastic or MeshCore selected by firmware.
 
-### Hardware specifications
+## Hardware specifications
 
 | Item               | Wio Tracker L1 Pro                                        |
 | ------------------ | --------------------------------------------------------- |
@@ -34,13 +40,15 @@ The **Pro** has an enclosure and built-in battery. L1 Lite, L1 and **L1 E-Ink** 
 
 Source: [manufacturer hardware reference](https://wiki.seeedstudio.com/wio_tracker_l1_node/). Match the radio/antenna variant and physical board revision before selecting firmware or adding hardware.
 
-### Choose the network and device role
+**Variant scope:** The Top-200 product list maps `Seeed-100030144` and `Seeed-114993649` to this page. Before flashing a MeshCore or Meshtastic image, check the specific hardware variant, radio band and bootloader supported by the manufacturer's latest release; similar marketing names do not guarantee interchangeable firmware.
+
+## Choose the network and device role
 
 Meshtastic and MeshCore are different firmware ecosystems. Sharing the LoRa radio band does not make their application protocols compatible. Use two nodes running the same ecosystem for the first test. A phone-linked **companion** and an infrastructure **repeater** also serve different purposes; choose the role that matches the intended deployment.
 
 Use the current country/region settings provided by that firmware and the matching antenna. An unset or mismatched region, channel or key can prevent communication even when both devices appear connected to their phones. Record firmware versions, hardware targets and radio/channel configuration with each test; keep private channel keys out of published logs.
 
-### Getting started: one controlled radio test
+## Getting started: one controlled radio test
 
 1. Charge/power the Pro using a USB data cable and connect its matching LoRa antenna. Switch the device on as shown in the [hardware guide](https://wiki.seeedstudio.com/wio_tracker_l1_node/).
 2. For Meshtastic, the [official L1 setup](https://wiki.seeedstudio.com/get_started_with_meshtastic_wio_tracker_l1/) selects **Seeed Wio Tracker L1** for L1/Lite/Pro. Do not select **L1 E-Ink** for the Pro OLED model. Use the supported UF2/DFU workflow; Seeed specifically warns against NRF-OTA for these devices.
@@ -52,13 +60,13 @@ For a meaningful first test, send a unique short message or the firmware's suppo
 
 Record the two node identities, firmware versions, physical locations, antenna orientation, reported RSSI/SNR where available, and delivery result. Increase distance only after a repeatable nearby test. Hardware range claims are not a guaranteed link budget for a building or field installation.
 
-### Firmware, SDK and hardware development
+## Firmware, SDK and hardware development
 
 The manufacturer provides the [L1 board diagrams](https://wiki.seeedstudio.com/wio_tracker_l1_node/) and a [Meshtastic source development tutorial](https://wiki.seeedstudio.com/meshtastic_source_code_practical_tutorial/). Add a Grove peripheral only after checking its signal voltage, protocol and shared pins. GNSS operation needs suitable sky visibility; give it time to establish a fix before treating an absent position as a radio fault. Track power consumption with your display/GNSS/transmission settings rather than inferring runtime from capacity alone.
 
 For custom development, retain a known working vendor image and configuration first. Build for the exact target and preserve its bootloader/board definition. Confirm a stock image still works before diagnosing your own application. Use the official source projects and their release notes for supported build tools; do not assume an ESP32 binary can be flashed onto an nRF52840 device.
 
-### Troubleshooting and recovery
+## Troubleshooting and recovery
 
 | Symptom                               | Check and next action                                                                                         |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -70,7 +78,7 @@ For custom development, retain a known working vendor image and configuration fi
 
 After a firmware change, verify both host connection and the two-node radio test again. Restore the same network/application family before comparing against an earlier result.
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                   | Use                                     |
 | ---------------------------------------------------------------------------------------------------------- | --------------------------------------- |
