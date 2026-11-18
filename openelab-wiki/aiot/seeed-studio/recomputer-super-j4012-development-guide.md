@@ -6,17 +6,23 @@ description: >-
 
 # Seeed Studio reComputer Super J4012 Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reComputer Super J4012 on OpenELAB**](https://openelab.io/products/seeed-studio-recomputer-super-j4012)
+
+**Covered model:** Seeed Studio reComputer Super J4012 · **SKU:** `Seeed-114110314`
+{% endhint %}
+
 ![Seeed Studio reComputer Super J4012 Development Guide](../../.gitbook/assets/recomputer-super-j4012-development-guide.png)
 
 _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.com/wiki/reComputer-Jetson/super/1.png)_._
 
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-recomputer-super-j4012) · [Manufacturer wiki hub](./)
 
-### Product and applications
+## Product and applications
 
 **reComputer Super J4012, SKU 114110314**, combines Jetson Orin NX 16 GB with a Super-series carrier and active cooling. Use it for edge vision, robot perception and local inference prototypes that need multiple camera/network connections. The J4011B, original J4012 and Robotics J4012 are separate configurations; use this carrier's firmware and pin map.
 
-### Key hardware
+## Key hardware
 
 | Item                   | Configuration                                                                           |
 | ---------------------- | --------------------------------------------------------------------------------------- |
@@ -33,7 +39,7 @@ Do not substitute the Orin Nano adapter recommendation for the NX model. Fit cam
 
 Sources: [Super setup](https://wiki.seeedstudio.com/recomputer_jetson_super_getting_started/), [user manual](https://files.seeedstudio.com/products/NVIDIA-Jetson/reComputer_super_user_manual.pdf), [hardware interfaces](https://wiki.seeedstudio.com/recomputer_jetson_super_hardware_interfaces_usage/).
 
-### First boot and a useful baseline
+## First boot and a useful baseline
 
 Prepare the correct manufacturer power supply, monitor/HDMI cable, keyboard and wired network. Attach peripherals while powered off, then apply power and finish the Linux first-run setup. Start with the installed image if it boots; reflashing is a recovery or version-management operation and can overwrite the system disk.
 
@@ -55,19 +61,19 @@ Do not use a desktop-PC CUDA installer or an arbitrary x86 container. Select Jet
 
 Sources: [NVIDIA Jetson Linux developer guide](https://docs.nvidia.com/jetson/archives/r36.4.3/DeveloperGuide/), [tegrastats reference](https://docs.nvidia.com/jetson/archives/r36.4.3/DeveloperGuide/AT/JetsonLinuxDevelopmentTools/TegrastatsUtility.html).
 
-### Development path
+## Development path
 
 The manufacturer's documented starting image is JetPack 6.2. Keep its carrier drivers when choosing TensorRT, CUDA, camera plugins and containers. Start with one USB camera or supported CSI camera and inspect device detection before attempting synchronized multi-camera capture. Add a robot middleware stack only after the base image, camera and network paths work individually.
 
 The [interface guide](https://wiki.seeedstudio.com/recomputer_jetson_super_hardware_interfaces_usage/) covers header functions, CAN, storage and camera usage. Use the schematic for signal-level wiring; an expansion connector is not a promise of 5 V tolerant GPIO.
 
-### Recovery and system restore
+## Recovery and system restore
 
 Download the image specifically for **reComputer Super / Orin NX 16 GB** from Seeed. Back up project files first. Follow the Super board's documented recovery-switch procedure and use its USB-C data connection to the Ubuntu host; the Orin NX 16 GB recovery identity is `0955:7323` in `lsusb`.
 
 Run the flash instructions bundled with that exact image. This writes the NVMe system and is different from a normal application update. Return the recovery switch to its normal operating position after flashing, complete Linux setup and repeat the baseline checks. Do not use the reServer Industrial REC-button sequence for this carrier.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Problem                                    | Diagnostic direction                                                                                 |
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
@@ -77,7 +83,7 @@ Run the flash instructions bundled with that exact image. This writes the NVMe s
 | CUDA/PyTorch import failure                | Match Jetson architecture and JetPack/L4T version; do not mix desktop CUDA wheels into the platform. |
 | Does 157 TOPS guarantee an inference rate? | No. Measure your model, precision, power mode, memory use and end-to-end input/output pipeline.      |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                                    | Use                              |
 | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |

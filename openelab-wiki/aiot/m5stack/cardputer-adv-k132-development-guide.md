@@ -1,16 +1,22 @@
 # M5Stack Cardputer-Adv K132-Adv Development Guide
 
+{% hint style="info" %}
+[**View M5Stack Cardputer-Adv K132-Adv on OpenELAB**](https://openelab.io/products/m5stack-cardputer-adv-esp32-s3a)
+
+**Model/variant:** M5Stack Cardputer-Adv K132-Adv · **SKU:** `M5-K132-Adv`
+{% endhint %}
+
 ![M5Stack Cardputer-Adv K132-Adv Development Guide](../../.gitbook/assets/cardputer-adv-k132-development-guide.webp)
 
 _Manufacturer image: M5Stack._ [_Image source_](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/Cardputer-Adv_01.webp)_._
 
 [Product at OpenELAB](https://openelab.io/products/m5stack-cardputer-adv-esp32-s3a) · [Manufacturer wiki hub](./)
 
-### Product identity and applications
+## Product identity and applications
 
 **Cardputer-Adv K132-Adv** is an ESP32-S3 handheld computer with a keyboard, small color LCD, audio and expansion. Use it for a portable test console, a sensor interface, a keyboard-driven terminal or a self-contained embedded UI. It uses Stamp-S3A and differs from the original Cardputer in audio, sensing and hardware details.
 
-### Key specifications
+## Key specifications
 
 | Item           | Cardputer-Adv                                            |
 | -------------- | -------------------------------------------------------- |
@@ -25,13 +31,13 @@ _Manufacturer image: M5Stack._ [_Image source_](https://m5stack-doc.oss-cn-shenz
 
 Source: [current Cardputer-Adv hardware reference](https://docs.m5stack.com/en/core/Cardputer-Adv). Check the actual battery label and board revision when working with older documentation. Cardputer Mesh Kit adds radio/GNSS hardware; the bare Adv should not be assumed to include that kit's LoRa module.
 
-### SDK and development setup
+## SDK and development setup
 
 Use the **M5Cardputer** Arduino library and its supported M5Unified/M5GFX dependencies. The [official quick-start](https://docs.m5stack.com/en/arduino/m5cardputer/program) explicitly covers both Cardputer and Cardputer-Adv and selects the **M5Cardputer** board preset in the M5Stack package.
 
 For lower-level work, use the Adv schematic and its **CardputerADV** factory-firmware branch. Avoid copying a raw pin map or audio driver from the original device merely because the SDK entry point is shared.
 
-### Getting started: display, then keyboard
+## Getting started: display, then keyboard
 
 Prepare Cardputer-Adv, a USB-C data cable, a computer and Arduino IDE. Save required settings from the current application before replacing it.
 
@@ -44,13 +50,13 @@ Prepare Cardputer-Adv, a USB-C data cable, a computer and Arduino IDE. Save requ
 
 Expected result: a correct display example, then recognized keyboard input using the supported SDK example. Preserve those working examples before building a terminal or radio client.
 
-### Interfaces and further development
+## Interfaces and further development
 
 Use the Adv pin map for Grove, rear bus, microphone, speaker and microSD connections. Check supply versus GPIO signal voltage and shared functions before attaching peripherals. Start with one module and confirm the base keyboard/display still works before adding another.
 
 For audio, use the Adv-capable ES8311 example rather than a sketch written for the original Cardputer's audio path. For a wireless application, test the network stack separately from display rendering and storage. Add buffers and error handling only after each subsystem has an observable working result.
 
-### Recovery and FAQ
+## Recovery and FAQ
 
 | Problem                               | Check                                                                                                       |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -60,7 +66,7 @@ For audio, use the Adv-capable ES8311 example rather than a sketch written for t
 | LoRa/GNSS missing                     | Those require the relevant expansion/mesh kit; they are not established by the bare K132-Adv specification. |
 | Need factory application              | Use the Adv-specific firmware/restoration instructions and branch, retaining settings first.                |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                               | Use                                          |
 | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |

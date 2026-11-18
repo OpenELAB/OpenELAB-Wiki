@@ -1,5 +1,11 @@
 # Orbbec Gemini 435Le User Manual
 
+{% hint style="info" %}
+[**View Orbbec Gemini 435Le stereo camera on OpenELAB**](https://openelab.io/products/orbbec-gemini-435le-industrial-stereo-camera)
+
+**Model:** Orbbec Gemini 435Le stereo camera · **OpenELAB SKU:** `ORBBEC-Gemini435Le` · **Scope:** original manufacturer manual. Check hardware revision, safety conditions and exact electrical connection instructions in the manual before operating the device.
+{% endhint %}
+
 ## Orbbec Gemini 435Le Industrial Ethernet Stereo Vision Camera
 
 {% embed url="https://openelab.io/products/orbbec-gemini-435le-industrial-stereo-camera" %}

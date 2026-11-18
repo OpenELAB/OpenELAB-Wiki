@@ -1,16 +1,22 @@
 # Seeed Studio reTerminal E1004 Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio reTerminal E1004 on OpenELAB**](https://openelab.io/products/seeed-studio-reterminal-e1004-epaper)
+
+**Covered model:** Seeed Studio reTerminal E1004 · **SKU:** `Seeed-100064156`
+{% endhint %}
+
 ![Seeed Studio reTerminal E1004 Development Guide](../../.gitbook/assets/reterminal-e1004-development-guide.jpg)
 
 _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.com/wiki/reterminal_e10xx/img/e1004/mainpic2.jpeg)_._
 
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-reterminal-e1004-epaper) · [Manufacturer wiki hub](./)
 
-### Product and applications
+## Product and applications
 
 **reTerminal E1004, Seeed code 100064156,** is an ESP32-S3 ePaper terminal for large color dashboards, meeting-room signs and information displays. Its retained image and intermittent updates suit information that changes slowly. This is a complete terminal, distinct from a bare ePaper panel or a XIAO driver board.
 
-### Hardware specifications
+## Hardware specifications
 
 | Item           | E1004                                                              |
 | -------------- | ------------------------------------------------------------------ |
@@ -26,7 +32,9 @@ _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.c
 
 Source: [E1004 hardware reference](https://wiki.seeedstudio.com/getting_started_with_reterminal_e1004/). Use its schematic and connector-orientation illustration for expansion wiring. A header's supply pin and its GPIO signal voltage are separate specifications. Check the fitted board revision before using a drawing.
 
-### Choose firmware before developing
+**Software compatibility update (18 November 2026):** Seeed's [E1004 getting-started guide](https://wiki.seeedstudio.com/getting_started_with_reterminal_e1004/) specifies **ESPHome 2026.7.0 or later** for the E1004 display driver. Select the exact E1004 board/profile and check the current firmware before flashing. Full Flash resets saved settings and content; use the manufacturer's non-destructive firmware update path when preserving an existing deployment.
+
+## Choose firmware before developing
 
 Use the factory **SenseCraft Seeedash** route for a first visible result. For a local integration, use the supported ESPHome configuration; for custom firmware, use the manufacturer's Arduino/ESP-IDF resources. These are different applications that replace one another when flashed. Export project/configuration data before switching.
 
@@ -34,7 +42,7 @@ The [firmware hub](https://seeed-projects.github.io/OSHW-reTerminal-Series-E-D/)
 
 For the documented ESPHome display support, use **ESPHome 2026.7.0 or later**. Confirm the selected release and model in the manufacturer configuration before building.
 
-### Getting started: deploy one readable test page
+## Getting started: deploy one readable test page
 
 Prepare the terminal, a USB data cable/5 V supply, a computer or phone, and a 2.4 GHz Wi-Fi network. This route uses the manufacturer's hosted service and requires the corresponding account. Choose the ESPHome route instead if that dependency does not suit your deployment.
 
@@ -46,7 +54,7 @@ Prepare the terminal, a USB data cable/5 V supply, a computer or phone, and a 2.
 
 The expected result is the new page on the physical device. A retained image after power-off is normal ePaper behavior and does not prove that the processor is still running. Refresh flashing is also normal; judge the final settled image.
 
-### Custom firmware and expansion
+## Custom firmware and expansion
 
 For an Arduino first program, use the [manufacturer display cookbook](https://wiki.seeedstudio.com/reterminal_e10xx_with_arduino/) and select the exact model's panel/driver configuration. Start with its simple display example and expected orientation before adding sensors or battery sleep. Record ESP32 core and display-library versions with your sketch.
 
@@ -54,13 +62,13 @@ For Home Assistant, start from the [ESPHome display guide](https://wiki.seeedstu
 
 For external hardware, use the model's expansion pin map and schematic. Add one interface at a time, check signal voltage and shared pins, and verify the display still refreshes after each change. Avoid driving all header pins as generic outputs: some may be shared with fitted hardware.
 
-### Firmware recovery
+## Firmware recovery
 
 Use the firmware hub's exact model selection and a supported Web Serial browser with a data cable. Follow the model's documented BOOT/reset sequence if its serial port does not appear. A firmware flash can replace the application and configuration; do not use full-chip erase as the default troubleshooting step.
 
 After restoring the intended firmware, repeat the single-page test. Keep a copy of the working configuration and version before adding integrations.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Symptom                                      | Check and next step                                                                                                     |
 | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -76,7 +84,7 @@ The color panel requires a comparatively long full refresh. Firmware support for
 
 A dedicated enclosure STEP download was not identified in the reviewed E1004 resources. Use the official dimensions and request the current CAD if required; do not substitute the E1003 enclosure.
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                                                    | Use                                          |
 | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |

@@ -1,12 +1,18 @@
 # Seeed Studio SO-ARM101 Pro Development Guide
 
+{% hint style="info" %}
+[**View Seeed Studio SO-ARM101 Pro assembled robot arm on OpenELAB**](https://openelab.io/products/seeed-studio-so-arm101-pro-assembled-kit-lerobot-6dof-robotic-arm)
+
+**Covered model:** Seeed Studio SO-ARM101 Pro assembled robot arm · **SKU:** `Seeed-100046482`
+{% endhint %}
+
 ![Seeed Studio SO-ARM101 Pro Development Guide](../../.gitbook/assets/so-arm101-pro-development-guide.png)
 
 _Manufacturer image: Seeed Studio._ [_Image source_](https://files.seeedstudio.com/wiki/robotics/projects/lerobot/Arm_kit.png)_._
 
 [Product at OpenELAB](https://openelab.io/products/seeed-studio-so-arm101-pro-assembled-kit-lerobot-6dof-robotic-arm) · [Manufacturer wiki hub](./)
 
-### Product and kit scope
+## Product and kit scope
 
 The **Seeed SO-ARM101 Pro assembled kit** is a leader/follower platform for teleoperation, demonstration collection and imitation-learning experiments. An assembled kit reduces mechanical assembly work; it does not remove the need to identify ports, confirm motor configuration and calibrate the actual pair.
 
@@ -23,7 +29,7 @@ The **Seeed SO-ARM101 Pro assembled kit** is a leader/follower platform for tele
 
 Sources: [Seeed hardware/setup tutorial](https://wiki.seeedstudio.com/lerobot_so100m_new/), [SO-101 platform reference](https://huggingface.co/docs/lerobot/so101), [hardware project and drawings](https://github.com/TheRobotStudio/SO-ARM100).
 
-### Prepare the development environment
+## Prepare the development environment
 
 Use a Linux host for the first supported workflow and follow the [LeRobot installation guide](https://huggingface.co/docs/lerobot/installation) for platform dependencies. This page records **LeRobot 0.7.0** as its package reference; its package metadata requires **Python 3.12 or later**. Do not combine commands from an old Seeed fork with a different upstream release without checking the CLI help.
 
@@ -35,7 +41,7 @@ Use `lerobot-find-port` to identify **one arm at a time** by unplug/replug detec
 
 Reference: [LeRobot 0.7.0 package metadata](https://pypi.org/project/lerobot/0.7.0/). Installation commands are a documented baseline and have not been executed on an attached arm for this page.
 
-### Getting started: calibrate before teleoperation
+## Getting started: calibrate before teleoperation
 
 Check the commands available in the installed release:
 
@@ -56,13 +62,13 @@ The command prompts are interactive. Move through the manufacturer's specified c
 
 The first success criterion is completed calibration for both arms with the expected motors visible. For a teleoperation test, follow the [upstream real-robot workflow](https://huggingface.co/docs/lerobot/il_robots), use those same ports/IDs and first make a small leader movement in a clear follower workspace. Stop if the follower direction, scale or joint order is unexpected. Demonstration recording and policy deployment come after this check.
 
-### Cameras, datasets and further development
+## Cameras, datasets and further development
 
 Verify each camera independently before recording. Record camera identities, image size/frame rate, arm calibration IDs, software version and task definition with every dataset. A dataset with swapped camera views or inconsistent joint references can appear valid while being unsuitable for training.
 
 The [SO-ARM101 training guide](https://wiki.seeedstudio.com/sensecraft_robotics_so_arm101/) documents Seeed's SenseCraft Robotics route. Keep that route's firmware, app and calibration procedures consistent instead of mixing them with unrelated LeRobot revisions. Hardware CAD, STL/BOM and assembly information are in the SO-ARM100/SO-ARM101 hardware project; use the SO101-specific files.
 
-### Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 | Symptom                                       | First diagnostic                                                                                                                  |
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -73,7 +79,7 @@ The [SO-ARM101 training guide](https://wiki.seeedstudio.com/sensecraft_robotics_
 | Training fails after teleoperation works      | Treat GPU/software, dataset format and model configuration as a separate layer from servo communication.                          |
 | Is the “6DOF” store name a payload guarantee? | No. Use the hardware's actual kinematics, gripper configuration and manufacturer load limits.                                     |
 
-### Technical documents and software
+## Technical documents and software
 
 | Resource                                                                                          | Use                                           |
 | ------------------------------------------------------------------------------------------------- | --------------------------------------------- |

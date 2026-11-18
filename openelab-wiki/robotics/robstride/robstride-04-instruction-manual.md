@@ -1,5 +1,11 @@
 # RobStride 04 Instruction Manual
 
+{% hint style="info" %}
+[**View ROBSTRIDE 04 integrated joint motor on OpenELAB**](https://openelab.io/products/robstride04-qdd-120n-m-integrated-joint-motor-module)
+
+**Model:** ROBSTRIDE 04 · **OpenELAB SKU:** `ROBSTRIDE-04` · **Scope:** manufacturer instruction manual for this motor model; verify the unit revision and connector configuration before applying power or commanding motion.
+{% endhint %}
+
 > 120N.M Quasi-Direct Drive Integrated Motor Module User Manual
 
 [**ROBSTRIDE 04 Motor**ROBSTRIDE04 Motor: 120Nm quasi-direct drive integrated module.Heavy-duty torque for industrial robots,exoskeletons & automation systems.High-precision control.openelab.io](https://openelab.io/products/robstride04-qdd-120n-m-integrated-joint-motor-module)
@@ -50,26 +56,40 @@ When fixing, the screw depth should not exceed the depth of the casing thread.
 12. T-N curve
 13.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/af9b1a63-1e31-48c5-8200-224ae6032dc1/image/w=1920,quality=90,fit=scale-down" alt="image" height="257.11304347826086" width="528">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/af9b1a63-1e31-48c5-8200-224ae6032dc1/image/w=1920,quality=90,fit=scale-down" alt="image" height="257.11304347826086" width="528">
+```
+
 14. Maximum overload curve
 15. Test conditions: Ambient temperature: 25℃ Winding limit temperature: 130℃ (this is the constraint temperature, the actual is 180 degrees) Speed: 24rpm
 16.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/d2079423-1dd5-4a07-9591-2d5d2d89b98a/image/w=1920,quality=90,fit=scale-down" alt="image" height="345.3634496919918" width="576">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/d2079423-1dd5-4a07-9591-2d5d2d89b98a/image/w=1920,quality=90,fit=scale-down" alt="image" height="345.3634496919918" width="576">
+```
+
 17. Test data
 18.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/2ad5a566-862b-4a41-8c88-f5f283e3e9d9/image/w=1920,quality=90,fit=scale-down" alt="image" height="225.68727272727273" width="288">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/2ad5a566-862b-4a41-8c88-f5f283e3e9d9/image/w=1920,quality=90,fit=scale-down" alt="image" height="225.68727272727273" width="288">
+```
+
 19. Thermal testing Test Conditions:
 20. Heat sink size: 345mm x 345mm Ambient temperature: 25℃ Winding protection temperature: 145℃
 21. Test condition 1: Motor rotates at 100rpm, monitor the motor thermistor temperature, and record the time it takes for the motor thermistor temperature to rise from 25℃ to 145℃.
 22.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/79590b72-036d-4cd4-a593-84489a26bced/image/w=1920,quality=90,fit=scale-down" alt="image" height="225.3389121338912" width="288">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/79590b72-036d-4cd4-a593-84489a26bced/image/w=1920,quality=90,fit=scale-down" alt="image" height="225.3389121338912" width="288">
+```
+
 23. Motor locked-rotor condition 2: According to the current formula, the average phase current during locked-rotor is approximately 1.414 times that of rotation. This is used to obtain the overload time table for the locked-rotor condition.
 24.
 
-    <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/94ff9318-306a-4566-a564-6ab25f9dc02b/image/w=1920,quality=90,fit=scale-down" alt="image" height="237.17647058823528" width="288">
+```
+<img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/94ff9318-306a-4566-a564-6ab25f9dc02b/image/w=1920,quality=90,fit=scale-down" alt="image" height="237.17647058823528" width="288">
+```
 
 ### 1.4 Mechanical characteristic <a href="#block-33fd4c79856d81aab5f4f7fa9edbb158" id="block-33fd4c79856d81aab5f4f7fa9edbb158"></a>
 
