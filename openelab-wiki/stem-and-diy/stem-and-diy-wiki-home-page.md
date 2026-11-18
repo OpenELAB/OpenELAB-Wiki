@@ -19,25 +19,40 @@ Explore educational robots, drone and FPV components, electronics projects and d
 | Set up a 3D printing workflow                       | [ELEGOO](elegoo/) · [HeyGears](heygears/)                             |
 | Explore desktop CNC machining                       | [Genmitsu](genmitsu/)                                                 |
 
+### Popular product guides
+
+| Product guide                                                                                                        | Manufacturer          |
+| -------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| [MATEKSYS H743-SLIM V4 Flight Controller Engineering Guide](mateksys/matek-h743-slim-v4-development-guide.md)        | [Mateksys](mateksys/) |
+| [HeyGears Reflex 2 Pro and Reflex RS Turbo: model-specific setup](heygears/reflex-2-pro-and-rs-turbo.md)             | [HeyGears](heygears/) |
+| [ELEGOO Centauri Carbon 2 Combo Engineering Guide](elegoo/elegoo-centauri-carbon-2-combo-engineering-guide.md)       | [ELEGOO](elegoo/)     |
+| [Genmitsu 4040-PRO MAX CNC Router Engineering Guide](genmitsu/genmitsu-4040-pro-max-cnc-router-engineering-guide.md) | [Genmitsu](genmitsu/) |
+| [HeyGears UltraPrint PAT10 transparent resin: material workflow](heygears/ultraprint-pat10-transparent-resin.md)     | [HeyGears](heygears/) |
+| [Genmitsu PROVerXL 4030 V2: assembly, control and first dry run](genmitsu/proverxl-4030-v2.md)                       | [Genmitsu](genmitsu/) |
+| [ALIENTEK DM40: identify the variant and make first bench measurements](alientek/dm40-3-in-1.md)                     | [ALIENTEK](alientek/) |
+
+Guide order follows our Top 200 net-sales snapshot for 17 August–17 November 2026. Guides shared by multiple variants appear once.
+
 ### Manufacturer directory
 
-Choose a manufacturer or brand to browse its product manuals and technical guides.
+Manufacturers with products in the Top 200 list appear first, ordered by their highest-ranked product. Other brands follow.
 
 | Manufacturer / brand      | Products and documentation                                            |
 | ------------------------- | --------------------------------------------------------------------- |
+| [Mateksys](mateksys/)     | GNSS, power distribution and BEC modules.                             |
+| [HeyGears](heygears/)     | Reflex printing, washing, curing and maintenance.                     |
+| [ELEGOO](elegoo/)         | Centauri Carbon and Saturn 3D printer guides.                         |
+| [Genmitsu](genmitsu/)     | Desktop CNC routers, fabrication accessories, and engineering guides. |
+| [ALIENTEK](alientek/)     | DM40 measurement instruments, manuals and first bench checks.         |
 | [Holybro](holybro/)       | Pixhawk controllers, GPS modules and power systems.                   |
 | [OpenELAB](openelab/)     | Generic modules, electronics and accessories.                         |
 | [DXW](dxw/)               | Brushless motors for drone projects.                                  |
 | [RadioLink](radiolink/)   | RC transmitters, flight controllers and GPS modules.                  |
 | [Hawkeye](hawkeye/)       | FPV monitors and Firefly action cameras.                              |
-| [Mateksys](mateksys/)     | GNSS, power distribution and BEC modules.                             |
-| [ELEGOO](elegoo/)         | Centauri Carbon and Saturn 3D printer guides.                         |
 | [RUSHFPV](rushfpv/)       | TANK-series FPV video transmitter documentation.                      |
 | [YDHM](ydhm/)             | Drone frames and carbon-fiber propellers.                             |
-| [Genmitsu](genmitsu/)     | Desktop CNC routers, fabrication accessories, and engineering guides. |
 | [Gens ace](gens-ace/)     | LiPo battery references.                                              |
 | [Happymodel](happymodel/) | ExpressLRS receiver documentation.                                    |
-| [HeyGears](heygears/)     | Reflex printing, washing, curing and maintenance.                     |
 | [Hobbywing](hobbywing/)   | Skywalker brushless ESC documentation.                                |
 | [Makeblock](makeblock/)   | mBot Mega educational robot documentation.                            |
 | [MyFlyDream](myflydream/) | Crosshair OSD documentation.                                          |
@@ -47,17 +62,6 @@ Choose a manufacturer or brand to browse its product manuals and technical guide
 | [YRRC](yrrc/)             | FPV analog video transmitter documentation.                           |
 
 OpenELAB groups generic modules and accessories whose source documentation does not identify a separate manufacturer.
-
-### Selected product guides
-
-| Product guide                                                                                | What it covers                                                |
-| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| [Makeblock mBot Mega](makeblock/mbot-mega.md)                                                | Educational robot documentation.                              |
-| [Open Duck Mini v2](openduck/open-duck-mini-v2-engineering-guide.md)                         | Robot hardware and engineering guidance.                      |
-| [Holybro Pixhawk 6C](holybro/holybro-pixhawk-6c.md)                                          | Flight controller hardware reference.                         |
-| [ELEGOO Centauri Carbon 2 Combo](elegoo/elegoo-centauri-carbon-2-combo-engineering-guide.md) | 3D printing setup and engineering workflows.                  |
-| [Genmitsu 4040-PRO MAX](genmitsu/genmitsu-4040-pro-max-cnc-router-engineering-guide.md)      | CNC setup, workholding and machining workflow considerations. |
-| [RadioLink AT10 II](radiolink/radiolink-at10-ii-2.4ghz-10ch-rc-transmitter.md)               | RC transmitter documentation.                                 |
 
 ### Before you begin
 

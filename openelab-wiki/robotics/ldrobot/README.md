@@ -8,13 +8,21 @@ LDROBOT develops compact ranging and LiDAR sensors for robotic perception. Its s
 
 [Browse LDROBOT products on OpenELAB](https://openelab.io/collections/brand-ldrobot)
 
-#### Product range
+### Popular product guides
+
+Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
+
+| Product guide                                                                          | Models / order codes |
+| -------------------------------------------------------------------------------------- | -------------------- |
+| [LDROBOT D800 and STL-27L Engineering Guide](ldrobot-d800-stl27l-development-guide.md) | LDROBOT-D800         |
+
+### Product range
 
 * 360-degree 2D DTOF LiDAR sensors
 * D-series developer kits and sensor integration packages
 * Single-point ranging sensors
 
-#### Popular products and starting points
+### Product families and examples
 
 | Product        | Typical use                         | Links                                                                                      |
 | -------------- | ----------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -23,18 +31,10 @@ LDROBOT develops compact ranging and LiDAR sensors for robotic perception. Its s
 | D200 / LD14P   | Compact 360-degree sensing          | [OpenELAB product](https://openelab.io/products/ldrobot-d200-lidar-developer-kit)          |
 | STP-23L        | Single-point distance measurement   | [OpenELAB product](https://openelab.io/products/ldrobot-stp23l-singlepoint-ranging-sensor) |
 
-#### Popular applications
+### Popular applications
 
 * Prototype robot vacuum, service-robot, and small mobile-robot navigation.
 * Build 2D maps and obstacle-detection experiments.
 * Add compact single-point distance measurements to embedded devices.
 
-#### Wiki product guides and manuals
-
-Product guides are listed below. Start with the OpenELAB product links above for specifications, configuration options, and available product resources.
-
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
-
-### Engineering development guides
-
-* [LDROBOT D800 and STL-27L Engineering Guide](ldrobot-d800-stl27l-development-guide.md)

@@ -8,13 +8,21 @@ HESAI develops LiDAR sensors for 3D perception. Its robotics product families of
 
 [Browse HESAI products on OpenELAB](https://openelab.io/collections/brands-hesai)
 
+### Popular product guides
+
+Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
+
+| Product guide                                                                       | Models / order codes |
+| ----------------------------------------------------------------------------------- | -------------------- |
+| [Hesai JT128 3D LiDAR Engineering Guide](hesai-jt128-3d-lidar-engineering-guide.md) | HESAI-JT128          |
+
 ### Product range
 
 * JT-series robot-oriented LiDAR
 * XT-series 3D LiDAR for mapping and robotic perception
 * Model-specific mounting, networking, and point-cloud integration
 
-### Popular products and starting points
+### Product families and examples
 
 | Product | Typical use                         | Links                                                                                                                               |
 | ------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -28,11 +36,5 @@ HESAI develops LiDAR sensors for 3D perception. Its robotics product families of
 * Build 3D SLAM and localization pipelines for mobile robots.
 * Develop obstacle detection for autonomous platforms.
 * Capture point clouds for mapping and perception research.
-
-### Wiki product guides and manuals
-
-Browse the available guides below. Match the full model number and hardware revision to your device.
-
-* [Hesai JT128 3D LiDAR Engineering Guide](hesai-jt128-3d-lidar-engineering-guide.md)
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)

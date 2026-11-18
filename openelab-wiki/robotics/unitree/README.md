@@ -5,9 +5,15 @@ coverY: 0
 
 # Unitree
 
-### Overview
-
 > Unitree Robot Motor: Engineered for high precision and stability, our motors are the driving force in robotics technology.
+
+### Popular product guides
+
+Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
+
+| Product guide                                                                     | Models / order codes |
+| --------------------------------------------------------------------------------- | -------------------- |
+| [Unitree L2 4D LiDAR Engineering Guide](unitree-l2-4d-lidar-engineering-guide.md) | Unitree-L24DLiDAR    |
 
 ### Unitree Official Site
 
@@ -17,11 +23,14 @@ Main site: [https://www.unitree.com/](https://www.unitree.com/)
 
 {% embed url="https://openelab.io/collections/unitree" %}
 
-### Unitree Motor Wiki List
+### More manuals and tutorials
 
-[Unitree GO-M8010-6 Motor User Manual](https://wiki.openelab.io/unitree-motor-docs/unitree-go-m8010-6-motor-user-manual)
+<details>
 
-### Product documentation
+<summary>Browse 1 additional guides</summary>
 
 * [Unitree GO-M8010-6 Motor User Manual](unitree-go-m8010-6-motor-user-manual.md)
-* [Unitree L2 4D LiDAR Engineering Guide](unitree-l2-4d-lidar-engineering-guide.md)
+
+</details>
+
+[Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)

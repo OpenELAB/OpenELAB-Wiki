@@ -8,13 +8,21 @@ RAKwireless develops modular hardware and gateways for low-power wireless networ
 
 [Browse RAKwireless products on OpenELAB](https://openelab.io/collections/brands-rak-wirelss)
 
-#### Product range
+### Popular product guides
+
+Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
+
+| Product guide                                                                                           | Models / order codes |
+| ------------------------------------------------------------------------------------------------------- | -------------------- |
+| [RAK10724 battery-powered WisMesh booster kit: power and Meshtastic setup](rak10724-battery-powered.md) | Rak-115280           |
+
+### Product range
 
 * WisBlock core, base, sensor, and I/O modules
 * WisDuo LoRa and LoRaWAN modules and evaluation boards
 * WisGate gateways and WisMesh Meshtastic devices
 
-#### Popular products and starting points
+### Product families and examples
 
 | Product                      | Typical use                                       | Links                                                                                      |
 | ---------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -23,22 +31,14 @@ RAKwireless develops modular hardware and gateways for low-power wireless networ
 | RAK3172 breakout board       | Evaluating the RAK3172 wireless platform          | [OpenELAB product](https://openelab.io/products/rakwireless-rak3172-breakout-board-868mhz) |
 | RAK19001 dual-I/O base       | Larger modular WisBlock sensor and I/O projects   | [OpenELAB product](https://openelab.io/products/rakwireless-wisblock-dual-io-base-1)       |
 
-#### Popular applications
+### Popular applications
 
 * Build low-power environmental and agricultural sensor nodes.
 * Prototype LoRaWAN devices and connect them through gateways.
 * Deploy off-grid messaging, tracking, and mesh-network experiments.
 
-#### Wiki product guides and manuals
-
-Product guides are listed below. Start with the OpenELAB product links above for specifications, configuration options, and available product resources.
-
-#### Manufacturer resources
+### Manufacturer resources
 
 * [RAKwireless product ecosystem](https://store.rakwireless.com/)
 
 [Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)
-
-### Engineering development guides
-
-* [RAK10724 battery-powered WisMesh booster kit: power and Meshtastic setup](rak10724-battery-powered.md)

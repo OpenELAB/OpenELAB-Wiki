@@ -8,13 +8,21 @@ LSLiDAR develops laser-scanning sensors for robot perception and spatial measure
 
 [Browse LSLiDAR products on OpenELAB](https://openelab.io/collections/brands-lslidar)
 
-#### Product range
+### Popular product guides
+
+Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
+
+| Product guide                                                                    | Models / order codes |
+| -------------------------------------------------------------------------------- | -------------------- |
+| [LSLiDAR C1 Mechanical LiDAR Engineering Guide](lslidar-c1-development-guide.md) | LSLiDAR-C1           |
+
+### Product range
 
 * Compact single-line 2D LiDAR scanners
 * C-series and other multi-channel 3D LiDAR
 * Solid-state and application-specific sensors and connection accessories
 
-#### Popular products and starting points
+### Product families and examples
 
 | Product | Typical use                          | Links                                                                               |
 | ------- | ------------------------------------ | ----------------------------------------------------------------------------------- |
@@ -23,18 +31,10 @@ LSLiDAR develops laser-scanning sensors for robot perception and spatial measure
 | C16     | Multi-channel 3D sensing             | [OpenELAB product](https://openelab.io/products/wheeltec-leishen-c16-4-0)           |
 | CX1S3   | 3D perception integration            | [OpenELAB product](https://openelab.io/products/lslidar-cx1s3-solid-state-lidar)    |
 
-#### Popular applications
+### Popular applications
 
 * Develop 2D SLAM and obstacle detection for mobile robots.
 * Capture 3D point clouds for localization and mapping.
 * Integrate laser sensing into automation and spatial monitoring systems.
 
-#### Wiki product guides and manuals
-
-Product guides are listed below. Start with the OpenELAB product links above for specifications, configuration options, and available product resources.
-
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
-
-### Engineering development guides
-
-* [LSLiDAR C1 Mechanical LiDAR Engineering Guide](lslidar-c1-development-guide.md)

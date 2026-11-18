@@ -10,69 +10,74 @@ description: >-
 
 Find manuals and engineering references for LiDAR, depth cameras, joint actuators, servos, dexterous hands, robotic arms and mobile robots. Begin with the manufacturer, then select the exact model and revision used in your system.
 
-#### Start here
+### Start here
 
-| What you want to do                      | Where to find documentation                                                                         |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| Find LiDAR or depth camera documentation | [LIVOX](livox/) · [HESAI](hesai/) · [RoboSense](robosense/) · [Orbbec](orbbec/)                     |
-| Configure a joint actuator or servo      | [CubeMars](cubemars/) · [DAMIAO](damiao/) · [RobStride](robstride/) · [FEETECH](feetech/)           |
-| [MyActuator](myactuator/)                | RMD-X geared actuators, RMD-L direct-drive motors, and control adapters.                            |
-| Explore robotic arms or mobile platforms | [AgileX](agilex/) · [DOBOT](dobot/) · [RealMan](realman/) · [AgiBot](agibot/) · [Yahboom](yahboom/) |
-| Work with a dexterous hand               | [LINKERBOT](linkerbot/) · [Leadshine](leadshine/) · [AgiBot](agibot/)                               |
+| What you want to do                      | Where to find documentation                                                                                           |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Find LiDAR or depth camera documentation | [LIVOX](livox/) · [HESAI](hesai/) · [RoboSense](robosense/) · [Orbbec](orbbec/)                                       |
+| Configure a joint actuator or servo      | [CubeMars](cubemars/) · [DAMIAO](damiao/) · [RobStride](robstride/) · [FEETECH](feetech/) · [MyActuator](myactuator/) |
+| Explore robotic arms or mobile platforms | [AgileX](agilex/) · [DOBOT](dobot/) · [RealMan](realman/) · [AgiBot](agibot/) · [Yahboom](yahboom/)                   |
+| Work with a dexterous hand               | [LINKERBOT](linkerbot/) · [Leadshine](leadshine/) · [AgiBot](agibot/)                                                 |
 
-#### Manufacturer directory
+### Popular product guides
 
-Choose a manufacturer or brand to browse its product manuals and technical guides.
+| Product guide                                                                                                 | Manufacturer              |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| [Livox MID-360S 3D LiDAR Sensor Engineering Guide](livox/livox-mid-360s-3d-lidar-sensor-engineering-guide.md) | [Livox](livox/)           |
+| [RobStride 04 Instruction Manual](robstride/robstride-04-instruction-manual.md)                               | [RobStride](robstride/)   |
+| [Robosense Airy](robosense/robosense-airy.md)                                                                 | [RoboSense](robosense/)   |
+| [MyActuator RMD-X12-P20-320-E Development Guide](myactuator/rmd-x12-p20-320-e-development-guide.md)           | [MyActuator](myactuator/) |
+| [RobStride 03 Instruction Manual](robstride/robstride-03-instruction-manual.md)                               | [RobStride](robstride/)   |
+| [RobStride 06 Instruction Manual](robstride/robstride-06-instruction-manual.md)                               | [RobStride](robstride/)   |
+| [Orbbec Gemini 435Le User Manual](orbbec/orbbec-gemini-435le-user-manual.md)                                  | [Orbbec](orbbec/)         |
+| [Robosense M1 Plus](robosense/robosense-m1-plus.md)                                                           | [RoboSense](robosense/)   |
 
-| Manufacturer / brand                    | Products and documentation                                               |
-| --------------------------------------- | ------------------------------------------------------------------------ |
-| [DOBOT](dobot/)                         | Desktop arms, collaborative robots, workstations, and embodied-AI tools. |
-| [CubeMars](cubemars/)                   | Robot actuators, gimbal motors, underwater thrusters, and setup guides.  |
-| [DAMIAO](damiao/)                       | Joint and hub motors, CAN debugging tools, and model-specific manuals.   |
-| [RoboSense](robosense/)                 | Airy, Fairy, solid-state LiDAR, and AC1 robot perception hardware.       |
-| [AgiBot](agibot/)                       | Robot platforms, OmniHand devices and OmniPicker.                        |
-| [FEETECH](feetech/)                     | Bus servos, control protocols, memory tables, SDKs, and debug tools.     |
-| [Livox](livox/)                         | MID, HAP, TELE, and AVIA LiDAR families and integration guides.          |
-| [AgileX](agilex/)                       | UGVs, LIMO platforms, PiPER and NERO arms, and PiKA data tools.          |
-| [Orbbec](orbbec/)                       | Gemini and Femto depth cameras for robot vision and 3D sensing.          |
-| [RobStride](robstride/)                 | Integrated CAN robot joints, actuator manuals, and debugging tools.      |
-| [LINKERBOT](linkerbot/)                 | Linker Hand dexterous hand product manuals.                              |
-| [RealMan](realman/)                     | RM and ECO robot arms, WHJ joint modules, grippers, and manuals.         |
-| [LKMTECH](lkmtech/)                     | Robot joint motors and encoder references.                               |
-| [Unitree](unitree/)                     | L2 LiDAR and GO-M8010-6 motor documentation.                             |
-| [Xiaomi](xiaomi/)                       | CyberGear micromotor references.                                         |
-| [HESAI](hesai/)                         | JT and XT LiDAR families and JT128 integration documentation.            |
-| [Leadshine](leadshine/)                 | DH116 dexterous robot hand documentation.                                |
-| [Yahboom](yahboom/)                     | ROSMASTER, MicroROS, DOFBOT, and JetCobot robotics platforms.            |
-| [ChangingTek](changingtek.md)           | Electric grippers, adaptive hands, and manipulation-data tools.          |
-| [Elephant Robotics](elephant-robotics/) | myCobot desktop arms, grippers, cameras, and learning accessories.       |
-| [Hiwonder](hiwonder/)                   | ROS robot cars, hexapods, robotic arms, bus servos, and chassis.         |
-| [LDROBOT](ldrobot/)                     | Compact 2D LiDAR, developer kits, and single-point ranging sensors.      |
-| [LSLiDAR](lslidar/)                     | 2D and 3D LiDAR sensors for navigation, mapping, and spatial sensing.    |
-| [RealSense](realsense/)                 | Stereo depth cameras for close-range vision and robot perception.        |
-| [SLAMTEC](slamtec.md)                   | RPLIDAR, Mapper, Aurora, and industrial laser scanners.                  |
-| [SteadyWin](steadywin/)                 | GIM robot joint actuators and motor-control hardware.                    |
-| [WHEELTEC](wheeltec.md)                 | Control learning kits, balance robots, ROS platforms, and components.    |
-| [WowRobo](wowrobo/)                     | SO-ARM101, XLeRobot, LeKiwi, robotic hands, and tactile-sensing kits.    |
+Guide order follows our Top 200 net-sales snapshot for 17 August–17 November 2026. Guides shared by multiple variants appear once.
 
-#### Selected product guides
+### Manufacturer directory
 
-| Product guide                                                               | What it covers                                                   |
-| --------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| [Livox MID-360S](livox/livox-mid-360s-3d-lidar-sensor-engineering-guide.md) | LiDAR setup, software references and integration considerations. |
-| [HESAI JT128](hesai/hesai-jt128-3d-lidar-engineering-guide.md)              | 3D LiDAR engineering reference.                                  |
-| [Orbbec Gemini 330 Series](orbbec/orbbec-gemini-330-series-user-manual.md)  | Depth camera hardware and operating reference.                   |
-| [RobStride 02](robstride/robstride-02-instruction-manual.md)                | Joint actuator instruction manual.                               |
-| [AgileX PiPER](agilex/piper-product-user-manual.md)                         | Robotic arm product manual.                                      |
-| [Linker Hand L6](linkerbot/linker-hand-l6-product-manual.md)                | Dexterous hand product reference.                                |
+Manufacturers with products in the Top 200 list appear first, ordered by their highest-ranked product. Other brands follow.
 
-#### Before you begin
+| Manufacturer / brand                    | Products and documentation                                                 |
+| --------------------------------------- | -------------------------------------------------------------------------- |
+| [Livox](livox/)                         | MID, HAP, TELE, and AVIA LiDAR families and integration guides.            |
+| [RobStride](robstride/)                 | Integrated CAN robot joints, actuator manuals, and debugging tools.        |
+| [RoboSense](robosense/)                 | Airy, Fairy, solid-state LiDAR, and AC1 robot perception hardware.         |
+| [MyActuator](myactuator/)               | RMD-X geared actuators, RMD-L direct-drive motors, and control adapters.   |
+| [Orbbec](orbbec/)                       | Gemini and Femto depth cameras for robot vision and 3D sensing.            |
+| [AgileX](agilex/)                       | UGVs, LIMO platforms, PiPER and NERO arms, and PiKA data tools.            |
+| [Yahboom](yahboom/)                     | ROSMASTER, MicroROS, DOFBOT, and JetCobot robotics platforms.              |
+| [CubeMars](cubemars/)                   | Robot actuators, gimbal motors, underwater thrusters, and setup guides.    |
+| [AUMOVIO](aumovio/)                     | ARS 548 RDI radar hardware, physical interfaces and integration resources. |
+| [Hiwonder](hiwonder/)                   | ROS robot cars, hexapods, robotic arms, bus servos, and chassis.           |
+| [LKMTECH](lkmtech/)                     | Robot joint motors and encoder references.                                 |
+| [HESAI](hesai/)                         | JT and XT LiDAR families and JT128 integration documentation.              |
+| [RealSense](realsense/)                 | Stereo depth cameras for close-range vision and robot perception.          |
+| [WowRobo](wowrobo/)                     | SO-ARM101, XLeRobot, LeKiwi, robotic hands, and tactile-sensing kits.      |
+| [DAMIAO](damiao/)                       | Joint and hub motors, CAN debugging tools, and model-specific manuals.     |
+| [Unitree](unitree/)                     | L2 LiDAR and GO-M8010-6 motor documentation.                               |
+| [SteadyWin](steadywin/)                 | GIM robot joint actuators and motor-control hardware.                      |
+| [LSLiDAR](lslidar/)                     | 2D and 3D LiDAR sensors for navigation, mapping, and spatial sensing.      |
+| [LDROBOT](ldrobot/)                     | Compact 2D LiDAR, developer kits, and single-point ranging sensors.        |
+| [Elephant Robotics](elephant-robotics/) | myCobot desktop arms, grippers, cameras, and learning accessories.         |
+| [DOBOT](dobot/)                         | Desktop arms, collaborative robots, workstations, and embodied-AI tools.   |
+| [AgiBot](agibot/)                       | Robot platforms, OmniHand devices and OmniPicker.                          |
+| [FEETECH](feetech/)                     | Bus servos, control protocols, memory tables, SDKs, and debug tools.       |
+| [LINKERBOT](linkerbot/)                 | Linker Hand dexterous hand product manuals.                                |
+| [RealMan](realman/)                     | RM and ECO robot arms, WHJ joint modules, grippers, and manuals.           |
+| [Xiaomi](xiaomi/)                       | CyberGear micromotor references.                                           |
+| [Leadshine](leadshine/)                 | DH116 dexterous robot hand documentation.                                  |
+| [ChangingTek](changingtek.md)           | Electric grippers, adaptive hands, and manipulation-data tools.            |
+| [SLAMTEC](slamtec.md)                   | RPLIDAR, Mapper, Aurora, and industrial laser scanners.                    |
+| [WHEELTEC](wheeltec.md)                 | Control learning kits, balance robots, ROS platforms, and components.      |
+
+### Before you begin
 
 * Check the exact hardware model, firmware and communication interface against the manual.
 * Review the manufacturer’s power, mounting and safety instructions before enabling motion.
 * For software integration, record the SDK or driver version, operating system and relevant coordinate-frame or calibration settings.
 
-#### Explore other areas
+### Explore other areas
 
 | Explore                                                      | Documentation coverage                                                                             |
 | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |

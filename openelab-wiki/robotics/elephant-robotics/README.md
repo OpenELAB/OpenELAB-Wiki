@@ -8,13 +8,21 @@ Elephant Robotics develops compact robots, end effectors, and learning platforms
 
 [Browse Elephant Robotics products on OpenELAB](https://openelab.io/collections/brands-elephant-robotics)
 
-#### Product range
+### Popular product guides
+
+Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
+
+| Product guide                                                                               | Models / order codes |
+| ------------------------------------------------------------------------------------------- | -------------------- |
+| [Elephant Robotics myAGV 2023 Pi: image matching and navigation bring-up](myagv-2023-pi.md) | MyAGV-2023-PI        |
+
+### Product range
 
 * myCobot desktop robotic-arm platforms
 * Grippers, suction tools, camera mounts, and arm accessories
 * Educational and companion-robot products
 
-#### Popular products and starting points
+### Product families and examples
 
 | Product                  | Typical use                                      | Links                                                                                       |
 | ------------------------ | ------------------------------------------------ | ------------------------------------------------------------------------------------------- |
@@ -23,18 +31,10 @@ Elephant Robotics develops compact robots, end effectors, and learning platforms
 | myCobot flexible gripper | Handling objects with a flexible gripper         | [OpenELAB product](https://openelab.io/products/elephant-robotics-mycobot-flexible-gripper) |
 | Camera Flange 2.0        | Adding a camera to a compatible robot arm        | [OpenELAB product](https://openelab.io/products/elephant-robotics-cameraflange-2version)    |
 
-#### Popular applications
+### Popular applications
 
 * Teach robot-arm programming and coordinate-based motion.
 * Prototype camera-guided sorting and desktop pick-and-place.
 * Compare gripper and suction approaches for small-object handling.
 
-#### Wiki product guides and manuals
-
-Product guides are listed below. Start with the OpenELAB product links above for specifications, configuration options, and available product resources.
-
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
-
-### Engineering development guides
-
-* [Elephant Robotics myAGV 2023 Pi: image matching and navigation bring-up](myagv-2023-pi.md)
