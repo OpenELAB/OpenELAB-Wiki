@@ -610,6 +610,7 @@
 * [MyActuator](robotics/myactuator/README.md)
   * [MyActuator RMD-X12-P20-320-E Development Guide](robotics/myactuator/rmd-x12-p20-320-e-development-guide.md)
   * [MyActuator RMD-X6-P20 and RMD-X8-P20 Engineering Guide](robotics/myactuator/myactuator-rmd-x6-x8-p20-development-guide.md)
+  * [MyActuator RMD-X8-P20-120-E Development Guide](robotics/myactuator/rmd-x8-p20-120-e-development-guide.md)
 * [Orbbec](robotics/orbbec/README.md)
   * [Orbbec Gemini 435Le User Manual](robotics/orbbec/orbbec-gemini-435le-user-manual.md)
   * [Orbbec Gemini 330 Series User Manual](robotics/orbbec/orbbec-gemini-330-series-user-manual.md)

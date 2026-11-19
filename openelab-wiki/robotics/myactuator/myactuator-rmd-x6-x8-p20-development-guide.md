@@ -8,6 +8,8 @@
 
 [MyActuator-RMD-X6-P20-60-E](https://openelab.io/products/myactuator-rmd-x6-p20-actuator) · [MyActuator-RMD-X8-P20-120-E](https://openelab.io/products/myactuator-rmd-x8-p20-actuator)
 
+For detailed X8-120 specifications and commissioning, see the [MyActuator RMD-X8-P20-120-E Development Guide](rmd-x8-p20-120-e-development-guide.md).
+
 ## Product and scope
 
 This page covers **RMD-X6-P20-60-E** and **RMD-X8-P20-120-E** integrated planetary actuators. Match the full **E/C suffix, V4/V4.1 generation and firmware**; the older single-encoder V2 and other X6/X8 ratios use different limits.

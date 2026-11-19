@@ -17,6 +17,10 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | [MyActuator RMD-X12-P20-320-E Development Guide](rmd-x12-p20-320-e-development-guide.md)                | MyActuator-RMD-X12-P20-320-E                             |
 | [MyActuator RMD-X6-P20 and RMD-X8-P20 Engineering Guide](myactuator-rmd-x6-x8-p20-development-guide.md) | MyActuator-RMD-X6-P20-60-E · MyActuator-RMD-X8-P20-120-E |
 
+### Model-specific guides
+
+* [MyActuator RMD-X8-P20-120-E Development Guide](rmd-x8-p20-120-e-development-guide.md) — detailed X8-120 specifications, CAN/EtherCAT setup and commissioning.
+
 ### Product range
 
 * RMD-X planetary robot actuators
