@@ -1,8 +1,7 @@
 ---
 description: >-
-  HX-35H and HX-35HM are high-voltage bus servos with different documented
-  travel and position scales. OpenELAB currently reuses the same SKU for the two
-  product records, so identify the model from the
+  Compare HX-35H and HX-35HM supply, travel and position scales. Identify the
+  exact model before wiring, configuration or unloaded testing.
 ---
 
 # Hiwonder HX-35H and HX-35HM Guide
