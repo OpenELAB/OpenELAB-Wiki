@@ -1,53 +1,116 @@
-# Hiwonder NexArm ROS Version Engineering Guide
+---
+description: >-
+  NexArm ROS pairs the NexArm manipulator with a supported ROS host for 3D
+  perception and robot-arm development. This guide is separate from the
+  ESP32/leader-follower NexArm options.
+---
+
+# Hiwonder NexArm ROS Guide
 
 {% hint style="info" %}
-[**View Hiwonder NexArm ROS robotic arm on OpenELAB**](https://openelab.io/products/hiwonder-nexarm-ros-robotic-arm)
+[**View Hiwonder NexArm ROS VLA AI Robotic Arm Kit with Jetson/Raspberry Pi Options on OpenELAB**](https://openelab.io/products/hiwonder-nexarm-ros-robotic-arm)
 
-**Model:** NexArm ROS · **OpenELAB SKU:** `Hiwonder-21010737` · **Kit scope:** Raspberry Pi-ready and Jetson-ready configurations differ. Some variants exclude the external host controller; confirm the selected kit before using host images or enabling arm movement.
+**SKU:** `Hiwonder-21010731`, `Hiwonder-21010732`, `Hiwonder-21010733`, `Hiwonder-21010734`, `Hiwonder-21010797`, `Hiwonder-21010735`, `Hiwonder-21010736`, `Hiwonder-21010737`, `Hiwonder-21010738`, `Hiwonder-21010739`
+
+**Model / revision scope:** NexArm ROS. Match the purchased option below; hardware revisions and controller images are not interchangeable.
 {% endhint %}
 
-[Hiwonder-21010737](https://openelab.de/products/hiwonder-nexarm-ros-robotic-arm)
+![NexArm ROS — product image supplied by OpenELAB](../../.gitbook/assets/hiwonder-16.jpg)
 
-## Product and scope
+## Product overview
 
-This guide covers the **NexArm ROS kit**, OpenELAB **21010737**, rather than the separate ESP32 starter version. Match the Jetson/Raspberry Pi host and purchased perception/AI options before selecting software.
+NexArm ROS pairs the NexArm manipulator with a supported ROS host for 3D perception and robot-arm development. This guide is separate from the ESP32/leader-follower NexArm options.
 
-## Hardware and technical documents
+Secure a stand-alone arm with the supplied G clamps, or fasten the base to the sandbox assembly as documented. A leader arm, imitation-learning camera set or ROS host is included only when the selected option says so.
 
-| Item            | Reference                                                           |
-| --------------- | ------------------------------------------------------------------- |
-| Product role    | Programmable arm platform for vision and robot-learning experiments |
-| Host scope      | ROS kit with model-specific Jetson/Raspberry Pi options             |
-| Other version   | ESP32 NexArm has its own firmware and setup                         |
-| Resource access | Some system-image/source packages require the order number          |
+### Models and purchasing options
 
-Use the **ROS-version** hardware/assembly and Appendix resources for supply, servo map, mounting, dimensions and accessory wiring. The ESP32 starter manual's power and connection table is not sufficient to validate a ROS package.
+| OpenELAB SKU        | Purchased option                 |
+| ------------------- | -------------------------------- |
+| `Hiwonder-21010731` | Without Controller               |
+| `Hiwonder-21010732` | With Raspberry Pi 5 (4GB)        |
+| `Hiwonder-21010733` | With Raspberry Pi 5 (8GB)        |
+| `Hiwonder-21010734` | With Raspberry Pi 5 (16GB)       |
+| `Hiwonder-21010797` | Without Jetson Controller        |
+| `Hiwonder-21010735` | With Jetson Nano(4GB)            |
+| `Hiwonder-21010736` | With Jetson Orin Nano Super(4GB) |
+| `Hiwonder-21010737` | With Jetson Orin Nano Super(8GB) |
+| `Hiwonder-21010738` | With Jetson Orin NX Super(8GB)   |
+| `Hiwonder-21010739` | With Jetson Orin NX Super(16GB)  |
+
+A separately named bracket, horn, chassis or rail is the listed accessory, not a complete robot or servo. A “without controller / Raspberry Pi / Jetson / micro:bit” option requires the matching controller separately. Check the selected option’s packing list before starting.
+
+## Applications
+
+Use NexArm ROS to learn manual motion, perception and staged automation. Start with an unloaded mechanism and the sensors actually included in the selected kit.
+
+## Specifications
+
+| Parameter    | Value / scope                                    |
+| ------------ | ------------------------------------------------ |
+| Manipulator  | 6-axis NexArm family; configuration as purchased |
+| Arm power    | Supplied 12 V adapter; keep host supply separate |
+| Host         | Raspberry Pi or Jetson option as named           |
+| Camera / kit | Selected vision and kit configuration only       |
+| Development  | ROS image and calibration specific to the host   |
+
+Specifications: [manufacturer product data](https://www.hiwonder.com/products/nexarm-ros) and [OpenELAB listing](https://openelab.io/products/hiwonder-nexarm-ros-robotic-arm). Figures describe the stated configuration; accessory-only options do not inherit the complete kit specifications.
+
+## Hardware and connections
+
+Connect the supplied battery or adapter to the **robot’s designated power/expansion board**, not directly to a computer GPIO or an unverified charging socket. Inspect the camera, motor/servo and controller cables while power is off. Secure the base to the work surface and clear the entire arm/gripper envelope. Remove objects from the gripper before startup.
+
+Match the controller, camera, LiDAR and chassis configuration to the SKU. Optional voice/AI modules require their own cables and software. A USB camera, depth camera and CSI ribbon camera are not interchangeable interfaces.
+
+## Software and development resources
+
+Start with the factory image for **NexArm ROS and the exact controller option**. WonderROS is the documented initial control application. Use the official model downloads for restoration; a generic Raspberry Pi OS or JetPack installation does not include the robot services, calibrated offsets and device configuration.
+
+For development, preserve a backup of the supplied image and calibration files before replacing software. Select the manual branch for the installed board and ROS generation. A menu or directory for a different product is not a compatible firmware target. The ROS Appendix may require an order number for image downloads; follow that access route rather than substituting an ESP32 package.
 
 ## Getting started
 
-1. Identify the actual host, arm controller, supplied power equipment and cameras. Secure the arm and clear its swept volume.
-2. Obtain the matching factory image/materials from the official ROS Appendix. Hiwonder explicitly requests an order number for some downloads.
-3. Boot the image and establish the manual's host connection.
-4. Check joint identification/calibration and run a small, unloaded manual motion using the documented control interface.
-5. Test the camera preview separately before grasping or VLA/policy deployment.
+**Prerequisites:** the selected hardware, its matching power source, the required data cable, and a clear work area. Begin with the supplied firmware and an unloaded mechanism.
 
-**Expected checkpoint:** recognized joints and a predictable small movement, with the correct host image documented.
+1. Match the SKU table to the physical controller and kit. For a controller-excluded option, install the supported board and its exact robot image before attempting the remaining steps.
+2. Secure the base to the work surface and clear the entire arm/gripper envelope. Remove objects from the gripper before startup. Inspect polarity and cable seating, then power the robot with the supplied matching power system.
+3. Allow the onboard computer to finish booting and reach its documented ready posture/indicator state. Keep the mechanism clear because initialization may move servos.
+4. Install **WonderROS** from the model’s official resources. Enable Wi-Fi and the local-network/location permissions required for discovery. Select **NexArm**, then **+ → Direct Connection Mode**.
+5. Join the robot’s **HW…** hotspot using **hiwonder** on an unchanged factory image. Stay connected if the phone reports no Internet; return to the app and refresh until the correct robot icon appears.
+6. Open the model’s Robot/Remote Control screen. Confirm the camera feed, then use a small gripper or single-joint change with no payload. Return to the initial posture and stop; do not begin with an automatic pick sequence.
+7. End the demonstration and shut down the onboard operating system before removing power. Keep the original image and configuration until basic control is repeatable.
 
-## Development software and recovery
+**Expected result:** The correct robot is discovered, its live camera/connection status is visible, and one small manual command responds and stops predictably. Autonomous tasks and loaded motion remain subsequent tests.
 
-Use the official ROS-version source and development environment. A VLA demonstration also requires its supported model, compute and dataset configuration; arm communication alone does not provide that capability. Preserve firmware, image and calibration records before recovery or update.
+Procedure reference: [official model or interface manual](https://wiki.hiwonder.com/projects/NexArm/en/ros-version/docs/1.%20NexArm%20User%20Manual.html). The steps above are a bounded initial check, not a substitute for the full assembly and development chapters.
 
-## FAQs
+## Troubleshooting and FAQs
 
-**The ESP32 instructions show a different app?** Use the ROS-version manual for this kit.
+**No hotspot:** wait for the full boot sequence, verify the battery/adapter and image/controller match, then check whether the robot was previously configured for LAN mode.
 
-**Where is the system image?** Follow the official Appendix's order-number access procedure; do not use an unrelated robot image.
+**Phone joins Wi-Fi but the app sees nothing:** remain on the robot network despite the no-Internet warning, grant local-network discovery permissions, select the correct model and refresh. The factory password may have been changed on a used unit.
 
-**Motion or vision is inconsistent?** Validate joint calibration, camera identity and transforms before changing a trained policy.
+**Camera works but motion is wrong:** stop immediately and verify the chassis type, motor/servo connections and model configuration. Do not compensate with unrelated servo offsets.
 
-## Sources and validation
+**Vision, mapping or voice option is unavailable:** check the selected kit’s actual camera, LiDAR and AI/voice modules. Offline local control does not establish that a cloud AI service is configured.
 
-* [Official ROS Appendix and downloads](https://wiki.hiwonder.com/projects/NexArm/en/ros-version/docs/Appendix.html)
-* [ESP32 version for explicit comparison only](https://wiki.hiwonder.com/projects/NexArm/en/esp32-version/docs/1_Getting_Started_NexArm.html)
+**Restoring firmware:** use the exact model/controller resource package and retain calibration files; do not write an image for a similarly named Pro or legacy version.
 
-Reviewed 18 November 2026. Source links and accessible manufacturer documentation were reviewed; this guide has not been compiled or tested on physical hardware. Before reproducing a project, record the board revision, firmware/SDK release or commit, operating system and any changes to the supplied configuration.
+## Downloads and technical documents
+
+* [Official user / interface manual](https://wiki.hiwonder.com/projects/NexArm/en/ros-version/docs/1.%20NexArm%20User%20Manual.html)
+* [Official software, image and course downloads](https://wiki.hiwonder.com/projects/NexArm/en/esp32-version/docs/Appendix.html)
+* [ROS-version Appendix and download access](https://wiki.hiwonder.com/projects/NexArm/en/ros-version/docs/Appendix.html)
+* [Manufacturer Hiwonder NexArm ROS VLA AI Robotic Arm Kit with Jetson/Raspberry Pi Options specifications and option drawings](https://www.hiwonder.com/products/nexarm-ros)
+
+Use the manual’s download or appendix section for the matching revision. A linked download directory is not a claim that every firmware archive, CAD file or installer has been tested. Do not flash an image for a similarly named product.
+
+## References and validation
+
+* [OpenELAB product and SKU options](https://openelab.io/products/hiwonder-nexarm-ros-robotic-arm).
+* [Official user / interface manual](https://wiki.hiwonder.com/projects/NexArm/en/ros-version/docs/1.%20NexArm%20User%20Manual.html)
+* [Official software, image and course downloads](https://wiki.hiwonder.com/projects/NexArm/en/esp32-version/docs/Appendix.html)
+* [ROS-version Appendix and download access](https://wiki.hiwonder.com/projects/NexArm/en/ros-version/docs/Appendix.html)
+* [Manufacturer Hiwonder NexArm ROS VLA AI Robotic Arm Kit with Jetson/Raspberry Pi Options specifications and option drawings](https://www.hiwonder.com/products/nexarm-ros)
+
+Reviewed against the linked sources on 19 November 2026. Software installation, compilation and physical hardware tests were not performed for this guide. Use the observable checkpoints above to verify your own unit before integrating it into a larger system.

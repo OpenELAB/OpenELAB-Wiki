@@ -1,56 +1,108 @@
-# Hiwonder SpiderPi Pro Engineering Guide
+---
+description: A Raspberry Pi hexapod with a vision arm for mobile object handling.
+---
+
+# Hiwonder SpiderPi Pro Guide
 
 {% hint style="info" %}
-[**View Hiwonder SpiderPi Pro on OpenELAB**](https://openelab.io/products/spiderpi-pro-pi5)
+[**View Hiwonder SpiderPi Pro 18DOF AI Vision Hexapod Robot with 5DOF Arm on OpenELAB**](https://openelab.io/products/spiderpi-pro-pi5)
 
-**Model/family:** Hiwonder SpiderPi Pro · **OpenELAB SKUs:** `Hiwonder-21060060`, `Hiwonder-21060050` · Confirm exact purchased model and option before following wiring/firmware instructions.
+**SKU:** `Hiwonder-21060012`, `Hiwonder-21060132`, `Hiwonder-21060050`, `Hiwonder-21060051`, `Hiwonder-21060060`
+
+**Model / revision scope:** SpiderPi Pro. Match the purchased option below; hardware revisions and controller images are not interchangeable.
 {% endhint %}
 
-[Hiwonder-21060060](https://openelab.io/products/spiderpi-pro-pi5) · [Hiwonder-21060050](https://openelab.io/products/spiderpi-pro-pi5)
+![SpiderPi Pro — product image supplied by OpenELAB](../../.gitbook/assets/hiwonder-99.png)
 
-## Product and scope
+## Product overview
 
-This page covers **SpiderPi Pro**, including OpenELAB **21060060 / 21060050** package rows. Inspect Raspberry Pi generation, included accessories and power equipment against the order. The non-Pro SpiderPi does not include the same manipulation scope.
+A Raspberry Pi hexapod with a vision arm for mobile object handling.
 
-## Hardware and technical documents
+The manufacturer’s shared connection text contains TurboPi labels; use this robot’s own app entry and model-specific control screen. Do not change the robot firmware to match the copied label.
 
-| Item                        | Reference                                                    |
-| --------------------------- | ------------------------------------------------------------ |
-| Legs                        | Six legs, three DoF per leg                                  |
-| Arm                         | Five-DoF vision arm                                          |
-| Host                        | Raspberry Pi 4B/5 package options                            |
-| Published battery reference | 11.1V, 3500mAh LiPo for the cited manufacturer configuration |
-| Communications              | Wi-Fi and Ethernet                                           |
-| Approximate body mass       | 3.1kg in the cited configuration                             |
+### Models and purchasing options
 
-The manufacturer page supplies a **dimensional diagram, kit packing list** and official documentation links. Use those resources to verify the specific package, servo types, charging equipment and physical assembly.
+| OpenELAB SKU        | Purchased option           |
+| ------------------- | -------------------------- |
+| `Hiwonder-21060012` | With Raspberry Pi 4B (4GB) |
+| `Hiwonder-21060132` | With Raspberry Pi 5 (2GB)  |
+| `Hiwonder-21060050` | With Raspberry Pi 5 (4GB)  |
+| `Hiwonder-21060051` | With Raspberry Pi 5 (8GB)  |
+| `Hiwonder-21060060` | With Raspberry Pi 5 (16GB) |
+
+## Applications
+
+Use SpiderPi Pro to learn joint coordination, gait/pose control and camera-based interaction.
+
+## Specifications
+
+| Parameter         | Value / scope                                                           |
+| ----------------- | ----------------------------------------------------------------------- |
+| Controller        | Raspberry Pi option in the SKU table; Pi 4 and Pi 5 images differ       |
+| Battery reference | 11.1 V, 3500 mAh, 5C                                                    |
+| Mechanism         | Hexapod with 5-DOF arm                                                  |
+| Mass reference    | Approximately 3.1 kg                                                    |
+| Software          | Model-specific image; ROS generation depends on purchased configuration |
+
+Specifications: [manufacturer product data](https://www.hiwonder.com/products/spiderpi-pro) and [OpenELAB listing](https://openelab.io/products/spiderpi-pro-pi5). Figures describe the stated configuration; accessory-only options do not inherit the complete kit specifications.
+
+## Hardware and connections
+
+Connect the supplied battery or adapter to the **robot’s designated power/expansion board**, not directly to a computer GPIO or an unverified charging socket. Inspect the camera, motor/servo and controller cables while power is off. Keep a clear area around every leg and support the robot in the initial resting posture shown in its model manual. Do not hold a powered joint by hand.
+
+Match the controller, camera, LiDAR and chassis configuration to the SKU. Optional voice/AI modules require their own cables and software. A USB camera, depth camera and CSI ribbon camera are not interchangeable interfaces.
+
+## Software and development resources
+
+Start with the factory image for **SpiderPi Pro and the exact controller option**. WonderPi is the documented initial control application. Use the official model downloads for restoration; a generic Raspberry Pi OS or JetPack installation does not include the robot services, calibrated offsets and device configuration.
+
+For development, preserve a backup of the supplied image and calibration files before replacing software. Select the manual branch for the installed board and ROS generation. A menu or directory for a different product is not a compatible firmware target.
 
 ## Getting started
 
-1. Check mechanical fasteners and servo connections with power off. Support the chassis above the bench for first tests.
-2. Use the supplied image matched to the Raspberry Pi generation; avoid replacing it with an arbitrary desktop image.
-3. Connect through the official app/remote-access instructions and save the existing action/calibration data.
-4. Run a documented neutral-posture test before walking. Keep the arm clear and begin without an object.
-5. Test a simple vision display, then a small arm action; combine walking and manipulation only after independent checks.
+**Prerequisites:** the selected hardware, its matching power source, the required data cable, and a clear work area. Begin with the supplied firmware and an unloaded mechanism.
 
-**Expected checkpoint:** stable neutral posture, a working camera and predictable low-speed action playback.
+1. Match the SKU table to the physical controller and kit. For a controller-excluded option, install the supported board and its exact robot image before attempting the remaining steps.
+2. Keep a clear area around every leg and support the robot in the initial resting posture shown in its model manual. Do not hold a powered joint by hand. Inspect polarity and cable seating, then power the robot with the supplied matching power system.
+3. Allow the onboard computer to finish booting and reach its documented ready posture/indicator state. Keep the mechanism clear because initialization may move servos.
+4. Install **WonderPi** from the model’s official resources. Enable Wi-Fi and the local-network/location permissions required for discovery. Select **SpiderPi Pro**, then **+ → Direct Connection Mode**.
+5. Join the robot’s **HW…** hotspot using **hiwonder** on an unchanged factory image. Stay connected if the phone reports no Internet; return to the app and refresh until the correct robot icon appears.
+6. Open the model’s Robot/Remote Control screen and verify the camera feed before issuing a brief low-speed command on a clear floor. Release the control and verify the robot stops; avoid autonomous gaits for this first test.
+7. End the demonstration and shut down the onboard operating system before removing power. Keep the original image and configuration until basic control is repeatable.
 
-## Development software and recovery
+**Expected result:** The correct robot is discovered, its live camera/connection status is visible, and one small manual command responds and stops predictably. Autonomous tasks and loaded motion remain subsequent tests.
 
-Official examples cover gait, OpenCV vision and arm coordination. Use **Hiwonder/SpiderPi-Pro** with the matching image and document the versions. For recovery, restore the correct image and preserve device-specific calibration. ROSpider launch files are not a drop-in SpiderPi Pro software stack.
+Procedure reference: [official model or interface manual](https://wiki.hiwonder.com/projects/SpiderPi_Pro/en/latest/docs/2_Getting%20Ready.html). The steps above are a bounded initial check, not a substitute for the full assembly and development chapters.
 
-## FAQs
+## Troubleshooting and FAQs
 
-**Why are there two order codes?** They represent package/configuration rows; confirm included controller and accessories rather than assuming equal contents.
+**No hotspot:** wait for the full boot sequence, verify the battery/adapter and image/controller match, then check whether the robot was previously configured for LAN mode.
 
-**A joint twitches?** Inspect supply sag, connectors, IDs and calibration before increasing gains.
+**Phone joins Wi-Fi but the app sees nothing:** remain on the robot network despite the no-Internet warning, grant local-network discovery permissions, select the correct model and refresh. The factory password may have been changed on a used unit.
 
-**Can I apply another robot's battery?** Match voltage, connector polarity and the specified charger exactly.
+**Camera works but motion is wrong:** stop immediately and verify the chassis type, motor/servo connections and model configuration. Do not compensate with unrelated servo offsets.
 
-## Sources and validation
+**Vision, mapping or voice option is unavailable:** check the selected kit’s actual camera, LiDAR and AI/voice modules. Offline local control does not establish that a cloud AI service is configured.
 
-* [Model specifications and drawings](https://www.hiwonder.com/products/spiderpi-pro)
-* [Official tutorials and hardware resources](https://docs.hiwonder.com/projects/SpiderPi_Pro/en/latest/)
-* [Software repository](https://github.com/Hiwonder/SpiderPi-Pro)
+**Restoring firmware:** use the exact model/controller resource package and retain calibration files; do not write an image for a similarly named Pro or legacy version.
 
-Reviewed 18 November 2026. Source links and accessible manufacturer documentation were reviewed; this guide has not been compiled or tested on physical hardware. Before reproducing a project, record the board revision, firmware/SDK release or commit, operating system and any changes to the supplied configuration.
+## Downloads and technical documents
+
+* [Official user / interface manual](https://wiki.hiwonder.com/projects/SpiderPi_Pro/en/latest/docs/2_Getting%20Ready.html)
+* [Official software, image and course downloads](https://wiki.hiwonder.com/projects/SpiderPi_Pro/en/latest/docs/resources_download.html)
+* [Startup posture, power and charging](https://wiki.hiwonder.com/projects/SpiderPi_Pro/en/latest/docs/1_read_before_studying.html)
+* [Official source repository — match branch and host](https://github.com/Hiwonder/SpiderPi-Pro)
+* [Manufacturer Hiwonder SpiderPi Pro 18DOF AI Vision Hexapod Robot with 5DOF Arm specifications and option drawings](https://www.hiwonder.com/products/spiderpi-pro)
+
+Use the manual’s download or appendix section for the matching revision. A linked download directory is not a claim that every firmware archive, CAD file or installer has been tested. Do not flash an image for a similarly named product.
+
+## References and validation
+
+* [OpenELAB product and SKU options](https://openelab.io/products/spiderpi-pro-pi5).
+* [Official user / interface manual](https://wiki.hiwonder.com/projects/SpiderPi_Pro/en/latest/docs/2_Getting%20Ready.html)
+* [Official software, image and course downloads](https://wiki.hiwonder.com/projects/SpiderPi_Pro/en/latest/docs/resources_download.html)
+* [Startup posture, power and charging](https://wiki.hiwonder.com/projects/SpiderPi_Pro/en/latest/docs/1_read_before_studying.html)
+* [Official source repository — match branch and host](https://github.com/Hiwonder/SpiderPi-Pro)
+* [Manufacturer Hiwonder SpiderPi Pro 18DOF AI Vision Hexapod Robot with 5DOF Arm specifications and option drawings](https://www.hiwonder.com/products/spiderpi-pro)
+
+Reviewed against the linked sources on 19 November 2026. Software installation, compilation and physical hardware tests were not performed for this guide. Use the observable checkpoints above to verify your own unit before integrating it into a larger system.

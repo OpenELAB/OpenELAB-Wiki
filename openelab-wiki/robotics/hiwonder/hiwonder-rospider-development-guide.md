@@ -1,55 +1,130 @@
-# Hiwonder ROSpider Engineering Guide
+---
+description: >-
+  ROSpider is a ROS2 hexapod platform with optional arm and vision equipment. It
+  uses a host computer plus an STM32 motion controller; purchased kit contents
+  determine the available functions.
+---
+
+# Hiwonder ROSpider Guide
 
 {% hint style="info" %}
-[**View Hiwonder ROSpider on OpenELAB**](https://openelab.io/products/rospider-ros2)
+[**View Hiwonder ROSpider ROS2 Hexapod Robot Kit with 3D Vision, SLAM & 6DOF Arm on OpenELAB**](https://openelab.io/products/rospider-ros2)
 
-**Model/family:** Hiwonder ROSpider · **OpenELAB SKU:** `Hiwonder-21060103`
+**SKU:** `Hiwonder-21060093`, `Hiwonder-21060095`, `Hiwonder-21060109`, `Hiwonder-21060107`, `Hiwonder-21060108`, `Hiwonder-21060094`, `Hiwonder-21060096`, `Hiwonder-21060098`, `Hiwonder-21060114`, `Hiwonder-21060112`, `Hiwonder-21060113`, `Hiwonder-21060097`, `Hiwonder-21060119`, `Hiwonder-21060101`, `Hiwonder-21060099`, `Hiwonder-21060117`, `Hiwonder-21060118`, `Hiwonder-21060100`, `Hiwonder-21060124`, `Hiwonder-21060104`, `Hiwonder-21060102`, `Hiwonder-21060122`, `Hiwonder-21060123`, `Hiwonder-21060103`
+
+**Model / revision scope:** ROSpider. Match the purchased option below; hardware revisions and controller images are not interchangeable.
 {% endhint %}
 
-[Hiwonder-21060103](https://openelab.io/products/rospider-ros2)
+![ROSpider — product image supplied by OpenELAB](../../.gitbook/assets/hiwonder-95.png)
 
-## Product and scope
+## Product overview
 
-**ROSpider** is a ROS hexapod platform with controller and kit options. OpenELAB **Hiwonder-21060103** is advertised with 3D vision and an arm; verify its fitted host and perception package before using a tutorial. SpiderPi/SpiderPi Pro are separate products.
+ROSpider is a ROS2 hexapod platform with optional arm and vision equipment. It uses a host computer plus an STM32 motion controller; purchased kit contents determine the available functions.
 
-## Hardware and technical documents
+ROSpider’s current manual specifies **WN… / 12345678** for direct Wi-Fi, unlike the HW/hiwonder defaults on several older Hiwonder robots. Apply the values from the image actually supplied with the unit.
 
-| Item                      | Reference                                                   |
-| ------------------------- | ----------------------------------------------------------- |
-| Locomotion                | Six-legged, bus-servo platform                              |
-| Host variants             | Jetson and Raspberry Pi packages                            |
-| Documented ROS2 reference | Ubuntu 22.04 / ROS2 Humble in the cited ROSpider manual     |
-| Expansion                 | Camera, LiDAR, arm and audio depend on the selected package |
+### Models and purchasing options
 
-The manufacturer's **ROSpider User Manual** contains assembly, port diagrams and kit inventories. Use the branch for the actual host. Detailed electrical ratings and mounting geometry come from that branch's hardware resources, not from a generic hexapod diagram.
+| OpenELAB SKU        | Purchased option                                |
+| ------------------- | ----------------------------------------------- |
+| `Hiwonder-21060093` | Starter Kit / Without Controller                |
+| `Hiwonder-21060095` | Starter Kit / With Raspberry Pi 5(8GB)          |
+| `Hiwonder-21060109` | Starter Kit / With Jetson Nano(4GB)             |
+| `Hiwonder-21060107` | Starter Kit / With Jetson Orin Nano Super(8GB)  |
+| `Hiwonder-21060108` | Starter Kit / With Jetson Orin NX Super(8GB)    |
+| `Hiwonder-21060094` | Starter Kit / With Jetson Orin NX Super(16GB)   |
+| `Hiwonder-21060096` | Standard Kit / Without Controller               |
+| `Hiwonder-21060098` | Standard Kit / With Raspberry Pi 5(8GB)         |
+| `Hiwonder-21060114` | Standard Kit / With Jetson Nano(4GB)            |
+| `Hiwonder-21060112` | Standard Kit / With Jetson Orin Nano Super(8GB) |
+| `Hiwonder-21060113` | Standard Kit / With Jetson Orin NX Super(8GB)   |
+| `Hiwonder-21060097` | Standard Kit / With Jetson Orin NX Super(16GB)  |
+| `Hiwonder-21060119` | Advanced Kit / Without Controller               |
+| `Hiwonder-21060101` | Advanced Kit / With Raspberry Pi 5(8GB)         |
+| `Hiwonder-21060099` | Advanced Kit / With Jetson Nano(4GB)            |
+| `Hiwonder-21060117` | Advanced Kit / With Jetson Orin Nano Super(8GB) |
+| `Hiwonder-21060118` | Advanced Kit / With Jetson Orin NX Super(8GB)   |
+| `Hiwonder-21060100` | Advanced Kit / With Jetson Orin NX Super(16GB)  |
+| `Hiwonder-21060124` | Ultimate Kit / Without Controller               |
+| `Hiwonder-21060104` | Ultimate Kit / With Raspberry Pi 5(8GB)         |
+| `Hiwonder-21060102` | Ultimate Kit / With Jetson Nano(4GB)            |
+| `Hiwonder-21060122` | Ultimate Kit / With Jetson Orin Nano Super(8GB) |
+| `Hiwonder-21060123` | Ultimate Kit / With Jetson Orin NX Super(8GB)   |
+| `Hiwonder-21060103` | Ultimate Kit / With Jetson Orin NX Super(16GB)  |
+
+A separately named bracket, horn, chassis or rail is the listed accessory, not a complete robot or servo. A “without controller / Raspberry Pi / Jetson / micro:bit” option requires the matching controller separately. Check the selected option’s packing list before starting.
+
+## Applications
+
+Use ROSpider to learn joint coordination, gait/pose control and camera-based interaction.
+
+## Specifications
+
+| Parameter         | Value / scope                                                 |
+| ----------------- | ------------------------------------------------------------- |
+| Host              | Jetson / Raspberry Pi options as listed                       |
+| Motion controller | STM32F407 family                                              |
+| Battery reference | 11.1 V, 6000 mAh, 3C                                          |
+| Mass reference    | Approximately 3.2 kg for the described ultimate configuration |
+| Software          | ROSpider ROS2 image for the exact host                        |
+
+Specifications: [manufacturer product data](https://www.hiwonder.com/products/rospider) and [OpenELAB listing](https://openelab.io/products/rospider-ros2). Figures describe the stated configuration; accessory-only options do not inherit the complete kit specifications.
+
+## Hardware and connections
+
+Connect the supplied battery or adapter to the **robot’s designated power/expansion board**, not directly to a computer GPIO or an unverified charging socket. Inspect the camera, motor/servo and controller cables while power is off. Keep a clear area around every leg and support the robot in the initial resting posture shown in its model manual. Do not hold a powered joint by hand.
+
+Match the controller, camera, LiDAR and chassis configuration to the SKU. Optional voice/AI modules require their own cables and software. A USB camera, depth camera and CSI ribbon camera are not interchangeable interfaces.
+
+## Software and development resources
+
+Start with the factory image for **ROSpider and the exact controller option**. WonderAi is the documented initial control application. Use the official model downloads for restoration; a generic Raspberry Pi OS or JetPack installation does not include the robot services, calibrated offsets and device configuration.
+
+For development, preserve a backup of the supplied image and calibration files before replacing software. Select the manual branch for the installed board and ROS generation. A menu or directory for a different product is not a compatible firmware target.
 
 ## Getting started
 
-1. Support the body so the legs can move without carrying or striking a load. Check servo connections with power off.
-2. Boot the matching delivered image and use the manual's remote-access procedure.
-3. Identify the controller, servo bus, camera and LiDAR. Save their configuration.
-4. Test one documented stationary posture at conservative speed; verify the stop behavior.
-5. Then test a short gait in a clear area before enabling mapping, arm actions or vision behaviors.
+**Prerequisites:** the selected hardware, its matching power source, the required data cable, and a clear work area. Begin with the supplied firmware and an unloaded mechanism.
 
-**Expected checkpoint:** stable posture and controlled short movement with all expected joints/sensors visible.
+1. Match the SKU table to the physical controller and kit. For a controller-excluded option, install the supported board and its exact robot image before attempting the remaining steps.
+2. Keep a clear area around every leg and support the robot in the initial resting posture shown in its model manual. Do not hold a powered joint by hand. Inspect polarity and cable seating, then power the robot with the supplied matching power system.
+3. Allow the onboard computer to finish booting and reach its documented ready posture/indicator state. Keep the mechanism clear because initialization may move servos.
+4. Install **WonderAi** from the model’s official resources. Enable Wi-Fi and the local-network/location permissions required for discovery. Select **ROSpider**, then **+ → Direct Connection Mode**.
+5. Join the robot’s **WN…** hotspot using **12345678** on an unchanged factory image. Stay connected if the phone reports no Internet; return to the app and refresh until the correct robot icon appears.
+6. Open the model’s Robot/Remote Control screen and verify the camera feed before issuing a brief low-speed command on a clear floor. Release the control and verify the robot stops; avoid autonomous gaits for this first test.
+7. End the demonstration and shut down the onboard operating system before removing power. Keep the original image and configuration until basic control is repeatable.
 
-## Development software and recovery
+**Expected result:** The correct robot is discovered, its live camera/connection status is visible, and one small manual command responds and stops predictably. Autonomous tasks and loaded motion remain subsequent tests.
 
-The official **Hiwonder/ROSpider** repository and manual supply application code and ROS workflows. Retain the exact image, repository branch and calibration/action data. A controller update and a Linux-image update are different operations. Restore from the matching official image if system changes break startup.
+Procedure reference: [official model or interface manual](https://wiki.hiwonder.com/projects/ROSpider/en/jetson-orin-nano-version/docs/1_ROSpider_User_Manual.html). The steps above are a bounded initial check, not a substitute for the full assembly and development chapters.
 
-## FAQs
+## Troubleshooting and FAQs
 
-**Why does the tutorial show different hardware?** ROSpider has multiple host and kit versions; change the documentation branch.
+**No hotspot:** wait for the full boot sequence, verify the battery/adapter and image/controller match, then check whether the robot was previously configured for LAN mode.
 
-**A leg moves incorrectly?** Stop and verify servo IDs, mounting orientation and calibration.
+**Phone joins Wi-Fi but the app sees nothing:** remain on the robot network despite the no-Internet warning, grant local-network discovery permissions, select the correct model and refresh. The factory password may have been changed on a used unit.
 
-**No LiDAR or depth camera?** Check whether that accessory is included and its driver matches the actual model.
+**Camera works but motion is wrong:** stop immediately and verify the chassis type, motor/servo connections and model configuration. Do not compensate with unrelated servo offsets.
 
-## Sources and validation
+**Vision, mapping or voice option is unavailable:** check the selected kit’s actual camera, LiDAR and AI/voice modules. Offline local control does not establish that a cloud AI service is configured.
 
-* [Manufacturer model page](https://www.hiwonder.com/products/rospider)
-* [Host-specific manual](https://docs.hiwonder.com/projects/ROSpider/en/jetson-orin-nano-version/)
-* [Software repository](https://github.com/Hiwonder/ROSpider)
-* [Current ROSpider user manual](https://wiki.hiwonder.com/projects/ROSpider/en/jetson-orin-nano-version/docs/1_ROSpider_User_Manual.html)
+**Restoring firmware:** use the exact model/controller resource package and retain calibration files; do not write an image for a similarly named Pro or legacy version.
 
-Reviewed 18 November 2026. Source links and accessible manufacturer documentation were reviewed; this guide has not been compiled or tested on physical hardware. Before reproducing a project, record the board revision, firmware/SDK release or commit, operating system and any changes to the supplied configuration.
+## Downloads and technical documents
+
+* [Official user / interface manual](https://wiki.hiwonder.com/projects/ROSpider/en/jetson-orin-nano-version/docs/1_ROSpider_User_Manual.html)
+* [Official software, image and course downloads](https://wiki.hiwonder.com/projects/ROSpider/en/jetson-orin-nano-version/docs/Appendix.html)
+* [Official source repository — match branch and host](https://github.com/Hiwonder/ROSpider)
+* [Manufacturer Hiwonder ROSpider ROS2 Hexapod Robot Kit with 3D Vision, SLAM & 6DOF Arm specifications and option drawings](https://www.hiwonder.com/products/rospider)
+
+Use the manual’s download or appendix section for the matching revision. A linked download directory is not a claim that every firmware archive, CAD file or installer has been tested. Do not flash an image for a similarly named product.
+
+## References and validation
+
+* [OpenELAB product and SKU options](https://openelab.io/products/rospider-ros2).
+* [Official user / interface manual](https://wiki.hiwonder.com/projects/ROSpider/en/jetson-orin-nano-version/docs/1_ROSpider_User_Manual.html)
+* [Official software, image and course downloads](https://wiki.hiwonder.com/projects/ROSpider/en/jetson-orin-nano-version/docs/Appendix.html)
+* [Official source repository — match branch and host](https://github.com/Hiwonder/ROSpider)
+* [Manufacturer Hiwonder ROSpider ROS2 Hexapod Robot Kit with 3D Vision, SLAM & 6DOF Arm specifications and option drawings](https://www.hiwonder.com/products/rospider)
+
+Reviewed against the linked sources on 19 November 2026. Software installation, compilation and physical hardware tests were not performed for this guide. Use the observable checkpoints above to verify your own unit before integrating it into a larger system.
