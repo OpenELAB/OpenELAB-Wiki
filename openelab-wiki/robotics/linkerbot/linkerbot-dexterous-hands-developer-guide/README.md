@@ -87,17 +87,17 @@ ros2 topic echo --once --qos-reliability best_effort /linkerbot_hand/state/angle
 
 **Expected result:** one valid live angle observation matching the model's effective controlled joint count (6, 10, 16, 17 or 20). The commands shown do **not** send joint motion. **If no fresh sample arrives:** check actual bus/adapter, OS permissions, model-side identification and firmware, not a motion command.
 
-### Model-specific developer guides
+### consolidated product manuals and developer guides
 
-| Model                                                  | Engineering guide                                                       | Primary source                                                                  |
-| ------------------------------------------------------ | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| **L6** — 6 active, 11 total joints                     | [L6 development guide](linker-hand-l6-development-guide.md)             | [L6 OEM manual](../linker-hand-l6-product-manual.md)                            |
-| **L20 Lite** — 10 active, 20 total joints              | [L20 Lite development guide](linker-hand-l20-lite-development-guide.md) | [L20 Lite OEM manual](../linker-hand-l20-lite-product-manual.md)                |
-| **L20** — 16 active, 21 total joints                   | [L20 development guide](linker-hand-l20-development-guide.md)           | [L20 OEM manual](../linker-hand-l20-product-manual.md)                          |
-| **L30 Standard (tendon)** — 17 active, 21 total joints | [L30 development guide](linker-hand-l30-tendon-development-guide.md)    | [L30 tendon OEM manual](../linker-hand-l30-standard-edition-product-manual.md)  |
-| **O6** — 6 active, 11 total joints                     | [O6 development guide](linker-hand-o6-development-guide.md)             | [O6 OEM manual](../linker-hand-o6-product-manual.md)                            |
-| **O20** — 16 active joints                             | [O20 development draft](linker-hand-o20-development-guide.md)           | Supplied V1.2 manual; **store match and permanent download pending**            |
-| **O30** — 20 active joints                             | [O30 development draft](linker-hand-o30-development-guide.md)           | [O30 OEM manual](../linker-hand-o30-product-manual.md); **store match pending** |
+| Model                                                  | Engineering guide                                                              | Primary source                                                                  |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| **L6** — 6 active, 11 total joints                     | [L6 development guide](../linker-hand-l6-product-manual.md)                    | [L6 OEM manual](../linker-hand-l6-product-manual.md)                            |
+| **L20 Lite** — 10 active, 20 total joints              | [L20 Lite development guide](../linker-hand-l20-lite-product-manual.md)        | [L20 Lite OEM manual](../linker-hand-l20-lite-product-manual.md)                |
+| **L20** — 16 active, 21 total joints                   | [L20 development guide](../linker-hand-l20-product-manual.md)                  | [L20 OEM manual](../linker-hand-l20-product-manual.md)                          |
+| **L30 Standard (tendon)** — 17 active, 21 total joints | [L30 development guide](../linker-hand-l30-standard-edition-product-manual.md) | [L30 tendon OEM manual](../linker-hand-l30-standard-edition-product-manual.md)  |
+| **O6** — 6 active, 11 total joints                     | [O6 development guide](../linker-hand-o6-product-manual.md)                    | [O6 OEM manual](../linker-hand-o6-product-manual.md)                            |
+| **O20** — 16 active joints                             | [O20 development draft](../linker-hand-o20-development-guide.md)               | Supplied V1.2 manual; **store match and permanent download pending**            |
+| **O30** — 20 active joints                             | [O30 development draft](../linker-hand-o30-product-manual.md)                  | [O30 OEM manual](../linker-hand-o30-product-manual.md); **store match pending** |
 
 **Important:** These are not interchangeable products. L30's store/manual voltage and transport conflict blocks power-up instructions; O20 and O30 lack verified .io product SKU links.
 
