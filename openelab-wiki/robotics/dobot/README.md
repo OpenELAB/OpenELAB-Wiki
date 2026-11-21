@@ -78,6 +78,7 @@ Browse the available guides below. Match the full model number and hardware revi
 * [DOBOT Vision Studio Software User Guide](dobot-vision-studio-software-user-guide.md)
 * [DOBOT VX500 Smart Camera User Guide](dobot-vx500-smart-camera-user-guide.md)
 * [DOBOT Welding Process Package User Guide](dobot-welding-process-package-user-guide.md)
+* [DOBOT X-Trainer — Embodied AI Development and Data Acquisition Guide](dobot-x-trainer-embodied-ai-development-guide/)
 * [DOBOT X-Trainer Lightweight Base User Guide](dobot-x-trainer-lightweight-base-user-guide.md)
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
