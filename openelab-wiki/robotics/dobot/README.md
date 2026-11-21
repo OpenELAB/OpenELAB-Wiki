@@ -38,6 +38,7 @@ Browse the available guides below. Match the full model number and hardware revi
 * [DOBOT AI Drawing Lab User Guide](dobot-ai-drawing-lab-user-guide.md)
 * [DOBOT AI Teaching Kit User Manual](dobot-ai-teaching-kit-user-manual.md)
 * [DOBOT ATOM Humanoid Robot Quick Start](dobot-atom-humanoid-robot-quick-start.md)
+* [DOBOT ATOM-W — Education and Development Guide](dobot-atom-w-education-development-guide/)
 * [DOBOT Cobot Teach Pendant User Guide](dobot-cobot-teach-pendant-user-guide.md)
 * [DOBOT Collaborative Robot Universal Training Platform Operation Guide](dobot-collaborative-robot-universal-training-platform-operation-guide/)
 * [DOBOT Conveyor Belt User Guide](dobot-conveyor-belt-user-guide.md)
