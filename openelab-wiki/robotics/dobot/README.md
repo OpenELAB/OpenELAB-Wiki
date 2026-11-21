@@ -59,6 +59,7 @@ Browse the available guides below. Match the full model number and hardware revi
 * [DOBOT Magician E6 Universal Training Platform Operation Instruction - With PLC](dobot-collaborative-robot-universal-training-platform-operation-guide/dobot-magician-e6-universal-training-platform-with-plc-operation-instruction.md)
 * [DOBOT Magician E6 Universal Training Platform Operation Instruction - Without PLC](dobot-collaborative-robot-universal-training-platform-operation-guide/dobot-magician-e6-universal-training-platform-without-plc-operation-instruction.md)
 * [DOBOT Magician E6 User Guide](dobot-magician-e6-user-guide.md)
+* [DOBOT Magician Series — Education and Project Wiki](dobot-magician-series-education-project-wiki/)
 * [DOBOT Magician Lite User Guide](dobot-magician-lite-user-guide.md)
 * [DOBOT Magician User Guide](dobot-magician-user-guide.md)
 * [DOBOT MG400 Hardware User Guide](dobot-mg400-hardware-user-guide.md)
