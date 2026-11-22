@@ -105,8 +105,8 @@ OpenELAB entries group generic catalog products and accessories for which a sepa
 
 | Documentation series                   | What you’ll find                                                                                                   |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [Agile Robots](robotics/agile-robots/) | Diana/Thor arms, two controller families, Agile Hand and humanoid references; 26 wiki pages beneath the directory. |
-| [Franka research](robotics/franka/)    | FR3, Hand, Duo/TMR/GELLO and training/development; 13 wiki pages beneath the directory.                            |
+| [Agile Robots](robotics/agile-robots/) | Diana/Thor arms, two controller families, Agile Hand and humanoid references; 64 wiki pages beneath the directory. |
+| [Franka research](robotics/franka/)    | FR3, Hand, Duo/TMR/GELLO and training/development; 25 wiki pages beneath the directory.                            |
 | [RealMan](robotics/realman/)           | Arm families, joint modules, gripper and RealBot platform/development documentation.                               |
 | [LINKERBOT](robotics/linkerbot/)       | Consolidated model manuals and shared development tutorials, with canonical model links.                           |
 

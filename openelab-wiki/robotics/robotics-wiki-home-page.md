@@ -49,8 +49,8 @@ Manufacturers are ordered by recorded GitBook website page views over the last t
 
 | Documentation series          | What you’ll find                                                                                                   |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [Agile Robots](agile-robots/) | Diana/Thor arms, two controller families, Agile Hand and humanoid references; 26 wiki pages beneath the directory. |
-| [Franka research](franka/)    | FR3, Hand, Duo/TMR/GELLO and training/development; 13 wiki pages beneath the directory.                            |
+| [Agile Robots](agile-robots/) | Diana/Thor arms, two controller families, Agile Hand and humanoid references; 64 wiki pages beneath the directory. |
+| [Franka research](franka/)    | FR3, Hand, Duo/TMR/GELLO and training/development; 25 wiki pages beneath the directory.                            |
 | [RealMan](realman/)           | Arm families, joint modules, gripper and RealBot platform/development documentation.                               |
 | [LINKERBOT](linkerbot/)       | Consolidated model manuals and shared development tutorials, with canonical model links.                           |
 
