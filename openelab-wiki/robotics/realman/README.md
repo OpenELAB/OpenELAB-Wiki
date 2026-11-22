@@ -10,7 +10,7 @@ description: RM and ECO robot arms, WHJ joint modules, grippers, and manuals.
 Choose the exact model below. Each matched product guide opens with verified `.io` product/SKU links; manufacturer references without a verified catalog match say so explicitly.
 {% endhint %}
 
-### Choose your robot or component
+## Choose your robot or component
 
 RealMan documentation covers complete robots, standalone arms, joints, tools and software. Match the model, controller generation, end-effector and delivery revision before following a procedure. The existing RM65, ECO65, teaching-pendant, joint and RMC-DA-LIII URLs remain canonical.
 
@@ -22,7 +22,7 @@ RealMan documentation covers complete robots, standalone arms, joints, tools and
 | [WEB teaching pendant V1.5](realman-robot-web-teaching-pendant-user-manual-v1.5.md) | Shared historical UI reference; use exact-model commissioning first                |
 | [WHJ joint modules](realman-whj-series-joint-module-user-manual.md)                 | Full model-code/option matching; independent joint electrical documentation        |
 
-### Model-specific guides and development
+## Model-specific guides and development
 
 * [RealMan RM75: seven-axis arm reference](realman-rm75-reference.md)
 * [RealMan RML63: long-reach six-axis arm reference](realman-rml63-reference.md)
@@ -36,7 +36,7 @@ RealMan documentation covers complete robots, standalone arms, joints, tools and
 * [RealMan arms: commissioning and SDK selection](realman-arm-commissioning-and-sdk.md)
 * [RealBot-S2: development and interface guide](realbot-s2-development/)
 
-### Keep the platform differences explicit
+## Keep the platform differences explicit
 
 | Model/family          | Key distinction                                                                                        |
 | --------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -50,7 +50,7 @@ RealMan documentation covers complete robots, standalone arms, joints, tools and
 | GEN62 / GEN72         | Different models; GEN72 in a driver list does not establish GEN62 support                              |
 | RMG22-65 / L2 tool    | 65 mm gripper versus white-paper 90 mm option; different power/protocol evidence                       |
 
-### Sources and first results
+## Sources and first results
 
 [Ten supplied PDF sources and revision notes](realman-source-library.md) provides original PDF page-range references. Begin with identity/status reading, not a movement demo. Specification-only/solution-white-paper guides explicitly stop at de-energized document acceptance where an installation or SDK contract is missing.
 

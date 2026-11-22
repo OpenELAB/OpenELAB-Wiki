@@ -16,7 +16,7 @@ description: >-
 **Model:** ECO65-6F · **SKU:** `Realman-ECO65-6F`
 {% endhint %}
 
-### Product overview
+## Product overview
 
 This is the canonical ECO65 product guide and preserved manual URL. Model-specific current-reference notes precede the original manual; existing figures and links remain available below.
 
@@ -24,11 +24,11 @@ This is the canonical ECO65 product guide and preserved manual URL. Model-specif
 The supplied newer ECO manual and the original V1.2.0 text disagree on wrist brakes. These describe different documented revisions; confirm the delivered hardware before relying on power-off holding. Secure the load regardless. ECO63 has a separate 3 kg / 900 mm guide; ECO62 is a separate compact arm and is not covered by this wiring manual.
 {% endhint %}
 
-### Applications
+## Applications
 
 Teaching, research and manipulation integration within the exact revision's load curve, calibrated tool/payload and safeguarded workspace. Force and vision options require their matching controller, calibration and software.
 
-### Specifications
+## Specifications
 
 | Parameter                                  | Value and scope                                                                |
 | ------------------------------------------ | ------------------------------------------------------------------------------ |
@@ -44,15 +44,15 @@ Source: [ECO family manual, PDF pp. 40–42 \[ECO\]](realman-source-library.md).
 **Revision conflict:** the supplied manual lists ≤900 W peak and a 107 mm base, while the current developer page lists ≤600 W and 110 mm. See the [current manufacturer ECO65 parameters](https://develop.realman-robotics.com/en/robot4th/robotParameter/ECO65OntologyParameters/). These figures are kept source-specific. Do not size a supply, select a mount or set limits from this comparison. Powered setup requires the exact delivered drawing, supply specification and controller revision to resolve the discrepancy.
 {% endhint %}
 
-### Hardware and connections
+## Hardware and connections
 
 The supplied manual uses nominal 24 V DC and keyed power cabling, a base-integrated controller, 16-core controller expansion and a separate six-core tool port. Match the delivered cable generation and connector drawing before wiring. Do not hot-plug aviation connectors. Tool output is specified at 1.5 A maximum; this is below the RMG22-65 manual's stated current demand. Obtain the approved separate power arrangement before accessory integration. See [ECO family manual, PDF pp. 13–29 \[ECO\]](realman-source-library.md) and the retained hardware chapter.
 
-### Software and development resources
+## Software and development resources
 
 Use [Arm commissioning and SDK selection](realman-arm-commissioning-and-sdk.md) for the reviewed API/ROS snapshots and a non-motion software-information query. Select the exact controller generation and force/vision end-link. Use the [existing teaching-pendant reference](realman-robot-web-teaching-pendant-user-manual-v1.5.md) for shared UI concepts; later firmware screens may differ.
 
-### Getting started
+## Getting started
 
 Prerequisites: trained operator, rigid mounting, secured tool/payload, the delivered 24 V supply and keyed cables, reachable emergency stop, an isolated wired Ethernet connection, and the exact controller manual. Keep all motion controls inactive.
 
@@ -68,7 +68,7 @@ Prerequisites: trained operator, rigid mounting, secured tool/payload, the deliv
 
 Source: [ECO family manual, PDF pp. 13–20 \[ECO\]](realman-source-library.md).
 
-### Troubleshooting and FAQs
+## Troubleshooting and FAQs
 
 **The tool moves or drops when power is removed.** Check the exact brake arrangement below and the delivered revision. A soft brake is not a load-holding mechanical brake. Support the tool and payload and use the manufacturer's safe shutdown/transport posture; do not rely on power removal to hold every axis.
 
@@ -76,7 +76,7 @@ Source: [ECO family manual, PDF pp. 13–20 \[ECO\]](realman-source-library.md).
 
 **The SDK connects but motion is not ready.** Model identity and readable status do not validate limits, calibration, stop behavior, tool center point or control-source arbitration. Complete the exact revision's commissioning and risk assessment before a bounded motion test.
 
-### Downloads and technical documents
+## Downloads and technical documents
 
 | Resource                                                                                           | Scope                                                    |
 | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -85,23 +85,23 @@ Source: [ECO family manual, PDF pp. 13–20 \[ECO\]](realman-source-library.md).
 | [Manufacturer models/CAD](https://develop.realman-robotics.com/en/robot4th/download/model/)        | Match complete model and tool/end-link                   |
 | [Shared teaching-pendant manual](realman-robot-web-teaching-pendant-user-manual-v1.5.md)           | Existing UI reference; original page retained            |
 
-### References and validation
+## References and validation
 
 Newly supplied ECO family manual and preserved V1.2.0 manual below; reviewed 22 November 2026. Software/hardware tests: **not run**. Delivered revision, brake behavior, tool supply and controller compatibility must be confirmed before motion commissioning.
 
-### Preserved V1.2.0 manual
+## Preserved V1.2.0 manual
 
 RealMan ECO65 Series User Manual V1.2.0
 
-#### RealMan ECO65-B 6-DOF Collaborative Robot Arm
+### RealMan ECO65-B 6-DOF Collaborative Robot Arm
 
 {% embed url="https://openelab.io/products/realman-eco65-b-6-dof" %}
 
-#### RealMan ECO65-6F Robot Arm With Six-Axis Force Sensor
+### RealMan ECO65-6F Robot Arm With Six-Axis Force Sensor
 
 {% embed url="https://openelab.io/products/realman-eco65-6f-6-dof" %}
 
-#### Contents
+### Contents
 
 * [Safety](realman-eco65-series-user-manual-v1.2.0.md#safety)
 * [Product Quality Assurance](realman-eco65-series-user-manual-v1.2.0.md#product-quality-assurance)
@@ -115,7 +115,7 @@ RealMan ECO65 Series User Manual V1.2.0
 * [Maintenance, Repair, and Disposal](realman-eco65-series-user-manual-v1.2.0.md#maintenance-repair-and-disposal)
 * [Additional Resources](realman-eco65-series-user-manual-v1.2.0.md#additional-resources)
 
-#### Safety
+### Safety
 
 This section defines the safety principles and specifications that shall be followed when operating a robot or robot system. Integrators and users must carefully read this manual, especially the contents marked with warning signs, which must be mastered and strictly observed. Considering the complexity and hazards of robot systems, users must fully understand the hazards of the operations and strictly abide by the specifications and requirements in this manual. Integrators and users must have a high awareness of safety.
 
@@ -184,7 +184,7 @@ By combining the inherent safety measures applied to our full range of robots wi
 
 In the case of non-collaborative installation of the robot (for example, when using hazardous tools), it may be deduced during risk assessment that the integrator needs to connect additional safety equipment (for example, safe startup equipment) during its programming to ensure the safety of personnel and equipment.
 
-#### Product Quality Assurance
+### Product Quality Assurance
 
 **Product quality warranty**
 
@@ -227,7 +227,7 @@ According to the product quality warranty agreement, Realman Intelligent Technol
 
 In the event of a robot failure, users shall contact Realman Intelligent Technology (Beijing) Co., Ltd. as soon as possible to obtain a solution. Users shall not disassemble or maintain the robot by themselves for any reason; otherwise, the warranty service will be terminated.
 
-#### Product Components
+### Product Components
 
 A complete set of Realman collaborative robot comprises the following components:
 
@@ -254,7 +254,7 @@ A complete set of Realman collaborative robot comprises the following components
 * Single Beep When Handle Switches to Pose Teaching Mode : When switching to the pose teaching mode, the beeper emits a long beep.
 * Continuous Intermittent Beeping During Severe Robotic Arm Fault : When a fault occurs in the robotic arm, the beeper emits a continuous sound until the error is resolved or the robotic arm restarts.
 
-#### Installation, Wiring, and Startup
+### Installation, Wiring, and Startup
 
 **Robot Installation**
 
@@ -273,7 +273,7 @@ Realman's robotic arms are of ultra-lightweight type, which can be quickly insta
 
 ![alt text](<../../.gitbook/assets/assets013-image-20-1-9b577cc7 (2).png>)
 
-#### Teaching Pendant Connection and Drag Teaching
+### Teaching Pendant Connection and Drag Teaching
 
 **Teaching Pendant Connection**
 
@@ -317,11 +317,11 @@ Here is just simple description of teaching motion control. For more details, re
 
 For complete WEB teaching pendant operation, programming, configuration, and troubleshooting, see the [RealMan Robot WEB Teaching Pendant User Manual V1.5](realman-robot-web-teaching-pendant-user-manual-v1.5.md).
 
-#### Hardware Interfaces
+### Hardware Interfaces
 
 Start Guide:
 
-#### Components of robotic arm
+### Components of robotic arm
 
 Realman's collaborative robot system is mainly composed of the robot body, controller (integrated in the robot base), and teach pendant touch pad (optional).
 
@@ -499,9 +499,9 @@ When the robot end power supply is used as the power supply to end effector, the
 
 There is an RS485 communication interface respectively at the 16-core aerial plug of the controller and the 6-core aerial plug of the end interface board (The RS485 communication interface of the 6-pin terminal connector on the end-effector interface board is only used for the robot to control external devices, but not for external devices to control the robot's motion). The two RS485 interfaces can be configured to standard Modbus RTU mode through the JSON protocol (to ensure the communication stability of RS485 interfaces, the devices shall be connected to the GND of the robotic arm as practical as possible). Then the peripherals connected to the interface can be read or written through the JSON protocol.
 
-#### ECO65 Specifications and Robot Parameters
+### ECO65 Specifications and Robot Parameters
 
-#### Basic Parameters
+### Basic Parameters
 
 | Parameter Name                                                 | Parameter Value                                   |            |
 | -------------------------------------------------------------- | ------------------------------------------------- | ---------- |
@@ -535,7 +535,7 @@ There is an RS485 communication interface respectively at the 16-core aerial plu
 | Force Control Specifications (Supported only by 6-DoF sensors) | Six-Axis Force Range                              | 200N/7N·m  |
 | Six-Axis Force Accuracy                                        | ±0.5%FS                                           |            |
 
-#### Ontology Parameters
+### Ontology Parameters
 
 **MDH model frame:**
 
@@ -642,11 +642,11 @@ Represent the curves of end load of ECO65-B and ECO65-6F. Where, L refers to the
 
 ![ECO65-6F](../../.gitbook/assets/assets036-ECO-65-imageFB-c843d974.png)
 
-#### Frequently Asked Questions
+### Frequently Asked Questions
 
 FAQ:
 
-#### FAQs about basic use
+### FAQs about basic use
 
 **1. What basic technical skills do users need to have if they want to carry out secondary development of control based on the robotic arm?**
 
@@ -667,7 +667,7 @@ Solution: first drag the joint beyond the limit back to within the limit, and cl
 * In the robotic arm state interface, select the corresponding joint and click the Disable button;
 * In Configuration - Security Config, select the corresponding joint, restore the limits to their initial values, and re-enable.
 
-#### FAQs about the robotic arm system
+### FAQs about the robotic arm system
 
 **1. Are the encoders of robotic arm single-coil ones or multi-coil ones?**
 
@@ -715,7 +715,7 @@ There is no torque sensor inside the joints of robotic arm, and joint force cont
 
 The service life of a robotic arm that continuously runs under the payload is 50 thousand hours. So far, we have passed the MTBF certification by Shanghai National Robot Testing Center.
 
-#### FAQs about electrical connection
+### FAQs about electrical connection
 
 **1. What are the power supply voltage and current requirements of robotic arm?**
 
@@ -738,13 +738,13 @@ The external cables include **2-core power cables** and **16-core cables** , wit
 | 2-core Power Cable | 2.5mm² (approximately equivalent to AWG13) | 3.5mm                      | 8.5mm                | 2m (2000mm)  | 50mm           |
 | 16-core Cable      | AWG26                                      | 1mm                        | 8.5mm                | 2m (2000mm)  | 50mm           |
 
-#### FAQs about communication configuration
+### FAQs about communication configuration
 
 **1. How to modify the device IP and device connection?**
 
 The default IP address is `192.168.1.18` , which can be modified by sending JSON protocol or through the teach pendant.
 
-#### Handling and Transportation
+### Handling and Transportation
 
 During the lifting of the robot, the moving parts shall have appropriate measures in place and be properly located, to prevent them from unintended movement and causing hazards. During packing for transportation, the robots shall be packed according to the packing standards, with any marks required printed on the exterior surface of the packing box.
 
@@ -760,7 +760,7 @@ Warning
 
 ECO65 series robots have no mechanical brake inside joints 4–6.
 
-#### Maintenance, Repair, and Disposal
+### Maintenance, Repair, and Disposal
 
 Maintenance and repair must be carried out in compliance with all safety instructions in this manual.
 
@@ -802,7 +802,7 @@ Warning
 
 Joint 6 of the ECO65 series has a battery that supplies power to the encoder.
 
-#### Additional Resources
+### Additional Resources
 
 * [RealMan Robot WEB Teaching Pendant User Manual V1.5](realman-robot-web-teaching-pendant-user-manual-v1.5.md)
 * [Official RealMan user-manual downloads](https://develop.realman-robotics.com/en/robot4th/download/manual/)

@@ -20,27 +20,27 @@ description: >-
 **Model:** WHJ60-100 S/I · **SKU:** `WHI60-100-S / WHI60-100-I`
 {% endhint %}
 
-### Relationship to the RealMan series
+## Relationship to the RealMan series
 
 This existing joint-module reference remains separate from complete-arm guides. Confirm the full module code, S/I option and torque-series designation; the ten supplied robot/arm/gripper files do not replace its joint electrical/protocol sources. The WHJ60-100 storefront currently uses `WHI60-100-S/I` SKU strings; verify the physical module code when reconciling inventory. All existing joint figures and technical content are retained below.
 
 [RealMan series index](./) · [RMG22-65 guide](realman-rmg22-65-gripper.md) · [Complete-arm commissioning](realman-arm-commissioning-and-sdk.md)
 
-### Preserved joint-module manual
+## Preserved joint-module manual
 
-#### RealMan WHJ10-80 Harmonic Joint Module with S and I Version Options
+### RealMan WHJ10-80 Harmonic Joint Module with S and I Version Options
 
 {% embed url="https://openelab.io/products/realman-whj10-80" %}
 
-#### RealMan WHJ30-80 Harmonic Joint Module, 30 N·m Rated Torque
+### RealMan WHJ30-80 Harmonic Joint Module, 30 N·m Rated Torque
 
 {% embed url="https://openelab.io/products/realman-whj30-80" %}
 
-#### RealMan WHJ60-100 High-Torque Harmonic Joint Module, 60 N·m Rated Torque
+### RealMan WHJ60-100 High-Torque Harmonic Joint Module, 60 N·m Rated Torque
 
 {% embed url="https://openelab.io/products/realman-whj60-100" %}
 
-#### Joint Overview
+### Joint Overview
 
 This section introduces the WHJ module architecture, integrated components, and intended applications.
 
@@ -66,7 +66,7 @@ Select a WHJ model according to the application requirements. The model code ide
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/introduction_of_whj_series/jointModelDescription.png)
 
-#### Electrical Connections and Wiring
+### Electrical Connections and Wiring
 
 Review the power limits, interfaces, wiring, and battery requirements before connecting or energizing a joint module.
 
@@ -187,7 +187,7 @@ To power the multi-turn encoder and save the multi-turn count of the joint, prev
 
 Reset the zero position, and a soft reset can be performed.
 
-#### Single-Joint Host Computer
+### Single-Joint Host Computer
 
 The following workflow covers driver setup, device connection, monitoring, motion control, firmware updates, and CAN diagnostics.
 
@@ -769,7 +769,7 @@ Install a 120 Ω termination resistor between CANH and CANL, and connect the joi
 
     ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/use_case/image10.png)
 
-#### Joint Specifications
+### Joint Specifications
 
 The standard and torque-series models use separate official parameter tables. Confirm the exact model designation before applying any value.
 
@@ -1001,7 +1001,7 @@ High-load or high-speed operation can return regenerative energy to the DC bus. 
 | Type of brake             | Latch brake |
 | Communication interface   | CANFD       |
 
-#### Power Bleeding Module
+### Power Bleeding Module
 
 Use the power bleeding module to absorb regenerative energy when high-speed or high-load operation raises the DC bus voltage.
 
@@ -1170,7 +1170,7 @@ The installation environment should have good ventilation and heat dissipation c
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/power_discharge_module/image6.png)
 
-#### CANFD Protocol and Operation
+### CANFD Protocol and Operation
 
 This section explains the CANFD frame format, control table, and command examples used to configure and operate WHJ modules.
 
@@ -1827,7 +1827,7 @@ TIP
 
 Supported only for joints WHJ10N/WHJ30/WHJ60 with firmware version 519 and later versions.
 
-#### Troubleshooting and Error Codes
+### Troubleshooting and Error Codes
 
 Use the error categories and codes below to identify likely causes and select the recommended corrective action.
 
@@ -1858,7 +1858,7 @@ Use the error categories and codes below to identify likely causes and select th
 | 16  | 0x4000                   | 16384                | Position command step warning | The error between the current position and the target position is large                                                                                   | <p>Often occurs during transparent transmission. It is recommended to check if the transparent transmission trajectory is smooth and the communication cycle is stable.<br>1. The angle between the target position sent by the upper computer and the existing position of the motor is greater than 10 degrees.<br>2. FOC state error.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | General         |
 | 17  | 0x8000                   | 32768                | Multi-turn joint lost turns   | Encoder battery is low                                                                                                                                    | The end joint of the robot arm uses a multi-turn encoder. Check if the battery interface is loose and if the battery is low.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Severe          |
 
-#### Official Documentation Sources
+### Official Documentation Sources
 
 The consolidated content above follows the official RealMan Developer Center pages listed below.
 

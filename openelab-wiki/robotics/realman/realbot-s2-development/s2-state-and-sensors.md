@@ -4,11 +4,11 @@
 **Target:** V1.3 S2 public status contracts and the installed, version-matched message definitions. All checks are read-only. A published message is not proof that its upstream device is healthy.
 {% endhint %}
 
-### Prerequisites
+## Prerequisites
 
 Complete [environment discovery](s2-read-only-environment.md). Obtain the profile's camera/interface table and unit/frame appendix. For each stream record its actual topic, type, publisher, QoS, expected frequency, timestamp source and validity conditions.
 
-### Decode the aggregate overview correctly
+## Decode the aggregate overview correctly
 
 `/robot_slave/states` carries JSON in `std_msgs/msg/String`. V1.3 requires `arm_left`, `arm_right`, `body`, `head` and `system`. Arm position/enable/error arrays have 7 elements; body arrays have 4; head arrays have 2. Validate types, required fields, array sizes and finite/range-valid values before accepting a frame. Unknown fields may be added; unknown enumerations should remain unknown, not be mapped to a nearby value.
 
@@ -23,14 +23,16 @@ Complete [environment discovery](s2-read-only-environment.md). Obtain the profil
 
 Use V1.3 §7.2's complete JSON Schema for validation, not this overview table as a replacement. On parse/schema failure or timeout, reject the frame and inhibit decisions that depend on it. Source: [S2 interface V1.3, PDF pp. 17–24 \[S2\_API\]](../realman-source-library.md).
 
-### Validate strongly typed chassis and arm data
+## Validate strongly typed chassis and arm data
 
+{% code collapsedlinecount="10" %}
 ```bash
 timeout 15 ros2 topic info /chassis/odom --verbose --no-daemon --spin-time 5
 timeout 15 ros2 topic echo /chassis/odom --once --no-daemon --spin-time 5
 timeout 15 ros2 topic info /motor_state --verbose --no-daemon --spin-time 5
 timeout 15 ros2 topic echo /diagnostics --once --no-daemon --spin-time 5
 ```
+{% endcode %}
 
 Check odometry `header.frame_id`, `child_frame_id`, timestamp progression, stationary drift and covariance against the delivery. Do not fuse a pose merely because the topic is nonempty. Map wheel/encoder `JointState` arrays by `name`; do not assume counter units or rollover behavior. Filter diagnostics by subsystem name and allow multiple publishers.
 
@@ -38,7 +40,7 @@ The slave-arm streams `/mcap/slave_arm_left` and `/mcap/slave_arm_right` use `Ar
 
 Master-arm position units have not been normalized in the V1.3 generic contract. Do not use `/mcap/master_arm_*` for joint display, trajectory calculation or master-slave control until the delivered normalized-unit contract exists. A fresh outer timestamp does not prove fresh upstream master data. Source: [S2 interface V1.3, PDF pp. 35–37, 43–48 \[S2\_API\]](../realman-source-library.md).
 
-### Validate one delivered camera stream
+## Validate one delivered camera stream
 
 1. Select one channel from the delivered camera table. Discover the actual topic and inspect type/publisher/QoS; do not type a placeholder camera name as if it were a real topic.
 2. Read the installed message definition and camera table's encoding, resolution, frame rate, calibration version and timestamp source.
@@ -48,7 +50,7 @@ Master-arm position units have not been normalized in the V1.3 generic contract.
 
 **Expected result:** one actual delivered image stream decodes with correct resolution/calibration and continuous valid timestamps, and a small baseline records topic/type/QoS and observed rate. Missing optional cameras should produce a controlled “unavailable” state. Source: [S2 interface V1.3, PDF pp. 50–52, 67–68 \[S2\_API\]](../realman-source-library.md).
 
-### Troubleshooting and acceptance limits
+## Troubleshooting and acceptance limits
 
 **CLI receives but application does not:** compare offered/requested QoS and installed message definitions. High-rate callbacks should be lightweight and allow frame loss.
 
@@ -56,6 +58,6 @@ Master-arm position units have not been normalized in the V1.3 generic contract.
 
 **Navigation/IMU/BEV topics appear:** these are not general public S2 interfaces in V1.3. Obtain their project contract, TF, calibration and validity definitions before integration.
 
-### Sources and validation
+## Sources and validation
 
 [S2 interface V1.3, PDF pp. 14–24, 35–37, 43–54, 67–70 \[S2\_API\]](../realman-source-library.md). Reviewed 22 November 2026. Live telemetry, image decoding and hardware validity checks: **not run**. These are acceptance instructions, not reported robot measurements.

@@ -4,7 +4,7 @@
 **Model: RML63 standard / force L / force K.** This is a manufacturer-document reference. A current exact-model OpenELAB `.io` product/SKU match was not verified on 22 November 2026; no order link or substitute product is asserted. Check the delivered model, controller generation and project bill of materials before using technical procedures.
 {% endhint %}
 
-### Product overview
+## Product overview
 
 RML63 is the long-reach, 3 kg family. It is distinct from ECO63 despite their similar reach and payload, and from RM65 despite common controller concepts.
 
@@ -12,11 +12,11 @@ RML63 is the long-reach, 3 kg family. It is distinct from ECO63 despite their si
 **Long reach and wrist support:** the wrist axes use soft brakes. Secure the tool and support the arm for power-off handling. Do not use ECO63 brake assumptions or load curves.
 {% endhint %}
 
-### Applications
+## Applications
 
 Research, teaching and manipulation integration within the model-specific load curve and guarded workspace. Include the end-effector and workpiece in the load assessment. A collaborative-arm description does not certify an assembled workcell.
 
-### Specifications
+## Specifications
 
 | Parameter                          | Value and scope                                          |
 | ---------------------------------- | -------------------------------------------------------- |
@@ -33,13 +33,13 @@ Source: [RML63 manual, PDF pp. 13–29, 30–48 \[RML63\]](realman-source-librar
 **Revision conflict:** the supplied manual lists ≤900 W peak and a 107 mm parameter-table base, while the current developer page lists ≤600 W and 110 mm; the standard/force reach options also depend on revision. See the [current manufacturer RML63 parameters](https://develop.realman-robotics.com/en/robot4th/robotParameter/RML63OntologyParameters/). These figures are kept source-specific. Do not size a supply, select a mount or set limits from this comparison. Powered setup requires the exact delivered drawing, supply specification and controller revision to resolve the discrepancy.
 {% endhint %}
 
-### Hardware and connections
+## Hardware and connections
 
 Use the supplied RML63 manual base/flange drawings and end-effector load curves. The installation narrative refers to a 110 mm base while the parameter table gives 107 mm; use the dimensioned drawing for the exact revision, not either headline diameter as a mounting pattern. The manual specifies 24 V DC, brown positive and blue negative for its two-core supply cable; check the supplied keyed cable before use.
 
 Before energizing, verify grounding, polarity, mounting, stop access and payload support. Keep controller I/O, power supply and tool outputs distinct; the connector shape does not establish electrical compatibility. Use the source manual's hardware chapter for the delivered cable generation and connector orientation.
 
-### Software and development resources
+## Software and development resources
 
 The official [RM\_API2](https://github.com/RealManRobot/RM_API2) repository provides arm APIs; its Python instructions require Python 3.9 or newer. The reviewed snapshot is `a810b9fdea29e3567c5e9155794e6ef9cc17be62` (1.1.7 update). Select binaries for the delivered controller generation and host architecture. Availability of an API does not establish support for every new arm or whole-robot system.
 
@@ -47,7 +47,7 @@ The reviewed [ROS 2 Humble package](https://github.com/RealManRobot/ros2_rm_robo
 
 See [Arm commissioning and SDK selection](realman-arm-commissioning-and-sdk.md) and the [existing teaching-pendant reference](realman-robot-web-teaching-pendant-user-manual-v1.5.md).
 
-### Getting started
+## Getting started
 
 Prerequisites: trained operator, rigid mounting, secured tool/payload, the delivered 24 V supply and keyed cables, reachable emergency stop, an isolated wired Ethernet connection, and the exact controller manual. Keep all motion controls inactive.
 
@@ -63,7 +63,7 @@ Prerequisites: trained operator, rigid mounting, secured tool/payload, the deliv
 
 Source for this wired, read-only path: [RML63 manual, installation and teaching-pendant chapters \[RML63\]](realman-source-library.md).
 
-### Troubleshooting and FAQs
+## Troubleshooting and FAQs
 
 **The tool moves or drops when power is removed.** Check the exact brake arrangement below and the delivered revision. A soft brake is not a load-holding mechanical brake. Support the tool and payload and use the manufacturer's safe shutdown/transport posture; do not rely on power removal to hold every axis.
 
@@ -71,7 +71,7 @@ Source for this wired, read-only path: [RML63 manual, installation and teaching-
 
 **The SDK connects but motion is not ready.** Model identity and readable status do not validate limits, calibration, stop behavior, tool center point or control-source arbitration. Complete the exact revision's commissioning and risk assessment before a bounded motion test.
 
-### Downloads and technical documents
+## Downloads and technical documents
 
 | Resource                                                                                             | Scope and use                                                                          |
 | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
@@ -83,7 +83,7 @@ Source for this wired, read-only path: [RML63 manual, installation and teaching-
 
 Firmware replacement is outside this first-result procedure. Obtain the exact controller image and recovery instructions through the manufacturer delivery channel; no cross-model firmware is supplied here.
 
-### References and validation
+## References and validation
 
 [RML63 manual, PDF pp. 13–29, 30–48 \[RML63\]](realman-source-library.md); official repositories and downloads linked above. Reviewed 22 November 2026. Software execution: **not run**. Hardware validation: **not run**. The published reference does not authorize operation on an unmatched revision; any unresolved delivery-specific mounting, power or software target keeps powered commissioning blocked.
 

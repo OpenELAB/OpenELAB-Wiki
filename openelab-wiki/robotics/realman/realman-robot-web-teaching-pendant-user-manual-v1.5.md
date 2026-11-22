@@ -29,33 +29,33 @@ description: >-
 **Model:** ECO65-6F · **SKU:** `Realman-ECO65-6F`
 {% endhint %}
 
-### Model and firmware entry points
+## Model and firmware entry points
 
 Use [RM65](realman-rm65-series-user-manual-v1.2.0.md) or [ECO65](realman-eco65-series-user-manual-v1.2.0.md) for product-specific setup and the newer supplied revisions; use [shared commissioning/SDK guide](realman-arm-commissioning-and-sdk.md) before running development examples. This V1.5 page retains the existing source material and figures; it is not a universal current-firmware screen reference. Motion, force control, calibration and program execution require the exact delivered controller manual. Reviewed 22 November 2026; software/hardware tests not run.
 
-### Preserved teaching-pendant reference
+## Preserved teaching-pendant reference
 
-#### RealMan RM65-B 6-DOF Ultra-Lightweight Robot Arm
+### RealMan RM65-B 6-DOF Ultra-Lightweight Robot Arm
 
 {% embed url="https://openelab.io/products/realman-rm65-b-6-dof" %}
 
-#### RealMan RM65-6F Robot Arm With Six-Axis Force Sensor
+### RealMan RM65-6F Robot Arm With Six-Axis Force Sensor
 
 {% embed url="https://openelab.io/products/realman-rm65-6f-6-dof" %}
 
-#### RealMan RM65-B-V Vision Robot Arm With Depth Camera
+### RealMan RM65-B-V Vision Robot Arm With Depth Camera
 
 {% embed url="https://openelab.io/products/realman-rm65-b-v-6dof" %}
 
-#### RealMan ECO65-B 6-DOF Collaborative Robot Arm
+### RealMan ECO65-B 6-DOF Collaborative Robot Arm
 
 {% embed url="https://openelab.io/products/realman-eco65-b-6-dof" %}
 
-#### RealMan ECO65-6F Robot Arm With Six-Axis Force Sensor
+### RealMan ECO65-6F Robot Arm With Six-Axis Force Sensor
 
 {% embed url="https://openelab.io/products/realman-eco65-6f-6-dof" %}
 
-####
+###
 
 For model-specific installation wiring specifications maintenance and troubleshooting use the dedicated manuals below
 
@@ -63,9 +63,9 @@ For model-specific installation wiring specifications maintenance and troublesho
 
 [RealMan ECO65 Series User Manual V1.2.0](realman-eco65-series-user-manual-v1.2.0.md)
 
-#### Contents
+### Contents
 
-#### Model and Version Applicability
+### Model and Version Applicability
 
 This page reproduces the official RealMan Robot WEB Teaching Pendant User Manual V1.5 dated November 1 2023. The shared operating instructions apply to the RM65 and ECO65 basic integrated six-axis force and supported vision-arm configurations listed above.
 
@@ -94,7 +94,7 @@ The V1.5 content covers installation controller access teaching motion IO progra
 * [Optional Functions and Additional Materials](realman-robot-web-teaching-pendant-user-manual-v1.5.md#optional-functions-and-additional-materials)
 * [Quick Troubleshooting Index](realman-robot-web-teaching-pendant-user-manual-v1.5.md#quick-troubleshooting-index)
 
-#### Introduction and Product Composition
+### Introduction and Product Composition
 
 ![Official RealMan figure](<../../.gitbook/assets/Unknown image (50)>)
 

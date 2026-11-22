@@ -13,7 +13,7 @@ description: >-
 **Model:** RMC-DA-LIII · **SKU:** `RealMan-RMC-AIDAL-III`
 {% endhint %}
 
-### Platform identity and commissioning boundary
+## Platform identity and commissioning boundary
 
 This retained manual is for the **RMC-DA-LIII embodied dual-arm lifting platform**. The storefront SKU is `RealMan-RMC-AIDAL-III`. It is not [RealBot-S2](realbot-s2-guide.md) or [RealBot-L2](realbot-l2-guide.md); do not reuse their chassis, body-joint, battery or SDK contracts.
 
@@ -23,15 +23,15 @@ Do not release an emergency stop merely to make the robot power on. Stop command
 
 Reviewed 22 November 2026; documentation consolidation only. Software/hardware tests: **not run**.
 
-### Preserved platform manual
+## Preserved platform manual
 
-#### RealMan RMC-DA-LIII Dual-Arm Lift Mobile Robot
+### RealMan RMC-DA-LIII Dual-Arm Lift Mobile Robot
 
 {% embed url="https://openelab.io/products/realman-rmc-da-liii-dual" %}
 
-#### Contents
+### Contents
 
-#### System Access and Configuration Checks
+### System Access and Configuration Checks
 
 Confirm the delivered hardware configuration and the label on each subsystem before commissioning or sending motion commands.
 
@@ -58,7 +58,7 @@ The source text labels 169.254.128.18 as the left arm and 169.254.128.19 as the 
 * [Load Safety, Transportation, Storage and Unpacking](embodied-double-arm-lifting-platform-user-manual.md#load-safety-transportation-storage-and-unpacking)
 * [Quick Troubleshooting Index](embodied-double-arm-lifting-platform-user-manual.md#quick-troubleshooting-index)
 
-#### Safety Information
+### Safety Information
 
 ![Official RealMan figure](../../.gitbook/assets/assetsp001-figure-04.jpg)
 
@@ -77,7 +77,7 @@ If you find any accessories damaged or missing, contact your dealer or our custo
 *  If any abnormal situation occurs during operation, please contact a qualified professional immediately.
 *  After using the equipment, retract both arms and turn off the main power supply.
 
-#### Product Overview and System Architecture
+### Product Overview and System Architecture
 
 **1 Foreword**
 
@@ -160,7 +160,7 @@ The communications for each system are designed as shown in Fig. 2.
 
 _Fig. 2 Schematic Diagram of Robot System_
 
-#### Subsystem Components and Specifications
+### Subsystem Components and Specifications
 
 The dimensions of the embodied dual-arm lifting platform are shown in Fig. 3.
 
@@ -372,7 +372,7 @@ The entire robot platform is interconnected via Ethernet and provides external i
 
 _Fig. 4 Schematic Diagram of Overall Power Supply_
 
-#### Communication, Startup, Shutdown and Charging
+### Communication, Startup, Shutdown and Charging
 
 IP addresses and default usernames and passwords for each module are configured as follows;
 
@@ -441,7 +441,7 @@ _Fig. 8 Charger_
 
 _Fig. 9 Charging pile_
 
-#### Equipment Commissioning and Safe Operation
+### Equipment Commissioning and Safe Operation
 
 the debugging interface must be opened and removed, as shown in Fig. 10.
 
@@ -521,7 +521,7 @@ For the development and debugging of other subsystems, please refer to the relev
 
 _Fig. 14 Lift Control_
 
-#### Load Safety, Transportation, Storage and Unpacking
+### Load Safety, Transportation, Storage and Unpacking
 
 1. Load Range and Power-Off Condition Behavior description: When using a two-finger gripper to grasp an object, ensure a secure hold and be careful not to exceed the load limits of the robotic arm and the gripper. Additionally, since the 4th, 5th, and 6th axes of the robotic arm are not equipped with brakes, they may move due to external forces after power is cut off (such as when the chassis loses power or the emergency stop is activated). Appropriate measures must be taken after power loss to prevent accidents. Countermeasures: Comply with equipment requirements when gripping loads and ensure the end effector load is handled in the event of an intentional or accidental power outage. Take steps to prevent axes 4, 5, and 6 of the robotic arm from moving unintentionally under external forces to avoid accidents.
 
@@ -557,7 +557,7 @@ Do not lift the robot by its arms or other covers to avoid damaging its internal
 
 _Fig. 15 Packing Posture of Embodied Dual-Arm Lifting Platform_
 
-#### Quick Troubleshooting Index
+### Quick Troubleshooting Index
 
 | Symptom                                         | Checks and corrective action                                                                                                                                                                                                                                           | Related section                                    |
 | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
