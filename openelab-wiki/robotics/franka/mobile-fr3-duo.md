@@ -34,7 +34,7 @@ Supervised teleoperation, manipulation and embodied-AI research within the deliv
 | Compute / communication | Jetson AGX Orin; Wi-Fi, Ethernet, USB and Bluetooth as brochure interfaces                       |
 | OpenELAB kit            | Two Robotiq 2F-85 grippers, two D405 wrist cameras/holders and ZED Mini head camera, per listing |
 
-Source: [Mobile FR3 Duo brochure, PDF pp. 1–2](source-library.md). Ratings are reference values for the supplied brochure's scope, not first-run motion settings.
+Source: [Mobile FR3 Duo brochure, PDF pp. 1–2](source-library/). Ratings are reference values for the supplied brochure's scope, not first-run motion settings.
 
 {% hint style="warning" %}
 **Keep brochure and prototype revisions separate.** The supplied Mobile brochure lists a 100 kg base payload, 1.75 m/s and a base envelope of 800×580×294 mm. The publicly linked R04245 v0.2 manual lists different ratings and a complete-system envelope. Do not combine these into one guaranteed specification or use their maximum speeds for commissioning.
@@ -51,6 +51,22 @@ Where the delivered system is the documented v0.2 prototype, its internal networ
 ## Software and development resources
 
 The delivered prototype companion is a separate environment from a generic desktop FR3 workstation. Use the provided System Image and matching mobile-capable `libfranka`, `franka_ros2`, robot descriptions and controller configuration. The public model is **mobile\_fr3\_duo\_v0\_2** for the v0.2 reference. Keep camera and tool packages matched. See [TMR-specific boundaries](tmr.md), [version selection](development/fci-ros2.md) and [mobile simulation/data validation](development/simulation-data.md).
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                                      | Coverage    |
+| ------------------------------------------------------------ | ----------- |
+| [Mobile FR3 Duo brochure](source-library/complete-mobile.md) | 2 PDF pages |
+
+### Mobile-base and manipulation configuration
+
+The supplied two-page brochure retains its complete mechanical, mobility, compute/perception and application descriptions. Keep its base, arm, camera, battery and payload figures attached to that source configuration. Later prototype documents and OpenELAB kit options may describe different hardware; do not combine their maximum ratings.
+
+A delivered system record should identify the mobile base and its operating manual, battery/charger, mounting structure, both arm/Control pairs, end effectors, compute, sensors and all power/network interfaces. Base carrying capacity, arm payload and workpiece load are different quantities. Use the actual system's load distribution and operating envelope.
+
+For integration, keep map/odometry, base, both arm-base and tool frames explicit. Record time synchronization and the behavior of arm controllers, base controller and external control clients after a physical stop, communication loss or power restoration. Mobile docking, navigation and dual-arm operation require separate acceptance; the brochure alone does not define those procedures. The public later R04245 document is linked in the source library but its internal/preliminary content is not rehosted here.
 
 ## Getting started
 
@@ -74,7 +90,7 @@ The delivered prototype companion is a separate environment from a generic deskt
 
 | Resource                                                                | Purpose                                                            |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| [Supplied source documents](source-library.md)                          | Brochure identity, page citations and revision notes               |
+| [Supplied source documents](source-library/)                            | Brochure identity, page citations and revision notes               |
 | [Manufacturer documentation portal](https://franka.de/documents)        | Exact prototype installation guide and current operating documents |
 | [Official model/CAD resources](https://franka.de/models-and-simulation) | Match robot, mount, end effectors, sensors and revision            |
 | [Simulation and data acceptance](development/simulation-data.md)        | Keep offline model validation separate from physical commissioning |

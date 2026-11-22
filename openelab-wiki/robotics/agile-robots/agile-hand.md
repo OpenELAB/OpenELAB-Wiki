@@ -32,7 +32,7 @@ Dexterous manipulation and grasp research, industrial handling and control exper
 | API routes advertised       | C++, Python and ROS support; exact package/version must be obtained    |
 | Mechanical adapter          | Quick-changer adapter for ISO 9409-1-50-4-M6 flange                    |
 
-Source: [AR-AgileHand-Productflyer-SCREEN-en.pdf, PDF pp. 2–3](source-library.md); [manufacturer page](https://www.agile-robots.com/en/products/agile-hand/).
+Source: [AR-AgileHand-Productflyer-SCREEN-en.pdf, PDF pp. 2–3](source-library/); [manufacturer page](https://www.agile-robots.com/en/products/agile-hand/).
 
 ## Hardware and connections
 
@@ -41,6 +41,24 @@ Include hand, adapter, cable and workpiece in the host robot's load/center-of-ma
 ## Software and development resources
 
 The flyer advertises C++/Python/ROS, but no exact publicly accessible manufacturer SDK release, host matrix, EtherCAT configuration or redistribution license was verified. Obtain the delivered package, device/firmware identifiers and examples. The arm's DianaApi and Franka gripper interface are not established substitutes for this hand controller. See [platform selection](development/).
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                                                                    | Coverage    |
+| ------------------------------------------------------------------------------------------ | ----------- |
+| [Agile Hand product flyer](source-library/complete-ar-agilehand-productflyer-screen-en.md) | 3 PDF pages |
+
+### Complete hand specification and integration record
+
+All three supplied flyer pages are retained, including the full mechanical/actuation, dexterity, sensing, control and application information, figures and parameter tables. Preserve whether a stated DOF/actuator/sensor count belongs to the complete hand, an individual finger or an optional configuration.
+
+The flyer specifies 1.5 kg mass, 21 joints and 16 degrees of freedom, 10 N active fingertip force, 360°/s joint velocity and EtherCAT-based 1 kHz control. The 10 N figure is a force, even though it appears in a brochure row labelled Payload; it is not a 10 kg lifting rating. Five modular fingers include coupled joints, with opposing-thumb actuation contributing to the total DOF. Joint torque/position feedback is described separately from an optional tactile upgrade. C++, Python and ROS support is a brochure statement, not an identified public SDK release.
+
+For a delivered research system, record handedness, fingertip/palm configuration, exact sensors and calibration, mechanical adapter, mass/center of gravity, approved power/cabling, communication interface and the versioned SDK/message definition. A dexterity or tactile claim does not define a connector pinout, sampling contract or a calibrated force estimate.
+
+Use the delivered joint order, limits, units, homing/calibration state and force/current constraints. Treat enabling, homing, grasping and follower teleoperation as actuation. Plan pinch points, tool retention, power-loss state and deliberate restart behavior. The flyer alone does not establish a powered commissioning sequence or a public SDK download; those gaps remain explicit rather than being filled from another dexterous hand.
 
 ## Getting started
 
@@ -61,7 +79,7 @@ The flyer advertises C++/Python/ROS, but no exact publicly accessible manufactur
 
 ## Downloads and technical documents
 
-[Supplied Agile Hand flyer](source-library.md) · [Official product page](https://www.agile-robots.com/en/products/agile-hand/) · [Official brochure](https://www.agile-robots.com/media/files/New_website/Products/Agile_Hand/AR-AgileHand-Productflyer-SCREEN-en.pdf) · [Host tool/load integration](development/coordinates-tools.md)
+[Supplied Agile Hand flyer](source-library/) · [Official product page](https://www.agile-robots.com/en/products/agile-hand/) · [Official brochure](https://www.agile-robots.com/media/files/New_website/Products/Agile_Hand/AR-AgileHand-Productflyer-SCREEN-en.pdf) · [Host tool/load integration](development/coordinates-tools.md)
 
 ## References and validation
 

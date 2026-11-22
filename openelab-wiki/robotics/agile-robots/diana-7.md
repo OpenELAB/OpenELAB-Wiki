@@ -30,7 +30,7 @@ Industrial tool/fixture manipulation, assembly, inspection and part transfer wit
 | Run-mode power, average / instantaneous maximum | 200 / 600 W; arm specification, not controller mains input |
 | Controller route                                | CB-FS-3.2T-0.6KW                                           |
 
-Sources: [Diana7 Robot Arm User Manual V1.1.0 EN.pdf, PDF pp. 17–18](source-library.md); [AR-Diana7-Productflyer-SCREEN-en.pdf, supplied brochure, specification table](source-library.md). The supplied older flyer gives 26 kg and a different controller enclosure/I/O arrangement; the V1.1.0 arm manual and current March 2026 brochure give 28 kg. These are separate revisions, not a combined configuration. The 0.5 N relative force-control figure is condition-dependent.
+Sources: [Diana7 Robot Arm User Manual V1.1.0 EN.pdf, PDF pp. 17–18](source-library/); [AR-Diana7-Productflyer-SCREEN-en.pdf, supplied brochure, specification table](source-library/). The supplied older flyer gives 26 kg and a different controller enclosure/I/O arrangement; the V1.1.0 arm manual and current March 2026 brochure give 28 kg. These are separate revisions, not a combined configuration. The 0.5 N relative force-control figure is condition-dependent.
 
 ## Hardware and connections
 
@@ -38,13 +38,66 @@ The base uses **four M8 screws and two Ø8 positioning-pin holes**; the end-effe
 
 The supplied Diana 7 manual documents the base arm cable and flange teach button. It does not establish the powered M8 tool pinout shown for Diana 3 and some Thor models. Do not copy those wiring tables onto Diana 7; confirm the delivered tool adapter and its exact electrical documentation.
 
-Sources: [Diana7 Robot Arm User Manual V1.1.0 EN.pdf, PDF pp. 23–25; PDF p. 26](source-library.md). Connect the arm only to its matched [controller](cb-fs-controller.md), with power isolated and grounding, cable retention, stop chain and tool load verified. Do not hot-plug the arm cable or bridge safety inputs to make startup succeed.
+Sources: [Diana7 Robot Arm User Manual V1.1.0 EN.pdf, PDF pp. 23–25; PDF p. 26](source-library/). Connect the arm only to its matched [controller](cb-fs-controller.md), with power isolated and grounding, cable retention, stop chain and tool load verified. Do not hot-plug the arm cable or bridge safety inputs to make startup succeed.
 
 ## Software and development resources
 
 Use the [Agile Robots development route](development/) for the delivered Industrial V3.3 software. The C/C++ and Python APIs use **7 joint values** for this model and SI units; pendant Lua uses mm, ms and degrees. Obtain the matching manufacturer SDK/native library and license terms; no public manufacturer-controlled Industrial API repository/package was verified. Do not install a similarly named PyPI package or AgileX UGV SDK.
 
 Diana FS FCI support is a separate, version/configuration-bound option; see [Diana FCI adaptation](development/diana-fci.md). It is not inferred from the arm name or the Franka FR3 compatibility matrix.
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                                                                                    | Coverage     |
+| ---------------------------------------------------------------------------------------------------------- | ------------ |
+| [Diana 7 arm manual V1.1.0](source-library/complete-diana7-robot-arm-user-manual-v1-1-0-en.md)             | 37 PDF pages |
+| [Diana 7 product flyer](source-library/complete-ar-diana7-productflyer-screen-en.md)                       | 5 PDF pages  |
+| [CB-FS-3.2T controller manual V1.0.1](source-library/complete-cb-fs-3-2t-controller-user-manual-v1-0-1.md) | 64 PDF pages |
+
+### Model-specific control scope
+
+This Diana arm has seven axes. Nullspace/torque and any FCI/FS feature must match the exact delivered configuration and its support statement. Do not transfer six-axis Thor joint vectors or FR3 software/network assumptions.
+
+### Mounting, loads and mechanical data
+
+Use the exact arm's base and flange drawings, not a family photograph or a generic training fastener table. The full manual retains the permitted mounting orientations, mounting load requirements, fastener schedule, joint distribution, working envelope and load information. Record tool mass, center of gravity, overhang, cable forces and the actual installation orientation before accepting a payload application. Payload mass alone does not describe every permitted combination of reach and moment.
+
+The source chapters retain joint ranges, speeds, environmental limits, installation dimensions, cable-routing and maintenance requirements. Transfer the documented model and units into simulation and planning configuration, then check joint count, order and frame conventions against the delivered controller. A simulated model loading successfully is not a check of the real controller's limits or dynamics.
+
+### Electrical interfaces and control ownership
+
+Keep the arm load cable, controller power input, flange tool power, general I/O and protective circuits distinct. The connector drawings and complete pin tables are in the exact arm/controller reader. Read them from the specified connector view; a matching pin count or wire color does not establish compatibility. Determine the peripheral's current budget and the correct source/sink arrangement before connecting it. Verify NPN/PNP roles and return paths rather than wiring from a screenshot alone.
+
+Teaching, free-drive, nullspace, impedance, return-home and packaging-position controls have different effects. A free-drive mode still needs correct gravity/tool parameters and a supported load. A mode selector or percentage speed setting alone does not validate a safe working envelope. Confirm who owns control, the applicable enabling device, the protective circuit state and the attended stop arrangement before any motion-capable action.
+
+### Operation and maintenance acceptance
+
+Retain the packaging, matched arm/controller identity and source-specific transport posture. Before a transport or service procedure, support the tool/load and follow the required shutdown, isolation and handling instructions. Brake release, zero calibration and battery replacement are not generic fault-clearing steps. The inspection, cleaning, transport, repair, disposal and certificate appendices are included in the complete reader.
+
+| Acceptance area | Record before powered work                                                                                |
+| --------------- | --------------------------------------------------------------------------------------------------------- |
+| Identity        | Exact arm/controller labels, revision, software, cable and force-sensor option                            |
+| Mechanics       | Source drawing, mounting fasteners/torque, orientation, load/center of gravity and clear working envelope |
+| Electrical      | Approved supply, protective earth, connector view, tool power/current and I/O mapping                     |
+| Programming     | Correct joint count/order, base/tool/workpiece transforms and version-matched API context                 |
+| Recovery        | Fault evidence, authorized reset procedure, supported load and stop/restart responsibilities              |
+
+This record is supplementary engineering guidance. It does not replace the manufacturer's complete installation and robot-cell safety procedures.
+
+### Source chapter map
+
+| Source section         | Full detail                                                                             |
+| ---------------------- | --------------------------------------------------------------------------------------- |
+| SAFETY                 | [PDF 5](source-library/complete-diana7-robot-arm-user-manual-v1-1-0-en.md#pdf-page-5)   |
+| SAFETY REGULATIONS     | [PDF 5](source-library/complete-diana7-robot-arm-user-manual-v1-1-0-en.md#pdf-page-5)   |
+| SAFETY SIGNS           | [PDF 7](source-library/complete-diana7-robot-arm-user-manual-v1-1-0-en.md#pdf-page-7)   |
+| PERSONNEL REQUIREMENTS | [PDF 8](source-library/complete-diana7-robot-arm-user-manual-v1-1-0-en.md#pdf-page-8)   |
+| PRECAUTIONS            | [PDF 8](source-library/complete-diana7-robot-arm-user-manual-v1-1-0-en.md#pdf-page-8)   |
+| EMERGENCY STOP         | [PDF 11](source-library/complete-diana7-robot-arm-user-manual-v1-1-0-en.md#pdf-page-11) |
+| NON-ELECTRIC DRIVE     | [PDF 11](source-library/complete-diana7-robot-arm-user-manual-v1-1-0-en.md#pdf-page-11) |
+| SAFETY FUNCTIONS       | [PDF 12](source-library/complete-diana7-robot-arm-user-manual-v1-1-0-en.md#pdf-page-12) |
 
 ## Getting started
 
@@ -54,7 +107,7 @@ Diana FS FCI support is a separate, version/configuration-bound option; see [Dia
 4. Log in with the assigned account. Inspect the **Startup** information and **About** page for the robot model, joint count, software, controller/SCU/JMU and status. Leave Power On/Start, brake release, jog, Home, Free Drive, task execution and output toggles inactive for this checkpoint.
 5. Compare the displayed pose/tool/load and gravity direction with the installation record. Investigate a mismatch before enabling. Save the version/status record, not a copied calibration or packaging pose.
 
-**Expected result:** the correct Diana 7 and CB-FS-3.2T-0.6KW are identified, with 7 joint entries and a recorded UI/software status, without commanded arm motion. A connected UI does not prove the stop chain or a real-time interface has passed acceptance. Sources: [Industrial Teaching Pendant Software User Manual\_V3.3.0\_EN\_20260204.pdf, PDF pp. 11–13, 190–191](source-library.md); [EN\_1\_System\_Startup.pptx, 15 September 2025, slides 3–4, 9, 17](source-library.md).
+**Expected result:** the correct Diana 7 and CB-FS-3.2T-0.6KW are identified, with 7 joint entries and a recorded UI/software status, without commanded arm motion. A connected UI does not prove the stop chain or a real-time interface has passed acceptance. Sources: [Industrial Teaching Pendant Software User Manual\_V3.3.0\_EN\_20260204.pdf, PDF pp. 11–13, 190–191](source-library/); [EN\_1\_System\_Startup.pptx, 15 September 2025, slides 3–4, 9, 17](source-library/).
 
 ## Troubleshooting and FAQs
 
@@ -68,7 +121,7 @@ Diana FS FCI support is a separate, version/configuration-bound option; see [Dia
 
 | Resource                                                           | Purpose                                                                    |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------- |
-| [Diana7 Robot Arm User Manual V1.1.0 EN.pdf](source-library.md)    | Exact arm manual, mounting/workspace/load diagrams and source page numbers |
+| [Diana7 Robot Arm User Manual V1.1.0 EN.pdf](source-library/)      | Exact arm manual, mounting/workspace/load diagrams and source page numbers |
 | [CB-FS-3.2T-0.6KW controller guide](cb-fs-controller.md)           | Mains, network and safety-interface scope                                  |
 | [Industrial C/C++ and Python API](development/industrial-api.md)   | Version, units, joint count and state-only example                         |
 | [Coordinates, payload and tools](development/coordinates-tools.md) | TCP/workpiece frames and tooling acceptance                                |

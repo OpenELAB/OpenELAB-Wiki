@@ -29,7 +29,7 @@ Force-sensitive assembly and manipulation where the delivered control option, to
 | Controller                           | CB-FS-3.2T-0.6KW                                     |
 | Integrated tool electrical interface | Series brochure marks “–”; do not copy Thor 7 pinout |
 
-Sources: [AR-ThorSeries-Productflyer-SCREEN-en.pdf, specification table, PDF pp. 4–5](source-library.md); [current series brochure](https://www.agile-robots.com/media/files/New_website/Products/Thor_series/AR-ThorSeries-Productflyer-SCREEN-en-20260320.pdf), PDF p. 7; [manufacturer model description](https://www.agile-robots.com/en/products/thor-series/).
+Sources: [AR-ThorSeries-Productflyer-SCREEN-en.pdf, specification table, PDF pp. 4–5](source-library/); [current series brochure](https://www.agile-robots.com/media/files/New_website/Products/Thor_series/AR-ThorSeries-Productflyer-SCREEN-en-20260320.pdf), PDF p. 7; [manufacturer model description](https://www.agile-robots.com/en/products/thor-series/).
 
 ## Hardware and connections
 
@@ -38,6 +38,20 @@ The training mounting table lists four M8 base fasteners for Pro, but a Pro-spec
 ## Software and development resources
 
 Industrial API uses six joint entries for Thor. Obtain a Pro-specific model/algorithm/firmware package; do not substitute ordinary Thor 7 parameters to obtain force control. The supplied CB-FS safety manual explicitly lists Thor 7 Pro, but that does not validate a generic safety configuration. See [API selection](development/industrial-api.md) and [SCU/JMU review](development/safety-configuration.md).
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                                                                      | Coverage    |
+| -------------------------------------------------------------------------------------------- | ----------- |
+| [Thor series product flyer](source-library/complete-ar-thorseries-productflyer-screen-en.md) | 5 PDF pages |
+
+### Force-controlled variant scope
+
+The full Thor-series flyer retains every model column, parameter, drawing and feature claim. Keep the Pro row/column distinct from ordinary Thor 7. A shared payload class, silhouette or base fastener pattern does not establish the same torque sensing, force-control behavior, controller, tool wiring or SDK support.
+
+Before powered integration obtain the delivered Thor 7 Pro operating manual, controller/force-sensing configuration, support matrix, tool/electrical interfaces and safety/recovery procedures. Record exact model labels, software/package versions, joint limits, payload and calibration. The ordinary Thor 7 manual can provide comparison context but is not a substitute for missing Pro-specific procedures. No unsupported force-control recipe is inferred from the brochure.
 
 ## Getting started
 
@@ -55,7 +69,7 @@ Industrial API uses six joint entries for Thor. Obtain a Pro-specific model/algo
 
 ## Downloads and technical documents
 
-[Supplied/current Thor brochures, CB-FS manual and training references](source-library.md) · [Ordinary Thor 7 guide for comparison](thor-7.md) · [Development workflows](development/)
+[Supplied/current Thor brochures, CB-FS manual and training references](source-library/) · [Ordinary Thor 7 guide for comparison](thor-7.md) · [Development workflows](development/)
 
 ## References and validation
 

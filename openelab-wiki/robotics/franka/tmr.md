@@ -33,7 +33,7 @@ Supervised teleoperation, manipulation and embodied-AI research within the deliv
 | Sensors / compute                 | Two LiDARs, four cameras, one IMU; Jetson AGX Orin                                                                          |
 | Interface statement               | Brochure says 1 kHz FCI; verify exact base/mobile API and version rather than assuming ordinary arm libfranka compatibility |
 
-Source: [TMR brochure, PDF pp. 1–2](source-library.md). Ratings are reference values for the supplied brochure's scope, not first-run motion settings.
+Source: [TMR brochure, PDF pp. 1–2](source-library/). Ratings are reference values for the supplied brochure's scope, not first-run motion settings.
 
 The [v0.2 manual](https://franka.de/hubfs/Prototype%20Manual%20and%20Datasheets%20_Mobile%20FR3%20Duo_R04245_EN.pdf), §5.1, lists 800×583×370 mm, 125 kg maximum payload and 1.5 m/s. These values differ from the supplied brochure and remain a separate revision; no single operating limit is selected here.
 
@@ -46,6 +46,22 @@ The publicly linked prototype guide explicitly does not claim a certified comple
 ## Software and development resources
 
 Use the delivered TMR image and mobile workspace, not a newly installed arm-only driver. The documented v0.2 environment uses Ubuntu 22.04 and ROS 2 Humble on the companion, while current desktop ROS 2 development may use Jazzy. The model **tmrv0\_2** identifies a specific reference. Do not alter internal sensor addresses, names or calibration to make an unrelated example run. See [simulation and data acceptance](development/simulation-data.md).
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                        | Coverage    |
+| ---------------------------------------------- | ----------- |
+| [TMR brochure](source-library/complete-tmr.md) | 2 PDF pages |
+
+### Prototype architecture and acceptance
+
+The complete supplied brochure retains both pages of TMR features, hardware/perception information, parameters and intended applications. Treat them as a prototype configuration, rather than a standard production arm/base combination. The mobile platform, manipulation hardware, tactile/perception components and compute path each need a delivered configuration record.
+
+Before developing a task, obtain the exact base/charging and arm operating manuals, sensor/driver definitions, calibrated transforms, payload data, access/control contract and stop/recovery behavior. A manufacturer capability statement does not establish a public SDK, a commissioned navigation stack or a certified safety function.
+
+For research data, record hardware/software versions, topic or channel definitions, timestamps, calibrated coordinate frames and units. Check actual sample content and decoding, not only a recording file or an advertised sensor count. These are supplementary acceptance requirements; no missing prototype pinout or command API is inferred.
 
 ## Getting started
 
@@ -69,7 +85,7 @@ Use the delivered TMR image and mobile workspace, not a newly installed arm-only
 
 | Resource                                                                | Purpose                                                            |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| [Supplied source documents](source-library.md)                          | Brochure identity, page citations and revision notes               |
+| [Supplied source documents](source-library/)                            | Brochure identity, page citations and revision notes               |
 | [Manufacturer documentation portal](https://franka.de/documents)        | Exact prototype installation guide and current operating documents |
 | [Official model/CAD resources](https://franka.de/models-and-simulation) | Match robot, mount, end effectors, sensors and revision            |
 | [Simulation and data acceptance](development/simulation-data.md)        | Keep offline model validation separate from physical commissioning |

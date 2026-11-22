@@ -8,7 +8,7 @@ Scope: matched Diana/Thor arm and controller, not Franka FR3 or a whole humanoid
 
 Match arm and controller serials, controller suffix, cable, pendant and tool against the delivery list. Mount on the correct foundation and use the model drawing: Thor 3 uses four M6 base screws, Diana 3/7 and Thor 7/12 use four M8, and Thor 20 uses six M10. Tool screws and base screws are different selections. Have the integrator verify grounding, stop/enabling-device functions, tool retention/load, mounting/gravity direction and the complete work envelope before power-on.
 
-Use [CB-FS: 110–240 V AC](../cb-fs-controller.md) or [RCB: 200–240 V AC](../rcb-controller.md) according to the actual cabinet. The training slide's blanket 110–220 V statement and “30% ensures safe operation” are not universal mains or safety criteria. No arbitrary percentage establishes a safe commissioning speed. Source: [EN\_1\_System\_Startup.pptx, slides 3–4, 9](../source-library.md); exact arm/controller manuals in [the source library](../source-library.md).
+Use [CB-FS: 110–240 V AC](../cb-fs-controller.md) or [RCB: 200–240 V AC](../rcb-controller.md) according to the actual cabinet. The training slide's blanket 110–220 V statement and “30% ensures safe operation” are not universal mains or safety criteria. No arbitrary percentage establishes a safe commissioning speed. Source: [EN\_1\_System\_Startup.pptx, slides 3–4, 9](../source-library/); exact arm/controller manuals in [the source library](../source-library/).
 
 ## Choose the UI connection
 
@@ -19,7 +19,7 @@ Use [CB-FS: 110–240 V AC](../cb-fs-controller.md) or [RCB: 200–240 V AC](../
 | PC adapter example     | 192.168.10.136 / 255.255.255.0, only if unused on the isolated controller subnet                           |
 | Other network values   | Use the delivered configuration if changed; do not select .0, .255, .75 or an occupied address in that /24 |
 
-The training's “0–255 except 75” address shorthand includes network/broadcast addresses; it is not a valid host-selection rule. Source: [Industrial Teaching Pendant Software User Manual\_V3.3.0\_EN\_20260204.pdf, PDF pp. 190–191](../source-library.md); [EN\_5\_Data\_backup\_and\_software\_updates.pptx, slide 3](../source-library.md).
+The training's “0–255 except 75” address shorthand includes network/broadcast addresses; it is not a valid host-selection rule. Source: [Industrial Teaching Pendant Software User Manual\_V3.3.0\_EN\_20260204.pdf, PDF pp. 190–191](../source-library/); [EN\_5\_Data\_backup\_and\_software\_updates.pptx, slide 3](../source-library/).
 
 ## First UI result
 
@@ -29,13 +29,52 @@ The training's “0–255 except 75” address shorthand includes network/broadc
 4. Distinguish cabinet/UI power, switched arm 48 V supply and brake release. In CB-style UI the Power On/Off and Start/Stop buttons control different states. Keep them inactive for this identification checkpoint unless a qualified commissioning step explicitly requires otherwise.
 5. Record the exact system/software and reported status. Do not click Home, Free Drive, jog, run a project or toggle I/O as a connectivity test.
 
-**Expected result:** the correct model/controller and current state are visible, without commanded motion. Successful login or ping does not validate the integrated safety chain. Source: [Industrial Teaching Pendant Software User Manual\_V3.3.0\_EN\_20260204.pdf, PDF pp. 11–13](../source-library.md); [EN\_1\_System\_Startup.pptx, slides 3–4, 17](../source-library.md).
+**Expected result:** the correct model/controller and current state are visible, without commanded motion. Successful login or ping does not validate the integrated safety chain. Source: [Industrial Teaching Pendant Software User Manual\_V3.3.0\_EN\_20260204.pdf, PDF pp. 11–13](../source-library/); [EN\_1\_System\_Startup.pptx, slides 3–4, 17](../source-library/).
 
 ## Troubleshooting and shutdown
 
 For a PC connection failure, check port A, cable/link, unique host address/subnet and route/VPN interference. Use [the fault-isolation checklist](troubleshooting.md) before changing any robot configuration. The manual's three-position enabling switch and mode key have specific functions; releasing or fully squeezing the enabling device differs from deliberate middle-position enablement.
 
 Use the installed UI's system-shutdown procedure after tasks stop and the load/workspace are secured. A forced power cut or generic packaging pose is not the default shutdown/recovery method. See [backup and update planning](backup-updates.md) before software changes.
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                                                                       | Coverage  |
+| --------------------------------------------------------------------------------------------- | --------- |
+| [Agile Robots training 1 — System Startup](../source-library/complete-en-1-system-startup.md) | 18 slides |
+
+### Complete installation sequence
+
+The eighteen slides retain unpacking, matching arm/controller serials, component identification, specifications, base mounting, wiring, power-up and pendant controls. Keep the original packaging, inspect the delivered parts and use the model's dimensional/mounting drawings before preparing the installation surface. The source's generic fastener slide does not override an exact-model flange drawing; Thor 20 needs its specific pattern.
+
+Use the exact controller power range: the slides' generic 110–220 V wording is not a substitute for CB-FS-3.2T or RCB2.1.1T-0.3KW ratings. Read the supplied safety-I/O drawings as configuration evidence, not instructions to bridge a protective circuit. The physical emergency stop, mode selector and three-position enabling switch must be integrated according to the delivered safety design.
+
+Wait for the controller's normal startup before diagnosing a transient connection error. Then establish a read-only identity/status checkpoint. The source's 30% initial speed is a training setting and does not establish a safe speed for an arbitrary tool, mounting or shared workspace. Retain the delivered arm/controller/software, tool, cable and safety configuration in the acceptance record.
+
+### Source chapter map
+
+| Source section                                      | Full detail                                                            |
+| --------------------------------------------------- | ---------------------------------------------------------------------- |
+| Basic Training                                      | [Slide 1](../source-library/complete-en-1-system-startup.md#slide-1)   |
+| Overview                                            | [Slide 2](../source-library/complete-en-1-system-startup.md#slide-2)   |
+| Installation Tips                                   | [Slide 3](../source-library/complete-en-1-system-startup.md#slide-3)   |
+| Installation Tips (2)                               | [Slide 4](../source-library/complete-en-1-system-startup.md#slide-4)   |
+| Robot Arm                                           | [Slide 5](../source-library/complete-en-1-system-startup.md#slide-5)   |
+| 1.1 Diagram of the robot arm                        | [Slide 6](../source-library/complete-en-1-system-startup.md#slide-6)   |
+| 1.2 Specification Table                             | [Slide 7](../source-library/complete-en-1-system-startup.md#slide-7)   |
+| 1.3 Electrical Wiring Instructions                  | [Slide 8](../source-library/complete-en-1-system-startup.md#slide-8)   |
+| 1.4 Base Mounting                                   | [Slide 9](../source-library/complete-en-1-system-startup.md#slide-9)   |
+| 1.4 Base Mounting (2)                               | [Slide 10](../source-library/complete-en-1-system-startup.md#slide-10) |
+| Control Box                                         | [Slide 11](../source-library/complete-en-1-system-startup.md#slide-11) |
+| 2.1 Diagram of the control box                      | [Slide 12](../source-library/complete-en-1-system-startup.md#slide-12) |
+| 2.2 Specification Table                             | [Slide 13](../source-library/complete-en-1-system-startup.md#slide-13) |
+| 2.3 Electrical Interface Diagram of the Control Box | [Slide 14](../source-library/complete-en-1-system-startup.md#slide-14) |
+| 3. Teaching Pendant                                 | [Slide 15](../source-library/complete-en-1-system-startup.md#slide-15) |
+| 3.1 Diagram of the Teaching Pendant                 | [Slide 16](../source-library/complete-en-1-system-startup.md#slide-16) |
+| 3.3 Button Description                              | [Slide 17](../source-library/complete-en-1-system-startup.md#slide-17) |
+| Slide 18                                            | [Slide 18](../source-library/complete-en-1-system-startup.md#slide-18) |
 
 ## References and validation
 

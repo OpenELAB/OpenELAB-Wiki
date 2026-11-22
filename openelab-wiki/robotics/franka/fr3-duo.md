@@ -32,7 +32,7 @@ Supervised teleoperation, manipulation and embodied-AI research within the deliv
 | Perception in supplied brochure | Head, torso and two wrist views; actual camera BOM is configuration-specific                       |
 | Degree-of-freedom wording       | Brochure: 17 total; two arm chains alone have 14. Do not infer extra axes from the brochure count. |
 
-Source: [FR3 Duo brochure, PDF pp. 1–2](source-library.md). Ratings are reference values for the supplied brochure's scope, not first-run motion settings.
+Source: [FR3 Duo brochure, PDF pp. 1–2](source-library/). Ratings are reference values for the supplied brochure's scope, not first-run motion settings.
 
 The later [prototype manual R04245](https://franka.de/hubfs/Prototype%20Manual%20and%20Datasheets%20_Mobile%20FR3%20Duo_R04245_EN.pdf), §6, lists 14 arm DOF. Preserve the distinction between two seven-axis arm chains and any additional configured mechanisms; use the delivered URDF/joint list for algorithms.
 
@@ -45,6 +45,22 @@ The current reference setup listed on the [manufacturer model page](https://fran
 ## Software and development resources
 
 Use the official `franka_description` **fr3\_duo** model and the matching ROS 2 branch, FCI feature and System Image. Verify both controller identities, left/right mapping, tool models and base-to-arm transforms. See [FCI/ROS compatibility](development/fci-ros2.md) and [the explicit Duo simulation path](development/simulation-data.md). [Installation guide](https://franka.de/hubfs/Quick%20Installation%20Guide%20FR3%20Duo_R04240_1.3_EN-1.pdf), §§8–9, provides the reference geometry context.
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                            | Coverage    |
+| -------------------------------------------------- | ----------- |
+| [FR3 Duo brochure](source-library/complete-duo.md) | 2 PDF pages |
+
+### Two-arm system integration
+
+Keep each arm's seven-axis model, Control, serial, network endpoint, payload and tool transform separate. A brochure's total degree-of-freedom figure is not a command-vector definition. A bimanual application additionally needs a calibrated transform between the two arm bases and a common representation of the shared work area.
+
+Plan the combined swept volume, arm-to-arm and tool/workpiece clearances, routed cables and operator access. Include the dual-arm mounting structure, attached tooling, compute and optional accessories in the delivered configuration record. Do not infer synchronized stopping or one common safety circuit merely because the arms share a frame.
+
+Accept each arm's identity/status path before a coordinated application. Record clock/time synchronization, left/right joint names, coordinate frames, software versions and control ownership. A working two-camera or two-robot visualization does not establish coordinated motion or a validated combined stop behavior. The complete supplied brochure is retained alongside the applicable single-arm and Hand hardware references.
 
 ## Getting started
 
@@ -67,7 +83,7 @@ Use the official `franka_description` **fr3\_duo** model and the matching ROS 2 
 
 | Resource                                                                | Purpose                                                            |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| [Supplied source documents](source-library.md)                          | Brochure identity, page citations and revision notes               |
+| [Supplied source documents](source-library/)                            | Brochure identity, page citations and revision notes               |
 | [Manufacturer documentation portal](https://franka.de/documents)        | Exact prototype installation guide and current operating documents |
 | [Official model/CAD resources](https://franka.de/models-and-simulation) | Match robot, mount, end effectors, sensors and revision            |
 | [Simulation and data acceptance](development/simulation-data.md)        | Keep offline model validation separate from physical commissioning |

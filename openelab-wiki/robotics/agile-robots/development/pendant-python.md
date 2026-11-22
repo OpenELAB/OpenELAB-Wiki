@@ -8,7 +8,7 @@ Scope: Python scripts inside the supplied pendant project, not the external Dian
 
 Training examples such as `log(context, level, message)` run inside the pendant's embedded project environment. The external Industrial SDK uses `DianaApi.initSrv(...)` and separate host/native dependencies. Do not copy `context` calls into a standalone SDK script or replace a pendant function with a similar external API name.
 
-The training's soft-pendant environment describes an Ubuntu/Qt 5.12.6 gcc\_64 package or a Windows x64 package with the VC++ 2017 runtime. These are supplied-package prerequisites, not proof that every modern host/package is interchangeable. Obtain the correct delivered UI bundle; no unverified download or installation command is asserted. Source: [EN\_4\_Interfaces\_and\_Programming.pptx, slides 3–9](../source-library.md).
+The training's soft-pendant environment describes an Ubuntu/Qt 5.12.6 gcc\_64 package or a Windows x64 package with the VC++ 2017 runtime. These are supplied-package prerequisites, not proof that every modern host/package is interchangeable. Obtain the correct delivered UI bundle; no unverified download or installation command is asserted. Source: [EN\_4\_Interfaces\_and\_Programming.pptx, slides 3–9](../source-library/).
 
 ## First finite log result
 
@@ -25,13 +25,42 @@ log(context, 1, "Agile pendant Python: log-only check")
 4. Inspect the entire project tree and any startup/background instructions. It must contain no move, Free Drive, brake, I/O, socket or peripheral command. Program execution can still change operational state, so have the responsible operator authorize this isolated test under the installed procedure.
 5. Observe the log and stop the finite test normally. Preserve the log plus project/software identity; do not append a training motion example merely because logging works.
 
-**Expected result:** the message appears once without an arm/peripheral actuation command. This is a proposed, source-reviewed check; it was **not run** during wiki authoring. Source: [EN\_4\_Interfaces\_and\_Programming.pptx, slides 4–9](../source-library.md); [Industrial Teaching Pendant Software User Manual\_V3.3.0\_EN\_20260204.pdf, PDF pp. 9–10, 121–124](../source-library.md).
+**Expected result:** the message appears once without an arm/peripheral actuation command. This is a proposed, source-reviewed check; it was **not run** during wiki authoring. Source: [EN\_4\_Interfaces\_and\_Programming.pptx, slides 4–9](../source-library/); [Industrial Teaching Pendant Software User Manual\_V3.3.0\_EN\_20260204.pdf, PDF pp. 9–10, 121–124](../source-library/).
 
 ## Common mistakes
 
 Curly quotes, broken indentation and inconsistent variable names in slide text are not executable Python. Infinite background logging loops obscure termination/pause behavior and are unnecessary for a first result. A script that contains only reads can still be embedded in a project with motion elsewhere; inspect the entire project.
 
 Use [external Industrial API state inspection](industrial-api.md) for host SDK work, [Lua](pendant-lua.md) for the separate Lua command interface, and [interface selection](interfaces-network.md) before adding external communications. The training's placeholder socket/serial examples do not establish a production device protocol.
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                                                                                               | Coverage  |
+| --------------------------------------------------------------------------------------------------------------------- | --------- |
+| [Agile Robots training 4 — Interfaces and Programming](../source-library/complete-en-4-interfaces-and-programming.md) | 29 slides |
+
+### Complete embedded-Python training scope
+
+The full Interfaces and Programming deck preserves system calls, variables, timers, program lifetime, robot state/control, serial ports and TCP/UDP examples. It also preserves the original screenshot/code formatting, so copied fragments still need syntax and API review against the installed pendant package. This context-based API is separate from the external Industrial Python manual.
+
+Use a new isolated log-only script as the first result. Check the pendant console and return/error reporting before adding a state read; inspect joint count and unit conventions in the installed runtime. Do not import an external client's initialization or connection assumptions into a script that already receives `context`.
+
+The source's subprogram, variable-write and communication examples have side effects even without arm motion. Its control examples include actual moves, servo, force mode, payload updates, I/O writes and persistent saves; keep those behind a reviewed application procedure. Preserve timeouts and cleanup for serial/sockets and distinguish a received byte string from an accepted device message. Original example defects remain visible in the source reader rather than being silently presented as tested code.
+
+### Source chapter map
+
+| Source section                                        | Full detail                                                                      |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Advanced Training                                     | [Slide 1](../source-library/complete-en-4-interfaces-and-programming.md#slide-1) |
+| Interfaces and Programming                            | [Slide 2](../source-library/complete-en-4-interfaces-and-programming.md#slide-2) |
+| 1. Environment Setup and Preparation                  | [Slide 3](../source-library/complete-en-4-interfaces-and-programming.md#slide-3) |
+| 1. Environment Setup and Preparation (2)              | [Slide 4](../source-library/complete-en-4-interfaces-and-programming.md#slide-4) |
+| 1. Environment Setup and Preparation (3)              | [Slide 5](../source-library/complete-en-4-interfaces-and-programming.md#slide-5) |
+| 2. API Usage Examples in Python                       | [Slide 6](../source-library/complete-en-4-interfaces-and-programming.md#slide-6) |
+| 2.1 System Call Function Description and Examples     | [Slide 7](../source-library/complete-en-4-interfaces-and-programming.md#slide-7) |
+| 2.1 System Call Function Description and Examples (2) | [Slide 8](../source-library/complete-en-4-interfaces-and-programming.md#slide-8) |
 
 ## References and validation
 

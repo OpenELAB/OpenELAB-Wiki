@@ -34,6 +34,28 @@ For Franka Research 3 use the [existing Franka development series](../../franka/
 
 ## Acceptance and source versions
 
-Record robot/controller serials, model, software/firmware/configurations, tool/load, calibration/frames, stop acceptance and the expected result before experiments. Preserve the difference between source-reviewed examples and executed tests. Manufacturer manuals and training can contain old links, generic wiring and outdated examples; the [source/revision notes](../source-library.md) identify the differences that affect this series.
+Record robot/controller serials, model, software/firmware/configurations, tool/load, calibration/frames, stop acceptance and the expected result before experiments. Preserve the difference between source-reviewed examples and executed tests. Manufacturer manuals and training can contain old links, generic wiring and outdated examples; the [source/revision notes](../source-library/) identify the differences that affect this series.
 
 Reviewed 22 November 2026. Documentation/source review only. SDK installation, compilation, robot communication, calibration, simulation, welding and physical safety tests: **not run**.
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                                                                                                                      | Coverage      |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| [Industrial C/C++ API manual V3.3.0](../source-library/complete-industrial-api-manual-c-c-edition-v3-3-0-en-20260605/)                       | 190 PDF pages |
+| [Industrial Python API manual V3.3.0](../source-library/complete-industrial-api-manual-python-edition-v3-3-0-en-20260205/)                   | 165 PDF pages |
+| [Industrial Lua programming manual V3.3.0](../source-library/complete-industrial-lua-programming-manual-v3-3-0-en-20260117/)                 | 192 PDF pages |
+| [Industrial teaching pendant manual V3.3.0](../source-library/complete-industrial-teaching-pendant-software-user-manual-v3-3-0-en-20260204/) | 286 PDF pages |
+| [Safety configuration manual V3.3.0](../source-library/complete-safety-function-configuration-software-user-manual-v3-3-0-en-20260204.md)    | 53 PDF pages  |
+| [Diana 7 FCI guide V1.3](../source-library/complete-how-to-use-fci-on-diana7-english-version-v1-3-20260209.md)                               | 17 PDF pages  |
+| [Arc welding function manual V3.3.0](../source-library/complete-arc-welding-function-manual-v3-3-0-en-20260204.md)                           | 26 PDF pages  |
+
+### Select one delivered programming contract
+
+The complete external C/C++, external Python, pendant Lua, pendant UI, Diana FCI, safety-configuration and welding references remain distinct. They differ in execution context, permissions, units, joint/pose representation, side effects and hardware support. The shared V3.3 label does not merge them into one interchangeable API.
+
+Record hardware/controller/force-sensor options, software/SDK/package revisions, host prerequisites, tool/payload and coordinate frames before choosing a route. Start with the route's smallest documented state/log result. Keep activation, motion, process outputs, firmware, calibration and safety changes under the corresponding complete application procedure.
+
+The six full training decks supplement the manuals with screenshots and examples. Their historical addresses, updater package, generic supply text and simplified examples are retained with source notes; they do not override exact-model documentation. No SDK compilation, robot motion, welding or hardware safety test is claimed.

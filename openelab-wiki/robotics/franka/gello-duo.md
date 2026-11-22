@@ -32,7 +32,7 @@ Supervised teleoperation, manipulation and embodied-AI research within the deliv
 | Current installation guide | GELLO Duo v0.5, R62040/1.2, 14 April 2026                                                    |
 | Guide article number       | Duo 313686, revision 00-05; verify the actual delivered label                                |
 
-Source: [Franka GELLO Duo brochure, PDF p. 1](source-library.md). Ratings are reference values for the supplied brochure's scope, not first-run motion settings.
+Source: [Franka GELLO Duo brochure, PDF p. 1](source-library/). Ratings are reference values for the supplied brochure's scope, not first-run motion settings.
 
 Official resource chain: [Franka GELLO page](https://franka.de/gello) → [R62040 installation guide](https://franka.de/hubfs/Quick%20Guide%20for%20Installation%20Franka%20GELLO%20DUO_0.5_R62040_1.2_EN.pdf) → [ROS 2 software](https://github.com/wuphilipp/gello_software/tree/main/ros2) and [mechanical files](https://github.com/wuphilipp/gello_mechanical/tree/main/franka_fr3). The prototype designation and exact open-source license must be checked for each repository component; a statement that files are open source does not replace their license terms.
 
@@ -45,6 +45,22 @@ The reviewed ROS 2 README warns that OpenRB-150 motor torque must not be enabled
 ## Software and development resources
 
 The manufacturer links **wuphilipp/gello\_software/ros2** and **gello\_mechanical/franka\_fr3**; these are Franka-contributed resources hosted in the original author’s repositories. The reviewed software commit is `1b3fec5af2c0f6ea23efde888615da5871e6b6bb`. It targets ROS 2 Humble and recommends opening the **ros2 subfolder** in the VS Code devcontainer. Check the container’s pinned libfranka/ROS versions against the actual System Images. Per-device `com_port`, left/right mapping, joint signs, assembly offsets and gripper range must match the hardware.
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                                       | Coverage    |
+| ------------------------------------------------------------- | ----------- |
+| [Franka GELLO Duo brochure](source-library/complete-gello.md) | 1 PDF pages |
+
+### Leader/follower mapping and startup
+
+The complete brochure retains the mechanical, sensing/control, teleoperation and research-use claims for GELLO Duo. Distinguish the two leader chains, their motors/encoders and computer connection from the two follower arms and their Controls. Do not use one overall DOF figure as a substitute for the exact per-side joint order and calibration.
+
+Before an attended teleoperation test, reconcile handedness, joint signs, offsets, limits, base/tool frames, gripper mapping, update rate and stale-data behavior with the delivered implementation. Starting a leader publisher can configure motor torque; starting a follower process can synchronize immediately. Those launches are not passive connection checks.
+
+Keep control enable, physical emergency stops, loss-of-command behavior and a deliberate restart sequence explicit. A recovered connection must not replay an old follower target. Preserve the exact repository/commit and compatible follower firmware from the linked development guide; a generic GELLO or ROS package name does not establish this Duo's hardware map.
 
 ## Getting started
 
@@ -75,7 +91,7 @@ ls /dev/serial/by-id
 
 | Resource                                                                | Purpose                                                            |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| [Supplied source documents](source-library.md)                          | Brochure identity, page citations and revision notes               |
+| [Supplied source documents](source-library/)                            | Brochure identity, page citations and revision notes               |
 | [Manufacturer documentation portal](https://franka.de/documents)        | Exact prototype installation guide and current operating documents |
 | [Official model/CAD resources](https://franka.de/models-and-simulation) | Match robot, mount, end effectors, sensors and revision            |
 | [Simulation and data acceptance](development/simulation-data.md)        | Keep offline model validation separate from physical commissioning |

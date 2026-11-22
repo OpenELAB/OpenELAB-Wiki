@@ -8,7 +8,7 @@
 
 [Franka World](https://franka.world/) manages organizations, members and robot software. Your personal login can belong to multiple organizations with different roles. The robot's **local** Administrator and Safety Operator are separate robot-side identities. The supplied slides' “Account” screens are a historical interface reference.
 
-Sources: [Franka World training, 22 October 2025, slides 3–7](../source-library.md); [current Franka World user guide](https://download.franka.de/franka-world-manual/), Parts 1–3.
+Sources: [Franka World training, 22 October 2025, slides 3–7](../source-library/); [current Franka World user guide](https://download.franka.de/franka-world-manual/), Parts 1–3.
 
 ## First association review
 
@@ -40,4 +40,33 @@ Use assigned organization roles for membership/robot actions. Inviting users, tr
 
 ## Sources and validation
 
-[Franka World training, 22 October 2025, slides 3–7](../source-library.md); [System Startup training, 21 October 2025, slides 6–8](../source-library.md); [Franka World 2.0 user guide](https://download.franka.de/franka-world-manual/); [Operating Manual 5.10](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_5.10_R02216_1.3_EN.pdf), §§3 and 8. Reviewed 22 November 2026. Documentation and source checks only. Software installation, compilation, live robot communication, calibration and physical tests: **not run**. No account, organization, license, update or robot state was changed during this documentation task.
+[Franka World training, 22 October 2025, slides 3–7](../source-library/); [System Startup training, 21 October 2025, slides 6–8](../source-library/); [Franka World 2.0 user guide](https://download.franka.de/franka-world-manual/); [Operating Manual 5.10](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_5.10_R02216_1.3_EN.pdf), §§3 and 8. Reviewed 22 November 2026. Documentation and source checks only. Software installation, compilation, live robot communication, calibration and physical tests: **not run**. No account, organization, license, update or robot state was changed during this documentation task.
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                                                 | Coverage |
+| ----------------------------------------------------------------------- | -------- |
+| [Franka training 3 — Franka World](../source-library/complete-world.md) | 8 slides |
+
+### Account, organization and robot state
+
+The eight-slide source covers the historical account-selection screens, notifications, robot management, software updates, licensing and synchronization. All screenshots and links are retained. Current World organization workflows can differ from the October 2025 Account screens; use the current official user guide linked above for live navigation.
+
+Check which organization owns/manages the intended Control serial and which user role may manage it. Account identity, organization membership, robot registration, license availability and installed software are separate facts. A successful cloud login does not prove access to every robot, and an entitled software item is not proof that it is installed or compatible.
+
+Before an authorized update or synchronization, record the existing image and entitlement state, select the compatible target and preserve the configuration/recovery information required by the operating manual. Afterward, check actual installed state and any required acceptance steps; do not treat a synchronized badge as a physical safety test.
+
+### Source chapter map
+
+| Source section          | Full detail                                            |
+| ----------------------- | ------------------------------------------------------ |
+| Slide 1                 | [Slide 1](../source-library/complete-world.md#slide-1) |
+| Basic Training          | [Slide 2](../source-library/complete-world.md#slide-2) |
+| Franka World            | [Slide 3](../source-library/complete-world.md#slide-3) |
+| Franka World (2)        | [Slide 4](../source-library/complete-world.md#slide-4) |
+| Franka World (3)        | [Slide 5](../source-library/complete-world.md#slide-5) |
+| Franka World (4)        | [Slide 6](../source-library/complete-world.md#slide-6) |
+| Franka World (5)        | [Slide 7](../source-library/complete-world.md#slide-7) |
+| Diagnostics And Testing | [Slide 8](../source-library/complete-world.md#slide-8) |

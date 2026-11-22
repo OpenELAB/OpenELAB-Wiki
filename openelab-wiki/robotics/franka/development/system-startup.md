@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-Use [the FR3 Arm guide](../fr3-arm.md) for hardware scope and the matching manual. Prepare a commissioned installation or a responsible integrator for first commissioning, the supplied stop/enabling devices, correct end effector, a browser computer and Ethernet cable. Leave the workspace and jaw travel clear. Read [System Startup training, 21 October 2025, slides 3–6](../source-library.md).
+Use [the FR3 Arm guide](../fr3-arm.md) for hardware scope and the matching manual. Prepare a commissioned installation or a responsible integrator for first commissioning, the supplied stop/enabling devices, correct end effector, a browser computer and Ethernet cable. Leave the workspace and jaw travel clear. Read [System Startup training, 21 October 2025, slides 3–6](../source-library/).
 
 ## Connect to the UI network
 
@@ -15,7 +15,7 @@ Use [the FR3 Arm guide](../fr3-arm.md) for hardware scope and the matching manua
 3. Open `https://robot.franka.de` in the browser. If DNS is unavailable, use the confirmed robot-network address. Do not use a guessed corporate-network address or assign the robot's address to the host.
 4. For an already configured system, use the assigned local account. Inspect **Settings → Dashboard** and record the System Image. Read the controller-provided manual via the System menu.
 
-Sources: [FR3 Arm v2.1 hardware manual R02210/1.2/EN, PDF pp. 40–43, 64–65](../source-library.md); [Operating Manual 5.10](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_5.10_R02216_1.3_EN.pdf), §3.1 and §6. The UI connection is distinct from the wired C2 link needed for FCI.
+Sources: [FR3 Arm v2.1 hardware manual R02210/1.2/EN, PDF pp. 40–43, 64–65](../source-library/); [Operating Manual 5.10](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_5.10_R02216_1.3_EN.pdf), §3.1 and §6. The UI connection is distinct from the wired C2 link needed for FCI.
 
 ## First Start on a new system
 
@@ -41,4 +41,39 @@ Shut down through the documented UI procedure and wait for the controller's conf
 
 ## Sources and validation
 
-[System Startup training, 21 October 2025, slides 3–13](../source-library.md); [FR3 Arm v2.1 hardware manual R02210/1.2/EN, PDF pp. 62–70](../source-library.md); [Operating Manual 5.10](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_5.10_R02216_1.3_EN.pdf), §§3, 6 and 8. Reviewed 22 November 2026. Documentation and source checks only. Software installation, compilation, live robot communication, calibration and physical tests: **not run**.
+[System Startup training, 21 October 2025, slides 3–13](../source-library/); [FR3 Arm v2.1 hardware manual R02210/1.2/EN, PDF pp. 62–70](../source-library/); [Operating Manual 5.10](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_5.10_R02216_1.3_EN.pdf), §§3, 6 and 8. Reviewed 22 November 2026. Documentation and source checks only. Software installation, compilation, live robot communication, calibration and physical tests: **not run**.
+
+## Complete source coverage and engineering details
+
+The supplied material is now readable inside the wiki. The complete readers retain every original page, drawing, table, example and notice; the guidance below explains how to use them for this model or workflow.
+
+| Complete in-wiki source                                                     | Coverage  |
+| --------------------------------------------------------------------------- | --------- |
+| [Franka training 1 — System Startup](../source-library/complete-startup.md) | 14 slides |
+
+### Complete startup workflow and checkpoints
+
+The fourteen slides cover equipment identification, data sheets, the X5 browser route, initial setup, World resources, software/licensing and the documentation/tutorial ecosystem. Their original hyperlinks are retained in the slide reader, including links to older manuals, Desk API/RIDE, FCI/ROS, Modbus and OPC UA resources.
+
+Use the hardware labels and compatible manual set first. Then inspect the installed network and reach the UI on the intended local interface. The shown 192.168.0.1 / host-range example is a factory training profile, not an instruction to replace a working site network. A browser login confirms the UI route; it does not verify the Control-side real-time FCI path.
+
+Record the Control identity, System Image, end-effector configuration and selected organization/licenses before planning an update. World synchronization changes software/license state and is separate from mounting, safety-peripheral and application acceptance. Follow the exact operating manual for the initial physical setup; the closing Diagnostics and Testing slide does not itself define a test procedure.
+
+### Source chapter map
+
+| Source section          | Full detail                                                |
+| ----------------------- | ---------------------------------------------------------- |
+| Slide 1                 | [Slide 1](../source-library/complete-startup.md#slide-1)   |
+| Basic Training          | [Slide 2](../source-library/complete-startup.md#slide-2)   |
+| System Startup          | [Slide 3](../source-library/complete-startup.md#slide-3)   |
+| System Startup (2)      | [Slide 4](../source-library/complete-startup.md#slide-4)   |
+| System Startup (3)      | [Slide 5](../source-library/complete-startup.md#slide-5)   |
+| System Startup (4)      | [Slide 6](../source-library/complete-startup.md#slide-6)   |
+| System Startup (5)      | [Slide 7](../source-library/complete-startup.md#slide-7)   |
+| System Startup (6)      | [Slide 8](../source-library/complete-startup.md#slide-8)   |
+| System Startup (7)      | [Slide 9](../source-library/complete-startup.md#slide-9)   |
+| System Startup (8)      | [Slide 10](../source-library/complete-startup.md#slide-10) |
+| System Startup (9)      | [Slide 11](../source-library/complete-startup.md#slide-11) |
+| System Startup (10)     | [Slide 12](../source-library/complete-startup.md#slide-12) |
+| System Startup (11)     | [Slide 13](../source-library/complete-startup.md#slide-13) |
+| Diagnostics And Testing | [Slide 14](../source-library/complete-startup.md#slide-14) |
