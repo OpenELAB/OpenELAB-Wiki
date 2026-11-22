@@ -32,7 +32,7 @@ This series combines the seven supplied PDF brochures/manuals and three October 
 * **Hand versus arm loop:** a 1 kHz arm FCI statement does not promise real-time Franka Hand control.
 * **Prototype revisions:** brochure and v0.2 manual payload/speed/dimensions/camera counts differ. Use the delivered technical agreement and manuals.
 * **Duo counts:** two seven-axis arms have 14 arm joints. Brochure total-DOF figures may include other mechanisms; use the actual delivered joint list.
-* **Separate products:** OpenELAB also lists Diana 7 under its Franka collection. The supplied files do not establish Diana 7 hardware, safety or SDK compatibility, so this series does not reuse FR3 procedures for it.
+* **Separate products:** OpenELAB also lists Diana 7 under its Franka collection. Its manufacturer/controller platform is Agile Robots; the expanded Diana guides cover its own hardware, Industrial software and specific FS FCI adaptation. FR3 procedures are not reused as Diana commissioning instructions.
 
 ## Sources and validation
 
@@ -41,3 +41,5 @@ This series combines the seven supplied PDF brochures/manuals and three October 
 Reviewed 22 November 2026. Documentation and source checks only. Software installation, compilation, live robot communication, calibration and physical tests: **not run**. Published documentation does not constitute physical commissioning or safety acceptance of a robot/workcell.
 
 [Robotics directory](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+Related Agile Robots coverage: [Diana 7](../agile-robots/diana-7.md) · [Diana FS FCI](../agile-robots/development/diana-fci.md) · [combined Agile Robots / Franka directory](../agile-robots/).

@@ -66,3 +66,5 @@ The seven joint positions `q` are radians and velocities `dq` are rad/s; Cartesi
 ## References and validation
 
 Official resources above; [FR3 brochure, October 2025, PDF pp. 6–8](../source-library.md); [System Startup training, 21 October 2025, slide 12](../source-library.md); [Operating Manual 5.10](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_5.10_R02216_1.3_EN.pdf), §§10.1–10.5. Reviewed 22 November 2026. Documentation and source checks only. Software installation, compilation, live robot communication, calibration and physical tests: **not run**.
+
+Diana FCI adaptation: the supplied Agile Robots V1.3 manual documents specific Diana FS configurations. Use the [Diana FS FCI version/configuration review](../../agile-robots/development/diana-fci.md) for that implementation. The FR3 System Image matrix and C2/X5 instructions on this page do not establish Diana client compatibility, network ports, dynamics or gripper support.

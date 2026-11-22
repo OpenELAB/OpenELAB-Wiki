@@ -38,3 +38,5 @@ Record model/serial/hardware revision, System Image, controller/server version, 
 ## Sources and validation
 
 [System Startup training, 21 October 2025, slides 3–13](../source-library.md); [Franka Desk training, 22 October 2025, slides 3–20](../source-library.md); [Franka World training, 22 October 2025, slides 3–7](../source-library.md); [Operating Manual 5.10](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_5.10_R02216_1.3_EN.pdf), §§3, 6–10; official web sources linked above. Reviewed 22 November 2026. Documentation and source checks only. Software installation, compilation, live robot communication, calibration and physical tests: **not run**.
+
+For Diana/Thor Industrial V3.3, use the separate [Agile Robots training and development route](../../agile-robots/development/). Its six training decks, controller networks and Industrial API conventions differ from the Franka training above.

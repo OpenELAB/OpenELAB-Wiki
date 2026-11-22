@@ -105,3 +105,5 @@ The publicly linked R04245 prototype manual labels its contents as internal/prel
 ## Review and validation
 
 Reviewed 22 November 2026. The seven source PDFs and all 43 training slides were inspected, with current official operating/SDK sources checked for model and version scope. Hosted source links, internal navigation and saved content were validated separately from physical operation. No robot connection, SDK compilation, simulation, gripper motion, mobile motion or hardware safety test was run.
+
+Expanded source review: the seven repeated Franka PDFs in the 34-file Agile Robots/Franka batch match these files by SHA-256 and are reused here. The [Agile Robots source library and revision notes](../agile-robots/source-library.md) covers the additional Diana/Thor/controller/V3.3 manuals, six distinct Agile Robots training decks and authorized H10-W/H20 specification summaries.
