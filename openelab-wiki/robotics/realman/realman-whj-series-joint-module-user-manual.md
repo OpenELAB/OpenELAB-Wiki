@@ -6,19 +6,41 @@ description: >-
 
 # RealMan WHJ Series Joint Module User Manual
 
-### RealMan WHJ10-80 Harmonic Joint Module with S and I Version Options
+{% hint style="info" %}
+[**View WHJ10-80 S/I on OpenELAB**](https://openelab.io/products/realman-whj10-80)
+
+**Model:** WHJ10-80 S/I · **SKU:** `WHJ10-80-S / WHJ10-80-I`
+
+[**View WHJ30-80 S/I on OpenELAB**](https://openelab.io/products/realman-whj30-80)
+
+**Model:** WHJ30-80 S/I · **SKU:** `WHJ30-80-S / WHJ30-80-I`
+
+[**View WHJ60-100 S/I on OpenELAB**](https://openelab.io/products/realman-whj60-100)
+
+**Model:** WHJ60-100 S/I · **SKU:** `WHI60-100-S / WHI60-100-I`
+{% endhint %}
+
+### Relationship to the RealMan series
+
+This existing joint-module reference remains separate from complete-arm guides. Confirm the full module code, S/I option and torque-series designation; the ten supplied robot/arm/gripper files do not replace its joint electrical/protocol sources. The WHJ60-100 storefront currently uses `WHI60-100-S/I` SKU strings; verify the physical module code when reconciling inventory. All existing joint figures and technical content are retained below.
+
+[RealMan series index](./) · [RMG22-65 guide](realman-rmg22-65-gripper.md) · [Complete-arm commissioning](realman-arm-commissioning-and-sdk.md)
+
+### Preserved joint-module manual
+
+#### RealMan WHJ10-80 Harmonic Joint Module with S and I Version Options
 
 {% embed url="https://openelab.io/products/realman-whj10-80" %}
 
-### RealMan WHJ30-80 Harmonic Joint Module, 30 N·m Rated Torque
+#### RealMan WHJ30-80 Harmonic Joint Module, 30 N·m Rated Torque
 
 {% embed url="https://openelab.io/products/realman-whj30-80" %}
 
-### RealMan WHJ60-100 High-Torque Harmonic Joint Module, 60 N·m Rated Torque
+#### RealMan WHJ60-100 High-Torque Harmonic Joint Module, 60 N·m Rated Torque
 
 {% embed url="https://openelab.io/products/realman-whj60-100" %}
 
-### Joint Overview
+#### Joint Overview
 
 This section introduces the WHJ module architecture, integrated components, and intended applications.
 
@@ -44,11 +66,11 @@ Select a WHJ model according to the application requirements. The model code ide
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/introduction_of_whj_series/jointModelDescription.png)
 
-### Electrical Connections and Wiring
+#### Electrical Connections and Wiring
 
 Review the power limits, interfaces, wiring, and battery requirements before connecting or energizing a joint module.
 
-#### Joint Input Power Instructions
+**Joint Input Power Instructions**
 
 **Power Voltage and Rated Power**
 
@@ -76,7 +98,7 @@ When a battery powers the joint, regenerative back EMF charges the battery direc
 
 If the battery has limited capacity, connect the protection device specified by RealMan to improve system reliability.
 
-#### Joint Positive Rotation Direction
+**Joint Positive Rotation Direction**
 
 Facing the output end of the reducer, the positive rotation direction of the joint is counterclockwise. This direction cannot be modified.
 
@@ -84,7 +106,7 @@ The rotation direction of the joint is determined by the direction of the target
 
 <div align="center"><img src="https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/electrical_description_of_joints/image1.png" alt="Positive Rotation Direction"></div>
 
-#### Electrical Interface Instructions
+**Electrical Interface Instructions**
 
 **CAN Communication Interface**
 
@@ -106,7 +128,7 @@ The positive and negative poles of the power line interface are shown in the fig
 
 ![Specifications](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/electrical_description_of_joints/image5.png)
 
-#### Cable Connection between Multi-joint Modules
+**Cable Connection between Multi-joint Modules**
 
 **Power Wiring Method Instructions**
 
@@ -134,7 +156,7 @@ WHJ30:
 
 WHJ60:
 
-![WHJ60](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/electrical_description_of_joints/image10.png)![Power Line](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/electrical_description_of_joints/image11.png)
+![WHJ60](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/electrical_description_of_joints/image10.png) ![Power Line](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/electrical_description_of_joints/image11.png)
 
 **Cable and Terminal Specifications**
 
@@ -155,7 +177,7 @@ Due to different product configurations and different joint positions, the lengt
 
 If there are special length requirements, please contact us to make notes on the product order.
 
-#### Multi-turn Power Supply Battery Instructions
+**Multi-turn Power Supply Battery Instructions**
 
 **Battery Function**
 
@@ -165,13 +187,13 @@ To power the multi-turn encoder and save the multi-turn count of the joint, prev
 
 Reset the zero position, and a soft reset can be performed.
 
-### Single-Joint Host Computer
+#### Single-Joint Host Computer
 
 The following workflow covers driver setup, device connection, monitoring, motion control, firmware updates, and CAN diagnostics.
 
-#### Environment and Driver Setup
+**Environment and Driver Setup**
 
-#### Hardware Environment Configuration
+**Hardware Environment Configuration**
 
 **Wiring Instructions**
 
@@ -213,7 +235,7 @@ WARNING
 * Before initiating motion, ensure that the joint is securely fixed.
 * If you encounter issues with opening the device, please check whether the operating environment on your computer is missing any necessary components based on the software structure provided.
 
-#### Introduction to the Single-Joint Host Computer
+**Introduction to the Single-Joint Host Computer**
 
 1. Click [Single - Joint Host Computer](https://github.com/RealManRobot/Developer_Center/tree/main/joints/Single_Joint_Host/singlejointhostcomputersoftware) to download the single - joint host computer software.([Alternative Link](https://gitee.com/RealManRobot/Developer_Center/tree/main/joints/Single_Joint_Host/singlejointhostcomputersoftware))
 2. Extract the software package to your local machine, and run the single - joint host computer tool by double-clicking `WHJoint.exe`.
@@ -241,9 +263,9 @@ Below is a detailed explanation of each area/button in the order presented in th
 
     ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/environment_preparation/image-2.png)
 
-#### Connection, Monitoring, and Motion Control
+**Connection, Monitoring, and Motion Control**
 
-#### Device Connection Class
+**Device Connection Class**
 
 Device connection can only be established when the hardware status is normal.
 
@@ -302,7 +324,7 @@ The device information display is explained as follows:
 | 5   | Firmware Version               | Displays the current joint firmware version based on real-time scanning.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | 6   | Globally Unique ID             | Displays the unique ID of the current joint based on real-time scanning. This ID cannot be modified after factory settings.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-#### Real-time Display
+**Real-time Display**
 
 When the host connection is normal, the basic information of the currently selected joint can be viewed.
 
@@ -327,7 +349,7 @@ When the host connection is normal, the basic information of the currently selec
 
 Real-time data is disabled by default. To view joint real-time information, click `Open` to start uploading current joint data information, as shown in the figure below.
 
-![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/main_page_navigation/image-7.png)![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/main_page_navigation/image-8.png)
+![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/main_page_navigation/image-7.png) ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/main_page_navigation/image-8.png)
 
 **Clear Errors**
 
@@ -339,7 +361,7 @@ When the joint malfunctions, the error code displays a description of the curren
 
     ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/main_page_navigation/image-9.png)
 
-#### Motion Control
+**Motion Control**
 
 Joint control operations allow for joint state control and related motion settings.
 
@@ -415,7 +437,7 @@ Multiple modes for joint motion control are supported, including joint limit set
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/main_page_navigation/image-16.png)<br>
 
-#### Real-time Waveform
+**Real-time Waveform**
 
 Joint data is displayed via waveforms, including Real Current, Target Current, Real Speed, Target Speed, Real Position, Target Position, and supports data export.
 
@@ -464,7 +486,7 @@ Joint data is displayed via waveforms, including Real Current, Target Current, R
 
         ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/main_page_navigation/image-21.png)<br>
 
-#### Waveform Monitoring
+**Waveform Monitoring**
 
 You can display different types of waveforms separately. Currently, it supports current, speed, and position waveforms. Torque waveform output is not supported yet.
 
@@ -472,13 +494,13 @@ You can view the coordinates of a point in real-time by hovering the mouse over 
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/waveform_navigation/image-24.png)
 
-#### Waveform Display
+**Waveform Display**
 
 After starting the waveform display in the real-time page, the waveform is displayed normally in this navigation, as shown in the figure below.
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/waveform_navigation/image-26.png)<br>
 
-#### Function Buttons
+**Function Buttons**
 
 **Page Function Buttons:** Waveform display options, origin, and clear.
 
@@ -488,13 +510,13 @@ After starting the waveform display in the real-time page, the waveform is displ
 * **Origin:** When the waveform is not scrolling, switch to the waveform navigation and click the `Origin` button to reset the waveform display to start from the 0 position on the x-axis.
 * **Clear:** Click the `Clear` button to clear the waveform displayed on the host.
 
-#### Device Information and Firmware Upgrade
+**Device Information and Firmware Upgrade**
 
 **Information navigation includes**: Driver information, firmware upgrade, as shown in the figure below.
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/information_navigation/image-39.png)<br>
 
-#### Driver Information
+**Driver Information**
 
 **Driver Information Display**
 
@@ -507,7 +529,7 @@ After starting the waveform display in the real-time page, the waveform is displ
 * **ID Setting**: Set the joint ID. After setting, click `Save` and restart the joint to activate. ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/information_navigation/image-33.png)<br>
 * **Enable/Disable Terminal Resistance**: Set the terminal resistor for the CAN Module to Enable or Disable. ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/information_navigation/image-34.png)<br>
 
-#### Firmware Upgrades
+**Firmware Upgrades**
 
 Upgrade the firmware version of the joint. A restart is required after upgrading for the changes to take effect.
 
@@ -525,17 +547,17 @@ CANOpen joints cannot be upgraded on this page. Please contact our technical sup
 3. Click `Start the Update` to begin the firmware upgrade. ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/information_navigation/image-38.png)<br>
 4. After the upgrade is complete, restart the joint to activate the new firmware version.
 
-#### CAN Monitoring
+**CAN Monitoring**
 
-#### CAN Real-Time Data
+**CAN Real-Time Data**
 
 You can monitor CAN command transmission in real-time to assist in troubleshooting.
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/can_pro_navigation/image-40.png)
 
-#### Worked Examples
+**Worked Examples**
 
-#### Export Target Speed Sine Wave
+**Export Target Speed Sine Wave**
 
 **Preparation**
 
@@ -597,7 +619,7 @@ Install a 120 Ω termination resistor between CANH and CANL, and connect the joi
 
 After the joint is successfully connected, you need to turn on the **Real-time Data** button to view the real-time data information of the joint.
 
-![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/use_case/image06.png)![Image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/use_case/image07.png)
+![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/use_case/image06.png) ![Image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/use_case/image07.png)
 
 | Serial Number | Name                                                             |
 | ------------- | ---------------------------------------------------------------- |
@@ -669,7 +691,7 @@ Before sine wave and square wave motion, be sure to set the limits, otherwise th
 
     ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/use_case/image018.png)
 
-#### Update the Firmware
+**Update the Firmware**
 
 **Preparation**
 
@@ -747,15 +769,15 @@ Install a 120 Ω termination resistor between CANH and CANL, and connect the joi
 
     ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/getting_started/single_joint_host/use_case/image10.png)
 
-### Joint Specifications
+#### Joint Specifications
 
 The standard and torque-series models use separate official parameter tables. Confirm the exact model designation before applying any value.
 
 High-load or high-speed operation can return regenerative energy to the DC bus. Use the power bleeding module described later when required by the selected joint and power supply.
 
-#### WHJ10 Standard Series
+**WHJ10 Standard Series**
 
-#### Model: WHJ10-M-D50-80-B
+**Model: WHJ10-M-D50-80-B**
 
 **Illustration**
 
@@ -789,7 +811,7 @@ High-load or high-speed operation can return regenerative energy to the DC bus. 
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/parameters/whj/whj10/CleanShot%202024-08-21%20at%2018.04.30.png)
 
-#### Model: WHJ10-M-D50-80-N
+**Model: WHJ10-M-D50-80-N**
 
 **Illustration**
 
@@ -823,9 +845,9 @@ High-load or high-speed operation can return regenerative energy to the DC bus. 
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/parameters/whj/whj10/CleanShot%202024-08-21%20at%2018.03.21.png)
 
-#### WHJ30 Standard Series
+**WHJ30 Standard Series**
 
-#### Model: WHJ30\_S\_D60\_80\_B
+**Model: WHJ30\_S\_D60\_80\_B**
 
 **Illustration**
 
@@ -859,9 +881,9 @@ High-load or high-speed operation can return regenerative energy to the DC bus. 
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/parameters/whj/whj30/CleanShot%202024-08-21%20at%2018.17.31.png)
 
-#### WHJ60 Standard Series
+**WHJ60 Standard Series**
 
-#### Model: WHJ60\_S\_D70\_100\_B
+**Model: WHJ60\_S\_D70\_100\_B**
 
 **Illustration**
 
@@ -895,9 +917,9 @@ High-load or high-speed operation can return regenerative energy to the DC bus. 
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/parameters/whj/whj60/CleanShot%202024-08-21%20at%2018.20.38.png)
 
-#### WHJ10 Torque Series
+**WHJ10 Torque Series**
 
-#### Model: WHJ10-S-D50-80-N-C-Y
+**Model: WHJ10-S-D50-80-N-C-Y**
 
 **Illustration**
 
@@ -923,9 +945,9 @@ High-load or high-speed operation can return regenerative energy to the DC bus. 
 | Type of brake             | Soft brake |
 | Communication interface   | CANFD      |
 
-#### WHJ30 Torque Series
+**WHJ30 Torque Series**
 
-#### Model: WHJ30-S-D60-80-B-C-Y
+**Model: WHJ30-S-D60-80-B-C-Y**
 
 **Illustration**
 
@@ -951,9 +973,9 @@ High-load or high-speed operation can return regenerative energy to the DC bus. 
 | Type of brake             | Latch brake |
 | Communication interface   | CANFD       |
 
-#### WHJ60 Torque Series
+**WHJ60 Torque Series**
 
-#### Model: WHJ60-S-D70-100-B-C-Y
+**Model: WHJ60-S-D70-100-B-C-Y**
 
 **Illustration**
 
@@ -979,11 +1001,11 @@ High-load or high-speed operation can return regenerative energy to the DC bus. 
 | Type of brake             | Latch brake |
 | Communication interface   | CANFD       |
 
-### Power Bleeding Module
+#### Power Bleeding Module
 
 Use the power bleeding module to absorb regenerative energy when high-speed or high-load operation raises the DC bus voltage.
 
-#### Product Overview
+**Product Overview**
 
 **Product Positioning**
 
@@ -999,7 +1021,7 @@ This helps prevent damage or burnout of the joints themselves or attached compon
 
 When using HPD 48V high-torque joint modules, such as the WHG and WHJ series, it is recommended to pair them with this power bleeding module.
 
-#### Technical Information
+**Technical Information**
 
 **Physical Specifications**
 
@@ -1110,7 +1132,7 @@ The discharge module must be used together with capacitors and resistors. Differ
 
 The wiring diagram of the power supply, discharge module, and joint module is shown in the figure below:
 
-![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/power_discharge_module/image3.png)![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/power_discharge_module/image4.png)
+![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/power_discharge_module/image3.png) ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/power_discharge_module/image4.png)
 
 The wiring instructions for the discharge module are shown in the table below:
 
@@ -1132,7 +1154,7 @@ Connect the matching braking resistor to the R+ and R- terminals, and the capaci
 
 During wiring, strictly observe polarity and securely fasten all terminals.
 
-#### Outline and Installation
+**Outline and Installation**
 
 **Outline Dimensions**
 
@@ -1148,11 +1170,11 @@ The installation environment should have good ventilation and heat dissipation c
 
 ![Official RealMan WHJ documentation image](https://develop.realman-robotics.com/realman/docs/images/multimedia/en/joints/power_discharge_module/image6.png)
 
-### CANFD Protocol and Operation
+#### CANFD Protocol and Operation
 
 This section explains the CANFD frame format, control table, and command examples used to configure and operate WHJ modules.
 
-#### Protocol Overview
+**Protocol Overview**
 
 WHJ modules use CANFD in a request-response communication model. The controller sends a command frame, and the addressed module returns a response frame.
 
@@ -1175,7 +1197,7 @@ The command types include the following:
 | CMD\_RD (read)  | Query the data in the control table | 0x01  | 1                   |
 | CMD\_WR (write) | Write data into the control table   | 0x02  | 2                   |
 
-#### Frame Format
+**Frame Format**
 
 Joints use the standard frame format of CANFD, where only data frames are used, and there is no response for remote frames. The data frame of the CANFD protocol is up to 64 bytes long, and the communication rate can reach 5M.
 
@@ -1238,9 +1260,9 @@ TIP
 | 0x01      | Format error    | The control frame data does not meet the protocol format. |
 | 0x02      | Authority error | The control frame has no operation authority.             |
 
-#### Memory Control Table
+**Memory Control Table**
 
-#### 1. Details of control table
+**1. Details of control table**
 
 The information and control parameters of the module itself form a one-dimensional control table, which is stored in the RAM and Flash of the control chip respectively.
 
@@ -1327,7 +1349,7 @@ WARNING
 1. After the ID is successfully set, it is necessary to de-energize and then restart the joint. The module will conduct communication with the new ID.
 2. The parameters of the three closed loops have been set before leaving the factory. No re-adjustment is required if not necessary.
 
-#### 2. Additional notes on the control table
+**2. Additional notes on the control table**
 
 **2.1 Description of flags**
 
@@ -1388,7 +1410,7 @@ The joint types corresponding to the memory control table address 0x02 of the dr
 | Gripper    | GRIPPER              | 0x06                           |
 | Joint 03   | J3                   | 0x07                           |
 
-#### 3. Error code
+**3. Error code**
 
 The error code has 16 bits, and each bit represents a type of error. If an error occurs, the corresponding bit will be displayed as 1.
 
@@ -1415,14 +1437,14 @@ The meaning of each error bit is as follows:
 | 0x4000  | Position command step                | Current position and target position error is greater than 10 degrees                                       |
 | 0x8000  | Multi-revolution data loss           | Multi-turn loss of count                                                                                    |
 
-#### Command and Usage Examples
+**Command and Usage Examples**
 
-#### 1. Environment Configuration
+**1. Environment Configuration**
 
 * Arbitration domain baud rate: 1Mbps 80%.
 * Data and baud rate: 5Mbps 75%.
 
-#### 2. Basic demo
+**2. Basic demo**
 
 **Read the current position of the module whose ID is 1**
 
@@ -1483,7 +1505,7 @@ Response package:
 | 0x01                          | 0x00                  | 0x00             | 0x00 |      |      |      |      |      |      |      |      |      |      |
 | Enable status (Enable status) | Error code (no error) |                  |      |      |      |      |      |      |      |      |      |      |      |
 
-#### 3. Demo of common command package
+**3. Demo of common command package**
 
 **Position servo command package**
 
@@ -1573,7 +1595,7 @@ To improve bus utilization, query common joint data with a command frame. The jo
 | ID+0x700          | 0             | .......        | Length               | D0\~D1                                     | D2\~D3           | D4\~D5          | D6\~D7 | D8\~D11 | D12\~D15 | ....... |
 | 12                | Error code    | System voltage | System temperature   | <p>D6 Enable status<br>D7 Brake status</p> | Current position | Current current | ...... |         |          |         |
 
-#### 4. Usage Examples
+**4. Usage Examples**
 
 **IAP Online Update Flag (Required Operation)**
 
@@ -1805,16 +1827,16 @@ TIP
 
 Supported only for joints WHJ10N/WHJ30/WHJ60 with firmware version 519 and later versions.
 
-### Troubleshooting and Error Codes
+#### Troubleshooting and Error Codes
 
 Use the error categories and codes below to identify likely causes and select the recommended corrective action.
 
-#### Definition of Error Categories
+**Definition of Error Categories**
 
 * **General Error**: Joint errors caused by the design of the robot system, which can return to normal use after resolution; or the customer can use them normally by resetting parameters or powering on again.
 * **Severe Error**: Requires re-flashing of firmware or factory repair.
 
-#### Error Codes
+**Error Codes**
 
 | No. | Error Code (Hexadecimal) | Error Code (Decimal) | Error Content                 | Causes                                                                                                                                                    | Handling Suggestions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Category        |
 | --- | ------------------------ | -------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
@@ -1836,7 +1858,7 @@ Use the error categories and codes below to identify likely causes and select th
 | 16  | 0x4000                   | 16384                | Position command step warning | The error between the current position and the target position is large                                                                                   | <p>Often occurs during transparent transmission. It is recommended to check if the transparent transmission trajectory is smooth and the communication cycle is stable.<br>1. The angle between the target position sent by the upper computer and the existing position of the motor is greater than 10 degrees.<br>2. FOC state error.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | General         |
 | 17  | 0x8000                   | 32768                | Multi-turn joint lost turns   | Encoder battery is low                                                                                                                                    | The end joint of the robot arm uses a multi-turn encoder. Check if the battery interface is loose and if the battery is low.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Severe          |
 
-### Official Documentation Sources
+#### Official Documentation Sources
 
 The consolidated content above follows the official RealMan Developer Center pages listed below.
 

@@ -7,44 +7,49 @@ description: >-
 
 # Embodied Double-Arm Lifting Platform User Manual
 
-### RealMan RMC-DA-LIII Dual-Arm Lift Mobile Robot
+{% hint style="info" %}
+[**View RMC-DA-LIII on OpenELAB**](https://openelab.io/products/realman-rmc-da-liii-dual)
+
+**Model:** RMC-DA-LIII · **SKU:** `RealMan-RMC-AIDAL-III`
+{% endhint %}
+
+### Platform identity and commissioning boundary
+
+This retained manual is for the **RMC-DA-LIII embodied dual-arm lifting platform**. The storefront SKU is `RealMan-RMC-AIDAL-III`. It is not [RealBot-S2](realbot-s2-guide.md) or [RealBot-L2](realbot-l2-guide.md); do not reuse their chassis, body-joint, battery or SDK contracts.
+
+The source contains conflicting left/right arm labels and SSD capacities. Treat `169.254.128.18:8080` and `.19:8080` as controller endpoints whose physical arm mapping must be confirmed from the delivered unit before any motion. The malformed strings lacking the port separator have been corrected below. Do not infer left/right mapping from the example alone.
+
+Do not release an emergency stop merely to make the robot power on. Stop command sources, inspect and resolve the cause, then follow the delivered recovery procedure. The retained manual's historical 10% lift example is not a validated safe first test for a different platform or load.
+
+Reviewed 22 November 2026; documentation consolidation only. Software/hardware tests: **not run**.
+
+### Preserved platform manual
+
+#### RealMan RMC-DA-LIII Dual-Arm Lift Mobile Robot
 
 {% embed url="https://openelab.io/products/realman-rmc-da-liii-dual" %}
 
-### Contents
+#### Contents
 
-### System Access and Configuration Checks
-
-
+#### System Access and Configuration Checks
 
 Confirm the delivered hardware configuration and the label on each subsystem before commissioning or sending motion commands.
 
-
-
-#### Network Reference
-
-
+**Network Reference**
 
 * Mobile chassis 169.254.128.2
 * \- Main controller 169.254.128.20
-* \- Arm controller addresses in the official manual 169.254.128.188080 and 169.254.128.198080
+* \- Arm controller addresses in the official manual 169.254.128.18:8080 and 169.254.128.19:8080
 * \- Commissioning computer example 169.254.128.33. Use an unused address in the same subnet and do not duplicate any installed subsystem address.
 
 The source text labels 169.254.128.18 as the left arm and 169.254.128.19 as the right arm but its later commissioning example calls 169.254.128.18 the right arm. Verify the physical arm label and controller address before enabling motion.
 
-
-
-#### Configuration Notes
-
-
+**Configuration Notes**
 
 * Storage capacity the narrative specifies a Jetson AGX Orin 64 GB with a 1 TB SSD while the parameter table states 1G SSD. This is an inconsistency in the official source. Check the delivered bill of materials and the installed disk before planning storage.
 * \- Figure references several instructions refer to the following figure number rather than the adjacent caption. For example the arm-control instruction refers to Fig. 14 while the corresponding caption is Fig. 13 and the lift-control instruction refers to Fig. 15 while the corresponding caption is Fig. 14. Follow the adjacent caption and the named interface control.
 * \- Chassis mapping uses Woosh Mobile and Woosh Design on Windows. Development documents for other subsystems are supplied with the equipment on the USB drive obtain missing packages from the supplier rather than substituting unrelated downloads.
-* \- Official RealMan online programming guide https//develop.realman-robotics.com/en/robot/teachingPendant/onlineCode/
-
-
-
+* \- Official RealMan online programming guide https://develop.realman-robotics.com/en/robot/teachingPendant/onlineCode/
 * [Safety Information](embodied-double-arm-lifting-platform-user-manual.md#safety-information)
 * [Product Overview and System Architecture](embodied-double-arm-lifting-platform-user-manual.md#product-overview-and-system-architecture)
 * [Subsystem Components and Specifications](embodied-double-arm-lifting-platform-user-manual.md#subsystem-components-and-specifications)
@@ -53,7 +58,7 @@ The source text labels 169.254.128.18 as the left arm and 169.254.128.19 as the 
 * [Load Safety, Transportation, Storage and Unpacking](embodied-double-arm-lifting-platform-user-manual.md#load-safety-transportation-storage-and-unpacking)
 * [Quick Troubleshooting Index](embodied-double-arm-lifting-platform-user-manual.md#quick-troubleshooting-index)
 
-### Safety Information
+#### Safety Information
 
 ![Official RealMan figure](../../.gitbook/assets/assetsp001-figure-04.jpg)
 
@@ -72,9 +77,9 @@ If you find any accessories damaged or missing, contact your dealer or our custo
 *  If any abnormal situation occurs during operation, please contact a qualified professional immediately.
 *  After using the equipment, retract both arms and turn off the main power supply.
 
-### Product Overview and System Architecture
+#### Product Overview and System Architecture
 
-#### 1 Foreword
+**1 Foreword**
 
 As China's labor force continues to decline and labor costs rise, the replacement of humans with robots has become an inevitable trend for the future.
 
@@ -90,7 +95,7 @@ Based on this hardware platform, users can develop functions such as autonomous 
 
 interaction. This enables users to explore the deployment of robots as replacements for human labor in industrial, commercial, and domestic environments.
 
-#### 2 Product Overview
+**2 Product Overview**
 
 **2.1 Product Features**
 
@@ -130,7 +135,7 @@ load systems on the chassis are automatically powered on or off. The emergency s
 
 The communications for each system are designed as shown in Fig. 2.
 
-#### 3 Machine Parameters
+**3 Machine Parameters**
 
 | Description                 | Parameter                                                                                                                                           |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -155,11 +160,11 @@ The communications for each system are designed as shown in Fig. 2.
 
 _Fig. 2 Schematic Diagram of Robot System_
 
-### Subsystem Components and Specifications
+#### Subsystem Components and Specifications
 
 The dimensions of the embodied dual-arm lifting platform are shown in Fig. 3.
 
-#### 4 Introduction to Subsystem
+**4 Introduction to Subsystem**
 
 **4.1 Structural Subsystem**
 
@@ -341,7 +346,7 @@ Power Management System: The power management system draws a 48V power supply fr
 
 It provides power to the robot's chest, head (including servo motors and vision components), and both arms (including grippers and vision components). The overall power supply configuration is illustrated in Fig. 4.
 
-#### 5 Product Configuration
+**5 Product Configuration**
 
 | No. | Description                                  | Quantity |
 | --- | -------------------------------------------- | -------- |
@@ -355,7 +360,7 @@ It provides power to the robot's chest, head (including servo motors and vision 
 | 8   | Binocular Depth Camera D435 (Head)           | 1        |
 | 9   | Voice module                                 | 1        |
 
-#### 6 Operating Instructions
+**6 Operating Instructions**
 
 Please refer to the following instructions for the operation of this embodied dual-arm lifting platform.
 
@@ -367,7 +372,7 @@ The entire robot platform is interconnected via Ethernet and provides external i
 
 _Fig. 4 Schematic Diagram of Overall Power Supply_
 
-### Communication, Startup, Shutdown and Charging
+#### Communication, Startup, Shutdown and Charging
 
 IP addresses and default usernames and passwords for each module are configured as follows;
 
@@ -436,7 +441,7 @@ _Fig. 8 Charger_
 
 _Fig. 9 Charging pile_
 
-### Equipment Commissioning and Safe Operation
+#### Equipment Commissioning and Safe Operation
 
 the debugging interface must be opened and removed, as shown in Fig. 10.
 
@@ -516,11 +521,11 @@ For the development and debugging of other subsystems, please refer to the relev
 
 _Fig. 14 Lift Control_
 
-### Load Safety, Transportation, Storage and Unpacking
+#### Load Safety, Transportation, Storage and Unpacking
 
 1. Load Range and Power-Off Condition Behavior description: When using a two-finger gripper to grasp an object, ensure a secure hold and be careful not to exceed the load limits of the robotic arm and the gripper. Additionally, since the 4th, 5th, and 6th axes of the robotic arm are not equipped with brakes, they may move due to external forces after power is cut off (such as when the chassis loses power or the emergency stop is activated). Appropriate measures must be taken after power loss to prevent accidents. Countermeasures: Comply with equipment requirements when gripping loads and ensure the end effector load is handled in the event of an intentional or accidental power outage. Take steps to prevent axes 4, 5, and 6 of the robotic arm from moving unintentionally under external forces to avoid accidents.
 
-#### 7 Transportation, Storage, and Unpacking
+**7 Transportation, Storage, and Unpacking**
 
 **7.1 Packing list**
 
@@ -552,13 +557,13 @@ Do not lift the robot by its arms or other covers to avoid damaging its internal
 
 _Fig. 15 Packing Posture of Embodied Dual-Arm Lifting Platform_
 
-### Quick Troubleshooting Index
+#### Quick Troubleshooting Index
 
-| Symptom                                         | Checks and corrective action                                                                                                                                    | Related section                                    |
-| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| A subsystem cannot be reached over Ethernet     | Use 169.254.128.2 for the mobile platform and 169.254.128.20 for the main controller. The left and right arms use 169.254.128.18:8080 and 169.254.128.19:8080.  | Communication, Startup, Shutdown and Charging      |
-| The robot does not power on                     | Release the emergency-stop switch, turn on the chassis main power, and then press the rear subsystem power button. A normal subsystem status indicator is blue. | Communication, Startup, Shutdown and Charging      |
-| The chassis cannot move while charging          | This is expected during wired charging. Disconnect the charger before attempting to control chassis motion.                                                     | Communication, Startup, Shutdown and Charging      |
-| The lift is offline or reports an error         | Connect to the left arm, open Extension > Lift Control, check the displayed status or error code, and begin commissioning at 10% speed.                         | Equipment Commissioning and Safe Operation         |
-| Axes move after an emergency stop or power loss | Axes 4, 5, and 6 have no brakes. Secure the payload and prevent external forces from moving these axes before cutting power or using emergency stop.            | Load Safety, Transportation, Storage and Unpacking |
-| The robot must be moved manually                | Lower the lifting column, retract both arms, and lift only the chassis sheet-metal enclosure. Never lift by the arms or covers.                                 | Load Safety, Transportation, Storage and Unpacking |
+| Symptom                                         | Checks and corrective action                                                                                                                                                                                                                                           | Related section                                    |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| A subsystem cannot be reached over Ethernet     | Use 169.254.128.2 for the mobile platform and 169.254.128.20 for the main controller. The left and right arms use 169.254.128.18:8080 and 169.254.128.19:8080.                                                                                                         | Communication, Startup, Shutdown and Charging      |
+| The robot does not power on                     | First identify and eliminate the cause of the emergency stop with the trained on-site operator, stop all command sources and follow the delivered recovery procedure; only then restore main/subsystem power as directed. A normal subsystem status indicator is blue. | Communication, Startup, Shutdown and Charging      |
+| The chassis cannot move while charging          | This is expected during wired charging. Disconnect the charger before attempting to control chassis motion.                                                                                                                                                            | Communication, Startup, Shutdown and Charging      |
+| The lift is offline or reports an error         | Connect to the left arm, open Extension > Lift Control, check the displayed status or error code, and begin commissioning at 10% speed.                                                                                                                                | Equipment Commissioning and Safe Operation         |
+| Axes move after an emergency stop or power loss | Axes 4, 5, and 6 have no brakes. Secure the payload and prevent external forces from moving these axes before cutting power or using emergency stop.                                                                                                                   | Load Safety, Transportation, Storage and Unpacking |
+| The robot must be moved manually                | Lower the lifting column, retract both arms, and lift only the chassis sheet-metal enclosure. Never lift by the arms or covers.                                                                                                                                        | Load Safety, Transportation, Storage and Unpacking |

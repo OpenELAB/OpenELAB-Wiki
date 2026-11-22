@@ -6,19 +6,102 @@ description: >-
 
 # RealMan ECO65 Series User Manual V1.2.0
 
+{% hint style="info" %}
+[**View ECO65-B on OpenELAB**](https://openelab.io/products/realman-eco65-b-6-dof)
+
+**Model:** ECO65-B · **SKU:** `Realman-ECO65-B`
+
+[**View ECO65-6F on OpenELAB**](https://openelab.io/products/realman-eco65-6f-6-dof)
+
+**Model:** ECO65-6F · **SKU:** `Realman-ECO65-6F`
+{% endhint %}
+
+### Product overview
+
+This is the canonical ECO65 product guide and preserved manual URL. Model-specific current-reference notes precede the original manual; existing figures and links remain available below.
+
+{% hint style="warning" %}
+The supplied newer ECO manual and the original V1.2.0 text disagree on wrist brakes. These describe different documented revisions; confirm the delivered hardware before relying on power-off holding. Secure the load regardless. ECO63 has a separate 3 kg / 900 mm guide; ECO62 is a separate compact arm and is not covered by this wiring manual.
+{% endhint %}
+
+### Applications
+
+Teaching, research and manipulation integration within the exact revision's load curve, calibrated tool/payload and safeguarded workspace. Force and vision options require their matching controller, calibration and software.
+
+### Specifications
+
+| Parameter                                  | Value and scope                                                                |
+| ------------------------------------------ | ------------------------------------------------------------------------------ |
+| DOF / payload                              | 6 / 5 kg                                                                       |
+| Reach                                      | 610 mm standard; 627 mm force                                                  |
+| Mass / repeatability                       | 7.8 kg standard, 7.9 kg force / ±0.05 mm                                       |
+| Brake arrangement in newer supplied manual | Hard brakes J1–J6; older preserved V1.2.0 text says no mechanical wrist brakes |
+| Typical / instantaneous peak power         | ≤150 W / ≤900 W                                                                |
+
+Source: [ECO family manual, PDF pp. 40–42 \[ECO\]](realman-source-library.md). Product links identify sold options; the controller/force-sensor revision must also match the label and delivery documents.
+
+{% hint style="warning" %}
+**Revision conflict:** the supplied manual lists ≤900 W peak and a 107 mm base, while the current developer page lists ≤600 W and 110 mm. See the [current manufacturer ECO65 parameters](https://develop.realman-robotics.com/en/robot4th/robotParameter/ECO65OntologyParameters/). These figures are kept source-specific. Do not size a supply, select a mount or set limits from this comparison. Powered setup requires the exact delivered drawing, supply specification and controller revision to resolve the discrepancy.
+{% endhint %}
+
+### Hardware and connections
+
+The supplied manual uses nominal 24 V DC and keyed power cabling, a base-integrated controller, 16-core controller expansion and a separate six-core tool port. Match the delivered cable generation and connector drawing before wiring. Do not hot-plug aviation connectors. Tool output is specified at 1.5 A maximum; this is below the RMG22-65 manual's stated current demand. Obtain the approved separate power arrangement before accessory integration. See [ECO family manual, PDF pp. 13–29 \[ECO\]](realman-source-library.md) and the retained hardware chapter.
+
+### Software and development resources
+
+Use [Arm commissioning and SDK selection](realman-arm-commissioning-and-sdk.md) for the reviewed API/ROS snapshots and a non-motion software-information query. Select the exact controller generation and force/vision end-link. Use the [existing teaching-pendant reference](realman-robot-web-teaching-pendant-user-manual-v1.5.md) for shared UI concepts; later firmware screens may differ.
+
+### Getting started
+
+Prerequisites: trained operator, rigid mounting, secured tool/payload, the delivered 24 V supply and keyed cables, reachable emergency stop, an isolated wired Ethernet connection, and the exact controller manual. Keep all motion controls inactive.
+
+1. Record the complete arm label, left/right designation where applicable, controller generation, firmware and tool option. Match mounting dimensions to the exact drawing, rather than a nearby family's illustration.
+2. With power isolated, fit the supplied keyed power cable and Ethernet cable. Verify the delivered cable against the manual's connector view. Do not hot-plug the aviation connectors or connect tool peripherals yet.
+3. Following the delivered startup procedure, observe controller startup and initialization. Investigate a warning/fault indication before continuing; do not clear faults repeatedly to force operation.
+4. For the factory wired configuration in the supplied arm manual, set the host to unused `192.168.1.100` with the matching subnet; do not assign the robot's `192.168.1.18` to the host. Open `http://192.168.1.18` in a browser. A changed delivery configuration takes precedence.
+5. Sign in with the credentials supplied for the unit, open the controller's system-information/status view, and record the reported model/software, enable state and fault status. Do not press drag-teach/playback buttons or run a trajectory.
+
+**Expected result:** a reachable teaching interface with the correct model and readable controller status, without commanded movement. This is a communication checkpoint, not motion acceptance.
+
+**If this check fails:** inspect power and startup indication, Ethernet link, address/subnet and duplicate-IP conflicts, then the delivered controller configuration. A browser refresh can resolve stale interface assets after an upgrade; it cannot resolve a hardware fault.
+
+Source: [ECO family manual, PDF pp. 13–20 \[ECO\]](realman-source-library.md).
+
+### Troubleshooting and FAQs
+
+**The tool moves or drops when power is removed.** Check the exact brake arrangement below and the delivered revision. A soft brake is not a load-holding mechanical brake. Support the tool and payload and use the manufacturer's safe shutdown/transport posture; do not rely on power removal to hold every axis.
+
+**Can a nearby family's URDF or force-sensor option be substituted?** No. Confirm link geometry, joint order, end-link revision, load curve, tool mass and controller support before planning. A force/torque sensor's full-scale range is not a permissible contact-force setting.
+
+**The SDK connects but motion is not ready.** Model identity and readable status do not validate limits, calibration, stop behavior, tool center point or control-source arbitration. Complete the exact revision's commissioning and risk assessment before a bounded motion test.
+
+### Downloads and technical documents
+
+| Resource                                                                                           | Scope                                                    |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| [Newly supplied family manual \[ECO\]](realman-source-library.md)                                  | Current supplied reference with original PDF page ranges |
+| [Manufacturer manual downloads](https://develop.realman-robotics.com/en/robot4th/download/manual/) | Select family and controller generation                  |
+| [Manufacturer models/CAD](https://develop.realman-robotics.com/en/robot4th/download/model/)        | Match complete model and tool/end-link                   |
+| [Shared teaching-pendant manual](realman-robot-web-teaching-pendant-user-manual-v1.5.md)           | Existing UI reference; original page retained            |
+
+### References and validation
+
+Newly supplied ECO family manual and preserved V1.2.0 manual below; reviewed 22 November 2026. Software/hardware tests: **not run**. Delivered revision, brake behavior, tool supply and controller compatibility must be confirmed before motion commissioning.
+
+### Preserved V1.2.0 manual
+
 RealMan ECO65 Series User Manual V1.2.0
 
-### RealMan ECO65-B 6-DOF Collaborative Robot Arm
+#### RealMan ECO65-B 6-DOF Collaborative Robot Arm
 
 {% embed url="https://openelab.io/products/realman-eco65-b-6-dof" %}
 
-### RealMan ECO65-6F Robot Arm With Six-Axis Force Sensor
+#### RealMan ECO65-6F Robot Arm With Six-Axis Force Sensor
 
 {% embed url="https://openelab.io/products/realman-eco65-6f-6-dof" %}
 
-
-
-### Contents
+#### Contents
 
 * [Safety](realman-eco65-series-user-manual-v1.2.0.md#safety)
 * [Product Quality Assurance](realman-eco65-series-user-manual-v1.2.0.md#product-quality-assurance)
@@ -32,11 +115,11 @@ RealMan ECO65 Series User Manual V1.2.0
 * [Maintenance, Repair, and Disposal](realman-eco65-series-user-manual-v1.2.0.md#maintenance-repair-and-disposal)
 * [Additional Resources](realman-eco65-series-user-manual-v1.2.0.md#additional-resources)
 
-### Safety
+#### Safety
 
 This section defines the safety principles and specifications that shall be followed when operating a robot or robot system. Integrators and users must carefully read this manual, especially the contents marked with warning signs, which must be mastered and strictly observed. Considering the complexity and hazards of robot systems, users must fully understand the hazards of the operations and strictly abide by the specifications and requirements in this manual. Integrators and users must have a high awareness of safety.
 
-#### Safety warning signs
+**Safety warning signs**
 
 The safety signs used in this manual are explained as follows, which must be followed.
 
@@ -51,7 +134,7 @@ The safety signs used in this manual are explained as follows, which must be fol
 |      | A potentially hazardous situation, which, if not avoided, can lead to personal injury or severe equipment damage. Matters marked with this sign may, depending on the actual situation, have the possibility to cause major consequences sometimes. |
 |      | A situation, which, if not avoided, can lead to personal injury or equipment damage. Matters marked with this sign may, depending on the actual situation, have the possibility to cause major consequences sometimes.                              |
 
-#### Safety precautions
+**Safety precautions**
 
 This manual contains safety measures for protecting users and preventing equipment damage. Users are expected to read through this manual and get familiar with all safety precautions. We try to describe all potentially hazardous situations in this manual, but we cannot cover every such situation due to unpredictability.
 
@@ -66,7 +149,7 @@ When starting a robot or robot system for the first time, users shall understand
 |      | 1. Ensure that the arms and end effectors of the robot are correctly and safely installed in place. 2. Make sure that the robot arms have enough space to move freely. 3. Do not use the robot if it has been damaged. 4. Connect safety devices to safety interfaces instead of normal I/O interfaces. 5. Ensure the correct installation and settings (such as the installation angle of the robot body, end effector weight, TCP offset, and safety configuration). Save the installation file and load it into the program. 6. Make sure that tools and obstacles are free of sharp corners or twisting points. Keep nobody within the working arm span of the robot. 7. Pay attention to the movement direction of the robot when using the teach pendant. 8. Note that any impact will lead to the release of very high kinetic energy, which is much higher than that under the conditions of high speed and high payload. 9. Be aware that the connection of different machines may make hazards worse or introduce new hazards. Perform comprehensive risk assessment throughout the installation process. When different levels of safety and emergency stop performance are required, always choose the highest level. Keep reading and understanding the manuals of all equipment used during the installation. 10. Do not make any changes to the robot. Any change to the robot may bring about hazards unpredictable to integrators. The authorized restructuring of the robot shall be subject to the latest edition of all relevant service manuals. If the robot is changed or altered in any way, Realman Intelligent Technology (Beijing) Co., Ltd. will not assume any liability arising therefrom. 11. Prior to the transportation of the robot, check its insulation and protective measures. 12. When handling robots, observe the transportation requirements, and handle them with care to avoid bumping. |
 |      | 1. It is strongly recommended that all the robot functions and the robot program be checked separately when the robot is connected with or working together with any machines that could cause damage to the robot. It is recommended that the robot program be tested at temporary waypoints outside the workspace of other machines. 2. Realman Intelligent Technology (Beijing) Co., Ltd. will assume no liability for the damage or personal injury resulting from robot program errors and operation errors for human reasons. 3. The robot is prevented from exposure to a permanent magnetic field for a long time. Otherwise, a strong magnetic field could cause damage to the robot.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-#### Liabilities and specifications
+**Liabilities and specifications**
 
 As an incomplete structure, our robots are designed for combination with other equipment to construct complete ones. Therefore, this manual covers neither the comprehensive procedures for designing, installing, and operating a complete robot nor the possibilities of affecting the safety of peripheral equipment of this complete system. The installation safety of a complete robot depends on how the robot is integrated. Integrators shall design the complete system and assess its installation risks according to the national laws, regulations, safety codes, and standards of their respective countries. Risk assessment is one of the most important tasks for integrators. They can make reference to the following standards to carry out the risk assessment process. Risk assessment is one of the most important tasks for integrators. They can make reference to the following standards to carry out the risk assessment process.
 
@@ -84,7 +167,7 @@ Integrators of robots within our full range are obliged to perform (including bu
 * establish appropriate safety measures;
 * take appropriate actions to eliminate hazards or reduce all hazards to an acceptable level during final installation.
 
-#### Hazard identification
+**Hazard identification**
 
 The risk assessment shall consider all potential contact between the operator and the robot during normal use and any foreseeable misoperation. The operators shall not expose their necks, faces, and heads to avoid contact. Where the robot is used without any perimeter safeguards, the risk assessment shall be carried out first to determine whether related hazards will constitute an unacceptable risk, such as:
 
@@ -101,9 +184,9 @@ By combining the inherent safety measures applied to our full range of robots wi
 
 In the case of non-collaborative installation of the robot (for example, when using hazardous tools), it may be deduced during risk assessment that the integrator needs to connect additional safety equipment (for example, safe startup equipment) during its programming to ensure the safety of personnel and equipment.
 
-### Product Quality Assurance
+#### Product Quality Assurance
 
-#### Product quality warranty
+**Product quality warranty**
 
 Our full range of robots has a 12-month limited warranty period.
 
@@ -115,7 +198,7 @@ If the product is out of warranty, we will reserve the right to charge the custo
 
 If the equipment has any defects outside the warranty period, Realman Intelligent Technology (Beijing) Co., Ltd. will not be liable for any damage or losses that arise from the above defects, including production losses or damage to other production equipment.
 
-#### Disclaimer
+**Disclaimer**
 
 If any equipment defects are caused due to improper handling or failure to follow the relevant instructions in this manual, the product quality warranty will become invalid.
 
@@ -144,13 +227,13 @@ According to the product quality warranty agreement, Realman Intelligent Technol
 
 In the event of a robot failure, users shall contact Realman Intelligent Technology (Beijing) Co., Ltd. as soon as possible to obtain a solution. Users shall not disassemble or maintain the robot by themselves for any reason; otherwise, the warranty service will be terminated.
 
-### Product Components
+#### Product Components
 
 A complete set of Realman collaborative robot comprises the following components:
 
 ![Product components](<../../.gitbook/assets/assets007-product-1-b39f2d50 (2).png>)
 
-#### Explanation of the Electrical Indications
+**Explanation of the Electrical Indications**
 
 ![alt text](<../../.gitbook/assets/assets008-image-1-1-b16dbe2f (2).jpg>)
 
@@ -163,7 +246,7 @@ A complete set of Realman collaborative robot comprises the following components
 | 5   | Ethernet port             | Wired communication network interface                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | 7   | Interactive RGB indicator | Change among white, blue, green, red, yellow, and Purple with the status of robotic arm ①White steady: During initialization, the LED shows a steady white light to indicate that the device is starting up; ② steady: Joint start and initialization. ③ flashing: When the controller is operating normally, the green light flashes, indicating that the system is running well; ④ flashing: A serious fault has occurred in the robotic arm and needs to be handled immediately; for example, if the communication module is offline from the ctrl or the online programming module, the red light will flash; ⑤ flashing: The robotic arm issues a warning message, which is a common fault that needs to be handled immediately. The status light will return to green flashing after the error is cleared; ⑥ flashing: When upgrading using a USB drive, the purple light flashes. When upgrading using a web browser, it remains in its original state. |
 
-#### Beeper Sound Indications
+**Beeper Sound Indications**
 
 * Continuous Intermittent Beeping After Upgrade Completion : After the software update is completed, the beeper emits a continuous sound until the controller restarts.
 * Single Beep Upon Successful Handle Connection : When the handle is successfully paired with the system, the beeper emits a long beep.
@@ -171,16 +254,16 @@ A complete set of Realman collaborative robot comprises the following components
 * Single Beep When Handle Switches to Pose Teaching Mode : When switching to the pose teaching mode, the beeper emits a long beep.
 * Continuous Intermittent Beeping During Severe Robotic Arm Fault : When a fault occurs in the robotic arm, the beeper emits a continuous sound until the error is resolved or the robotic arm restarts.
 
-### Installation, Wiring, and Startup
+#### Installation, Wiring, and Startup
 
-#### Robot Installation
+**Robot Installation**
 
 Realman's robotic arms are of ultra-lightweight type, which can be quickly installed by only one person. The RM65 series, for example, weighs only 7.2 kg, with a base of only 110 mm. The following will take the RM65-B robotic arm as an example to introduce how to install the base and end extension tools, which are similar for other series of robotic arms.
 
 * Base installation 1. Take the RM65 robot out of the packing box and install the base at a fixed position. The dimensions of the base are as follows. 2. Prepare four M6 hexagon socket bolts and an M6 hex wrench.
 * End installation The robotic arm provides standard flange interfaces. Six M4 threaded holes evenly distributed on the ⌀49 mm reference circle are reserved on the flange of the robotic arm. Users only need to fit the holes according to the installation dimensions, as shown in the figure below.
 
-#### Wiring and Startup
+**Wiring and Startup**
 
 1. Take out the 24 V DC cable of RM65 robot from the packing box.
 2. Prepare a 24 V DC power supply and connect it to the power supply interface of the robotic arm. The power supply interface of the robotic arm is a 2-core aerial plug, which is located in the lower left corner of the controller panel. In the 2-core power cable, the brown wire is the power supply positive pole and the blue wire is the power supply negative pole. TIP The power voltage ranges from 20 V to 27 V, or even up to 30 V. It is recommended to use a switching power supply rated above 600 W with hiccup mode and constant current output of 1S.
@@ -190,9 +273,9 @@ Realman's robotic arms are of ultra-lightweight type, which can be quickly insta
 
 ![alt text](<../../.gitbook/assets/assets013-image-20-1-9b577cc7 (2).png>)
 
-### Teaching Pendant Connection and Drag Teaching
+#### Teaching Pendant Connection and Drag Teaching
 
-#### Teaching Pendant Connection
+**Teaching Pendant Connection**
 
 The teach pendant software is web-end software. Users can log in to the software simply by entering the specified IP address in the browser (Google Browser is recommended). Through this human-machine interface, users can operate the robot body and controller, run and create robot programs, and read robot information.
 
@@ -207,7 +290,7 @@ The Windows system is connected with the robotic arm by wired means through netw
 * Before wired connection with the teach pendant, it is necessary to change the IP address of the computer to the 192.168.1.xx network segment, in which xx can be any IP address other than "18" in "192.168.1.18". It is recommended to configure the IP address to 192.168.1.100. The configuration method is as follows: (1) Right-click the WiFi icon in the bottom right corner of the computer to open "Network & Internet": TIP For Windows 11 system, click "Advanced network settings" to open "Ethernet". (2) In the dropdown menu of "Ethernet," click on "Edit" after selecting "More adapter options." (3) In the pop-up dialog box, select "Internet Protocol Version 4" first and then click the "Properties" button. (4) Configure the network IP address as shown in the figure below, and click "OK". Then the local network setting is completed.
 * Open the teach pendant as follows: (1) Open a browser and enter the website "192.168.1.18". (2) Open the robotic arm teaching interface.
 
-#### Teaching Pendant Interface
+**Teaching Pendant Interface**
 
 ![alt text](<../../.gitbook/assets/assets021-image-2-94b53ec0 (2).jpg>)
 
@@ -215,7 +298,7 @@ TIP
 
 If the page is stuck when connecting the teach pendant for the first time or after program upgrade, you can refresh the page by pressing "Ctrl+F5".
 
-#### Drag Teaching
+**Drag Teaching**
 
 ![alt text](<../../.gitbook/assets/assets022-121-ecc87a83 (2).png>)
 
@@ -225,24 +308,24 @@ There are two buttons on the end flange housing of robotic arm, which are intend
 * By short pressing the blue button at the end of the robotic arm, the robotic arm will automatically return to the starting position of the trajectory and reproduce the trajectory once (the robotic arm reproduces only the finally recorded drag trajectory).
 * By long pressing the blue button at the end of robotic arm, the robotic arm to start the arm moving to the initial position. Release to stop.
 
-Here is just simple description of teaching motion control. For more details, refer to the [Guide to Use of Web Teach Pendant of Realman Robotic Arm](file:///6465637/teachingPendantfour/armTeching/) . For further secondary development, refer to the interface instructions open to users at the website.
+Here is just simple description of teaching motion control. For more details, refer to the [Guide to Use of Web Teach Pendant of Realman Robotic Arm](realman-robot-web-teaching-pendant-user-manual-v1.5.md) . For further secondary development, refer to the interface instructions open to users at the website.
 
-#### Power-Off
+**Power-Off**
 
 1. Press the power switch to make it pop up and close.
 2. Turn off the 24 V DC power supply to the robot.
 
-For complete WEB teaching pendant operation, programming, configuration, and troubleshooting, see the [RealMan Robot WEB Teaching Pendant User Manual V1.5](file:///6465637/realman-robot-web-teaching-pendant-user-manual-v1.5/).
+For complete WEB teaching pendant operation, programming, configuration, and troubleshooting, see the [RealMan Robot WEB Teaching Pendant User Manual V1.5](realman-robot-web-teaching-pendant-user-manual-v1.5.md).
 
-### Hardware Interfaces
+#### Hardware Interfaces
 
 Start Guide:
 
-### Components of robotic arm
+#### Components of robotic arm
 
 Realman's collaborative robot system is mainly composed of the robot body, controller (integrated in the robot base), and teach pendant touch pad (optional).
 
-#### Controller
+**Controller**
 
 **16-Pin Aviation Connector Cable**
 
@@ -336,7 +419,7 @@ The I/O of 16-core cable supports the multiplexing function, which, through the 
 | 10  | Input external axis maximum soft limit multiplexing mode (available in the external axis mode)                 |
 | 11  | Input external axis minimum soft limit multiplexing mode (available in the external axis mode)                 |
 
-#### End extension
+**End extension**
 
 To make it easy for users to connect tools at the end of the robot, a mounting flange and a communication interface are reserved at the end. There are two buttons on the flange housing, which are used to control the drag teaching and trajectory reproduction, respectively. The following introduces the end dimensions and flange installation method:
 
@@ -416,9 +499,9 @@ When the robot end power supply is used as the power supply to end effector, the
 
 There is an RS485 communication interface respectively at the 16-core aerial plug of the controller and the 6-core aerial plug of the end interface board (The RS485 communication interface of the 6-pin terminal connector on the end-effector interface board is only used for the robot to control external devices, but not for external devices to control the robot's motion). The two RS485 interfaces can be configured to standard Modbus RTU mode through the JSON protocol (to ensure the communication stability of RS485 interfaces, the devices shall be connected to the GND of the robotic arm as practical as possible). Then the peripherals connected to the interface can be read or written through the JSON protocol.
 
-### ECO65 Specifications and Robot Parameters
+#### ECO65 Specifications and Robot Parameters
 
-### Basic Parameters
+#### Basic Parameters
 
 | Parameter Name                                                 | Parameter Value                                   |            |
 | -------------------------------------------------------------- | ------------------------------------------------- | ---------- |
@@ -452,7 +535,7 @@ There is an RS485 communication interface respectively at the 16-core aerial plu
 | Force Control Specifications (Supported only by 6-DoF sensors) | Six-Axis Force Range                              | 200N/7N·m  |
 | Six-Axis Force Accuracy                                        | ±0.5%FS                                           |            |
 
-### Ontology Parameters
+#### Ontology Parameters
 
 **MDH model frame:**
 
@@ -469,7 +552,7 @@ There is an RS485 communication interface respectively at the 16-core aerial plu
 
 Note: offset refers to the offset of the joint zero position from the model zero position, that is, `model angle = joint angle + offset` .
 
-#### Kinetic parameters of ECO65 robot link
+**Kinetic parameters of ECO65 robot link**
 
 | joint\_id(i) | 1        | 2         | 3         | 4        | 5       | 6       | -       | - |
 | ------------ | -------- | --------- | --------- | -------- | ------- | ------- | ------- | - |
@@ -503,7 +586,7 @@ Assuming there is an output frame , the center of mass frame coinciding with thi
 
 Where,
 
-#### Distribution and dimensions of joints
+**Distribution and dimensions of joints**
 
 The ECO65-B humanoid robotic arm has six rotating joints, each of which represents one degree of freedom. As shown in the figure below, robot joints include the shoulders (joint 1 and joint 2), elbow (joint 3), and wrists (joint 4, joint 5, and joint 6).
 
@@ -559,21 +642,21 @@ Represent the curves of end load of ECO65-B and ECO65-6F. Where, L refers to the
 
 ![ECO65-6F](../../.gitbook/assets/assets036-ECO-65-imageFB-c843d974.png)
 
-### Frequently Asked Questions
+#### Frequently Asked Questions
 
 FAQ:
 
-### FAQs about basic use
+#### FAQs about basic use
 
-#### 1. What basic technical skills do users need to have if they want to carry out secondary development of control based on the robotic arm?
+**1. What basic technical skills do users need to have if they want to carry out secondary development of control based on the robotic arm?**
 
 If users directly use our packaged API, they can only use C/C++/C#/Python to call it in Linux/Windows environment. If users use the JSON protocol, the flexibility will be much higher. There is no restriction on users' system and programming language, as long as a fixed string can be sent according to the protocol. The JSON protocol is often used in PLC, Android, IOS and other platforms.
 
-#### 2. Can the robotic arm be controlled through the Android platform/PLC?
+**2. Can the robotic arm be controlled through the Android platform/PLC?**
 
 The robotic arm supports the Web teach pendant. It can be accessed by opening a browser after establishing a network connection, and can be accessed in Android, IOS, WIN and LINUX systems. The robotic arm can be controlled as long as it receives the string of JSON format. The string can be sent and received through the Ethernet port, and RS485. Using an Android device, PLC, single chip microcomputer, etc., users can control the robotic arm by directly sending strings of JSON format. Users can also use MODBUS-RTU/TCP to control the robotic arm.
 
-#### 3. The system message interface prompts out-of-limit, and the error cannot be cleared. What should I do?
+**3. The system message interface prompts out-of-limit, and the error cannot be cleared. What should I do?**
 
 Solution: first drag the joint beyond the limit back to within the limit, and clear the joint error message. The specific steps are as follows:
 
@@ -584,13 +667,13 @@ Solution: first drag the joint beyond the limit back to within the limit, and cl
 * In the robotic arm state interface, select the corresponding joint and click the Disable button;
 * In Configuration - Security Config, select the corresponding joint, restore the limits to their initial values, and re-enable.
 
-### FAQs about the robotic arm system
+#### FAQs about the robotic arm system
 
-#### 1. Are the encoders of robotic arm single-coil ones or multi-coil ones?
+**1. Are the encoders of robotic arm single-coil ones or multi-coil ones?**
 
 Absolute dual encoders, each on the input end and output end, respectively. The encoder of the last joint is a multi-coil one, while others are single-coil encoders. The accuracy is 0.001°.
 
-#### 2. What is pass-through? What is the cycle of pass-through? What is pass-through for?
+**2. What is pass-through? What is the cycle of pass-through? What is pass-through for?**
 
 Pass-through means that users plan the trajectory themselves on the upper computer, and then sends the joint angles directly to the controller, and each joint runs directly without the processing by the controller. The operation results of robotic arm directly depend on the level of users' trajectory planning.
 
@@ -598,25 +681,25 @@ Pass-through means that users plan the trajectory themselves on the upper comput
 
 It is mainly used to verify users' algorithms, or combine the vision to make dynamic trajectory planning in unstructured environment to achieve grasping or obstacle avoidance.
 
-#### 3. What's the difference between the RS485 interface of the robotic arm controller and the RS485 interface at the end?
+**3. What's the difference between the RS485 interface of the robotic arm controller and the RS485 interface at the end?**
 
 The RS485 interface of the controller supports the control of the robotic arm. It can also, through command switching, support the standard MODBUS-RTU protocol, and control peripherals such as grippers and electric suckers. The RS485 interface at the end only supports external control and cannot control the robotic arm.
 
-#### 4. What types of effectors can be connected to the end of the robotic arm?
+**4. What types of effectors can be connected to the end of the robotic arm?**
 
 The end of robotic arm can output 12 V/24 V voltage, and the maximum current of 1.5 A. The end has a RS485 communication interface, which supports the standard MODBUS-RTU protocol.
 
-#### 5. What will be influenced by the setting of quality and center of mass parameters of tool frame?
+**5. What will be influenced by the setting of quality and center of mass parameters of tool frame?**
 
 Collision detection, and the feel of dragging the current loop.
 
-#### 6. What are the I/O multiplexing functions of Gen 4 controller?
+**6. What are the I/O multiplexing functions of Gen 4 controller?**
 
 The I/O in the 16-core cable has multiplexing functions, which can be switched to: through program commands or Web teach pendant. The specific steps are as follows: click the drop-down list on the I/O configuration interface and select the corresponding multiplexing function.
 
 ![alt text](../../.gitbook/assets/assets037-image-9a657abf.jpg)
 
-#### 7. What are the DH parameters of robotic arm?
+**7. What are the DH parameters of robotic arm?**
 
 The DH parameters generally include four parameters: X-axis rotation, generally expressed by α; X-axis translation, generally expressed by a; Z-axis rotation, generally expressed by θ; and Z-axis translation, generally expressed by d. According to the sequence of axes, the parameters are divided into standard DH parameters and enhanced DH parameters.
 
@@ -624,29 +707,29 @@ Standard DH parameters: the transformation of two connecting rod frames is to ro
 
 Enhanced DH parameters: the transformation of two connecting rod frames is to rotate and translate around the X axis first, and then rotate and translate around the Z axis. That is the Z-X sequence, i.e. rotation first and then translation.
 
-#### 8. What is the relationship between force control and current loop control?
+**8. What is the relationship between force control and current loop control?**
 
 There is no torque sensor inside the joints of robotic arm, and joint force control is realized through the current loop, that is, for our robotic arms, current loop control is equivalent to force control.
 
-#### 9. What is the service life of RM series robotic arms?
+**9. What is the service life of RM series robotic arms?**
 
 The service life of a robotic arm that continuously runs under the payload is 50 thousand hours. So far, we have passed the MTBF certification by Shanghai National Robot Testing Center.
 
-### FAQs about electrical connection
+#### FAQs about electrical connection
 
-#### 1. What are the power supply voltage and current requirements of robotic arm?
+**1. What are the power supply voltage and current requirements of robotic arm?**
 
 The power supply voltage can range from 20 V to 27 V, or up to 30 V at maximum. It is recommended that a switching power supply rated above 600 W supporting hiccup mode and with a constant current output of 1s be used. The power supplies that we use internally are listed on our website, and you can purchase a power supply if needed.
 
 [https://detail.tmall.com/item.htm](https://detail.tmall.com/item.htm?spm=a1z10.3-b-s.w401123472802678.25.3a213f86ri07Gh\&id=596551882593\&rn=f8a9c269b5f7a4790419fa1a9258f052\&abbucket=11\&skuId=4359660664596)
 
-#### 2. How to deal with the situation where the externally connected relay does not respond when the robotic arm controls the output?
+**2. How to deal with the situation where the externally connected relay does not respond when the robotic arm controls the output?**
 
 The digital output interface of the robotic arm controller has an output current of 2 mA, which is impossible to drive the relay and other loads. Therefore, the current needs to be converted through a module. To control high-power equipment, such as a motor, light bulb, relay, solenoid valve, etc., an FET module can be configured.
 
 [https://item.taobao.com/item.htm](https://item.taobao.com/item.htm?spm=a21m98.27004841.0.0.2d6476b7Wy9VMp\&id=600304290465\&scm=20140619.rec.2882167263.600304290465)
 
-#### 3. What are the types of external cables for the robotic arm? And what are the detailed specifications of each type?
+**3. What are the types of external cables for the robotic arm? And what are the detailed specifications of each type?**
 
 The external cables include **2-core power cables** and **16-core cables** , with detailed specifications as follows:
 
@@ -655,13 +738,13 @@ The external cables include **2-core power cables** and **16-core cables** , wit
 | 2-core Power Cable | 2.5mm² (approximately equivalent to AWG13) | 3.5mm                      | 8.5mm                | 2m (2000mm)  | 50mm           |
 | 16-core Cable      | AWG26                                      | 1mm                        | 8.5mm                | 2m (2000mm)  | 50mm           |
 
-### FAQs about communication configuration
+#### FAQs about communication configuration
 
-#### 1. How to modify the device IP and device connection?
+**1. How to modify the device IP and device connection?**
 
 The default IP address is `192.168.1.18` , which can be modified by sending JSON protocol or through the teach pendant.
 
-### Handling and Transportation
+#### Handling and Transportation
 
 During the lifting of the robot, the moving parts shall have appropriate measures in place and be properly located, to prevent them from unintended movement and causing hazards. During packing for transportation, the robots shall be packed according to the packing standards, with any marks required printed on the exterior surface of the packing box.
 
@@ -677,7 +760,7 @@ Warning
 
 ECO65 series robots have no mechanical brake inside joints 4–6.
 
-### Maintenance, Repair, and Disposal
+#### Maintenance, Repair, and Disposal
 
 Maintenance and repair must be carried out in compliance with all safety instructions in this manual.
 
@@ -719,8 +802,8 @@ Warning
 
 Joint 6 of the ECO65 series has a battery that supplies power to the encoder.
 
-### Additional Resources
+#### Additional Resources
 
-* [RealMan Robot WEB Teaching Pendant User Manual V1.5](file:///6465637/realman-robot-web-teaching-pendant-user-manual-v1.5/)
+* [RealMan Robot WEB Teaching Pendant User Manual V1.5](realman-robot-web-teaching-pendant-user-manual-v1.5.md)
 * [Official RealMan user-manual downloads](https://develop.realman-robotics.com/en/robot4th/download/manual/)
 * [Official RealMan Gen 4 documentation](https://develop.realman-robotics.com/en/robot4th/summarize/)
