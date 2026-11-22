@@ -16,6 +16,64 @@ description: >-
 **Model:** ECO65-6F · **SKU:** `Realman-ECO65-6F`
 {% endhint %}
 
+## Supplied manual and legacy revision scope
+
+This established page and its original manual body/images are preserved. The complete newly supplied family manual below is a separate source revision; do not silently apply its cable, parameters or procedures to the older V1.2.0 body. Select the delivered model/controller revision first.
+
+## Complete supplied document and engineering details
+
+[ECO series hardware manual — all 56 PDF pages](realman-source-library/complete-eco-manual.md). The full reference is readable inside the wiki, with an original-page view and searchable text for every page. It includes the material not repeated in this entry guide.
+
+| Source section                                                | Full in-wiki reference                                                 |
+| ------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Safety, responsibilities and warranty                         | [PDF 1–10](realman-source-library/complete-eco-manual.md#pdf-page-1)   |
+| Composition, mounting, startup, teaching and shutdown         | [PDF 10–21](realman-source-library/complete-eco-manual.md#pdf-page-10) |
+| Controller and tool wiring, I/O, external power and RS485     | [PDF 21–28](realman-source-library/complete-eco-manual.md#pdf-page-21) |
+| ECO63 specifications, MDH, dynamics, workspace and load curve | [PDF 29–39](realman-source-library/complete-eco-manual.md#pdf-page-29) |
+| ECO65 specifications, MDH, dynamics, workspace and load curve | [PDF 40–50](realman-source-library/complete-eco-manual.md#pdf-page-40) |
+| FAQs, handling, maintenance, repair and disposal              | [PDF 51–56](realman-source-library/complete-eco-manual.md#pdf-page-51) |
+
+### Exact-model parameter selection
+
+For **ECO65**, start with [the applicable parameter chapter](realman-source-library/complete-eco-manual.md#pdf-page-40). Retain the adjacent dynamic tables, diagrams and load curves as part of the specification; the short table above is not the complete parameter set.
+
+### Installation and electrical integration
+
+Use the exact model's installation drawing before selecting base fasteners, tool screws or a mounting plate. The dimension drawings, joint distribution, working envelope and load curves are separate documents within the full manual: a headline payload does not specify the permitted payload at every reach, center of gravity or acceleration. Keep the arm label, force-sensor option, mounting orientation, tool mass and TCP record with the installation.
+
+The hardware chapters distinguish the **16-core controller expansion connector** from the **6-core tool connector**. The controller chapter also distinguishes Gen1 and Gen2 wire colors. Select the delivered cable generation and the connector view shown in that model's source; a wire color from another generation is not a pin assignment. The original pages preserve the connector drawings and the complete tables, including reserved pins, E\_STOP, I/O references, power outputs, RS485 and FDCAN where documented.
+
+Before attaching any peripheral, separate these electrical roles in the wiring plan: arm power input, programmable auxiliary output, digital input reference, digital output reference, signal/common ground and communications pair. Confirm voltage, current budget and return path for each. An auxiliary output specification is not an input-supply specification. Do not connect two supplies together merely because their nominal voltage is the same.
+
+The supplied hardware manuals describe configurable I/O and tool power; those settings can be disabled at startup. A physically connected device can therefore remain unpowered, or expose the wrong I/O role, until the intended configuration is verified. Start by reading the configuration and recording the delivered state. Standard I/O is not a substitute for a safety-rated protective circuit.
+
+### Kinematic and dynamic data
+
+The full parameter chapters contain the modified Denavit–Hartenberg coordinate-system figures, parameter tables, link mass and inertia data, joint/dimension drawings, working envelope, singular configurations and load curves. Preserve **model, force-sensor suffix, reference frame, units and inertia-axis convention** when entering them into simulation or planning software. Do not copy an RM65 table to an RM75 model, or an ECO63 table to an ECO65 model, simply because the interface looks similar.
+
+For a planned integration, make a configuration record containing the base transform, tool transform, installed end link, payload mass, payload center of gravity, permitted joint interval and speed for every axis, and the exact source page for each value. Check that the URDF/driver joint count and order match that record. A visual model loading in a simulator does not verify its dynamics, joint limits or the controller's motion capabilities.
+
+### Operation, shutdown and maintenance
+
+Teaching buttons, drag modes, playback and initial-pose functions can move the arm. Establish a safe mounted state, a clear swept envelope, an accessible emergency stop and the correct tool/payload settings before using them. A button that records or reproduces a trajectory is not a read-only communication check. Keep source-specific brake arrangements in view when supporting a tool or removing power; a soft brake is not a mechanical holding brake.
+
+For normal shutdown, follow the model's switch/supply sequence. For work on the arm or controller, isolate the power and prevent re-energization. The safety chapters distinguish residual-energy discharge from thermal cooldown: their emergency energy-discharge guidance does not replace the separate hot-surface waiting period. Internal repair is reserved to qualified/authorized personnel; retain the ESD, approved-parts and sealing precautions in the full maintenance chapter.
+
+After changing mounting, TCP, payload, I/O mode, safety settings, controller software or a tool, repeat the relevant acceptance checks and save the configuration. Record the fault text/code and the circumstances before clearing it. Repeatedly clearing an error without determining its cause is not a recovery procedure.
+
+### Integration acceptance record
+
+| Check                    | Evidence to retain                                                                                             |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| Exact hardware           | Arm/controller labels, model/sensor suffix, cable generation and installed tool                                |
+| Mounting and load        | Source drawing, fastener selection, installed orientation, payload/center of gravity and applicable load curve |
+| Electrical configuration | Supply approval, measured/configured voltages, peripheral current budget, grounds and I/O roles                |
+| Communication            | Controller model/software reported by the read-only interface; expected network configuration                  |
+| Kinematics               | Joint names/order, per-axis bounds, base/tool transforms and the exact model data source                       |
+| Operational recovery     | Stop/reset authority, fault evidence, shutdown and restoration checks                                          |
+
+This acceptance record is supplementary integration guidance. The original safety, warranty, hardware, handling, repair and disposal sections remain available in full in the source reader.
+
 ## Product overview
 
 This is the canonical ECO65 product guide and preserved manual URL. Model-specific current-reference notes precede the original manual; existing figures and links remain available below.
@@ -38,7 +96,7 @@ Teaching, research and manipulation integration within the exact revision's load
 | Brake arrangement in newer supplied manual | Hard brakes J1–J6; older preserved V1.2.0 text says no mechanical wrist brakes |
 | Typical / instantaneous peak power         | ≤150 W / ≤900 W                                                                |
 
-Source: [ECO family manual, PDF pp. 40–42 \[ECO\]](realman-source-library.md). Product links identify sold options; the controller/force-sensor revision must also match the label and delivery documents.
+Source: [ECO family manual, PDF pp. 40–42 \[ECO\]](realman-source-library/). Product links identify sold options; the controller/force-sensor revision must also match the label and delivery documents.
 
 {% hint style="warning" %}
 **Revision conflict:** the supplied manual lists ≤900 W peak and a 107 mm base, while the current developer page lists ≤600 W and 110 mm. See the [current manufacturer ECO65 parameters](https://develop.realman-robotics.com/en/robot4th/robotParameter/ECO65OntologyParameters/). These figures are kept source-specific. Do not size a supply, select a mount or set limits from this comparison. Powered setup requires the exact delivered drawing, supply specification and controller revision to resolve the discrepancy.
@@ -46,7 +104,7 @@ Source: [ECO family manual, PDF pp. 40–42 \[ECO\]](realman-source-library.md).
 
 ## Hardware and connections
 
-The supplied manual uses nominal 24 V DC and keyed power cabling, a base-integrated controller, 16-core controller expansion and a separate six-core tool port. Match the delivered cable generation and connector drawing before wiring. Do not hot-plug aviation connectors. Tool output is specified at 1.5 A maximum; this is below the RMG22-65 manual's stated current demand. Obtain the approved separate power arrangement before accessory integration. See [ECO family manual, PDF pp. 13–29 \[ECO\]](realman-source-library.md) and the retained hardware chapter.
+The supplied manual uses nominal 24 V DC and keyed power cabling, a base-integrated controller, 16-core controller expansion and a separate six-core tool port. Match the delivered cable generation and connector drawing before wiring. Do not hot-plug aviation connectors. Tool output is specified at 1.5 A maximum; this is below the RMG22-65 manual's stated current demand. Obtain the approved separate power arrangement before accessory integration. See [ECO family manual, PDF pp. 13–29 \[ECO\]](realman-source-library/) and the retained hardware chapter.
 
 ## Software and development resources
 
@@ -66,7 +124,7 @@ Prerequisites: trained operator, rigid mounting, secured tool/payload, the deliv
 
 **If this check fails:** inspect power and startup indication, Ethernet link, address/subnet and duplicate-IP conflicts, then the delivered controller configuration. A browser refresh can resolve stale interface assets after an upgrade; it cannot resolve a hardware fault.
 
-Source: [ECO family manual, PDF pp. 13–20 \[ECO\]](realman-source-library.md).
+Source: [ECO family manual, PDF pp. 13–20 \[ECO\]](realman-source-library/).
 
 ## Troubleshooting and FAQs
 
@@ -80,7 +138,7 @@ Source: [ECO family manual, PDF pp. 13–20 \[ECO\]](realman-source-library.md).
 
 | Resource                                                                                           | Scope                                                    |
 | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [Newly supplied family manual \[ECO\]](realman-source-library.md)                                  | Current supplied reference with original PDF page ranges |
+| [Newly supplied family manual \[ECO\]](realman-source-library/)                                    | Current supplied reference with original PDF page ranges |
 | [Manufacturer manual downloads](https://develop.realman-robotics.com/en/robot4th/download/manual/) | Select family and controller generation                  |
 | [Manufacturer models/CAD](https://develop.realman-robotics.com/en/robot4th/download/model/)        | Match complete model and tool/end-link                   |
 | [Shared teaching-pendant manual](realman-robot-web-teaching-pendant-user-manual-v1.5.md)           | Existing UI reference; original page retained            |

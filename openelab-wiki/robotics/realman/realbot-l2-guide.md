@@ -25,7 +25,7 @@ Supervised service-robot research, manipulation, teleoperation and demonstration
 | Gripper option    | 90 mm stroke, 30 N, ±0.02 mm in the white paper; not RMG22-65                                                                       |
 | Compute options   | White paper alternates DEEPX S100 and RDK S100 wording; Jetson AGX Orin 64 GB is also listed. Confirm the exact delivered platform. |
 
-Source: [L2 V2+ white paper, PDF pp. 2, 9–12 \[L2\]](realman-source-library.md). All white-paper figures remain subject to the signed technical agreement and delivery list. Do not convert advertised maximum speed, slope or obstacle figures into operating limits without commissioning evidence.
+Source: [L2 V2+ white paper, PDF pp. 2, 9–12 \[L2\]](realman-source-library/). All white-paper figures remain subject to the signed technical agreement and delivery list. Do not convert advertised maximum speed, slope or obstacle figures into operating limits without commissioning evidence.
 
 ## Hardware and connections
 
@@ -37,7 +37,39 @@ The wrist camera is described as Orbbec Gemini 335Lg. Camera count, mounts and c
 
 The white paper describes fourth-generation control, a teleoperation client and data pipeline, but provides no complete L2 ROS package/API contract. Obtain the versioned L2 SDK, supported host OS, message definitions, license and recovery guide from the delivery. The S2 V1.3 API expressly limits itself to S2 and is not a generic L2 SDK.
 
-Two teleoperation options are distinct: the immersive workstation uses RX71 master arms; the Aloha-style exoskeleton kit uses a separate isomorphic servo-arm assembly and Ethernet conversion box. Stanford Mobile ALOHA concepts do not establish software or wiring compatibility with this supplied implementation. Source: [L2 V2+ white paper, PDF pp. 13–20 \[L2\]](realman-source-library.md).
+Two teleoperation options are distinct: the immersive workstation uses RX71 master arms; the Aloha-style exoskeleton kit uses a separate isomorphic servo-arm assembly and Ethernet conversion box. Stanford Mobile ALOHA concepts do not establish software or wiring compatibility with this supplied implementation. Source: [L2 V2+ white paper, PDF pp. 13–20 \[L2\]](realman-source-library/).
+
+## Complete supplied document and engineering details
+
+[RealBot-L2 solution white paper V2+ — all 26 PDF pages](realman-source-library/complete-l2-white-paper.md). The full reference is readable inside the wiki, with an original-page view and searchable text for every page. It includes the material not repeated in this entry guide.
+
+| Source section                                                    | Full in-wiki reference                                                     |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Positioning, applications and value propositions                  | [PDF 1–7](realman-source-library/complete-l2-white-paper.md#pdf-page-1)    |
+| Architecture, modules and complete technical specification tables | [PDF 8–12](realman-source-library/complete-l2-white-paper.md#pdf-page-8)   |
+| Perception, computing, teleoperation software and hardware        | [PDF 12–20](realman-source-library/complete-l2-white-paper.md#pdf-page-12) |
+| Application scenarios, equipment list, deployment and service     | [PDF 21–26](realman-source-library/complete-l2-white-paper.md#pdf-page-21) |
+
+### Solution components and teleoperation options
+
+The white paper describes a three-layer system: mechanical hardware (differential base, lifting column, waist/head and dual arms); perception/computing (head stereo cameras, wrist depth cameras, chassis 2D LiDAR and the selected computing platform); and application software (navigation, obstacle avoidance, teleoperation, task scheduling and data management). These are configuration requirements to reconcile with the delivered bill of materials, rather than a guarantee that every optional subsystem is installed.
+
+Its technical tables distinguish the base, 300 mm lifting mechanism, dual 7-DoF arms, 1-DoF head and 1-DoF waist. The stated 5 kg-per-arm payload is separate from the lifting mechanism's load figure. The quick-change two-finger / three-finger tooling options are distinct from the RMG22-65 gripper in this wiki. Keep their stroke, force, mounting and electrical specifications separate.
+
+Two teleoperation hardware paths are described: an immersive workstation with RX71 master arms and a wired Aloha exoskeleton/isomorphic collection kit. They share a platform concept but differ in operator hardware, mapping and the type of demonstration data being collected. The software sections cover multi-view video/maps, work orders, device scheduling, parameter adjustment and activity auditing; these features do not define an undocumented network command schema.
+
+### Deployment and delivery checklist
+
+| Delivery area        | Confirm against the white paper and final agreement                                                                |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Robot and tooling    | Base, lift, head/waist, left/right arms, selected end effectors and quick-change parts                             |
+| Perception / compute | Exact cameras, LiDAR, Jetson AGX Orin / RDK S100 option and calibrated frames                                      |
+| Power                | Delivered battery, charger, charging procedure and permitted installation environment                              |
+| Teleoperation        | Workstation or exoskeleton option, network, accounts/authority, stop behavior and operator training                |
+| Site                 | Passage/working clearances, floor/thresholds, power/network provision and mapped operating zone                    |
+| Data and service     | Delivered software/models, interface contracts, collection format, acceptance evidence, training and support scope |
+
+The application scenarios—home/commercial services, retail, data collection, inspection and light industrial assistance—describe intended solution directions. Validate the actual workpiece, load, reach, navigation environment and recovery procedure in the final integration. Preserve the white paper's final-technical-agreement qualification for performance claims and its warranty/service section.
 
 ## Getting started
 
@@ -61,7 +93,7 @@ Two teleoperation options are distinct: the immersive workstation uses RX71 mast
 
 | Resource                                                                             | Purpose                                                               |
 | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| [RealBot-L2 Product Solution White Paper V2+ \[L2\]](realman-source-library.md)      | Architecture, options and planning specifications                     |
+| [RealBot-L2 Product Solution White Paper V2+ \[L2\]](realman-source-library/)        | Architecture, options and planning specifications                     |
 | [S2 comparison](realbot-s2-guide.md)                                                 | Distinguish folding-body/four-wheel system; not an L2 operating guide |
 | [Older lifting-platform manual](embodied-double-arm-lifting-platform-user-manual.md) | Separate RMC-DA-LIII source, preserved for its installed base         |
 
@@ -69,4 +101,4 @@ The L2 installation manual, schematics, CAD, versioned SDK and firmware/recovery
 
 ## References and validation
 
-[L2 V2+ white paper, PDF pp. 2, 9–20, 24–26 \[L2\]](realman-source-library.md). Reviewed 22 November 2026. Software/hardware tests: **not run**. This is a source-backed planning reference; installation and operation remain blocked by the missing delivery-specific technical set.
+[L2 V2+ white paper, PDF pp. 2, 9–20, 24–26 \[L2\]](realman-source-library/). Reviewed 22 November 2026. Software/hardware tests: **not run**. This is a source-backed planning reference; installation and operation remain blocked by the missing delivery-specific technical set.

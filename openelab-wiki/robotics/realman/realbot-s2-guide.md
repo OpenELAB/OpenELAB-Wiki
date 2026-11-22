@@ -24,7 +24,7 @@ Supervised teleoperation, robot data collection, perception development and mobi
 | Compute / OS                | Jetson AGX Orin 64 GB / Ubuntu 22.04                                                    |
 | Body height change          | Articulated body motion; not the L2 independent lifting-column API                      |
 
-Source: [S2 user manual V1.0, PDF pp. 8–12 \[S2\]](realman-source-library.md); [S2 interface V1.3, PDF pp. 24–25 \[S2\_API\]](realman-source-library.md). The S2 manual contains conflicting “lifting” figures (0.3 m versus 30 mm) and unclear translated chassis terminology. Do not use those lines as travel limits. Use the delivered kinematic model and S2 control appendix; the API document explicitly distinguishes the four body joints from an independent lift column.
+Source: [S2 user manual V1.0, PDF pp. 8–12 \[S2\]](realman-source-library/); [S2 interface V1.3, PDF pp. 24–25 \[S2\_API\]](realman-source-library/). The S2 manual contains conflicting “lifting” figures (0.3 m versus 30 mm) and unclear translated chassis terminology. Do not use those lines as travel limits. Use the delivered kinematic model and S2 control appendix; the API document explicitly distinguishes the four body joints from an independent lift column.
 
 ## Hardware and connections
 
@@ -38,6 +38,46 @@ Use Ubuntu 22.04 / ROS 2 Humble and the **delivered S2 interface SDK**, whose `r
 
 Start with [S2 development and interface boundaries](realbot-s2-development/). Continue to its read-only environment, telemetry and data-validation tutorials.
 
+## Complete supplied document and engineering details
+
+[RealBot-S2 user manual — all 38 PDF pages](realman-source-library/complete-s2-user-manual.md). The full reference is readable inside the wiki, with an original-page view and searchable text for every page. It includes the material not repeated in this entry guide.
+
+| Source section                                                           | Full in-wiki reference                                                     |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| Cover, revision and original contents                                    | [PDF 1–5](realman-source-library/complete-s2-user-manual.md#pdf-page-1)    |
+| Features, architecture, full-unit/arm/computer/camera specifications     | [PDF 6–15](realman-source-library/complete-s2-user-manual.md#pdf-page-6)   |
+| Mechanical dimensions, controls, charging, emergency stop and interfaces | [PDF 16–18](realman-source-library/complete-s2-user-manual.md#pdf-page-16) |
+| Local networking, SSH, Wi-Fi and wired networking                        | [PDF 19–22](realman-source-library/complete-s2-user-manual.md#pdf-page-19) |
+| Android/desktop teach pendant and operating controls                     | [PDF 23–34](realman-source-library/complete-s2-user-manual.md#pdf-page-23) |
+| Arm connection and six-axis force calibration                            | [PDF 35–36](realman-source-library/complete-s2-user-manual.md#pdf-page-35) |
+| Safety, transport, storage, unpacking and further resources              | [PDF 36–38](realman-source-library/complete-s2-user-manual.md#pdf-page-36) |
+
+### Complete platform setup and operation
+
+The supplied user manual covers the full robot, arms, main controller and camera specifications separately. Its mechanical drawing and chassis-control/charging/debugging pages are part of the installation information, not optional illustrations. Record the delivered camera/computer/arm configuration before selecting an image, application or software profile.
+
+The local-network chapter documents the chassis LAN connection and a `192.168.128.*` subnet, including access to `192.168.128.10`; the standalone-arm `192.168.1.18` procedure is a different context. The original Linux networking/SSH/Wi-Fi examples remain in the complete reader. Apply network changes only to the intended interface and keep an approved recovery path; do not replace working site networking with a copied factory profile. Factory credentials in the source describe that delivery, rather than a permanent credential policy.
+
+The teach-pendant chapter includes Android installation and connection, desktop access, state model, camera view, packaging posture, initial posture, joint-angle controls, enabling, limits/error clearing, system status, real-time control and general configuration. These functions have different effects: seeing the state model is read-only; packaging, initialization, jogging, enabling and calibration may cause movement. Confirm control ownership and the attended stop arrangement before selecting an operating control.
+
+The arm-programmer and force-calibration chapter includes the network prerequisites and the manufacturer's automatic calibration workflow. Calibration requires the delivered force-sensor/tool configuration and the required clear working envelope. A “Calibration Successful” message is a completion observation for that operation, not verification of arbitrary payload data or safe force-control limits.
+
+### Chassis, power and service acceptance
+
+| Area            | What the full source provides                                        | Acceptance evidence                                                        |
+| --------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Mechanics       | Complete-unit dimensions and chassis arrangement                     | Delivered dimensions, clearance, floor/path and cable routing              |
+| Power           | Charging port, charging procedure and status                         | Correct charger and connection sequence for the supplied robot             |
+| Safety          | Physical emergency stop, joint operation and maintenance precautions | Attended emergency-stop verification and recovery authority                |
+| Network         | Local LAN, SSH, Wi-Fi, wired networking and external-IP discovery    | Actual addresses, interface names and a recoverable configuration          |
+| Pendant         | Installation, connectivity, state/cameras, teaching and settings     | Matching app/controller release and a read-only status checkpoint          |
+| Arm/force setup | Arm-programmer access and gravity/force calibration                  | Exact sensor/tool profile and recorded calibration result                  |
+| Handling        | Transportation, storage and unpacking                                | Transport posture, packaging restraints, environment and inspection record |
+
+For ROS 2 development, pair this operating manual with the separate complete S2 V1.3 interface reference. The hardware user manual does not define every topic, field, unit or control-authority rule.
+
+Pair with [RealBot2.0 / S2 interface manual V1.3 — all 70 PDF pages](realman-source-library/complete-s2-interface-manual.md).
+
 ## Getting started
 
 1. Record the robot serial, software version, hardware/camera profile and operating scene. Inspect damage, mounting, payload support, cables and emergency-stop locations with the trained operator.
@@ -46,7 +86,7 @@ Start with [S2 development and interface boundaries](realbot-s2-development/). C
 4. Access the robot's terminal using the authorized delivery account, read `cat /rm_app/rm_robot_ws/version.txt`, and follow the linked read-only ROS environment tutorial. Do not open the hardware-control page and press “execute” as a connectivity check.
 5. Verify `/robot_slave/states`, `/diagnostics` and `/chassis/odom` with the delivered interface definitions and QoS. Check message freshness and physical subsystem health as well as topic presence.
 
-**Expected result:** the correct version/profile is recorded and valid status/diagnostic data is readable without commanded motion. If any dependency is missing, keep the client in read-only mode. Sources: [S2 user manual V1.0, PDF pp. 19–24 \[S2\]](realman-source-library.md); [S2 interface V1.3, PDF pp. 5–9, 17–24 \[S2\_API\]](realman-source-library.md).
+**Expected result:** the correct version/profile is recorded and valid status/diagnostic data is readable without commanded motion. If any dependency is missing, keep the client in read-only mode. Sources: [S2 user manual V1.0, PDF pp. 19–24 \[S2\]](realman-source-library/); [S2 interface V1.3, PDF pp. 5–9, 17–24 \[S2\_API\]](realman-source-library/).
 
 ## Troubleshooting and FAQs
 
@@ -60,8 +100,8 @@ Start with [S2 development and interface boundaries](realbot-s2-development/). C
 
 | Resource                                                                           | Scope                                                         |
 | ---------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| [RealBot-S2 User Manual V1.0 \[S2\]](realman-source-library.md)                    | Hardware, startup, network, teaching interface and handling   |
-| [Secondary Development Interface V1.3 \[S2\_API\]](realman-source-library.md)      | Public interfaces, QoS, units, validity, control and recovery |
+| [RealBot-S2 User Manual V1.0 \[S2\]](realman-source-library/)                      | Hardware, startup, network, teaching interface and handling   |
+| [Secondary Development Interface V1.3 \[S2\_API\]](realman-source-library/)        | Public interfaces, QoS, units, validity, control and recovery |
 | [S2 development hub](realbot-s2-development/)                                      | Version-bound entry point and tutorials                       |
 | [Existing RMC-DA-LIII manual](embodied-double-arm-lifting-platform-user-manual.md) | Separate older platform; retained at its original URL         |
 

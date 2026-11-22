@@ -28,7 +28,7 @@ Research, teaching and manipulation integration within the model-specific load c
 | Controller / supply                | Split controller; 20–30 V DC, nominal 24 V                                                                            |
 | TCP speed discrepancy              | Supplied sheet prints ≥2.5 m/s; current developer page prints ≤2.5 m/s. Do not use either as a commissioning setting. |
 
-Source: [GEN62 specification sheet, PDF pp. 1–3 \[GEN62\]](realman-source-library.md). These are reference ratings for the stated configuration, not initial test speeds or application safety limits.
+Source: [GEN62 specification sheet, PDF pp. 1–3 \[GEN62\]](realman-source-library/). These are reference ratings for the stated configuration, not initial test speeds or application safety limits.
 
 ## Hardware and connections
 
@@ -43,6 +43,39 @@ The official [RM\_API2](https://github.com/RealManRobot/RM_API2) repository prov
 The reviewed [ROS 2 Humble package](https://github.com/RealManRobot/ros2_rm_robot/tree/711abedd48c6614f26fb4f7661db92f306ff05bd) is V1.7.1, based on controller 1.7.5, for Ubuntu 22.04. Its support table includes RM65, RM75, ECO62/63/65, RML63, GEN72 and RX75. GEN62 is a different model. Confirm the exact end-link and controller support table before selecting a launch configuration. A default real-hardware launch may enable trajectory execution. Use the shared commissioning guide before launching anything.
 
 See [Arm commissioning and SDK selection](realman-arm-commissioning-and-sdk.md) and the [existing teaching-pendant reference](realman-robot-web-teaching-pendant-user-manual-v1.5.md).
+
+## Complete supplied document and engineering details
+
+[GEN62 specification sheet — all 3 PDF pages](realman-source-library/complete-gen62-specification.md). The full reference is readable inside the wiki, with an original-page view and searchable text for every page. It includes the material not repeated in this entry guide.
+
+| Source section                              | Full in-wiki reference                                                     |
+| ------------------------------------------- | -------------------------------------------------------------------------- |
+| Product overview                            | [PDF 1](realman-source-library/complete-gen62-specification.md#pdf-page-1) |
+| Complete arm/controller specification table | [PDF 2](realman-source-library/complete-gen62-specification.md#pdf-page-2) |
+| Application panels                          | [PDF 3](realman-source-library/complete-gen62-specification.md#pdf-page-3) |
+
+### Complete brochure parameter table
+
+| Item                         | Supplied specification                                                               |
+| ---------------------------- | ------------------------------------------------------------------------------------ |
+| Axes / payload               | 6 axes; 2 kg rated payload; 3.5 kg stated maximum payload                            |
+| Mass / repeatability / reach | 3.5 kg; ±0.1 mm; 660 mm working radius                                               |
+| Brakes                       | Soft brakes on J1–J6; brochure states manual positioning when powered off            |
+| Joint ranges                 | J1 ±178°; J2 −110°…+110°; J3 −178°…+40°; J4 −120°…+45°; J5 ±100°; J6 ±360°           |
+| Maximum joint speed          | J1–J3 225°/s; J4–J6 180°/s                                                           |
+| TCP speed as printed         | ≥2.5 m/s; preserve the inequality as a source claim, not a commissioned safe setting |
+| Controller / input           | Split-type; DC 20–30 V, rated DC 24 V                                                |
+| Interfaces                   | Ethernet and RS485; tool 2 DI/DO, 1 RS485, 1 power output                            |
+| Teaching/control             | Drag teaching, teach pendant, API, JSON                                              |
+| Environment / material       | −10–50°C; relative humidity ≤85%; aluminum alloy / ABS                               |
+
+[Original parameter page and verified transcription](realman-source-library/complete-gen62-specification.md#pdf-page-2).
+
+### What the brochure does and does not establish
+
+The full reader includes every cover/application panel as well as the complete parameter table. The material supports model selection and an integration requirements record. It does not provide a complete power/connector drawing, mounting torque schedule, controller image, command contract or recovery procedure. Obtain those exact-model deliverables before powered integration; do not fill them with another arm’s manual. Retain the distinction between rated and maximum payload and between soft and mechanical brakes.
+
+Supplementary acceptance work should record the controller and arm labels, the delivered tool and load, actual mounting drawing, approved supply and cable, per-joint limits, brake/support plan and the version-matched software package. Check firmware/SDK/URDF support by the exact model name. A general “SDK / ROS 2 ready” brochure statement is not a compatibility matrix for a particular release.
 
 ## Getting started
 
@@ -65,7 +98,7 @@ See [Arm commissioning and SDK selection](realman-arm-commissioning-and-sdk.md) 
 
 | Resource                                                                                             | Scope and use                                                                          |
 | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [Supplied manual/specification \[GEN62\]](realman-source-library.md)                                 | Exact supplied reference, with original PDF page ranges in the source library          |
+| [Supplied manual/specification \[GEN62\]](realman-source-library/)                                   | Exact supplied reference, with original PDF page ranges in the source library          |
 | [Manufacturer manual downloads](https://develop.realman-robotics.com/en/robot4th/download/manual/)   | Select exact family and controller generation; newer files may differ                  |
 | [Manufacturer model/CAD downloads](https://develop.realman-robotics.com/en/robot4th/download/model/) | Confirm model/end-link dimensions before mounting or simulation                        |
 | [RM\_API2](https://github.com/RealManRobot/RM_API2)                                                  | C/C++/Python arm interfaces; version and architecture matching required                |
@@ -75,6 +108,6 @@ Firmware replacement is outside this first-result procedure. Obtain the exact co
 
 ## References and validation
 
-[GEN62 specification sheet, PDF pp. 1–3 \[GEN62\]](realman-source-library.md); official repositories and downloads linked above. Reviewed 22 November 2026. Software execution: **not run**. Hardware validation: **not run**. The published reference does not authorize operation on an unmatched revision; any unresolved delivery-specific mounting, power or software target keeps powered commissioning blocked.
+[GEN62 specification sheet, PDF pp. 1–3 \[GEN62\]](realman-source-library/); official repositories and downloads linked above. Reviewed 22 November 2026. Software execution: **not run**. Hardware validation: **not run**. The published reference does not authorize operation on an unmatched revision; any unresolved delivery-specific mounting, power or software target keeps powered commissioning blocked.
 
 [RealMan series index](./)
