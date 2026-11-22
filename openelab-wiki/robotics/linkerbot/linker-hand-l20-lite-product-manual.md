@@ -12,19 +12,21 @@ description: >-
 **Model:** L20 Lite · **SKU:** `Linker-Hand-L20-Lite-1 (left, RS485; confirm chosen side/bus)` · **Manual:** V1.0 (2025-09-11)
 {% endhint %}
 
+[**Complete supplied L20 Lite manual — 19 PDF pages and downloads**](source-library/complete-l20-lite.md) · [All seven complete manuals](source-library/)
+
 [LINKERBOT family index](linkerbot-dexterous-hands-developer-guide/) · **Complete manufacturer manual and diagrams below**
 
-### Product overview
+## Product overview
 
 **L20 Lite** has **10 controlled; 20 total (10 active, 10 passive)**. Its supplied manufacturer product manual is revision **V1.0 (2025-09-11)**. This page describes the exact model; any other Linkerbot hand with a similar number may have a different joint array, mounting flange, sensor option, adapter voltage or bus protocol. **Identity:** Linker-Hand-L20-Lite-1 (left, RS485; confirm chosen side/bus).
 
-### Applications
+## Applications
 
 * Model-specific end-effector integration into research manipulators and humanoid platforms.
 * Safe device identification, position/state logging, and supervised dexterous control research.
 * Tactile and closed-loop grasp studies **only when installed sensors and controls are verified**.
 
-### Specifications
+## Specifications
 
 | Parameter                                  | Source-backed value                                                                                                                    |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -39,23 +41,88 @@ description: >-
 
 **Evidence:** exact attached product manual and corresponding connected product catalog where available. These are device-level figures, not automatically rated full-arm payload or production contact performance.
 
-### Hardware and connections
+## Complete supplied-manual reference
+
+The following details supplement the original guide using **V1.0 · 2025-09-11**. Every supplied page, including diagrams, revision history, controls and service clauses, is available in the [Complete supplied L20 Lite manual — 19 PDF pages and downloads](source-library/complete-l20-lite.md).
+
+### Detailed electrical, mechanical and sensor parameters
+
+| Parameter                               | Manufacturer source entry                                                                                                                                        |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DC input and current                    | 24 V ±10%; 0.2 A quiescent, 0.5 A no-load motor average, 3 A maximum                                                                                             |
+| Mechanical force                        | Thumb and other fingertips 15 N; parameter-table each-finger gripping force 80 N                                                                                 |
+| Mass, repeatability and cycle           | 800 g; < ±0.2 mm; opening/closing 1.2 s; maximum-load table 25 kg                                                                                                |
+| Communication                           | CAN / RS485 by ordered variant; overview reports communication up to 800 Hz, not a bus bitrate                                                                   |
+| Piezoresistive sensor                   | 6×12; 9.6×14.4 mm; 5 g touch-force entry; 20 N range; 200 fps; 100,000 cycles                                                                                    |
+| Optional capacitive sensor              | ≥50 Hz; 0–30 N range; 60 N overload limit; 0.1 N sensitivity; 0.5% FS resolution; 2% FS accuracy                                                                 |
+| Optional capacitive direction/proximity | 0.25 N pressure resolution; 45° direction resolution; 1 cm detection for metal/human body                                                                        |
+| Optional visual-tactile sensing         | Camera observes flexible-material deformation; the manual describes model-based inference, without a supplied trained model or universal compatibility guarantee |
+
+Sources: [PDF page 10](source-library/complete-l20-lite.md#pdf-page-10) and the chapter map below. Maximum-load, maximum-force and cycle entries are manufacturer figures; the manual does not establish that they can be reached simultaneously or safely in a complete robot.
+
+### Joint ranges and source interpretation
+
+| Joint / motion label                                      | Source angle range (degrees) | Source speed entry (°/s unless noted) |
+| --------------------------------------------------------- | ---------------------------- | ------------------------------------- |
+| THUMB1 / THUMB2 / THUMB3 bend                             | 37.9 / 38.4 / 27.9           | 63.11 / 52.62 / 42.78                 |
+| THUMB4 side swing / THUMB5 rotation                       | 69 / 60                      | 63.21 / 50.9                          |
+| LF1 / RF1 / MF1 / FF1 bend                                | 35.8                         | 29.11                                 |
+| LF2 / RF2 / MF2 / FF2 bend                                | 102                          | 82.93                                 |
+| LF3 / RF3 / MF3 / FF3 bend                                | 77.9                         | 63.33                                 |
+| FF4 toward thumb / RF4 toward little finger / LF4 lateral | 10.7 / 11.7 / 17.2           | 84.62 / 44.17 / 64.93                 |
+
+Source: [PDF page 9](source-library/complete-l20-lite.md#pdf-page-9). Physical/passive joint labels are not an independent command-vector definition.
+
+The hand has **10 independently actuated joints and 20 physical joints**. The kinematic table contains passive/coupled motion labels, so its row labels do not define a 20-channel command vector. The overview describes worm-gear transmission/self-locking; the parameter table calls the driving mode connecting-rod transmission. It also calls 80 N a five-finger grip in the overview and an each-finger value in the table. Preserve those distinct source statements; do not treat them as a verified continuous force or fail-safe holding rating.
+
+### Mounting, supplied items and model-specific operation
+
+Use M3 mounting screws with length selected for fixture thickness and the original flange drawing. The CAN-side connector table specifies **1 CAN L, 2 CAN H, 3 GND, 4 24 V**; verify viewing orientation in the drawing. The kit lists a USB-to-CAN cable, adapter and power line. Windows setup requires PEAK-System\_Driver-Setup, the real interface names in `can_bridge_dashboard/config.toml`, then `can_bridge.exe`, then the model-specific `dashboard.exe` and `http://localhost:9090`. One-interface example: `can_interface = ["can1"]`; two-interface example: `can_interface = ["can1", "can2"]`. Restart CAN Bridge after adapter unplug/replug. Collect `can_bridge.log` if startup fails. Global send poses/speeds, reset, presets and animations are commands, separate from observing online status and logs.
+
+### Complete chapter and drawing map
+
+| Original PDF page                                              | Topic                                                |
+| -------------------------------------------------------------- | ---------------------------------------------------- |
+| [PDF page 3](source-library/complete-l20-lite.md#pdf-page-3)   | Training, cable, overheating and service precautions |
+| [PDF page 5](source-library/complete-l20-lite.md#pdf-page-5)   | Mechanism, load and force claims                     |
+| [PDF page 7](source-library/complete-l20-lite.md#pdf-page-7)   | Dimensions and active/passive topology               |
+| [PDF page 8](source-library/complete-l20-lite.md#pdf-page-8)   | Structural motion limits                             |
+| [PDF page 9](source-library/complete-l20-lite.md#pdf-page-9)   | Actual angle/speed table                             |
+| [PDF page 10](source-library/complete-l20-lite.md#pdf-page-10) | Electrical and piezoresistive sensor parameters      |
+| [PDF page 11](source-library/complete-l20-lite.md#pdf-page-11) | Optional capacitive and visual-tactile sensing       |
+| [PDF page 12](source-library/complete-l20-lite.md#pdf-page-12) | Accessory inventory                                  |
+| [PDF page 13](source-library/complete-l20-lite.md#pdf-page-13) | M3 mounting and XT30 pin table                       |
+| [PDF page 14](source-library/complete-l20-lite.md#pdf-page-14) | Windows driver and config.toml                       |
+| [PDF page 15](source-library/complete-l20-lite.md#pdf-page-15) | Bridge start, log, restart and localhost             |
+| [PDF page 17](source-library/complete-l20-lite.md#pdf-page-17) | Hand, global and joint controls                      |
+| [PDF page 18](source-library/complete-l20-lite.md#pdf-page-18) | Presets, status and warranty                         |
+| [PDF page 19](source-library/complete-l20-lite.md#pdf-page-19) | SDK appendix                                         |
+
+### Service, recovery and development records
+
+The source provides a **12-month limited warranty from purchase** for manufacturing/material defects, excludes normal wear and improper operation, impact/accidents, unauthorized disassembly or use contrary to instructions, and describes paid out-of-warranty service. The original return/exchange exclusions remain in the complete reference; use the actual sales agreement for an order. If a fault occurs, stop operation and contact manufacturer support rather than dismantling the hand. Preserve model/side, serial, firmware/PCB revision, supply label, adapter, SDK commit, LED/error state and logs with the service request. Manufacturer support is `support@linkerbot.cn`; this wiki review does not send a support request.
+
+The manuals describe firmware-upgrade capability, but do not include every model-specific firmware image, recovery package, binary protocol, CAD/URDF model or installer. Original drawings and screenshots are included; obtain the exact missing package from the manufacturer. Do not flash a related model or create pin mappings from an image’s appearance.
+
+For current software, read the [pinned L20 LITE feature guide](https://github.com/linker-bot/linkerbot-hand-ros2-sdk/blob/8d56b3355d2cfcd90e4e3c6b377ebceb7a5c09ac/linkerbot_hand_ros/docs/l20lite.md) and [model/capability definitions](https://github.com/linker-bot/linkerbot-hand-ros2-sdk/blob/8d56b3355d2cfcd90e4e3c6b377ebceb7a5c09ac/linkerbot_hand_ros/docs/models.md). The current ROS 2 stack and its `linkerbot-hand-python-sdk` dependency differ from the older `linkerhand-python-sdk` appendix. Check actual bus, joint names, validity masks and raw-unit metadata; cached configuration values are not live torque/current measurements. Current source reviewed at `8d56b3355d2c` on 22 November 2026. Software build and hardware operation were **not run**.
+
+## Hardware and connections
 
 1. Inspect the model, serial, left/right label and selected store interface; do not rely only on a family nickname.
 2. Confirm the supplied adapter, supported cable, correct keyed connector and the mounting drawing **before** connecting DC power.
 3. Use a stable fixture, keep fingers and cables away from moving linkages and make the operator's stop/disconnect method accessible.
 
-#### Model-specific mechanical mounting
+### Model-specific mechanical mounting
 
 M3 flange screws, length determined from mounting-thickness and **L20 Lite V1.0 page 13** drawing.
 
-#### Electrical bus and connector
+### Electrical bus and connector
 
 XT30 (2+2) **on the documented CAN connection**: pin 1 CAN L, 2 CAN H, 3 GND, 4 +24 V. Confirm keyed orientation and purchased RS485 versus CAN adapter. Do not transfer this pin table to other hand models.
 
 **Manufacturer-model note:** The storefront title calls this a '20-DOF' hand, but the manual defines **10 active plus 10 passive joints**, and the modern ROS 2 driver exposes **10 controllable axes**. Do not send a 20-element motor vector.
 
-### Software and development resources
+## Software and development resources
 
 | Resource                                                                                                                              | Verified purpose                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
@@ -66,13 +133,13 @@ XT30 (2+2) **on the documented CAN connection**: pin 1 CAN L, 2 CAN H, 3 GND, 4 
 
 **Version constraint:** a current GitHub model entry does not certify a purchased RS485 variant for a CAN-only launch. Check model/device capabilities, firmware and the installed transport. Never run sample code that writes angles or torque as the first device check.
 
-### Getting started
+## Getting started
 
-#### Prerequisites
+### Prerequisites
 
 Physical hand and variant labeling; correct original or manufacturer-approved adapter; matching CAN/CAN FD/RS485 interface; secure fixture; model manual. For first read-only software use, a compatible Windows host utility or ROS 2 environment must be available as appropriate.
 
-#### First working result
+### First working result
 
 1. Following the OEM Windows CAN commissioning section, install the compatible **PEAK USB-to-CAN driver** if Windows, adjust `can_bridge_dashboard/config.toml` `can_interface` to the actual interface(s) (example `['can1']`), launch the supplied `can_bridge.exe`, then the matching `dashboard.exe` and open `http://localhost:9090`. Select the actual hand model, side and port; inspect **online/offline status without touching global control, sliders or preset actions**.
 2. Record current model, side, revision, bus, installed host utility/SDK commit and relevant status values. Do **not** command finger positions, resets, gains or torque until identity and safety are confirmed.
@@ -81,11 +148,11 @@ Physical hand and variant labeling; correct original or manufacturer-approved ad
 
 **If the check fails:** If the dashboard is inaccessible, check CAN bridge process/log (`can_bridge.log`), PEAK driver and interface names. On Windows the manual says restart the CAN bridge after device plug/unplug.
 
-#### Next safe experiment
+### Next safe experiment
 
 With device and software explicitly approved, log a sequence of **read-only** state observations and compare expected joint count/units, metadata validity and sample freshness. Motion/grasping is a separate supervised step after confirming range, direction, force and stop behavior.
 
-### Troubleshooting and FAQs
+## Troubleshooting and FAQs
 
 **A device appears but the reported joint count differs.** Confirm the exact model, model discovery, loaded SDK feature definition and **active DoF versus passive mechanical joints**. Do not pad/trim a control vector to guess joint mapping.
 
@@ -95,7 +162,7 @@ With device and software explicitly approved, log a sequence of **read-only** st
 
 **Can I assume tactile data is present?** Fingertip piezoresistive 6×12 array at 200 fps; optional ≥50 Hz capacitive sensor and optional visual-tactile module are NOT standard. Validate sensor options and returned data before relying on tactile feedback.
 
-### Downloads and technical documents
+## Downloads and technical documents
 
 | Resource                        | Scope and link                                                                                                                               |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -107,7 +174,7 @@ With device and software explicitly approved, log a sequence of **read-only** st
 
 **Physical drawings:** preserve the flange/connector images in the existing manual; do not recreate dimensioned pinout diagrams from photos.
 
-### References and validation
+## References and validation
 
 * LINKERBOT / Lingxin Qiaoshou, _L20 Lite Product Manual_, **V1.0 (2025-09-11)**, provided upload, reviewed 2026-11-21.
 * [Current official Linkerbot ROS 2 model matrix](https://github.com/linker-bot/linkerbot-hand-ros2-sdk/blob/main/linkerbot_hand_ros/docs/models.md), reviewed 2026-11-21.
@@ -115,23 +182,27 @@ With device and software explicitly approved, log a sequence of **read-only** st
 
 **Documentation review:** completed for provided revision; **software execution:** not run; **hardware test:** not run. Check the actual shipped interface and firmware before any actuator operation.
 
-### Original LINKERBOT L20 Lite Manufacturer Manual and Diagrams
+## Original LINKERBOT L20 Lite Manufacturer Manual and Diagrams
+
+{% hint style="info" %}
+The previously published manufacturer material and images below are retained. For the complete supplied revision **V1.0 · 2025-09-11**, use [Complete supplied L20 Lite manual — 19 PDF pages and downloads](source-library/complete-l20-lite.md). Earlier drawings/wording can differ; apply the revision and discrepancy notes above.
+{% endhint %}
 
 This section preserves the original LINKERBOT manufacturer manual text, technical tables, images and installation illustrations from the established product page.
 
-#### LINKERBOT Linker Hand L20 Lite 20-DOF Dexterous Robotic
+### LINKERBOT Linker Hand L20 Lite 20-DOF Dexterous Robotic
 
 {% embed url="https://openelab.io/products/linker-hand-linkerbot-l20-lite" %}
 
 ![Linker Hand L20 Lite](../../.gitbook/assets/l20-lite-cover.png)
 
-#### Revision History
+### Revision History
 
 | Version | Date       | Description                                              |
 | ------- | ---------- | -------------------------------------------------------- |
 | V1.0    | 2025-09-11 | First edition of the Linker Hand L20 Lite Product Manual |
 
-#### Safety Instructions
+### Safety Instructions
 
 Read this manual and all related manuals before installing or using the product. Observe the following precautions:
 
@@ -141,7 +212,7 @@ Read this manual and all related manuals before installing or using the product.
 4. Only trained personnel may operate the equipment. Do not open the housing, disassemble the device, or attempt unauthorized repairs. Contact after-sales support if the equipment malfunctions.
 5. Diagrams and photographs are illustrative and may differ from the purchased product. The manual may be revised as the product and its specifications are updated.
 
-#### Product Overview
+### Product Overview
 
 ![Linker Hand L20 Lite exterior view 1](../../.gitbook/assets/l20-lite-exterior-1.png)
 
@@ -163,7 +234,7 @@ Repeatability is specified as better than ±0.2 mm. CAN and RS485 industrial bus
 
 The worm-gear transmission provides a compact structure, high transmission ratio, self-locking capability, and smooth operation. The 800 g hand combines 10 actuated joints with 10 passive joints for complex motion and adaptive grasping.
 
-#### Product Functions
+### Product Functions
 
 **Position Control**
 
@@ -181,7 +252,7 @@ Fingertip sensors detect the force and torque applied by the fingers in real tim
 
 The dexterous-hand firmware can be updated from the host computer, allowing functional updates and performance optimization over the service life of the product.
 
-#### Dimensions, Joints, and Motion Range
+### Dimensions, Joints, and Motion Range
 
 **External Dimensions**
 
@@ -231,7 +302,7 @@ The following diagrams show the maximum mechanical ranges. The controller may ap
 | RF4 lateral swing toward LF |                11.7° |      44.17°/s |
 | LF4 lateral swing           |                17.2° |      64.93°/s |
 
-#### Technical Specifications
+### Technical Specifications
 
 **Basic Parameters**
 
@@ -259,7 +330,7 @@ The following diagrams show the maximum mechanical ranges. The controller may ap
 | Maximum fingertip force of each of the four fingers |          15 N |
 | Maximum five-finger gripping force                  |          80 N |
 
-#### Sensor System
+### Sensor System
 
 The fingertip sensor can detect the presence and distance of objects. After contact, it can capture three-dimensional force and identify surface texture and temperature changes.
 
@@ -292,7 +363,7 @@ The fingertip sensor can detect the presence and distance of objects. After cont
 
 Visual-tactile perception combines optical sensing with a deep-learning model. High-precision cameras observe deformation in a compliant material when force is applied. A miniature stereo-camera system records the changing surface mesh in real time, and a pre-trained model maps the object's depth information and motion trend.
 
-#### Installation and Commissioning
+### Installation and Commissioning
 
 **Accessory List**
 
@@ -333,7 +404,7 @@ The hand uses an XT30 (2+2) connector.
 |   3 | GND    |
 |   4 | 24 V   |
 
-#### Software Debugging
+### Software Debugging
 
 **Connect the Debugging Cable**
 
@@ -388,7 +459,7 @@ The Linker Hand L20 Lite host-computer software provides hand configuration, glo
 * **Predefined actions:** Configure actions such as fist, open hand, grasp, and number gestures, and create or control animations.
 * **Status monitoring:** View real-time device logs, hand status, and sensor data.
 
-#### Warranty and Service
+### Warranty and Service
 
 1. The product is covered by a 12-month limited warranty from the date of purchase.
 2. During the warranty period, failures caused by manufacturing or material defects are eligible for free repair or component replacement.
@@ -397,7 +468,7 @@ The Linker Hand L20 Lite host-computer software provides hand configuration, glo
 5. If the product malfunctions, contact official after-sales support. Do not disassemble the product yourself.
 6. Repair services outside the warranty period are chargeable.
 
-#### SDK and Technical Support
+### SDK and Technical Support
 
 * ROS SDK: [linkerhand-ros-sdk](https://github.com/linker-bot/linkerhand-ros-sdk)
 * ROS 2 SDK: [linkerhand-ros2-sdk](https://github.com/linker-bot/linkerhand-ros2-sdk)

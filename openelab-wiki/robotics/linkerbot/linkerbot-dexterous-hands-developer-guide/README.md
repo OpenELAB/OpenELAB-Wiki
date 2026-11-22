@@ -12,20 +12,22 @@ description: >-
 **Family:** LINKERBOT dexterous hands · **Seven manual models:** L6 / L20 Lite / L20 / L30 Standard / O6 / O20 / O30. O20 and O30 currently have **no verified OpenELAB .io product match**.
 {% endhint %}
 
-### Product overview
+[**Complete seven-manual library — all 137 original PDF pages and downloads**](../source-library/)
+
+## Product overview
 
 This series provides seven **model-specific engineering entry guides** for Linkerbot dexterous robotic hands, using the exact manufacturer product manuals supplied by OpenELAB. It also explains correct power selection, CAN versus CAN FD versus RS485, mounting, commissioning, ROS 2/Python SDK support, and bounded first tests.
 
 **The L series and O series are not electrically or mechanically interchangeable.** Some models have passive joints and fewer individually commanded DoF than physical joints; some have optional tactile sensors; some use unique multipin connectors. Consult the original [Linkerbot manual collection](../) for manufacturer diagrams.
 
-### Applications
+## Applications
 
 * Dexterous end-effector selection and mechanical integration for research robots.
 * Joint-control and tactile-data acquisition, with validity, timestamp and freshness checks.
 * Humanlike gestures and supervised grasp experiments after safe setup.
 * ROS 2/Python development with exact model, side, transport, firmware and SDK pairing.
 
-### Specifications
+## Specifications
 
 | Model (manual revision)                    | Controlled DoF / total joints                      | Bus; manual voltage                                               | Mass; closing time                       |
 | ------------------------------------------ | -------------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------- |
@@ -39,14 +41,14 @@ This series provides seven **model-specific engineering entry guides** for Linke
 
 Sources: the **seven supplied manuals**, product parameter and installation sections. Do not use these headline maximum-load values as a host robot's certified dynamic payload. The store title “L20 Lite 20-DOF” reflects 20 joints, whereas the manual and the newer ROS 2 model matrix describe **10 active joints**.
 
-#### Identity and evidence gaps
+### Identity and evidence gaps
 
 * Exact matched OpenELAB variant examples: **L6** `Linker-Hand-L6-1`; **L20 Lite** `Linker-Hand-L20-Lite-1`; **L20** `Linker-Hand-L20-1`; **L30 tendon** `Linker-Hand-L30-JQ1`; **O6** `Linker-Hand-O6-1`. A SKU identifies a **particular side/interface option**, not every variant.
 * **L30 Standard:** the OEM manual specifies **24 V / CAN FD**, while the matching storefront offers **12 V** in a comparison and CAN/RS485 choices. **Stop before powering or connecting this exact variant** until OEM/seller confirms matching power and transport. The separate **L30 direct-drive** item is not covered by the uploaded tendon-driven manual.
-* **O20 / O30:** valid OEM manuals were provided, but no matching products appeared in the connected OpenELAB .io catalog; these guides remain source-backed drafts with product URL/SKU unverified.
+* **O20 / O30:** valid OEM manuals were provided, but no matching products appeared in the connected OpenELAB .io catalog; these guides remain published manufacturer references with product URL/SKU unverified.
 * **O6:** the manual's latest interface options include CAN FD and EtherCAT, but the current store variants identified were CAN/RS485. Check the actually ordered interface.
 
-### Hardware and connections
+## Hardware and connections
 
 1. Read the label: **model, left/right side, exact variant, interface, serial/firmware**. Identify the supplied adapter and the correct physical mounting flange.
 2. Read the original **model-specific mechanical and connector diagrams**. L6/L20 Lite/L20/L30 manuals describe XT30 (2+2) CAN connections; **O20 and O30 use different connectors** that must not be wired by an XT30 pin diagram.
@@ -54,21 +56,21 @@ Sources: the **seven supplied manuals**, product parameter and installation sect
 4. Firmly mount the hand with the required screw diameter, penetration and clearance from the matching OEM drawing. Prevent finger trapping and confirm a physical or software stop/disconnect method before motion.
 5. For L30, carry out documentation-only inspection pending resolution of its power/transport mismatch. Never use a successful network discovery message as permission for actuator writes.
 
-### Software and development resources
+## Software and development resources
 
-| Source                                                                                                                       | Compatibility and use                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Linkerbot Hand ROS 2 SDK](https://github.com/linker-bot/linkerbot-hand-ros2-sdk)                                            | Current source documents **all seven models**; Humble / Ubuntu 22.04 or Jazzy / Ubuntu 24.04                                                                   |
-| [ROS 2 model differences](https://github.com/linker-bot/linkerbot-hand-ros2-sdk/blob/main/linkerbot_hand_ros/docs/models.md) | Active joint counts, CAN versus CAN FD and capability-specific methods                                                                                         |
-| [LinkerHand Python SDK](https://github.com/linker-bot/linkerhand-python-sdk)                                                 | Original Python tooling and model-specific bus examples                                                                                                        |
-| [Older ROS / ROS 2 SDKs](https://github.com/linker-bot/linkerhand-ros-sdk)                                                   | Manuals link these earlier repositories; check their exact support list before use                                                                             |
-| OEM host tools                                                                                                               | L20 Lite: `can\_bridge.exe` plus `dashboard.exe` on localhost:9090; O20: `020\_hand\_ui.exe`; O30: `O30\_hand\_ui.exe`; L30: `dexterous\_hand\_controller.exe` |
+| Source                                                                                                                       | Compatibility and use                                                                                                                                   |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Linkerbot Hand ROS 2 SDK](https://github.com/linker-bot/linkerbot-hand-ros2-sdk)                                            | Current source documents **all seven models**; Humble / Ubuntu 22.04 or Jazzy / Ubuntu 24.04                                                            |
+| [ROS 2 model differences](https://github.com/linker-bot/linkerbot-hand-ros2-sdk/blob/main/linkerbot_hand_ros/docs/models.md) | Active joint counts, CAN versus CAN FD and capability-specific methods                                                                                  |
+| [LinkerHand Python SDK](https://github.com/linker-bot/linkerhand-python-sdk)                                                 | Original Python tooling and model-specific bus examples                                                                                                 |
+| [Older ROS / ROS 2 SDKs](https://github.com/linker-bot/linkerhand-ros-sdk)                                                   | Manuals link these earlier repositories; check their exact support list before use                                                                      |
+| OEM host tools                                                                                                               | L20 Lite: `can_bridge.exe` plus `dashboard.exe` on localhost:9090; O20: `020_hand_ui.exe`; O30: `O30_hand_ui.exe`; L30: `dexterous_hand_controller.exe` |
 
 The new ROS 2 driver lists native CAN and CAN-FD endpoints. A sold **RS485** option must not be assumed compatible with a CAN-only launch configuration. Use actual SDK capability discovery and live-state validity flags.
 
-### Getting started
+## Getting started
 
-#### First working result — identify the hand and read state
+### First working result — identify the hand and read state
 
 1. Complete the exact model guide's **power, interface, mounting and manual checks**. For L30 or unverified O20/O30 SKU/electrical variants, stay at the documentation-only inventory stage.
 2. After the manufacturer's [ROS 2 SDK setup and adapter preparation](https://github.com/linker-bot/linkerbot-hand-ros2-sdk), the README documents:
@@ -87,21 +89,21 @@ ros2 topic echo --once --qos-reliability best_effort /linkerbot_hand/state/angle
 
 **Expected result:** one valid live angle observation matching the model's effective controlled joint count (6, 10, 16, 17 or 20). The commands shown do **not** send joint motion. **If no fresh sample arrives:** check actual bus/adapter, OS permissions, model-side identification and firmware, not a motion command.
 
-### consolidated product manuals and developer guides
+## consolidated product manuals and developer guides
 
-| Model                                                  | Engineering guide                                                              | Primary source                                                                  |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| **L6** — 6 active, 11 total joints                     | [L6 development guide](../linker-hand-l6-product-manual.md)                    | [L6 OEM manual](../linker-hand-l6-product-manual.md)                            |
-| **L20 Lite** — 10 active, 20 total joints              | [L20 Lite development guide](../linker-hand-l20-lite-product-manual.md)        | [L20 Lite OEM manual](../linker-hand-l20-lite-product-manual.md)                |
-| **L20** — 16 active, 21 total joints                   | [L20 development guide](../linker-hand-l20-product-manual.md)                  | [L20 OEM manual](../linker-hand-l20-product-manual.md)                          |
-| **L30 Standard (tendon)** — 17 active, 21 total joints | [L30 development guide](../linker-hand-l30-standard-edition-product-manual.md) | [L30 tendon OEM manual](../linker-hand-l30-standard-edition-product-manual.md)  |
-| **O6** — 6 active, 11 total joints                     | [O6 development guide](../linker-hand-o6-product-manual.md)                    | [O6 OEM manual](../linker-hand-o6-product-manual.md)                            |
-| **O20** — 16 active joints                             | [O20 development draft](../linker-hand-o20-development-guide.md)               | Supplied V1.2 manual; **store match and permanent download pending**            |
-| **O30** — 20 active joints                             | [O30 development draft](../linker-hand-o30-product-manual.md)                  | [O30 OEM manual](../linker-hand-o30-product-manual.md); **store match pending** |
+| Model                                                  | Engineering guide                                                              | Primary source                                                                                                    |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **L6** — 6 active, 11 total joints                     | [L6 development guide](../linker-hand-l6-product-manual.md)                    | [L6 OEM manual](../linker-hand-l6-product-manual.md)                                                              |
+| **L20 Lite** — 10 active, 20 total joints              | [L20 Lite development guide](../linker-hand-l20-lite-product-manual.md)        | [L20 Lite OEM manual](../linker-hand-l20-lite-product-manual.md)                                                  |
+| **L20** — 16 active, 21 total joints                   | [L20 development guide](../linker-hand-l20-product-manual.md)                  | [L20 OEM manual](../linker-hand-l20-product-manual.md)                                                            |
+| **L30 Standard (tendon)** — 17 active, 21 total joints | [L30 development guide](../linker-hand-l30-standard-edition-product-manual.md) | [L30 tendon OEM manual](../linker-hand-l30-standard-edition-product-manual.md)                                    |
+| **O6** — 6 active, 11 total joints                     | [O6 development guide](../linker-hand-o6-product-manual.md)                    | [O6 OEM manual](../linker-hand-o6-product-manual.md)                                                              |
+| **O20** — 16 active joints                             | [O20 development reference](../linker-hand-o20-development-guide.md)           | Supplied V1.2 manual; [Complete O20 manual and downloads; store match pending](../source-library/complete-o20.md) |
+| **O30** — 20 active joints                             | [O30 development reference](../linker-hand-o30-product-manual.md)              | [O30 OEM manual](../linker-hand-o30-product-manual.md); **store match pending**                                   |
 
 **Important:** These are not interchangeable products. L30's store/manual voltage and transport conflict blocks power-up instructions; O20 and O30 lack verified .io product SKU links.
 
-### Shared developer tutorials
+## Shared developer tutorials
 
 1. [**Power, flange and CAN/CAN-FD setup**](linkerbot-tutorial-1-hardware-and-buses.md) — approved adapter and wiring preflight, Linux bus settings.
 2. [**ROS 2 installation and read-only hand state**](linkerbot-tutorial-2-ros2-readonly-state.md) — driver build, identity/capability and live angle metadata.
@@ -110,7 +112,7 @@ ros2 topic echo --once --qos-reliability best_effort /linkerbot_hand/state/angle
 
 Proceed in this order: **identify variant → verify voltage/mount/bus → read device state → inspect tactile options → test bounded motion separately only after safety validation**.
 
-### Troubleshooting and FAQs
+## Troubleshooting and FAQs
 
 **Why does L20 Lite send 10 joint commands despite “20-DOF” in the listing?** Its manual distinguishes **20 physical joints, 10 active**. Passive joints should not be treated as independent actuators.
 
@@ -120,17 +122,37 @@ Proceed in this order: **identify variant → verify voltage/mount/bus → read 
 
 **How fast is tactile data?** It varies; O20's manual states **30 Hz tactile refresh**, which is different from its **1000 Hz bus communication**.
 
-### Downloads and technical documents
+## Downloads and technical documents
 
 * [Existing LINKERBOT manuals, drawings and installation references](../).
 * [Current seven-model ROS 2 SDK](https://github.com/linker-bot/linkerbot-hand-ros2-sdk) and [per-model feature guide](https://github.com/linker-bot/linkerbot-hand-ros2-sdk/blob/main/linkerbot_hand_ros/docs/models.md).
 * [Python SDK](https://github.com/linker-bot/linkerhand-python-sdk).
-* Uploaded **O20 V1.2 product manual** (not yet distributed as a permanent downloadable GitBook attachment).
+* [Complete uploaded O20 V1.2 manual and downloadable PDF parts](../source-library/complete-o20.md).
 
-### References and validation
+## References and validation
 
 * Seven original supplied LINKERBOT PDFs: L6 V1.4; L20 Lite V1.0; L20 V1.3; L30 Standard V1.3; O6 V1.4; O20 V1.2; O30 V1.0.
 * Connected OpenELAB .io product catalog, exact five matched product records and options, reviewed 2026-11-21.
 * [Current ROS 2 SDK README](https://github.com/linker-bot/linkerbot-hand-ros2-sdk), [models](https://github.com/linker-bot/linkerbot-hand-ros2-sdk/blob/main/linkerbot_hand_ros/docs/models.md), reviewed 2026-11-21.
 
 **Documentation reviewed:** manual text, diagrams and source documentation. **Software execution:** not run. **Hardware validation:** not run. **Before publishing powered integration instructions:** resolve L30 variant electrical conflict, O20/O30 store matches, and validate bus/firmware, actual joint data and stop behavior on a physical unit.
+
+## Complete source coverage and revision checkpoints
+
+| Model / revision                               | Complete supplied reference                            | Key interpretation                                          |
+| ---------------------------------------------- | ------------------------------------------------------ | ----------------------------------------------------------- |
+| L6 V1.4 · 2026-05-18                           | [15 PDF pages](../source-library/complete-l6.md)       | LED and speed-unit note                                     |
+| L20 Lite V1.0 · 2025-09-11                     | [19 PDF pages](../source-library/complete-l20-lite.md) | 10 active / 20 physical joints; optional sensor variants    |
+| L20 V1.3 · 2026-08-04                          | [14 PDF pages](../source-library/complete-l20.md)      | 24–48 V table / 24 V connector; V1.3 joint angles           |
+| L30 Standard (tendon-driven) V1.3 · 2025-10-27 | [17 PDF pages](../source-library/complete-l30.md)      | Tendon/wrist model; voltage, bus and rate conflicts         |
+| O6 V1.4 · 2026-07-21                           | [17 PDF pages](../source-library/complete-o6.md)       | Optional 4×10 tactile; actual protocol option               |
+| O20 V1.2 · 2026-06-05                          | [30 PDF pages](../source-library/complete-o20.md)      | 30 Hz tactile / 1000 Hz communication; unique connector     |
+| O30 V1.0 · 2026-07-10                          | [25 PDF pages](../source-library/complete-o30.md)      | 6×11 pressure array; unique connector and descriptor layout |
+
+### Source discrepancies and SDK generations
+
+The complete readers retain the original dimensional drawings, joint-range figures, connectors, optional sensor variants, Windows controls, service terms and SDK appendices. L6 has a questionable speed-unit label; L20 Lite differs in transmission/force wording; L20 has 0.9/0.98 s closing times and a 24 V connector beside a 24–48 V range; L30 has unresolved power/bus/rate differences; O20 has 20 kg rated versus 36 kg maximum-load entries; O30’s sensor range is pressure in N/cm². Read the model notes before selecting an integration parameter.
+
+The current MIT-licensed `linkerbot-hand-ros2-sdk` uses current Transport and `linkerbot-hand-python-sdk` sources. PDF appendices also point to older `linkerhand-ros-sdk`, `linkerhand-ros2-sdk` and `linkerhand-python-sdk` projects. Names and model availability differ; do not install one generation’s examples into another without checking the actual support guide.
+
+Current software reference: [ROS 2 source at `8d56b3355d2c`](https://github.com/linker-bot/linkerbot-hand-ros2-sdk/blob/8d56b3355d2cfcd90e4e3c6b377ebceb7a5c09ac/README.md), reviewed 22 November 2026. This is a documentation review; **software execution and hardware validation were not run**.
