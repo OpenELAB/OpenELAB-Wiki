@@ -1,7 +1,7 @@
 ---
 description: >-
-  Find model-specific development workflows for microcontrollers, Jetson edge
-  AI, voice, mesh radios, sensors, displays and robotics.
+  Model-specific development guides for microcontrollers, connected sensors,
+  displays, voice, mesh networking, edge AI and robotics interfaces.
 ---
 
 # AIoT Documentation
@@ -14,21 +14,25 @@ Browse 29 manufacturer and brand directories with 516 visible wiki pages beneath
 
 ## Engineering guides with complete first-result workflows
 
-Choose the exact model, kit and firmware before applying a related board's wiring. These expanded guides include commissioning steps, original examples, official diagrams, expected results and model-specific troubleshooting. Each guide states what was source-reviewed and what was actually tested.
+Choose the exact model, kit and firmware before applying a related board’s wiring. The guides below provide on-page procedures, original examples, official diagrams and observable checkpoints. Source review, software execution and physical testing are stated separately in each guide.
 
-| Development task                                             | Model-specific starting point                                                                                                                                                                                                              |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Bring up one PoE camera and isolated industrial interfaces   | [Seeed reServer Industrial J4012](seeed-studio/reserver-industrial-j4012-development-guide.md)                                                                                                                                             |
-| Establish a Super Jetson multimedia and CSI baseline         | [Seeed reComputer Super J4012](seeed-studio/recomputer-super-j4012-development-guide.md)                                                                                                                                                   |
-| Capture USB speech or develop a XIAO I2S voice application   | [Seeed reSpeaker XVF3800, four package variants](seeed-studio/respeaker-xvf3800-four-mic-development-guide.md)                                                                                                                             |
-| Calibrate an assembled leader/follower robot pair            | [Seeed SO-ARM101 Pro](seeed-studio/so-arm101-pro-development-guide.md)                                                                                                                                                                     |
-| Configure a solar repeater or portable mesh node             | [Solar Node P1-Pro](seeed-studio/sensecap-solar-node-p1-pro-development-guide.md), [Wio Tracker L1 Pro](seeed-studio/wio-tracker-l1-pro-development-guide.md), [MeshTracker X1](seeed-studio/sensecap-meshtracker-x1-development-guide.md) |
-| Match a Waveshare Orin NX kit to its actual carrier/BSP      | [16GB kit](waveshare/jetson-orin-nx-16gb-waveshare-development-guide.md), [8GB kit](waveshare/waveshare-jetson-orin-nx-8gb-development-guide.md)                                                                                           |
-| Program an ESP32 with correct pin names and recovery offsets | [ESP32-S3-ETH](waveshare/waveshare-esp32-s3-eth-development-guide.md), [ESP32-S3-Nano](waveshare/esp32-s3-nano-development-board.md)                                                                                                       |
-| Test modular M5Stack controller and sensor functions         | [ATOM Lite C008](m5stack/m5stack-atom-lite-esp32-iot-development-kit.md), [ENV-III U001-C](m5stack/m5stack-env-iii-unit-with-temperature-humidity-air-pressure-sensor.md)                                                                  |
-| Develop from the correct XIAO microcontroller family         | [Standard RP2040](seeed-studio/xiao-rp2040.md), [ESP32C3](seeed-studio/xiao-esp32-c3-wifi.md)                                                                                                                                              |
+| Development task                           | Model-specific starting point                                                            |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| Commission a PoE camera edge server        | [reServer Industrial J4012](seeed-studio/reserver-industrial-j4012-development-guide.md) |
+| Check Jetson multimedia and CSI            | [reComputer Super J4012](seeed-studio/recomputer-super-j4012-development-guide.md)       |
+| Capture speech and select USB/I2S firmware | [reSpeaker XVF3800](seeed-studio/respeaker-xvf3800-four-mic-development-guide.md)        |
+| Calibrate a leader/follower arm pair       | [SO-ARM101 Pro](seeed-studio/so-arm101-pro-development-guide.md)                         |
+| Deploy a solar repeater                    | [Solar Node P1-Pro](seeed-studio/sensecap-solar-node-p1-pro-development-guide.md)        |
+| Configure a portable mesh node             | [Wio Tracker L1 Pro](seeed-studio/wio-tracker-l1-pro-development-guide.md)               |
+| Program keyboard, display and shared buses | [M5Stack Cardputer-Adv](m5stack/cardputer-adv-k132-development-guide.md)                 |
+| Check isolated inputs and relay channels   | [Waveshare ESP32-S3 8DI8RO](waveshare/waveshare-esp32-s3-8di-8ro-development-guide.md)   |
+| Install and boot an NVMe SSD on Pi 5       | [Raspberry Pi official SSD](raspbeery-pi/raspberry-pi-official-ssd-development-guide.md) |
 
-See the [M5Stack](m5stack/), [Waveshare](waveshare/) and [Seeed Studio](seeed-studio/) directories for the complete existing model lists. Further detailed rewrites are progressing in batches.
+Additional exact-model workflows:
+
+* Compact controllers: [ATOM Lite button/RGB/IR](m5stack/m5stack-atom-lite-esp32-iot-development-kit.md) · [ESP32-S3-Nano GPIO and MicroPython](waveshare/esp32-s3-nano-development-board.md) · [XIAO ESP32C3 battery and radio](seeed-studio/xiao-esp32-c3-wifi.md).
+* Jetson kit options: [Waveshare Orin NX8GB](waveshare/waveshare-jetson-orin-nx-8gb-development-guide.md) · [Waveshare Orin NX16GB](waveshare/jetson-orin-nx-16gb-waveshare-development-guide.md).
+* Portable mesh position and alerts: [SenseCAP MeshTracker X1](seeed-studio/sensecap-meshtracker-x1-development-guide.md).
 
 ## Start here
 
@@ -53,7 +57,7 @@ Use the model guides alongside their official references for schematics, library
 
 ## Popular product guides
 
-| Product guide                                                                                                                   | Manufacturer                  |
+| Product guide                                                                                                                   | Manufacturer directory        |
 | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | [Seeed Studio reServer Industrial J4012 Development Guide](seeed-studio/reserver-industrial-j4012-development-guide.md)         | [Seeed Studio](seeed-studio/) |
 | [M5Stack StackChan K151 Development Guide](m5stack/stackchan-k151-development-guide.md)                                         | [M5Stack](m5stack/)           |
@@ -64,7 +68,7 @@ Use the model guides alongside their official references for schematics, library
 | [Seeed Studio reTerminal E1003 Development Guide](seeed-studio/reterminal-e1003-development-guide.md)                           | [Seeed Studio](seeed-studio/) |
 | [M5Stack StopWatch C152 Development Guide](m5stack/stopwatch-c152-development-guide.md)                                         | [M5Stack](m5stack/)           |
 
-Guide order follows our Top 200 net-sales snapshot for 17 August–17 November 2026. Guides shared by multiple variants appear once.
+Guide order follows the Top200 net-sales snapshot for 17 August–17 November 2026. Match model/SKU and read the guide’s stated validation limits.
 
 ## Manufacturer directory
 

@@ -1,7 +1,7 @@
 ---
 description: >-
-  Hardware manuals and integration references for robot perception, motion,
-  manipulation and mobile platforms.
+  Robot perception, motion, manipulation and mobile-platform manuals, with
+  model-specific commissioning, calibration, software and source references.
 ---
 
 # Robotics Documentation
@@ -10,7 +10,19 @@ description: >-
 
 Find manuals and engineering references for LiDAR, depth cameras, joint actuators, servos, dexterous hands, industrial and research arms, mobile robots and humanoid platforms. Begin with the manufacturer, then select the exact model and hardware/software revision.
 
-Browse 32 manufacturer and brand directories with 513 visible wiki pages beneath them. Coverage updated 22 November 2026.
+Browse 32 manufacturer and brand directories with 513 visible wiki pages beneath them. Coverage updated 24 November 2026.
+
+## Model-specific commissioning paths
+
+Use the exact power, mechanism and software revision before moving hardware. These guides stage communication and calibration before application control, and identify automatic startup/exit movement where it is implemented.
+
+| Development task                                                              | Guide                                                                               |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Calibrate an assembled leader/follower pair and inspect a local dataset       | [Seeed SO-ARM101 Pro](../aiot/seeed-studio/so-arm101-pro-development-guide.md)      |
+| Read a leader’s seven joint angles before connecting a follower               | [Seeed Star Arm 102](../aiot/seeed-studio/star-arm-102-leader-development-guide.md) |
+| Identify a DAMIAO follower bus and account for LeRobot startup/return motion  | [Seeed reBot B601-DM](../aiot/seeed-studio/rebot-b601-dm-development-guide.md)      |
+| Establish camera, UART and ROS2 control-publisher boundaries on a mobile base | [Waveshare UGV Beast](../aiot/waveshare/waveshare-ugv-beast-development-guide.md)   |
+| Develop a desktop character one subsystem at a time                           | [M5Stack StackChan](../aiot/m5stack/stackchan-k151-development-guide.md)            |
 
 ## Start here
 

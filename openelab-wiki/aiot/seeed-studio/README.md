@@ -1,8 +1,7 @@
 ---
 description: >-
-  Develop Seeed XIAO, Jetson, ReSpeaker and mesh hardware with exact model
-  selection, power, pinouts, first-result workflows, recovery and official
-  sources.
+  Develop Seeed XIAO, Jetson, reSpeaker, mesh, weather and robotics hardware
+  with model-specific power, pinouts, first-result workflows and recovery.
 layout:
   width: default
   title:
@@ -33,21 +32,22 @@ Seeed Studio develops hardware for sensing, connectivity, and edge computing. It
 
 ## Expanded engineering guides
 
-These guides provide on-page commissioning procedures, source-backed specifications, attributed diagrams and model-specific troubleshooting. Each page states its software and hardware test status.
+The following guides provide on-page commissioning procedures, model-specific electrical and software details, original examples, attributed diagrams and recovery checks. Each guide states its software and hardware test status.
 
-| Exact model or family                                                         | Development workflow                                                                            |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| [reServer Industrial J4012](reserver-industrial-j4012-development-guide.md)   | PoE camera power/networking, storage, isolated I/O, CAN, serial and carrier-specific recovery.  |
-| [reComputer Super J4012](recomputer-super-j4012-development-guide.md)         | Super power/BSP selection, external CAN transceiver, CSI and accelerated-video checks.          |
-| [reSpeaker XVF3800](respeaker-xvf3800-four-mic-development-guide.md)          | Four exact XIAO/case packages, USB capture, DSP routing, I2S clock roles and firmware recovery. |
-| [SO-ARM101 Pro assembled kit](so-arm101-pro-development-guide.md)             | Leader/follower supplies, calibration, bounded teleoperation and local dataset inspection.      |
-| [SenseCAP Solar Node P1-Pro](sensecap-solar-node-p1-pro-development-guide.md) | MeshCore versus Meshtastic, solar/battery commissioning and two-way radio verification.         |
-| [Wio Tracker L1 Pro](wio-tracker-l1-pro-development-guide.md)                 | Exact mesh ecosystem, serial inventory, a private reply, Grove sensors and bootloader recovery. |
-| [SenseCAP MeshTracker X1](sensecap-meshtracker-x1-development-guide.md)       | Meshtastic position, alerts, bounded receive logging and USB DFU.                               |
-| [Standard XIAO RP2040](xiao-rp2040.md)                                        | Correct LED, ADC, I2C/SPI/UART examples and language/RTOS workflows.                            |
-| [XIAO ESP32C3](xiao-esp32-c3-wifi.md)                                         | Battery, sleep, ADC, USB/UART, Wi-Fi/BLE and framework-specific bring-up.                       |
+| Exact model or family                                                                 | Development workflow                                                                           |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| [reServer Industrial J4012](reserver-industrial-j4012-development-guide.md)           | PoE cameras, NVMe/SATA, isolated I/O, serial/CAN and carrier-specific recovery.                |
+| [reComputer Super J4012](recomputer-super-j4012-development-guide.md)                 | Super power/BSP selection, external CAN transceiver, CSI and accelerated-video checks.         |
+| [reSpeaker XVF3800](respeaker-xvf3800-four-mic-development-guide.md)                  | Four XIAO/case packages, USB capture, DSP routing, I2S clock roles and recovery.               |
+| [reSpeaker Flex](respeaker-flex-xvf3800-development-guide.md)                         | Circular/linear arrays, FPC orientation, USB/I2S and exact Flex host routing.                  |
+| [reSpeaker Lite](respeaker-lite-voice-kit-development-guide.md)                       | Bare-board versus voice kit, sample profiles, XIAO audio and firmware selection.               |
+| [SO-ARM101 Pro assembled kit](so-arm101-pro-development-guide.md)                     | Separate leader/follower supplies, calibration, bounded teleoperation and local data checks.   |
+| [SenseCAP Solar Node P1-Pro](sensecap-solar-node-p1-pro-development-guide.md)         | MeshCore versus Meshtastic, solar/battery commissioning and two-way packet verification.       |
+| [reComputer Industrial R2245-12](recomputer-industrial-r2245-12-development-guide.md) | CM5/Hailo bring-up, exact terminal map and explicitly excluded unresolved optional operations. |
+| [Standard XIAO RP2040](xiao-rp2040.md)                                                | LED, ADC, I2C/SPI/UART and language/RTOS workflows.                                            |
+| [XIAO ESP32C3](xiao-esp32-c3-wifi.md)                                                 | Battery, sleep, ADC, USB/UART, Wi-Fi/BLE and framework-specific bring-up.                      |
 
-The [XIAO ESP32C3 hardware reference](xiao-esp32c3-risc-v-wi-fi-ble-5.0.md) supplements the main guide for the same SKU; it is not an additional product.
+The [XIAO ESP32C3 hardware reference](xiao-esp32c3-risc-v-wi-fi-ble-5.0.md) supplements its main guide for the same SKU; it is not another product.
 
 ## Develop from the exact Seeed platform
 
@@ -57,47 +57,47 @@ The [main standard XIAO RP2040 guide](xiao-rp2040.md) separates RP2040 from RP20
 
 ### Popular product guides
 
-Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
+Products from the 17 August–17 November 2026 Top200 net-sales list, in the supplied order. Shared guides appear once; match the exact SKU and option before using a procedure.
 
-| Product guide                                                                                                                | Models / order codes                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| [Seeed Studio reServer Industrial J4012 Development Guide](reserver-industrial-j4012-development-guide.md)                   | Seeed-114110247                                                       |
-| [Seeed Studio reComputer Super J4012 Development Guide](recomputer-super-j4012-development-guide.md)                         | Seeed-114110314                                                       |
-| [Seeed Studio reSpeaker XVF3800 Four-Mic Array Development Guide](respeaker-xvf3800-four-mic-development-guide.md)           | Seeed-114993702 · Seeed-101991441 · Seeed-114993700 · Seeed-114993701 |
-| [Seeed Studio SO-ARM101 Pro Development Guide](so-arm101-pro-development-guide.md)                                           | Seeed-100046482                                                       |
-| [Seeed Studio reTerminal E1004 Development Guide](reterminal-e1004-development-guide.md)                                     | Seeed-100064156                                                       |
-| [Seeed Studio reTerminal E1003 Development Guide](reterminal-e1003-development-guide.md)                                     | Seeed-100090602                                                       |
-| [Seeed Studio SenseCAP Solar Node P1-Pro Development Guide](sensecap-solar-node-p1-pro-development-guide.md)                 | Seeed-100023690 · Seeed-114993633                                     |
-| [Seeed Studio reTerminal E1002 Development Guide](reterminal-e1002-development-guide.md)                                     | Seeed-100017057                                                       |
-| [Seeed Studio reBot Arm B601-RS Development Guide](rebot-b601-rs-development-guide.md)                                       | Seeed-100019336                                                       |
-| [Seeed Studio reTerminal E1001 Development Guide](reterminal-e1001-development-guide.md)                                     | Seeed-100073581                                                       |
-| [Seeed Studio reComputer Robotics J5011 GMSL Development Guide](recomputer-robotics-j5011-gmsl-development-guide.md)         | Seeed-100076722                                                       |
-| [Seeed Studio reComputer J4012 Development Guide](recomputer-j4012-original-development-guide.md)                            | Seeed-110110145                                                       |
-| [Seeed Studio reTerminal Sticky Development Guide](reterminal-sticky-development-guide.md)                                   | Seeed-100056818                                                       |
-| [Seeed Studio Wio Tracker L1 Pro Development Guide](wio-tracker-l1-pro-development-guide.md)                                 | Seeed-100030144 · Seeed-114993649                                     |
-| [Seeed Studio TRMNL 7.5-inch OG DIY Kit Development Guide](trmnl-75-og-diy-kit-development-guide.md)                         | Seeed-104991005                                                       |
-| [Seeed Studio SenseCAP MeshTracker X1 Development Guide](sensecap-meshtracker-x1-development-guide.md)                       | Seeed-100093876                                                       |
-| [Seeed Studio reComputer Classic J5012 Development Guide](recomputer-classic-j5012-development-guide.md)                     | Seeed-100003716                                                       |
-| [SenseCAP Card Tracker T1000-E for Meshtastic](sensecap-card-tracker-t1000-e-for-meshtastic.md)                              | Seeed-114993369                                                       |
-| [Seeed Studio reComputer Robotics J4012 Development Guide](recomputer-robotics-j4012-development-guide.md)                   | Seeed-114110310 · Seeed-100026552                                     |
-| [Seeed Studio Star Arm 102 Leader Arm Development Guide](star-arm-102-leader-development-guide.md)                           | Seeed-100004723                                                       |
-| [Seeed Studio Spectra 6 Panels and XIAO ePaper Kit Development Guide](spectra-6-panels-xiao-epaper-development-guide.md)     | Seeed-100088646 · Seeed-100064541 · Seeed-E25102101                   |
-| [Seeed Studio XIAO nRF52840 and Wio-SX1262 Kit Development Guide](xiao-nrf52840-wio-sx1262-development-guide.md)             | Seeed-102010710                                                       |
-| [Seeed Studio reSpeaker Flex XVF3800 Development Guide](respeaker-flex-xvf3800-development-guide.md)                         | Seeed-100070894 · Seeed-100099135 · Seeed-100005504 · Seeed-100026178 |
-| [Seeed Studio SenseCAP ONE S700-A and S500 V2 Engineering Guide](sensecap-one-s700a-s500-v2-development-guide.md)            | Seeed-101991050 · Seeed-101991021                                     |
-| [Seeed Studio SenseCAP S2120 LoRaWAN Weather Sensor Engineering Guide](sensecap-s2120-development-guide.md)                  | Seeed-101990961                                                       |
-| [Seeed Studio reSpeaker Lite and Voice Assistant Kit Development Guide](respeaker-lite-voice-kit-development-guide.md)       | Seeed-110061601 · Seeed-E24072601                                     |
-| [Seeed Studio reCamera Pro 2GB Engineering Guide](recamera-pro-2gb-development-guide.md)                                     | Seeed-100092895                                                       |
-| [XIAO ESP32S3 & Wio-SX1262 Kit for Meshtastic](xiao-esp32s3-and-wio-sx1262-kit-for-meshtastic.md)                            | Seeed-102010611                                                       |
-| [Seeed Studio reBot Arm B601-DM Engineering Guide](rebot-b601-dm-development-guide.md)                                       | Seeed-100065783                                                       |
-| [Seeed Studio reComputer Industrial R2245-12 Engineering Guide](recomputer-industrial-r2245-12-development-guide.md)         | Seeed-100077451                                                       |
-| [Seeed Studio reComputer R1024 R1025 and R1126 Engineering Guide](recomputer-r1024-r1025-r1126-development-guide.md)         | Seeed-113991274 · Seeed-100040889 · Seeed-113991294                   |
-| [Seeed Studio XIAO Smart IR Mate Development Guide](xiao-smart-ir-mate-development-guide.md)                                 | Seeed-109990586                                                       |
-| [Seeed Hazard Response Mission Pack: system inventory and first integration](hazard-response-mission-pack.md)                | Seeed-E24101801                                                       |
-| [Seeed Studio Semtech LR2021 LoRa Plus Evaluation Kit Development Guide](semtech-lr2021-evaluation-kit-development-guide.md) | Seeed-100039980                                                       |
-| [Seeed Studio reComputer J3011 Orin Nano 8GB Engineering Guide](recomputer-j3011-orin-nano-8gb-development-guide.md)         | Seeed-110110147                                                       |
-| [Seeed SO-101 Pro Servo Motor Kit: assembly and role configuration](so101-pro-servo-motor-kit.md)                            | Seeed-114993667                                                       |
-| [Seeed Studio XIAO ESP32-C5 Development Guide](xiao-esp32-c5-development-guide.md)                                           | Seeed-100010048                                                       |
+| Product guide                                                                                                             | Models / order codes                                                  |
+| ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [Seeed Studio reServer Industrial J4012 Development Guide](reserver-industrial-j4012-development-guide.md)                | Seeed-114110247                                                       |
+| [Seeed Studio reComputer Super J4012 Development Guide](recomputer-super-j4012-development-guide.md)                      | Seeed-114110314                                                       |
+| [Seeed Studio reSpeaker XVF3800 Four-Mic Array Development Guide](respeaker-xvf3800-four-mic-development-guide.md)        | Seeed-114993702 · Seeed-101991441 · Seeed-114993700 · Seeed-114993701 |
+| [Seeed Studio SO-ARM101 Pro Development Guide](so-arm101-pro-development-guide.md)                                        | Seeed-100046482                                                       |
+| [Seeed Studio reTerminal E1004 Development Guide](reterminal-e1004-development-guide.md)                                  | Seeed-100064156                                                       |
+| [Seeed Studio reTerminal E1003 Development Guide](reterminal-e1003-development-guide.md)                                  | Seeed-100090602                                                       |
+| [Seeed Studio SenseCAP Solar Node P1-Pro for MeshCore](sensecap-solar-node-p1-pro-development-guide.md)                   | Seeed-100023690 · Seeed-114993633                                     |
+| [Seeed Studio reTerminal E1002 Development Guide](reterminal-e1002-development-guide.md)                                  | Seeed-100017057                                                       |
+| [Seeed Studio reBot Arm B601-RS Development Guide](rebot-b601-rs-development-guide.md)                                    | Seeed-100019336                                                       |
+| [Seeed Studio reTerminal E1001 Development Guide](reterminal-e1001-development-guide.md)                                  | Seeed-100073581                                                       |
+| [Seeed Studio reComputer Robotics J5011 GMSL Development Guide](recomputer-robotics-j5011-gmsl-development-guide.md)      | Seeed-100076722                                                       |
+| [Seeed Studio reComputer J4012 Development Guide](recomputer-j4012-original-development-guide.md)                         | Seeed-110110145                                                       |
+| [Seeed Studio reTerminal Sticky Development Guide](reterminal-sticky-development-guide.md)                                | Seeed-100056818                                                       |
+| [Seeed Studio Wio Tracker L1 Pro – Meshtastic LoRa GPS Node](wio-tracker-l1-pro-development-guide.md)                     | Seeed-100030144 · Seeed-114993649                                     |
+| [Seeed Studio TRMNL 7.5-inch OG DIY Kit Development Guide](trmnl-75-og-diy-kit-development-guide.md)                      | Seeed-104991005                                                       |
+| [Seeed Studio SenseCAP MeshTracker X1 for Meshtastic](sensecap-meshtracker-x1-development-guide.md)                       | Seeed-100093876                                                       |
+| [Seeed Studio reComputer Classic J5012 Development Guide](recomputer-classic-j5012-development-guide.md)                  | Seeed-100003716                                                       |
+| [Seeed Studio SenseCAP Card Tracker T1000-E for Meshtastic GPS IP65](sensecap-card-tracker-t1000-e-for-meshtastic.md)     | Seeed-114993369                                                       |
+| [Seeed Studio reComputer Robotics J4012 Development Guide](recomputer-robotics-j4012-development-guide.md)                | Seeed-114110310 · Seeed-100026552                                     |
+| [Seeed Studio Star Arm 102 Leader Arm Development Guide](star-arm-102-leader-development-guide.md)                        | Seeed-100004723                                                       |
+| [Seeed Studio Spectra 6 Panels and XIAO ePaper Kit Development Guide](spectra-6-panels-xiao-epaper-development-guide.md)  | Seeed-100088646 · Seeed-100064541 · Seeed-E25102101                   |
+| [Seeed Studio XIAO nRF52840 & Wio-SX1262 Kit for Meshtastic](xiao-nrf52840-wio-sx1262-development-guide.md)               | Seeed-102010710                                                       |
+| [Seeed Studio reSpeaker Flex XVF3800 Development Guide](respeaker-flex-xvf3800-development-guide.md)                      | Seeed-100070894 · Seeed-100099135 · Seeed-100005504 · Seeed-100026178 |
+| [Seeed Studio SenseCAP S700-A 7-in-1 Compact Weather Station-Radar Rain](sensecap-one-s700a-s500-v2-development-guide.md) | Seeed-101991050 · Seeed-101991021                                     |
+| [Seeed Studio SenseCAP S2120 8-in-1 LoRaWAN Weather Sensor](sensecap-s2120-development-guide.md)                          | Seeed-101990961                                                       |
+| [Seeed Studio reSpeaker Lite and Voice Assistant Kit Development Guide](respeaker-lite-voice-kit-development-guide.md)    | Seeed-110061601 · Seeed-E24072601                                     |
+| [Seeed Studio reCamera Pro 2GB Engineering Guide](recamera-pro-2gb-development-guide.md)                                  | Seeed-100092895                                                       |
+| [Seeed Studio XIAO ESP32S3 & Wio-SX1262 Kit for Meshtastic](xiao-esp32s3-and-wio-sx1262-kit-for-meshtastic.md)            | Seeed-102010611                                                       |
+| [Seeed Studio reBot Arm B601-DM Engineering Guide](rebot-b601-dm-development-guide.md)                                    | Seeed-100065783                                                       |
+| [Seeed Studio reComputer Industrial R2245-12 Engineering Guide](recomputer-industrial-r2245-12-development-guide.md)      | Seeed-100077451                                                       |
+| [Seeed Studio reComputer R1024 R1025 and R1126 Engineering Guide](recomputer-r1024-r1025-r1126-development-guide.md)      | Seeed-113991274 · Seeed-100040889 · Seeed-113991294                   |
+| [Seeed Studio XIAO Smart IR Mate Development Guide](xiao-smart-ir-mate-development-guide.md)                              | Seeed-109990586                                                       |
+| [Seeed Studio Hazard Response Mission Pack All-in-one Compact Kit Meshtastic](hazard-response-mission-pack.md)            | Seeed-E24101801                                                       |
+| [Seeed Studio Semtech LR2021 LoRa Plus Evaluation Kit](semtech-lr2021-evaluation-kit-development-guide.md)                | Seeed-100039980                                                       |
+| [Seeed Studio reComputer J3011 Orin Nano 8GB Engineering Guide](recomputer-j3011-orin-nano-8gb-development-guide.md)      | Seeed-110110147                                                       |
+| [Seeed SO-101 Pro Servo Motor Kit: assembly and role configuration](so101-pro-servo-motor-kit.md)                         | Seeed-114993667                                                       |
+| [Seeed Studio XIAO ESP32-C5 Development Guide](xiao-esp32-c5-development-guide.md)                                        | Seeed-100010048                                                       |
 
 ### Product range
 

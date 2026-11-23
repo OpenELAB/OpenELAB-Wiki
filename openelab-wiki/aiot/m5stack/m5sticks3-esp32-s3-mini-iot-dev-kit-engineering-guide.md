@@ -1,16 +1,20 @@
+---
+description: >-
+  Power, connector allocation, firmware setup, original first-result procedures
+  and recovery for M5Stack StickS3 K150.
+---
+
 # M5StickS3 ESP32-S3 Mini IoT Dev Kit Engineering Guide
 
 {% hint style="info" %}
-[**View M5Stack M5StickS3 K150 on OpenELAB**](https://openelab.io/products/m5sticks3-esp32s3-mini-iot-dev-kit)
+[**View M5Stack StickS3 K150 on OpenELAB**](https://openelab.io/products/m5sticks3-esp32s3-mini-iot-dev-kit)
 
-**Covered model:** M5Stack M5StickS3 K150 · **OpenELAB SKU:** `M5-K150`
+**Model:** StickS3 K150 · **SKU:** `M5-K150`
 {% endhint %}
 
+## Product overview <a href="#m5sticks3-esp32-s3-mini-iot-dev-kit-engineering-guide" id="m5sticks3-esp32-s3-mini-iot-dev-kit-engineering-guide"></a>
+
 <a href="https://openelab.io/products/m5sticks3-esp32s3-mini-iot-dev-kit" class="button primary">Product link: M5StickS3 ESP32S3 Mini IoT Dev Kit on OpenELAB</a>
-
-## M5StickS3 ESP32-S3 Mini IoT Dev Kit Engineering Guide
-
-The M5StickS3 is a compact ESP32-S3 programmable controller from M5Stack for handheld IoT control, smart home interfaces, voice interaction, infrared remote control, sensor gateways, and portable prototyping. It combines an ESP32-S3-PICO-1-N8R8 module, 1.14 inch LCD, BMI270 6-axis IMU, microphone, speaker, IR transmitter and receiver, battery, Grove port, and Hat2-Bus expansion in a 48.0 x 24.0 x 15.0 mm enclosure. This guide collects the practical engineering details needed to evaluate, power, program, and integrate the M5StickS3 into real projects.
 
 ### Quick Summary
 
@@ -26,6 +30,19 @@ The M5StickS3 is a compact ESP32-S3 programmable controller from M5Stack for han
 The M5StickS3 is a self-contained mini development kit rather than a bare ESP32-S3 module. Engineers get a ready-to-use enclosure, display, power management, battery, audio, IMU, IR, and expansion connectors, which reduces wiring work for early prototypes. Compared with a generic ESP32-S3 board, the engineering value is the integrated human-machine interface and M5Stack software ecosystem: Arduino with M5Unified/M5GFX, UiFlow2, ESP-IDF, PlatformIO, and example applications.
 
 Because the board is small and battery powered, it is especially useful when the project needs local status display, simple buttons, motion sensing, voice/audio interaction, or IR control in a handheld form factor. For permanent industrial installations, validate operating temperature, Grove current, enclosure mounting, power source, and RF environment before deployment.
+
+## Applications
+
+### Project References and Application Ideas
+
+* [M5Stack Xiaozhi Voice Assistant for StickS3](https://docs.m5stack.com/en/guide/realtime/xiaozhi/sticks3): official example showing the StickS3 as a compact Wi-Fi voice interaction device with microphone, speaker, and display.
+* [M5Stack ESP-Claw Firmware Flashing for StickS3](https://docs.m5stack.com/en/guide/agent/esp_claw/sticks3): official agent/firmware workflow for turning the StickS3 into a compact interactive controller.
+* [openbrt/omniremote](https://github.com/openbrt/omniremote): community project using M5StickS3 as a Wi-Fi/IR air-conditioner remote and local smart-home controller.
+* [openbrt/voxstick](https://github.com/openbrt/voxstick): community project using StickS3 as a USB push-to-talk dictation stick with microphone, HID keyboard behavior, and IMU-based auto-mute ideas.
+* [Saqoosha/HDZap](https://github.com/Saqoosha/HDZap): community reference for using M5StickS3 as a BLE and ESP-NOW bridge in an FPV timing/OSD workflow.
+* [steveruizok/chat-stick](https://github.com/steveruizok/chat-stick): community live-chat experiment for M5StickS3 that demonstrates a small-screen connected interaction pattern.
+
+## Specifications
 
 ### Key Specifications
 
@@ -45,6 +62,8 @@ Because the board is small and battery powered, it is especially useful when the
 | Operating temperature | 0 to 40 C                                                                                 | Not specified for harsh outdoor or high-temperature industrial environments.                     |
 | Dimensions            | 48.0 x 24.0 x 15.0 mm                                                                     | Use the official model-size PDF for enclosure, mount, and panel design.                          |
 | Weight                | 20.0 g                                                                                    | Light enough for handheld, wearable-style, and mobile robot accessory use.                       |
+
+## Hardware and connections
 
 ### Hardware Architecture
 
@@ -76,6 +95,22 @@ Because the board is small and battery powered, it is especially useful when the
 * **Battery audio has a practical limit.** M5Stack recommends keeping speaker volume below 75% when USB is not connected to avoid unexpected reboots from excessive power draw.
 * **IR receive and speaker amplifier conflict.** Turn off the speaker amplifier before receiving IR signals.
 * **For production enclosures:** review thermal path, speaker opening, microphone opening, USB access, reset/power button access, RF clearance, and magnet mounting force.
+
+### Exact StickS3 routing
+
+| Function                    | Connection                                                    |
+| --------------------------- | ------------------------------------------------------------- |
+| Internal I2C                | SDA47 / SCL48; BMI2700x68, M5PM10x6E, ES83110x18              |
+| Screen                      | ST7789P3;135×240                                              |
+| User buttons                | GPIO11 /12                                                    |
+| IR                          | TX46 / RX42                                                   |
+| Grove yellow / white        | GPIO9 /10; black GND, red configurable5V rail                 |
+| Codec                       | MCLK18, DOUT14, BCLK17, LRCK15, DIN16                         |
+| PMIC-controlled peripherals | M5PM1 PYG2 L3B rail, PYG3 speaker control, PYG4 IMU interrupt |
+
+The Grove/EXT\_5V rail defaults to **input** mode. In output mode, power the system only through USB or the dedicated Hat2 **5VIN**; do not feed another5V supply into an output-enabled Grove/EXT\_5V rail. The reported maximum Grove load point is4.88V at0.38A, not an unlimited5V supply. Hat Mini JoyC U156, Hat Mini EncoderC U157 and Hat18650C U080 are structurally incompatible. [Exact power and fit notes](https://docs.m5stack.com/en/core/StickS3).
+
+## Software and development resources
 
 ### Software Development Workflow
 
@@ -109,26 +144,9 @@ lib_deps =
     M5PM1=https://github.com/m5stack/M5PM1
 ```
 
-### Official Resources and Downloads
+For Arduino choose **M5StickS3**, M5Unified and M5GFX; add M5PM1 for explicit power work. The official first demonstration is **ScrollGraph**. The documented PlatformIO baseline uses espressif32@6.12.0,8MB partitions and qio\_opi PSRAM; do not change it to a Quad-PSRAM CoreS3 profile. [Current Arduino route](https://docs.m5stack.com/en/arduino/m5sticks3/program).
 
-| Resource                            | Use                                                                         | Link                                                                                                                                    |
-| ----------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| OpenELAB product page               | Purchase and listing details                                                | [M5StickS3 on OpenELAB](https://openelab.io/products/m5sticks3-esp32s3-mini-iot-dev-kit)                                                |
-| M5Stack StickS3 documentation       | Official specifications, notices, pin map, quick starts, and software links | [M5Stack StickS3 docs](https://docs.m5stack.com/en/core/StickS3)                                                                        |
-| StickS3 schematic                   | Electrical design, connector reference, power path, and subsystem review    | [StickS3 Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/K150_Stick_S3_PRJ_V0.6_20251111_2025_11_17_16_10_24.pdf) |
-| StickS3 model size drawing          | Mechanical integration and enclosure planning                               | [StickS3 Model Size PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/K150-sticks3.pdf)                                        |
-| ESP32-S3 technical reference manual | SoC peripherals, memory, timers, Wi-Fi/Bluetooth platform details           | [ESP32-S3 TRM](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/477/esp32-s3_technical_reference_manual_en.pdf)                         |
-| ES8311 datasheet                    | Audio codec integration reference                                           | [ES8311 PDF](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/atom/Atomic%20Echo%20Base/ES8311.pdf)                  |
-| BMI270 datasheet                    | IMU behavior, registers, motion features, and sensor limits                 | [BMI270 PDF](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/BMI270.PDF)                        |
-| M5PM1 datasheet                     | Power management behavior and registers                                     | [M5PM1 Power Management Chip](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/M5PM1_Datasheet_EN.pdf)                             |
-| Arduino quick start                 | First C++ firmware workflow                                                 | [StickS3 Arduino Quick Start](https://docs.m5stack.com/en/arduino/m5sticks3/program)                                                    |
-| UiFlow2 quick start                 | Visual programming and rapid prototype workflow                             | [StickS3 UiFlow2 Quick Start](https://docs.m5stack.com/en/uiflow2/sticks3/program)                                                      |
-| M5PM1 Arduino guide                 | Battery and power output control                                            | [StickS3 M5PM1 Power Management](https://docs.m5stack.com/en/arduino/m5sticks3/m5pm1)                                                   |
-| M5Unified                           | Unified Arduino driver layer for M5Stack devices                            | [m5stack/M5Unified](https://github.com/m5stack/M5Unified)                                                                               |
-| M5GFX                               | Display graphics library                                                    | [m5stack/M5GFX](https://github.com/m5stack/M5GFX)                                                                                       |
-| M5PM1 library                       | Arduino power-management library                                            | [m5stack/M5PM1](https://github.com/m5stack/M5PM1)                                                                                       |
-| ESP-Claw firmware flashing          | Official flashing workflow for the ESP-Claw agent example                   | [StickS3 ESP-Claw Firmware Flashing](https://docs.m5stack.com/en/guide/agent/esp_claw/sticks3)                                          |
-| Xiaozhi voice assistant             | Official voice-assistant application guide                                  | [StickS3 Xiaozhi Voice Assistant](https://docs.m5stack.com/en/guide/realtime/xiaozhi/sticks3)                                           |
+## Getting started
 
 ### Bring-Up Checklist
 
@@ -149,14 +167,45 @@ lib_deps =
 * **Design around the 0 to 40 C rating.** For outdoor, vehicle, or industrial use, validate temperature and enclosure heating.
 * **Use the schematic before attaching custom hats.** The expansion bus exposes useful power rails, but wrong power direction can damage the device.
 
-### Project References and Application Ideas
+### Original local button counter
 
-* [M5Stack Xiaozhi Voice Assistant for StickS3](https://docs.m5stack.com/en/guide/realtime/xiaozhi/sticks3): official example showing the StickS3 as a compact Wi-Fi voice interaction device with microphone, speaker, and display.
-* [M5Stack ESP-Claw Firmware Flashing for StickS3](https://docs.m5stack.com/en/guide/agent/esp_claw/sticks3): official agent/firmware workflow for turning the StickS3 into a compact interactive controller.
-* [openbrt/omniremote](https://github.com/openbrt/omniremote): community project using M5StickS3 as a Wi-Fi/IR air-conditioner remote and local smart-home controller.
-* [openbrt/voxstick](https://github.com/openbrt/voxstick): community project using StickS3 as a USB push-to-talk dictation stick with microphone, HID keyboard behavior, and IMU-based auto-mute ideas.
-* [Saqoosha/HDZap](https://github.com/Saqoosha/HDZap): community reference for using M5StickS3 as a BLE and ESP-NOW bridge in an FPV timing/OSD workflow.
-* [steveruizok/chat-stick](https://github.com/steveruizok/chat-stick): community live-chat experiment for M5StickS3 that demonstrates a small-screen connected interaction pattern.
+After the stock display example works, replace it with this original sketch. It uses the model's M5Unified initialization, not raw display wiring. Select the exact target listed above, then upload with external wiring disconnected.
+
+```cpp
+#include <M5Unified.h>
+unsigned presses = 0;
+void setup() {
+  M5.begin();
+  Serial.begin(115200);
+  M5.Display.fillScreen(TFT_BLACK);
+  M5.Display.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Display.setTextSize(2);
+  M5.Display.setCursor(8, 12);
+  M5.Display.println("Input check");
+}
+void loop() {
+  M5.update();
+  if (M5.BtnA.wasPressed()) {
+    Serial.printf("presses=%u\n", ++presses);
+    M5.Display.fillRect(8, 44, M5.Display.width()-16, 32, TFT_BLACK);
+    M5.Display.setCursor(8, 44);
+    M5.Display.printf("%u", presses);
+  }
+  delay(5);
+}
+```
+
+Expected result is an increasing count on the screen and at 115200 baud for each model-mapped A-button press. Holding the button is not intended to generate continuous counts. A count lost after reboot is normal: this example keeps no persistent state. Keep the loop responsive before adding an animation, network request or sensor transaction. Source API: [M5Unified](https://github.com/m5stack/M5Unified); source-reviewed, not compiled or run.
+
+### Audio, IR and power commissioning
+
+Play one moderate tone with M5Unified before adding microphone capture. Check the ES8311 clock/rate and speaker rail when only one direction works. For IR, use a known compatible receiver and one deliberate user-triggered frame on46, then a separate receive test on42; the speaker and receiver do not share an application protocol. For the IMU, record stationary acceleration and one axis rotation before adding orientation filtering.
+
+Use [M5PM1 layer control](https://docs.m5stack.com/en/arduino/m5sticks3/m5pm1) to plan L1/L2/L3A/L3B transitions. Record supply path and enabled rails when measuring sleep: the manufacturer reports14.02µA power-off,52.47µA L1 and102.40µA L2 at4.2V, with much higher active-state consumption. These are vendor state measurements, not measured battery-life results for this program. Configure one wake source and confirm wake before switching off another rail.
+
+UiFlow2 uses the StickS3 firmware and controller selection, USB WebTerminal or the current Access Code. Run Once tests temporarily; Run Always plus a restart establishes autonomous operation. Voice/ESP-Claw packages are separate applications; verify their backend/account requirements after local display and audio. Use current [StickS3 XiaoZhi](https://docs.m5stack.com/en/guide/sticks3/xiaozhi_voice_assistant) and [ESP-Claw](https://docs.m5stack.com/en/guide/sticks3/esp_claw) entries rather than the retired realtime/agent paths.
+
+## Troubleshooting and FAQs
 
 ### FAQ
 
@@ -248,6 +297,48 @@ The official M5Stack StickS3 documentation links both the StickS3 schematic PDF 
 
 </details>
 
+## Downloads and technical documents
+
+### Official Resources and Downloads
+
+| Resource                            | Use                                                                         | Link                                                                                                                                    |
+| ----------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| OpenELAB product page               | Purchase and listing details                                                | [M5StickS3 on OpenELAB](https://openelab.io/products/m5sticks3-esp32s3-mini-iot-dev-kit)                                                |
+| M5Stack StickS3 documentation       | Official specifications, notices, pin map, quick starts, and software links | [M5Stack StickS3 docs](https://docs.m5stack.com/en/core/StickS3)                                                                        |
+| StickS3 schematic                   | Electrical design, connector reference, power path, and subsystem review    | [StickS3 Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/K150_Stick_S3_PRJ_V0.6_20251111_2025_11_17_16_10_24.pdf) |
+| StickS3 model size drawing          | Mechanical integration and enclosure planning                               | [StickS3 Model Size PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/K150-sticks3.pdf)                                        |
+| ESP32-S3 technical reference manual | SoC peripherals, memory, timers, Wi-Fi/Bluetooth platform details           | [ESP32-S3 TRM](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/477/esp32-s3_technical_reference_manual_en.pdf)                         |
+| ES8311 datasheet                    | Audio codec integration reference                                           | [ES8311 PDF](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/atom/Atomic%20Echo%20Base/ES8311.pdf)                  |
+| BMI270 datasheet                    | IMU behavior, registers, motion features, and sensor limits                 | [BMI270 PDF](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/BMI270.PDF)                        |
+| M5PM1 datasheet                     | Power management behavior and registers                                     | [M5PM1 Power Management Chip](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/M5PM1_Datasheet_EN.pdf)                             |
+| Arduino quick start                 | First C++ firmware workflow                                                 | [StickS3 Arduino Quick Start](https://docs.m5stack.com/en/arduino/m5sticks3/program)                                                    |
+| UiFlow2 quick start                 | Visual programming and rapid prototype workflow                             | [StickS3 UiFlow2 Quick Start](https://docs.m5stack.com/en/uiflow2/sticks3/program)                                                      |
+| M5PM1 Arduino guide                 | Battery and power output control                                            | [StickS3 M5PM1 Power Management](https://docs.m5stack.com/en/arduino/m5sticks3/m5pm1)                                                   |
+| M5Unified                           | Unified Arduino driver layer for M5Stack devices                            | [m5stack/M5Unified](https://github.com/m5stack/M5Unified)                                                                               |
+| M5GFX                               | Display graphics library                                                    | [m5stack/M5GFX](https://github.com/m5stack/M5GFX)                                                                                       |
+| M5PM1 library                       | Arduino power-management library                                            | [m5stack/M5PM1](https://github.com/m5stack/M5PM1)                                                                                       |
+| ESP-Claw firmware flashing          | Official flashing workflow for the ESP-Claw agent example                   | [StickS3 ESP-Claw Firmware Flashing](https://docs.m5stack.com/en/guide/agent/esp_claw/sticks3)                                          |
+| Xiaozhi voice assistant             | Official voice-assistant application guide                                  | [StickS3 Xiaozhi Voice Assistant](https://docs.m5stack.com/en/guide/realtime/xiaozhi/sticks3)                                           |
+
+| Official file or repository                                                                                                             | Use                                                                                          |
+| --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [StickS3 GeaStack Firmware Flashing](https://github.com/geastack/targets/tree/main/targets/esp32-s3-m5stack-sticks3)                    | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StickS3 Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/K150_Stick_S3_PRJ_V0.6_20251111_2025_11_17_16_10_24.pdf) | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StickS3 Model Size PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/K150-sticks3.pdf)                                        | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StickS3 Structure Files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K150_StickS3/Structures)                          | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [ESP32S3](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/477/esp32-s3_technical_reference_manual_en.pdf)                              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [ES8311](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/atom/Atomic%20Echo%20Base/ES8311.pdf)                      | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [BMI270](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/BMI270.PDF)                            | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [M5PM1 Arduino Library](https://github.com/m5stack/M5PM1)                                                                               | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StickS3 Arduino M5Unified Driver Library](https://github.com/m5stack/M5Unified)                                                        | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StickS3 Arduino M5GFX Driver Library](https://github.com/m5stack/M5GFX)                                                                | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StickS3 UiFlow2 Docs](https://uiflow-micropython.readthedocs.io/en/latest/controllers/sticks3.html)                                    | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [M5PM1 Power Management Chip](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/M5PM1_Datasheet_EN.pdf)                             | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+
+## References and validation
+
+Exact-model [manufacturer hardware reference](https://docs.m5stack.com/en/core/StickS3) and model-specific software links in the procedures establish this guide's hardware scope. Electrical values are manufacturer-reported; external-project behavior and diagnostic order are original engineering guidance.
+
 ### Source Notes
 
 * Product details: [OpenELAB M5StickS3 product page](https://openelab.io/products/m5sticks3-esp32s3-mini-iot-dev-kit).
@@ -256,7 +347,7 @@ The official M5Stack StickS3 documentation links both the StickS3 schematic PDF 
 * Community project references are included as examples of possible application patterns; review each repository's license, maturity, and code quality before reuse.
 * Reviewed for OpenELAB wiki publication on 2026-05-25.
 
-## Official documentation and development resources
+### Official documentation and development resources
 
 Use [StickS3](https://docs.m5stack.com/en/core/StickS3) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K150`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
 
@@ -273,3 +364,5 @@ Use [StickS3](https://docs.m5stack.com/en/core/StickS3) for the manufacturer's c
 | Official source: M5GFX       | [Read official source: m5gfx](https://github.com/m5stack/M5GFX)                                                                |
 
 Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.
+
+**Review:** 24 November 2026. Manufacturer documentation and the linked SDK interfaces were reviewed. **Compilation, firmware flashing and hardware operation: not run.** Expected results above are commissioning checkpoints, not observed bench measurements.

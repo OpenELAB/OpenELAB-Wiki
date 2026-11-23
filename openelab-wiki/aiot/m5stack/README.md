@@ -1,5 +1,7 @@
 ---
-description: Modular controllers, sensors, displays, voice hardware, and product guides.
+description: >-
+  Develop M5Stack controllers, displays, voice and radio hardware with exact
+  model selection, pin maps, reproducible first-result workflows and recovery.
 ---
 
 # M5Stack
@@ -10,12 +12,18 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 
 ## Expanded engineering guides
 
-These guides contain on-page procedures, original examples, attributed hardware illustrations and model-specific diagnostics. Sources are reviewed; build/hardware validation is stated separately in each guide.
+The following guides provide on-page commissioning procedures, model-specific electrical and software details, original examples, attributed diagrams and recovery checks. Each guide states its software and hardware test status.
 
-| Model                                                                                   | Start here                                                                                 |
-| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| [ATOM Lite C008](m5stack-atom-lite-esp32-iot-development-kit.md)                        | Button, one-pixel RGB, IR, Grove, UIFlow and Home Assistant.                               |
-| [ENV-III U001-C](m5stack-env-iii-unit-with-temperature-humidity-air-pressure-sensor.md) | Seven host pin maps, complete Arduino/UIFlow recipes and pressure/accuracy interpretation. |
+| Exact model or family                                                                   | Development workflow                                                                                     |
+| --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [StackChan K151](stackchan-k151-development-guide.md)                                   | Initialize the body, verify RGB, distinguish servo units and add sensing/motion one subsystem at a time. |
+| [Cardputer-Adv](cardputer-adv-k132-development-guide.md)                                | Keyboard, display, audio and expansion-bus ownership with a local event logger.                          |
+| [Cardputer Mesh Kit](m5stack-cardputer-mesh-kit-for-meshtastic-engineering-guide.md)    | Meshtastic, GNSS UART directions, radio switching and a two-node result.                                 |
+| [M5StickS3](m5sticks3-esp32-s3-mini-iot-dev-kit-engineering-guide.md)                   | Button, display, audio, IR and power commissioning with exact StickS3 routing.                           |
+| [Tab5](m5stack-tab5-iot-development-kit.md)                                             | Panel revisions, power/battery boundaries, touch and a pinned ESP-IDF build.                             |
+| [Core2 v1.3](m5stack-core2-v13-development-guide.md)                                    | Touch and IMU checks, display-library requirements and explicit Base-series incompatibility.             |
+| [ATOM Lite C008](m5stack-atom-lite-esp32-iot-development-kit.md)                        | Button, one-pixel RGB, IR, Grove, UIFlow and Home Assistant.                                             |
+| [ENV-III U001-C](m5stack-env-iii-unit-with-temperature-humidity-air-pressure-sensor.md) | Host pin maps, complete sensor recipes and pressure/accuracy interpretation.                             |
 
 ## Start from the exact M5Stack model
 
@@ -25,7 +33,7 @@ For a practical first result, use [Atom-Lite USB and UIFlow2 setup](m5stack-atom
 
 ### Popular product guides
 
-Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
+Products from the 17 August–17 November 2026 Top200 net-sales list, in the supplied order. Shared guides appear once; match the exact SKU and option before using a procedure.
 
 | Product guide                                                                                                                 | Models / order codes |
 | ----------------------------------------------------------------------------------------------------------------------------- | -------------------- |
@@ -36,21 +44,21 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | [M5StickS3 ESP32-S3 Mini IoT Dev Kit Engineering Guide](m5sticks3-esp32-s3-mini-iot-dev-kit-engineering-guide.md)             | M5-K150              |
 | [M5Stack PaperColor C151 Development Guide](papercolor-c151-development-guide.md)                                             | M5-C151              |
 | [M5Stack PaperMono C153 Development Guide](papermono-c153-development-guide.md)                                               | M5-C153              |
-| [M5Stack ATOM Echo Smart Speaker Development Ki](m5stack-atom-echo-smart-speaker-development-ki.md)                           | M5-C008-C            |
+| [M5Stack ATOM Voice C008-C Audio and Development Guide](m5stack-atom-echo-smart-speaker-development-ki.md)                    | M5-C008-C            |
 | [M5Stack Dial v1.1 Development Guide](dial-v11-development-guide.md)                                                          | M5-K130-V11          |
-| [M5Stack Tab5 IoT Development Kit](m5stack-tab5-iot-development-kit.md)                                                       | M5-K145              |
+| [M5Stack Tab5 K145 Power, Firmware and Development Guide](m5stack-tab5-iot-development-kit.md)                                | M5-K145              |
 | [M5Stack Atom VoiceS3R Development Guide](atom-voices3r-development-guide.md)                                                 | M5-C126-Echo         |
-| [M5Stack Cap LoRa-1262 U214 Development Guide](m5stack-cap-lora1262-development-guide.md)                                     | M5-U214              |
-| [M5Stack ATOM Lite ESP32 IoT Development Kit](m5stack-atom-lite-esp32-iot-development-kit.md)                                 | M5-C008              |
-| [M5Stack AtomS3 Lite ESP32S3 Dev Kit](m5stack-atoms3-lite-esp32s3-dev-kit.md)                                                 | M5-C124              |
-| [M5Stack CoreS3-SE K128-SE Development Guide](m5stack-cores3-se-development-guide.md)                                         | M5-K128-SE           |
-| [M5Stack Cap CC1101 and NFC U219 Development Guide](m5stack-cap-cc1101-nfc-development-guide.md)                              | M5-U219              |
+| [M5Stack Cap LoRa-1262 U214 Radio and GNSS Guide](m5stack-cap-lora1262-development-guide.md)                                  | M5-U214              |
+| [M5Stack ATOM Lite C008 Engineering Guide](m5stack-atom-lite-esp32-iot-development-kit.md)                                    | M5-C008              |
+| [M5Stack AtomS3-Lite C124 GPIO and Firmware Guide](m5stack-atoms3-lite-esp32s3-dev-kit.md)                                    | M5-C124              |
+| [M5Stack CoreS3-SE K128-SE Touch and Development Guide](m5stack-cores3-se-development-guide.md)                               | M5-K128-SE           |
+| [M5Stack Cap CC1101 U219 RF and NFC Development Guide](m5stack-cap-cc1101-nfc-development-guide.md)                           | M5-U219              |
 | [M5Stack Core2 v1.3 K010-V13 Development Guide](m5stack-core2-v13-development-guide.md)                                       | M5-K010-V13          |
-| [M5Stack Unit C6L U202 Development Guide](m5stack-unit-c6l-development-guide.md)                                              | M5-U202              |
-| [M5Stack Unit NFC U216 Development Guide](m5stack-unit-nfc-u216-development-guide.md)                                         | M5-U216              |
-| [M5Stack ATOMS3R Development Kit](m5stack-atoms3r-development-kit.md)                                                         | M5-C126              |
-| [M5Stack Mystery Box: identify the hardware and find its development guide](mystery-box-hardware-identification.md)           | M5-Box               |
-| [M5Stack CoreS3 ESP32S3 loT Development](m5stack-cores3-esp32s3-lot-development.md)                                           | M5-K128              |
+| [M5Stack Unit C6L U202 Meshtastic and Development Guide](m5stack-unit-c6l-development-guide.md)                               | M5-U202              |
+| [M5Stack Unit NFC U216 I2C and Tag Development Guide](m5stack-unit-nfc-u216-development-guide.md)                             | M5-U216              |
+| [M5Stack AtomS3R C126 Display and Sensor Development Guide](m5stack-atoms3r-development-kit.md)                               | M5-C126              |
+| [M5Stack Mystery Box: Identify Hardware and Start Development](mystery-box-hardware-identification.md)                        | M5-Box               |
+| [M5Stack CoreS3 K128 Camera and Development Guide](m5stack-cores3-esp32s3-lot-development.md)                                 | M5-K128              |
 
 ### Product range
 

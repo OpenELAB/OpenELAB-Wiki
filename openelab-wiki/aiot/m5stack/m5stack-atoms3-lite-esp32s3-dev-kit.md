@@ -1,4 +1,7 @@
 ---
+description: >-
+  Power, connector allocation, firmware setup, original first-result procedures
+  and recovery for M5Stack AtomS3-Lite C124.
 layout:
   width: default
   title:
@@ -21,122 +24,204 @@ layout:
     visible: true
 ---
 
-# M5Stack AtomS3 Lite ESP32S3 Dev Kit
+# M5Stack AtomS3-Lite C124 GPIO and Firmware Guide
 
 {% hint style="info" %}
-[**View M5Stack AtomS3 Lite ESP32S3 Dev Kit on OpenELAB**](https://openelab.io/products/m5stack-atoms3-lite)
+[**View M5Stack AtomS3-Lite C124 on OpenELAB**](https://openelab.io/products/m5stack-atoms3-lite)
 
-**Model/kit:** M5Stack AtomS3 Lite ESP32S3 Dev Kit · **OpenELAB SKU:** `M5-C124`
+**Model:** AtomS3-Lite C124 · **SKU:** `M5-C124`
 {% endhint %}
 
-## M5Stack AtomS3 Lite ESP32S3 Dev Kit
+## Product overview <a href="#introduction" id="introduction"></a>
 
-***
+### Exact hardware identity <a href="#m5stack-atoms3-lite-esp32s3-dev-kit" id="m5stack-atoms3-lite-esp32s3-dev-kit"></a>
 
-## Product Link
+**AtomS3-Lite C124** is the screenless ESP32-S3FN8 member of the ATOM family, with one addressable RGB LED, a button, IR transmitter, USB-C and Grove/underside expansion. It has8MB flash; the reviewed specification does not establish the8MB PSRAM or display fitted to AtomS3R. The original ESP32 ATOM Lite C008 is also a different target and pin map.
 
-{% embed url="https://openelab.io/products/m5stack-atoms3-lite" %}
+Use this guide to upload a button/pixel program, identify the actual expansion route and recover the S3 native-USB bootloader. A display example from the shared AtomS3 library does not establish that Lite contains a screen.
 
-## Introduction
+### OpenELAB listing and option <a href="#product-link" id="product-link"></a>
 
-ATOM S3 Lite is a versatile programmable controller that belongs to the Atom Series in the M5Stack Development Kit lineup. Powered by the [ESP32 S3](https://shop.m5stack.com/products/m5stamp-esp32s3-module) FN8 scheme, this compact controller measures only 24x24x9.5mm, making it an ideal choice for space-constrained projects. It boasts an impressive 8MB SPI flash memory, providing ample storage capacity for your applications. With integrated Wi-Fi functionality and a built-in 3D antenna, the ATOM S3 Lite ensures seamless connectivity and reliable wireless communication.\
-\
-Equipped with a 5V to 3.3V power circuit, the ATOM S3 Lite offers stable and efficient power management. It features useful components such as infrared emitting light, RGB status indicators, a programmable button, and versatile GROVE/HY2.0-4P interfaces. These features enable easy integration with various sensors, actuators, and external devices, expanding the possibilities for your projects. The product also includes a power supply and 6 GPIO headers on the bottom, facilitating convenient and flexible expansion applications.
+Use [View M5Stack AtomS3-Lite C124 on OpenELAB](https://openelab.io/products/m5stack-atoms3-lite) and match `M5-C124` before selecting regional firmware or adding accessories.
 
-<figure><img src="../../.gitbook/assets/image (659).png" alt=""><figcaption></figcaption></figure>
+## Applications <a href="#features" id="features"></a>
 
-With a convenient Type-C interface, the ATOM S3 Lite allows hassle-free program downloading and seamless serial port communication. The device also comes with an M2 screw hole on the back, providing a secure mounting option for your projects. Whether you're working on embedded smart devices, IoT applications, or prototyping projects, the ATOM S3 Lite is a reliable and compact solution that empowers your creativity and enables endless possibilities.
+Use C124 as a small sensor gateway, USB-connected status indicator, IR transmitter or button interface. Keep a known input/pixel sketch as a baseline before attaching an ATOM base. A connector fitting mechanically does not establish that a base's GPIO allocation is compatible.
 
-## Features
+## Specifications <a href="#specification" id="specification"></a>
 
-* Developed based on ESP32-S3FN8
-* Comes with USB download function
-* Programmable button
-* Infrared emission function
-* Expandable pins and interfaces
-* Development platform: Arduino, UIFlow
+| Parameter             | AtomS3-Lite C124                                        |
+| --------------------- | ------------------------------------------------------- |
+| MCU                   | ESP32-S3FN8, dual-core LX7 up to240MHz                  |
+| Flash                 | 8MB; no PSRAM claimed in this exact-model table         |
+| Indicator / regulator | WS2812C-2020 RGB, SY8089 DC-DC                          |
+| Power                 | 5V input via USB-C;3.3V signal/output domain            |
+| Underside GPIO        | 5/6/7/8/38/39; supply and ground pads separately marked |
+| Grove signals         | 2/1                                                     |
+| Temperature           | 0–40°C manufacturer range                               |
+| Envelope / mass       | 24×24×9.5mm;5.3g                                        |
 
-## Specification <a href="#specification" id="specification"></a>
+[Manufacturer specification and exact pin illustration](https://docs.m5stack.com/en/core/AtomS3-Lite). A supply/output voltage listing is not a per-pin output-current allowance.
 
-| Resources             | Parameters           |
-| --------------------- | -------------------- |
-| MCU                   | ESP32-S3FN8          |
-| RGB                   | WS2812B-2020         |
-| DCDC                  | SY8089               |
-| Operating temperature | 0°C \~ 40°C          |
-| Supply voltage        | 5V                   |
-| Power supply mode     | TYPE C               |
-| Output voltage        | 3.3V                 |
-| IO interface × 6      | G5/G6/G7/G8/G38/G39  |
-| Product Size          | 24mm × 24mm ×9.5mm   |
-| Package Size          | 65mm × 44.5mm × 14mm |
-| Product Weight        | 5.3g                 |
-| Package Weight        | 9.5g                 |
+## Hardware and connections <a href="#pinout" id="pinout"></a>
 
-## Pinout
+| Function                     | C124 GPIO / connection                      |
+| ---------------------------- | ------------------------------------------- |
+| RGB data                     | 35; one WS2812-compatible addressable pixel |
+| IR transmitter               | 4                                           |
+| User button                  | 41                                          |
+| Grove black/red/yellow/white | GND/5V/2/1                                  |
+| Header GPIO                  | 5/6/7/8/38/39;39 also labeled CLK\_OUT3     |
 
-<figure><img src="../../.gitbook/assets/image (753).png" alt=""><figcaption></figcaption></figure>
+The exact C124 map was visually reviewed. Do not reuse C008's RGB27/button39 or C126's display pins. Power off before fitting a base; compare the entire underside map, power direction and GPIO ownership. Grove5V is a supply, not5V tolerance of GPIO1/2. Use3.3V-compatible pull-ups and a common ground for external signals. This board has an IR transmitter; reception needs an external receiver. [Official pin map](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/471/C124_PinMap_01.jpg).
 
-## Dimensions
+![M5Stack AtomS3-Lite C124 exact GPIO pin map](../../.gitbook/assets/m5stack-rank-118-diagram.jpg)
 
-<figure><img src="../../.gitbook/assets/image (752).png" alt=""><figcaption></figcaption></figure>
+_M5Stack official technical illustration:_ [_original_](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/471/C124_PinMap_01.jpg)_. Verify drawing and physical revision together._
 
-## How to Use
+## Software and development resources <a href="#download-control-board" id="download-control-board"></a>
 
-## 1. Preparations <a href="#preparations" id="preparations"></a>
+Use the M5Stack board package and **M5AtomS3** preset from the [shared AtomS3/Lite Arduino tutorial](https://docs.m5stack.com/en/arduino/m5atoms3/program). Install M5AtomS3 and its declared dependencies for vendor examples; the independent GPIO/pixel sketch below uses **Adafruit NeoPixel** with the exact C124 pins, so it does not depend on a display API.
 
-* Arduino IDE Installation: Refer to the [Arduino IDE Installation Guide ](https://docs.m5stack.com/en/arduino/arduino_ide)to complete the IDE installation.
-* Board Manager Installation: Refer to the [Basic Environment Setup Guide ](https://docs.m5stack.com/en/arduino/arduino_board)to complete the IDE, M5Stack Board Manager installation, and select the development board `M5AtomS3`.
-* Dependency Library Installation: Refer to the [Library Management Installation Guide ](https://docs.m5stack.com/en/arduino/arduino_library)to complete the installation of the `M5AtomS3` driver library.
+The manufacturer also documents a generic `esp32-s3-devkitc-1` PlatformIO Arduino route with native-USB CDC enabled. Retain an8MB-flash configuration and a recorded platform/library set; do not enable a nonexistent PSRAM device to fix an unrelated allocation failure. Current M5Unified releases have their own M5GFX dependency minimum. Record actual resolved releases.
 
-## 2. Download Mode <a href="#download-mode" id="download-mode"></a>
+UiFlow2 requires the **AtomS3-Lite** firmware, not the display model's image. Use the model-linked setup page from the [C124 reference](https://docs.m5stack.com/en/core/AtomS3-Lite); an Access Code and a serial connection are different transport choices.
 
-* Press and hold the reset button (about 2 seconds) until the internal green LED lights up, then release it. The device is now in download mode, ready for burning.
+## Getting started <a href="#how-to-use" id="how-to-use"></a>
 
-#### M5AtomS3 / M5AtomS3 Lite <a href="#m5atoms3--m5atoms3-lite" id="m5atoms3--m5atoms3-lite"></a>
+### USB and programming preparation <a href="#preparations" id="preparations"></a>
 
-<figure><img src="../../.gitbook/assets/image (754).png" alt=""><figcaption></figcaption></figure>
+Disconnect external peripherals for the first upload. Use a USB data cable, the exact board preset and the dependencies specified above; keep the factory-recovery route available before replacing firmware.
 
-## 3. Download Control Board <a href="#download-control-board" id="download-control-board"></a>
+### Select the serial port <a href="#port-selection" id="port-selection"></a>
 
-Refer to the [Basic Environment Setup Guide ](https://docs.m5stack.com/en/arduino/arduino_board)to complete the IDE, M5Stack Board Manager installation, and select the development board `M5AtomS3`.
+Compare the computer’s port list before and after connecting the board. Select the newly enumerated device, close other serial clients and reselect the port if download mode creates a different device. Use the model-specific recovery procedure below when normal application USB is unavailable.
 
-<figure><img src="../../.gitbook/assets/image (755).png" alt=""><figcaption></figcaption></figure>
+### Original button/pixel first program <a href="#program-compilation-burning" id="program-compilation-burning"></a>
 
-<figure><img src="../../.gitbook/assets/image (756).png" alt=""><figcaption></figcaption></figure>
+1. Disconnect external wiring and connect USB-C with a data cable.
+2. Select **M5AtomS3**, install Adafruit NeoPixel and upload the sketch below.
+3. If the port is absent, hold the side reset/power control until the internal green LED lights, release it and choose the newly enumerated bootloader port.
+4. After upload restart the application, open a115200-baud monitor and press the front button. Compare pixel and serial state.
 
-## 4. Install Library Files <a href="#install-library-files" id="install-library-files"></a>
+```cpp
+#include <Arduino.h>
+#include <Adafruit_NeoPixel.h>
+Adafruit_NeoPixel pixel(1, 35, NEO_GRB + NEO_KHZ800);
+bool on=false, stable=HIGH, lastRaw=HIGH;
+uint32_t changed=0;
+void setup() {
+  Serial.begin(115200);
+  pinMode(41, INPUT_PULLUP);
+  pixel.begin(); pixel.setBrightness(16);
+  pixel.clear(); pixel.show();
+}
+void loop() {
+  bool raw=digitalRead(41);
+  if (raw!=lastRaw) { lastRaw=raw; changed=millis(); }
+  if (raw!=stable && millis()-changed>=30) {
+    stable=raw;
+    if (stable==LOW) {
+      on=!on;
+      pixel.setPixelColor(0, on ? pixel.Color(0,0,255) : 0);
+      pixel.show();
+      Serial.printf("C124_BUTTON,blue=%d\n",on);
+    }
+  }
+  delay(2);
+}
+```
 
-Dependency Library Installation: Refer to the [Library Management Installation Guide ](https://docs.m5stack.com/en/arduino/arduino_library)to complete the installation of the `M5AtomS3` driver library.
+Expected result: one dim blue toggle per press after30ms of stable input. This original debounce example deliberately avoids C008 GPIO defaults and any screen operation. A blank face is expected because C124 is screenless.
 
-<figure><img src="../../.gitbook/assets/image (757).png" alt=""><figcaption></figcaption></figure>
+### Grove communication before a sensor driver
 
-<figure><img src="../../.gitbook/assets/image (758).png" alt=""><figcaption></figcaption></figure>
+With a verified compatible Unit connected to Grove2/1, this separate original probe prints responding I2C addresses. It configures no outputs other than the bus and never assumes a particular attached sensor.
 
-## 5. Port Selection <a href="#port-selection" id="port-selection"></a>
+```cpp
+#include <Arduino.h>
+#include <Wire.h>
+void setup() {
+  Serial.begin(115200);
+  delay(700);
+  Wire.begin(2,1,100000);
+  for (uint8_t a=8;a<120;++a) {
+    Wire.beginTransmission(a);
+    if (Wire.endTransmission()==0) Serial.printf("ACK=0x%02X\n",a);
+  }
+}
+void loop() {}
+```
 
-Connect the device to the computer via USB cable. After completing the driver installation, you can select the corresponding device port in the Arduino IDE.
+Expected result is the attached Unit's documented address. No ACK with nothing attached is normal. An address establishes transport response, not a correct sensor reading; install the exact Unit driver and check its units and initialization next. Stop if another base owns GPIO1/2 or uses a conflicting power direction.
 
-<figure><img src="../../.gitbook/assets/image (759).png" alt=""><figcaption></figcaption></figure>
+### IR, UIFlow and factory recovery <a href="#download-mode" id="download-mode"></a>
 
-## 6. Program Compilation & Burning <a href="#program-compilation-burning" id="program-compilation-burning"></a>
+For IR, start with the exact model-supported sender example onGPIO4, send one deliberate known protocol frame to a compatible receiver and compare decoded address/command. A serial send message is not optical reception. Do not use original ATOM Lite GPIO12 here.
 
-Open the example program “LEDDisplay” in the driver library. Click the upload button to automatically compile and burn the program.
+For UIFlow2, flash the C124 image through M5Burner, select AtomS3-Lite, open WebTerminal on its actual port and run a single RGB block. Run Once is temporary; Run Always downloads. Restart to verify stored behavior. If using the wireless editor, retrieve the current Access Code over USB and keep it private.
 
-<figure><img src="../../.gitbook/assets/image (760).png" alt=""><figcaption></figcaption></figure>
+To restore the manufacturer test firmware, save your sketch/configuration first, use the exact **AtomS3-Lite Factory Firmware** entry/download and the green-LED download sequence. Do not use AtomS3R's PSRAM/display firmware. A full flash erase is unnecessary for most cable/port failures; diagnose enumeration and the target first.
 
-<br>
+## Troubleshooting and FAQs
 
-## Official documentation and development resources
+| Symptom                  | Checks                                                                                          |
+| ------------------------ | ----------------------------------------------------------------------------------------------- |
+| RGB or button wrong      | Confirm C124; pixel35/button41; remove C008 or C126 pin assumptions.                            |
+| No upload port           | Data cable → direct USB → documented hold/release boot mode → reselect port after enumeration.  |
+| PSRAM error              | C124 does not claim fitted PSRAM; use Lite memory/flash settings and bounded allocations.       |
+| Sensor absent            | Grove2/1 versus underside signals, supply/pull-ups, documented address and correct Unit driver. |
+| UIFlow runs only once    | Use Run Always and intended boot option; restart to prove persistence.                          |
+| IR receiver sees nothing | Exact pin4, protocol/carrier and line of sight; board has no onboard IR receiver.               |
 
-Use [AtomS3-Lite](https://docs.m5stack.com/en/core/AtomS3-Lite) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C124`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+## Downloads and technical documents <a href="#install-library-files" id="install-library-files"></a>
 
-| Development need             | Model-specific reference                                                                                                               |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5atoms3/program)                                              |
-| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/471/Sch_M5_AtomS3_v1.0.pdf)                               |
-| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C124_AtomS3-Lite/Structures)                 |
-| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C124_AtomS3-Lite/Structures/AtomS3-Lite.stl) |
-| Official source: M5AtomS3    | [Read official source: m5atoms3](https://github.com/m5stack/M5AtomS3)                                                                  |
+The official C124 pin map and schematic are the primary expansion references. Firmware installer links below overwrite the application; source libraries and structural CAD have different purposes and licenses.
 
-Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.
+| Official file or repository                                                                                            | Use                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [AtomS3-Lite Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/471/Sch_M5_AtomS3_v1.0.pdf)              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [AtomS3-Lite Structure Files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C124_AtomS3-Lite/Structures) | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [ESP32-S3](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/472/esp32-s3_datasheet_en.pdf)                             | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [SY8089](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/atombase/ATOMS3/sy8089.pdf)              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [AtomS3-Lite Arduino Library](https://github.com/m5stack/M5AtomS3)                                                     | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [AtomS3-Lite UiFlow2 Docs](https://uiflow-micropython.readthedocs.io/en/latest/controllers/atoms3-lite.html)           | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [download](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/471/AtomS3-Lite-Factory-Firmware.exe)                      | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+
+### Model illustrations <a href="#dimensions" id="dimensions"></a>
+
+![M5Stack AtomS3-Lite C124 reference illustration](<../../.gitbook/assets/image (659).png>)
+
+![M5Stack AtomS3-Lite C124 reference illustration](<../../.gitbook/assets/image (753).png>)
+
+![M5Stack AtomS3-Lite C124 reference illustration](<../../.gitbook/assets/image (752).png>)
+
+![M5Stack AtomS3-Lite C124 reference illustration](<../../.gitbook/assets/image (754).png>)
+
+![M5Stack AtomS3-Lite C124 reference illustration](<../../.gitbook/assets/image (755).png>)
+
+![M5Stack AtomS3-Lite C124 reference illustration](<../../.gitbook/assets/image (756).png>)
+
+![M5Stack AtomS3-Lite C124 reference illustration](<../../.gitbook/assets/image (757).png>)
+
+![M5Stack AtomS3-Lite C124 reference illustration](<../../.gitbook/assets/image (758).png>)
+
+![M5Stack AtomS3-Lite C124 reference illustration](<../../.gitbook/assets/image (759).png>)
+
+![M5Stack AtomS3-Lite C124 reference illustration](<../../.gitbook/assets/image (760).png>)
+
+_Retained manufacturer illustrations. Use the revision-specific connector and circuit references above for wiring._
+
+### Additional model references
+
+* [ESP32 S3](https://shop.m5stack.com/products/m5stamp-esp32s3-module)
+* [Arduino IDE Installation Guide](https://docs.m5stack.com/en/arduino/arduino_ide)
+* [Basic Environment Setup Guide](https://docs.m5stack.com/en/arduino/arduino_board)
+* [Library Management Installation Guide](https://docs.m5stack.com/en/arduino/arduino_library)
+* [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C124_AtomS3-Lite/Structures/AtomS3-Lite.stl)
+
+## References and validation <a href="#official-documentation-and-development-resources" id="official-documentation-and-development-resources"></a>
+
+This guide uses the exact sold SKU and the [manufacturer reference](https://docs.m5stack.com/en/core/AtomS3-Lite). Specifications are manufacturer-reported; diagnostic order and first-result programs are original engineering work. C124 GPIO35/4/41 and Grove2/1 were checked against the official diagram. The standalone programs use original debounce and transport-probe logic; GPIO and Arduino APIs were reviewed without compilation or hardware execution.
+
+**Review:** 24 November 2026. Manufacturer documentation and the linked SDK interfaces were reviewed. **Compilation, firmware flashing and hardware operation: not run.** Expected results above are commissioning checkpoints, not observed bench measurements.

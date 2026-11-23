@@ -1,10 +1,18 @@
+---
+description: >-
+  Power, connector allocation, firmware setup, original first-result procedures
+  and recovery for M5Stack StopWatch C152.
+---
+
 # M5Stack StopWatch C152 Development Guide
 
 {% hint style="info" %}
 [**View M5Stack StopWatch C152 on OpenELAB**](https://openelab.io/products/m5stack-stopwatch-dev-kit-esp32-s3)
 
-**Covered model:** M5Stack StopWatch C152 · **SKU:** `M5-C152`
+**Model:** StopWatch C152 · **SKU:** `M5-C152`
 {% endhint %}
+
+## Product overview
 
 ![M5Stack StopWatch C152 Development Guide](../../.gitbook/assets/stopwatch-c152-development-guide.webp)
 
@@ -12,13 +20,19 @@ _Manufacturer image: M5Stack._ [_Image source_](https://m5stack-doc.oss-cn-shenz
 
 [Product at OpenELAB](https://openelab.io/products/m5stack-stopwatch-dev-kit-esp32-s3) · [Manufacturer wiki hub](./)
 
-## Product and revision check
+### Product and revision check
 
 **M5Stack StopWatch C152** is a compact ESP32-S3 handheld development device with a round AMOLED touchscreen. It suits a portable control panel, electronic badge, timer interface or sensor display. It includes audio, motion sensing and battery operation; application behavior is defined by the installed firmware.
 
 **Check hardware revision before using the rear power pin.** M5Stack documents a v1.0 sticker error: a pin marked BAT on some units is actually **5 V IN**. In v1.0.1, the revised BAT pin is a battery connection. Do not connect a battery according to the sticker alone. Use USB-C for the first tutorial and compare the actual board/revision with the manufacturer's notice.
 
-## Specifications and interfaces
+## Applications
+
+Use StopWatch C152 for a handheld timer, touch-operated instrument or portable sensor UI. Keep AMOLED refresh and audio power in the battery budget.
+
+## Specifications
+
+### Specifications and interfaces
 
 | Item         | Specification                                                           |
 | ------------ | ----------------------------------------------------------------------- |
@@ -35,13 +49,37 @@ The HY2.0-4P port is documented as GND/5 V/G10/G11. Rear multiplexed pins and po
 
 Source: [M5Stack StopWatch hardware reference](https://docs.m5stack.com/en/core/StopWatch). Revision notes take priority over a generic wiring diagram.
 
-## Software options
+## Hardware and connections
+
+### Pin ownership and power layers
+
+| Peripheral  | StopWatch route                                                 |
+| ----------- | --------------------------------------------------------------- |
+| System I2C  | SDA47 / SCL48; BMI2700x68, RX8130CE0x32, ES83110x18, M5IOE10x4F |
+| AMOLED QSPI | CS39, clock40, TE38, D0/D1/D2/D3=41/42/46/45                    |
+| Touch       | CST820B, interrupt13; reset via M5IOE1 PYG4                     |
+| User A/B    | Yellow GPIO2 / blue GPIO1                                       |
+| Audio I2S   | MCLK18, BCLK17, microphone data16, LRCK15, codec data input21   |
+| Grove       | Black GND, red5V, yellow10, white11                             |
+| Rear mux    | M5IOE1 PYG1 low: UART TX43/RX44; high: USB D+/D−20/19           |
+
+AMOLED reset is PYG5, display power PYG8, audio rail PYG3, amplifier enable PYG10 and vibration PWM PYG9 on M5IOE1. These are expander channels, not ESP32 GPIO numbers. Default charging is185mA; the documented425mA configuration changes the PMIC's charge-program pin. Leave the default for first-run testing and consult the matched battery/thermal design before changing it. [Hardware map](https://docs.m5stack.com/en/core/StopWatch), [power API](https://docs.m5stack.com/en/arduino/stopwatch/m5pm1_m5ioe1).
+
+![M5Stack StopWatch power-domain and I/O overview](../../.gitbook/assets/m5stack-rank-013-diagram.png)
+
+_M5Stack official technical illustration:_ [_original_](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1242/C152-SCH_Stopwatch_PRJ_Main_VA_20251201_2026_04_24_17_46_22_page_02.png)_. Verify drawing and physical revision together._
+
+## Software and development resources
+
+### Software options
 
 Arduino development uses **M5Unified** and **M5GFX**, with M5PM1/M5IOE1 support for power and expansion functions. UiFlow2 offers the manufacturer-supported visual/Python route. The factory firmware is an additional application that can be restored through its documented M5Burner workflow.
 
 Use the [StopWatch-specific Arduino guide](https://docs.m5stack.com/en/arduino/stopwatch/program); a nearby ESP32-S3 board preset may compile while selecting the wrong display or power configuration.
 
-## Getting started: run the official BarGraph example
+## Getting started
+
+### Getting started: run the official BarGraph example
 
 Prepare StopWatch, a USB-C data cable, a computer and Arduino IDE 2.x.
 
@@ -53,13 +91,51 @@ Prepare StopWatch, a USB-C data cable, a computer and Arduino IDE 2.x.
 
 The example is linked rather than copied so the device-specific display initialization remains with its maintained upstream version. Save the working example/library versions before extending it.
 
-## Add input, sensors and low-power behavior
+### Add input, sensors and low-power behavior
 
 Use `M5.update()` in an M5Unified application before reading button state. Add a single button or touch interaction to the known working display application, then test IMU, audio and RTC independently. Follow the [power-management guide](https://docs.m5stack.com/en/arduino/stopwatch/m5pm1_m5ioe1) when enabling rails or peripherals: a peripheral that has no power can resemble a failed driver.
 
 For battery projects, measure idle and sleep current with the intended rails, screen state and wake sources. A program that uses an ESP32 sleep call without accounting for the external power-management chips can behave differently from the vendor's low-power demo.
 
-## Recovery and FAQ
+### Original local button counter
+
+After the stock display example works, replace it with this original sketch. It uses the model's M5Unified initialization, not raw display wiring. Select the exact target listed above, then upload with external wiring disconnected.
+
+```cpp
+#include <M5Unified.h>
+unsigned presses = 0;
+void setup() {
+  M5.begin();
+  Serial.begin(115200);
+  M5.Display.fillScreen(TFT_BLACK);
+  M5.Display.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Display.setTextSize(2);
+  M5.Display.setCursor(8, 12);
+  M5.Display.println("Input check");
+}
+void loop() {
+  M5.update();
+  if (M5.BtnA.wasPressed()) {
+    Serial.printf("presses=%u\n", ++presses);
+    M5.Display.fillRect(8, 44, M5.Display.width()-16, 32, TFT_BLACK);
+    M5.Display.setCursor(8, 44);
+    M5.Display.printf("%u", presses);
+  }
+  delay(5);
+}
+```
+
+Expected result is an increasing count on the screen and at 115200 baud for each model-mapped A-button press. Holding the button is not intended to generate continuous counts. A count lost after reboot is normal: this example keeps no persistent state. Keep the loop responsive before adding an animation, network request or sensor transaction. Source API: [M5Unified](https://github.com/m5stack/M5Unified); source-reviewed, not compiled or run.
+
+### Touch, timekeeping, motion and sleep
+
+After the local counter works, log touch coordinates at the center and around the circular edge; a square466×466 framebuffer contains pixels outside the visible circular area. Keep important controls inside the visible disk. Read the BMI270 while stationary, then rotate the unit about one axis at a time; a nonzero axis offset alone is not a failed IMU. Set the RX8130CE with a known time, read it back and compare elapsed time after a controlled restart before adding a scheduled wake.
+
+M5PM1 controls the system power layers while M5IOE1 switches display/audio/motor loads. Prepare a sleep experiment by stopping audio, finishing storage writes and recording enabled rails, then configure one wake source. Confirm wake behavior before comparing current. Use the vendor PowerDemo for layer sequencing, not a generic ESP32 deep-sleep call alone. The rear power pin correction applies even if a sleep example appears to work on USB.
+
+## Troubleshooting and FAQs
+
+### Recovery and FAQ
 
 | Problem                              | Check                                                                                               |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------- |
@@ -70,7 +146,9 @@ For battery projects, measure idle and sleep current with the intended rails, sc
 | Need the original application back   | Follow the official factory-restoration guide for C152; preserve required settings before flashing. |
 | Battery drains rapidly               | Inspect display/radio/rail state and wake frequency; compare with the manufacturer's power demo.    |
 
-## Technical documents and software
+## Downloads and technical documents
+
+### Technical documents and software
 
 | Resource                                                                                                                            | Use                                              |
 | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
@@ -88,7 +166,7 @@ For battery projects, measure idle and sleep current with the intended rails, sc
 
 **Review date:** 17 November 2026. **Validation:** official documentation and the cited software interfaces reviewed. Commands and examples have not been compiled or run on physical hardware by OpenELAB for this guide. Record your hardware revision, firmware, software versions and actual results when reproducing it.
 
-## Official documentation and development resources
+### Official documentation and development resources
 
 Use [StopWatch](https://docs.m5stack.com/en/core/StopWatch) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C152`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
 
@@ -106,3 +184,33 @@ Use [StopWatch](https://docs.m5stack.com/en/core/StopWatch) for the manufacturer
 | Official source: M5StopWatch-PowerDemo | [Read official source: m5stopwatch-powerdemo](https://github.com/m5stack/M5StopWatch-PowerDemo)                                    |
 
 Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.
+
+| Official file or repository                                                                                                                       | Use                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [Hermes Voice Agent](https://github.com/allinnb/hermes-gadget-sdk/blob/main/STOPWATCH.md)                                                         | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StopWatch GeaStack Firmware Flashing](https://github.com/geastack/targets/tree/main/targets/esp32-s3-m5stack-stopwatch)                          | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StopWatch Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1242/C152-SCH_Stopwatch_PRJ_Main_VA_20251201_2026_04_24_17_46_22.pdf) | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StopWatch Model Size PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1242/C152-StopWatch-model-size.pdf)                                   | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StopWatch Structure Files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C152_StopWatch/Structures)                                | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [ESP32-S3](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/472/esp32-s3_datasheet_en.pdf)                                                        | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [ES8311](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/atom/Atomic%20Echo%20Base/ES8311.pdf)                                | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [RX8130CE Datasheet](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1132/RX8130CE_cn.pdf)                                                       | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [RX8130CE Register Manual](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1132/RX8130CE_cn-Register-Datasheet.pdf)                              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [CO5300 Display Driver Datasheet](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1242/CO5300_Datasheet.pdf)                                     | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [CST820 Touch Controller Datasheet](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1242/CST820B_datasheet.pdf)                                  | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [M5PM1 Arduino Library](https://github.com/m5stack/M5PM1)                                                                                         | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [M5IOE1 Arduino Library](https://github.com/m5stack/M5IOE1)                                                                                       | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StopWatch Arduino M5Unified Driver Library](https://github.com/m5stack/M5Unified)                                                                | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StopWatch Arduino M5GFX Driver Library](https://github.com/m5stack/M5GFX)                                                                        | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StopWatch UiFlow2 Docs](https://uiflow-micropython.readthedocs.io/en/latest/controllers/stopwatch.html)                                          | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [M5PM1 Power Management Chip](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/M5PM1_Datasheet_EN.pdf)                                       | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [M5IOE1 IO Expansion Management Chip](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1210/IO_Expander_Datasheet_EN.pdf)                         | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StopWatch Factory Firmware](https://github.com/m5stack/M5StopWatch-UserDemo)                                                                     | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [StopWatch Low-Power Test Example](https://github.com/m5stack/M5StopWatch-PowerDemo)                                                              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [download](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1242/C152-StopWatch-UserDemo.exe)                                                     | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+
+## References and validation
+
+Exact-model [manufacturer hardware reference](https://docs.m5stack.com/en/core/StopWatch) and model-specific software links in the procedures establish this guide's hardware scope. Electrical values are manufacturer-reported; external-project behavior and diagnostic order are original engineering guidance.
+
+**Review:** 24 November 2026. Manufacturer documentation and the linked SDK interfaces were reviewed. **Compilation, firmware flashing and hardware operation: not run.** Expected results above are commissioning checkpoints, not observed bench measurements.

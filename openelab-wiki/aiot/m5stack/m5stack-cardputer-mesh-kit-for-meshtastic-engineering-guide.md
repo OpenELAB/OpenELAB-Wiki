@@ -1,16 +1,20 @@
+---
+description: >-
+  Power, connector allocation, firmware setup, original first-result procedures
+  and recovery for M5Stack Cardputer Mesh Kit K152.
+---
+
 # M5Stack Cardputer Mesh Kit for Meshtastic Engineering Guide
 
 {% hint style="info" %}
 [**View M5Stack Cardputer Mesh Kit K152 on OpenELAB**](https://openelab.io/products/m5stack-cardputer-mesh-kit)
 
-**Covered model:** M5Stack Cardputer Mesh Kit K152 · **OpenELAB SKU:** `M5-K152`
+**Model:** Cardputer Mesh Kit K152 · **SKU:** `M5-K152`
 {% endhint %}
 
+## Product overview <a href="#m5stack-cardputer-mesh-kit-for-meshtastic-engineering-guide" id="m5stack-cardputer-mesh-kit-for-meshtastic-engineering-guide"></a>
+
 **Product link:** [M5Stack Cardputer Mesh Kit for Meshtastic on OpenELAB](https://openelab.io/products/m5stack-cardputer-mesh-kit)
-
-## M5Stack Cardputer Mesh Kit for Meshtastic Engineering Guide
-
-The M5Stack Cardputer Mesh Kit is a portable Meshtastic-ready LoRa mesh communication terminal built from the Cardputer-Adv controller and Cap LoRa-1262 expansion module. It combines an ESP32-S3FN8 computer with keyboard, 1.14 inch display, 1750 mAh battery, audio, IMU, microSD, SX1262 LoRa radio, external RP-SMA antenna, and multi-constellation GNSS positioning. This guide summarizes the engineering details needed to deploy the kit as an off-grid messaging node, field tracker, portable LoRa test terminal, or ESP32-S3 development platform.
 
 ### Quick Summary
 
@@ -27,6 +31,27 @@ The Cardputer Mesh Kit packages a handheld ESP32-S3 computer and an SX1262 LoRa/
 
 The kit is pre-installed with Meshtastic firmware according to M5Stack, so basic mesh communication can begin without building firmware from source. Engineers can still reflash, customize, or develop new firmware using M5Burner, Meshtastic tools, Arduino, UiFlow2, ESP-IDF, PlatformIO, RadioLib, TinyGPSPlus, and the official M5Cardputer library.
 
+### Important Safety and Regulatory Notes
+
+* **Install the antenna before powering or transmitting.** M5Stack's Meshtastic tutorial warns that powering the device without the antenna installed may permanently damage the hardware.
+* **Use the correct Meshtastic region.** The hardware covers 868 to 923 MHz, but legal ISM bands vary by region, for example EU868 and US915. Incorrect settings can violate local radio rules.
+* **Mind duty cycle and channel utilization.** Long-range LoRa settings are low bandwidth. Avoid high-frequency telemetry that congests the mesh.
+* **Use matched antennas.** The supplied antenna is intended for the kit; if replacing it, use the correct connector, frequency band, gain, and mechanical strain relief.
+* **Validate field range realistically.** Terrain, antenna height, body blocking, buildings, vehicle interiors, weather, and RF noise can dominate range performance.
+
+## Applications
+
+### Project References and Application Ideas
+
+* [M5Stack Meshtastic tutorial for Cardputer Mesh Kit](https://docs.m5stack.com/en/guide/lora/meshtastic/cardputer_mesh_kit): official setup path for deploying the kit as a Meshtastic handheld.
+* [Meshtastic firmware](https://github.com/meshtastic/firmware): open-source firmware used by the Meshtastic ecosystem; useful for understanding supported features, releases, and configuration behavior.
+* [d4rkmen/plai](https://github.com/d4rkmen/plai): community standalone Meshtastic node project for Cardputer ADV, useful as a reference for Cardputer-style field UI ideas.
+* [reydeargentina/cardtastic](https://github.com/reydeargentina/cardtastic): community UI project for Meshtastic nodes on M5Stack Cardputer hardware.
+* [RadioLib SX1262 examples](https://github.com/jgromes/RadioLib): useful for engineers building custom point-to-point LoRa or diagnostic firmware outside Meshtastic.
+* [M5Cardputer library examples](https://github.com/m5stack/M5Cardputer): starting point for custom keyboard/display applications on Cardputer hardware.
+
+## Specifications
+
 ### Key Specifications
 
 | Parameter             | Specification                                                                            | Engineering note                                                                                               |
@@ -36,7 +61,7 @@ The kit is pre-installed with Meshtastic firmware according to M5Stack, so basic
 | Storage               | microSD                                                                                  | Useful for logs, maps, message history, configuration files, and field diagnostics.                            |
 | Display               | ST7789V2, 1.14 inch, 240 x 135 px                                                        | Compact display for Meshtastic status, channel info, GPS status, and menus.                                    |
 | Keyboard              | 56 keys, 4 x 14 matrix, 160 gf actuation force                                           | Enables standalone field input without a phone for many workflows.                                             |
-| Battery               | 1750 mAh lithium battery                                                                 | Runtime depends on LoRa duty cycle, display brightness, GNSS, audio, and sleep behavior.                       |
+| Battery               | 1500 mAh lithium battery                                                                 | Runtime depends on LoRa duty cycle, display brightness, GNSS, audio, and sleep behavior.                       |
 | Audio                 | ES8311 codec, NS4150B amplifier, 8 ohm 1 W speaker, MEMS microphone, 3.5 mm audio output | Supports notification sounds, voice/audio experiments, and local alerts.                                       |
 | IMU                   | BMI270 6-axis IMU                                                                        | Can support motion-aware power states, gestures, orientation, or field-device state detection.                 |
 | Expansion             | HY2.0-4P Grove plus EXT 2.54-14P                                                         | Use for sensors, custom hardware, and Cap LoRa-1262 connectivity.                                              |
@@ -53,6 +78,8 @@ The kit is pre-installed with Meshtastic firmware according to M5Stack, so basic
 | Operating temperature | 0 to 40 C                                                                                | Protect from hot vehicles, direct sun heating, freezing conditions, and water ingress.                         |
 | Size                  | Cardputer-Adv 84.0 x 54.0 x 19.6 mm; Cap LoRa-1262 84.0 x 24.0 x 15.2 mm                 | Use official model-size PDFs for enclosure, holder, or vehicle mount design.                                   |
 
+## Hardware and connections
+
 ### System Architecture
 
 * **Cardputer-Adv controller:** handles UI, keyboard, Meshtastic firmware, BLE/Wi-Fi configuration workflows, local storage, audio, display, IMU, and expansion.
@@ -61,40 +88,44 @@ The kit is pre-installed with Meshtastic firmware according to M5Stack, so basic
 * **Phone/computer tools:** Meshtastic mobile apps, Meshtastic Web Client, M5Burner, serial tools, and firmware flashers are used for configuration and recovery.
 * **External sensors:** the Grove and EXT interfaces can support environmental sensors, buttons, or application-specific peripherals for telemetry nodes.
 
-### Important Safety and Regulatory Notes
-
-* **Install the antenna before powering or transmitting.** M5Stack's Meshtastic tutorial warns that powering the device without the antenna installed may permanently damage the hardware.
-* **Use the correct Meshtastic region.** The hardware covers 868 to 923 MHz, but legal ISM bands vary by region, for example EU868 and US915. Incorrect settings can violate local radio rules.
-* **Mind duty cycle and channel utilization.** Long-range LoRa settings are low bandwidth. Avoid high-frequency telemetry that congests the mesh.
-* **Use matched antennas.** The supplied antenna is intended for the kit; if replacing it, use the correct connector, frequency band, gain, and mechanical strain relief.
-* **Validate field range realistically.** Terrain, antenna height, body blocking, buildings, vehicle interiors, weather, and RF noise can dominate range performance.
-
 ### Pin Map and Interfaces
 
-| Interface                  | Signals                                                                                                                               | Notes                                                                                            |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Cardputer-Adv EXT 2.54-14P | G3 RESET, 5VIN, G4 INT, GND, G6 BUSY, 5VOUT, G40 SCK, G8 I2C\_SDA, G14 MOSI, G9 I2C\_SCL, G39 MISO, G13 UART\_RX, G5 CS, G15 UART\_TX | Main expansion bus used by Cap LoRa-1262; check orientation before mating boards.                |
-| LoRa SPI mapping           | RST G3, IRQ G4, BUSY G6, SCK G40, MOSI G14, MISO G39, NSS G5                                                                          | Use these pins when writing custom RadioLib or ESP-IDF firmware.                                 |
-| GNSS UART mapping          | GPS-RX G13, GPS-TX G15                                                                                                                | Default GNSS serial setting is 115200 bps, 8N1.                                                  |
-| Cap LoRa-1262 I2C          | SDA G8, SCL G9                                                                                                                        | Used for the PI4IOE5V6408 I/O expander and Cap Grove I2C path.                                   |
-| RF antenna switch          | PI4IOE5V6408 P0 controls SX\_ANT\_SW                                                                                                  | M5Stack notes that LoRa initialization requires setting P0 HIGH to enable the RF antenna switch. |
-| Cardputer-Adv Grove        | GND, 5 V, G2, G1                                                                                                                      | HY2.0-4P custom port for external modules.                                                       |
-| Cap LoRa-1262 Grove        | GND, 5 V, SDA, SCL                                                                                                                    | HY2.0-4P Port A for I2C sensors on the cap.                                                      |
-| LCD                        | DISP\_BL G38, RST G33, RS G34, DAT G35, SCK G36, CS G37                                                                               | Use M5Cardputer library for display bring-up.                                                    |
-| Audio                      | ES8311 SDA G8, SCL G9, SCLK G41, ASDOUT G46, LRCK G43, DSDIN G42                                                                      | Shared I2C bus for codec control.                                                                |
-| Keyboard                   | TCA8418RTWR SDA G8, SCL G9, INT G11                                                                                                   | Matrix keyboard controller; use the official library where possible.                             |
-| microSD                    | CS G12, MOSI G14, CLK G40, MISO G39                                                                                                   | Shared SPI pins; coordinate chip-select use in custom firmware.                                  |
+| Interface                  | Signals                                                                                                                               | Notes                                                                                                                                                |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cardputer-Adv EXT 2.54-14P | G3 RESET, 5VIN, G4 INT, GND, G6 BUSY, 5VOUT, G40 SCK, G8 I2C\_SDA, G14 MOSI, G9 I2C\_SCL, G39 MISO, G13 UART\_TX, G5 CS, G15 UART\_RX | Main expansion bus used by Cap LoRa-1262; check orientation before mating boards.                                                                    |
+| LoRa SPI mapping           | RST G3, IRQ G4, BUSY G6, SCK G40, MOSI G14, MISO G39, NSS G5                                                                          | Use these pins when writing custom RadioLib or ESP-IDF firmware.                                                                                     |
+| GNSS UART mapping          | GPS-RX G13, GPS-TX G15                                                                                                                | Module-side names: GPS RX13 receives host TX13; GPS TX15 drives host RX15. Host UART initialization is `begin(115200, SERIAL_8N1, 15, 13)` (RX, TX). |
+| Cap LoRa-1262 I2C          | SDA G8, SCL G9                                                                                                                        | Used for the PI4IOE5V6408 I/O expander and Cap Grove I2C path.                                                                                       |
+| RF antenna switch          | PI4IOE5V6408 P0 controls SX\_ANT\_SW                                                                                                  | M5Stack notes that LoRa initialization requires setting P0 HIGH to enable the RF antenna switch.                                                     |
+| Cardputer-Adv Grove        | GND, 5 V, G2, G1                                                                                                                      | HY2.0-4P custom port for external modules.                                                                                                           |
+| Cap LoRa-1262 Grove        | GND, 5 V, SDA, SCL                                                                                                                    | HY2.0-4P Port A for I2C sensors on the cap.                                                                                                          |
+| LCD                        | DISP\_BL G38, RST G33, RS G34, DAT G35, SCK G36, CS G37                                                                               | Use M5Cardputer library for display bring-up.                                                                                                        |
+| Audio                      | ES8311 SDA G8, SCL G9, SCLK G41, ASDOUT G46, LRCK G43, DSDIN G42                                                                      | Shared I2C bus for codec control.                                                                                                                    |
+| Keyboard                   | TCA8418RTWR SDA G8, SCL G9, INT G11                                                                                                   | Matrix keyboard controller; use the official library where possible.                                                                                 |
+| microSD                    | CS G12, MOSI G14, CLK G40, MISO G39                                                                                                   | Shared SPI pins; coordinate chip-select use in custom firmware.                                                                                      |
 
-### Meshtastic Bring-Up Workflow
+The EXT row above uses **MCU directions: TX13 and RX15**. The adjacent GPS row uses **module directions: RX13 and TX15**. The manufacturer's combined kit summary swaps the host UART labels; the detailed Cardputer-Adv map and GNSS tutorial establish host **RX15/TX13**. [Cardputer-Adv host map](https://docs.m5stack.com/en/core/Cardputer-Adv#pinmap), [GNSS UART example](https://docs.m5stack.com/en/arduino/projects/cap/cap_lora868).
 
-1. **Assemble mechanically.** Seat the Cap LoRa-1262 into the Cardputer-Adv EXT 2.54-14P connector and secure it with the supplied screws.
-2. **Attach the antenna.** Screw the included RP-SMA LoRa antenna onto the cap before powering the unit.
-3. **Charge and power on.** M5Stack notes that the power switch should be ON before charging.
-4. **Confirm firmware.** The kit is listed as Meshtastic pre-installed; if needed, use the M5Stack Meshtastic tutorial, M5Burner, or Meshtastic firmware tools to reflash.
-5. **Select radio region.** In Meshtastic, configure the correct region/channel settings before transmitting.
-6. **Pair with phone or computer.** Use the Meshtastic Android/iOS app or web/client tooling to configure node name, channel, GPS, telemetry, and power options.
-7. **Test near-field first.** Verify two nodes communicate at short range before doing distance tests.
-8. **Field test with logs.** Record GPS lock status, RSSI/SNR, battery behavior, antenna position, terrain, and node placement.
+### Adv host routing and shared buses
+
+| Function                  | Cardputer-Adv connection                                       |
+| ------------------------- | -------------------------------------------------------------- |
+| System I2C                | SDA8 / SCL9; codec, BMI270 and TCA8418 keyboard expander       |
+| Keyboard interrupt        | GPIO11;56 keys in4×14 layout                                   |
+| LCD                       | Backlight38, reset33, DC34, MOSI35, clock36, CS37              |
+| microSD                   | CS12, MOSI14, clock40, MISO39                                  |
+| Audio                     | SDA8, SCL9, BCLK41, codec output46, LRCK43, codec input42      |
+| IR / battery measurement  | TX44 / ADC10                                                   |
+| Host Grove                | GND /5V /GPIO2 /GPIO1, distinct from the cap's I2C port        |
+| EXT SPI and radio control | clock40, MOSI14, MISO39; CS5, IRQ4, BUSY6, reset3 for LoRa cap |
+
+The rear cap and microSD share SPI signals, so deselect inactive devices and use the driver transaction settings; a common SPI bus does not permit both chip selects low. GPIO38 also gates Stamp-S3A RGB power, so an RGB test must enable that supply. Set the side switch **ON for charging**. The current battery specification is1500mAh, following the13July2026 change; earlier1750mAh references do not identify the fitted battery. [Adv hardware](https://docs.m5stack.com/en/core/Cardputer-Adv), [K152 hardware](https://docs.m5stack.com/en/core/Cardputer_Mesh_Kit).
+
+![M5Stack Cardputer-Adv host power and expansion-header schematic in K152 kit](../../.gitbook/assets/m5stack-rank-025-diagram.png)
+
+_M5Stack official technical illustration:_ [_original_](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/Sch_M5CardputerAdv_v1.0_2025_06_20_17_19_58_page_01.png)_. Verify drawing and physical revision together._
+
+## Software and development resources
 
 ### Development Workflow
 
@@ -125,31 +156,18 @@ lib_deps =
     TinyGPSPlus=https://github.com/m5stack/TinyGPSPlus
 ```
 
-### Official Resources and Downloads
+## Getting started
 
-| Resource                        | Use                                                                                     | Link                                                                                                                                                   |
-| ------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| OpenELAB product page           | Purchase and listing details                                                            | [M5Stack Cardputer Mesh Kit on OpenELAB](https://openelab.io/products/m5stack-cardputer-mesh-kit)                                                      |
-| M5Stack Cardputer Mesh Kit docs | Official product specifications, pin map, software, datasheets, schematics, model files | [M5Stack Cardputer Mesh Kit documentation](https://docs.m5stack.com/en/core/Cardputer_Mesh_Kit)                                                        |
-| M5Stack SKU page                | Official K152 product page                                                              | [Cardputer Mesh Kit SKU K152](https://docs.m5stack.com/en/products/sku/K152)                                                                           |
-| Meshtastic tutorial             | M5Stack setup guide for using Meshtastic with the kit                                   | [Using Meshtastic with Cardputer Mesh Kit](https://docs.m5stack.com/en/guide/lora/meshtastic/cardputer_mesh_kit)                                       |
-| Meshtastic official site        | Meshtastic ecosystem, apps, settings, radio regions, concepts                           | [Meshtastic.org](https://meshtastic.org/)                                                                                                              |
-| Meshtastic Web Flasher          | Browser-based firmware flashing workflow for supported Meshtastic targets               | [Meshtastic Web Flasher](https://flasher.meshtastic.org/)                                                                                              |
-| Meshtastic firmware             | Open-source firmware reference                                                          | [meshtastic/firmware](https://github.com/meshtastic/firmware)                                                                                          |
-| Cardputer-Adv schematic         | Electrical design reference for Cardputer-Adv                                           | [Cardputer-Adv Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/Sch_M5CardputerAdv_v1.0_2025_06_20_17_19_58.pdf)                  |
-| Stamp-S3A schematic             | ESP32-S3 module reference                                                               | [Stamp-S3A Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1150/Sch_StampS3_v0.3.3.pdf)                                               |
-| Cap LoRa-1262 schematic         | LoRa/GNSS cap electrical design                                                         | [Cap LoRa-1262 Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1208/U214-sche-Cap-LoRa1262_SCH_V1.1_20251029_2025_11_07_22_53_19.pdf) |
-| Cardputer-Adv model size        | Mechanical integration                                                                  | [Cardputer-Adv Model Size PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/K132-Adv-cardputer-ADV.pdf)                                       |
-| Cap LoRa-1262 model size        | Mechanical integration                                                                  | [Cap LoRa-1262 Model Size PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1208/U214-00-cap1262-model-size.pdf)                                   |
-| Cardputer-Adv structure files   | Hardware structure/CAD resources                                                        | [Cardputer-Adv structure files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K132-Adv_Cardputer-Adv/Structures)                         |
-| ESP32-S3 datasheet              | SoC hardware reference                                                                  | [ESP32-S3 datasheet](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/472/esp32-s3_datasheet_en.pdf)                                                   |
-| SX1262 datasheet                | LoRa radio reference                                                                    | [SX1261/2 datasheet](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1177/DS_SX1261_2_V2-2.pdf)                                                       |
-| ATGM336H-6N datasheet           | GNSS module reference                                                                   | [ATGM336H-6N PDF](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/unit/Unit-GPS%20v1.1/ATGM336H-6N.pdf)                            |
-| CASIC GNSS protocol             | GNSS protocol details                                                                   | [CASIC GNSS receiver protocol](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/950/Multimode_satellite_navigation_receiver_cn.pdf)                    |
-| M5Cardputer library             | Arduino library for Cardputer hardware                                                  | [m5stack/M5Cardputer](https://github.com/m5stack/M5Cardputer)                                                                                          |
-| RadioLib                        | SX1262 LoRa development library                                                         | [jgromes/RadioLib](https://github.com/jgromes/RadioLib)                                                                                                |
-| TinyGPSPlus                     | GNSS/NMEA parsing library                                                               | [m5stack/TinyGPSPlus](https://github.com/m5stack/TinyGPSPlus)                                                                                          |
-| Factory firmware EasyLoader     | M5Stack factory firmware recovery                                                       | [K152 factory firmware EasyLoader](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1240/K152-factory-firmware.exe)                                    |
+### Meshtastic Bring-Up Workflow
+
+1. **Assemble mechanically.** Seat the Cap LoRa-1262 into the Cardputer-Adv EXT 2.54-14P connector and secure it with the supplied screws.
+2. **Attach the antenna.** Screw the included RP-SMA LoRa antenna onto the cap before powering the unit.
+3. **Charge and power on.** M5Stack notes that the power switch should be ON before charging.
+4. **Confirm firmware.** The kit is listed as Meshtastic pre-installed; if needed, use the M5Stack Meshtastic tutorial, M5Burner, or Meshtastic firmware tools to reflash.
+5. **Select radio region.** In Meshtastic, configure the correct region/channel settings before transmitting.
+6. **Pair with phone or computer.** Use the Meshtastic Android/iOS app or web/client tooling to configure node name, channel, GPS, telemetry, and power options.
+7. **Test near-field first.** Verify two nodes communicate at short range before doing distance tests.
+8. **Field test with logs.** Record GPS lock status, RSSI/SNR, battery behavior, antenna position, terrain, and node placement.
 
 ### Field Deployment Checklist
 
@@ -171,14 +189,45 @@ lib_deps =
 * **Lock firmware versions for deployments.** Record Meshtastic, M5Stack, and library versions before distributing multiple nodes.
 * **Use legal bands and presets.** Select the region and modem preset that match local radio rules and the intended range/latency tradeoff.
 
-### Project References and Application Ideas
+### Original keyboard event logger
 
-* [M5Stack Meshtastic tutorial for Cardputer Mesh Kit](https://docs.m5stack.com/en/guide/lora/meshtastic/cardputer_mesh_kit): official setup path for deploying the kit as a Meshtastic handheld.
-* [Meshtastic firmware](https://github.com/meshtastic/firmware): open-source firmware used by the Meshtastic ecosystem; useful for understanding supported features, releases, and configuration behavior.
-* [d4rkmen/plai](https://github.com/d4rkmen/plai): community standalone Meshtastic node project for Cardputer ADV, useful as a reference for Cardputer-style field UI ideas.
-* [reydeargentina/cardtastic](https://github.com/reydeargentina/cardtastic): community UI project for Meshtastic nodes on M5Stack Cardputer hardware.
-* [RadioLib SX1262 examples](https://github.com/jgromes/RadioLib): useful for engineers building custom point-to-point LoRa or diagnostic firmware outside Meshtastic.
-* [M5Cardputer library examples](https://github.com/m5stack/M5Cardputer): starting point for custom keyboard/display applications on Cardputer hardware.
+With **M5Cardputer** selected and its Adv-capable library installed, upload this original sketch. It counts changed key states and reports printable characters plus the Enter/modifier state; it does not send USB keyboard input to the computer.
+
+```cpp
+#include <M5Cardputer.h>
+unsigned events = 0;
+void setup() {
+  auto cfg = M5.config();
+  M5Cardputer.begin(cfg, true);
+  Serial.begin(115200);
+  M5Cardputer.Display.fillScreen(TFT_BLACK);
+  M5Cardputer.Display.setTextSize(2);
+  M5Cardputer.Display.setCursor(4, 4);
+  M5Cardputer.Display.println("Type ABC / Enter");
+}
+void loop() {
+  M5Cardputer.update();
+  if (M5Cardputer.Keyboard.isChange() && M5Cardputer.Keyboard.isPressed()) {
+    auto keys = M5Cardputer.Keyboard.keysState();
+    Serial.printf("event=%u,shift=%d,enter=%d,text=", ++events, keys.shift, keys.enter);
+    for (char c : keys.word) Serial.write(c);
+    Serial.println();
+  }
+  delay(5);
+}
+```
+
+Type `abc`, then Shift+A and Enter. Expected output contains event lines with lowercase text, an uppercase character for the modified key, and `enter=1` for Enter. This is a state-change logger, not a complete text editor or a typematic repeat engine. Compare [keyboard state API](https://github.com/m5stack/M5Cardputer/blob/master/src/utility/Keyboard/Keyboard.h) and [controller API](https://github.com/m5stack/M5Cardputer/blob/master/src/M5Cardputer.h) if a future library changes types.
+
+### Meshtastic registration and a two-node result
+
+The current manufacturer route is [Cardputer Mesh Kit Meshtastic flashing](https://docs.m5stack.com/en/guide/cardputer_mesh_kit/meshtastic). The older `/guide/lora/meshtastic/cardputer_mesh_kit` path is no longer the maintained setup page. Save node settings/channel information, attach the cap with power off, fit the supplied matched antenna and use the **Cardputer Mesh Kit** firmware target; an Arduino keyboard program replaces the mesh application.
+
+For the factory application, first verify keyboard/menu operation locally. Configure the intended region and radio preset before transmitting, then configure a second node with the same channel/key and compatible modem parameters. Send a short unique message from each node. Expected results are the same payload at the peer and a received timestamp; a packet counter or BLE connection alone does not establish an RF message exchange. Outdoors, separately inspect GNSS satellite/fix state; reception of NMEA sentences is not yet a valid position.
+
+Only the purchased **K152 kit** is eligible for the manufacturer's [Meshtastic authorization registration](https://meshtastic-reg.m5stack.com/). Connect the correctly assembled kit over USB, select its serial port and complete Connect Device on that page. A separately bought K132-Adv plus U214 can be developed as hardware, but the manufacturer explicitly excludes it from the kit's authorization mark. Registration does not configure legal regional radio parameters or pair a peer node.
+
+## Troubleshooting and FAQs
 
 ### FAQ
 
@@ -262,6 +311,61 @@ Test antenna installation, region setting, GPS lock, node-to-node messaging, bat
 
 </details>
 
+## Downloads and technical documents
+
+### Official Resources and Downloads
+
+| Resource                        | Use                                                                                     | Link                                                                                                                                                   |
+| ------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| OpenELAB product page           | Purchase and listing details                                                            | [M5Stack Cardputer Mesh Kit on OpenELAB](https://openelab.io/products/m5stack-cardputer-mesh-kit)                                                      |
+| M5Stack Cardputer Mesh Kit docs | Official product specifications, pin map, software, datasheets, schematics, model files | [M5Stack Cardputer Mesh Kit documentation](https://docs.m5stack.com/en/core/Cardputer_Mesh_Kit)                                                        |
+| M5Stack SKU page                | Official K152 product page                                                              | [Cardputer Mesh Kit SKU K152](https://docs.m5stack.com/en/products/sku/K152)                                                                           |
+| Meshtastic tutorial             | M5Stack setup guide for using Meshtastic with the kit                                   | [Using Meshtastic with Cardputer Mesh Kit](https://docs.m5stack.com/en/guide/lora/meshtastic/cardputer_mesh_kit)                                       |
+| Meshtastic official site        | Meshtastic ecosystem, apps, settings, radio regions, concepts                           | [Meshtastic.org](https://meshtastic.org/)                                                                                                              |
+| Meshtastic Web Flasher          | Browser-based firmware flashing workflow for supported Meshtastic targets               | [Meshtastic Web Flasher](https://flasher.meshtastic.org/)                                                                                              |
+| Meshtastic firmware             | Open-source firmware reference                                                          | [meshtastic/firmware](https://github.com/meshtastic/firmware)                                                                                          |
+| Cardputer-Adv schematic         | Electrical design reference for Cardputer-Adv                                           | [Cardputer-Adv Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/Sch_M5CardputerAdv_v1.0_2025_06_20_17_19_58.pdf)                  |
+| Stamp-S3A schematic             | ESP32-S3 module reference                                                               | [Stamp-S3A Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1150/Sch_StampS3_v0.3.3.pdf)                                               |
+| Cap LoRa-1262 schematic         | LoRa/GNSS cap electrical design                                                         | [Cap LoRa-1262 Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1208/U214-sche-Cap-LoRa1262_SCH_V1.1_20251029_2025_11_07_22_53_19.pdf) |
+| Cardputer-Adv model size        | Mechanical integration                                                                  | [Cardputer-Adv Model Size PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/K132-Adv-cardputer-ADV.pdf)                                       |
+| Cap LoRa-1262 model size        | Mechanical integration                                                                  | [Cap LoRa-1262 Model Size PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1208/U214-00-cap1262-model-size.pdf)                                   |
+| Cardputer-Adv structure files   | Hardware structure/CAD resources                                                        | [Cardputer-Adv structure files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K132-Adv_Cardputer-Adv/Structures)                         |
+| ESP32-S3 datasheet              | SoC hardware reference                                                                  | [ESP32-S3 datasheet](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/472/esp32-s3_datasheet_en.pdf)                                                   |
+| SX1262 datasheet                | LoRa radio reference                                                                    | [SX1261/2 datasheet](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1177/DS_SX1261_2_V2-2.pdf)                                                       |
+| ATGM336H-6N datasheet           | GNSS module reference                                                                   | [ATGM336H-6N PDF](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/unit/Unit-GPS%20v1.1/ATGM336H-6N.pdf)                            |
+| CASIC GNSS protocol             | GNSS protocol details                                                                   | [CASIC GNSS receiver protocol](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/950/Multimode_satellite_navigation_receiver_cn.pdf)                    |
+| M5Cardputer library             | Arduino library for Cardputer hardware                                                  | [m5stack/M5Cardputer](https://github.com/m5stack/M5Cardputer)                                                                                          |
+| RadioLib                        | SX1262 LoRa development library                                                         | [jgromes/RadioLib](https://github.com/jgromes/RadioLib)                                                                                                |
+| TinyGPSPlus                     | GNSS/NMEA parsing library                                                               | [m5stack/TinyGPSPlus](https://github.com/m5stack/TinyGPSPlus)                                                                                          |
+| Factory firmware EasyLoader     | M5Stack factory firmware recovery                                                       | [K152 factory firmware EasyLoader](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1240/K152-factory-firmware.exe)                                    |
+
+| Official file or repository                                                                                                                                                                       | Use                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [Cardputer-Adv Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/Sch_M5CardputerAdv_v1.0_2025_06_20_17_19_58.pdf)                                                             | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [Stamp-S3A Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1150/Sch_StampS3_v0.3.3.pdf)                                                                                          | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [Cap LoRa-1262 Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1208/U214-sche-Cap-LoRa1262_SCH_V1.1_20251029_2025_11_07_22_53_19.pdf)                                            | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [Stamp LoRa-1262 Mini Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1208/NEW-1262-SCH_A1-Lora_2025_08_27_10_58_52.pdf)                                                         | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [Cardputer-Adv Model Size PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/K132-Adv-cardputer-ADV.pdf)                                                                                  | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [Cap LoRa-1262 Model Size PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1208/U214-00-cap1262-model-size.pdf)                                                                              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [Cardputer Mesh Kit Structure Files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K152_Cardputer_Mesh_Kit/Structures)                                                              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [ESP32-S3](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/472/esp32-s3_datasheet_en.pdf)                                                                                                        | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [ST7789V2](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/unit/lcd/ST7789V2_SPEC_V1.0.pdf)                                                                                  | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [ES8311](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/atom/Atomic%20Echo%20Base/ES8311.pdf)                                                                                | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [NS4150B](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/atom/Atomic%20Echo%20Base/NS4150B.pdf)                                                                              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [BMI270](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/BMI270.PDF)                                                                                      | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [SX1262](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1177/DS_SX1261_2_V2-2.pdf)                                                                                                              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [ATGM336H-6N](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/unit/Unit-GPS%20v1.1/ATGM336H-6N.pdf)                                                                           | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [CASIC Multi-Constellation GNSS Receiver Protocol Specification](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1173/CASIC_Multi-mode_Satellite_Navigation_Receiver_Protocol_Specification.pdf) | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [Cardputer-Adv Arduino Library](https://github.com/m5stack/M5Cardputer)                                                                                                                           | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [Cap LoRa-1262 LoRa Library (RadioLib)](https://github.com/jgromes/RadioLib)                                                                                                                      | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [Cap LoRa-1262 GPS Library (TinyGPSPlus)](https://github.com/m5stack/TinyGPSPlus)                                                                                                                 | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [Cap LoRa-1262 UiFlow2 Docs](https://uiflow-micropython.readthedocs.io/en/latest/cap/lora1262.html)                                                                                               | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [download](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1240/K152-factory-firmware.exe)                                                                                                       | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+
+## References and validation
+
+Exact-model [manufacturer hardware reference](https://docs.m5stack.com/en/core/Cardputer_Mesh_Kit) and model-specific software links in the procedures establish this guide's hardware scope. Electrical values are manufacturer-reported; external-project behavior and diagnostic order are original engineering guidance.
+
 ### Source Notes
 
 * Product details: [OpenELAB M5Stack Cardputer Mesh Kit product page](https://openelab.io/products/m5stack-cardputer-mesh-kit).
@@ -270,7 +374,7 @@ Test antenna installation, region setting, GPS lock, node-to-node messaging, bat
 * Community project references are examples for engineering inspiration; review each repository's license, hardware assumptions, firmware maturity, and safety implications before reuse.
 * Reviewed for OpenELAB wiki publication on 2026-05-25.
 
-## Official documentation and development resources
+### Official documentation and development resources
 
 Use [Cardputer Mesh Kit](https://docs.m5stack.com/en/core/Cardputer_Mesh_Kit) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K152`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
 
@@ -286,3 +390,5 @@ Use [Cardputer Mesh Kit](https://docs.m5stack.com/en/core/Cardputer_Mesh_Kit) fo
 | Official source: TinyGPSPlus | [Read official source: tinygpsplus](https://github.com/m5stack/TinyGPSPlus)                                                                          |
 
 Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.
+
+**Review:** 24 November 2026. Manufacturer documentation and the linked SDK interfaces were reviewed. **Compilation, firmware flashing and hardware operation: not run.** Expected results above are commissioning checkpoints, not observed bench measurements.

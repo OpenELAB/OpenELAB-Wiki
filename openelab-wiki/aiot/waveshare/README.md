@@ -1,7 +1,7 @@
 ---
 description: >-
-  Develop Waveshare Jetson and ESP32 boards, displays and interfaces with exact
-  carrier selection, pinouts, first-result workflows and recovery.
+  Develop Waveshare Jetson, ESP32, displays, cellular modules and robots with
+  exact carrier selection, pinouts, first-result workflows and recovery.
 ---
 
 # Waveshare
@@ -12,14 +12,19 @@ Waveshare supplies development boards, displays, cameras, and interface modules 
 
 ## Expanded engineering guides
 
-These guides provide on-page commissioning procedures, source-backed specifications, attributed diagrams and model-specific troubleshooting. Each page states its software and hardware test status.
+The following guides provide on-page commissioning procedures, model-specific electrical and software details, original examples, attributed diagrams and recovery checks. Each guide states its software and hardware test status.
 
-| Exact model or family                                                         | Development workflow                                                                        |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| [Jetson Orin NX 16GB kit](jetson-orin-nx-16gb-waveshare-development-guide.md) | Carrier identification, RAM versus NVMe, first boot, CUDA execution check and BSP recovery. |
-| [Jetson Orin NX 8GB kit](waveshare-jetson-orin-nx-8gb-development-guide.md)   | Exact 8GB module and package, power/cooling, Linux/CUDA baseline and recovery.              |
-| [ESP32-S3-ETH](waveshare-esp32-s3-eth-development-guide.md)                   | Wired DHCP, full example map, SD/camera integration and recovery.                           |
-| [ESP32-S3-Nano](esp32-s3-nano-development-board.md)                           | Nano/native GPIO, RGB, UART, Wi-Fi/BLE, MicroPython and firmware offsets.                   |
+| Exact model or family                                                        | Development workflow                                                                              |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [Jetson Orin NX16GB kit](jetson-orin-nx-16gb-waveshare-development-guide.md) | Carrier identification, RAM versus NVMe, first boot, CUDA checkpoint and BSP recovery.            |
+| [7-DSI-TOUCH-C](7-dsi-touch-c-development-guide.md)                          | Host/cable selection, Raspberry Pi OS, backlight, rotation and touch.                             |
+| [SIM7600G-H](waveshare-sim7600g-h-module-development-guide.md)               | USB/AT registration, data-path decisions, GNSS and modem-specific recovery.                       |
+| [ESP32-S3 8DI8RO](waveshare-esp32-s3-8di-8ro-development-guide.md)           | Relay contacts, PoE/non-PoE options, unloaded channel test and network protocols.                 |
+| [ESP32-S3 PoE8DI8DO](waveshare-esp32-s3-poe-8di-8do-development-guide.md)    | Transistor outputs, field references, RS485/CAN and an unloaded first result.                     |
+| [ESP32-P4-NANO](waveshare-esp32-p4-nano-development-guide.md)                | P4/C6 roles, target version, PSRAM, Ethernet and peripheral progression.                          |
+| [UGV Beast Pi 5 ROS2](waveshare-ugv-beast-development-guide.md)              | Battery/controller boundaries, camera and UART checks, ROS2 publishers and behavior-queue limits. |
+| [ESP32-S3-ETH](waveshare-esp32-s3-eth-development-guide.md)                  | Wired DHCP, example map, SD/camera integration and recovery.                                      |
+| [ESP32-S3-Nano](esp32-s3-nano-development-board.md)                          | GPIO numbering, RGB, UART, radio, MicroPython and firmware offsets.                               |
 
 ## Choose a board, interface and host
 
@@ -29,7 +34,7 @@ Start with [ESP32-S3-ETH wired networking](waveshare-esp32-s3-eth-development-gu
 
 ### Popular product guides
 
-Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
+Products from the 17 August–17 November 2026 Top200 net-sales list, in the supplied order. Shared guides appear once; match the exact SKU and option before using a procedure.
 
 | Product guide                                                                                                      | Models / order codes                                |
 | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
@@ -45,8 +50,11 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | [Waveshare ESP32-S3 Touch LCD 1.85C BOX Engineering Guide](waveshare-esp32-s3-lcd-185c-box-development-guide.md)   | Waveshare-30684                                     |
 | [Waveshare 27-inch FHD Touch Monitor Engineering Guide](waveshare-27inch-fhd-touch-monitor-development-guide.md)   | Waveshare-33975                                     |
 | [Waveshare ESP32-S3-ETH Engineering Guide](waveshare-esp32-s3-eth-development-guide.md)                            | Waveshare-28972                                     |
+| [Raspberry Pi Official SSD Integration Guide](../raspbeery-pi/raspberry-pi-official-ssd-development-guide.md)      | Waveshare-32467                                     |
 | [Waveshare ESP32-S3 Touch LCD 4 and 4B Engineering Guide](waveshare-esp32-s3-lcd-4-4b-development-guide.md)        | Waveshare-32052 · Waveshare-28154                   |
 | [Waveshare UGV Beast Engineering Guide](waveshare-ugv-beast-development-guide.md)                                  | Waveshare-28695                                     |
+
+The Raspberry Pi SSD is stocked under supplier SKU `Waveshare-32467`; its model-specific guide is in the Raspberry Pi directory.
 
 ### Product range
 

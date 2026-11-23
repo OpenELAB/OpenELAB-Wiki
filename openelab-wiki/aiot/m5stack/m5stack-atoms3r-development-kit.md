@@ -1,4 +1,7 @@
 ---
+description: >-
+  Power, connector allocation, firmware setup, original first-result procedures
+  and recovery for M5Stack AtomS3R C126.
 layout:
   width: default
   title:
@@ -21,110 +24,186 @@ layout:
     visible: true
 ---
 
-# M5Stack ATOMS3R Development Kit
+# M5Stack AtomS3R C126 Display and Sensor Development Guide
 
 {% hint style="info" %}
-[**View M5Stack ATOMS3R Development Kit on OpenELAB**](https://openelab.io/products/m5stack-atoms3r-development-kit)
+[**View M5Stack AtomS3R C126 on OpenELAB**](https://openelab.io/products/m5stack-atoms3r-development-kit)
 
-**Model/option:** M5Stack ATOMS3R Development Kit · **OpenELAB SKU:** `M5-C126` · Scope: AtomS3R standalone, not the separate AtomS3R-CAM camera kit.
+**Model:** AtomS3R C126 · **SKU:** `M5-C126`
 {% endhint %}
 
-## M5Stack ATOMS3R Development Kit
+## Product overview <a href="#description" id="description"></a>
 
-***
+### Exact hardware identity <a href="#m5stack-atoms3r-development-kit" id="m5stack-atoms3r-development-kit"></a>
 
-## Description <a href="#description" id="description"></a>
+**AtomS3R C126** is the ESP32-S3-PICO-1-N8R8 ATOM controller with a0.85-inch128×128 display,8MB octal PSRAM, BMI270/BMM150 motion sensing, button, IR transmitter and expansion. It differs from screenless AtomS3-Lite C124 and audio-oriented Atom VoiceS3R C126-ECHO; their shared enclosure family does not establish compatible firmware or peripheral pins.
 
-**AtomS3R** is a highly integrated programmable controller based on the ESP32-S3 main controller. It features the **ESP32-S3-PICO-1-N8R8** main controller with built-in WiFi, 8MB onboard **FLASH**, and 8MB **PSRAM**. It comes with a 0.85-inch color **IPS screen**, with a programmable button beneath the screen. The device includes a 5V to 3.3V power circuit, a built-in three-axis **BMM150** geomagnetic sensor, and a six-axis **BMI270** attitude sensor. It also has a **Type-C interface** for power supply and firmware downloads, along with a **HY2.0-4P** expansion port. Six **GPIO** and power pins are reserved at the bottom for easy expansion. Compared to previous products, the **3D antenna** of the **AtomS3R** has been enhanced, offering better performance and greater stability. The product measures only **24x24x12.9mm**, making it suitable for various embedded smart device applications.
+The current official history changes the display driver from **GC9107 to ST7735 on14May2026**. Preserve the actual fitted revision when selecting firmware and diagnosing a blank panel. This guide starts with display/button output, then a bounded stationary IMU check. [Exact C126 model reference](https://docs.m5stack.com/en/core/AtomS3R).
 
-Download Mode press and hold the reset button (about 2 seconds) until the internal green LED lights up, then release the firmware. At this time, the device has entered download mode, waiting for burning.`When controlling the LCD backlight, the PWM frequency is recommended to use 500Hz.`
+## Applications
 
-## Product Features <a href="#product-features" id="product-features"></a>
+### Features and application scope <a href="#product-features" id="product-features"></a>
 
-* Integrated ESP32-S3-PICO-1-N8R8 main controller
-* Nine-axis sensor system (six-axis BMI270 + three-axis BMM150 geomagnetic sensor)
-* 8MB Flash and 8MB PSRAM
-* Supports infrared control functionality
-* Programmable button
-* 0.85-inch LCD screen
-* Expandable pins and interfaces
-* Development platforms: Arduino, UIFlow, Micropython
+Use AtomS3R for a compact instrument display, gesture/motion UI, IR remote or sensor gateway. Use the screen/button baseline to separate an upload/display failure from a later sensor or network fault. A magnetometer direction estimate requires magnetic calibration and a suitable mounting environment, not just readable raw axes.
 
-## Applications <a href="#applications" id="applications"></a>
+## Specifications
 
-* Motion detection and direction sensing
-* Wearable devices
-* Smart device control
-* IoT applications
+| Parameter       | AtomS3R C126                                                                   |
+| --------------- | ------------------------------------------------------------------------------ |
+| Processor       | ESP32-S3-PICO-1-N8R8; dual-core LX7 up to240MHz                                |
+| Memory          | 8MB flash;8MB octal PSRAM                                                      |
+| Display         | 0.85-inch128×128 IPS; current ST7735, earlier GC9107                           |
+| Motion          | BMI2706-axis IMU plus BMM150 magnetometer through BMI270 auxiliary sensor hub  |
+| USB / radio     | USB OTG/Serial-JTAG;2.4GHz Wi-Fi                                               |
+| Expansion       | Grove2/1; underside5/6/7/8/38/39;3.3V signal domain                            |
+| Input power     | 5V through documented USB/Grove/header path; keep source directions compatible |
+| Envelope / mass | 24×24×12.9mm;6.8g                                                              |
+| Operating range | 0–40°C                                                                         |
 
-## Specifications <a href="#specifications" id="specifications"></a>
+[Current manufacturer specification and history](https://docs.m5stack.com/en/core/AtomS3R). The manufacturer lists different sleep-current observations for each supply route; none is a measured standby result for your firmware.
 
-| Specification                          | Details                                                                                                   |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| SoC                                    | ESP32-S3-PICO-1-N8R8 @Dual-core Xtensa LX7 processor, up to 240MHz @USB-OTG                               |
-| PSRAM                                  | 8MB PSRAM                                                                                                 |
-| FLASH                                  | 8MB FLASH                                                                                                 |
-| TFT Driver                             | GC9107                                                                                                    |
-| Color IPS Resolution                   | 128 x 128                                                                                                 |
-| Six-axis sensor (BMI270)               | <p>Accuracy: 0.05% (acceleration), 0.05°/s (angular velocity)<br>I2C address: 0x68</p>                    |
-| Three-axis geomagnetic sensor (BMM150) | <p>Accuracy: 0.3 μT<br>Mounted on BMI270, magnetometer data accessed via BMI270</p>                       |
-| IR                                     | Infrared transmission range: 12.46m @ ∠180°, 1.45m @ ∠90°, 3.88m @ ∠45°                                   |
-| Sleep current                          | <p>GPIO-5V power: DC5V @ 11.63 μA<br>Grove-5V power: DC5V @ 10.75 μA<br>USB-5V power: DC5V @ 92.50 μA</p> |
-| Bottom reserved GPIO pins              | G5/G6/G7/G8/G38/G39                                                                                       |
-| Operating temperature                  | 0°C \~ 40°C                                                                                               |
-| Product dimensions                     | 24\*24\*12.9mm                                                                                            |
-| Packaging dimensions                   | 85\*65.5\*13mm                                                                                            |
-| Product weight                         | 6.7g                                                                                                      |
-| Packaging weight                       | 13.4g                                                                                                     |
+## Hardware and connections
 
-<figure><img src="../../.gitbook/assets/QQ_1727406680444.png" alt=""><figcaption></figcaption></figure>
+### Exact C126 peripheral map <a href="#pinmap" id="pinmap"></a>
 
-<figure><img src="../../.gitbook/assets/QQ_1727406716320.png" alt=""><figcaption></figcaption></figure>
+| Function                     | Connection                                                              |
+| ---------------------------- | ----------------------------------------------------------------------- |
+| Internal sensor/control I2C  | SDA45/SCL0; BMI2700x68                                                  |
+| BMM150                       | BMI270 auxiliary SDA/SCL; not an ordinary external0x10 device on Grove  |
+| Display SPI                  | MOSI21, clock15, CS14, DC42, reset48                                    |
+| Backlight                    | LP5562 white channel; vendor PWM recommendation500Hz for custom control |
+| User button / IR             | 41 /47                                                                  |
+| Grove black/red/yellow/white | GND/5V/2/1                                                              |
+| Underside GPIO               | 5/6/7/8/38/39;39 also CLK\_OUT3                                         |
 
-## Related Links <a href="#related-links" id="related-links"></a>
+Use M5GFX's display/backlight driver for the first test. Do not drive a C124 RGB pixel on35 and expect the C126 screen to respond. BMM150 reads pass through BMI270's sensor hub; scanning only the external Grove2/1 bus does not test either internal sensor. [Reviewed exact pin map](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/680/C126_PinMap_01.jpg), [sensor-hub description](https://docs.m5stack.com/en/core/AtomS3R#pinmap).
 
-* [ESP32-S3-PICO-1-N8R8](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/AtomS3R/esp32-s3-pico-1_datasheet_en.pdf)
-* [BMI270](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/BMI270.PDF)
-* [BMM150](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/BMM150.PDF)
+Keep magnetic fasteners, speakers and steel structures away from a magnetometer calibration. M5Stack notes that built-in magnets in companion hardware can disturb BMM150 readings; identify and address that environment before treating a heading offset as a firmware bug. Use the official axis illustration for coordinate frames. Power off before fitting a base, verify underside pin ownership and keep5V supply separate from3.3V GPIO/pull-up limits.
 
-## Schematics <a href="#schematics" id="schematics"></a>
+![M5Stack AtomS3R C126 exact GPIO pin map](../../.gitbook/assets/m5stack-rank-178-diagram.jpg)
 
-<figure><img src="../../.gitbook/assets/image (439).png" alt=""><figcaption></figcaption></figure>
+_M5Stack official technical illustration:_ [_original_](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/680/C126_PinMap_01.jpg)_. Verify drawing and physical revision together._
 
-## PinMap <a href="#pinmap" id="pinmap"></a>
+## Software and development resources
 
-<figure><img src="../../.gitbook/assets/image (440).png" alt=""><figcaption></figcaption></figure>
+Select **M5AtomS3R** in the M5Stack board package. The [current Arduino guide](https://docs.m5stack.com/en/arduino/m5atoms3r/program) installs **M5Unified/M5GFX** and recommends at least M5Unified0.2.17/M5GFX0.2.22; use a matching current pair with support for the fitted ST7735 or older GC9107 panel. A later library's own dependency requirements take precedence over treating those historical minima as a complete package lock.
 
-RGB & BMM150 & BMI270 IR & BUTTON
+Retain the preset's8MB flash and **qio\_opi/octet PSRAM** configuration. The manufacturer PlatformIO reference pins espressif32@6.7.0 and `esp32-s3-devkitc-1` with qio\_opi and native USB flags; record resolved libraries and reconcile any newer API/core requirement deliberately. AtomS3-Lite has no established PSRAM in its specification and is not a drop-in memory profile.
 
-| ESP32-S3-PICO-1-N8R8 | G0       | G45      | G47          | G41       | BMI270\_ASDx | BMI270\_ASCx |
-| -------------------- | -------- | -------- | ------------ | --------- | ------------ | ------------ |
-| LP5562 (RGB control) | SYS\_SCL | SYS\_SDA |              |           |              |              |
-| BMI270               | SYS\_SCL | SYS\_SDA |              |           |              |              |
-| BMM150               |          |          |              |           | A\_SDA       | A\_SCL       |
-| IR                   |          |          | IR\_LED\_DRV |           |              |              |
-| BUTTON               |          |          |              | USER\_BUT |              |              |
+UiFlow2 uses AtomS3R firmware/controller. The factory ESP-IDF source branch is [M5AtomS3-UserDemo `atoms3r`](https://github.com/m5stack/M5AtomS3-UserDemo/tree/atoms3r). Use those exact model resources when restoring a panel-compatible application; the Atom VoiceS3R UAC image targets different hardware.
 
-SCREEN
+## Getting started
 
-| ESP32S3-PICO Chip | LP5562\_W | G48       | G42      | G21       | G15      | G14      |
-| ----------------- | --------- | --------- | -------- | --------- | -------- | -------- |
-| 0.85-Inch IPS     | LCD\_BL   | DISP\_RST | DISP\_RS | SPI\_MOSI | SPI\_SCK | DISP\_CS |
+### Original display/button counter
 
-## Module Size <a href="#module-size" id="module-size"></a>
+1. Remove external wiring; connect C126 with a USB-C data cable and choose M5AtomS3R.
+2. Install compatible M5Unified/M5GFX and preserve octal-PSRAM settings. Compile the vendor's small display example first.
+3. Upload the original program below. If automatic bootloader entry fails, hold the side reset/power control until green lights, release and reselect the new port.
+4. Restart and press the front screen/button. Compare the on-screen number with the115200-baud log.
 
-<figure><img src="../../.gitbook/assets/image (438).png" alt=""><figcaption></figcaption></figure>
+```cpp
+#include <M5Unified.h>
+unsigned presses=0;
+void paint() {
+  M5.Display.fillScreen(TFT_BLACK);
+  M5.Display.setTextColor(TFT_WHITE,TFT_BLACK);
+  M5.Display.setTextSize(2);
+  M5.Display.setCursor(8,16);
+  M5.Display.println("C126");
+  M5.Display.printf("Count %u",presses);
+}
+void setup() {
+  M5.begin();
+  Serial.begin(115200);
+  M5.Display.setBrightness(64);
+  paint();
+}
+void loop() {
+  M5.update();
+  if (M5.BtnA.wasPressed()) {
+    ++presses;
+    paint();
+    Serial.printf("C126_PRESS=%u\n",presses);
+  }
+  delay(5);
+}
+```
 
-## Official documentation and development resources
+Expected result is a stable128×128 display and a single increment per button press. A green boot indicator is not proof that the application display driver supports the fitted panel. Compare the factory firmware and current library support if the serial log changes but the screen remains blank.
 
-Use [AtomS3R](https://docs.m5stack.com/en/core/AtomS3R) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C126`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+### Original stationary accelerometer test
 
-| Development need             | Model-specific reference                                                                                                       |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5atoms3r/program)                                     |
-| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/680/Sch_M5_AtomS3R_v0.4.1.pdf)                    |
-| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C126_AtomS3R/Structures)             |
-| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C126_AtomS3R/Structures/AtomS3R.stl) |
-| Official source: M5AtomS3    | [Read official source: m5atoms3](https://github.com/m5stack/M5AtomS3)                                                          |
+This separate program uses M5Unified's BMI270 abstraction. It deliberately does not claim that a direct I2C0x10 transaction reads the magnetometer.
 
-Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.
+```cpp
+#include <M5Unified.h>
+void setup() { M5.begin(); Serial.begin(115200); }
+void loop() {
+  M5.update();
+  float ax=0,ay=0,az=0;
+  if (M5.Imu.getAccel(&ax,&ay,&az))
+    Serial.printf("g=%.3f,%.3f,%.3f\n",ax,ay,az);
+  else Serial.println("BMI270_READ_FAILED");
+  delay(250);
+}
+```
+
+Expected result is approximately one-g acceleration magnitude at rest, changing axis/sign with orientation. Use the official C126 axis drawing when mapping to an application frame. Gravity, axis bias and sensor bandwidth are separate from dynamic motion. For magnetometer work, use the model's BMM150/sensor-hub example, check updates while rotating the unit away from magnets, then perform the selected calibration before interpreting heading.
+
+### Expansion, IR and stored firmware
+
+Connect a compatible Grove Unit on2/1 only after the base display/button works. Check its documented I2C address and driver units; internal0/45 and external2/1 are separate buses. Power off before fitting an ATOM base and verify its routes against the underside pin map.
+
+For IR use the transmitter on47 with a known protocol and one deliberate user-triggered test frame. Verify it with a compatible external receiver; C126 is not documented as having an onboard IR receiver. The manufacturer range/FOV figures depend on unobstructed test conditions and are not a guarantee through an enclosure.
+
+For UIFlow2 flash the C126 image, select AtomS3R, establish USB WebTerminal or the current Access Code, run one display block, then Run Always and restart. For factory recovery save required source/configuration, enter the documented green-LED download mode and use the exact AtomS3R image for the fitted panel revision. Avoid full erase until a matched replacement image and needed configuration are available. [Current software routes](https://docs.m5stack.com/en/core/AtomS3R).
+
+## Troubleshooting and FAQs
+
+| Symptom                       | Checks / recovery                                                                                       |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Serial counts, blank screen   | C126 rather than C124/C126-ECHO → GC9107/ST7735 revision → matching M5GFX/library/image → normal reset. |
+| PSRAM fails                   | M5AtomS3R,8MB octal/qio\_opi, actual package dependencies and bounded buffer size.                      |
+| Brightness adjustment erratic | Use the LP5562-aware driver; custom PWM should respect the vendor500Hz recommendation.                  |
+| No magnetometer on Grove scan | BMM150 is behind BMI270 auxiliary hub, not on external2/1.                                              |
+| Heading distorted             | Magnetic mounting environment, official axis convention, calibration and fresh sensor-hub data.         |
+| External sensor absent        | Exact Grove2/1 versus internal45/0, supply/pull-ups and address; isolate any conflicting base.          |
+
+## Downloads and technical documents <a href="#schematics" id="schematics"></a>
+
+The exact C126 pin map, schematic, structure files and axis illustration are linked below. Some historic gallery filenames still identify the older display generation; use the version-history table and current firmware support when selecting a panel driver.
+
+| Official file or repository                                                                                                               | Use                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [AtomS3R Schematics PDF](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/680/Sch_M5_AtomS3R_v0.4.1.pdf)                                  | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [AtomS3R Structure Files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C126_AtomS3R/Structures)                            | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [ESP32-S3-PICO-1-N8R8](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/AtomS3R/esp32-s3-pico-1_datasheet_en.pdf) | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [BMI270](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/BMI270.PDF)                              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [BMM150](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/BMM150.PDF)                              | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [AtomS3R Arduino Library](https://github.com/m5stack/M5AtomS3)                                                                            | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [AtomS3R Factory Firmware](https://github.com/m5stack/M5AtomS3-UserDemo/tree/atoms3r)                                                     | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+| [download](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/AtomS3R/AtomS3R-UserDemo-V0.1.exe)                    | Manufacturer-listed exact model document / maintained source; use the scope described above. |
+
+### Model illustrations <a href="#module-size" id="module-size"></a>
+
+![M5Stack AtomS3R C126 reference illustration](../../.gitbook/assets/QQ_1727406680444.png)
+
+![M5Stack AtomS3R C126 reference illustration](../../.gitbook/assets/QQ_1727406716320.png)
+
+![M5Stack AtomS3R C126 reference illustration](<../../.gitbook/assets/image (439).png>)
+
+![M5Stack AtomS3R C126 reference illustration](<../../.gitbook/assets/image (440).png>)
+
+![M5Stack AtomS3R C126 reference illustration](<../../.gitbook/assets/image (438).png>)
+
+_Retained manufacturer illustrations. Use the revision-specific connector and circuit references above for wiring._
+
+### Additional model references <a href="#related-links" id="related-links"></a>
+
+* [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C126_AtomS3R/Structures/AtomS3R.stl)
+
+## References and validation <a href="#official-documentation-and-development-resources" id="official-documentation-and-development-resources"></a>
+
+This guide uses the exact sold SKU and the [manufacturer reference](https://docs.m5stack.com/en/core/AtomS3R). Specifications are manufacturer-reported; diagnostic order and first-result programs are original engineering work. The full pin-map image was inspected, including internal45/0, external2/1 and display connections. The14May2026 ST7735 change, sensor-hub topology and current Arduino minimums were reviewed. No panel, IMU calibration, USB upload or IR range test was run.
+
+**Review:** 24 November 2026. Manufacturer documentation and the linked SDK interfaces were reviewed. **Compilation, firmware flashing and hardware operation: not run.** Expected results above are commissioning checkpoints, not observed bench measurements.
