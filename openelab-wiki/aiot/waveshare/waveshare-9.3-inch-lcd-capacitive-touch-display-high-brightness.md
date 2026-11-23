@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 9.3 inch LCD Capacitive Touch Display High Brightness
 
+{% hint style="info" %}
+[**View Waveshare 9.3 inch LCD Capacitive Touch Display 1600x600 HDMI High Brightness on OpenELAB**](https://openelab.io/products/9-3-inch-lcd-capacitive-touch-display)
+
+**Store SKU / option:** `Waveshare-24591`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 9.3 inch LCD Capacitive Touch Display High Brightness
 
 ***
@@ -207,3 +213,14 @@ Remove the resistor in the red-boxed area as shown in the diagram, and externall
 <img src="https://www.waveshare.com/w/upload/d/d7/9.3inch_1600x600_LCD-FAQ.png" alt="" data-size="original">
 
 </details>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/9.3inch_1600x600_LCD) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                                                  |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.waveshare.com/wiki/9.3inch%201600x600%20LCD/9.3inch%201600x600%20LCD%203D%20Drawing/9_3inch-1600x600-lcd.stp) |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.waveshare.com/wiki/9.3inch%201600x600%20LCD/9.3inch%201600x600%20LCD%202D%20Drawing/9.3inch-1600x600-lcd.dxf) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # Voltage and Amperage Meter
 
+{% hint style="info" %}
+[**View M5Stack Voltage and Amperage Meter with M5StampS3 on OpenELAB**](https://openelab.io/products/m5stack-meter)
+
+**Store SKU / option:** `M5-K136`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Voltage and Amperage Meter with M5StampS3
 
 ***
@@ -80,18 +86,18 @@ This tutorial will introduce you to the VA Meter device tutorial & Get started q
 | PD Input Power                       | 5-24V@0-5A                                                                                                                                       |
 | Current detection resolution         | 2.5uA/250uA                                                                                                                                      |
 | Current sampling error               | <p>Small current (1-100mA) sampling error: 1.01%<br>Large current (100mA-5A) Sampling error: 0.94%<br>uA-level current sampling error: 0.69%</p> |
-| Power Consumption (factory firmware) | <p>STAMPS3 USB power supply: DC5V/123.5mA<br>PD INPUT power supply: DC5V/118mA     DC12V/66.8mA     DC24V/26mA</p>                               |
+| Power Consumption (factory firmware) | <p>STAMPS3 USB power supply: DC5V/123.5mA<br>PD INPUT power supply: DC5V/118mA DC12V/66.8mA DC24V/26mA</p>                                       |
 | PD OUTPUT capability                 | <p>DC24V/3A 68℃<br>DC24V/5A 92℃</p>                                                                                                              |
 | USER interaction                     | Rotary encoder switch, reset button, boot button and board                                                                                       |
 | INA226 Communication Address         | Two detection chips INA226:0x40/0x41                                                                                                             |
 | Relay                                | DC 5-24V @5A                                                                                                                                     |
 | Operating Temperature                | 0-40°C                                                                                                                                           |
-| Product Size                         | <p>VAMeter 36*36*14.7mm<br>VAMeter 36*36*20.3mm<br>Rail Fastening 51.5*48*5.5mm</p>                                                              |
+| Product Size                         | <p>VAMeter 36<em>36</em>14.7mm<br>VAMeter 36<em>36</em>20.3mm<br>Rail Fastening 51.5<em>48</em>5.5mm</p>                                         |
 | Package Size                         | 150\*93\*30mm                                                                                                                                    |
 | Product Weight                       | <p>VAMeter:17.7g VAMeter Base:25.8g<br>Rail Fastening 4g</p>                                                                                     |
 | Package Weight                       | 68.1g                                                                                                                                            |
 
-![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/5.webp)![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/6.webp)![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/7.webp)![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/9.webp)![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/13.webp)![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/16.webp)
+![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/5.webp) ![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/6.webp) ![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/7.webp) ![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/9.webp) ![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/13.webp) ![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/16.webp)
 
 ### EasyLoader <a href="#easyloader" id="easyloader"></a>
 
@@ -170,3 +176,18 @@ NoteINA226(0x40) and INA226(0x41) are used for measurements of different resolut
 #### Arduino <a href="#arduino" id="arduino"></a>
 
 * [VA Meter factory firmware](https://github.com/m5stack/VAMeter-Firmware)
+
+## Official documentation and development resources
+
+Use [VAMeter](https://docs.m5stack.com/en/core/VAMeter) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K136`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                  | Model-specific reference                                                                                                                  |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic              | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/518/Sch_VAMeter_V1.2.pdf)                                    |
+| Electrical schematic              | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/518/Sch_VAMeter_base_V1.0.pdf)                               |
+| Mechanical / CAD files            | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K136_VAMeter/Structures)                        |
+| Mechanical / CAD files            | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K136_VAMeter/Structures/VAMeter.stl)            |
+| Mechanical / CAD files            | [Read mechanical / cad files](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/VA%20Meter/VAMeter_base_board.dxf) |
+| Official source: VAMeter-Firmware | [Read official source: vameter-firmware](https://github.com/m5stack/VAMeter-Firmware)                                                     |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

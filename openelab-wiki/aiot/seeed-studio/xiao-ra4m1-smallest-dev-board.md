@@ -23,6 +23,12 @@ layout:
 
 # XIAO RA4M1 Smallest Dev Board
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO RA4M1 Smallest Dev Board on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-ra4m-smallest-dev-board-based)
+
+**Store SKU / option:** `Seeed-102010551`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO RA4M1 Smallest Dev Board
 
 ***
@@ -90,3 +96,13 @@ When you encounter the above two situations, you can try to put XIAO into BootLo
 ### Reset[​](https://wiki.seeedstudio.com/getting_started_xiao_ra4m1/#reset) <a href="#reset" id="reset"></a>
 
 When the program runs abnormally, you can press `Reset` once during power-up to let XIAO re-execute the uploaded program. When you press and hold the `BOOT` key while powering up and then press the `Reset` key once, you can also enter BootLoader mode.
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO RA4M1](https://wiki.seeedstudio.com/getting_started_xiao_ra4m1/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                    |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://files.seeedstudio.com/arduino/package_renesas_1.2.0_index.json) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

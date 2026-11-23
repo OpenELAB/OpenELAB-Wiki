@@ -23,6 +23,12 @@ layout:
 
 # SIM7028 NB-IoT HAT
 
+{% hint style="info" %}
+[**View Waveshare SIM7028 NB-IoT HAT on OpenELAB**](https://openelab.io/products/sim7028-nb-iot-hat)
+
+**Store SKU / option:** `Waveshare-25349`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### SIM7028 NB-IoT HAT
 
 ***
@@ -95,9 +101,9 @@ The SIM7028 NB-IoT HAT is an NB-IoT (Narrow-Band Internet of Things) development
 
 ### Indicator
 
-| STA |   Turn on when power on the module (5V) and GND                                                                                                                                             |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NET | <p>  64ms on/800msoff——Register the network failed<br>  64ms on/3000ms off——Network registered<br>  64ms on/300ms off——Data transmission<br>  off——Power off or PSM/DRX/eDRX sleep mode</p> |
+| STA | Turn on when power on the module (5V) and GND                                                                                                                                       |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NET | <p>64ms on/800msoff——Register the network failed<br>64ms on/3000ms off——Network registered<br>64ms on/300ms off——Data transmission<br>off——Power off or PSM/DRX/eDRX sleep mode</p> |
 
 ### Connect to PCs
 
@@ -560,3 +566,13 @@ AWS IoT Core typically involves two-way authentication. AWS IoT provides a featu
 Firmware version 2110B08SIM7028 and above has modified the underlying logic, including the fact that after MQTT sends a message, it will clear the contents cached in the message body, so at this point, we should add another cache command to input the message body before requesting it.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/SIM7028_NB-IoT_HAT) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need     | Model-specific reference                                                                                          |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic | [Read electrical schematic](https://files.waveshare.com/wiki/SIM7028-NB-IoT-HAT/SIM7028-NB-IoT-HAT-Schematic.pdf) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

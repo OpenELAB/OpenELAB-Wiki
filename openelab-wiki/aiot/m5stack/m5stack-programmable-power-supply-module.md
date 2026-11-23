@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Programmable Power Supply Module
 
+{% hint style="info" %}
+[**View M5Stack Programmable Power Supply Module 13.2 on OpenELAB**](https://openelab.io/products/programmable-power)
+
+**Store SKU / option:** `M5-M137`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Programmable Power Supply Module 13.2
 
 ***
@@ -102,3 +108,17 @@ NOTESIf you use PPS Module 13.2, connect an external 12VDC power supply. Otherwi
 
 <figure><img src="../../.gitbook/assets/image (373).png" alt=""><figcaption></figcaption></figure>
 
+## Official documentation and development resources
+
+Use [Module13.2 PPS](https://docs.m5stack.com/en/module/Module13.2_PPS) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`M137`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                          | Model-specific reference                                                                                 |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                      | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/563/Sch_M5PPS_V1.3.pdf)     |
+| Electrical schematic                      | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/563/Sch_M5PPS_ISO_V1.3.pdf) |
+| Official source: M5Module-PPS             | [Read official source: m5module-pps](https://github.com/m5stack/M5Module-PPS)                            |
+| Arduino development tutorial              | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/module/module13.2_pps)  |
+| Official source: M5Module-PPS-UserDemo    | [Read official source: m5module-pps-userdemo](https://github.com/m5stack/M5Module-PPS-UserDemo)          |
+| Official source: M5Module-PPS-Internal-FW | [Read official source: m5module-pps-internal-fw](https://github.com/m5stack/M5Module-PPS-Internal-FW)    |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

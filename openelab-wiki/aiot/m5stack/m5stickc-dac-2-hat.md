@@ -23,6 +23,12 @@ layout:
 
 # M5StickC DAC 2 Hat
 
+{% hint style="info" %}
+[**View M5Stack M5StickC DAC 2 Hat with GP8413 Dual-Channel DAC on OpenELAB**](https://openelab.io/products/m5stack-m5stickc-dac-2-hat)
+
+**Store SKU / option:** `M5-U068-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack M5StickC DAC 2 Hat
 
 ***
@@ -76,7 +82,7 @@ DAC2 Hat is suitable for a variety of applications including general signal conv
 | Product Weight                 | 6.7g              |
 | Package Weight                 | 15g               |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-DAC2/img-289dfe58-0972-4f00-9bb7-908eff81fbf6.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-DAC2/img-2513a25e-2e38-41cb-a630-8715f3a8a56f.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-DAC2/img-c66a4a27-da26-406f-82d7-461da413d14a.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-DAC2/img-289dfe58-0972-4f00-9bb7-908eff81fbf6.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-DAC2/img-2513a25e-2e38-41cb-a630-8715f3a8a56f.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-DAC2/img-c66a4a27-da26-406f-82d7-461da413d14a.webp)
 
 ### Related Link <a href="#related-link" id="related-link"></a>
 
@@ -159,3 +165,17 @@ Generally, the voltage difference between A and B is around -7 to 13V. The high 
 RoverC, JoyC, 's battery is in parallel connection with the M5StickC controller, you can connect the USB cable to the M5StickC to charge the battery of RoverC, JoyC. Also, When charging the M5StickC and RoverC, JoyC power switch can be turned off.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Hat DAC2](https://docs.m5stack.com/en/hat/Hat_DAC2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U068-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need              | Model-specific reference                                                                                            |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic          | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/581/SCH_StickHat_DAC2.pdf)             |
+| Example source: M5StickC      | [Read example source: m5stickc](https://github.com/m5stack/M5StickC/tree/master/examples/Hat/DAC2_GP8413)           |
+| Example source: M5StickC-Plus | [Read example source: m5stickc-plus](https://github.com/m5stack/M5StickC-Plus/tree/master/examples/Hat/DAC2_GP8413) |
+| Example source: M5StickCPlus2 | [Read example source: m5stickcplus2](https://github.com/m5stack/M5StickCPlus2/tree/master/examples/Hat/DAC2_GP8413) |
+| UIFlow1 workflow              | [Read uiflow1 workflow](https://docs.m5stack.com/en/uiflow/blockly/hat/dac2)                                        |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

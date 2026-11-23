@@ -1,5 +1,11 @@
 # M5GO Battery Bottom2
 
+{% hint style="info" %}
+[**View M5Stack M5GO Bottom2 Expansion Base for M5Core2 on OpenELAB**](https://openelab.io/products/m5go-battery-bottom2)
+
+**Store SKU / option:** `M5-A014-C`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack M5GO Battery Bottom2
 
 ***
@@ -34,7 +40,7 @@
 | Product Dimensions   | 54\*54\*8mm   |
 | Packaging Dimensions | 192\*92\*20mm |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/base/m5go_bottom2/m5go_bottom2_04.webp)![](https://static-cdn.m5stack.com/resource/docs/products/base/m5go_bottom2/m5go_bottom2_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/base/m5go_bottom2/m5go_bottom2_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/base/m5go_bottom2/m5go_bottom2_04.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/base/m5go_bottom2/m5go_bottom2_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/base/m5go_bottom2/m5go_bottom2_06.webp)
 
 ### EasyLoader <a href="#easyloader" id="easyloader"></a>
 
@@ -122,3 +128,13 @@ UART PROT(PORT C): /dev/ttySTM0 RS485 PORT: /dev/ttySTM3
 Atom Echo some GPIO is used for I2S. so can't stack with other Atomic Base
 
 </details>
+
+## Official documentation and development resources
+
+Use [Base M5GO Bottom2](https://docs.m5stack.com/en/base/Base_M5GO_Bottom2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`A014-C`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need     | Model-specific reference                                                                                |
+| -------------------- | ------------------------------------------------------------------------------------------------------- |
+| Electrical schematic | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1007/A014-C_Sch_M5GO2.pdf) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

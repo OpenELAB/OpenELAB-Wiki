@@ -23,6 +23,12 @@ layout:
 
 # XIAO 6-Channel Wi-Fi 5V DC
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO 6-Channel Wi-Fi 5V DC Relay on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-6-channel-wifi-5v-dc-relay)
+
+**Store SKU / option:** `Seeed-114993588`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO 6-Channel Wi-Fi 5V DC Relay
 
 ***
@@ -73,3 +79,13 @@ Voltages exceeding 24V may cause electric shock or burns, especially in cases of
     | GPIO0     | Relay 4       |
     | GPIO19    | Relay 5       |
     | GPIO18    | Relay 6       |
+
+## Official documentation and development resources
+
+Use [Getting started with 6-Channel Wi-Fi Relay Module In Home Assistant](https://wiki.seeedstudio.com/6_channel_wifi_relay/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need                                            | Model-specific reference                                                                                                                    |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Official source: 6-Channel\_Relay\_based\_on\_XIAO\_ESP32C6 | [Read official source: 6-channel\_relay\_based\_on\_xiao\_esp32c6](https://github.com/Seeed-Projects/6-Channel_Relay_based_on_XIAO_ESP32C6) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

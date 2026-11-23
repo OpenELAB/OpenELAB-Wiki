@@ -23,6 +23,12 @@ layout:
 
 # M5Stack 8-Angle Unit with Potentiometer
 
+{% hint style="info" %}
+[**View M5Stack 8Angle Unit with 8 Potentiometers and RGB Feedback on OpenELAB**](https://openelab.io/products/8-angle-unit)
+
+**Store SKU / option:** `M5-U154`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack 8-Angle Unit with Potentiometer
 
 ***
@@ -40,8 +46,6 @@ Each adjustable potentiometer is accompanied by a corresponding RGB LED light, a
 To ensure proper functionality, the UNIT 8Angle incorporates a 5V to 3.3V DCDC circuit, allowing for reliable power supply and compatibility with different systems. With this unit, users can input multi-channel absolute control values, with each corresponding RGB lamp displaying different states. The toggle switch enables multi-channel switching input, further enhancing the control capabilities.
 
 8Angle unit finds applications in various fields, such as multi-degree-of-freedom robots or music equalization systems. Its adjustable potentiometers provide precise and granular control, allowing users to fine-tune parameters or settings. The visual feedback from the RGB LED lights enhances the user experience and enables quick recognition of different states. Whether it's controlling robot joints or adjusting music equalization parameters, the UNIT 8Angle unit offers a versatile and intuitive input solution.
-
-
 
 <figure><img src="../../.gitbook/assets/image (521).png" alt=""><figcaption></figcaption></figure>
 
@@ -79,3 +83,18 @@ To ensure proper functionality, the UNIT 8Angle incorporates a 5V to 3.3V DCDC c
 * [Arduino Example](https://github.com/m5stack/M5Unit-8Angle)
 
 <figure><img src="../../.gitbook/assets/image (507).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit 8Angle](https://docs.m5stack.com/en/unit/Unit_8Angle) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U154`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                           | Model-specific reference                                                                                                               |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                       | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/608/SCH_UNIT_8Angle_V1.01.pdf)                            |
+| Mechanical / CAD files                     | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U154_Unit_8Angle/Structures)                 |
+| Mechanical / CAD files                     | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U154_Unit_8Angle/Structures/Unit_8Angle.stl) |
+| Official source: M5Unit-8Angle             | [Read official source: m5unit-8angle](https://github.com/m5stack/M5Unit-8Angle)                                                        |
+| Arduino development tutorial               | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_8angle)                                     |
+| Official source: M5Unit-8Angle-Internal-FW | [Read official source: m5unit-8angle-internal-fw](https://github.com/m5stack/M5Unit-8Angle-Internal-FW)                                |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

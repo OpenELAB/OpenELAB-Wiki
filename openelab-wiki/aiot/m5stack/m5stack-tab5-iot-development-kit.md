@@ -324,3 +324,19 @@ lib_deps =
 | Easyloader     | Download Link                                                                             | Notes |
 | -------------- | ----------------------------------------------------------------------------------------- | ----- |
 | Tab5 User Demo | [download](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1132/C145_Tab5_User_Demo.exe) | /     |
+
+## Official documentation and development resources
+
+Use [Tab5](https://docs.m5stack.com/en/core/Tab5) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C145/K145`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                 | Model-specific reference                                                                                                 |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Arduino development tutorial     | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5tab5/program)                                  |
+| Electrical schematic             | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1132/Tab5_Schematics_PDF.pdf)               |
+| Mechanical / CAD files           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C145_Tab5/Structures)          |
+| Mechanical / CAD files           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C145_Tab5/Structures/Tab5.stl) |
+| Official source: M5Unified       | [Read official source: m5unified](https://github.com/m5stack/M5Unified)                                                  |
+| Official source: M5GFX           | [Read official source: m5gfx](https://github.com/m5stack/M5GFX)                                                          |
+| Official source: M5Tab5-UserDemo | [Read official source: m5tab5-userdemo](https://github.com/m5stack/M5Tab5-UserDemo)                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,10 @@ layout:
 
 # Raspberry Pi 4 ReSpeaker Intelligent Speech Recognition 2 Microphone
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### Raspberry Pi 4 ReSpeaker Intelligent Speech Recognition 2 Microphone
 
 ***
@@ -39,11 +43,11 @@ The board is based on a low-power stereo codec developed on the WM8960. There ar
 
 ### Features
 
-* Raspberry Pi compatible (supports Raspberry Pi Zero and Zero W, Raspberry Pi B +, Raspberry Pi 2 B and Raspberry Pi 3 B, Raspberry Pi 4 B, Raspberry Pi 3 B +)&#x20;
-* 2 Microphones&#x20;
-* 2 Grove interfaces&#x20;
-* 1 customizable button&#x20;
-* 3.5mm audio interface&#x20;
+* Raspberry Pi compatible (supports Raspberry Pi Zero and Zero W, Raspberry Pi B +, Raspberry Pi 2 B and Raspberry Pi 3 B, Raspberry Pi 4 B, Raspberry Pi 3 B +)
+* 2 Microphones
+* 2 Grove interfaces
+* 1 customizable button
+* 3.5mm audio interface
 * JST2.0 audio output connector
 
 ### Specifications
@@ -52,14 +56,14 @@ The board is based on a low-power stereo codec developed on the WM8960. There ar
 
 <figure><img src="../../.gitbook/assets/image (461).png" alt=""><figcaption></figcaption></figure>
 
-* Buttons: User-defined buttons connected to GPIO17&#x20;
-* MIC\_L & MIC\_R: one microphone on the left and one on the right&#x20;
-* RGB LEDs: 3 APA102 RGB LEDs connected to the Raspberry Pi's SPI interface&#x20;
-* WM8960: Low-power stereo codec&#x20;
-* Raspberry Pi 40-pin header: supports Raspberry Pi Zero, Raspberry Pi 1 B +, Raspberry Pi 2 B and Raspberry Pi 3 B&#x20;
-* POWER: Micro USB port for powering the ReSpeaker 2-Mics Pi HAT, please power the board to provide enough current when using the speakers.&#x20;
-* I2C: Grove I2C port, connects to I2C-1 GPIO12: Grove digital port, connects to GPIO12 and GPIO13&#x20;
-* JST 2.0 SPEAKER OUT: For connecting to speakers, JST 2.0 connector&#x20;
+* Buttons: User-defined buttons connected to GPIO17
+* MIC\_L & MIC\_R: one microphone on the left and one on the right
+* RGB LEDs: 3 APA102 RGB LEDs connected to the Raspberry Pi's SPI interface
+* WM8960: Low-power stereo codec
+* Raspberry Pi 40-pin header: supports Raspberry Pi Zero, Raspberry Pi 1 B +, Raspberry Pi 2 B and Raspberry Pi 3 B
+* POWER: Micro USB port for powering the ReSpeaker 2-Mics Pi HAT, please power the board to provide enough current when using the speakers.
+* I2C: Grove I2C port, connects to I2C-1 GPIO12: Grove digital port, connects to GPIO12 and GPIO13
+* JST 2.0 SPEAKER OUT: For connecting to speakers, JST 2.0 connector
 * 3.5mm AUDIO JACK: for connecting headphones or speakers with a 3.5mm audio plug
 
 ### How to Use
@@ -359,3 +363,9 @@ We have 3 players (mpv, mpg123 and gstreamer) available. mpg123 is more suitable
 Please run audacity to make sure all 4 channels are good. If there is a channel with no data, there is no reply when we say snowboy.
 
 </details>
+
+## Official documentation and development resources
+
+Use [概述](https://wiki.seeedstudio.com/cn/ReSpeaker_2_Mics_Pi_HAT/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

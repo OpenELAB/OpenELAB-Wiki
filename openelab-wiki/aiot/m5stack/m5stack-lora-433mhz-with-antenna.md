@@ -23,6 +23,12 @@ layout:
 
 # M5Stack LoRa 433MHz with Antenna
 
+{% hint style="info" %}
+[**View M5Stack LoRa Unit 433MHz with Antenna on OpenELAB**](https://openelab.io/products/m5stack-lora-unit-1)
+
+**Store SKU / option:** `M5-U170-433`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack LoRa Unit 433MHz with Antenna
 
 ***
@@ -152,3 +158,16 @@ The "ON" in the table above stands for "0" in the datasheet;" "OFF" stands for "
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (371).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit LoRaE220-433](https://docs.m5stack.com/en/unit/Unit_LoRaE220-433) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U170-433`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need              | Model-specific reference                                                                                                                           |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic          | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/624/SCH_UNIT_LoraE220_433MHz.pdf)                                     |
+| Mechanical / CAD files        | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U170_Unit_LoRaE220_433/Structures)                       |
+| Mechanical / CAD files        | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U170_Unit_LoRaE220_433/Structures/Unit_LoRaE220-433.stl) |
+| Official source: M5-LoRa-E220 | [Read official source: m5-lora-e220](https://github.com/m5stack/M5-LoRa-E220)                                                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 8 inch DSI LCD Display Touch Screen I2C
 
+{% hint style="info" %}
+[**View Waveshare 8inch Capacitive Touch Display for Raspberry Pi 800×480 on OpenELAB**](https://openelab.io/products/dsi-lcd-display-touch-screen)
+
+**Store SKU / option:** `Waveshare-21229`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 8 inch DSI LCD Display Touch Screen I2C
 
 ***
@@ -311,9 +317,10 @@ It is recommended that you use our driver-free DSI screen, such as an 8-inch DSI
 
 </details>
 
+Answer:
 
+## Official documentation and development resources
 
+Use [Features](https://www.waveshare.com/wiki/8inch_DSI_LCD) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
 
-
-&#x20;Answer:
-
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

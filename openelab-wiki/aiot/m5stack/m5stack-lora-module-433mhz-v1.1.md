@@ -23,6 +23,12 @@ layout:
 
 # M5Stack LoRa Module (433MHz) v1.1
 
+{% hint style="info" %}
+[**View M5Stack LoRa433 v1.1 Module with SX1278 and SMA Antenna on OpenELAB**](https://openelab.io/products/lora-module-v1-1)
+
+**Store SKU / option:** `M5-M005-V11`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack LoRa Module (433MHz) v1.1
 
 ***
@@ -67,7 +73,7 @@ The **LoRa433\_V1.1 Module** is a part of the M5Stack stackable module series an
 | Product Weight          | 16.1g                                                          |
 | Package Weight          | 44.6g                                                          |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-df7edfb7-0825-4dac-b4f7-e891bd1fb2cd.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-6d4a69c2-0eaf-4938-bc8e-9dacddef0686.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-e511537d-4657-4816-a8ee-d84385c4fe48.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-d64e3825-3d1c-4c43-9888-b93854d75662.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-566f39c2-4eb1-4bd3-91d0-2139978b2918.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-976688b9-0be6-4911-bc9e-f06457fcf5c8.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-df7edfb7-0825-4dac-b4f7-e891bd1fb2cd.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-6d4a69c2-0eaf-4938-bc8e-9dacddef0686.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-e511537d-4657-4816-a8ee-d84385c4fe48.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-d64e3825-3d1c-4c43-9888-b93854d75662.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-566f39c2-4eb1-4bd3-91d0-2139978b2918.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-976688b9-0be6-4911-bc9e-f06457fcf5c8.webp)
 
 ### Related Link <a href="#related-link" id="related-link"></a>
 
@@ -104,4 +110,18 @@ The **LoRa433\_V1.1 Module** is a part of the M5Stack stackable module series an
 | /            | Product Released LoRa433(SKU:M005) | /                                                                                                                                                                                                          |
 | 2024.05.17   | LoRa868\_V1.1(SKU:M005\_V11)       | Compared with the previous version, the dip switch is added, which can switch different communication pins, suitable for M5Core\M5Core2\M5CoreS3 generation host, and can also be used for multiple stacks |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/module/lora/lora_01.webp)![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-dac09b0a-7367-4ed9-9374-b604f646ec3b.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/module/lora/lora_01.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/module/Module-LoRa433_V1.1/img-dac09b0a-7367-4ed9-9374-b604f646ec3b.webp)
+
+## Official documentation and development resources
+
+Use [Module LoRa433 v1.1](https://docs.m5stack.com/en/module/Module_LoRa433_v1.1) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`M005-V11`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                  | Model-specific reference                                                                                                            |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Example source: LoRaSender.ino    | [Read example source: lorasender.ino](https://github.com/m5stack/M5-SX127x/blob/master/examples/LoRaSender/LoRaSender.ino)          |
+| Example source: M5-SX127x         | [Read example source: m5-sx127x](https://github.com/m5stack/M5-SX127x/tree/master/examples/LoRaReceiver)                            |
+| Example source: LoRaSetSpread.ino | [Read example source: lorasetspread.ino](https://github.com/m5stack/M5-SX127x/blob/master/examples/LoRaSetSpread/LoRaSetSpread.ino) |
+| Example source: LoRaDuplex.ino    | [Read example source: loraduplex.ino](https://github.com/m5stack/M5-SX127x/blob/master/examples/LoRaDuplex/LoRaDuplex.ino)          |
+| UIFlow1 workflow                  | [Read uiflow1 workflow](https://docs.m5stack.com/en/uiflow/blockly/module/lora433)                                                  |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

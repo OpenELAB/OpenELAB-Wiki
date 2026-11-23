@@ -23,6 +23,12 @@ layout:
 
 # M5StickC ENV III HAT
 
+{% hint style="info" %}
+[**View M5Stack M5StickC ENV III HAT with SHT30 and QMP6988 on OpenELAB**](https://openelab.io/products/m5stickc-env-iii-hat)
+
+**Store SKU / option:** `M5-U053-D`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack M5StickC ENV III HAT
 
 ***
@@ -62,7 +68,7 @@ layout:
 | Package Size                                            | 136\*92\*20mm                    |
 | Case Material                                           | Plastic ( PC )                   |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat_envIII/hat_envIII_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat_envIII/hat_envIII_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat_envIII/hat_envIII_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat_envIII/hat_envIII_06.webp)
 
 ### PinMap <a href="#pinmap" id="pinmap"></a>
 
@@ -104,3 +110,16 @@ layout:
 * get humidity
 
 <figure><img src="../../.gitbook/assets/image (415).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Hat ENV-III](https://docs.m5stack.com/en/hat/Hat_ENV-III) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U053-D`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need           | Model-specific reference                                                                                                                                 |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files     | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U053%E2%80%91D_Hat_ENV%E2%80%91III/Structures)                 |
+| Mechanical / CAD files     | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U053%E2%80%91D_Hat_ENV%E2%80%91III/Structures/Hat_ENV-III.stl) |
+| Example source: M5Unit-ENV | [Read example source: m5unit-env](https://github.com/m5stack/M5Unit-ENV/tree/master/examples/Hat_ENVIII_M5StickC/Hat_ENVIII_M5StickC.ino)                |
+| Example source: M5Unit-ENV | [Read example source: m5unit-env](https://github.com/m5stack/M5Unit-ENV/tree/master/examples/Hat_ENVIII_M5StickCPlus/Hat_ENVIII_M5StickCPlus.ino)        |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

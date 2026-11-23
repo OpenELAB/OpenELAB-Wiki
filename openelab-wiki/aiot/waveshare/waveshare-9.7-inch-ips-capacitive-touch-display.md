@@ -26,7 +26,13 @@ layout:
     visible: true
 ---
 
-# &#x20;Waveshare 9.7 inch IPS Capacitive Touch Display
+# Waveshare 9.7 inch IPS Capacitive Touch Display
+
+{% hint style="info" %}
+[**View Waveshare 9.7 inch IPS Capacitive Touch Display 768×1024 HDMI 10-Point Touch on OpenELAB**](https://openelab.io/products/9-7-inch-ips-capacitive-touch-display)
+
+**Store SKU / option:** `Waveshare-26698`. Match the purchased model and revision to the official reference below.
+{% endhint %}
 
 ### Waveshare 9.7 inch IPS Capacitive Touch Display
 
@@ -147,3 +153,13 @@ Take Windows 10 as an example:<br>
 【Note】If the touch screen is blank, press the "Enter" key, and the text prompt will switch to the touch screen. (The screen which displays the text prompt will be used as a touch screen!)
 
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=Win10_touch03.png&#x26;width=800" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/9.7inch_768x1024_LCD) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.waveshare.com/wiki/9.7inch%20768x1024%20LCD/9.7inch%20768x1024%20LCD_3D%20Drawing/9_7inch-768x1024-LCD.stp) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

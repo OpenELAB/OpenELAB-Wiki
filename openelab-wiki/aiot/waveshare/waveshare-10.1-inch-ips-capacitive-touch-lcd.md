@@ -1,5 +1,11 @@
 # Waveshare 10.1 inch IPS Capacitive Touch LCD
 
+{% hint style="info" %}
+[**View Waveshare 10.1 inch IPS Capacitive Touch LCD 1024×600 Toughened Glass on OpenELAB**](https://openelab.io/products/10-1-inch-ips-capacitive-touch)
+
+**Store SKU / option:** `Waveshare-22520`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 10.1 inch IPS Capacitive Touch LCD
 
 ***
@@ -60,7 +66,7 @@ The hardware connection is shown in the following figure:
 
 ### Working with PC
 
-Supports PC Windows 11/10/8.1/8/7.&#x20;
+Supports PC Windows 11/10/8.1/8/7.
 
 #### Hardware Connection
 
@@ -169,3 +175,9 @@ Rotate the 10K resistor shown below 180 degrees. Then the PWM input signal is co
 </details>
 
 <br>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/10.1inch_HDMI_LCD_\(F\)) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

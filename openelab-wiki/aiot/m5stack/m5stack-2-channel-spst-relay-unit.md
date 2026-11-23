@@ -23,6 +23,12 @@ layout:
 
 # M5Stack 2-Channel SPST Relay Unit
 
+{% hint style="info" %}
+[**View M5Stack Unit 2Relay Dual-Channel SPST Relay GPIO Switching Module on OpenELAB**](https://openelab.io/products/2-channel-spst-relay-unit)
+
+**Store SKU / option:** `M5-U131`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack 2-Channel SPST Relay Unit
 
 ***
@@ -72,7 +78,7 @@ The relay is driven by IO output high and low level signals, so before connectin
 | Product size           | 56 \* 24 \* 19mm     |
 | Packing size           | 93 \* 138mm          |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/2relay/2relay_04.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/2relay/2relay_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/2relay/2relay_06.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/2relay/2relay_07.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/2relay/2relay_04.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/2relay/2relay_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/2relay/2relay_06.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/2relay/2relay_07.webp)
 
 ### Pinout <a href="#pinmap" id="pinmap"></a>
 
@@ -109,3 +115,20 @@ The relay is driven by IO output high and low level signals, so before connectin
 <figure><img src="../../.gitbook/assets/image (450).png" alt=""><figcaption></figcaption></figure>
 
 <br>
+
+## Official documentation and development resources
+
+Use [Unit 2Relay](https://docs.m5stack.com/en/unit/Unit_2Relay) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U131`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                               | Model-specific reference                                                                                                                                                  |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files                         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U131_Unit_2Relay/Structures)                                                    |
+| Mechanical / CAD files                         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U131_Unit_2Relay/Structures/Unit_2Relay.stl)                                    |
+| Arduino development tutorial                   | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_2relay)                                                                        |
+| Example source: Unit\_2RELAY\_M5Atom.ino       | [Read example source: unit\_2relay\_m5atom.ino](https://github.com/m5stack/M5Unit-RELAY/blob/master/examples/Unit_2RELAY_M5Atom/Unit_2RELAY_M5Atom.ino)                   |
+| Example source: Unit\_2RELAY\_M5Core.ino       | [Read example source: unit\_2relay\_m5core.ino](https://github.com/m5stack/M5Unit-RELAY/blob/master/examples/Unit_2RELAY_M5Core/Unit_2RELAY_M5Core.ino)                   |
+| Example source: Unit\_2RELAY\_M5Core2.ino      | [Read example source: unit\_2relay\_m5core2.ino](https://github.com/m5stack/M5Unit-RELAY/blob/master/examples/Unit_2RELAY_M5Core2/Unit_2RELAY_M5Core2.ino)                |
+| Example source: Unit\_2RELAY\_M5StickC.ino     | [Read example source: unit\_2relay\_m5stickc.ino](https://github.com/m5stack/M5Unit-RELAY/blob/master/examples/Unit_2RELAY_M5StickC/Unit_2RELAY_M5StickC.ino)             |
+| Example source: Unit\_2RELAY\_M5StickCPlus.ino | [Read example source: unit\_2relay\_m5stickcplus.ino](https://github.com/m5stack/M5Unit-RELAY/blob/master/examples/Unit_2RELAY_M5StickCPlus/Unit_2RELAY_M5StickCPlus.ino) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

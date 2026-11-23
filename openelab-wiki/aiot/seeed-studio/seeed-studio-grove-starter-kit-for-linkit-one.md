@@ -23,6 +23,12 @@ layout:
 
 # Seeed Studio Grove Starter Kit for LinkIt ONE
 
+{% hint style="info" %}
+[**View Seeed Studio Grove Starter Kit for LinkIt ONE on OpenELAB**](https://openelab.io/products/grove-starter-kit)
+
+**Store SKU / option:** `Seeed-110060039`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio Grove Starter Kit for LinkIt ONE
 
 ***
@@ -96,7 +102,7 @@ Each Grove module in the kit connects to the LinkIt ONE board using these standa
 
 <summary><strong>Can I use the Grove Starter Kit with other development boards?</strong></summary>
 
-&#x20;While the kit is designed for the LinkIt ONE, Grove modules are compatible with other platforms that support the Grove system, such as Arduino or Raspberry Pi, using appropriate connectors or shields.
+While the kit is designed for the LinkIt ONE, Grove modules are compatible with other platforms that support the Grove system, such as Arduino or Raspberry Pi, using appropriate connectors or shields.
 
 </details>
 
@@ -131,3 +137,9 @@ Sample codes are available in the kit’s documentation and online through Seeed
 Check the connections and ensure the correct port is used. If the issue persists, refer to the troubleshooting section in the documentation or contact Seeed Studio’s support.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Grove - Starter Kit for LinkIt ONE](https://wiki.seeedstudio.com/Grove-Starter_Kit_for_LinkIt_ONE/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

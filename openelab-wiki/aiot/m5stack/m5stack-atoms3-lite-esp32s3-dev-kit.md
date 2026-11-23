@@ -126,3 +126,17 @@ Open the example program “LEDDisplay” in the driver library. Click the uploa
 <figure><img src="../../.gitbook/assets/image (760).png" alt=""><figcaption></figcaption></figure>
 
 <br>
+
+## Official documentation and development resources
+
+Use [AtomS3-Lite](https://docs.m5stack.com/en/core/AtomS3-Lite) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C124`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                               |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5atoms3/program)                                              |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/471/Sch_M5_AtomS3_v1.0.pdf)                               |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C124_AtomS3-Lite/Structures)                 |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C124_AtomS3-Lite/Structures/AtomS3-Lite.stl) |
+| Official source: M5AtomS3    | [Read official source: m5atoms3](https://github.com/m5stack/M5AtomS3)                                                                  |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

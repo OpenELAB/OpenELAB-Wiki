@@ -23,6 +23,12 @@ layout:
 
 # MQ-135 Gas Sensor
 
+{% hint style="info" %}
+[**View Waveshare MQ-135 Gas Sensor | AOUT/DOUT | 2.5-5V on OpenELAB**](https://openelab.io/products/mq-135-gas-sensor)
+
+**Store SKU / option:** `Waveshare-9528`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### MQ-135 Gas Sensor
 
 ***
@@ -73,8 +79,6 @@ The MQ-135 gas sensor is a popular sensor used to detect a wide range of gases i
 4. Read Digital Values: Connect the DO pin to a digital input of your microcontroller to receive high/low signals based on the gas concentration exceeding the set threshold.
 5. Code Example: Write a simple program to read the analog and digital values from the sensor and take appropriate actions based on the readings. For example, you can trigger an alarm if the gas concentration exceeds a certain limit.
 
-
-
 ```cpp
 // Example code for Arduino
 
@@ -104,3 +108,12 @@ void loop() {
 
 ```
 
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/MQ-135_Gas_Sensor) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need     | Model-specific reference                                                                             |
+| -------------------- | ---------------------------------------------------------------------------------------------------- |
+| Electrical schematic | [Read electrical schematic](https://files.waveshare.com/upload/6/62/MQ-135-Gas-Sensor-Schematic.pdf) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

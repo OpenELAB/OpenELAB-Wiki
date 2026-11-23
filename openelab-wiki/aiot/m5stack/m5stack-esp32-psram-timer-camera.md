@@ -23,6 +23,12 @@ layout:
 
 # M5Stack ESP32 PSRAM Timer Camera
 
+{% hint style="info" %}
+[**View M5Stack ESP32 PSRAM Timer Camera on OpenELAB**](https://openelab.io/products/psram-timer-camera)
+
+**Store SKU / option:** `M5-U082`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack ESP32 PSRAM Timer Camera
 
 ***
@@ -147,3 +153,16 @@ TimerCAM may not work without drive in some systems. Users can manually install 
 
 * [ESP32](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/esp32_datasheet_cn.pdf)
 * [OV3660](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/unit/OV3660_CSP3_DS_1.3_sida.pdf)
+
+## Official documentation and development resources
+
+Use [TimerCamera](https://docs.m5stack.com/en/unit/TimerCamera) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U082`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                  | Model-specific reference                                                                              |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Electrical schematic              | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1042/Sch_M5TimerCAM.pdf) |
+| Arduino development tutorial      | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/arduino_ide)                  |
+| Official source: TimerCam-arduino | [Read official source: timercam-arduino](https://github.com/m5stack/TimerCam-arduino)                 |
+| Official source: TimerCam-idf     | [Read official source: timercam-idf](https://github.com/m5stack/TimerCam-idf)                         |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

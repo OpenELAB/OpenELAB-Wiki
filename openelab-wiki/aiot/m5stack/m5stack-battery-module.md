@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Battery Module
 
+{% hint style="info" %}
+[**View M5Stack Battery Module for ESP32 Core Development Kit on OpenELAB**](https://openelab.io/products/m5stack-battery-module)
+
+**Store SKU / option:** `M5-M002`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Battery Module for ESP32 Core Development Kit
 
 ***
@@ -59,3 +65,9 @@ Once the BATTERY is stacked underneath the M5 controller, the battery positive p
 ### M-BUS PinMap <a href="#m-bus-pinmap" id="m-bus-pinmap"></a>
 
 <figure><img src="../../.gitbook/assets/image (437).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Module Battery](https://docs.m5stack.com/en/module/Module_Battery) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`M002`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

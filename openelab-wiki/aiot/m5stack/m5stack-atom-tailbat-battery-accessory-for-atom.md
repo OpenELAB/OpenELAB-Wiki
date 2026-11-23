@@ -23,6 +23,12 @@ layout:
 
 # M5Stack ATOM TailBat - Battery Accessory for ATOM
 
+{% hint style="info" %}
+[**View M5Stack ATOM TailBat - Battery Accessory for ATOM on OpenELAB**](https://openelab.io/products/m5stack-atom-tailbat)
+
+**Store SKU / option:** `M5-T001`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack ATOM TailBat - Battery Accessory for ATOM
 
 ***
@@ -66,8 +72,12 @@ TailBat is designed with a pass-through interface, which means it doesn't interf
 
 <figure><img src="../../.gitbook/assets/image (635).png" alt=""><figcaption></figcaption></figure>
 
-
-
 ### How to Use
 
 <figure><img src="../../.gitbook/assets/image (636).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Tail Bat](https://docs.m5stack.com/en/atom/Tail_Bat) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`T001`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -55,3 +55,9 @@ Record the ESPHome version and source commit before building. Save learned-code/
 * [Official ESPHome project](https://github.com/Seeed-Studio/xiao-esphome-projects/tree/main/projects/xiao_smart_ir_mate)
 
 Reviewed 18 November 2026. Source links and accessible manufacturer documentation were reviewed; this guide has not been compiled or tested on physical hardware. Before reproducing a project, record the board revision, firmware/SDK release or commit, operating system and any changes to the supplied configuration.
+
+## Official documentation and development resources
+
+Use [Getting Started with XIAO IR Mate Smart IR Remote (For Home Assistant)](https://wiki.seeedstudio.com/XIAO_IR_Mate_Smart_IR_Remote/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

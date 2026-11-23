@@ -23,6 +23,10 @@ layout:
 
 # M5Stack Unit Cam Wi-Fi Camera
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack Unit Cam Wi-Fi Camera with Enclosure
 
 ***
@@ -191,3 +195,9 @@ Unit CAM supports output format JPEG, RAW,RGB565,RGB88 etc. but when output the 
 RoverC, JoyC, 's battery is in parallel connection with the M5StickC controller, you can connect the USB cable to the M5StickC to charge the battery of RoverC, JoyC. Also, When charging the M5StickC and RoverC, JoyC power switch can be turned off.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Unit CAM](https://docs.m5stack.com/en/unit/Unit_CAM) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U109`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

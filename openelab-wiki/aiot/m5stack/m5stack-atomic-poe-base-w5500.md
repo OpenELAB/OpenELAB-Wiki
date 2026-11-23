@@ -23,6 +23,12 @@ layout:
 
 # M5Stack ATOMIC PoE Base W5500
 
+{% hint style="info" %}
+[**View M5Stack ATOMIC PoE Base W5500 Ethernet Controller Driver Chip on OpenELAB**](https://openelab.io/products/atomic-poe-base-w5500)
+
+**Store SKU / option:** `M5-A091`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack ATOMIC PoE Base W5500
 
 ***
@@ -122,3 +128,19 @@ The ATOMIC PoE Base supports 10/100 Mbps data transfer rates.
 Use the Arduino Library Manager to install the `Ethernet2` library or other compatible Ethernet libraries for your project.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Atomic PoE Base](https://docs.m5stack.com/en/atom/Atomic_PoE_Base) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`A091`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/465/Sch_AtomicPoE_v1.2.pdf)                |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/atomic/atomic_poe_base)                |
+| Example source: M5Atom       | [Read example source: m5atom](https://github.com/m5stack/M5Atom/tree/master/examples/ATOM_BASE/ATOM_PoE)                |
+| Example source: M5AtomS3     | [Read example source: m5atoms3](https://github.com/m5stack/M5AtomS3/tree/main/examples/AtomicBase/AtomicPoE/HTTP)       |
+| Example source: M5AtomS3     | [Read example source: m5atoms3](https://github.com/m5stack/M5AtomS3/tree/main/examples/AtomicBase/AtomicPoE/LinkStatus) |
+| Example source: M5AtomS3     | [Read example source: m5atoms3](https://github.com/m5stack/M5AtomS3/tree/main/examples/AtomicBase/AtomicPoE/MQTT)       |
+| Example source: M5AtomS3     | [Read example source: m5atoms3](https://github.com/m5stack/M5AtomS3/tree/main/examples/AtomicBase/AtomicPoE/WebServer)  |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

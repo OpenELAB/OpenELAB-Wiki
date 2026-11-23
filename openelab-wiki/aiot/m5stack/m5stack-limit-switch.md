@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Limit Switch
 
+{% hint style="info" %}
+[**View M5Stack Limit Switch Unit Mechanical Endstop Sensor Module on OpenELAB**](https://openelab.io/products/m5stack-limit-switch-unit)
+
+**Store SKU / option:** `M5-U145`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Limit Switch Unit
 
 ***
@@ -61,7 +67,7 @@ The Unit Limit is a travel switch unit that provides a limit trigger signal to t
 | Product Weight        | 6.3g                |
 | Package Weight        | 11.4g               |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit%20Limit/img-233adf9a-007d-4fd4-ac39-c9496e4e2b0f.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit%20Limit/img-f4bd733d-dfb7-47c8-9c51-7d029f83a252.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit%20Limit/img-a29416df-6194-4961-908b-1035a06fb498.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit%20Limit/img-3e647b89-c78a-47ce-8f6a-d5df3effcac9.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit%20Limit/img-233adf9a-007d-4fd4-ac39-c9496e4e2b0f.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit%20Limit/img-f4bd733d-dfb7-47c8-9c51-7d029f83a252.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit%20Limit/img-a29416df-6194-4961-908b-1035a06fb498.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit%20Limit/img-3e647b89-c78a-47ce-8f6a-d5df3effcac9.webp)
 
 ### Schematic <a href="#schematic" id="schematic"></a>
 
@@ -74,3 +80,16 @@ The Unit Limit is a travel switch unit that provides a limit trigger signal to t
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (403).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit Limit](https://docs.m5stack.com/en/unit/Unit_Limit) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U145`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                                                             |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic    | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/600/SCH_unitLimit_V1.0.pdf)                             |
+| Mechanical / CAD files  | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U145_Unit_Limit/Structures)                |
+| Mechanical / CAD files  | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U145_Unit_Limit/Structures/Unit_Limit.stl) |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/LIMIT)                                   |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

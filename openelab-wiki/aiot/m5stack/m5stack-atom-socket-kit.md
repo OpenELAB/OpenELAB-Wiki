@@ -23,6 +23,12 @@ layout:
 
 # M5Stack ATOM Socket Kit
 
+{% hint style="info" %}
+[**View M5Stack ATOM Socket Kit on OpenELAB**](https://openelab.io/products/m5stack-atom-socket-kit)
+
+**Store SKU / option:** `M5-K055`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack ATOM Socket Kit
 
 ***
@@ -71,7 +77,7 @@ layout:
 | Product size                                | 90\*42\*55mm             |
 | Package size                                | 92\*62\*42mm             |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/atom/atom_socket_cn/atom_socket_cn_04.webp)![](https://static-cdn.m5stack.com/resource/docs/products/atom/atom_socket_cn/atom_socket_cn_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/atom/atom_socket_cn/atom_socket_cn_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/atom/atom_socket_cn/atom_socket_cn_04.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/atom/atom_socket_cn/atom_socket_cn_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/atom/atom_socket_cn/atom_socket_cn_06.webp)
 
 ### EasyLoader <a href="#easyloader" id="easyloader"></a>
 
@@ -111,3 +117,13 @@ Non-intrusive energy consumption analysis for effective climate change mitigatio
 ### Example <a href="#example" id="example"></a>
 
 * [Arduino code example](https://github.com/m5stack/M5Atom/tree/master/examples/ATOM_BASE/ATOM_Socket)
+
+## Official documentation and development resources
+
+Use [Atom Socket](https://docs.m5stack.com/en/atom/Atom_Socket) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K055`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                    |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Example source: M5Atom | [Read example source: m5atom](https://github.com/m5stack/M5Atom/tree/master/examples/ATOM_BASE/ATOM_Socket) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

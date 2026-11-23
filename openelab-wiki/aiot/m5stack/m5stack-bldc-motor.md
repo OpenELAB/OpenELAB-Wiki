@@ -23,6 +23,12 @@ layout:
 
 # M5Stack BLDC Motor
 
+{% hint style="info" %}
+[**View M5Stack Unit BLDC Driver STM32 Brushless Motor Control Module on OpenELAB**](https://openelab.io/products/m5stack-bldc-motor-driver)
+
+**Store SKU / option:** `M5-U181`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack BLDC Motor Driver Unit (STM32)
 
 ***
@@ -67,7 +73,7 @@ The **Unit-BLDC Driver** is a driving unit specifically designed for Brushless D
 | Product Weight            | 4.3g                                                                   |
 | Package Weight            | 12.5g                                                                  |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-BLDC%20Driver/img-5cb8951d-04a1-4685-a209-402bd3d4d350.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-BLDC%20Driver/img-f04bc991-460e-4f62-985d-f1e9e174b415.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-BLDC%20Driver/img-5bc039cf-d654-4fb8-9c46-675a45ea43be.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-BLDC%20Driver/img-5cb8951d-04a1-4685-a209-402bd3d4d350.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-BLDC%20Driver/img-f04bc991-460e-4f62-985d-f1e9e174b415.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-BLDC%20Driver/img-5bc039cf-d654-4fb8-9c46-675a45ea43be.webp)
 
 ### PinMap <a href="#pinmap" id="pinmap"></a>
 
@@ -95,3 +101,17 @@ The **Unit-BLDC Driver** is a driving unit specifically designed for Brushless D
 
 <figure><img src="../../.gitbook/assets/image (941).png" alt=""><figcaption></figcaption></figure>
 
+## Official documentation and development resources
+
+Use [Unit BLDC Driver](https://docs.m5stack.com/en/unit/Unit_BLDC_Driver) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U181`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need            | Model-specific reference                                                                                                                         |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic        | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/633/Sch_bldc_driver_V1.3.pdf)                                       |
+| Mechanical / CAD files      | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U181_Unit_BLDC_Driver/Structures)                      |
+| Mechanical / CAD files      | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U181_Unit_BLDC_Driver/Structures/Unit_BLDC_Driver.stl) |
+| Example source: M5Unit-BLDC | [Read example source: m5unit-bldc](https://github.com/m5stack/M5Unit-BLDC/tree/master/examples/i2c_addr_modify)                                  |
+| Example source: M5Unit-BLDC | [Read example source: m5unit-bldc](https://github.com/m5stack/M5Unit-BLDC/tree/master/examples/pwm)                                              |
+| Example source: M5Unit-BLDC | [Read example source: m5unit-bldc](https://github.com/m5stack/M5Unit-BLDC/tree/master/examples/rpm)                                              |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # M5Stack ESP32 PSRAM Timer Camera Fisheye
 
+{% hint style="info" %}
+[**View M5Stack ESP32 PSRAM Timer Camera Fisheye on OpenELAB**](https://openelab.io/products/psram-timer-camera-fisheye)
+
+**Store SKU / option:** `M5-U082-F`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack ESP32 PSRAM Timer Camera Fisheye
 
 ***
@@ -156,3 +162,17 @@ TimerCAM may not work without drive in some systems. Users can manually install 
 ### Model Size <a href="#model-size" id="model-size"></a>
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/unit/timercam_f/186b42f289721cf96daafc4bb82737b.png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [TimerCamera-F](https://docs.m5stack.com/en/unit/TimerCamera-F) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U082-F`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                  | Model-specific reference                                                                                                                                     |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic              | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1041/Sch_M5TimerCAM.pdf)                                                        |
+| Mechanical / CAD files            | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U082%E2%80%91F_TimerCamera%E2%80%91F/Structures)                   |
+| Mechanical / CAD files            | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U082%E2%80%91F_TimerCamera%E2%80%91F/Structures/TimerCamera-F.stl) |
+| Arduino development tutorial      | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/arduino_ide)                                                                         |
+| Official source: TimerCam-arduino | [Read official source: timercam-arduino](https://github.com/m5stack/TimerCam-arduino)                                                                        |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

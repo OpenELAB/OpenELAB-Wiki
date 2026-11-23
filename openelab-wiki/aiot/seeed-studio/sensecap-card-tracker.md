@@ -23,6 +23,12 @@ layout:
 
 # SenseCAP Card Tracker
 
+{% hint style="info" %}
+[**View Seeed Studio SenseCAP Card Tracker T1000-E for LoRaWAN (Not for Meshtastic) on OpenELAB**](https://openelab.io/products/seeed-studio-sensecap-card-t1000e)
+
+**Store SKU / option:** `Seeed-114993591`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio SenseCAP Card Tracker T1000-E for LoRaWAN
 
 ***
@@ -97,8 +103,6 @@ T1000-E for LoRaWAN comes with fully open-source firmware. To enhance the user e
 | 46  | P1.13 | Digital I/O                           | Flash Enable                                                       |
 | 47  | P1.14 | Digital I/O                           | AG3335 RESETB OUT                                                  |
 | 48  | P1.15 | Digital I/O                           | AG3335 Reset                                                       |
-
-
 
 ### Demo Firmware <a href="#demo-firmware-overview" id="demo-firmware-overview"></a>
 
@@ -253,4 +257,16 @@ Check [SenseCAP Portal User Guide](https://sensecap-docs.seeed.cc/quickstart.htm
 
 <img src="https://files.seeedstudio.com/wiki/SenseCAP/Tracker/portaldata1.png" alt="pir" width="800">
 
+&#x20;
+
 <img src="https://files.seeedstudio.com/wiki/SenseCAP/Tracker/map_view2.png" alt="pir" width="800">
+
+## Official documentation and development resources
+
+Use [Get Started with LoRaWAN Tracker](https://wiki.seeedstudio.com/get_started_with_lorawan_tracker/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need                                             | Model-specific reference                                                                                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Official source: Seeed-Tracker-T1000-E-for-LoRaWAN-dev-board | [Read official source: seeed-tracker-t1000-e-for-lorawan-dev-board](https://github.com/Seeed-Studio/Seeed-Tracker-T1000-E-for-LoRaWAN-dev-board) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

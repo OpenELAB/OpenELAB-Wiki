@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Watering Unit with Mositure Sensor and Pump
 
+{% hint style="info" %}
+[**View M5Stack Watering Unit with Mositure Sensor and Pump on OpenELAB**](https://openelab.io/products/m5stack-watering-unit)
+
+**Store SKU / option:** `M5-U101`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Watering Unit with Mositure Sensor and Pump
 
 ***
@@ -57,7 +63,7 @@ layout:
 | Product Size | 192.5\*24\*33mm |
 | Package Size | 200\*35\*45mm   |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/watering/watering_04.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/watering/watering_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/watering/watering_06.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/watering/watering_07.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/watering/watering_04.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/watering/watering_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/watering/watering_06.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/watering/watering_07.webp)
 
 ### EasyLoader <a href="#easyloader" id="easyloader"></a>
 
@@ -90,3 +96,14 @@ layout:
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/watering/watering_uiflow_01.webp" alt=""><figcaption></figcaption></figure>
 
+## Official documentation and development resources
+
+Use [Unit Watering](https://docs.m5stack.com/en/unit/Unit_Watering) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U101`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                                                                   |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Mechanical / CAD files  | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U101_Unit_Watering/Structures)                   |
+| Mechanical / CAD files  | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U101_Unit_Watering/Structures/Unit_Watering.stl) |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/WATERING)                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

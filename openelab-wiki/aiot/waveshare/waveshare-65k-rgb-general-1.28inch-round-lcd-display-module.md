@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 65K RGB General 1.28inch Round LCD Display Module
 
+{% hint style="info" %}
+[**View Waveshare 65K RGB General 1.28 inch Round LCD Display Module 240×240 on OpenELAB**](https://openelab.io/products/65k-round-lcd-display)
+
+**Store SKU / option:** `Waveshare-19192`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 65K RGB General 1.28inch Round LCD Display Module
 
 ***
@@ -884,7 +890,7 @@ Note: Because of the size of the internal RAM of STM32 and arduino, the GUI is d
 
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=LCD_rpi_Font.png&#x26;width=500" alt=""><figcaption></figcaption></figure>
 
-The character font which GUI dependent is in the directory STM32\STM32F103RB\User\Fonts&#x20;
+The character font which GUI dependent is in the directory STM32\STM32F103RB\User\Fonts
 
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=LCD_rpi_GUI.png&#x26;width=500" alt=""><figcaption></figcaption></figure>
 
@@ -1656,3 +1662,8 @@ The thread specification is M2.0\*1.0.
 
 </details>
 
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/1.28inch_LCD_Module) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

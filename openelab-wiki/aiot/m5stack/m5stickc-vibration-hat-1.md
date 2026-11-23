@@ -23,6 +23,12 @@ layout:
 
 # M5StickC Vibration HAT
 
+{% hint style="info" %}
+[**View M5Stack M5StickC Vibration HAT Haptic Feedback Motor Module on OpenELAB**](https://openelab.io/products/m5stickc-vibration-hat)
+
+**Store SKU / option:** `M5-U159`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5StickC Vibration HAT
 
 ***
@@ -65,7 +71,7 @@ layout:
 | Product Weight               | 4.7g                               |
 | Package Weight               | 7.1g                               |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-a096d78f-d6ae-45ac-ba7c-0bcc5363b1a9.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-3edb07f0-0b6a-4b43-b78e-0acd1465952e.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-00c6b1ed-f3fd-4adc-9b47-f8b12a71bb88.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-fd2a77a6-bc9c-4554-b741-2518a3ef3e84.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-de3c9f1e-bf01-49ee-8057-3047ecff3015.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-76996de9-74e1-446d-a4d2-234d6fe9a166.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-a096d78f-d6ae-45ac-ba7c-0bcc5363b1a9.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-3edb07f0-0b6a-4b43-b78e-0acd1465952e.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-00c6b1ed-f3fd-4adc-9b47-f8b12a71bb88.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-fd2a77a6-bc9c-4554-b741-2518a3ef3e84.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-de3c9f1e-bf01-49ee-8057-3047ecff3015.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-76996de9-74e1-446d-a4d2-234d6fe9a166.webp)
 
 ### Schematic <a href="#schematic" id="schematic"></a>
 
@@ -74,3 +80,14 @@ layout:
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/hat/HAT-Vibrator/img-f907f409-6f6f-48ec-837d-bd0728b14c52.png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Hat Vibrator](https://docs.m5stack.com/en/hat/Hat_Vibrator) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U159`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                     |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/614/Sch_HAT-Vibrator.pdf)                       |
+| Example source: VIBRATOR.ino | [Read example source: vibrator.ino](https://github.com/m5stack/M5StickC-Plus/blob/master/examples/Hat/VIBRATOR/VIBRATOR.ino) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

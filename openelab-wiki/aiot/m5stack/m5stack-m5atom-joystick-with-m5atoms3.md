@@ -23,6 +23,12 @@ layout:
 
 # M5Stack M5Atom Joystick with M5AtomS3
 
+{% hint style="info" %}
+[**View M5Stack M5Atom Joystick with M5AtomS3 on OpenELAB**](https://openelab.io/products/m5stack-m5atom-joystick-with-m5atoms3)
+
+**Store SKU / option:** `M5-K137`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack M5Atom Joystick with M5AtomS3
 
 ***
@@ -117,3 +123,15 @@ EasyLoader is a simple and fast program burner that comes with a product-related
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="../../.gitbook/assets/image (915).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Atom JoyStick](https://docs.m5stack.com/en/app/Atom_JoyStick) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K137`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                           | Model-specific reference                                                                                                                       |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                       | [Read electrical schematic](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/app/Atom%20JoyStick/Sch_AtomJoystick_v0.3.pdf) |
+| Example source: Atom-JoyStick              | [Read example source: atom-joystick](https://github.com/m5stack/Atom-JoyStick/tree/main/examples/StampFlyController)                           |
+| Official source: Atom-JoyStick-Internal-FW | [Read official source: atom-joystick-internal-fw](https://github.com/m5stack/Atom-JoyStick-Internal-FW)                                        |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

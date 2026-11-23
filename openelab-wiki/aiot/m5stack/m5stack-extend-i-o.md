@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Extend I/O
 
+{% hint style="info" %}
+[**View M5Stack Extend I/O 2 Unit on OpenELAB**](https://openelab.io/products/m5stack-extend-io2-unit)
+
+**Store SKU / option:** `M5-U011-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Extend I/O 2 Unit
 
 ***
@@ -216,3 +222,17 @@ CONFIG
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (387).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit EXT.IO2](https://docs.m5stack.com/en/unit/Unit_EXT.IO2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U011-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                           | Model-specific reference                                                                                                                   |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic                       | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/574/Sch_UNIT-EXTIO2.pdf)                                      |
+| Mechanical / CAD files                     | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U011-B_Unit_EXT.IO2/Structures)                  |
+| Mechanical / CAD files                     | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U011-B_Unit_EXT.IO2/Structures/Unit_EXT.IO2.stl) |
+| Arduino development tutorial               | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_extio2)                                         |
+| Official source: M5Unit-EXTIO2-Internal-FW | [Read official source: m5unit-extio2-internal-fw](https://github.com/m5stack/M5Unit-EXTIO2-Internal-FW)                                    |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

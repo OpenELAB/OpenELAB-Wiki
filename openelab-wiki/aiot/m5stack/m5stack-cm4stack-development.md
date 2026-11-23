@@ -23,6 +23,10 @@ layout:
 
 # M5Stack CM4Stack Development
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack CM4Stack Development Kit
 
 ***
@@ -104,3 +108,17 @@ No matching current OpenELAB.io listing was found for the product version docume
 * [AW32901](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/k127%20CM4STACK/AW32901.PDF)
 * [SY8003](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/k127%20CM4STACK/SY8003.pdf)
 * [ATECC608B](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/k127%20CM4STACK/ATECC608B.PDF)
+
+## Official documentation and development resources
+
+Use [CM4Stack](https://docs.m5stack.com/en/core/CM4Stack) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K127/K127-US/K127-EU`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                         | Model-specific reference                                                                                                               |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                     | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/484/Sch_M5_EdgeCM4.pdf)                                   |
+| Mechanical / CAD files                   | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K127_CM4Stack/Structures)                    |
+| Mechanical / CAD files                   | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K127_CM4Stack/Structures/CM4Stack.stl)       |
+| Example source: m5stack-linux-dtoverlays | [Read example source: m5stack-linux-dtoverlays](https://github.com/m5stack/m5stack-linux-dtoverlays/tree/main/examples/QT/SimpleClock) |
+| Official source: CM4Stack\_lvgl          | [Read official source: cm4stack\_lvgl](https://github.com/m5stack/CM4Stack_lvgl)                                                       |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -8,6 +8,12 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 
 [Browse M5Stack products on OpenELAB](https://openelab.io/collections/brands-m5stack)
 
+## Start from the exact M5Stack model
+
+This directory retains 241 existing guide URLs in their established order. Match the manufacturer product code and board revision before choosing Arduino, UIFlow1, UIFlow2 or a firmware target. Model pages link to the official product reference, example libraries and applicable electrical/mechanical resources.
+
+For a practical first result, use [Atom-Lite USB and UIFlow2 setup](m5stack-atom-lite-esp32-iot-development-kit.md), [ENV-III host selection and pressure units](m5stack-env-iii-unit-with-temperature-humidity-air-pressure-sensor.md), or [U172 ToF4M model and driver selection](m5stack-time-of-flight-distance-unit-vl53l1x.md). The ToF4M guide distinguishes the older U010/VL53L0X, and the [StackChan guide](stackchan-k151-development-guide.md) includes the newer LCD/M5GFX requirement.
+
 ### Popular product guides
 
 Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.

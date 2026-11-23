@@ -23,6 +23,12 @@ layout:
 
 # XIAO RP2350 Onboard RGB LED, Arm Cortex-M33 and Hazard3 RISC-V(Pre-Order)
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO RP2350 Raspberry Pi RISC-V 19 GPIOs Onboard RGB LED on OpenELAB**](https://openelab.io/products/xiao-rp2350)
+
+**Store SKU / option:** `Seeed-102010550`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### XIAO RP2350 Onboard RGB LED, Arm Cortex-M33 and Hazard3 RISC-V(Pre-Order)
 
 ***
@@ -97,7 +103,7 @@ The XIAO RP2350 is an innovative development board that combines the power of th
 
 <details>
 
-<summary><strong>How do I switch between the Cortex-M33 and Hazard3 RISC-V cores?</strong> </summary>
+<summary><strong>How do I switch between the Cortex-M33 and Hazard3 RISC-V cores?</strong></summary>
 
 You can assign specific tasks to each core through your code, utilizing the libraries that support dual-core processing.
 
@@ -113,7 +119,7 @@ The RGB LED can be controlled via the dedicated pins or using predefined functio
 
 <details>
 
-<summary><strong>What power supply options are available?</strong> </summary>
+<summary><strong>What power supply options are available?</strong></summary>
 
 The board can be powered through the USB Type-C connector or an external 3.3V supply.
 
@@ -134,3 +140,13 @@ Yes, the board's low power consumption makes it ideal for battery-operated proje
 The board is currently available for pre-order, with shipping dates dependent on production schedules.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Seeed Studio XIAO RP2350 With MicroPython](https://wiki.seeedstudio.com/getting-started-xiao-rp2350/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need                  | Model-specific reference                                                                   |
+| --------------------------------- | ------------------------------------------------------------------------------------------ |
+| Official source: OSHW-XIAO-Series | [Read official source: oshw-xiao-series](https://github.com/Seeed-Studio/OSHW-XIAO-Series) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

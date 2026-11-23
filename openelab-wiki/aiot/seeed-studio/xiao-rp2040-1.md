@@ -23,11 +23,17 @@ layout:
 
 # XIAO RP2040
 
+{% hint style="info" %}
+[**View standard XIAO RP2040 on OpenELAB**](https://openelab.io/products/xiao-rp2040-supports-arduino)
+
+**SKU:** `Seeed-102010428`. The [main XIAO RP2040 development guide](xiao-rp2040.md) contains the current standard-versus-Plus scope and Arduino first result. This earlier URL and its illustrations remain available.
+{% endhint %}
+
 ### **Seeed Studio XIAO RP2040 with Arduino**
 
 ***
 
-Product  Link
+Product Link
 
 {% embed url="https://openelab.io/products/xiao-rp2040-supports-arduino" %}
 
@@ -119,3 +125,9 @@ Navigate to Tools > Port and select the serial port name of the connected Seeed 
 <div align="center"><img src="https://files.seeedstudio.com/wiki/XIAO-RP2040/img/boardurl5.png" alt="" width="500"></div>
 
 Once uploaded, you should be able to see the pin 25 Green (USER) LED on the board blinks once a second. If it does, congratulations! This means the connection is successful and now you can explore more projects with the Seeed Studio XIAO RP2040!
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO RP2040 Series](https://wiki.seeedstudio.com/XIAO-RP2040/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

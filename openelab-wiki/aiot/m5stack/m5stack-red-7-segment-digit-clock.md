@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Red 7-Segment Digit Clock
 
+{% hint style="info" %}
+[**View M5Stack Red 7-Segment Digit Clock Unit M5-U146 TM1637 I2C Display on OpenELAB**](https://openelab.io/products/m5stack-digit-clock-unit)
+
+**Store SKU / option:** `M5-U146`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Red 7-Segment Digit Clock Unit
 
 ***
@@ -87,3 +93,15 @@ layout:
 ### Character cross-reference table <a href="#character-cross-reference-table" id="character-cross-reference-table"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/digi_clock/digi_clock_sch_03.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit DigiClock](https://docs.m5stack.com/en/unit/Unit_DigiClock) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U146`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                  | Model-specific reference                                                                                  |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Electrical schematic              | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/601/Sch_UNIT_Digi-Clock.pdf) |
+| Official source: M5Unit-DigiClock | [Read official source: m5unit-digiclock](https://github.com/m5stack/M5Unit-DigiClock)                     |
+| Arduino development tutorial      | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_digiclock)     |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

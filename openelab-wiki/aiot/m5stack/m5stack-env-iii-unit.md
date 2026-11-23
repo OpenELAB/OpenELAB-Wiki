@@ -23,6 +23,12 @@ layout:
 
 # M5Stack ENV III Unit
 
+{% hint style="info" %}
+[**View M5Stack ENV III Unit on OpenELAB**](https://openelab.io/products/env-iii-unit)
+
+**Store SKU / option:** `M5-U001-C`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack ENV III Unit
 
 ***
@@ -64,7 +70,7 @@ layout:
 | Package Size                                            | 136\*92\*13mm                    |
 | Case Material                                           | Plastic ( PC )                   |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/envIII/envIII_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/envIII/envIII_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/envIII/envIII_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/envIII/envIII_06.webp)
 
 ### ENV version scheme comparison <a href="#env-version-scheme-comparison" id="env-version-scheme-comparison"></a>
 
@@ -95,3 +101,22 @@ layout:
 ### COMPATIBLE <a href="#compatible" id="compatible"></a>
 
 <figure><img src="../../.gitbook/assets/image (404).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit ENV-III](https://docs.m5stack.com/en/unit/Unit_ENV-III) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U001-C`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                               | Model-specific reference                                                                                                                                                |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files                         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U001-C_Unit_ENV-III/Structures)                                               |
+| Mechanical / CAD files                         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U001-C_Unit_ENV-III/Structures/Unit_ENV-III.stl)                              |
+| Arduino development tutorial                   | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_env)                                                                         |
+| Example source: Unit\_ENVIII\_M5Atom.ino       | [Read example source: unit\_enviii\_m5atom.ino](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/Unit_ENVIII_M5Atom/Unit_ENVIII_M5Atom.ino)                   |
+| Example source: Unit\_ENVIII\_M5AtomS3.ino     | [Read example source: unit\_enviii\_m5atoms3.ino](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/Unit_ENVIII_M5AtomS3/Unit_ENVIII_M5AtomS3.ino)             |
+| Example source: Unit\_ENVIII\_M5AtomS3Lite.ino | [Read example source: unit\_enviii\_m5atoms3lite.ino](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/Unit_ENVIII_M5AtomS3Lite/Unit_ENVIII_M5AtomS3Lite.ino) |
+| Example source: Unit\_ENVIII\_M5Core.ino       | [Read example source: unit\_enviii\_m5core.ino](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/Unit_ENVIII_M5Core/Unit_ENVIII_M5Core.ino)                   |
+| Example source: Unit\_ENVIII\_M5Core2.ino      | [Read example source: unit\_enviii\_m5core2.ino](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/Unit_ENVIII_M5Core2/Unit_ENVIII_M5Core2.ino)                |
+| Example source: Unit\_ENVIII\_M5StickC.ino     | [Read example source: unit\_enviii\_m5stickc.ino](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/Unit_ENVIII_M5StickC/Unit_ENVIII_M5StickC.ino)             |
+| Example source: Unit\_ENVIII\_M5StickCPlus.ino | [Read example source: unit\_enviii\_m5stickcplus.ino](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/Unit_ENVIII_M5StickCPlus/Unit_ENVIII_M5StickCPlus.ino) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

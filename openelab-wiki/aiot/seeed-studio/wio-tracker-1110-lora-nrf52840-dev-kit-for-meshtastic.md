@@ -23,6 +23,12 @@ layout:
 
 # Wio Tracker 1110 LoRa nRF52840 Dev Kit for Meshtastic
 
+{% hint style="info" %}
+[**View Seeed Studio Wio Tracker 1110 LoRa nRF52840 Dev Kit for Meshtastic (Pre-sale) on OpenELAB**](https://openelab.io/products/seeed-studio-wio-tracker-1110-dev-kit-for-meshtastic)
+
+**Store SKU / option:** `Seeed-E24070201`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio Wio Tracker 1110 LoRa nRF52840 Dev Kit for Meshtastic
 
 ***
@@ -77,7 +83,7 @@ Featuring a Wio Tracker 1110 Dev Board (based on Nordic nRF52840 for BLE, Semtec
 | Bandwidth                                           | 0\\.5Hz \~ 625Hz                                                                           |                                                                  |
 | Sensitivity (LSB/g)                                 | 1000 (±2g) \~ 83 (±16g)                                                                    |                                                                  |
 
-Grove - OLED Display 0.96 inch&#x20;
+Grove - OLED Display 0.96 inch
 
 | **Power Voltage (VCC)**                 | 3.3 / 5 V              |
 | --------------------------------------- | ---------------------- |
@@ -108,8 +114,6 @@ Different connection types, find out which client is best for your type of conne
 
 {% tabs %}
 {% tab title="IOS App" %}
-
-
 * Download the `Meshtastic` App.<br>
 * Select the target device on the Bluetooth panel.
 
@@ -125,8 +129,6 @@ Different connection types, find out which client is best for your type of conne
 {% endtab %}
 
 {% tab title="Android App" %}
-
-
 * Download the `Meshtastic` App.<br>
 * Click `+` and choose the target device.
 
@@ -169,6 +171,8 @@ ls /dev/cu.*
 ```
 
 <img src="https://files.seeedstudio.com/wiki/SenseCAP/Meshtastic/usb-port.png" alt="" width="600">
+
+&#x20;
 
 <img src="https://files.seeedstudio.com/wiki/SenseCAP/Meshtastic/web-serial-connect.png" alt="" width="600">
 {% endtab %}
@@ -253,3 +257,13 @@ Now that you have set the LoRa region on your device, you can continue with conf
 [Enclosure File(3D-Print)](https://files.seeedstudio.com/products/E24070201/wio%20tracker%20723.stp)
 
 [Enclosure File(Acrylic)](https://files.seeedstudio.com/products/114993370/%E4%BA%9A%E5%85%8B%E5%8A%9B%E5%A4%96%E5%A3%B3%E5%9B%BE%E7%BA%B8.zip)
+
+## Official documentation and development resources
+
+Use [Getting Started with Meshtastic® Kit](https://wiki.seeedstudio.com/meshtastic_kit_wio_tracker_1110/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/products/E24070201/wio%20tracker%20723.stp) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

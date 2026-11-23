@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 8DP-CAPLCD 8 inch Capacitive Touch Display
 
+{% hint style="info" %}
+[**View Waveshare 8 inch IPS Capacitive Touch Display 1280×800 HDMI on OpenELAB**](https://openelab.io/products/8-inch-capacitive-touch-display)
+
+**Store SKU / option:** `Waveshare-23741`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 8DP-CAPLCD 8 inch Capacitive Touch Display
 
 ***
@@ -210,3 +216,9 @@ Disconnect the resistor in the red box shown below and solder the external PWM t
 4PIN PH1.25 speaker connector, wiring order: ＋ - - +, up to 2 x 2.3W power consumption.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/8DP-CAPLCD) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

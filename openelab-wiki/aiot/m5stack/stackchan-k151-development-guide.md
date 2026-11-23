@@ -211,3 +211,26 @@ References: [BSP initialization source](https://github.com/m5stack/StackChan-BSP
 | [Official factory firmware](https://burner.m5stack.com/device/stackchan)                                               | Return to the manufacturer-distributed application                            |
 
 **Documentation review:** 17 November 2026. **Opening product-link and heading update:** 18 November 2026. **Validation status:** manufacturer documentation, drawings and SDK source reviewed; the example has not yet been compiled or run on physical hardware. Bench validation remains pending.
+
+## LCD revision and M5GFX compatibility
+
+StackChan units using the LCD change dated **7 August 2026** switch from ILI9342C to ILI9342E. M5Stack specifies **M5GFX 0.2.27 or later** for that revision. Record the actual unit revision and library version when diagnosing a blank display after an otherwise successful upload. This minimum applies to the documented newer LCD; it is not a substitute for checking the rest of the project dependencies. [Manufacturer version history](https://docs.m5stack.com/en/StackChan).
+
+## Official documentation and development resources
+
+Use [StackChan](https://docs.m5stack.com/en/StackChan) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K151/K151-R`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                                     |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| UIFlow2 workflow             | [Read uiflow2 workflow](https://docs.m5stack.com/en/uiflow2/stackchan/program)                                                               |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/stackchan/program)                                                   |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/490/Sch_M5_CoreS3_v1.0.pdf)                                     |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1205/SCH_Adapter.pdf)                                           |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1205/SCH_Power.pdf)                                             |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1205/SCH_Ring.pdf)                                              |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1205/SCH_Touch.pdf)                                             |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K151_StackChan/Structures)                         |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K151_StackChan/Structures/StackChan-Base.stl)      |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K151_StackChan/Structures/StackChan-BaseCover.stl) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

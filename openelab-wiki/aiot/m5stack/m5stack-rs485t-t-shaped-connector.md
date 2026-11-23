@@ -23,6 +23,12 @@ layout:
 
 # M5Stack RS485T T-Shaped Connector
 
+{% hint style="info" %}
+[**View M5Stack RS485T T-Shaped Connector on OpenELAB**](https://openelab.io/products/m5stack-rs485t)
+
+**Store SKU / option:** `M5-A071`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack RS485T T-Shaped Connector
 
 ***
@@ -52,3 +58,9 @@ layout:
 ### Schematics <a href="#schematics" id="schematics"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/accessory/485t/485t_04.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [485T](https://docs.m5stack.com/en/accessory/485T) for the manufacturer's model information, dimensions and applicable connection instructions. The official product code is **`A071`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+Check the accessory's physical fit and any electrical connections against the exact host. Firmware and software instructions belong to that host; do not treat a passive part as a separately programmable controller. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

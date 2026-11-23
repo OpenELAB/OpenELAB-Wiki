@@ -23,6 +23,10 @@ layout:
 
 # Waveshare SX1262 LoRa HAT for Raspberry UART
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### Waveshare SX1262 LoRa HAT for Raspberry UART
 
 ***
@@ -125,10 +129,15 @@ LoRa devices and networks such as LoRaWAN enable smart IoT applications to help 
 
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1262_LoRa_HAT_user_manual-1.png&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1262_LoRa_HAT_user_manual-1.png&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1262_LoRa_HAT_user_manual-2.png&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1262_LoRa_HAT_user_manual-2.png&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
 
 ### Terminal
 
@@ -152,16 +161,27 @@ pip3 install pyserial
 
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-111_%281%29.jpg&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-111_%281%29.jpg&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-111_%282%29.jpg&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-111_%282%29.jpg&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-111_%283%29.jpg&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-111_%283%29.jpg&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-111_%284%29.jpg&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-111_%284%29.jpg&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
 
 #### Working with Raspberry Pi
 
@@ -206,15 +226,24 @@ sudo python3 main.py
 
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-104.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-104.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+
 * first node
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-105.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
-* second node&#x20;
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-105.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+
+* second node
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-103.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-103.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+
 * transpareant transfer diagram
 
 #### Demo 2
@@ -227,18 +256,27 @@ Relay communication is a method for ultra-long-distance communication. Setting u
 * Directly connected LoRa module A to the Raspberry Pi, set up LoR module B and LoRa module C by Windows [upper-computer](https://files.waveshare.com/upload/8/8d/RF_Setting\(E22-E90\(SL\)\)_V1.0.zip).
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-LoRa-HAT-011.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
-* relay transfer diagram&#x20;
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-LoRa-HAT-011.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+
+* relay transfer diagram
 *   lora module B setting
 
     <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-106.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-107.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-107.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+
 * lora module C setting
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-006.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SX1268-433M-LoRa-HAT-006.jpg&#x26;width=500" alt=""><figcaption></figcaption></figure>
+```
+
 * lora module A setting
 
 After LoRa module A is connected to the Raspberry Pi, open the main.py file, change line 66, change realy=False to realy=True, and execute the following command, LoRa module C will print the data from the serial port after receiving the data, and relay the LoRa module B will not print any data from the serial port, enter the following command:
@@ -550,8 +588,6 @@ In this section, we briefly describe the working process and Python program of t
 
 <summary><a href="https://www.waveshare.com/wiki/SX1262_868M_LoRa_HAT#accordion1"><strong>Why is the transmission distance not ideal?</strong></a></summary>
 
-
-
 * The ground absorbs and reflects radio waves, and the testing effect is poor near the ground; when there is a linear communication barrier, the communication distance will be attenuated accordingly.
 * There are metal objects near the antenna, or placed in a metal shell, the signal attenuation will be very serious; seawater has a strong ability to absorb radio waves, so the seaside test effect is poor.
 * Temperature, humidity, and co-channel interference will lead to increased communication packet loss rate; power supply low voltage at room temperature is lower than the recommended value, the lower the voltage the smaller the power generation.
@@ -622,3 +658,9 @@ In stream mode, LoRa devices do not wait for acknowledgment from the receiver af
 In packet mode, LoRa devices wait for an acknowledgment (ACK) from the receiver after sending data. This mode is suitable for applications that need to ensure data integrity and reliability.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Introduction](https://www.waveshare.com/wiki/SX1262_868M_LoRa_HAT) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

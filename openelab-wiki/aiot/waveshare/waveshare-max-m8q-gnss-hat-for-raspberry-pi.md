@@ -23,6 +23,12 @@ layout:
 
 # Waveshare MAX-M8Q GNSS HAT for Raspberry Pi
 
+{% hint style="info" %}
+[**View Waveshare MAX-M8Q GNSS HAT for Raspberry Pi on OpenELAB**](https://openelab.io/products/max-m8qgnsshat)
+
+**Store SKU / option:** `Waveshare-18233`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare MAX-M8Q GNSS HAT for Raspberry Pi
 
 ***
@@ -77,8 +83,7 @@ RTK (Real Time Kinematic), also known as carrier phase differential technology, 
 3\. Note that you should set the side without sticker upward, Open Device Manager and view the COM port, connect MAX-M8Q, and use auto-baudrate.\
 4\. Power the MAX-M8Q module and set it to 3D mode, select File -> Database Export -> Google Map Html to export file.\
 5\. Download [Test file](https://files.waveshare.com/upload/6/63/Test_Release.zip), unzip and open it by Chrome browser, and import the file which is saved from u-center above to check position information.\
-6\. Please refer to the [User guide](https://www.u-blox.com/sites/default/files/u-center_Userguide_\(UBX-13005250\).pdf) about how to use the u-center.\
-&#x20; &#x20;
+6\. Please refer to the [User guide](https://www.u-blox.com/sites/default/files/u-center_Userguide_\(UBX-13005250\).pdf) about how to use the u-center.<br>
 
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=MAX-M8Q_GNSS_HAT_002.jpg&#x26;width=600" alt=""><figcaption></figcaption></figure>
 
@@ -309,3 +314,8 @@ Enable NMEA 4.10 output to see BeiDou and Galileo
 
 </details>
 
+## Official documentation and development resources
+
+Use [Positioning Principle](https://www.waveshare.com/wiki/MAX-M8Q_GNSS_HAT) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

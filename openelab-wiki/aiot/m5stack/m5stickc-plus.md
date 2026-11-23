@@ -23,6 +23,12 @@ layout:
 
 # M5StickC PLUS
 
+{% hint style="info" %}
+[**View M5StickC PLUS ESP32-PICO Mini IoT Development Kit on OpenELAB**](https://openelab.io/products/m5stickc-plus-esp32-pico)
+
+**Store SKU / option:** `M5-K016-P`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5StickC PLUS ESP32-PICO Mini IoT Development Kit
 
 ***
@@ -93,7 +99,7 @@ layout:
 | Package Size          | 114\*64\*22mm                                  |
 | Case Material         | Plastic ( PC )                                 |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc_plus/m5stickc_plus_04.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc_plus/m5stickc_plus_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc_plus/m5stickc_plus_06.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc_plus/m5stickc_plus_07.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc_plus/m5stickc_plus_04.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc_plus/m5stickc_plus_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc_plus/m5stickc_plus_06.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc_plus/m5stickc_plus_07.webp)
 
 ### PinMap <a href="#pinmap" id="pinmap"></a>
 
@@ -153,3 +159,17 @@ Resolution:135 \* 240
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/m5stickc_plus/%E5%B0%BA%E5%AF%B8%E5%9B%BE.jpg" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [StickC-Plus](https://docs.m5stack.com/en/core/StickC-Plus) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K016-P`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need               | Model-specific reference                                                                                                                 |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial   | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5stickc_plus/program)                                           |
+| Mechanical / CAD files         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K016-P_StickC-Plus/Structures)                 |
+| Mechanical / CAD files         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K016-P_StickC-Plus/Structures/StickC-Plus.stl) |
+| Official source: M5StickC-Plus | [Read official source: m5stickc-plus](https://github.com/m5stack/M5StickC-Plus)                                                          |
+| Example source: M5StickC-Plus  | [Read example source: m5stickc-plus](https://github.com/m5stack/M5StickC-Plus/tree/master/examples/FactoryTest)                          |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

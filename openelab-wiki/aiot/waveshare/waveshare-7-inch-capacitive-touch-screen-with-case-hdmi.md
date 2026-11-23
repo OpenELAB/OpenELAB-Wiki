@@ -21,7 +21,13 @@ layout:
     visible: true
 ---
 
-# &#x20;Waveshare 7 inch Capacitive Touch Screen with Case HDMI
+# Waveshare 7 inch Capacitive Touch Screen with Case HDMI
+
+{% hint style="info" %}
+[**View Waveshare 7 inch Capacitive Touch Screen LCD with Case 800\*480 HDMI on OpenELAB**](https://openelab.io/products/7-inch-capacitive-touch-screen)
+
+**Store SKU / option:** `Waveshare-11283`. Match the purchased model and revision to the official reference below.
+{% endhint %}
 
 ### Waveshare 7 inch Capacitive Touch Screen with Case HDMI
 
@@ -325,3 +331,12 @@ You might be wondering if the one you're watching or you've purchased in other n
 
 </details>
 
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/7inch_HDMI_LCD_\(B\)) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                  |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.waveshare.com/wiki/7inch%20HDMI%20LCD%20\(B\)/7inch%20HDMI%20LCD%20\(B\).stp) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

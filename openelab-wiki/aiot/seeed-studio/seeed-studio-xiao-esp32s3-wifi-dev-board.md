@@ -23,6 +23,12 @@ layout:
 
 # Seeed Studio XIAO ESP32S3 WIFI Dev Board
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO ESP32S3 chip 2.4GHz WiFi BLE 5.0 BT Dev Board on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-esp32s3)
+
+**Store SKU / option:** `Seeed-113991114`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO ESP32S3 WIFI Dev Board
 
 ***
@@ -105,7 +111,7 @@ You can reset the board by pressing the onboard reset button.
 
 <details>
 
-<summary><strong>Can I use this board for battery-powered applications?</strong> </summary>
+<summary><strong>Can I use this board for battery-powered applications?</strong></summary>
 
 Yes, the board's low power consumption makes it suitable for battery-powered projects.
 
@@ -129,8 +135,24 @@ You can program the XIAO ESP32S3 using C/C++ in the Arduino IDE, or with MicroPy
 
 <details>
 
-<summary> <strong>Is the XIAO ESP32S3 compatible with Grove sensors?</strong></summary>
+<summary><strong>Is the XIAO ESP32S3 compatible with Grove sensors?</strong></summary>
 
 Yes, the board is compatible with Grove sensors through the Grove connectors, or by wiring them to the appropriate GPIO pins.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO ESP32-S3 Series](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                                       |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO_ESP32S3_v1.1_Dimensioning.dxf)              |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO_ESP32S3_ExpBoard_v1.0_top.dxf)              |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO_ESP32S3_ExpBoard_v1.0_bot.dxf)              |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO-ESP32S3-Sense-housing-design\(top\).stp)    |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO-ESP32S3-Sense-housing-design\(bottom\).stp) |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/TOP.dxf)                                         |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/BOTTOM.dxf)                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

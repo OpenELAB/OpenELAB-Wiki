@@ -23,6 +23,12 @@ layout:
 
 # M5Stack RF UNIT 433MHz Receiver (SYN513R)
 
+{% hint style="info" %}
+[**View M5Stack RF UNIT 433MHz Receiver (SYN513R) on OpenELAB**](https://openelab.io/products/rf-unit)
+
+**Store SKU / option:** `M5-U113`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack RF UNIT 433MHz Receiver (SYN513R)
 
 ***
@@ -83,3 +89,15 @@ Unit RF433R
 ### Documents
 
 * [SYN531R](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/unit/rf433/C77785_SYN531R_2018-06-20.PDF)
+
+## Official documentation and development resources
+
+Use [Unit RF433R](https://docs.m5stack.com/en/unit/Unit_RF433R) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U113`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need          | Model-specific reference                                                                                                               |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U113_Unit_RF433R/Structures)                 |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U113_Unit_RF433R/Structures/Unit_RF433R.stl) |
+| Example source: RF433.ino | [Read example source: rf433.ino](https://github.com/m5stack/M5Stack/blob/master/examples/Unit/RF433/RF433.ino)                         |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

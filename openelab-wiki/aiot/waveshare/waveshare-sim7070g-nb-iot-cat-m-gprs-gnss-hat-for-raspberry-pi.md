@@ -23,6 +23,12 @@ layout:
 
 # Waveshare SIM7070G NB-IoT / Cat-M / GPRS / GNSS HAT for Raspberry Pi
 
+{% hint style="info" %}
+[**View Waveshare SIM7070G NB-IoT / Cat-M / GPRS / GNSS HAT for Raspberry Pi on OpenELAB**](https://openelab.io/products/sim7070gnb-iotcat-mgprsgnsshat)
+
+**Store SKU / option:** `Waveshare-18078`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare SIM7070G NB-IoT / Cat-M / GPRS / GNSS HAT for Raspberry Pi
 
 ***
@@ -143,8 +149,6 @@ The demo codes provide is based on Arduino UNO. The D10 (RX) and D11 (TX) is use
 
 ### FAQ
 
-
-
 <details>
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7070G_Cat-M/NB-IoT/GPRS_HAT#accordion3"><strong>Can SIM7070G use cellular network and GPS positioning at the same time?</strong></a></summary>
@@ -165,8 +169,6 @@ Support 25mm X 15mm SIM standard card as shown in the picture below, if it is a 
 <details>
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7070G_Cat-M/NB-IoT/GPRS_HAT#accordion4"><strong>Why is there no signal from SIM7070G?</strong></a></summary>
-
-
 
 * Fixed NB-IOT or CAT-M Easier to get the signal:
 
@@ -193,3 +195,13 @@ SIM7070G may get stuck when it is first turned on, send AT commands several time
 [![SIM7070G Cat-M-FAQ02.png](https://www.waveshare.com/w/upload/8/85/SIM7070G_Cat-M-FAQ02.png)](https://www.waveshare.com/wiki/File:SIM7070G_Cat-M-FAQ02.png)
 
 </details>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/SIM7070G_Cat-M/NB-IoT/GPRS_HAT) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need     | Model-specific reference                                                                                          |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic | [Read electrical schematic](https://www.waveshare.com/w/upload/5/52/SIM7070X_Cat-M_NB-IoT_GPRS_HAT_Schematic.pdf) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

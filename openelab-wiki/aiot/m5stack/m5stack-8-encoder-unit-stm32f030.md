@@ -23,6 +23,12 @@ layout:
 
 # M5Stack 8-Encoder Unit (STM32F030)
 
+{% hint style="info" %}
+[**View M5Stack 8Encoder Unit with 8 Rotary Encoders and RGB LEDs on OpenELAB**](https://openelab.io/products/8-encoder-unit)
+
+**Store SKU / option:** `M5-U153`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack 8-Encoder Unit (STM32F030)
 
 ***
@@ -71,3 +77,17 @@ UNIT 8Encoder is a set of 8 rotary encoders as one of the input unit, the intern
 ### Dimensions
 
 <figure><img src="../../.gitbook/assets/image (872).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit 8Encoder](https://docs.m5stack.com/en/unit/Unit_8Encoder) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U153`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                             | Model-specific reference                                                                                                                   |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic                         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/607/SCH_UNIT_8Encoder_V1.01.pdf)                              |
+| Mechanical / CAD files                       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U153_Unit_8Encoder/Structures)                   |
+| Mechanical / CAD files                       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U153_Unit_8Encoder/Structures/Unit_8Encoder.stl) |
+| Official source: M5Unit-8Encoder             | [Read official source: m5unit-8encoder](https://github.com/m5stack/M5Unit-8Encoder)                                                        |
+| Official source: M5Unit-8Encoder-Internal-FW | [Read official source: m5unit-8encoder-internal-fw](https://github.com/m5stack/M5Unit-8Encoder-Internal-FW)                                |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

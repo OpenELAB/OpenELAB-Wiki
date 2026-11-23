@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Proto Pegboard Module
 
+{% hint style="info" %}
+[**View M5Stack Proto Pegboard Module - 13.2 on OpenELAB**](https://openelab.io/products/proto-pegboard-module)
+
+**Store SKU / option:** `M5-M032`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Proto Pegboard Module - 13.2
 
 ***
@@ -71,3 +77,9 @@ layout:
 |       HPOWR      |       BAT       |
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/module/module_bus.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Module13.2 Proto](https://docs.m5stack.com/en/module/Module13.2_Proto) for the manufacturer's model information, dimensions and applicable connection instructions. The official product code is **`M032`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+Check the accessory's physical fit and any electrical connections against the exact host. Firmware and software instructions belong to that host; do not treat a passive part as a separately programmable controller. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

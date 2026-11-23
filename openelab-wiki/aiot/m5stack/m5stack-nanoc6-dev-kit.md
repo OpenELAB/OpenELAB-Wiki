@@ -23,6 +23,12 @@ layout:
 
 # M5Stack NanoC6 Dev Kit
 
+{% hint style="info" %}
+[**View M5Stack NanoC6 Dev Kit on OpenELAB**](https://openelab.io/products/nanoc6-dev-kit)
+
+**Store SKU / option:** `M5-C125`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack NanoC6 Dev Kit
 
 ***
@@ -63,7 +69,7 @@ The WiFi 6 protocol has higher speed, greater capacity, lower latency, and stron
 
 <table><thead><tr><th width="275">Resources</th><th>Parameters</th></tr></thead><tbody><tr><td>SoC</td><td>ESP32-C6FH4@RISC-V 160MHz，4M Flash， Wi-Fi 6，Zigbee 3.0，Thread 1.3, Matter，CDC</td></tr><tr><td>WIFI protocol</td><td>2.4GHz Wi-Fi 6 protocol (802.11ax) and backward compatible with 802.11b /g/n</td></tr><tr><td>RGB</td><td>WS2812</td></tr><tr><td>IR remote control parameters</td><td>The infrared emission distance of &#x3C; 0° is 632CM<br>The infrared emission distance of &#x3C; 45° is 83CM<br>The infrared emission distance of &#x3C; 90° is 29CM</td></tr><tr><td>Grove outputs maximum current</td><td>DC 5V@600mA(Output capacity depends on USB power supply)</td></tr><tr><td>Standby current （Deep Sleep Mode)</td><td>Type-C Power supply DC 5V@125.5uA<br>Grove power supply DC 5V@50uA</td></tr><tr><td>Standby current (ULP Mode)</td><td>Type-C Power supply DC 5V@252uA<br>Grove power supply DC 5V@201.5uA</td></tr><tr><td>Operating current</td><td>In WIFI mode: DC 5V@106.2mA</td></tr><tr><td>WI-FI stretch test (antenna back up, back alignment test)</td><td>54.9m</td></tr><tr><td>Operating temperature</td><td>0-40°C</td></tr><tr><td>Product Size</td><td>23.5*12*9.5mm</td></tr><tr><td>Package Size</td><td>110*81*11mm</td></tr><tr><td>Product Weight</td><td>2.5g</td></tr><tr><td>Package Weight</td><td>11.2g</td></tr></tbody></table>
 
-![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-a6ee31bc-623f-4d53-af92-797ccc6a03b4.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-1228b929-959f-4940-b4fa-b14451eed567.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-b877ed06-0039-4aff-b380-44d5b797c71b.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-5f49bf45-e2de-4c18-87a5-460cc78cffcf.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-1118efa7-1956-49c2-9023-bd96402f6d81.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-2e866aaa-29eb-42a2-a9fe-7808544e4e7d.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-a6ee31bc-623f-4d53-af92-797ccc6a03b4.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-1228b929-959f-4940-b4fa-b14451eed567.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-b877ed06-0039-4aff-b380-44d5b797c71b.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-5f49bf45-e2de-4c18-87a5-460cc78cffcf.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-1118efa7-1956-49c2-9023-bd96402f6d81.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-2e866aaa-29eb-42a2-a9fe-7808544e4e7d.webp)
 
 ### Related Link <a href="#related-link" id="related-link"></a>
 
@@ -84,3 +90,20 @@ When using RGB, remember to turn on the RGB power supply switch, that is, the GP
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/core/M5NanoC6/img-a5c60e93-a3d5-4534-a8fb-bb4882a84adc.jpg" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [NanoC6](https://docs.m5stack.com/en/core/NanoC6) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C125`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                     |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5nanoc6/program)                                    |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/505/Sch_M5NanoC6_v0.0.1.pdf)                    |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C125_NanoC6/Structures)            |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C125_NanoC6/Structures/NanoC6.stl) |
+| Example source: M5NanoC6     | [Read example source: m5nanoc6](https://github.com/m5stack/M5NanoC6/tree/main/examples/Basic/button)                         |
+| Example source: M5NanoC6     | [Read example source: m5nanoc6](https://github.com/m5stack/M5NanoC6/tree/main/examples/Basic/ir_nec)                         |
+| Example source: M5NanoC6     | [Read example source: m5nanoc6](https://github.com/m5stack/M5NanoC6/tree/main/examples/Basic/led)                            |
+| Example source: M5NanoC6     | [Read example source: m5nanoc6](https://github.com/m5stack/M5NanoC6/tree/main/examples/Basic/rgb_led)                        |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

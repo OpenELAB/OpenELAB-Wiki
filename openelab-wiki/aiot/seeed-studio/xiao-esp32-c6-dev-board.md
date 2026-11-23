@@ -23,6 +23,12 @@ layout:
 
 # XIAO ESP32-C6 Dev Board
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO ESP32C6 RISC-V 2.4GHz WIFI 6 BLE 5 Dev Board 160MHz on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-esp32c6)
+
+**Store SKU / option:** `Seeed-113991254`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO ESP32-C6 RISC-V 2.4GHz WIFI 6 BLE 5 Dev Board 160MHz
 
 ***
@@ -70,11 +76,11 @@ XIAO ESP32C6 is Matter native thanks to its enhanced wireless connectivity. The 
 
 ### Hardware <a href="#hardware-overview" id="hardware-overview"></a>
 
-| XIAO ESP32C6 indication diagram                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <p><img src="https://wdcdn.qpic.cn/MTY4ODg1Nzc0ODUwMjM3NA_556525_Slxs4ARdyuXRrJK-_1711096256?w=9854&#x26;h=3367&#x26;type=image/png" alt=""></p> |
-| XIAO ESP32C6 Pin List                                                                                                                            |
-| <p><img src="https://wdcdn.qpic.cn/MTY4ODg1Nzc0ODUwMjM3NA_318648_dMoXitoaQiq2N3-a_1711678067?w=1486&#x26;h=1228" alt=""></p>                     |
+| XIAO ESP32C6 indication diagram                                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://wdcdn.qpic.cn/MTY4ODg1Nzc0ODUwMjM3NA_556525_Slxs4ARdyuXRrJK-_1711096256?w=9854&#x26;h=3367&#x26;type=image/png" alt="" data-size="original"> |
+| XIAO ESP32C6 Pin List                                                                                                                                          |
+| <img src="https://wdcdn.qpic.cn/MTY4ODg1Nzc0ODUwMjM3NA_318648_dMoXitoaQiq2N3-a_1711678067?w=1486&#x26;h=1228" alt="" data-size="original">                     |
 
 RF Switch
 
@@ -123,3 +129,9 @@ The red light behavior for the XIAO ESP32C6 is as follows:
 ### Reading Battery Voltage[​](https://wiki.seeedstudio.com/xiao_esp32c6_getting_started/#reading-battery-voltage) <a href="#reading-battery-voltage" id="reading-battery-voltage"></a>
 
 To monitor the battery voltage on the XIAO ESP32C6, similar to the XIAO ESP32C3, you'll need to solder a 200k resistor in a 1:2 configuration. This setup reduces the voltage by half, allowing safe monitoring through the A0 analog port.
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO ESP32C6](https://wiki.seeedstudio.com/xiao_esp32c6_getting_started/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

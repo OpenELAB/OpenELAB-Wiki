@@ -23,6 +23,12 @@ layout:
 
 # M5Stack GRBL Module Stepmotor Driver
 
+{% hint style="info" %}
+[**View M5Stack GRBL Module 13.2 Stepmotor Driver on OpenELAB**](https://openelab.io/products/grbl-module-stepmotor-driver)
+
+**Store SKU / option:** `M5-M035`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack GRBL Module 13.2 Stepmotor Driver
 
 ***
@@ -107,3 +113,13 @@ The power input interface is DC/9-24V, the motor drive current can reach 1.5A, a
 | ------ | ------- |
 | 0      | 0x70    |
 | 1      | 0x71    |
+
+## Official documentation and development resources
+
+Use [Module13.2 GRBL](https://docs.m5stack.com/en/module/Module13.2_GRBL) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`M035`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need     | Model-specific reference                                                                              |
+| -------------------- | ----------------------------------------------------------------------------------------------------- |
+| Electrical schematic | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/546/Sch_M5GRBL_V1.1.pdf) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -88,3 +88,9 @@ After a firmware change, verify both host connection and the two-node radio test
 | [MeshCore source](https://github.com/meshcore-dev/MeshCore)                                                                                           | Alternative firmware source             |
 
 **Review date:** 17 November 2026. **Validation:** official documentation and the cited software interfaces reviewed. Commands and examples have not been compiled or run on physical hardware by OpenELAB for this guide. Record your hardware revision, firmware, software versions and actual results when reproducing it.
+
+## Official documentation and development resources
+
+Use [SenseCAP MeshTracker X1 Introduction](https://wiki.seeedstudio.com/meshtracker_x1_intro/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

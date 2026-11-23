@@ -23,6 +23,12 @@ layout:
 
 # PM5Stack RCA Audio/Video
 
+{% hint style="info" %}
+[**View M5Stack RCA Audio Video Composite Unit Analog AV Output Module on OpenELAB**](https://openelab.io/products/audio-composite-unit)
+
+**Store SKU / option:** `M5-U155`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### PM5Stack RCA Audio/Video Composite Unit
 
 ***
@@ -67,3 +73,16 @@ Unit RCA is a female jack terminal block for transmitting composite video (audio
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/RCA/img-35ebdaa2-f972-46ac-b132-8cbf2438c5d7.png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit RCA](https://docs.m5stack.com/en/unit/Unit_RCA) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U155`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                                                         |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic    | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/609/SCH_UNIT_RCA.pdf)                               |
+| Mechanical / CAD files  | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U155_Unit_RCA/Structures)              |
+| Mechanical / CAD files  | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U155_Unit_RCA/Structures/Unit_RCA.stl) |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/RCA)                                 |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

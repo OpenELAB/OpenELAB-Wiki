@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Glass Unit w/ 1.51inch Transparent OLED
 
+{% hint style="info" %}
+[**View M5Stack Unit Glass M5-U158 1.51inch Transparent OLED Display on OpenELAB**](https://openelab.io/products/glass-unit-w-transparent-oled)
+
+**Store SKU / option:** `M5-U158`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Glass Unit w/ 1.51inch Transparent OLED
 
 ***
@@ -85,3 +91,15 @@ D：SDA
 Size:10g
 
 weight:53\*42\*2.3mm
+
+## Official documentation and development resources
+
+Use [Unit Glass](https://docs.m5stack.com/en/unit/Unit_Glass) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U158`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                          | Model-specific reference                                                                              |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Electrical schematic                      | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/612/Sch_UNIT-GLASS.pdf)  |
+| Arduino development tutorial              | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_glass)     |
+| Official source: M5Unit-GLASS-Internal-FW | [Read official source: m5unit-glass-internal-fw](https://github.com/m5stack/M5Unit-GLASS-Internal-FW) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

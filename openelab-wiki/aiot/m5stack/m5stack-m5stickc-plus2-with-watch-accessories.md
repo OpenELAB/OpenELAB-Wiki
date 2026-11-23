@@ -23,6 +23,10 @@ layout:
 
 # M5Stack M5StickC PLUS2 with Watch Accessories
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack M5StickC PLUS2 with Watch Accessories
 
 ***
@@ -94,10 +98,20 @@ When no USB external power supply is available, press BUTTON C for more than 6 s
 
 ### Model Size <a href="#model-size" id="model-size"></a>
 
-&#x20;&#x20;
-
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/M5StickC%20PLUS2/f1243c84791dc7551d58d683edb6aab.jpg" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/M5StickC%20PLUS2/e537f92bdea6ec347037fd8ee014b84.jpg" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/M5StickC%20PLUS2/148c931a782264fa73700b89a6060bb.jpg" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [StickC-Plus2](https://docs.m5stack.com/en/core/StickC-Plus2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K016-P2`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                        | Model-specific reference                                                                                      |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                    | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/512/Sch_M5StickC_Plus2_v0.5.pdf) |
+| Official source: M5StickCPlus2          | [Read official source: m5stickcplus2](https://github.com/m5stack/M5StickCPlus2)                               |
+| Official source: M5StickCPlus2-UserDemo | [Read official source: m5stickcplus2-userdemo](https://github.com/m5stack/M5StickCPlus2-UserDemo)             |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

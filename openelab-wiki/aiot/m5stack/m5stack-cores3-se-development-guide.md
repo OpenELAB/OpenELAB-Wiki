@@ -57,3 +57,19 @@ If uploads fail, use the documented reset-button download-mode procedure and rec
 * [CoreS3 family comparison](https://docs.m5stack.com/en/core/CoreS3)
 
 Reviewed 18 November 2026. Source links and accessible manufacturer documentation were reviewed; this guide has not been compiled or tested on physical hardware. Before reproducing a project, record the board revision, firmware/SDK release or commit, operating system and any changes to the supplied configuration.
+
+## Official documentation and development resources
+
+Use [CoreS3-SE](https://docs.m5stack.com/en/core/CoreS3-SE) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K128-SE`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                 | Model-specific reference                                                                                                              |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial     | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5cores3_se/program)                                          |
+| Arduino development tutorial     | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5cores3/power)                                               |
+| Electrical schematic             | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/498/Sch_M5_CoreS3_SE_v1.0.pdf)                           |
+| Mechanical / CAD files           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K128-SE_CoreS3-SE/Structures)               |
+| Mechanical / CAD files           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K128-SE_CoreS3-SE/Structures/CoreS3-SE.stl) |
+| Official source: M5CoreS3        | [Read official source: m5cores3](https://github.com/m5stack/M5CoreS3)                                                                 |
+| Official source: CoreS3-UserDemo | [Read official source: cores3-userdemo](https://github.com/m5stack/CoreS3-UserDemo)                                                   |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

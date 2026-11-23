@@ -99,3 +99,15 @@ The [official firmware/control repository](https://github.com/respeaker/reSpeake
 | [ALSA arecord/aplay manual source](https://github.com/alsa-project/alsa-utils/blob/master/aplay/aplay.1)                                  | Linux audio tooling; select parameters for the installed firmware |
 
 **Review date:** 17 November 2026. **Validation:** official documentation and the cited software interfaces reviewed. Commands and examples have not been compiled or run on physical hardware by OpenELAB for this guide. Record your hardware revision, firmware, software versions and actual results when reproducing it.
+
+## Official documentation and development resources
+
+Use [Getting Started with ReSpeaker XVF3800](https://wiki.seeedstudio.com/respeaker_xvf3800_introduction/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/respeaker_xvf3800_usb/3d/respeaker_mic_array_xvf3800_1_with-xiao-0820.stp) |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/respeaker_xvf3800_usb/3d/1-up.stp)                                         |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/respeaker_xvf3800_usb/3d/1-down.stp)                                       |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # XIAO SAMD21 Arduino Microcontroller
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO SAMD21 Arduino Microcontroller on OpenELAB**](https://openelab.io/products/xiao-samd21-arduino-microcontroller)
+
+**Store SKU / option:** `Seeed-102010328`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO SAMD21 Arduino Microcontroller
 
 ***
@@ -81,9 +87,15 @@ There are two documents on the usage of **Seeed Studio XIAO SAMD21** which focus
 
 <img src="https://files.seeedstudio.com/wiki/Seeeduino-XIAO/img/Seeeduino-XIAO-pinout-1.jpg" alt="pir" width="600">
 
+&#x20;
+
 <img src="https://files.seeedstudio.com/wiki/Seeeduino-XIAO/img/new1.png" alt="pir" width="600">
 
+&#x20;
+
 <img src="https://files.seeedstudio.com/wiki/Seeeduino-XIAO/img/Seeeduino%20XIAO%20pinout%202.png" alt="pir" width="600">
+
+&#x20;
 
 <img src="https://files.seeedstudio.com/wiki/Seeeduino-XIAO/img/regulator_to_3.3v.png" alt="pir" width="600">
 
@@ -94,3 +106,9 @@ For power supply pins: The built-in DC-DC converter circuit able to change 5V vo
 XIAO SAMD21 currently only supports battery power supply and **cannot connect to Type-C while a battery is connected**, as it may pose a safety risk.
 
 Please pay attention to use, do not lift the shield cover.
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO SAMD21 Series](https://wiki.seeedstudio.com/Seeeduino-XIAO/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

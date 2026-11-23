@@ -23,6 +23,12 @@ layout:
 
 # M5Stack NCIR 2 Thermometer Unit (MLX90614)
 
+{% hint style="info" %}
+[**View M5Stack NCIR 2 Thermometer Unit with MLX90614 IR Sensor on OpenELAB**](https://openelab.io/products/ncir-2-thermometer-unit)
+
+**Store SKU / option:** `M5-U150`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack NCIR 2 Thermometer Unit (MLX90614)
 
 ***
@@ -122,3 +128,17 @@ The MLX90614 comes pre-calibrated from the factory. For recalibration, specializ
 Yes, it is compatible with any microcontroller that supports I2C communication, including Arduino, Raspberry Pi, and ESP32.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Unit NCIR2](https://docs.m5stack.com/en/unit/Unit_NCIR2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U150`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                          | Model-specific reference                                                                                                             |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic                      | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/604/Sch_UNIT-NCIR2.pdf)                                 |
+| Mechanical / CAD files                    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U150_Unit_NCIR2/Structures)                |
+| Mechanical / CAD files                    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U150_Unit_NCIR2/Structures/Unit_NCIR2.stl) |
+| Official source: M5Unit-NCIR2             | [Read official source: m5unit-ncir2](https://github.com/m5stack/M5Unit-NCIR2)                                                        |
+| Official source: M5Unit-NCIR2-Internal-FW | [Read official source: m5unit-ncir2-internal-fw](https://github.com/m5stack/M5Unit-NCIR2-Internal-FW)                                |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

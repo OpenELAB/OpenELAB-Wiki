@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Single-phase DC SSR Unit (CDG1. 1DD-10A)
 
+{% hint style="info" %}
+[**View M5Stack Unit DCSSR M5-U140 ESP32-C3 Single-phase DC SSR Relay on OpenELAB**](https://openelab.io/products/single-phase-dc-ssr-unit)
+
+**Store SKU / option:** `M5-U140`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Single-phase DC SSR Unit (CDG1. 1DD-10A)
 
 ***
@@ -38,8 +44,6 @@ ACSSR Unit is an all-inclusive DC to DC single-phase solid-state relay controlle
 With support for key control, I2C slave, and Modbus networking modes, this kit offers flexible operation options to suit different requirements. The integrated programmable full-color RGB LED serves as a visual indicator, providing clear state indication for easy monitoring and operation. By utilizing semiconductor switching elements, the Unit ACSSR ensures high-speed switching, extended lifespan, low switching noise, and eliminates issues such as switching sparks. It offers superior reliability compared to traditional mechanical relays.\
 \
 Unit ACSSR finds wide application in digital program control devices, motor control devices, temperature control systems, data processing systems, and computer peripheral interface devices. It is specifically designed to withstand harsh environments with corrosion, humidity, or explosion-proof requirements, making it suitable for challenging industrial settings.
-
-
 
 <figure><img src="../../.gitbook/assets/image (510).png" alt=""><figcaption></figcaption></figure>
 
@@ -82,3 +86,17 @@ Unit ACSSR finds wide application in digital program control devices, motor cont
   * Connect the load (such as a DC motor, light, or other DC devices) to the SSR Unit's output terminals.
   * Connect the power supply for the load to the SSR Unit's input terminals.
 
+## Official documentation and development resources
+
+Use [Unit DCSSR](https://docs.m5stack.com/en/unit/Unit_DCSSR) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U140`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need               | Model-specific reference                                                                                                             |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Arduino development tutorial   | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_acssr)                                    |
+| Mechanical / CAD files         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U140_Unit_DCSSR/Structures)                |
+| Mechanical / CAD files         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U140_Unit_DCSSR/Structures/Unit_DCSSR.stl) |
+| Official source: M5Unit-ACSSR  | [Read official source: m5unit-acssr](https://github.com/m5stack/M5Unit-ACSSR)                                                        |
+| Official source: ArduinoRS485  | [Read official source: arduinors485](https://github.com/m5stack/ArduinoRS485)                                                        |
+| Official source: ArduinoModbus | [Read official source: arduinomodbus](https://github.com/m5stack/ArduinoModbus)                                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

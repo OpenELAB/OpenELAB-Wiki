@@ -23,6 +23,10 @@ layout:
 
 # M5Stack MQTT
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack MQTT Unit with RJ45 Port
 
 ***
@@ -484,3 +488,13 @@ ERROR: MQTT Publish Fail
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (954).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit MQTT](https://docs.m5stack.com/en/unit/Unit_MQTT) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U129`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                    |
+| ---------------------------- | --------------------------------------------------------------------------- |
+| Official source: M5Unit-MQTT | [Read official source: m5unit-mqtt](https://github.com/m5stack/M5Unit-MQTT) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

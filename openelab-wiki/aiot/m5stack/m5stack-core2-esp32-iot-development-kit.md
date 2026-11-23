@@ -23,6 +23,10 @@ layout:
 
 # M5Stack Core2 ESP32 IoT Development Kit
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack Core2 ESP32 IoT Development Kit
 
 ***
@@ -35,7 +39,7 @@ No matching current OpenELAB.io listing was found for the product version docume
 
 **M5Core2** is the second generation core device in the M5Stack [iot development kit](https://shop.m5stack.com/products/m5stack-core2-esp32-iot-development-kit-for-aws-iot-edukit) series, which further enhances the functions of the original generation of cores.
 
-The MCU is an[ ESP32 kits ](https://shop.m5stack.com/) model D0WDQ6-V3 and has dual core Xtensa® 32-bit 240Mhz LX6 processors that can be controlled separately. Wi-Fi are supported as standard and it includes an on board 16MB Flash and 8MB PSRAM, USB TYPE-C interface for charging, downloading of programs and serial communication, a 2.0-inch integrated capacitive touch screen, and a built-in vibration motor.
+The MCU is an[ ESP32 kits ](https://shop.m5stack.com/)model D0WDQ6-V3 and has dual core Xtensa® 32-bit 240Mhz LX6 processors that can be controlled separately. Wi-Fi are supported as standard and it includes an on board 16MB Flash and 8MB PSRAM, USB TYPE-C interface for charging, downloading of programs and serial communication, a 2.0-inch integrated capacitive touch screen, and a built-in vibration motor.
 
 M5Core2 also features a built-in RTC module which can provide accurate timing. The power supply is managed by an AXP192 power management chip, which can effectively control the power consumption of the base and a built-in green LED power indicator helps to notify the user of battery level. The battery capacity has been upgraded to 390mAh, which can power the core for much longer than the previous model.
 
@@ -148,3 +152,18 @@ Open the example program “Helloworld” from the driver library, and click the
 The result is shown below:
 
 <figure><img src="../../.gitbook/assets/image (749).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Core2](https://docs.m5stack.com/en/core/Core2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K010`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                   |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5core2/program)                                   |
+| Official source: M5Tools     | [Read official source: m5tools](https://github.com/m5stack/M5Tools)                                                        |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K010_Core2/Structures)           |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K010_Core2/Structures/Core2.stl) |
+| Official source: M5Core2     | [Read official source: m5core2](https://github.com/m5stack/M5Core2)                                                        |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5core2/button)                                    |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

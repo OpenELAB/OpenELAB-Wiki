@@ -23,6 +23,12 @@ layout:
 
 # ESP32-S3-Nano - Development Board
 
+{% hint style="info" %}
+[**View Waveshare ESP32-S3-Nano - Development Board on OpenELAB**](https://openelab.io/products/esp32-s3-nano)
+
+**Store SKU / option:** `Waveshare-26745`, `Waveshare-26752`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### ESP32-S3-Nano - Development Board
 
 ***
@@ -176,3 +182,13 @@ Search "Nano ESP32", select "Arduino Nano ESP32", and then click on OK (the foll
 
 * [ESP32-S3 Datasheet](https://www.espressif.com/en/support/documents/technical-documents?keys=\&field_type_tid%5B%5D=842)
 * [WS2812B](https://files.waveshare.com/wiki/ESP32-S3-Nano/XL-0807RGBC-WS2812B.pdf)
+
+## Official documentation and development resources
+
+Use [ESP32-S3-Nano](https://docs.waveshare.com/ESP32-S3-Nano) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need                         | Model-specific reference                                                                                          |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Schematics, downloads and model examples | [Read schematics, downloads and model examples](https://docs.waveshare.com/ESP32-S3-Nano/Resources-And-Documents) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

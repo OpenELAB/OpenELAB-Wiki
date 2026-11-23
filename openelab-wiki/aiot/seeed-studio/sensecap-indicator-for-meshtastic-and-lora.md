@@ -23,6 +23,10 @@ layout:
 
 # SenseCAP Indicator for Meshtastic & LoRa
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### Seeed Studio SenseCAP Indicator for Meshtastic & LoRa
 
 ***
@@ -66,12 +70,10 @@ SenseCAP Indicator is a 4-inch touchscreen device designed for Meshtastic®, pow
 #### Flash
 
 {% hint style="success" %}
-
-
 To enter the 2.6 MUI preview page, press keys on your computer keyboard: ↑ ↑ ↓ ↓ ← → ← → b a\
 Then the page will turn black, you can see the pre-release option now.
 
-<p align="center"><img src="https://files.seeedstudio.com/wiki/SenseCAP/Meshtastic/2.6-ver.png" alt="" data-size="original"></p>
+<img src="https://files.seeedstudio.com/wiki/SenseCAP/Meshtastic/2.6-ver.png" alt="" data-size="original">
 {% endhint %}
 
 ### Flash Application Firmware
@@ -132,8 +134,6 @@ Download `Meshtastic` App:
 
 {% tabs %}
 {% tab title="IOS App" %}
-
-
 * Select the target device on the Bluetooth panel.
 
 <img src="https://files.seeedstudio.com/wiki/SenseCAP/Meshtastic/connect-radio.png" alt="" width="300">
@@ -144,8 +144,6 @@ Download `Meshtastic` App:
 {% endtab %}
 
 {% tab title="Android App" %}
-
-
 * Click `+` and choose the target device.
 
 <img src="https://files.seeedstudio.com/wiki/SenseCAP/Meshtastic/an-choose.png" alt="" width="600">
@@ -199,3 +197,9 @@ DO NOT select the Repeater role, which will cause the device to repeatedly reboo
 If you didn't connect the GPS module, please disable the GPS function in the `Meshtastic` App, otherwise the device will keep trying to find the GPS module, which will cause the device to take a long time to boot up the screen.
 
 <img src="https://files.seeedstudio.com/wiki/SenseCAP/Meshtastic/gps-module.png" alt="" width="600">
+
+## Official documentation and development resources
+
+Use [Get Started with Indicator for Meshtastic](https://wiki.seeedstudio.com/sensecap_indicator_meshtastic/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

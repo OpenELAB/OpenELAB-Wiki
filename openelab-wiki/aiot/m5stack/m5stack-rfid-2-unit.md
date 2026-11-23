@@ -23,6 +23,12 @@ layout:
 
 # M5Stack RFID 2 Unit
 
+{% hint style="info" %}
+[**View M5Stack RFID 2 Unit (WS1850S) on OpenELAB**](https://openelab.io/products/m5stack-rfid2-unit)
+
+**Store SKU / option:** `M5-U031-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack RFID 2 Unit (WS1850S)
 
 ***
@@ -151,9 +157,21 @@ Pulling A up to 3.3V and pulling B down to GND provides an initial state for the
 
 <details>
 
-<summary> <strong>RoverC, JoyC battery charge</strong></summary>
+<summary><strong>RoverC, JoyC battery charge</strong></summary>
 
 RoverC, JoyC, 's battery is in parallel connection with the M5StickC controller, you can connect the USB cable to the M5StickC to charge the battery of RoverC, JoyC. Also, When charging the M5StickC and RoverC, JoyC power switch can be turned off.
 
 </details>
 
+## Official documentation and development resources
+
+Use [Unit RFID2](https://docs.m5stack.com/en/unit/Unit_RFID2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U031-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                                            |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U031-B_Unit_RFID2/Structures)                             |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U031-B_Unit_RFID2/Structures/Unit_RFID2_Bottom_Shell.stl) |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U031-B_Unit_RFID2/Structures/Unit_RFID2_Face_Shell.stl)   |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_rfid)                                                    |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

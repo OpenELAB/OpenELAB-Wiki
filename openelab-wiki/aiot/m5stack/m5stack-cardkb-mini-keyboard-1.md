@@ -23,6 +23,12 @@ layout:
 
 # M5Stack CardKB Mini Keyboard
 
+{% hint style="info" %}
+[**View M5Stack CardKB v1.1 I2C Mini Keyboard Unit (ATMega8A) on OpenELAB**](https://openelab.io/products/m5stack-cardkb-keyboard)
+
+**Store SKU / option:** `M5-U035-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack CardKB Mini Keyboard Programmable Unit V1.1 (MEGA8A)
 
 ***
@@ -63,7 +69,7 @@ layout:
 * **Single button pressed**, keyboard will output the first key value (the letter button will output in a lower case form). E.g if "Q" was pressed, keyboard will output "q" (lower cased).
 * **Sym+key**, keyboard will output the second key value. E.g if "Sym" was pressed and then "Q" was pressed, the keyboard will output "{". If "Sym" was double pressed, then the keyboard will lock this function, all key pressed will output it's second key value.
 * **Shift+key**, if a letter button was pressed, it'll output upper case form. E.g if "Shift" was pressed and then "Q" was pressed, the keyboard will output "Q". If "Shift" was double pressed, then the keyboard will lock this function, all letter key pressed will output it's upper case form.
-* **Fn+key(custom function key combination)**, keyboard will output the third key value. You can customize what function the key presses corresponds to.&#x20;
+* **Fn+key(custom function key combination)**, keyboard will output the third key value. You can customize what function the key presses corresponds to.
 
 <figure><img src="../../.gitbook/assets/image (974).png" alt=""><figcaption></figcaption></figure>
 
@@ -93,3 +99,13 @@ layout:
 ### Compatible <a href="#compatible" id="compatible"></a>
 
 <figure><img src="../../.gitbook/assets/image (976).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit CardKB v1.1](https://docs.m5stack.com/en/unit/Unit_CardKB_v1.1) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U035-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                            |
+| ----------------------- | --------------------------------------------------------------------------------------------------- |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/CardKB) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

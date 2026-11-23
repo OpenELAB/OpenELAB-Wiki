@@ -198,3 +198,22 @@ The LTR-553ALS-WA proximity sensor and camera are integrated in a single line, u
 * [AXP2101](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/AXP2101_Datasheet_V1.0_en.pdf)
 * [AW88298](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/AW88298.PDF)
 * [AW9523B](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/CoreS3/AW9523B-EN.pdf)
+
+## Official documentation and development resources
+
+Use [CoreS3](https://docs.m5stack.com/en/core/CoreS3) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K128`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                     |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5cores3/program)                                    |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5cores3/power)                                      |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/490/Sch_M5_CoreS3_v1.0.pdf)                     |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/559/SCH_DinBase_V1.1.pdf)                       |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/CoreS3/cores3.dxf)    |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K128_CoreS3/Structures)            |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K128_CoreS3/Structures/CoreS3.stl) |
+| Official source: M5CoreS3    | [Read official source: m5cores3](https://github.com/m5stack/M5CoreS3)                                                        |
+| Official source: M5Unified   | [Read official source: m5unified](https://github.com/m5stack/M5Unified)                                                      |
+| Official source: M5GFX       | [Read official source: m5gfx](https://github.com/m5stack/M5GFX)                                                              |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

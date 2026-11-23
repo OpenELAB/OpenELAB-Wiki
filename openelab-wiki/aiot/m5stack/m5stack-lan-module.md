@@ -23,6 +23,12 @@ layout:
 
 # M5Stack LAN Module
 
+{% hint style="info" %}
+[**View M5Stack LAN Module 13.2 on OpenELAB**](https://openelab.io/products/m5stack-lan-module)
+
+**Store SKU / option:** `M5-M136`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack LAN Module 13.2
 
 ***
@@ -80,3 +86,16 @@ In addition to its application as an Ethernet controller, LAN Module 13.2 can be
 ### PinMap <a href="#pinmap" id="pinmap"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/module/LAN%20Module%2013.2/pinMap-09a7a2e4-0811-45d2-b4ae-970afd8ce97e.png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Module13.2 LAN](https://docs.m5stack.com/en/module/Module13.2_LAN) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`M136`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                  | Model-specific reference                                                                                            |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic              | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/562/Sch_Module13.2_LAN.pdf)            |
+| Example source: M5Module-LAN-13.2 | [Read example source: m5module-lan-13.2](https://github.com/m5stack/M5Module-LAN-13.2/tree/main/examples/HTTP)      |
+| Example source: M5Module-LAN-13.2 | [Read example source: m5module-lan-13.2](https://github.com/m5stack/M5Module-LAN-13.2/tree/main/examples/MQTT)      |
+| Example source: M5Module-LAN-13.2 | [Read example source: m5module-lan-13.2](https://github.com/m5stack/M5Module-LAN-13.2/tree/main/examples/WebServer) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

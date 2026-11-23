@@ -23,6 +23,10 @@ layout:
 
 # M5Stack Dial - ESP32-S3 Smart Rotary Knob
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack Dial - ESP32-S3 Smart Rotary Knob
 
 ***
@@ -86,3 +90,18 @@ Shutdown: When no USB external power supply, press the RST key to achieve; Or wh
 | Package Size                                      | 163\*120\*59mm                                                                                                  |
 | Product Weight                                    | 46.6g                                                                                                           |
 | Package Weight                                    | 83.83g                                                                                                          |
+
+## Official documentation and development resources
+
+Use [Dial](https://docs.m5stack.com/en/core/Dial) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K130`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                 | Model-specific reference                                                                                                 |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Arduino development tutorial     | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5dial/program)                                  |
+| Electrical schematic             | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/499/Sch_M5Dial.pdf)                         |
+| Mechanical / CAD files           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K130_Dial/Structures)          |
+| Mechanical / CAD files           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K130_Dial/Structures/Dial.stl) |
+| Official source: M5Dial          | [Read official source: m5dial](https://github.com/m5stack/M5Dial)                                                        |
+| Official source: M5Dial-UserDemo | [Read official source: m5dial-userdemo](https://github.com/m5stack/M5Dial-UserDemo)                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

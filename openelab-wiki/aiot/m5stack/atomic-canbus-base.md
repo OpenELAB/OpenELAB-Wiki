@@ -23,6 +23,12 @@ layout:
 
 # ATOMIC CANBus Base
 
+{% hint style="info" %}
+[**View M5Stack Atomic CAN Base Isolated CAN Bus Communication Module on OpenELAB**](https://openelab.io/products/atomic-canbus-base)
+
+**Store SKU / option:** `M5-A103`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### ATOMIC CANBus Base
 
 ***
@@ -82,3 +88,13 @@ ATOMIC CAN Base also incorporates various electrical circuit protection features
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/atom/Atomic%20CAN%20Base/img-702afe76-5d06-4b5f-bffb-da2fd534c659.jpg" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Atomic CAN Base](https://docs.m5stack.com/en/atom/Atomic_CAN_Base) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`A103`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                 |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/atomic/atomic_can_base) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

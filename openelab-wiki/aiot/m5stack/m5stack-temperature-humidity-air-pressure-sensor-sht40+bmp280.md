@@ -23,6 +23,10 @@ layout:
 
 # M5Stack Temperature Humidity Air Pressure Sensor (SHT40+BMP280)
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack Temperature Humidity Air Pressure Sensor (SHT40+BMP280)
 
 ***
@@ -60,7 +64,7 @@ No matching current OpenELAB.io listing was found for the product version docume
 
 ### Pinout
 
-<figure><img src="/broken/files/d8uVMYvpd79JC76sHAHq" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/m5stack-env-iv-official-product.webp" alt="M5Stack Unit ENV-IV manufacturer product image"><figcaption><p>Manufacturer image: <a href="https://docs.m5stack.com/en/unit/Unit_ENV-IV">M5Stack Unit ENV-IV official guide</a>.</p></figcaption></figure>
 
 ### Dimensions
 
@@ -102,7 +106,7 @@ The sensor is designed for indoor use. If using it outdoors, ensure it is protec
 
 <details>
 
-<summary><strong>What libraries are needed to operate the sensor with Arduino?</strong> </summary>
+<summary><strong>What libraries are needed to operate the sensor with Arduino?</strong></summary>
 
 You will need the Adafruit SHT4x library and the Adafruit BMP280 library.
 
@@ -123,3 +127,15 @@ The sensor provides high accuracy for temperature (±0.2°C), humidity (±1.8% R
 The sensor provides data on temperature, humidity, and air pressure, which can be used to infer weather patterns, but it does not directly detect specific weather conditions.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Unit ENV-IV](https://docs.m5stack.com/en/unit/Unit_ENV-IV) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U001-D`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                        | Model-specific reference                                                                                                                           |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                    | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/573/Sch_UNIT_ENVIV.pdf)                                               |
+| Arduino development tutorial            | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_env)                                                    |
+| Example source: Unit\_ENVIV\_M5Core.ino | [Read example source: unit\_enviv\_m5core.ino](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/Unit_ENVIV_M5Core/Unit_ENVIV_M5Core.ino) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

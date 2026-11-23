@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 8 inch 2K IPS Capacitive Touch Display
 
+{% hint style="info" %}
+[**View Waveshare 8 inch 2K IPS Capacitive 1536×2048 Touch Display on OpenELAB**](https://openelab.io/products/2k-ips-capacitive-touch-display)
+
+**Store SKU / option:** `Waveshare-23740`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 8 inch 2K IPS Capacitive Touch Display
 
 ***
@@ -202,3 +208,9 @@ Take Windows 10 as an example:
 ### Outline Dimensions
 
 <figure><img src="https://www.waveshare.com/w/upload/5/52/8inch_1536x2048_LCD780.jpg" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/8inch_1536x2048_LCD) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Finger Print Sensor
 
+{% hint style="info" %}
+[**View M5Stack Finger Print Sensor Unit on OpenELAB**](https://openelab.io/products/finger-print-sensor-unit)
+
+**Store SKU / option:** `M5-U008`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Finger Print Sensor Unit
 
 ***
@@ -94,3 +100,16 @@ UART settings:
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (378).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit Finger](https://docs.m5stack.com/en/unit/Unit_Finger) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U008`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                               |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U008_Unit_Finger/Structures)                 |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U008_Unit_Finger/Structures/Unit_Finger.stl) |
+| Official source: M5-FPC1020A | [Read official source: m5-fpc1020a](https://github.com/m5stack/M5-FPC1020A)                                                            |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_finger)                                     |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

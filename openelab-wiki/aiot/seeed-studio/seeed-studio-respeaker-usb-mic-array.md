@@ -23,6 +23,12 @@ layout:
 
 # Seeed Studio ReSpeaker USB Mic Array
 
+{% hint style="info" %}
+[**View Seeed Studio ReSpeaker USB Mic Array on OpenELAB**](https://openelab.io/products/respeaker-usb-mic-array)
+
+**Store SKU / option:** `Seeed-107990193`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio ReSpeaker USB Mic Array
 
 ***
@@ -130,3 +136,13 @@ Beamforming is a signal processing technique that focuses on sound from a partic
 Yes, it is designed for voice recognition applications, offering features like beamforming, noise reduction, and echo cancellation to enhance voice recognition performance.
 
 </details>
+
+## Official documentation and development resources
+
+Use [reSpeaker USB 4-Mic Array XVF3000 v2.0](https://wiki.seeedstudio.com/ReSpeaker_Mic_Array_v2.0/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need     | Model-specific reference                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic | [Read electrical schematic](https://files.seeedstudio.com/products/107990053/ReSpeakerMicArrayv2.0.1Schematic.zip) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

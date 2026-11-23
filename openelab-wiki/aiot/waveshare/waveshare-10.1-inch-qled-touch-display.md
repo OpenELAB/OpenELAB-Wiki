@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 10.1 inch QLED Touch Display
 
+{% hint style="info" %}
+[**View Waveshare 10.1 inch QLED Touch Display, 1280×720 HDMI on OpenELAB**](https://openelab.io/products/10-1-inch-qled-touch-display)
+
+**Store SKU / option:** `Waveshare-19905`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 10.1 inch QLED Touch Display
 
 ***
@@ -239,10 +245,14 @@ It depends on the system, if the system has hibernation, then the screen will al
 
 Remove the resistor in the red box shown below, and then solder the PWM signal pin to the right pad to realize PWM dimming. Dimming frequency is 4k.
 
-
-
 <img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=10.1HP-CAPQLED-faq.png&#x26;width=500" alt="" data-size="original">
 
 </details>
 
 <br>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/10.1HP-CAPQLED) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

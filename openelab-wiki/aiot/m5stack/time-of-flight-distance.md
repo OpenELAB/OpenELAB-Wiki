@@ -23,6 +23,12 @@ layout:
 
 # Time-of-Flight Distance
 
+{% hint style="info" %}
+[**View M5Stack ToF4M Unit with VL53L1CX Time-of-Flight Distance Sensor on OpenELAB**](https://openelab.io/products/time-of-flight-distance-unit)
+
+**Store SKU / option:** `M5-U172`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Time-of-Flight Distance Unit (VL53L1X)
 
 ***
@@ -75,7 +81,7 @@ layout:
 | Product Weight              | 4.4g                |
 | Package Weight              | 8.8g                |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-ToF4M/img-71b71b77-67c9-4627-bc97-49017d1f4542.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-ToF4M/img-06538272-4432-4bff-8a33-d06e7c7cbb6b.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-ToF4M/img-a19a8345-fd99-44d1-8fb5-3af26261688a.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-ToF4M/img-71b71b77-67c9-4627-bc97-49017d1f4542.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-ToF4M/img-06538272-4432-4bff-8a33-d06e7c7cbb6b.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-ToF4M/img-a19a8345-fd99-44d1-8fb5-3af26261688a.webp)
 
 ### Related Link <a href="#related-link" id="related-link"></a>
 
@@ -111,3 +117,15 @@ layout:
 ### COMPATIBLE <a href="#compatible" id="compatible"></a>
 
 <figure><img src="../../.gitbook/assets/image (414).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit ToF4M](https://docs.m5stack.com/en/unit/Unit_ToF4M) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U172`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need              | Model-specific reference                                                                                                             |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Mechanical / CAD files        | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U172_Unit_ToF4M/Structures)                |
+| Mechanical / CAD files        | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U172_Unit_ToF4M/Structures/Unit_ToF4M.stl) |
+| Official source: M5Unit-ToF4M | [Read official source: m5unit-tof4m](https://github.com/m5stack/M5Unit-ToF4M)                                                        |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

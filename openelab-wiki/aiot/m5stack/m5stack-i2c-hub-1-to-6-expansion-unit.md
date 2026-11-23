@@ -23,6 +23,10 @@ layout:
 
 # M5Stack I2C Hub 1 to 6 Expansion Unit
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack I2C Hub 1 to 6 Expansion Unit
 
 ***
@@ -57,7 +61,7 @@ No matching current OpenELAB.io listing was found for the product version docume
 | Product size           | 48 \* 24 \* 12mm                                     |
 | Packing size           | 67 \* 53 \* 12mm                                     |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/pahub2/pahub2_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/pahub2/pahub2_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/pahub2/pahub2_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/pahub2/pahub2_06.webp)
 
 Note: When it's connected, the PaHUB2 will be polling control the different channels to achieve in-device coexistence. Please pay attention to the order of channels when programming.
 
@@ -131,3 +135,16 @@ After welding the 0 ohm resistor, the corresponding pin will change from low lev
 * [UIFlow example](https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Unit/PaHUB/UIFlow)
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/pahub/pahub_uiflow_01.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit PaHub v2.0](https://docs.m5stack.com/en/unit/Unit_PaHub_v2.0) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U040-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                                         |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U040-B_Unit_PaHub_v2.0/Structures)                     |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U040-B_Unit_PaHub_v2.0/Structures/Unit_PaHub_v2.0.stl) |
+| Official source: M5Unit-HUB  | [Read official source: m5unit-hub](https://github.com/m5stack/M5Unit-HUB)                                                                        |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_pahub_v2)                                             |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

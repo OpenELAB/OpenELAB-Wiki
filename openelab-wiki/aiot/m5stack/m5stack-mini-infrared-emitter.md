@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Mini Infrared Emitter
 
+{% hint style="info" %}
+[**View M5Stack Mini Infrared Emitter & Receiver Unit on OpenELAB**](https://openelab.io/products/mini-infrared-emitter-receiver-unit)
+
+**Store SKU / option:** `M5-U002`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ## M5Stack Mini Infrared Emitter & Receiver Unit
 
 ***
@@ -55,7 +61,7 @@ IR remote control is widely used in consumer electronics, it can be used to oper
 | Product Size                | 32\*24\*8mm  |
 | Package Size                | 67\*53\*12mm |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/ir/ir_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/ir/ir_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/ir/ir_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/ir/ir_06.webp)
 
 ### EasyLoader <a href="#easyloader" id="easyloader"></a>
 
@@ -77,3 +83,13 @@ After downloading the software, double-click to run the application, connect the
 
 ### COMPATIBLE <a href="#compatible" id="compatible"></a>
 
+## Official documentation and development resources
+
+Use [Unit IR](https://docs.m5stack.com/en/unit/Unit_IR) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U002`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                       |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U002_Unit_IR/Structures)             |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U002_Unit_IR/Structures/Unit_IR.stl) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

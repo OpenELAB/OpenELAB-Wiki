@@ -23,6 +23,12 @@ layout:
 
 # XIAO ESP32-C6 WIFI
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO ESP32C6 RISC-V 2.4GHz WIFI 6 BLE 5 Dev Board 160MHz on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-esp32c6)
+
+**Store SKU / option:** `Seeed-113991254`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO ESP32-C6 WIFI Dev Board
 
 ***
@@ -345,3 +351,9 @@ void loop(){
   //This is not going to be called
 }
 ```
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO ESP32C6](https://wiki.seeedstudio.com/xiao_esp32c6_getting_started/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

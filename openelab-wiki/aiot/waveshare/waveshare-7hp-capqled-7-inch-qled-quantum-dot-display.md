@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 7HP-CAPQLED 7 inch QLED Quantum Dot Display
 
+{% hint style="info" %}
+[**View Waveshare 7inch QLED Quantum Dot Capacitive Touch Display 1024×600 on OpenELAB**](https://openelab.io/products/7hp-capqled-qledquantumdotdisplay)
+
+**Store SKU / option:** `Waveshare-18625`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 7HP-CAPQLED 7 inch QLED Quantum Dot Display
 
 ***
@@ -376,3 +382,9 @@ Rotate the 1K resistor shown below by 90 degrees. Then the PWM input signal is c
 Normally, when the screen is powered on and an HDMI signal is recognized, it will light up automatically without pressing a button.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Introduction](https://www.waveshare.com/wiki/7HP-CAPQLED) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

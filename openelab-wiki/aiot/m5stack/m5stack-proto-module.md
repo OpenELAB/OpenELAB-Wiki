@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Proto Module
 
+{% hint style="info" %}
+[**View M5Stack Proto Module with Extension & Bus Socket on OpenELAB**](https://openelab.io/products/proto-module)
+
+**Store SKU / option:** `M5-M001`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Proto Module with Extension & Bus Socket
 
 ***
@@ -73,3 +79,14 @@ layout:
 ### MBUS PinMap <a href="#mbus-pinmap" id="mbus-pinmap"></a>
 
 <figure><img src="../../.gitbook/assets/image (360).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Module Proto](https://docs.m5stack.com/en/module/Module_Proto) for the manufacturer's model information, dimensions and applicable connection instructions. The official product code is **`M001`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                                       |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/M001_Module_Proto/Structures)                        |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/M001_Module_Proto/Structures/Module_Proto_Board.stl) |
+
+Check the accessory's physical fit and any electrical connections against the exact host. Firmware and software instructions belong to that host; do not treat a passive part as a separately programmable controller. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

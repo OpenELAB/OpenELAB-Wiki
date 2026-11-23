@@ -23,6 +23,12 @@ layout:
 
 # XIAO nRF52840 Sense
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO nRF52840 Sense TinyML/TensorFlow Lite Mic BLE 5.0 on OpenELAB**](https://openelab.io/products/xiao-nrf52840)
+
+**Store SKU / option:** `Seeed-102010469`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO nRF52840 Sense TinyML/TensorFlow Lite Mic BLE 5.0
 
 ***
@@ -91,3 +97,13 @@ The Pin definition supported by these two libraries might be a little different 
 
 1. If you use the onboard package of Seeed nRF52 Boards, the Serial function may not compile. The solution is to add the line "#include \<Adafruit\_TinyUSB.h>" in your code. You can download this package from: [https://github.com/adafruit/Adafruit\_TinyUSB\_Arduino](https://github.com/adafruit/Adafruit_TinyUSB_Arduino)
 2. If you prefer a simpler approach, you can choose Seeed nRF52 mbed-enabled Boards from the beginning. It supports the compilation of the Serial function without the need for additional modifications.
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO nRF52840 Series](https://wiki.seeedstudio.com/XIAO_BLE/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                       |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

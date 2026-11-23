@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 1.8inch colorful display module for micro:bit
 
+{% hint style="info" %}
+[**View Waveshare 1.8inch colorful display module for micro:bit 160x128 on OpenELAB**](https://openelab.io/products/waveshare-colorful-display-module-bit)
+
+**Store SKU / option:** `Waveshare-14718`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 1.8inch colorful display module for micro:bit
 
 ***
@@ -212,3 +218,13 @@ Then set the display windows block and set its position
 You cannot refresh the picture, but only write data to the display.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/1.8inch_LCD_for_micro:bit) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need     | Model-specific reference                                                                                    |
+| -------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Electrical schematic | [Read electrical schematic](https://files.waveshare.com/upload/e/ea/1.8inch_LCD_for_microbit_Schematic.pdf) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

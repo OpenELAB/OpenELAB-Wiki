@@ -23,6 +23,12 @@ layout:
 
 # M5Stack 8-Channel Servo Driver Unit (STM32F030)
 
+{% hint style="info" %}
+[**View M5Stack 8-Channel Servo Driver Unit STM32F030 Multi Servo Controller on OpenELAB**](https://openelab.io/products/m5stack-servo-driver-unit)
+
+**Store SKU / option:** `M5-U165`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack 8-Channel Servo Driver Unit (STM32F030)
 
 ***
@@ -99,7 +105,7 @@ The unit operates at 5V, so ensure your power supply matches this requirement.
 
 <details>
 
-<summary><strong>What types of servos can I control with this unit?</strong> </summary>
+<summary><strong>What types of servos can I control with this unit?</strong></summary>
 
 The Servo Driver Unit is designed for standard hobby servos operating at 4.8V to 6V.
 
@@ -107,7 +113,7 @@ The Servo Driver Unit is designed for standard hobby servos operating at 4.8V to
 
 <details>
 
-<summary><strong>What libraries are needed to operate the unit with Arduino?</strong> </summary>
+<summary><strong>What libraries are needed to operate the unit with Arduino?</strong></summary>
 
 You will need the appropriate I2C servo control libraries compatible with the STM32F030 microcontroller.
 
@@ -128,3 +134,17 @@ The unit can handle up to 2A per channel, depending on the power supply. Ensure 
 The unit provides high precision with a PWM frequency range of 50Hz to 330Hz, suitable for most standard servos.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Unit 8Servos](https://docs.m5stack.com/en/unit/Unit_8Servos) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U165`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                                 | Model-specific reference                                                                                                                 |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                             | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/620/SCH_UNIT_8Servos_V1.01.pdf)                             |
+| Mechanical / CAD files                           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U165_Unit_8Servos/Structures)                  |
+| Mechanical / CAD files                           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U165_Unit_8Servos/Structures/Unit_8Servos.stl) |
+| Official source: M5Unit-8Servos2-I2C             | [Read official source: m5unit-8servos2-i2c](https://github.com/m5stack/M5Unit-8Servos2-I2C)                                              |
+| Official source: M5Unit-8Servos2-I2C-Internal-FW | [Read official source: m5unit-8servos2-i2c-internal-fw](https://github.com/m5stack/M5Unit-8Servos2-I2C-Internal-FW)                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

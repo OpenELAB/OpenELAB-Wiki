@@ -23,6 +23,10 @@ layout:
 
 # M5Stack DAC Converter Digital
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack DAC Converter Digital
 
 ***
@@ -62,7 +66,7 @@ The device I2C address is 0x60 by default unless changed manually.
 | Product Size           | 32.2\*24.2\*10.3mm |
 | Package Size           | 67\*53\*12mm       |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/dac/dac_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/dac/dac_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/dac/dac_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/dac/dac_06.webp)
 
 ### EasyLoader <a href="#easyloader" id="easyloader"></a>
 
@@ -106,3 +110,13 @@ Perform DA conversion and output voltage, up to 3.7V
 * [Click here to download the UIFlow example](https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Unit/DAC/UIFlow)
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/dac/dac_uiflow_01.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit DAC](https://docs.m5stack.com/en/unit/Unit_DAC) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U012`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                                 |
+| ----------------------- | -------------------------------------------------------------------------------------------------------- |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/DAC_MCP4725) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

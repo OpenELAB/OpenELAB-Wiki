@@ -23,6 +23,12 @@ layout:
 
 # M5Stack RoverC Pro
 
+{% hint style="info" %}
+[**View M5Stack RoverC Pro(W/O M5StickC) on OpenELAB**](https://openelab.io/products/roverc-pro)
+
+**Store SKU / option:** `M5-K036-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack RoverC Pro(W/O M5StickC)
 
 ***
@@ -83,3 +89,21 @@ The PRO version provides a gripping mechanism controlled by a servo for gripping
 | I2C①       | SCL    | SDA   | 5V | GND |
 | I2C②       | SCL    | SDA   | 5V | GND |
 
+## Official documentation and development resources
+
+Use [RoverC-Pro](https://docs.m5stack.com/en/hat/RoverC-Pro) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K036-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need          | Model-specific reference                                                                                                                                                  |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K036-B_RoverC-Pro/Structures)                                                   |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K036-B_RoverC-Pro/Structures/RoverC-Pro_L_Part.stl)                             |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K036-B_RoverC-Pro/Structures/RoverC-Pro_Servo_Clamp_Support_Bracket.stl)        |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K036-B_RoverC-Pro/Structures/RoverC-Pro_Servo_Claw_B_Version_Left_Arm.stl)      |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K036-B_RoverC-Pro/Structures/RoverC-Pro_Servo_Claw_B_Version_Right_Arm.stl)     |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K036-B_RoverC-Pro/Structures/RoverC-Pro_Servo_Claw_B-Type_Front_Shell.stl)      |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K036-B_RoverC-Pro/Structures/RoverC-Pro_Servo_Kit_Building_Block_Pendant-A.stl) |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K036-B_RoverC-Pro/Structures/RoverC-Pro_Shell.stl)                              |
+| Example source: M5-RoverC | [Read example source: m5-roverc](https://github.com/m5stack/M5-RoverC/tree/master/examples/RoverC_M5StickC/JoyC_%26_RoverC)                                               |
+| Example source: M5-RoverC | [Read example source: m5-roverc](https://github.com/m5stack/M5-RoverC/tree/master/examples/RoverC_M5StickCPlus/JoyC_%26_RoverC)                                           |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

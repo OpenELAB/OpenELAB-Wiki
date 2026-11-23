@@ -23,6 +23,12 @@ layout:
 
 # OV2640 Camera Board (1622x1200)
 
+{% hint style="info" %}
+[**View Waveshare OV2640 Camera Board (1622x1200) on OpenELAB**](https://openelab.io/products/ov2640-camera-board)
+
+**Store SKU / option:** `Waveshare-8532`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### OV2640 Camera Board (1622x1200)
 
 ***
@@ -83,3 +89,17 @@ The OV2640 is the world’s first 1/4 inch 2 megapixel sensor. It’s a fully in
 3、杜邦线尽量短，建议10cm以内（OV2340没有板载晶振，用的是主控给的时钟信号）
 
 </details>
+
+## Resolution scope
+
+The [current manufacturer overview](https://www.waveshare.com/wiki/OV2640_Camera_Board) identifies a **2-megapixel** module. Sensor-array dimensions and a selected output frame are different quantities. Confirm both in the linked OV2640 datasheet before configuring capture buffers; the older array-size label is retained here and was not independently established by the overview.
+
+## Official documentation and development resources
+
+Use [Introduction](https://www.waveshare.com/wiki/OV2640_Camera_Board) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need     | Model-specific reference                                                                               |
+| -------------------- | ------------------------------------------------------------------------------------------------------ |
+| Electrical schematic | [Read electrical schematic](https://files.waveshare.com/upload/9/99/OV2640-Camera-Board-Schematic.pdf) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

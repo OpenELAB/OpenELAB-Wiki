@@ -23,6 +23,12 @@ layout:
 
 # Hall Effect Unit
 
+{% hint style="info" %}
+[**View M5Stack Hall Effect Unit (A3144E Hall Sensor) on OpenELAB**](https://openelab.io/products/hall-effect-unit)
+
+**Store SKU / option:** `M5-U084`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Hall Effect Unit (A3144E Hall Sensor)
 
 ***
@@ -70,7 +76,7 @@ It is widely used in applications such as door sensor alarms, proximity sensors,
 
 ### EasyLoader <a href="#easyloader" id="easyloader"></a>
 
-EasyLoader is a concise and fast program writer, which has a built-in case program related to the product. It can be burned to the main control by simple steps to perform a series of function verification.&#x20;
+EasyLoader is a concise and fast program writer, which has a built-in case program related to the product. It can be burned to the main control by simple steps to perform a series of function verification.
 
 [Download Windows Version Easyloader](https://m5stack.oss-cn-shenzhen.aliyuncs.com/EasyLoader/Windows/UNIT/For%20M5Core/EasyLoader_HALL_UNIT_With_M5Core.exe) [Download MacOS Version Easyloader](https://m5stack.oss-cn-shenzhen.aliyuncs.com/EasyLoader/MacOS/UNIT/EasyLoader_HALL_UNIT_With_M5Core.dmg)
 
@@ -93,3 +99,15 @@ The screen displays the state of magnetic induction, low-level effective
 
 * **Datasheet**
   * [A3144E](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/unit/3141Thru3144E_HALL.PDF)
+
+## Official documentation and development resources
+
+Use [Unit Hall](https://docs.m5stack.com/en/unit/Unit_Hall) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U084`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                                                           |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files  | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U084_Unit_Hall/Structures)               |
+| Mechanical / CAD files  | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U084_Unit_Hall/Structures/Unit_Hall.stl) |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/HALL)                                  |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

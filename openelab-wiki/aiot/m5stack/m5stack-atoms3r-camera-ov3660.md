@@ -23,6 +23,10 @@ layout:
 
 # M5Stack ATOMS3R Camera (OV3660)
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack ATOMS3R Camera Kit M12 Version (OV3660)
 
 ***
@@ -57,7 +61,7 @@ Compared to previous ATOM series host products, the **AtomS3R M12** features an 
 
 ### Specifications <a href="#specifications" id="specifications"></a>
 
-<table><thead><tr><th width="275">Specification</th><th>Parameter</th></tr></thead><tbody><tr><td>SoC</td><td>ESP32-S3-PICO-1-N8R8 @ Dual-core Xtensa LX7 processor, up to 240MHz @ USB-OTG</td></tr><tr><td>PSRAM</td><td>8M PSRAM</td></tr><tr><td>FLASH</td><td>8M FLASH</td></tr><tr><td>Six-axis Motion Sensor (BMI270)</td><td>Accuracy: 0.05% (acceleration), 0.05°/s (angular velocity) <br>I2C address: 0x68</td></tr><tr><td>Three-axis Geomagnetic Sensor (BMM150)</td><td>Accuracy: 0.3 μT <br>Mounted on BMI270, obtaining magnetometer data via BMI270</td></tr><tr><td>Camera</td><td>Sensor chip: OV3660 <br>Maximum frame rate: 30 frames/second <br>Output formats: RAW RGB, RGB565/555/444, CCIR656, YCbCr422, and compression <br>Aperture: F2.4 <br>Resolution: 3MP (3 million pixels) <br>Focal length: 1.8±5% mm <br>Field of view: FOV 120°</td></tr><tr><td>Infrared IR</td><td>IR emission distance at ∠180°: 12.46m <br>IR emission distance at ∠90°: 1.45m <br>IR emission distance at ∠45°: 3.88m</td></tr><tr><td>Sleep Current</td><td>GPIO-5V power supply: DC5V@11.63 uA <br>Grove-5V power supply: DC5V@10.75 uA <br>USB-5V power supply: DC5V@92.50 uA (including PD resistor loss)</td></tr><tr><td>Reserved GPIO</td><td>G5/G6/G7/G8/G38/G39</td></tr><tr><td>Operating Temperature</td><td>0°C ~ 40°C</td></tr><tr><td>Product Dimensions</td><td>24*24*22.1mm</td></tr><tr><td>Package Dimensions</td><td>47*46*27mm</td></tr><tr><td>Product Weight</td><td>54g</td></tr><tr><td>Package Weight</td><td>85.5g</td></tr></tbody></table>
+<table><thead><tr><th width="275">Specification</th><th>Parameter</th></tr></thead><tbody><tr><td>SoC</td><td>ESP32-S3-PICO-1-N8R8 @ Dual-core Xtensa LX7 processor, up to 240MHz @ USB-OTG</td></tr><tr><td>PSRAM</td><td>8M PSRAM</td></tr><tr><td>FLASH</td><td>8M FLASH</td></tr><tr><td>Six-axis Motion Sensor (BMI270)</td><td>Accuracy: 0.05% (acceleration), 0.05°/s (angular velocity)<br>I2C address: 0x68</td></tr><tr><td>Three-axis Geomagnetic Sensor (BMM150)</td><td>Accuracy: 0.3 μT<br>Mounted on BMI270, obtaining magnetometer data via BMI270</td></tr><tr><td>Camera</td><td>Sensor chip: OV3660<br>Maximum frame rate: 30 frames/second<br>Output formats: RAW RGB, RGB565/555/444, CCIR656, YCbCr422, and compression<br>Aperture: F2.4<br>Resolution: 3MP (3 million pixels)<br>Focal length: 1.8±5% mm<br>Field of view: FOV 120°</td></tr><tr><td>Infrared IR</td><td>IR emission distance at ∠180°: 12.46m<br>IR emission distance at ∠90°: 1.45m<br>IR emission distance at ∠45°: 3.88m</td></tr><tr><td>Sleep Current</td><td>GPIO-5V power supply: DC5V@11.63 uA<br>Grove-5V power supply: DC5V@10.75 uA<br>USB-5V power supply: DC5V@92.50 uA (including PD resistor loss)</td></tr><tr><td>Reserved GPIO</td><td>G5/G6/G7/G8/G38/G39</td></tr><tr><td>Operating Temperature</td><td>0°C ~ 40°C</td></tr><tr><td>Product Dimensions</td><td>24*24*22.1mm</td></tr><tr><td>Package Dimensions</td><td>47*46*27mm</td></tr><tr><td>Product Weight</td><td>54g</td></tr><tr><td>Package Weight</td><td>85.5g</td></tr></tbody></table>
 
 <figure><img src="../../.gitbook/assets/QQ_1728349525237.png" alt=""><figcaption></figcaption></figure>
 
@@ -113,3 +117,18 @@ OV3360(M12)
 ### Example <a href="#example" id="example"></a>
 
 * [AtomS3R M12 Firmware](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/AtomS3R-M12/ATOMS3R-CAM-M12-UserDemo-M5Stack-20240927.zip)
+
+## Official documentation and development resources
+
+Use [AtomS3R-CAM](https://docs.m5stack.com/en/core/AtomS3R-CAM) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C126-CAM`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                                   |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5atoms3r-cam/program)                                             |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/681/main_board_schematic.pdf)                                 |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/681/ext_board_schematic.pdf)                                  |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C126-CAM_AtomS3R-CAM/Structures)                 |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C126-CAM_AtomS3R-CAM/Structures/AtomS3R-CAM.stl) |
+| Example source: camera.ino   | [Read example source: camera.ino](https://github.com/m5stack/M5AtomS3/blob/main/examples/Basics/camera/camera.ino)                         |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

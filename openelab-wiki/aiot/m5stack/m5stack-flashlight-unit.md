@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Flashlight Unit
 
+{% hint style="info" %}
+[**View M5Stack Flashlight Unit White LED Lighting Module on OpenELAB**](https://openelab.io/products/m5stack-flashlight-unit)
+
+**Store SKU / option:** `M5-U152`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Flashlight Unit
 
 ***
@@ -112,3 +118,16 @@ Adjust the brightness by varying the PWM signal sent to the CTRL pin from the mi
 The LED has an estimated lifespan of around 50,000 hours under normal operating conditions.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Unit FlashLight](https://docs.m5stack.com/en/unit/Unit_FlashLight) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U152`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                   | Model-specific reference                                                                                                                       |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files             | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U152_Unit_FlashLight/Structures)                     |
+| Mechanical / CAD files             | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U152_Unit_FlashLight/Structures/Unit_FlashLight.stl) |
+| Official source: M5Unit-FlashLight | [Read official source: m5unit-flashlight](https://github.com/m5stack/M5Unit-FlashLight)                                                        |
+| Arduino development tutorial       | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_flashlight)                                         |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

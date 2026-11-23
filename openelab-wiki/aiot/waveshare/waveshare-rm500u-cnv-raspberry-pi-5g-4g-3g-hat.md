@@ -23,6 +23,12 @@ layout:
 
 # Waveshare RM500U-CNV Raspberry PI 5G/4G/3G Hat
 
+{% hint style="info" %}
+[**View Waveshare RM500U-CNV Raspberry PI 5G/4G/3G Hat on OpenELAB**](https://openelab.io/products/rm500u-cnvraspberrypi5g4g3ghat)
+
+**Store SKU / option:** `Waveshare-22531`, `Waveshare-21705`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare RM500U-CNV Raspberry PI 5G/4G/3G Hat
 
 ***
@@ -227,16 +233,28 @@ AT+CFUN=1,1
 * Click 'Next' and wait for the installation to finish, the RNDIS Kitl device will be installed successfully.
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up01.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up01.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up02.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up02.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up03.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up03.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up04.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up04.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 * If it cannot connect to the network, please set it to obtain the IP automatically.
 
 <figure><img src="https://www.waveshare.com/w/upload/5/56/RNDIS_Dial-up08.png" alt=""><figcaption></figcaption></figure>
@@ -683,8 +701,6 @@ RM500U-CN and RM500Q-GL modules support installing two SIM cards at the same tim
 
 [![RM5XXX-DIP-C.png](https://www.waveshare.com/w/upload/4/4f/RM5XXX-DIP-C.png)](https://www.waveshare.com/wiki/File:RM5XXX-DIP-C.png)
 
-
-
 </details>
 
 <details>
@@ -730,8 +746,6 @@ AT+QCFG="nat",1
 
 <summary><a href="https://www.waveshare.com/wiki/RM500U-CN_5G_HAT#accordion5"><strong>What can I do when the NET indicator is not on and the network is not registered?</strong></a></summary>
 
-
-
 * Please check whether the SIM card is connected to four antennas.
 * Please check hardware connection is right and check the network with the following AT Log:
 
@@ -746,8 +760,6 @@ AT+QNWPREFCFG="mode_pref"
 ```
 
 [![RM.png](https://www.waveshare.com/w/upload/2/28/RM.png)](https://www.waveshare.com/wiki/File:RM.png)
-
-
 
 </details>
 
@@ -902,3 +914,9 @@ Jetson Nano series can be supported, the hardware structure is customized for or
 * [Openwrt router configuration steps reference](https://www.waveshare.com/wiki/5G/4G_Raspberry_4B_openWrt_Sample_Tutorial).
 
 </details>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/RM500U-CNV) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

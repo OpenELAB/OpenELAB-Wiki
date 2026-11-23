@@ -255,3 +255,21 @@ The official M5Stack StickS3 documentation links both the StickS3 schematic PDF 
 * Official software libraries: [M5Unified](https://github.com/m5stack/M5Unified), [M5GFX](https://github.com/m5stack/M5GFX), and [M5PM1](https://github.com/m5stack/M5PM1).
 * Community project references are included as examples of possible application patterns; review each repository's license, maturity, and code quality before reuse.
 * Reviewed for OpenELAB wiki publication on 2026-05-25.
+
+## Official documentation and development resources
+
+Use [StickS3](https://docs.m5stack.com/en/core/StickS3) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K150`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                       |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5sticks3/program)                                     |
+| UIFlow2 workflow             | [Read uiflow2 workflow](https://docs.m5stack.com/en/uiflow2/sticks3/program)                                                   |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5sticks3/m5pm1?id=spk%20amp)                          |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K150_StickS3/Structures)             |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K150_StickS3/Structures/StickS3.stl) |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5sticks3/m5pm1)                                       |
+| Official source: M5PM1       | [Read official source: m5pm1](https://github.com/m5stack/M5PM1)                                                                |
+| Official source: M5Unified   | [Read official source: m5unified](https://github.com/m5stack/M5Unified)                                                        |
+| Official source: M5GFX       | [Read official source: m5gfx](https://github.com/m5stack/M5GFX)                                                                |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # Waveshare SIM7600G-H M.2 4G HAT for Raspberry Pi 4G/3G/2G GNSS
 
+{% hint style="info" %}
+[**View Waveshare SIM7600G-H M.2 4G HAT for Raspberry Pi 4G/3G/2G GNSS on OpenELAB**](https://openelab.io/products/sim7600g-h-hat)
+
+**Store SKU / option:** `Waveshare-21707`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare SIM7600G-H M.2 4G HAT for Raspberry Pi 4G/3G/2G GNSS
 
 ***
@@ -171,19 +177,33 @@ If the NDIS or RNDIS dial-up cannot access the Internet, you can also use PPP di
 * Network and Internet Settings -> Set up a new connection -> Connect to the Internet -> Dial up (D) -> Dial a phone number (D): \*99# (others are empty by default) -> Connection -> Register -> Connected to the Internet
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM7600X_ppp_dial_%281%29.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM7600X_ppp_dial_%281%29.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM7600X_ppp_dial_%283%29.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM7600X_ppp_dial_%283%29.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM7600X_ppp_dial_%284%29.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM7600X_ppp_dial_%284%29.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM7600X_ppp_dial_%285%29.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM7600X_ppp_dial_%285%29.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+
 *
 
-    <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM7600X_ppp_dial_%286%29.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
+<figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM7600X_ppp_dial_%286%29.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
+```
 
 ### GPS Test
 
@@ -467,14 +487,12 @@ sudo apt-get install minicom
 sudo minicom -D /dev/ttyUSB2 -b 115200
 ```
 
-4\. Send AT command to test, exit minicom and press Ctrl+A, then X, and finally press ENTER \
+4\. Send AT command to test, exit minicom and press Ctrl+A, then X, and finally press ENTER\
 More demos to be continued...
 
 <figure><img src="https://www.waveshare.com/w/upload/0/0b/Jetson_nano_demo.png" alt=""><figcaption></figcaption></figure>
 
 ### FAQ
-
-
 
 <details>
 
@@ -502,7 +520,7 @@ Execute: autoreconf -vfi, and then recompile, as shown in the following figure:\
 
 [![Chmod.png](https://www.waveshare.com/w/upload/4/4f/Chmod.png)](https://www.waveshare.com/wiki/File:Chmod.png)<br>
 
-&#x20;Answer:Please confirm that there is a sim7600\_4G\_hat\_init file in the current path<br>
+Answer:Please confirm that there is a sim7600\_4G\_hat\_init file in the current path<br>
 
 [![Chmod2.png](https://www.waveshare.com/w/upload/3/31/Chmod2.png)](https://www.waveshare.com/wiki/File:Chmod2.png)\
 The general operation is: download the sample program, after decompression, rename the c folder under the Raspberry folder to SIM7600X, then copy the entire SIM7600X folder to the Raspberry Pi /home/pi directory, and enter the command line to /home/pi /SIM7600X directory, and then execute the chmod 777 sim7600\_4G\_hat\_init command. "
@@ -545,8 +563,6 @@ Or use the image that has been configured with the driver, RNDIS dial-up and boo
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600G-H-M2_4G_HAT#accordion11"><strong>NDIS dial-up of SIM7600X module fails and the driver cannot be installed, what should I do?</strong></a></summary>
 
-
-
 * Make sure your system kernel is above 5.4. Do not use sudo update to upgrade the Raspberry Pi to the latest version. This will upgrade the kernel version to a version higher than the current firmware and it will not be recognized.
 * It is recommended to use the more convenient [RNDIS dial](https://www.waveshare.com/wiki/SIM820X_RNDIS_Dial-Up)
 * Can burn the latest Raspberry Pi Raspbian system, reconfigure NDIS dial
@@ -556,8 +572,6 @@ Or use the image that has been configured with the driver, RNDIS dial-up and boo
 <details>
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600G-H-M2_4G_HAT#accordion10"><strong>What are the antenna parameters for SIM7600CE 4G HAT?</strong></a></summary>
-
-
 
 * Frequency: 700m 800m 900m 1710-1920M 2010-2100M 2300-2400M 2500-2690M-5800MHZ
 * Gain: 9dbi ± 0.7dbi
@@ -606,8 +620,6 @@ If the short message is stored in the SIM card, usually 50 is the upper limit. Y
 <details>
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600G-H-M2_4G_HAT#accordion5"><strong>Why is my dial-up internet speed very slow here?</strong></a></summary>
-
-
 
 * Generally, the default configuration of SIM7600 is to automatically select the network standard, and it is likely to choose 2G Internet access; if you need to force the use of 4G mode, you need to enter the following AT command configuration:<br>
 
@@ -689,3 +701,9 @@ Support SIM standard (Standard) card, as shown in the figure below, if it is Mic
 [![SIM card size.png](https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=SIM_card_size.png\&width=400)](https://www.waveshare.com/wiki/File:SIM_card_size.png)
 
 </details>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/SIM7600G-H-M2_4G_HAT) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

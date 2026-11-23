@@ -23,6 +23,12 @@ layout:
 
 # XIAO ESP32S3 Sense
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO ESP32S3 Sense 2.4GHz Wi-Fi BLE 5.0 OV2640 Camera on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-esp32s3-sense)
+
+**Store SKU / option:** `Seeed-113991115`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO ESP32S3 Sense 2.4GHz Wi-Fi BLE 5.0 OV2640 Camera
 
 ***
@@ -44,7 +50,7 @@ Seeed Studio XIAO Series are diminutive development boards, sharing a similar ha
 * **Outstanding RF performance**: Support 2.4GHz Wi-Fi and BLE dual wireless communication, support 100m+ remote communication when connected with U.FL antenna
 * **Thumb-sized Compact Design**: 21 x 17.8mm, adopting the classic form factor of XIAO, suitable for space limited projects like wearable devices
 
-### Specifications[​](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/#specifications) <a href="#specifications" id="specifications"></a>
+### Specifications[​](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/#specifications) <a href="#specifications" id="specifications"></a>
 
 | Item                                                                                                                            | Seeed Studio XIAO ESP32S3                                                                                                                                                                                                                                                                                                       | Seeed Studio XIAO ESP32S3 Sense                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Seeed Studio XIAO ESP32S3 Plus                                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -71,13 +77,13 @@ Before everything starts, it is quite essential to have some basic parameters of
 * XIAO ESP32S3/XIAO ESP32S3 Sense
 * XIAO ESP32S3 Plus
 
-| XIAO ESP32S3/XIAO ESP32S3 Sense front indication diagram                                                       |
-| -------------------------------------------------------------------------------------------------------------- |
-| <p><img src="https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/img/front-indication.png" alt=""></p> |
-| XIAO ESP32S3/XIAO ESP32S3 Sense back indication diagram                                                        |
-| <p><img src="https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/img/back-indication.png" alt=""></p>  |
-| XIAO ESP32S3/XIAO ESP32S3 Sense Pin List                                                                       |
-| <p><img src="https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/img/2.jpg" alt=""></p>                |
+| XIAO ESP32S3/XIAO ESP32S3 Sense front indication diagram                                                                     |
+| ---------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/img/front-indication.png" alt="" data-size="original"> |
+| XIAO ESP32S3/XIAO ESP32S3 Sense back indication diagram                                                                      |
+| <img src="https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/img/back-indication.png" alt="" data-size="original">  |
+| XIAO ESP32S3/XIAO ESP32S3 Sense Pin List                                                                                     |
+| <img src="https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/img/2.jpg" alt="" data-size="original">                |
 
 ### Power Pins[​](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/#power-pins) <a href="#power-pins" id="power-pins"></a>
 
@@ -120,7 +126,7 @@ If you want to connect the battery for XIAO, we recommend you to purchase qualif
 
 **note:**
 
-Since all GPIO pins of the XIAO ESP32S3 are assigned their own functions, we do not have a GPIO configured for the battery pin. this means that we cannot get the battery voltage at the software level by reading the analog value of one of the GPIOs. If necessary, you can consider connecting the positive and negative terminals of the battery to two of the pins to measure the battery voltage.
+Since all GPIO pins of the XIAO ESP32S3 are assigned their own functions, we do not have a GPIO configured for the battery pin. this means that we cannot get the battery voltage at the software level by reading the analog value of one of the GPIOs. Do not connect a lithium battery directly to a GPIO or ADC input. Battery-voltage sensing requires a correctly designed divider/protection circuit within the MCU input limits; the standard board has no dedicated battery-sense GPIO.
 
 ![](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/img/17.png)
 
@@ -133,3 +139,19 @@ At the same time, we designed a red indicator light for battery charging, throug
 1. When XIAO ESP32S3 is not connected to the battery, the red light comes on when the Type-C cable is connected and goes off after 30 seconds.
 2. The red light flashes when the battery is connected and the Type-C cable is connected for charging.
 3. When connecting Type-C to charge the battery fully, the red light turns off.
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO ESP32-S3 Series](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                                       |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO_ESP32S3_v1.1_Dimensioning.dxf)              |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO_ESP32S3_ExpBoard_v1.0_top.dxf)              |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO_ESP32S3_ExpBoard_v1.0_bot.dxf)              |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO-ESP32S3-Sense-housing-design\(top\).stp)    |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO-ESP32S3-Sense-housing-design\(bottom\).stp) |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/TOP.dxf)                                         |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/BOTTOM.dxf)                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

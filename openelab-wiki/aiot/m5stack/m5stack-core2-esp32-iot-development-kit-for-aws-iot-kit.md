@@ -23,6 +23,10 @@ layout:
 
 # M5Stack Core2 ESP32 IoT Development Kit for AWS IoT Kit
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack Core2 ESP32 IoT Development Kit for AWS IoT Kit
 
 ***
@@ -149,3 +153,20 @@ Open the example program “Helloworld” from the driver library, and click the
 The result is shown below:
 
 <figure><img src="../../.gitbook/assets/image (686).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Core2 For AWS](https://docs.m5stack.com/en/core/Core2_For_AWS) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K010-AWS`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                       | Model-specific reference                                                                                                                       |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial           | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5core2/program)                                                       |
+| Official source: M5Tools               | [Read official source: m5tools](https://github.com/m5stack/M5Tools)                                                                            |
+| Electrical schematic                   | [Read electrical schematic](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/schematic/Core/CORE2_V1.0_SCH.pdf)                      |
+| Mechanical / CAD files                 | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K010-AWS_Core2_For_AWS/Structures)                   |
+| Mechanical / CAD files                 | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K010-AWS_Core2_For_AWS/Structures/Core2_For_AWS.stl) |
+| Official source: M5Core2               | [Read official source: m5core2](https://github.com/m5stack/M5Core2)                                                                            |
+| Arduino development tutorial           | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5core2/button)                                                        |
+| Official source: Core2-for-AWS-IoT-Kit | [Read official source: core2-for-aws-iot-kit](https://github.com/m5stack/Core2-for-AWS-IoT-Kit)                                                |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

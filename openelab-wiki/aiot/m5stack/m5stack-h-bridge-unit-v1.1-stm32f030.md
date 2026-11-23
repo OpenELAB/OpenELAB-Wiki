@@ -23,6 +23,12 @@ layout:
 
 # M5Stack H-bridge Unit v1.1 (STM32F030)
 
+{% hint style="info" %}
+[**View M5Stack H-bridge Unit v1.1 STM32F030 DC Motor Driver on OpenELAB**](https://openelab.io/products/m5stack-h-bridge-unit)
+
+**Store SKU / option:** `M5-U160-V11`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack H-bridge Unit v1.1 (STM32F030)
 
 ***
@@ -137,3 +143,18 @@ The unit includes overcurrent and thermal protection to prevent damage to the un
 The unit can handle up to 1.2A continuous current per channel. For higher current requirements, additional external drivers may be needed.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Unit HBridge v1.1](https://docs.m5stack.com/en/unit/Unit_HBridge_v1.1) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U160-V11`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                            | Model-specific reference                                                                                                                               |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic                        | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/615/SCH_UNIT_HBridge_V1.1.pdf)                                            |
+| Mechanical / CAD files                      | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U160-V11_Unit_HBridge_v1.1/Structures)                       |
+| Mechanical / CAD files                      | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U160-V11_Unit_HBridge_v1.1/Structures/Unit_HBridge_v1.1.stl) |
+| Official source: M5Unit-Hbridge             | [Read official source: m5unit-hbridge](https://github.com/m5stack/M5Unit-Hbridge)                                                                      |
+| Arduino development tutorial                | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_hbridge)                                                    |
+| Official source: M5Unit-Hbridge-Internal-FW | [Read official source: m5unit-hbridge-internal-fw](https://github.com/m5stack/M5Unit-Hbridge-Internal-FW)                                              |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

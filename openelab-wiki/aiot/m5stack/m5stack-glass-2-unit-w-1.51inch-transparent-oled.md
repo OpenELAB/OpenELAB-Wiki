@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Glass 2 Unit w/ 1.51inch Transparent OLED
 
+{% hint style="info" %}
+[**View M5Stack Glass 2 Unit w/ 1.51inch Transparent OLED on OpenELAB**](https://openelab.io/products/glass-2-unit-w)
+
+**Store SKU / option:** `M5-U158-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Glass 2 Unit w/ 1.51inch Transparent OLED
 
 ***
@@ -102,7 +108,7 @@ The transparent OLED display is designed for indoor use. Visibility in direct su
 
 <summary><strong>What libraries are needed to operate the display with Arduino?</strong></summary>
 
-&#x20;You will need the U8g2 library, which supports a wide range of OLED displays, including the M5Stack Glass 2 Unit.
+You will need the U8g2 library, which supports a wide range of OLED displays, including the M5Stack Glass 2 Unit.
 
 </details>
 
@@ -113,3 +119,15 @@ The transparent OLED display is designed for indoor use. Visibility in direct su
 Yes, you can display images by converting them into a format compatible with the screen and using appropriate library functions.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Unit Glass2](https://docs.m5stack.com/en/unit/Unit_Glass2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U158-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                              |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/613/SCH_UNIT_GLASS2.pdf) |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_glass2)    |
+| UIFlow1 workflow             | [Read uiflow1 workflow](https://docs.m5stack.com/en/uiflow/blockly/unit/glass2)                       |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

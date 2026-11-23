@@ -23,6 +23,12 @@ layout:
 
 # XIAO RP2350 Raspberry Pi
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO RP2350 Raspberry Pi RISC-V 19 GPIOs Onboard RGB LED on OpenELAB**](https://openelab.io/products/xiao-rp2350)
+
+**Store SKU / option:** `Seeed-102010550`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO RP2350 Raspberry Pi RISC-V 19 GPIOs Onboard RGB LED
 
 ***
@@ -65,10 +71,20 @@ The XIAO RP2350 packs the power of the Raspberry Pi RP2350 (dual Cortex-M33 core
 
 ### Hardware <a href="#hardware-overview" id="hardware-overview"></a>
 
-| XIAO RP2350 Front Pinout                                                                                                      |
-| ----------------------------------------------------------------------------------------------------------------------------- |
-| <p><img src="https://files.seeedstudio.com/wiki/XIAO-RP2350/img/XIAO-RP2350-front.png" alt="XIAO RP2350 Front Pinout"></p>    |
-| XIAO RP2350 Back Pinout                                                                                                       |
-| <p><img src="https://files.seeedstudio.com/wiki/XIAO-RP2350/img/XIAO-RP2350-back.png" alt="XIAO RP2350 Back Pinout"></p>      |
-| XIAO RP2350 Components                                                                                                        |
-| <p><img src="https://files.seeedstudio.com/wiki/XIAO-RP2350/img/XIAO-RP2350-components.png" alt="XIAO RP2350 Components"></p> |
+| XIAO RP2350 Front Pinout                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://files.seeedstudio.com/wiki/XIAO-RP2350/img/XIAO-RP2350-front.png" alt="XIAO RP2350 Front Pinout" data-size="original">    |
+| XIAO RP2350 Back Pinout                                                                                                                     |
+| <img src="https://files.seeedstudio.com/wiki/XIAO-RP2350/img/XIAO-RP2350-back.png" alt="XIAO RP2350 Back Pinout" data-size="original">      |
+| XIAO RP2350 Components                                                                                                                      |
+| <img src="https://files.seeedstudio.com/wiki/XIAO-RP2350/img/XIAO-RP2350-components.png" alt="XIAO RP2350 Components" data-size="original"> |
+
+## Official documentation and development resources
+
+Use [Seeed Studio XIAO RP2350 With MicroPython](https://wiki.seeedstudio.com/getting-started-xiao-rp2350/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need                  | Model-specific reference                                                                   |
+| --------------------------------- | ------------------------------------------------------------------------------------------ |
+| Official source: OSHW-XIAO-Series | [Read official source: oshw-xiao-series](https://github.com/Seeed-Studio/OSHW-XIAO-Series) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

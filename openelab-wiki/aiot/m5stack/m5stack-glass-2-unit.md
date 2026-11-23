@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Glass 2 Unit
 
+{% hint style="info" %}
+[**View M5Stack Glass 2 Unit w/ 1.51inch Transparent OLED on OpenELAB**](https://openelab.io/products/glass-2-unit-w)
+
+**Store SKU / option:** `M5-U158-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Glass 2 Unit w/ 1.51inch Transparent OLED
 
 ***
@@ -130,7 +136,7 @@ Unit RFID(U031),Unit RFID2(U031-B) program is totally compatible
 
 <details>
 
-<summary><strong>What are the voltage levels of the RS485 network?</strong> </summary>
+<summary><strong>What are the voltage levels of the RS485 network?</strong></summary>
 
 Generally, the voltage difference between A and B is around -7 to 13V. The high and low logic levels on the AB lines in the RS-485 standard are as follows:
 
@@ -148,3 +154,15 @@ Pulling A up to 3.3V and pulling B down to GND provides an initial state for the
 RoverC, JoyC, 's battery is in parallel connection with the M5StickC controller, you can connect the USB cable to the M5StickC to charge the battery of RoverC, JoyC. Also, When charging the M5StickC and RoverC, JoyC power switch can be turned off.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Unit Glass2](https://docs.m5stack.com/en/unit/Unit_Glass2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U158-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                              |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/613/SCH_UNIT_GLASS2.pdf) |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_glass2)    |
+| UIFlow1 workflow             | [Read uiflow1 workflow](https://docs.m5stack.com/en/uiflow/blockly/unit/glass2)                       |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

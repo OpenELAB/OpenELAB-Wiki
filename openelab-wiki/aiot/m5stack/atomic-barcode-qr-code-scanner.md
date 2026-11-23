@@ -23,6 +23,12 @@ layout:
 
 # ATOMIC Barcode/QR-Code Scanner
 
+{% hint style="info" %}
+[**View M5Stack Atomic QRCode2 Base UART 1D 2D Barcode QR Code Scanner on OpenELAB**](https://openelab.io/products/atomic-barcode)
+
+**Store SKU / option:** `M5-A133-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### ATOMIC Barcode/QR-Code Scanner 2 Base
 
 ***
@@ -89,3 +95,14 @@ layout:
 ### Compatible <a href="#example" id="example"></a>
 
 <figure><img src="../../.gitbook/assets/image (949).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Atomic QRCode2 Base](https://docs.m5stack.com/en/atom/Atomic_QRCode2_Base) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`A133-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                       |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/536/SCH_AtomicQRCode_V2.0pdf.pdf) |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/atomic/atomic_qrcode2_base)   |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

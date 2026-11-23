@@ -23,6 +23,12 @@ layout:
 
 # M5StickC ToF HAT
 
+{% hint style="info" %}
+[**View M5Stack M5StickC ToF HAT Laser Distance Measurement Module on OpenELAB**](https://openelab.io/products/m5stickc-tof-hat)
+
+**Store SKU / option:** `M5-U072`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack M5StickC ToF HAT
 
 ***
@@ -44,7 +50,7 @@ Communication Info: I2C, **0x29**, GPIO0/26.
 * Measurement accuracy ±3%
 * 940nm laser VCSEL
 * Development platform: Arduino, UIFlow(Blockly, Python)
-* Security:      - Class 1 laser equipment meeting the latest standards      - Standard IEC 60825-1: 2014 - 3rd edition
+* Security: - Class 1 laser equipment meeting the latest standards - Standard IEC 60825-1: 2014 - 3rd edition
 
 ### Applications <a href="#applications" id="applications"></a>
 
@@ -66,7 +72,7 @@ Communication Info: I2C, **0x29**, GPIO0/26.
 | Product Size           | 24\*20.3\*13.8mm |
 | Package Size           | 136\*92\*15mm    |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat-tof/hat-tof_04.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat-tof/hat-tof_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat-tof/hat-tof_04.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat-tof/hat-tof_06.webp)
 
 ### EasyLoader <a href="#easyloader" id="easyloader"></a>
 
@@ -91,3 +97,15 @@ What is EasyLoader?1.EasyLoader is a simple and fast program burner. Every produ
 ### Related Link <a href="#related-link" id="related-link"></a>
 
 * [**VL53L0X Datasheet**](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/hat/VL53L0X_en.pdf)
+
+## Official documentation and development resources
+
+Use [Hat ToF](https://docs.m5stack.com/en/hat/Hat_ToF) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U072`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need         | Model-specific reference                                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| Mechanical / CAD files   | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U072_Hat_ToF/Structures)             |
+| Mechanical / CAD files   | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U072_Hat_ToF/Structures/Hat_ToF.stl) |
+| Example source: M5StickC | [Read example source: m5stickc](https://github.com/m5stack/M5StickC/tree/master/examples/Hat/TOF)                              |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

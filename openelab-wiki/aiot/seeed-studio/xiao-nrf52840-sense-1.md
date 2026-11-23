@@ -23,6 +23,12 @@ layout:
 
 # XIAO nRF52840 Sense
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO nRF52840 Sense TinyML/TensorFlow Lite Mic BLE 5.0 on OpenELAB**](https://openelab.io/products/xiao-nrf52840)
+
+**Store SKU / option:** `Seeed-102010469`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO nRF52840 Sense TinyML/TensorFlow Lite
 
 ***
@@ -362,8 +368,6 @@ Currently for this issue, we recommend that users do not turn off the ADC functi
 
 <summary>How does the green light behave when powered on?​</summary>
 
-
-
 <img src="https://files.seeedstudio.com/wiki/XIAO-BLE/nRF_RGB.png" alt="nRF52840 RGB Schematic" data-size="original">
 
 The `P0.17` pin is used to control the green indicator light behavior, indicating the charging status:
@@ -377,3 +381,12 @@ For more details, check the PMIC datasheet: [BQ25100](https://www.ti.com/lit/ds/
 
 </details>
 
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO nRF52840 Series](https://wiki.seeedstudio.com/XIAO_BLE/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                       |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

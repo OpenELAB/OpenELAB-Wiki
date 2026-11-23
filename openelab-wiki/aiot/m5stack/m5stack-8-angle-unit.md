@@ -23,6 +23,12 @@ layout:
 
 # M5Stack 8-Angle Unit
 
+{% hint style="info" %}
+[**View M5Stack 8Angle Unit with 8 Potentiometers and RGB Feedback on OpenELAB**](https://openelab.io/products/8-angle-unit)
+
+**Store SKU / option:** `M5-U154`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack 8-Angle Unit with Potentiometer
 
 ***
@@ -61,7 +67,7 @@ UNIT 8Angle is an input unit integrating 8 adjustable potentiometers, internal S
 | Product Weight            | 34.9g                  |
 | Package Weight            | 44.3g                  |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-0429282b-d8cb-42f0-84f4-2191a6685622.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-d1261679-1f72-4615-8d83-b5bc6be59502.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-75a3647b-6ed6-44ff-8a6b-f15b6c77f0ae.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-55f9289a-53b8-4708-a0f0-86fc7566419a.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-1fa89582-f023-4500-bd24-6893270d9e33.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-dad0216e-e1c3-4258-b84e-4b70cbb6d5b2.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-0429282b-d8cb-42f0-84f4-2191a6685622.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-d1261679-1f72-4615-8d83-b5bc6be59502.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-75a3647b-6ed6-44ff-8a6b-f15b6c77f0ae.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-55f9289a-53b8-4708-a0f0-86fc7566419a.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-1fa89582-f023-4500-bd24-6893270d9e33.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208Angle/img-dad0216e-e1c3-4258-b84e-4b70cbb6d5b2.webp)
 
 ### Related Link <a href="#related-link" id="related-link"></a>
 
@@ -125,3 +131,18 @@ UNIT 8Angle is an input unit integrating 8 adjustable potentiometers, internal S
 * Set I2C address
 
 <figure><img src="../../.gitbook/assets/image (933).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit 8Angle](https://docs.m5stack.com/en/unit/Unit_8Angle) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U154`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                           | Model-specific reference                                                                                                               |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                       | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/608/SCH_UNIT_8Angle_V1.01.pdf)                            |
+| Mechanical / CAD files                     | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U154_Unit_8Angle/Structures)                 |
+| Mechanical / CAD files                     | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U154_Unit_8Angle/Structures/Unit_8Angle.stl) |
+| Official source: M5Unit-8Angle             | [Read official source: m5unit-8angle](https://github.com/m5stack/M5Unit-8Angle)                                                        |
+| Arduino development tutorial               | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_8angle)                                     |
+| Official source: M5Unit-8Angle-Internal-FW | [Read official source: m5unit-8angle-internal-fw](https://github.com/m5stack/M5Unit-8Angle-Internal-FW)                                |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

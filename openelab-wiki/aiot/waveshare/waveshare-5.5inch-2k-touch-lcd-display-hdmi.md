@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 5.5inch 2K Touch LCD Display HDMI
 
+{% hint style="info" %}
+[**View Waveshare 5.5 inch 2K Touch LCD Display 1440x2560 HDMI on OpenELAB**](https://openelab.io/products/2k-touch-lcd-display)
+
+**Store SKU / option:** `Waveshare-23112`, `Waveshare-23113`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 5.5inch 2K Touch LCD Display HDMI
 
 ***
@@ -261,7 +267,7 @@ Take the windows10 system as an example:
 * 2\. Click "Setup" in the pop-up "Tablet PC Settings" interface:
 * 3\. The following text prompt will appear on the screen. Please tap the touch screen with your finger, and the computer will recognize it as a touch screen.
 
-【Note】If the touch screen is blank, press the "Enter" key, and the text prompt will switch to the touch screen. (The screen which displays the text prompt will be used as a touch screen!)&#x20;
+【Note】If the touch screen is blank, press the "Enter" key, and the text prompt will switch to the touch screen. (The screen which displays the text prompt will be used as a touch screen!)
 
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=Win10_touch03.png&#x26;width=800" alt=""><figcaption></figcaption></figure>
 
@@ -459,8 +465,6 @@ Click "Setting" in the "Display"\
 3\. The following text prompt will appear on the screen. Please tap the touch screen with your finger, and the computer will recognize it as a touch screen.\
 [![Win10 touch03.png](https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=Win10_touch03.png\&width=800)](https://www.waveshare.com/wiki/File:Win10_touch03.png)<br>
 
-
-
 </details>
 
 <details>
@@ -496,3 +500,9 @@ Briefly press the "Touch Rotate" button on the back of the display. (each press 
 70%NTSC
 
 </details>
+
+## Official documentation and development resources
+
+Use [Introduction](https://www.waveshare.com/wiki/5.5inch_1440x2560_LCD) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

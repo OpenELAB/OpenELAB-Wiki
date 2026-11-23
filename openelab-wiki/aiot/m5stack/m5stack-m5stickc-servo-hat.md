@@ -23,6 +23,12 @@ layout:
 
 # M5Stack M5StickC SERVO HAT
 
+{% hint style="info" %}
+[**View M5Stack M5StickC SERVO HAT on OpenELAB**](https://openelab.io/products/m5stack-m5stickc-servo-hat)
+
+**Store SKU / option:** `M5-U075`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack M5StickC SERVO HAT
 
 ***
@@ -59,7 +65,7 @@ layout:
 | Product Size | 35\*24\*22mm |
 | Package Size | 42\*40\*30mm |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat-servo/hat-servo_04.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat-servo/hat-servo_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat-servo/hat-servo_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat-servo/hat-servo_04.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat-servo/hat-servo_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/hat-servo/hat-servo_06.webp)
 
 ### EasyLoader <a href="#easyloader" id="easyloader"></a>
 
@@ -86,3 +92,13 @@ EasyLoader is a simple and fast program burner. Every product page in EasyLoader
 * [Click here to download the UIFlow example](https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Hat/servo-hat/UIFlow)
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/hat/hat-servo/hat-servo_uiflow_01.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Hat Servo](https://docs.m5stack.com/en/hat/Hat_Servo) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U075`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need         | Model-specific reference                                                                             |
+| ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| Example source: M5StickC | [Read example source: m5stickc](https://github.com/m5stack/M5StickC/tree/master/examples/Hat/SERVOS) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,10 @@ layout:
 
 # M5Stack Mini GPS/BDS Unit
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack Mini GPS/BDS Unit
 
 ***
@@ -78,7 +82,7 @@ UART settings :
 | Product Size                 | 48\*24\*8mm                                                       |
 | Package Size                 | 136 \* 92 \* 13mm                                                 |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/gps/gps_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/gps/gps_06.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/gps/gps_07.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/gps/gps_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/gps/gps_06.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/gps/gps_07.webp)
 
 ### EasyLoader <a href="#easyloader" id="easyloader"></a>
 
@@ -145,3 +149,13 @@ Indicates that the positioning information is UTC time is 06:30:12, north latitu
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/gps/gps_08.webp" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/gps/gps_09.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit GPS](https://docs.m5stack.com/en/unit/Unit_GPS) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U032`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                                |
+| ----------------------- | ------------------------------------------------------------------------------------------------------- |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/GPS_AT6558) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

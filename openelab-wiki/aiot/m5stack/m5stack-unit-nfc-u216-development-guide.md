@@ -53,3 +53,17 @@ Use the official Arduino example and library target matrix. Record library/host 
 * [Library, target matrix and releases](https://github.com/m5stack/M5Unit-NFC)
 
 Reviewed 18 November 2026. Source links and accessible manufacturer documentation were reviewed; this guide has not been compiled or tested on physical hardware. Before reproducing a project, record the board revision, firmware/SDK release or commit, operating system and any changes to the supplied configuration.
+
+## Official documentation and development resources
+
+Use [Unit NFC](https://docs.m5stack.com/en/unit/Unit_NFC) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U216`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                         |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1229/SCH_Unit_NFC_V0.1_2025_11_28_12_15_35.pdf)     |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U216_Unit_NFC/Structures)              |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U216_Unit_NFC/Structures/Unit_NFC.stl) |
+| Official source: M5Unit-NFC  | [Read official source: m5unit-nfc](https://github.com/m5stack/M5Unit-NFC)                                                        |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_nfc)                                  |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

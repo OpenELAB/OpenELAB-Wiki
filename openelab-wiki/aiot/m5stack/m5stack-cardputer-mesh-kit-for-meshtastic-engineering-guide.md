@@ -269,3 +269,20 @@ Test antenna installation, region setting, GPS lock, node-to-node messaging, bat
 * Meshtastic setup reference: [M5Stack Meshtastic tutorial](https://docs.m5stack.com/en/guide/lora/meshtastic/cardputer_mesh_kit) and [Meshtastic official site](https://meshtastic.org/).
 * Community project references are examples for engineering inspiration; review each repository's license, hardware assumptions, firmware maturity, and safety implications before reuse.
 * Reviewed for OpenELAB wiki publication on 2026-05-25.
+
+## Official documentation and development resources
+
+Use [Cardputer Mesh Kit](https://docs.m5stack.com/en/core/Cardputer_Mesh_Kit) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K152`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                                             |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5cardputer/program)                                                         |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/Sch_M5CardputerAdv_v1.0_2025_06_20_17_19_58.pdf)                   |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1150/Sch_StampS3_v0.3.3.pdf)                                            |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K152_Cardputer_Mesh_Kit/Structures)                        |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K152_Cardputer_Mesh_Kit/Structures/Cardputer_Mesh_Kit.stl) |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/cap/cap_lora868)                                                    |
+| Official source: M5Cardputer | [Read official source: m5cardputer](https://github.com/m5stack/M5Cardputer)                                                                          |
+| Official source: TinyGPSPlus | [Read official source: tinygpsplus](https://github.com/m5stack/TinyGPSPlus)                                                                          |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

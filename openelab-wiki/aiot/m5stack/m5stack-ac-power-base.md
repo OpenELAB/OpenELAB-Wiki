@@ -23,6 +23,12 @@ layout:
 
 # M5Stack AC Power Base
 
+{% hint style="info" %}
+[**View M5Stack AC Power Base on OpenELAB**](https://openelab.io/products/ac-power-base)
+
+**Store SKU / option:** `M5-K116`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack AC Power Base
 
 ***
@@ -67,3 +73,14 @@ Note: Do not open up or disassemble the product for any reason. This product req
 | M5BUS         | HPWR | 5V |
 | ------------- | ---- | -- |
 | AC POWER BASE | 12V  | 5V |
+
+## Official documentation and development resources
+
+Use [Base AC Power](https://docs.m5stack.com/en/base/Base_AC_Power) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K116`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K116_Base_AC_Power/Structures)                                |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K116_Base_AC_Power/Structures/Base_AC_Power_Bottom_Shell.stl) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

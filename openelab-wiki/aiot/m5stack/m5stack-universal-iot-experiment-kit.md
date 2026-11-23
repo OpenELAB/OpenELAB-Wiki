@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Universal IOT Experiment Kit
 
+{% hint style="info" %}
+[**View M5Stack Universal IOT Experiment Kit for ESP32 on OpenELAB**](https://openelab.io/products/universal-iot-experiment-kit)
+
+**Store SKU / option:** `M5-K024-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Universal IOT Experiment Kit for ESP32
 
 ***
@@ -108,3 +114,14 @@ layout:
 ### Schematics <a href="#schematics" id="schematics"></a>
 
 * [M5IoT-kit](https://github.com/m5stack/M5-Schematic/tree/master/Applications/M5IoT-kit)
+
+## Official documentation and development resources
+
+Use [Demo Board-SHT30](https://docs.m5stack.com/en/app/Demo_Board-SHT30) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K024-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need            | Model-specific reference                                                                                   |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Electrical schematic        | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/634/Sch_Demo_Board-SHT30.pdf) |
+| Official source: DEMO-BOARD | [Read official source: demo-board](https://github.com/m5stack/DEMO-BOARD)                                  |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

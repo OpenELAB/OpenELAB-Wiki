@@ -23,6 +23,12 @@ layout:
 
 # ATOMIC GPS Base
 
+{% hint style="info" %}
+[**View M5Stack ATOMIC GPS Base M5-A134 GNSS Module with microSD on OpenELAB**](https://openelab.io/products/atomic-gps-base)
+
+**Store SKU / option:** `M5-A134`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### ATOMIC GPS Base
 
 ***
@@ -99,3 +105,14 @@ UART Parameter Settings:
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (399).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Atomic GPS Base](https://docs.m5stack.com/en/atom/Atomic_GPS_Base) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`A134`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                         |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/atomic/atomic_gps_base)         |
+| Example source: M5AtomS3     | [Read example source: m5atoms3](https://github.com/m5stack/M5AtomS3/tree/main/examples/AtomicBase/AtomicGPS/GPS) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

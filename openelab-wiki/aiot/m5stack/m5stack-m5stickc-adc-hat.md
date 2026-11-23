@@ -23,6 +23,12 @@ layout:
 
 # M5Stack M5StickC ADC Hat
 
+{% hint style="info" %}
+[**View M5Stack M5StickC ADC Hat ADS1110 V1.1 on OpenELAB**](https://openelab.io/products/m5stickc-adc-hat)
+
+**Store SKU / option:** `M5-U069-V11`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack M5StickC ADC Hat ADS1110 V1.1
 
 ***
@@ -63,7 +69,7 @@ ADS1110 itself is able to accept a differential input from -5 \~ +5 V, but we ha
 | Product Size | 24\*25\*13mm |
 | Package Size | 40\*42\*30mm |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/hat/U069-B%20HAT-ADC/hat-adc_04.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/U069-B%20HAT-ADC/hat-adc_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/U069-B%20HAT-ADC/hat-adc_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/hat/U069-B%20HAT-ADC/hat-adc_04.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/U069-B%20HAT-ADC/hat-adc_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/U069-B%20HAT-ADC/hat-adc_06.webp)
 
 ### Pin Map <a href="#pin-map" id="pin-map"></a>
 
@@ -74,3 +80,14 @@ ADS1110 itself is able to accept a differential input from -5 \~ +5 V, but we ha
 ### Schematic <a href="#schematic" id="schematic"></a>
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/hat/u069-v11%20HAT%20ADC/u069-v11-sch-01.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Hat ADC v1.1](https://docs.m5stack.com/en/hat/Hat_ADC_v1.1) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U069-V11`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                      | Model-specific reference                                                                                                                       |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Example source: ADC\_M5StickC.ino     | [Read example source: adc\_m5stickc.ino](https://github.com/m5stack/M5-ADS1100/blob/master/examples/ADC_M5StickC/ADC_M5StickC.ino)             |
+| Example source: ADC\_M5StickCPlus.ino | [Read example source: adc\_m5stickcplus.ino](https://github.com/m5stack/M5-ADS1100/blob/master/examples/ADC_M5StickCPlus/ADC_M5StickCPlus.ino) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

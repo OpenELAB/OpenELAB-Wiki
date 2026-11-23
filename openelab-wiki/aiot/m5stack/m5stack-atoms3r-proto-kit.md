@@ -4,6 +4,12 @@ description: M5Stack ATOMS3R Proto Kit
 
 # M5Stack ATOMS3R Proto Kit
 
+{% hint style="info" %}
+[**View M5Stack AtomS3R Ext Proto Kit without Screen (8MB PSRAM) on OpenELAB**](https://openelab.io/products/m5stack-atoms3r-proto-kit-without-screen-8mb-psram)
+
+**Store SKU / option:** `M5-C126-Ext`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Product Link <a href="#description" id="description"></a>
 
 {% embed url="https://openelab.io/products/m5stack-atoms3r-proto-kit-without-screen-8mb-psram" %}
@@ -33,23 +39,23 @@ Download Mode To flash the firmware, press and hold the reset button (for about 
 
 ### Specifications <a href="#specifications" id="specifications"></a>
 
-| Specification                          | Parameter                                                                                                                                               |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SoC                                    | ESP32-S3-PICO-1-N8R8 @ Dual-core Xtensa LX7 processor, up to 240MHz @ USB-OTG                                                                           |
-| PSRAM                                  | 8M PSRAM                                                                                                                                                |
-| FLASH                                  | 8M FLASH                                                                                                                                                |
-| Six-axis Motion Sensor (BMI270)        | <p>Accuracy: 0.05% (acceleration), 0.05°/s (angular velocity) <br>I2C address: 0x68</p>                                                                 |
-| Three-axis Geomagnetic Sensor (BMM150) | <p>Accuracy: 0.3 μT <br>Mounted on BMI270, obtaining magnetometer data via BMI270</p>                                                                   |
-| Infrared IR                            | <p>IR emission distance at ∠180°: 12.46m <br>IR emission distance at ∠90°: 1.45m <br>IR emission distance at ∠45°: 3.88m</p>                            |
-| Sleep Current                          | <p>GPIO-5V power supply: DC5V@11.63 uA <br>Grove-5V power supply: DC5V@10.75 uA <br>USB-5V power supply: DC5V@92.50 uA (including PD resistor loss)</p> |
-| Universal Expansion Board Size         | 5\*6@2.54mm                                                                                                                                             |
-| Reserved GPIO                          | G5/G6/G7/G8/G38/G39                                                                                                                                     |
-| Breadboard Reserved GPIO               | G3/G4/G9/G10/G11/G12/G13/G14/G17/G21/G40/G42/G46/G48                                                                                                    |
-| Operating Temperature                  | 0°C \~ 40°C                                                                                                                                             |
-| Product Dimensions                     | 24\*24\*12.9mm                                                                                                                                          |
-| Package Dimensions                     | 85\*65.5\*13mm                                                                                                                                          |
-| Product Weight                         | 34.5g                                                                                                                                                   |
-| Package Weight                         | 68.5g                                                                                                                                                   |
+| Specification                          | Parameter                                                                                                                                             |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SoC                                    | ESP32-S3-PICO-1-N8R8 @ Dual-core Xtensa LX7 processor, up to 240MHz @ USB-OTG                                                                         |
+| PSRAM                                  | 8M PSRAM                                                                                                                                              |
+| FLASH                                  | 8M FLASH                                                                                                                                              |
+| Six-axis Motion Sensor (BMI270)        | <p>Accuracy: 0.05% (acceleration), 0.05°/s (angular velocity)<br>I2C address: 0x68</p>                                                                |
+| Three-axis Geomagnetic Sensor (BMM150) | <p>Accuracy: 0.3 μT<br>Mounted on BMI270, obtaining magnetometer data via BMI270</p>                                                                  |
+| Infrared IR                            | <p>IR emission distance at ∠180°: 12.46m<br>IR emission distance at ∠90°: 1.45m<br>IR emission distance at ∠45°: 3.88m</p>                            |
+| Sleep Current                          | <p>GPIO-5V power supply: DC5V@11.63 uA<br>Grove-5V power supply: DC5V@10.75 uA<br>USB-5V power supply: DC5V@92.50 uA (including PD resistor loss)</p> |
+| Universal Expansion Board Size         | 5\*6@2.54mm                                                                                                                                           |
+| Reserved GPIO                          | G5/G6/G7/G8/G38/G39                                                                                                                                   |
+| Breadboard Reserved GPIO               | G3/G4/G9/G10/G11/G12/G13/G14/G17/G21/G40/G42/G46/G48                                                                                                  |
+| Operating Temperature                  | 0°C \~ 40°C                                                                                                                                           |
+| Product Dimensions                     | 24\*24\*12.9mm                                                                                                                                        |
+| Package Dimensions                     | 85\*65.5\*13mm                                                                                                                                        |
+| Product Weight                         | 34.5g                                                                                                                                                 |
+| Package Weight                         | 68.5g                                                                                                                                                 |
 
 <figure><img src="../../.gitbook/assets/QQ_1727505445825.png" alt=""><figcaption></figcaption></figure>
 
@@ -104,3 +110,17 @@ Proto Pin
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="../../.gitbook/assets/image (910).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [AtomS3R-Ext](https://docs.m5stack.com/en/core/AtomS3R-Ext) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C126-Ext`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need          | Model-specific reference                                                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic      | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/681/main_board_schematic.pdf)                                 |
+| Electrical schematic      | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/681/ext_board_schematic.pdf)                                  |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C126-Ext_AtomS3R-Ext/Structures)                 |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C126-Ext_AtomS3R-Ext/Structures/AtomS3R-Ext.stl) |
+| Official source: M5AtomS3 | [Read official source: m5atoms3](https://github.com/m5stack/M5AtomS3)                                                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

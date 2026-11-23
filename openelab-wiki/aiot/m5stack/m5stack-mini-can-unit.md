@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Mini CAN Unit
 
+{% hint style="info" %}
+[**View M5Stack Unit Mini CAN TJA1051T High-Speed CAN Bus Module on OpenELAB**](https://openelab.io/products/m5stack-mini-can-unit)
+
+**Store SKU / option:** `M5-U179`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Mini CAN Unit
 
 ***
@@ -67,7 +73,7 @@ No matter if you are developing automotive electronic systems, controlling indus
 | Product Weight        | 7.8g                                                                      |
 | Package Weight        | 13.1g                                                                     |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-Mini%20CAN/img-2c2855ee-66df-4e53-bd5a-2c4f9f24364a.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-Mini%20CAN/img-f9c7e55d-aa74-4c6f-95e2-00eae24db786.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-Mini%20CAN/img-d8296edf-2e0f-4459-aa69-df57db939b39.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-Mini%20CAN/img-2c2855ee-66df-4e53-bd5a-2c4f9f24364a.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-Mini%20CAN/img-f9c7e55d-aa74-4c6f-95e2-00eae24db786.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Unit-Mini%20CAN/img-d8296edf-2e0f-4459-aa69-df57db939b39.webp)
 
 ### Schematic <a href="#schematic" id="schematic"></a>
 
@@ -84,3 +90,18 @@ No matter if you are developing automotive electronic systems, controlling indus
 ### Compatible <a href="#compatible" id="compatible"></a>
 
 <figure><img src="../../.gitbook/assets/image (939).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit Mini CAN](https://docs.m5stack.com/en/unit/Unit_Mini_CAN) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U179`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need         | Model-specific reference                                                                                                                   |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic     | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/631/SCH_UNIT_Mini_CAN_V1.0.pdf)                               |
+| Mechanical / CAD files   | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U179_Unit_Mini_CAN/Structures)                   |
+| Mechanical / CAD files   | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U179_Unit_Mini_CAN/Structures/Unit_Mini_CAN.stl) |
+| Example source: M5CoreS3 | [Read example source: m5cores3](https://github.com/m5stack/M5CoreS3/tree/main/examples/Unit/MiniCAN_TJA1051T)                              |
+| Example source: M5AtomS3 | [Read example source: m5atoms3](https://github.com/m5stack/M5AtomS3/tree/main/examples/Unit/MiniCAN_TJA1051T)                              |
+| Example source: M5Stack  | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/CAN)                                           |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # M5Stack CardKB Mini Keyboard
 
+{% hint style="info" %}
+[**View M5Stack CardKB v1.1 I2C Mini Keyboard Unit (ATMega8A) on OpenELAB**](https://openelab.io/products/m5stack-cardkb-keyboard)
+
+**Store SKU / option:** `M5-U035-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack CardKB Mini Keyboard Programmable Unit V1.1
 
 ***
@@ -85,3 +91,13 @@ layout:
 ### **Compatible**
 
 <figure><img src="../../.gitbook/assets/image (386).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit CardKB v1.1](https://docs.m5stack.com/en/unit/Unit_CardKB_v1.1) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U035-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                            |
+| ----------------------- | --------------------------------------------------------------------------------------------------- |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/CardKB) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

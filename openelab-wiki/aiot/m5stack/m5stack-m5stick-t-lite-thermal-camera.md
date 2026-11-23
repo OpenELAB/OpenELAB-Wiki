@@ -23,6 +23,12 @@ layout:
 
 # M5Stack M5Stick T-Lite Thermal Camera
 
+{% hint style="info" %}
+[**View M5Stack M5Stick T-Lite Thermal Camera Dev Kit (MLX90640) on OpenELAB**](https://openelab.io/products/m5stick-camera-dev-kit)
+
+**Store SKU / option:** `M5-K126`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack M5Stick T-Lite Thermal Camera Dev Kit (MLX90640)
 
 ***
@@ -84,3 +90,13 @@ layout:
 ### Model Size <a href="#model-size" id="model-size"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/app/T-Lite/img-1b2d5722-f7d5-4071-ad56-95ac848ee049.png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [T-Lite](https://docs.m5stack.com/en/app/T-Lite) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K126`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                        | Model-specific reference                                                                          |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Official source: M5StickC-Plus-TLite-FW | [Read official source: m5stickc-plus-tlite-fw](https://github.com/m5stack/M5StickC-Plus-TLite-FW) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

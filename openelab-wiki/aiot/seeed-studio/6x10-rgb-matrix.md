@@ -1,5 +1,11 @@
 # 6x10 RGB MATRIX
 
+{% hint style="info" %}
+[**View Seeed Studio 6x10 RGB MATRIX for XIAO on OpenELAB**](https://openelab.io/products/6x10-rgb-matrix-for-xiao)
+
+**Store SKU / option:** `Seeed-104030107`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio 6x10 RGB MATRIX for XIAO
 
 ***
@@ -198,3 +204,8 @@ Upload the program and if all goes well, you can see the light beads light up on
 
 ![](https://files.seeedstudio.com/wiki/xiao-rgb-matrix/5.jpg)
 
+## Official documentation and development resources
+
+Use [Getting Started with 6x10 RGB MATRIX for XIAO](https://wiki.seeedstudio.com/rgb_matrix_for_xiao/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

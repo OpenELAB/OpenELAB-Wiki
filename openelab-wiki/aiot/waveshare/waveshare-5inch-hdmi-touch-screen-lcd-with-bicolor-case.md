@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 5inch HDMI Touch Screen LCD with Bicolor Case
 
+{% hint style="info" %}
+[**View Waveshare 5 inch HDMI Resistive Touch Screen LCD with Bicolor Case on OpenELAB**](https://openelab.io/products/5inch-touch-screen-lcd)
+
+**Store SKU / option:** `Waveshare-10898`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 5inch HDMI Touch Screen LCD with Bicolor Case
 
 ***
@@ -148,7 +154,7 @@ Note: We don't recommend you do any hardware modification, which may damage the 
 
 <summary><a href="https://www.waveshare.com/wiki/5inch_HDMI_LCD_(B)#accordion1"><strong>How could I disable the rainbow screen?</strong></a></summary>
 
-&#x20;Answer:Please add the following command to /boot/config.txt
+Answer:Please add the following command to /boot/config.txt
 
 ```
 disable_splash=1
@@ -331,3 +337,9 @@ To avoid becoming a victim of pirated products, please pay attention to the foll
 Please note that we've found some poor copies of this item in the market. They are usually made of inferior materials and shipped without any testing.
 
 You might be wondering if the one you're watching or you've purchased in other non-official stores is original, feel free to contact us.
+
+## Official documentation and development resources
+
+Use [Introduction](https://www.waveshare.com/wiki/5inch_HDMI_LCD_\(B\)) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

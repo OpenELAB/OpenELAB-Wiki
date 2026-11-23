@@ -23,6 +23,10 @@ layout:
 
 # Temperature Humidity Air Pressure
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack Temperature Humidity Air Pressure Sensor (SHT40+BMP280)
 
 ***
@@ -65,7 +69,7 @@ No matching current OpenELAB.io listing was found for the product version docume
 | Product Weight                           | 3.9g                         |
 | Package Weight                           | 9.3g                         |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/ENV%E2%85%A3%20Unit/img-7cfc7eaf-c497-4012-9b6c-2a6676e22e9e.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/ENV%E2%85%A3%20Unit/img-ab796899-2634-4e32-8cc5-03528cb76ffd.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/ENV%E2%85%A3%20Unit/img-f46cac07-2bb1-4abd-849e-16d935d8ada6.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/ENV%E2%85%A3%20Unit/img-6694f5e2-d5d0-4276-bbd7-29e5f80fb81b.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/ENV%E2%85%A3%20Unit/img-7cfc7eaf-c497-4012-9b6c-2a6676e22e9e.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/ENV%E2%85%A3%20Unit/img-ab796899-2634-4e32-8cc5-03528cb76ffd.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/ENV%E2%85%A3%20Unit/img-f46cac07-2bb1-4abd-849e-16d935d8ada6.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/ENV%E2%85%A3%20Unit/img-6694f5e2-d5d0-4276-bbd7-29e5f80fb81b.webp)
 
 ### Related Link <a href="#related-link" id="related-link"></a>
 
@@ -104,3 +108,15 @@ No matching current OpenELAB.io listing was found for the product version docume
 ### COMPATIBLE <a href="#compatible" id="compatible"></a>
 
 <figure><img src="../../.gitbook/assets/image (937).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit ENV-IV](https://docs.m5stack.com/en/unit/Unit_ENV-IV) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U001-D`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                        | Model-specific reference                                                                                                                           |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                    | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/573/Sch_UNIT_ENVIV.pdf)                                               |
+| Arduino development tutorial            | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_env)                                                    |
+| Example source: Unit\_ENVIV\_M5Core.ino | [Read example source: unit\_enviv\_m5core.ino](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/Unit_ENVIV_M5Core/Unit_ENVIV_M5Core.ino) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

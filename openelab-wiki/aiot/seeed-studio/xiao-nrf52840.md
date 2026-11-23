@@ -23,6 +23,12 @@ layout:
 
 # XIAO nRF52840
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO nRF52840 Supports Arduino Micro/CircuitPython Ble on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-nrf52840-supports-arduino-circuitpython-bluetooth5-0)
+
+**Store SKU / option:** `Seeed-102010448`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO nRF52840 Supports Arduino Micro/CircuitPython Ble
 
 ***
@@ -43,7 +49,7 @@ Compared to Seeed Studio XIAO RP2040, Seeed Studio XIAO nRF52840 contains **rich
 
 Seeed Studio XIAO nRF52840 Sense is compatible to the Seeed Studio XIAO expansion board.
 
-### &#xD;Features
+### Features
 
 * Powerful wireless capabilities: Bluetooth 5.0 with onboard antenna
 * Powerful CPU: Nordic nRF52840, ARM® Cortex®-M4 32-bit processor with FPU, 64 MHz
@@ -56,7 +62,7 @@ Seeed Studio XIAO nRF52840 Sense is compatible to the Seeed Studio XIAO expansio
 * Rich interfaces: 1xUART, 1xI2C, 1xSPI, 1xNFC, 1xSWD, 11xGPIO(PWM), 6xADC in XIAO nRF52840 (Sense); and 2xUART, 1xI2C, 2xSPI, 1xI2S, 1xNFC, 1xSWD, 18xGPIO(PWM), 6xADC in XIAO nRF52840 (Sense) Plus
 * Single-sided components, surface mounting design
 
-### &#xD;Specifications
+### Specifications
 
 | Item                  | Seeed Studio XIAO nRF52840                                         | Seeed Studio XIAO nRF52840 Sense        | Seeed Studio XIAO nRF52840 Plus | Seeed Studio XIAO nRF52840 Sense Plus   |
 | --------------------- | ------------------------------------------------------------------ | --------------------------------------- | ------------------------------- | --------------------------------------- |
@@ -93,3 +99,13 @@ The Pin definition supported by these two libraries might be a little different 
 
 1. If you use the onboard package of Seeed nRF52 Boards, the Serial function may not compile. The solution is to add the line "#include \<Adafruit\_TinyUSB.h>" in your code. You can download this package from: [https://github.com/adafruit/Adafruit\_TinyUSB\_Arduino](https://github.com/adafruit/Adafruit_TinyUSB_Arduino)
 2. If you prefer a simpler approach, you can choose Seeed nRF52 mbed-enabled Boards from the beginning. It supports the compilation of the Serial function without the need for additional modifications.
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO nRF52840 Series](https://wiki.seeedstudio.com/XIAO_BLE/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                       |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # M5Stack M5Stamp C3 (5pcs)
 
+{% hint style="info" %}
+[**View M5Stack Stamp-C3 ESP32-C3 RISC-V IoT Module (5pcs) on OpenELAB**](https://openelab.io/products/m5stamp-c3)
+
+**Store SKU / option:** `M5-C056-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack M5Stamp C3 (5pcs)
 
 ***
@@ -97,3 +103,15 @@ The Stamp-C3 is based on `32-bit RISC-V` micro controller and operates at a maxi
 ### Product Comparison <a href="#product-comparison" id="product-comparison"></a>
 
 <figure><img src="../../.gitbook/assets/image (983).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Stamp-C3](https://docs.m5stack.com/en/core/Stamp-C3) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C056-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                           |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5stampc3/program)                                         |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C056-B_Stamp-C3/Structures)              |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C056-B_Stamp-C3/Structures/Stamp-C3.stl) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

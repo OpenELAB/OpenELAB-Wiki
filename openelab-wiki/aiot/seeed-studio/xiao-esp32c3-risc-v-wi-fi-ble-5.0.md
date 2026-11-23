@@ -23,6 +23,12 @@ layout:
 
 # XIAO ESP32C3 RISC-V Wi-Fi BLE 5.0
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO ESP32C3 RISC-V Wi-Fi BLE 5.0 Battery Charge Supported on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-esp32c3)
+
+**Store SKU / option:** `Seeed-113991054`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO ESP32C3 RISC-V Wi-Fi BLE 5.0 Battery Charge Supported
 
 ***
@@ -73,3 +79,9 @@ With regard to the features highlighted above, XIAO ESP32C3 is positioned as a *
 According to the chip manual of ESP32C3, **GPIO2**, **GPIO8** and **GPIO9** in the chip are Strapping Pins, the high and low level configurations of these pins may allow the chip to enter into different Boot modes, please pay attention to this point when you use these pins, otherwise it may prevent your XIAO from uploading or executing the program all the time.
 
 <div align="center"><img src="https://files.seeedstudio.com/wiki/XIAO_WiFi/20.png" alt=""></div>
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO ESP32C3](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

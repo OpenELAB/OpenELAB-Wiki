@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Temperature, Humidity, Pressure and Gas Sensor (BME688)
 
+{% hint style="info" %}
+[**View M5Stack ENV Pro Unit Environmental Sensor with BME688 on OpenELAB**](https://openelab.io/products/m5stack-sensor)
+
+**Store SKU / option:** `M5-U169`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Temperature, Humidity, Pressure and Gas Sensor (BME688)
 
 ***
@@ -75,7 +81,7 @@ Users can utilize the BME AI-Studio tool to train the ENV Pro Unit for specific 
 
 <details>
 
-<summary><strong>Can I use the M5Stack BME688 with any microcontroller?</strong> </summary>
+<summary><strong>Can I use the M5Stack BME688 with any microcontroller?</strong></summary>
 
 Yes, as long as the microcontroller supports I2C communication, you can integrate the BME688 sensor.
 
@@ -115,8 +121,22 @@ The BME688 sensor can detect a range of volatile organic compounds (VOCs) but is
 
 <details>
 
-<summary><strong>How accurate are the sensor readings?</strong> </summary>
+<summary><strong>How accurate are the sensor readings?</strong></summary>
 
 The sensor provides high accuracy for temperature (±0.5°C), humidity (±3% RH), and pressure (±1 hPa).
 
 </details>
+
+## Official documentation and development resources
+
+Use [Unit ENV-Pro](https://docs.m5stack.com/en/unit/Unit_ENV-Pro) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U169`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                                 |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/622/Sch_UNIT-ENV_Pro.pdf)                                   |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U169_Unit_ENV-Pro/Structures)                  |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U169_Unit_ENV-Pro/Structures/Unit_ENV-Pro.stl) |
+| Example source: ENV\_PRO.ino | [Read example source: env\_pro.ino](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/ENV_PRO/ENV_PRO.ino)                      |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_env_pro)                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

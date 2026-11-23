@@ -23,6 +23,12 @@ layout:
 
 # M5Stack UnitV2 - The standalone AI Camera
 
+{% hint style="info" %}
+[**View M5Stack UnitV2 - The standalone AI Camera on OpenELAB**](https://openelab.io/products/m5stack-unitv2-ai-camera)
+
+**Store SKU / option:** `M5-U078-D`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack UnitV2 - The standalone AI Camera
 
 ***
@@ -84,3 +90,16 @@ Edge and Chrome browsers are recommended, Firefox has a certain chance of causin
 ### Schematics <a href="#schematics" id="schematics"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/unitv2/unitv2_sch_01.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [UnitV2](https://docs.m5stack.com/en/unit/UnitV2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U078-D`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                 | Model-specific reference                                                                                                               |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U078%E2%80%91D_UnitV2/Structures)            |
+| Mechanical / CAD files           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U078%E2%80%91D_UnitV2/Structures/UnitV2.stl) |
+| Official source: UnitV2Framework | [Read official source: unitv2framework](https://github.com/m5stack/UnitV2Framework)                                                    |
+| Arduino development tutorial     | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unitv2)                                          |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

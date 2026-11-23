@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Gesture recognition sensor
 
+{% hint style="info" %}
+[**View M5Stack Gesture Unit with PAJ7620U2 3D Gesture Sensor on OpenELAB**](https://openelab.io/products/gesture-recognition-sensor)
+
+**Store SKU / option:** `M5-U127`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Gesture recognition sensor
 
 ***
@@ -70,7 +76,7 @@ layout:
 | Product Weight                 | 4.3g                                                                      |
 | Package Weight                 | 16.4g                                                                     |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/Gesture/img-b7f9f0d1-68b3-470a-8072-f942cd6ce13e.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Gesture/img-441d6677-53f0-4a56-98a1-8c63fb988678.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/Gesture/img-c330684a-d6ec-485e-b392-f8e22b14dfd0.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/Gesture/img-b7f9f0d1-68b3-470a-8072-f942cd6ce13e.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Gesture/img-441d6677-53f0-4a56-98a1-8c63fb988678.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/Gesture/img-c330684a-d6ec-485e-b392-f8e22b14dfd0.webp)
 
 ### Related Link <a href="#related-link" id="related-link"></a>
 
@@ -120,3 +126,16 @@ layout:
 * gesture value Returns the value of the selected Gesture. Mainly used in logical operations.
 
 ![image](https://static-cdn.m5stack.com/resource/docs/products/unit/Gesture/blockIntro-d20437ac-17eb-4e9f-9b4c-107b36b4cf73.png)
+
+## Official documentation and development resources
+
+Use [Unit Gesture](https://docs.m5stack.com/en/unit/Unit_Gesture) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U127`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                       | Model-specific reference                                                                                                                            |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files                 | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U127_Unit_Gesture/Structures)                             |
+| Mechanical / CAD files                 | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U127_Unit_Gesture/Structures/Unit_Gesture.stl)            |
+| Example source: GESTURE\_PAJ7620U2.ino | [Read example source: gesture\_paj7620u2.ino](https://github.com/m5stack/M5Stack/blob/master/examples/Unit/GESTURE_PAJ7620U2/GESTURE_PAJ7620U2.ino) |
+| UIFlow1 workflow                       | [Read uiflow1 workflow](https://docs.m5stack.com/en/uiflow/blockly/unit/gesture)                                                                    |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

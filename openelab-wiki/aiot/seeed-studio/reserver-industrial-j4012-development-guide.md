@@ -104,3 +104,13 @@ Before executing the vendor's flash command, back up required data and verify th
 | [JetPack SDK](https://developer.nvidia.com/embedded/jetpack)                                                       | NVIDIA software stack; combine with Seeed carrier support |
 
 **Documentation review:** 17 November 2026. **Formatting and scope update:** 18 November 2026. **Software execution:** not run. **Hardware validation:** not run. The instructions are based on [Seeed's reServer Industrial product guide and image table](https://wiki.seeedstudio.com/reServer_Industrial_Getting_Started/); record hardware revision, JetPack/L4T version and actual results when reproducing them.
+
+## Official documentation and development resources
+
+Use [Getting Started with reServer Industrial](https://wiki.seeedstudio.com/reServer_Industrial_Getting_Started/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                         |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/reServer-Industrial/reServer-Industrial-3D.stp) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

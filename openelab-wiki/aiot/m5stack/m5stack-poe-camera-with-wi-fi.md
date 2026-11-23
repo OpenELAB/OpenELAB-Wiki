@@ -23,6 +23,12 @@ layout:
 
 # M5Stack PoE Camera with Wi-Fi
 
+{% hint style="info" %}
+[**View M5Stack PoE Camera with Wi-Fi for IoT Machine Vision on OpenELAB**](https://openelab.io/products/poe-camera)
+
+**Store SKU / option:** `M5-U121-B-V11`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack PoE Camera with Wi-Fi
 
 ***
@@ -105,3 +111,22 @@ layout:
 ### Model Size <a href="#model-size" id="model-size"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/M5PoECAM-W%20V1.1/img-40419f43-5f2d-40e8-92e9-bceec6908475.png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit PoE CAM-W v1.1](https://docs.m5stack.com/en/unit/Unit_PoE_CAM-W_v1.1) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U121-B-V11`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                                                     |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5poe_cam/program)                                                                   |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/595/Sch_M5PoECAM-W.pdf)                                                         |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U121-B-V11_Unit_PoE_CAM-W_v1.1/Structures)                         |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U121-B-V11_Unit_PoE_CAM-W_v1.1/Structures/Unit_PoE_CAM-W_v1.1.stl) |
+| Official source: PoE\_CAM    | [Read official source: poe\_cam](https://github.com/m5stack/PoE_CAM)                                                                                         |
+| Example source: M5PoECAM     | [Read example source: m5poecam](https://github.com/m5stack/M5PoECAM/tree/master/examples/button)                                                             |
+| Example source: M5PoECAM     | [Read example source: m5poecam](https://github.com/m5stack/M5PoECAM/tree/master/examples/capture)                                                            |
+| Example source: M5PoECAM     | [Read example source: m5poecam](https://github.com/m5stack/M5PoECAM/tree/master/examples/http_post)                                                          |
+| Example source: M5PoECAM     | [Read example source: m5poecam](https://github.com/m5stack/M5PoECAM/tree/master/examples/led)                                                                |
+| Example source: M5PoECAM     | [Read example source: m5poecam](https://github.com/m5stack/M5PoECAM/tree/master/examples/rtsp_stream)                                                        |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

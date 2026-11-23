@@ -23,6 +23,10 @@ layout:
 
 # M5Stack LLM Module
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack LLM (large language model) Module (AX630C)
 
 ***
@@ -65,7 +69,7 @@ Plug and play with **M5 hosts**, Module LLM offers an easy-to-use AI interaction
 
 <table><thead><tr><th width="215">Specification</th><th>Parameter</th></tr></thead><tbody><tr><td>Processor SoC</td><td>AX630C@Dual Cortex A53 1.2 GHz<br>MAX.12.8 TOPS @INT4 and 3.2 TOPS @INT8</td></tr><tr><td>Memory</td><td>4GB LPDDR4 (1GB system memory + 3GB dedicated for hardware acceleration)</td></tr><tr><td>Storage</td><td>32GB eMMC5.1</td></tr><tr><td>Communication</td><td>Serial communication default baud rate 115200@8N1 (adjustable)</td></tr><tr><td>Microphone</td><td>MSM421A</td></tr><tr><td>Audio Driver</td><td>AW8737</td></tr><tr><td>Speaker</td><td>8Ω@1W, Size:2014 cavity speaker</td></tr><tr><td>Built-in Units</td><td>KWS (wake word), ASR (speech recognition), LLM (large language model), TTS (text-to-speech)</td></tr><tr><td>RGB Light</td><td>3x RGB LED@2020 driven by LP5562 (status indication)</td></tr><tr><td>Power</td><td>Idle: 5V@0.5W, Full load: 5V@1.5W</td></tr><tr><td>Button</td><td>For entering download mode for firmware upgrade</td></tr><tr><td>Upgrade Port</td><td>SD card / Type-C port</td></tr><tr><td>Working Temp</td><td>0-40°C</td></tr><tr><td>Product Size</td><td>54*54*13mm</td></tr><tr><td>Packaging Size</td><td>133*95*16mm</td></tr><tr><td>Product Weight</td><td>17.4g</td></tr><tr><td>Packaging Weight</td><td>32.0g</td></tr></tbody></table>
 
-![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/11.webp)![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/5.webp)![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/12.webp)![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/9.webp)![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/14.webp)![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/7.webp)
+![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/11.webp) ![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/5.webp) ![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/12.webp) ![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/9.webp) ![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/14.webp) ![](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/7.webp)
 
 ### Related Links <a href="#related-links" id="related-links"></a>
 
@@ -136,3 +140,17 @@ Note on Model ReplacementThe LLM Module supports models in a proprietary format 
 ### COMPATIBLE <a href="#compatible" id="compatible"></a>
 
 <figure><img src="../../.gitbook/assets/image (420).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Module LLM](https://docs.m5stack.com/en/module/Module_LLM) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`M140`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need               | Model-specific reference                                                                                                                   |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic           | [Read electrical schematic](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/module/Module%20LLM/Sch_M5_Module-LLM.pdf) |
+| Mechanical / CAD files         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/M140_Module_LLM/Structures)                      |
+| Mechanical / CAD files         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/M140_Module_LLM/Structures/Module_LLM.stl)       |
+| Official source: M5Module-LLM  | [Read official source: m5module-llm](https://github.com/m5stack/M5Module-LLM)                                                              |
+| Official source: StackFlow.git | [Read official source: stackflow.git](https://github.com/m5stack/StackFlow.git)                                                            |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

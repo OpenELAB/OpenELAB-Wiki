@@ -23,6 +23,12 @@ layout:
 
 # M5Stack BaseX EV3 motor
 
+{% hint style="info" %}
+[**View M5Stack BaseX EV3 motor compatible base RJ11 interface on OpenELAB**](https://openelab.io/products/basex-ev3-motor)
+
+**Store SKU / option:** `M5-K037`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack BaseX EV3 motor compatible base RJ11 interface
 
 ***
@@ -106,3 +112,14 @@ Mode config method: Motor address + nByte
 | 10   | speed-i            |
 | 11   | speed-d            |
 | 12   | speed-point        |
+
+## Official documentation and development resources
+
+Use [Base X](https://docs.m5stack.com/en/base/Base_X) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K037`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                                         |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files  | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K037_BaseX/Structures) |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Modules/BaseX)            |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

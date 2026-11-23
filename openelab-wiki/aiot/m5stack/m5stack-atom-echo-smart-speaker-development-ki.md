@@ -108,3 +108,18 @@ To burn the firmware, download the corresponding easyloader according to the ope
 #### How to use BT speakers <a href="#how-to-use-bt-speakers" id="how-to-use-bt-speakers"></a>
 
 Turn on the power, the indicator light is red at this time, turn on the device BT, search for nearby devices, the BT device named M5\_SPEAKER\_T1 is ATOM ECHO. After clicking connect or pairing, ATOM ECHO will send out a BT pairing request. Confirm pairing to establish a BT connection. At this time, the indicator light turns green to indicate that the connection is normal. Once the connection is established, ATOM ECHO can be used as an audio playback device. (Currently the firmware does not support making and receiving calls as a hands-free device)
+
+## Official documentation and development resources
+
+Use [Atom Voice](https://docs.m5stack.com/en/atom/Atom_Voice) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C008-C`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                               |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5atomecho/program)                                            |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C008-C_Atom_Voice/Structures)                |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C008-C_Atom_Voice/Structures/Atom_Voice.stl) |
+| Example source: M5Atom       | [Read example source: m5atom](https://github.com/m5stack/M5Atom/tree/master/examples/Echo/RecordPlay)                                  |
+| Example source: M5Atom       | [Read example source: m5atom](https://github.com/m5stack/M5Atom/tree/master/examples/Echo/PlayMusic)                                   |
+| Example source: M5Atom       | [Read example source: m5atom](https://github.com/m5stack/M5Atom/tree/master/examples/Echo/EchoRest)                                    |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

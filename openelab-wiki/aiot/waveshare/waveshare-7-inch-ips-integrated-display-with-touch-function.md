@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 7 inch IPS Integrated Display, With Touch Function
 
+{% hint style="info" %}
+[**View Waveshare 7 inch IPS Integrated Display Without Touch 1024×600 on OpenELAB**](https://openelab.io/products/7inchipsintegrateddisplay)
+
+**Store SKU / option:** `Waveshare-22671`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 7 inch IPS Integrated Display, With Touch Function
 
 ***
@@ -300,8 +306,6 @@ Under the power supply of 5V, the working current is about 450mA when the backli
 
 <summary><a href="https://www.waveshare.com/wiki/70H-1024600#accordion2"><strong>Dimensional drawing of 70H-1024600 adapter board</strong></a></summary>
 
-
-
 <img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=70H-1024600-FAQ.png&#x26;width=600" alt="" data-size="original">
 
 </details>
@@ -344,13 +348,15 @@ Note:
 
 Please check whether the wiring is connected in reverse, as shown below
 
-
-
-<img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=70H_FAQ_1.jpg&#x26;width=600" alt="" data-size="original">
-
-<img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=70H_FAQ_2.jpg&#x26;width=600" alt="" data-size="original">
+<img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=70H_FAQ_1.jpg&#x26;width=600" alt="" data-size="original"> <img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=70H_FAQ_2.jpg&#x26;width=600" alt="" data-size="original">
 
 </details>
 
 \
 <br>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/70H-1024600) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

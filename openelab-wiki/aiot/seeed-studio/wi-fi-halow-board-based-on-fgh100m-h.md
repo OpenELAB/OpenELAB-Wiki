@@ -23,6 +23,12 @@ layout:
 
 # Wi-Fi HaLow Board based on FGH100M-H
 
+{% hint style="info" %}
+[**View Seeed Studio Wi-Fi HaLow Transceiver for XIAO FGH100M-H Module on OpenELAB**](https://openelab.io/products/seeed-studio-wifi-halow-board)
+
+**Store SKU / option:** `Seeed-109100041`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio Wi-Fi HaLow Board based on the FGH100M-H module
 
 ***
@@ -41,7 +47,7 @@ This tutorial will guide you through setting up and using the Wio-WM6180 Wi-Fi H
 * Low power consumption ideal for IoT devices
 * Sub-1 GHz operation for better penetration through walls and obstacles
 * Compatible with XIAO ESP32S3 development board
-* Easy to follow setup and configuration process &#x20;
+* Easy to follow setup and configuration process
 
 ### Hardware <a href="#hardware-overview" id="hardware-overview"></a>
 
@@ -415,3 +421,13 @@ Troubleshooting:
 * **\[PDF]** [WI-FI\_HALOW\_FGH100M\_EXT01\_V30\_SCH\_20241107](https://files.seeedstudio.com/wiki/wifi_halow/res/WI-FI_HALOW_FGH100M_EXT01_V30_SCH_20241107.pdf)
 * **\[KiCAD]** [WI-FI\_HALOW\_FGH100M\_EXT01\_V30 KiCAD PCB File](https://files.seeedstudio.com/wiki/wifi_halow/res/WI-FI_HALOW_FGH100M_EXT01_V30.kicad_pcb)
 * **\[PDF]** [Quectel\_FGH100M-H\_Short-Range\_Module\_Specification\_V1.0.0](https://files.seeedstudio.com/wiki/wifi_halow/res/Quectel_FGH100M-H_Short-Range_Module_Specification_V1.0.0_Preliminary_20241018.pdf)
+
+## Official documentation and development resources
+
+Use [Getting Started with Wi-Fi HaLow Module for XIAO](https://wiki.seeedstudio.com/getting_started_with_wifi_halow_module_for_xiao/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need                  | Model-specific reference                                                                   |
+| --------------------------------- | ------------------------------------------------------------------------------------------ |
+| Official source: mm-iot-esp32.git | [Read official source: mm-iot-esp32.git](https://github.com/Seeed-Studio/mm-iot-esp32.git) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

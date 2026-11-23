@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Unbuckled Grove Cable
 
+{% hint style="info" %}
+[**View M5Stack Unbuckled Grove Cable 1m/2m/50cm/20cm/10cm/5cm on OpenELAB**](https://openelab.io/products/unbuckled-grove-cable)
+
+**Store SKU / option:** `M5-A034-G`, `M5-A034`, `M5-A034-B`, `M5-A034-C`, `M5-A034-D`, `M5-A034-E`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Unbuckled Grove Cable 1m/2m/50cm/20cm/10cm/5cm
 
 ***
@@ -49,3 +55,9 @@ layout:
 | 50cm (2/pcs)  | 21g       |
 | 100cm (1/pcs) | 20g       |
 | 200cm (1/pcs) | 36g       |
+
+## Official documentation and development resources
+
+Use [Grove Cable](https://docs.m5stack.com/en/accessory/cable/Grove_Cable) for the manufacturer's model information, dimensions and applicable connection instructions. The official product code is **`A034/A034-B/A034-C/A034-D/A034-E/A034-G`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+Check the accessory's physical fit and any electrical connections against the exact host. Firmware and software instructions belong to that host; do not treat a passive part as a separately programmable controller. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

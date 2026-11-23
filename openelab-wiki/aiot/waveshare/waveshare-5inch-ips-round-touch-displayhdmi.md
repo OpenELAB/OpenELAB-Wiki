@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 5inch IPS Round Touch DisplayHDMI
 
+{% hint style="info" %}
+[**View Waveshare 5 inch IPS Round Touch Display 1080x1080 HDMI on OpenELAB**](https://openelab.io/products/5inch-ips-round-touch-display)
+
+**Store SKU / option:** `Waveshare-24369`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 5inch IPS Round Touch DisplayHDMI
 
 ***
@@ -165,3 +171,9 @@ Take Windows 10 as an example:
 
 * [5inch 1080x1080 LCD 3D Preview](https://files.waveshare.com/upload/9/9b/5inch_1080x1080_LCD_3D_preview.zip)
 * [5inch 1080x1080 LCD 3D Drawing](https://files.waveshare.com/upload/c/c9/5inch_1080x1080_LCD_3D.zip)
+
+## Official documentation and development resources
+
+Use [Feature](https://www.waveshare.com/wiki/5inch_1080x1080_LCD) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

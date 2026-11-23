@@ -23,6 +23,12 @@ layout:
 
 # M5Stack I/O Hub
 
+{% hint style="info" %}
+[**View M5Stack I/O Hub 1 to 6 Expansion Unit on OpenELAB**](https://openelab.io/products/m5stack-i-o-hub)
+
+**Store SKU / option:** `M5-U041-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack I/O Hub 1 to 6 Expansion Unit
 
 ***
@@ -63,3 +69,20 @@ layout:
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (385).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit PbHub v1.1](https://docs.m5stack.com/en/unit/Unit_PbHub_v1.1) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U041-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                          | Model-specific reference                                                                                                                         |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Mechanical / CAD files                    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U041-B_Unit_PbHub_v1.1/Structures)                     |
+| Mechanical / CAD files                    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U041-B_Unit_PbHub_v1.1/Structures/Unit_PbHub_v1.1.stl) |
+| Example source: M5Unit-PbHub              | [Read example source: m5unit-pbhub](https://github.com/m5stack/M5Unit-PbHub/tree/main/examples/analog_read)                                      |
+| Example source: M5Unit-PbHub              | [Read example source: m5unit-pbhub](https://github.com/m5stack/M5Unit-PbHub/tree/main/examples/digital_write_read)                               |
+| Example source: M5Unit-PbHub              | [Read example source: m5unit-pbhub](https://github.com/m5stack/M5Unit-PbHub/tree/main/examples/pwm)                                              |
+| Example source: M5Unit-PbHub              | [Read example source: m5unit-pbhub](https://github.com/m5stack/M5Unit-PbHub/tree/main/examples/rgb_led)                                          |
+| Example source: M5Unit-PbHub              | [Read example source: m5unit-pbhub](https://github.com/m5stack/M5Unit-PbHub/tree/main/examples/servo)                                            |
+| Official source: M5Unit-PbHub-Internal-FW | [Read official source: m5unit-pbhub-internal-fw](https://github.com/m5stack/M5Unit-PbHub-Internal-FW)                                            |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

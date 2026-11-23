@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Scale Kit
 
+{% hint style="info" %}
+[**View M5Stack Scale Kit with Weight Unit on OpenELAB**](https://openelab.io/products/m5stack-scale-kit)
+
+**Store SKU / option:** `M5-K121`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Scale Kit with Weight Unit
 
 ***
@@ -86,3 +92,19 @@ NOTE: The Scale Kit will need a cover plate to work with, and the size of the co
 ### **Datasheet**
 
 * [HX711](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/unit/HX711_en.pdf)
+
+## Official documentation and development resources
+
+Use [Scales Kit](https://docs.m5stack.com/en/app/Scales_Kit) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K121`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                | Model-specific reference                                                                                                          |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Example source: SCALES\_KIT.ino | [Read example source: scales\_kit.ino](https://github.com/m5stack/M5Stack/blob/master/examples/KIT/SCALES_KIT/SCALES_KIT.ino)     |
+| Example source: SCALES\_KIT.ino | [Read example source: scales\_kit.ino](https://github.com/m5stack/M5Core2/blob/master/examples/KIT/SCALES_KIT/SCALES_KIT.ino)     |
+| Example source: M5Atom          | [Read example source: m5atom](https://github.com/m5stack/M5Atom/tree/master/examples/KIT/SCALES_KIT/SCALES_KIT.ino)               |
+| Example source: M5StickC        | [Read example source: m5stickc](https://github.com/m5stack/M5StickC/tree/master/examples/KIT/SCALES_KIT/SCALES_KIT.ino)           |
+| Example source: M5StickC-Plus   | [Read example source: m5stickc-plus](https://github.com/m5stack/M5StickC-Plus/tree/master/examples/KIT/SCALES_KIT/SCALES_KIT.ino) |
+| Example source: M5Core-Ink      | [Read example source: m5core-ink](https://github.com/m5stack/M5Core-Ink/tree/master/examples/KIT/SCALES_KIT/SCALES_KIT.ino)       |
+| Example source: SCALES\_KIT.ino | [Read example source: scales\_kit.ino](https://github.com/m5stack/M5EPD/blob/main/examples/KIT/SCALES_KIT/SCALES_KIT.ino)         |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

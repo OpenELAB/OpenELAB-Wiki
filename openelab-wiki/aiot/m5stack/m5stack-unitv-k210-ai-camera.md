@@ -23,6 +23,12 @@ layout:
 
 # M5Stack UnitV K210 AI Camera
 
+{% hint style="info" %}
+[**View M5Stack UnitV K210 AI Camera M12 Version on OpenELAB**](https://openelab.io/products/m5stack-unitv-k210-ai-camera)
+
+**Store SKU / option:** `M5-U078-V-M12`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack UnitV K210 AI Camera M12 Version
 
 ***
@@ -116,3 +122,15 @@ UNIT-V does not currently recognize all types of MicroSD cards. We have tested s
 ### Model Size <a href="#model-size" id="model-size"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT-V%20M12/img-0463d15d-73b2-4f6a-904d-20676f8a3197.jpg" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [UnitV-M12](https://docs.m5stack.com/en/unit/UnitV-M12) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U078-V-M12`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                                 |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U078-V-M12_UnitV-M12/Structures)               |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U078-V-M12_UnitV-M12/Structures/UnitV-M12.stl) |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unitv)                                             |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

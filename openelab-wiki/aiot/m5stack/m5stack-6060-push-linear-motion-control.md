@@ -23,6 +23,12 @@ layout:
 
 # M5Stack 6060-PUSH Linear Motion Control
 
+{% hint style="info" %}
+[**View M5Stack 6060-PUSH Linear Motion Control on OpenELAB**](https://openelab.io/products/push-linear-motion-control)
+
+**Store SKU / option:** `M5-K028`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack 6060-PUSH Linear Motion Control
 
 ***
@@ -59,3 +65,13 @@ This an application-level module, which implements a motion & robotic control an
 | Gross weight | 600g          |
 | Product Size | 166\*60\*60mm |
 | Package Size | 166\*60\*60mm |
+
+## Official documentation and development resources
+
+Use [6060-Push](https://docs.m5stack.com/en/1515/6060-Push) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K028`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                   | Model-specific reference                                                                                                    |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Example source: M5Module-GRBL-13.2 | [Read example source: m5module-grbl-13.2](https://github.com/m5stack/M5Module-GRBL-13.2/tree/master/examples/6060Driver328) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

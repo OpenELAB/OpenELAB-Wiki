@@ -23,6 +23,10 @@ layout:
 
 # XIAO MG24
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### Seeed Studio XIAO MG24 Silicon Labs EFR32MG24 BLE 5.3 1.95μA
 
 ***
@@ -64,14 +68,14 @@ Seeed Studio XIAO MG24 is a mini development board based on Silicon Labs' MG24. 
 
 ### Hardware[​](https://wiki.seeedstudio.com/xiao_mg24_getting_started/#hardware-overview) <a href="#hardware-overview" id="hardware-overview"></a>
 
-| XIAO MG24 Sense indication diagram                                                                         |
-| ---------------------------------------------------------------------------------------------------------- |
-| <p><img src="https://files.seeedstudio.com/wiki/XIAO_MG24/Getting_Start/mg24sense_pinlist.png" alt=""></p> |
-| XIAO MG24 indication diagram                                                                               |
-| <p><img src="https://files.seeedstudio.com/wiki/XIAO_MG24/Getting_Start/mg24_pinlist.png" alt=""></p>      |
-| XIAO MG24/ XIAO MG24(Sense) Pin List                                                                       |
-| <p><img src="https://files.seeedstudio.com/wiki/XIAO_MG24/Getting_Start/modifyMG24.png" alt=""></p>        |
-|                                                                                                            |
+| XIAO MG24 Sense indication diagram                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| <img src="https://files.seeedstudio.com/wiki/XIAO_MG24/Getting_Start/mg24sense_pinlist.png" alt="" data-size="original"> |
+| XIAO MG24 indication diagram                                                                                             |
+| <img src="https://files.seeedstudio.com/wiki/XIAO_MG24/Getting_Start/mg24_pinlist.png" alt="" data-size="original">      |
+| XIAO MG24/ XIAO MG24(Sense) Pin List                                                                                     |
+| <img src="https://files.seeedstudio.com/wiki/XIAO_MG24/Getting_Start/modifyMG24.png" alt="" data-size="original">        |
+|                                                                                                                          |
 
 **tip:**
 
@@ -107,3 +111,9 @@ At the same time, we designed a red indicator light for battery charging, throug
 3. When connecting Type-C to charge the battery fully, the red light turns off.
 
 ![](https://files.seeedstudio.com/wiki/XIAO_MG24/Getting_Start/battery_mg24.jpg)
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO MG24(Sense)](https://wiki.seeedstudio.com/xiao_mg24_getting_started/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

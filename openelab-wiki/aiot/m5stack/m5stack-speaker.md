@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Speaker
 
+{% hint style="info" %}
+[**View M5Stack Speaker 2 Hat MAX98357 I2S Audio Output Module on OpenELAB**](https://openelab.io/products/m5stack-speaker-2-hat)
+
+**Store SKU / option:** `M5-U055-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Speaker 2 Hat (MAX98357)
 
 ***
@@ -66,7 +72,7 @@ The `'HAT-SPK2` is a speaker with `M5SticKC PLUS`, built-in `MAX98357 digital au
 | Product Weight              | 4.6g                             |
 | Package Weight              | 8.1g                             |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-SPK2/img-a900d785-f76d-45ae-9f0e-bb63b3706d2d.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-SPK2/img-9279e6ec-30e3-48ad-ba80-1261e12c482c.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-SPK2/img-d2095389-378f-439f-89b4-a47a6fd8f3ef.webp)![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-SPK2/img-36ecca13-f706-4c88-92b7-59c89ce3b1d0.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-SPK2/img-a900d785-f76d-45ae-9f0e-bb63b3706d2d.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-SPK2/img-9279e6ec-30e3-48ad-ba80-1261e12c482c.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-SPK2/img-d2095389-378f-439f-89b4-a47a6fd8f3ef.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-SPK2/img-36ecca13-f706-4c88-92b7-59c89ce3b1d0.webp)
 
 ### Schematic <a href="#schematic" id="schematic"></a>
 
@@ -75,3 +81,14 @@ The `'HAT-SPK2` is a speaker with `M5SticKC PLUS`, built-in `MAX98357 digital au
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/hat/Hat-SPK2/img-8b4c1482-36ca-4a2f-9203-53a4818f3975.png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Hat SPK2](https://docs.m5stack.com/en/hat/Hat_SPK2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U055-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                     |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/580/Sch_Hat_SPK2.pdf)                           |
+| Example source: SPEAKER2.ino | [Read example source: speaker2.ino](https://github.com/m5stack/M5StickC-Plus/blob/master/examples/Hat/SPEAKER2/SPEAKER2.ino) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

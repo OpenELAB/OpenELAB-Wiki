@@ -23,6 +23,10 @@ layout:
 
 # M5Stack ATOMS3 Dev Kit w/ 0.85-inch Screen
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack ATOMS3 Dev Kit w/ 0.85-inch Screen
 
 ***
@@ -127,3 +131,19 @@ Open the example program “LEDDisplay” in the driver library. Click the uploa
 The effect is as shown below:
 
 <figure><img src="../../.gitbook/assets/image (658).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [AtomS3](https://docs.m5stack.com/en/core/AtomS3) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`C123`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                   | Model-specific reference                                                                                                     |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial       | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5atoms3/program)                                    |
+| Electrical schematic               | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/472/Sch_M5_AtomS3_v1.0.pdf)                     |
+| Electrical schematic               | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/472/Sch_AtomS3_IMU.pdf)                         |
+| Mechanical / CAD files             | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/C123_AtomS3/Structures)            |
+| Mechanical / CAD files             | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/C123_AtomS3/Structures/AtomS3.stl) |
+| Official source: M5AtomS3          | [Read official source: m5atoms3](https://github.com/m5stack/M5AtomS3)                                                        |
+| Official source: M5AtomS3-UserDemo | [Read official source: m5atoms3-userdemo](https://github.com/m5stack/M5AtomS3-UserDemo)                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,10 @@ layout:
 
 # M5Paper ESP32 Development Kit
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Paper ESP32 Development Kit V1.1
 
 ***
@@ -37,13 +41,13 @@ No matching current OpenELAB.io listing was found for the product version docume
 
 Additionally the FM24C02 internal eeprom chip provided 2K-bit(256x8)-EEPROM can be used to store vital data even when the device is off. A 1150mAh lithium polymer battery keeps the device going for long periods and battery life can be further preserved by using the RTC(BM8563)to set the device into deep sleep and wake it up again when needed。Three HY2.0-4P expansion ports are included which allow for building complex projects using the existing sensors in the M5Stack ecosystem.
 
-Warning:&#x20;
+Warning:
 
-1\. Do not expose to ultraviolet rays for a long time, otherwise it may cause irreversible damage to the ink screen.&#x20;
+1\. Do not expose to ultraviolet rays for a long time, otherwise it may cause irreversible damage to the ink screen.
 
-2\. The low-power power management solution adopted by M5Paper is different from CORE and StickC devices. When using it, the PWR button is used as the power-on button (long press for 2s). If you need to shut down the device, you need to use the software API or It is realized by pressing the reset button on the back. When using USB power supply, it cannot be shut down.&#x20;
+2\. The low-power power management solution adopted by M5Paper is different from CORE and StickC devices. When using it, the PWR button is used as the power-on button (long press for 2s). If you need to shut down the device, you need to use the software API or It is realized by pressing the reset button on the back. When using USB power supply, it cannot be shut down.
 
-3\. During use, if the program cannot be downloaded normally (the prompt is overtime or Failed to write to target RAM), you can try to reinstall the device driver.&#x20;
+3\. During use, if the program cannot be downloaded normally (the prompt is overtime or Failed to write to target RAM), you can try to reinstall the device driver.
 
 ### Features <a href="#product-features" id="product-features"></a>
 
@@ -164,3 +168,19 @@ Resolution:540\*960
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 ![module size](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/m5paper_v1.1/paper%E5%B0%BA%E5%AF%B8%E5%9B%BE.jpg)
+
+## Official documentation and development resources
+
+Use [Paper](https://docs.m5stack.com/en/core/Paper) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K049`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                      | Model-specific reference                                                                                                        |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial          | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5paper/program)                                        |
+| Electrical schematic                  | [Read electrical schematic](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/schematic/Core/m5paper/M5_PAPER_SCH.pdf) |
+| Official source: M5EPD                | [Read official source: m5epd](https://github.com/m5stack/M5EPD)                                                                 |
+| Official source: M5Paper\_FactoryTest | [Read official source: m5paper\_factorytest](https://github.com/m5stack/M5Paper_FactoryTest)                                    |
+| Official source: M5EPD\_Todo          | [Read official source: m5epd\_todo](https://github.com/m5stack/M5EPD_Todo)                                                      |
+| Official source: M5EPD\_Calculator    | [Read official source: m5epd\_calculator](https://github.com/m5stack/M5EPD_Calculator)                                          |
+| Official source: M5EPD\_TTFExample    | [Read official source: m5epd\_ttfexample](https://github.com/m5stack/M5EPD_TTFExample)                                          |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # M5Stack JoyC Omni-directional Controller
 
+{% hint style="info" %}
+[**View M5Stack JoyC (W/O M5StickC) Omni-directional Controller on OpenELAB**](https://openelab.io/products/m5stack-joyc-controller)
+
+**Store SKU / option:** `M5-U079`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack JoyC (W/O M5StickC) Omni-directional Controller
 
 ***
@@ -62,3 +68,14 @@ layout:
 * I2C Address: **0x38**
 
 [RoverC-Pro User Manual](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/hat/hat-joyc/U079_I2C_PROTOCOL_EN.pdf)
+
+## Official documentation and development resources
+
+Use [Hat JoyC](https://docs.m5stack.com/en/hat/Hat_JoyC) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U079`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                    |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Hat/JoyC/Arduino/JoyC)    |
+| Example source: M5-RoverC    | [Read example source: m5-roverc](https://github.com/m5stack/M5-RoverC/tree/master/examples/RoverC_M5StickC/JoyC_%26_RoverC) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

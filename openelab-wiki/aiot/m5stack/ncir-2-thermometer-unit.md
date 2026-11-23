@@ -23,6 +23,12 @@ layout:
 
 # NCIR 2 Thermometer Unit
 
+{% hint style="info" %}
+[**View M5Stack NCIR 2 Thermometer Unit with MLX90614 IR Sensor on OpenELAB**](https://openelab.io/products/ncir-2-thermometer-unit)
+
+**Store SKU / option:** `M5-U150`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack NCIR 2 Thermometer Unit (MLX90614)
 
 ***
@@ -70,7 +76,7 @@ This Unit can either work with M5Core through I2C protocol, or work alone. Suita
 | Product Weight                       | 7.3g                |
 | Package Weight                       | 12.8g               |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-77bc1f8d-bedb-4081-b74a-000d5d6e36d5.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-a8932041-3ca1-45eb-89a4-0c3a2763f339.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-53c5aa20-4ecd-411d-af33-57af9896c06f.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-fd84b907-a693-4934-8135-08b21885b8d7.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-bd85f23f-8075-447c-85b0-27dffaf35dfc.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-162ae4fb-2013-42e2-8321-0c136d29c71f.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-77bc1f8d-bedb-4081-b74a-000d5d6e36d5.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-a8932041-3ca1-45eb-89a4-0c3a2763f339.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-53c5aa20-4ecd-411d-af33-57af9896c06f.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-fd84b907-a693-4934-8135-08b21885b8d7.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-bd85f23f-8075-447c-85b0-27dffaf35dfc.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/NCIR2/img-162ae4fb-2013-42e2-8321-0c136d29c71f.webp)
 
 ### Related Link <a href="#related-link" id="related-link"></a>
 
@@ -102,3 +108,17 @@ This Unit can either work with M5Core through I2C protocol, or work alone. Suita
 ### COMPATIBLE <a href="#compatible" id="compatible"></a>
 
 <figure><img src="../../.gitbook/assets/image (421).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit NCIR2](https://docs.m5stack.com/en/unit/Unit_NCIR2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U150`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                          | Model-specific reference                                                                                                             |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Electrical schematic                      | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/604/Sch_UNIT-NCIR2.pdf)                                 |
+| Mechanical / CAD files                    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U150_Unit_NCIR2/Structures)                |
+| Mechanical / CAD files                    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U150_Unit_NCIR2/Structures/Unit_NCIR2.stl) |
+| Official source: M5Unit-NCIR2             | [Read official source: m5unit-ncir2](https://github.com/m5stack/M5Unit-NCIR2)                                                        |
+| Official source: M5Unit-NCIR2-Internal-FW | [Read official source: m5unit-ncir2-internal-fw](https://github.com/m5stack/M5Unit-NCIR2-Internal-FW)                                |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

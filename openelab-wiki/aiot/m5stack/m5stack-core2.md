@@ -23,6 +23,10 @@ layout:
 
 # M5Stack Core2
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack Core2 ESP32 IoT Development Kit
 
 ***
@@ -101,7 +105,7 @@ Reset: Click the RST button on the bottom side
 | Package Size                          | 75 x 60 x 20mm                                                                                       |
 | Case Material                         | Plastic ( PC )                                                                                       |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/core/core2/core2_04.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/core2/core2_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/core/core2/core2_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/core/core2/core2_04.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/core2/core2_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/core/core2/core2_06.webp)
 
 ### PinMap <a href="#pinmap" id="pinmap"></a>
 
@@ -205,3 +209,18 @@ LCD :320x240 TF card Maximum size 16GB
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/core2/%E5%B0%BA%E5%AF%B8%E5%9B%BE.jpg" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Core2](https://docs.m5stack.com/en/core/Core2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K010`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                   |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5core2/program)                                   |
+| Official source: M5Tools     | [Read official source: m5tools](https://github.com/m5stack/M5Tools)                                                        |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K010_Core2/Structures)           |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K010_Core2/Structures/Core2.stl) |
+| Official source: M5Core2     | [Read official source: m5core2](https://github.com/m5stack/M5Core2)                                                        |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5core2/button)                                    |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

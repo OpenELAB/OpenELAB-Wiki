@@ -23,6 +23,12 @@ layout:
 
 # M5Stack 1 to 3 HUB Expansion
 
+{% hint style="info" %}
+[**View M5Stack 1 to 3 HUB Expansion Unit on OpenELAB**](https://openelab.io/products/m5stack-1-to-3-hub)
+
+**Store SKU / option:** `M5-U006`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack 1 to 3 HUB Expansion Unit
 
 ***
@@ -56,3 +62,14 @@ If you are connecting two I2C slave devices onto **HUB** that share the same add
 ### Schematics <a href="#schematics" id="schematics"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/hub/hub_sch_01.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit Hub](https://docs.m5stack.com/en/unit/Unit_Hub) for the manufacturer's model information, dimensions and applicable connection instructions. The official product code is **`U006`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U006_Unit_Hub/Structures)              |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U006_Unit_Hub/Structures/Unit_Hub.stl) |
+
+Check the accessory's physical fit and any electrical connections against the exact host. Firmware and software instructions belong to that host; do not treat a passive part as a separately programmable controller. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

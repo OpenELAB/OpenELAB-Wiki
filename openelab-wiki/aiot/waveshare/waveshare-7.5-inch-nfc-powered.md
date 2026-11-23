@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 7.5 inch NFC-Powered
 
+{% hint style="info" %}
+[**View Waveshare 7.5 inch NFC-Powered e-Paper Kit No Battery on OpenELAB**](https://openelab.io/products/7-5-inch-nfc-e-paper-kit)
+
+**Store SKU / option:** `Waveshare-17766`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 7.5 inch NFC-Powered e-Paper Kit No Battery
 
 ***
@@ -205,3 +211,9 @@ You can check the symbol on the top-right of the APP. The default password is 12
 You need to remember the password if you change it.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/7.5inch_NFC-Powered_e-Paper) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

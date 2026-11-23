@@ -28,6 +28,12 @@ Seeed Studio develops hardware for sensing, connectivity, and edge computing. It
 
 [Browse Seeed Studio products on OpenELAB](https://openelab.io/collections/brands-seeed-studio)
 
+## Develop from the exact Seeed platform
+
+This directory retains 69 existing guide URLs across XIAO, Grove, SenseCAP, Wio, reSpeaker and edge computers. Read the hardware option before selecting a runtime or firmware: similarly named XIAO MCUs, Meshtastic/LoRaWAN devices and Jetson carrier boards need different configuration.
+
+The [main standard XIAO RP2040 guide](xiao-rp2040.md) separates RP2040 from RP2040 Plus, gives the Arduino bootloader/Blink workflow and links the complete interface tutorials. Earlier RP2040 URLs link to that guide. ESP32-S3 pages use the S3 documentation rather than the C3 setup route. Each model's official resources provide the full schematics, platform examples and extended features alongside the OpenELAB integration guide.
+
 ### Popular product guides
 
 Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.

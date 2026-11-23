@@ -23,6 +23,12 @@ layout:
 
 # Waveshare ESP8266 for Raspberry Pi Pico Wifi Module TCP UDP
 
+{% hint style="info" %}
+[**View Waveshare ESP8266 for Raspberry Pi Pico Wifi Module TCP UDP on OpenELAB**](https://openelab.io/products/esp8266forraspberrypipicowifimodule)
+
+**Store SKU / option:** `Waveshare-20182`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare ESP8266 for Raspberry Pi Pico Wifi Module TCP UDP
 
 ***
@@ -659,3 +665,14 @@ Expand
 * [Official Raspberry Pi C/C++ Demo](https://github.com/raspberrypi/pico-examples/)
 * [Official Raspberry Pi MicroPython Demo](https://github.com/raspberrypi/pico-micropython-examples)
 * [Arduino Official C/C++ Demo](https://github.com/earlephilhower/arduino-pico)
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/Pico-ESP8266) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need                             | Model-specific reference                                                                                        |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                         | [Read electrical schematic](https://files.waveshare.com/upload/7/74/Pico-ESP8266_Schematic.pdf)                 |
+| Official source: Pico\_MircoPython\_Examples | [Read official source: pico\_mircopython\_examples](https://github.com/waveshareteam/Pico_MircoPython_Examples) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

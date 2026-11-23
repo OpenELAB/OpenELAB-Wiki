@@ -23,6 +23,12 @@ layout:
 
 # M5Stack BALA2 Fire Self-balancing Robot Kit
 
+{% hint style="info" %}
+[**View M5Stack BALA2 Fire Self-balancing Robot Kit on OpenELAB**](https://openelab.io/products/self-balancing-robot-kit)
+
+**Store SKU / option:** `M5-K014-E`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack BALA2 Fire Self-balancing Robot Kit
 
 ***
@@ -93,3 +99,9 @@ Caution: While using `PSRAM`, you `cannot` use `PortC`
 | PORT A     | SCL    | SDA    |        |        |        |        |
 | PORT B     |        |        | DAC    | ADC    |        |        |
 | PORT C     |        |        |        |        | RX     | TX     |
+
+## Official documentation and development resources
+
+Use [Bala2-Fire](https://docs.m5stack.com/en/app/Bala2-Fire) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K014-E`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

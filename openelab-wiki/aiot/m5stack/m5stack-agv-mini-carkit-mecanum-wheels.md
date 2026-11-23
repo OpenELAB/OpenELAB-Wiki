@@ -23,11 +23,17 @@ layout:
 
 # M5Stack AGV Mini Carkit Mecanum Wheels
 
+{% hint style="info" %}
+[**View \[EOL\] M5Stack NEW Lidar Bot AGV Mini Carkit Mecanum Wheels on OpenELAB**](https://openelab.io/products/carkit-mecanum-wheels)
+
+**Store SKU / option:** `M5-K017-C`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack NEW Lidar Bot AGV Mini Carkit Mecanum Wheels
 
 ***
 
-### Product Link&#x20;
+### Product Link
 
 {% embed url="https://openelab.io/products/carkit-mecanum-wheels" %}
 
@@ -117,3 +123,9 @@ In the unconnected state or if one party is not connected to the other party, th
 After the radar car is started, there is no need to match the radar car with the handle, you can connect to the radar car Wi-Fi hotspot (SSID:X2Lidar:xx:xx:xx, PWD:12345678), and then access via mobile phone or computer browser 192.168.4.1/map to see the radar image information.
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/app/lidarbot/lidarbot_map_01.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [LidarBot](https://docs.m5stack.com/en/app/LidarBot) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K017-C`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

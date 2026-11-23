@@ -10,7 +10,7 @@ description: >-
 
 Explore documentation for microcontrollers, single-board computers, wireless devices and the components around them. Use this section to find hardware references, interfaces, configuration steps and software resources for your connected-device project.
 
-Browse 29 manufacturer and brand directories with 516 visible wiki pages beneath them. Coverage updated 22 November 2026.
+Browse 29 manufacturer and brand directories with 516 visible wiki pages beneath them. Coverage updated 23 November 2026.
 
 ## Start here
 
@@ -20,6 +20,18 @@ Browse 29 manufacturer and brand directories with 516 visible wiki pages beneath
 | Explore LoRa, Meshtastic and wireless development boards | [HELTEC](heltec/) · [LILYGO](lilygo/) · [Seeed Studio](seeed-studio/)                                                       |
 | Start a microcontroller or modular electronics project   | [Espressif](espressif/) · [M5Stack](m5stack/) · [Seeed Studio](seeed-studio/)                                               |
 | Add a display, camera, sensor or communication interface | [Waveshare](waveshare/) · [DFRobot](dfrobot/) · [Wireless-Tag](wireless-tag/) · [WisdPi](wisdpi/) · [WitMotion](witmotion/) |
+
+## Practical development paths
+
+Use the model guides alongside their official references for schematics, library examples and full feature instructions. Begin with one measurable result, then add peripherals or advanced features.
+
+| Development task                                                           | Guide                                                                                            |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Obtain a wired Ethernet address with the right ESP32 board settings        | [Waveshare ESP32-S3-ETH](waveshare/waveshare-esp32-s3-eth-development-guide.md)                  |
+| Select the right distance-sensor generation and driver                     | [M5Stack U172 ToF4M](m5stack/m5stack-time-of-flight-distance-unit-vl53l1x.md)                    |
+| Read temperature, humidity and pressure with explicit host/model selection | [M5Stack ENV-III](m5stack/m5stack-env-iii-unit-with-temperature-humidity-air-pressure-sensor.md) |
+| Program a standard XIAO board without assuming Plus hardware               | [Seeed Studio XIAO RP2040](seeed-studio/xiao-rp2040.md)                                          |
+| Select the correct OLED controller and resolve source-archive build issues | [Waveshare SSD1315 C/D/E OLED](waveshare/0.96-inch-oled-display-module-spi-i2c-communication.md) |
 
 ## Popular product guides
 

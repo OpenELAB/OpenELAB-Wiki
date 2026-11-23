@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Passive Buzzer
 
+{% hint style="info" %}
+[**View M5Stack Passive Buzzer Unit 4KHz Audible Alert Module on OpenELAB**](https://openelab.io/products/passive-buzzer-unit)
+
+**Store SKU / option:** `M5-U132`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Passive Buzzer Unit
 
 ***
@@ -76,3 +82,14 @@ Product Link
 Compatible
 
 <figure><img src="../../.gitbook/assets/image (401).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit Buzzer](https://docs.m5stack.com/en/unit/Unit_Buzzer) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U132`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                               |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U132_Unit_Buzzer/Structures)                 |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U132_Unit_Buzzer/Structures/Unit_Buzzer.stl) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

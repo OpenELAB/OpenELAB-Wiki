@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Digital RGB LED
 
+{% hint style="info" %}
+[**View M5Stack Digital RGB LED Weatherproof Strip SK6812 on OpenELAB**](https://openelab.io/products/m5stack-digital-rgb-led)
+
+**Store SKU / option:** `M5-A093`, `M5-A093-B`, `M5-A093-C`, `M5-A093-D`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Digital RGB LED Weatherproof Strip SK6812
 
 ***
@@ -87,3 +93,13 @@ It should be noted that with the gradual increase in the number of LED strip con
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (961).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit RGB LED Strip](https://docs.m5stack.com/en/unit/Unit_RGB_LED_Strip) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`A093/A093-B/A093-C/A093-D`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                                                    |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/RGB_LED_SK6812/display_rainbow) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

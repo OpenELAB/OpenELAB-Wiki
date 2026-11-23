@@ -23,6 +23,12 @@ layout:
 
 # M5Stack RCA Audio/Video Module
 
+{% hint style="info" %}
+[**View M5Stack RCA Audio/Video Composite Module 13.2 on OpenELAB**](https://openelab.io/products/rca-video-composite-module)
+
+**Store SKU / option:** `M5-M125`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack RCA Audio/Video Composite Module 13.2
 
 ***
@@ -77,3 +83,14 @@ Module RCA is a composite signal expansion module for audio and video, using the
 ### Model Size <a href="#model-size" id="model-size"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/module/RCA%20Module%2013.2/img-58ddfb1e-695e-4db0-9f0a-7f5872e247e7.png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Module13.2 RCA](https://docs.m5stack.com/en/module/Module13.2_RCA) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`M125`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need        | Model-specific reference                                                                                  |
+| ----------------------- | --------------------------------------------------------------------------------------------------------- |
+| Electrical schematic    | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/552/SCH_Module_RCA_V1.0.pdf) |
+| Example source: M5Stack | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Unit/RCA)          |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

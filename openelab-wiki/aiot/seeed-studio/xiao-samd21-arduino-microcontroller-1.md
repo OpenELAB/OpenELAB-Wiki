@@ -23,6 +23,12 @@ layout:
 
 # XIAO SAMD21 Arduino Microcontroller
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO SAMD21 Arduino Microcontroller on OpenELAB**](https://openelab.io/products/xiao-samd21-arduino-microcontroller)
+
+**Store SKU / option:** `Seeed-102010328`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO SAMD21 Arduino Microcontroller
 
 ***
@@ -62,8 +68,6 @@ The Seeed Studio XIAO SAMD21 is the smallest member of the Seeeduino family. It 
 
 ### Pinout
 
-
-
 <figure><img src="../../.gitbook/assets/image (926).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (927).png" alt=""><figcaption></figcaption></figure>
@@ -76,7 +80,7 @@ The Seeed Studio XIAO SAMD21 is the smallest member of the Seeeduino family. It 
 
 ### How to Use
 
-#### Hardware&#x20;
+#### Hardware
 
 Materials required
 
@@ -91,7 +95,7 @@ Some USB cables can only supply power, not transfer data. If you don't have a US
 * Step 1. Prepare a Seeed Studio XIAO SAMD21 and a Type-C cable.
 * Step 2. Connect the Seeed Studio XIAO SAMD21 to your computer and the yellow LED will light up immediately afterward.
 
-Software&#x20;
+Software
 
 Description
 
@@ -143,3 +147,8 @@ Now, just click the "Upload" button in the environment. Wait a few seconds and i
 
 A few seconds after the upload is complete, you should see the Pin 13 (L) LED on the development board begin to blink (in orange). If so, congratulations! You have successfully run the Arduino. if a problem occurs, please refer to the troubleshooting recommendations.
 
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO SAMD21 Series](https://wiki.seeedstudio.com/Seeeduino-XIAO/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

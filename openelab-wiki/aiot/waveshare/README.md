@@ -8,6 +8,12 @@ Waveshare supplies development boards, displays, cameras, and interface modules 
 
 [Browse Waveshare products on OpenELAB](https://openelab.io/collections/brands-waveshare)
 
+## Choose a board, interface and host
+
+This directory retains 61 existing guide URLs. A screen size or ESP32 family name is not enough to select wiring, firmware or an example. Use the exact module/kit and host platform, then the model page's official documentation links for schematics, example code and advanced features.
+
+Start with [ESP32-S3-ETH wired networking](waveshare-esp32-s3-eth-development-guide.md) for explicit board settings and a DHCP checkpoint. For the [0.96-inch C/D/E OLED family](0.96-inch-oled-display-module-spi-i2c-communication.md), use the SSD1315 guide and its SPI/I2C configuration; the guide also documents source-archive issues found during review. Existing product ordering and guide URLs are preserved.
+
 ### Popular product guides
 
 Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.

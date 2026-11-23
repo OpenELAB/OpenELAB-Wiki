@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 1.47inch LCD Display Module SPI
 
+{% hint style="info" %}
+[**View Waveshare 1.47 inch LCD Display Module 172x320 SPI on OpenELAB**](https://openelab.io/products/1-47inch-lcd-display)
+
+**Store SKU / option:** `Waveshare-22224`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 1.47inch LCD Display Module SPI
 
 ***
@@ -1761,3 +1767,9 @@ parameter:
 3.3V 380cd/㎡
 
 </details>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/1.47inch_LCD_Module) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Station ESP32 IoT
 
+{% hint style="info" %}
+[**View M5Stack Station-485 ESP32 Industrial IoT Controller RS485 Development Kit on OpenELAB**](https://openelab.io/products/m5stack-station-esp32)
+
+**Store SKU / option:** `M5-K123`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Station ESP32 IoT Development Kit
 
 ***
@@ -182,3 +188,17 @@ M5Station Port Description
 ### Model Size <a href="#model-size" id="model-size"></a>
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/station_485/module%20size.jpg" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Station-485](https://docs.m5stack.com/en/core/Station-485) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K123`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                                               |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/m5station/program)                                             |
+| Electrical schematic         | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/521/Sch_M5Station_v1.3.pdf)                               |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K123_Station-485/Structures)                 |
+| Mechanical / CAD files       | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K123_Station-485/Structures/Station-485.stl) |
+| Official source: M5Station   | [Read official source: m5station](https://github.com/m5stack/M5Station)                                                                |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

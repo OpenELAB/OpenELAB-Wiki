@@ -23,6 +23,12 @@ layout:
 
 # M5Stack ESP32 Ethernet
 
+{% hint style="info" %}
+[**View M5Stack ESP32 Ethernet Unit with PoE on OpenELAB**](https://openelab.io/products/esp32-ethernet-unit)
+
+**Store SKU / option:** `M5-U138`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack ESP32 Ethernet Unit with PoE
 
 ***
@@ -108,3 +114,22 @@ layout:
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (381).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit PoESP32](https://docs.m5stack.com/en/unit/Unit_PoESP32) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U138`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                 | Model-specific reference                                                                                                                                   |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic             | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/597/SCH_UNIT-PoESP32.pdf)                                                     |
+| Mechanical / CAD files           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U138_Unit_PoESP32/Structures)                                    |
+| Mechanical / CAD files           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U138_Unit_PoESP32/Structures/Unit_PoESP32.stl)                   |
+| Example source: TCP\_CLIENT.ino  | [Read example source: tcp\_client.ino](https://github.com/m5stack/M5Unit-PoESP32/blob/master/examples/Unit_PoESP32_M5Core/TCP_CLIENT/TCP_CLIENT.ino)       |
+| Example source: TCP\_CLIENT.ino  | [Read example source: tcp\_client.ino](https://github.com/m5stack/M5Unit-PoESP32/blob/master/examples/Unit_PoESP32_M5Core2/TCP_CLIENT/TCP_CLIENT.ino)      |
+| Example source: TCP\_CLIENT.ino  | [Read example source: tcp\_client.ino](https://github.com/m5stack/M5Unit-PoESP32/blob/master/examples/Unit_PoESP32_M5Atom/TCP_CLIENT/TCP_CLIENT.ino)       |
+| Example source: TCP\_CLIENT.ino  | [Read example source: tcp\_client.ino](https://github.com/m5stack/M5Unit-PoESP32/blob/master/examples/Unit_PoESP32_M5StickC/TCP_CLIENT/TCP_CLIENT.ino)     |
+| Example source: TCP\_CLIENT.ino  | [Read example source: tcp\_client.ino](https://github.com/m5stack/M5Unit-PoESP32/blob/master/examples/Unit_PoESP32_M5StickCPlus/TCP_CLIENT/TCP_CLIENT.ino) |
+| Example source: HTTP\_CLIENT.ino | [Read example source: http\_client.ino](https://github.com/m5stack/M5Unit-PoESP32/blob/master/examples/Unit_PoESP32_M5Core/HTTP_CLIENT/HTTP_CLIENT.ino)    |
+| Example source: HTTP\_CLIENT.ino | [Read example source: http\_client.ino](https://github.com/m5stack/M5Unit-PoESP32/blob/master/examples/Unit_PoESP32_M5Core2/HTTP_CLIENT/HTTP_CLIENT.ino)   |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

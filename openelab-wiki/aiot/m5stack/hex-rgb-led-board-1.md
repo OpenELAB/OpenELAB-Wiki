@@ -23,6 +23,12 @@ layout:
 
 # HEX RGB LED Board
 
+{% hint style="info" %}
+[**View HEX RGB LED Board on OpenELAB**](https://openelab.io/products/hex-rgb-led-board)
+
+**Store SKU / option:** `M5-A045`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### HEX RGB LED Board
 
 ***
@@ -79,3 +85,13 @@ This is how LEDs layout in the panel, Pay attention to the sequence in your code
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (369).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit HEX](https://docs.m5stack.com/en/unit/Unit_HEX) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`A045`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                        |
+| ---------------------------- | ----------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_hex) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # M5Stack IoT Base
 
+{% hint style="info" %}
+[**View M5Stack IoT Base with CAT-M Module Communication Base on OpenELAB**](https://openelab.io/products/m5stack-iot-base)
+
+**Store SKU / option:** `M5-M119`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack IoT Base with CAT-M Module
 
 ***
@@ -108,3 +114,15 @@ layout:
 ### Schematics <a href="#schematics" id="schematics"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/base/iot_base_catm/iot_base_catm_sch_01.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [IoT Base CatM](https://docs.m5stack.com/en/base/IoT_Base_CatM) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`M119`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                   | Model-specific reference                                                                                                             |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Example source: IoT\_BASE\_SIM7080 | [Read example source: iot\_base\_sim7080](https://github.com/m5stack/IoT_BASE_SIM7080/tree/master/examples/MQTT)                     |
+| Example source: IoT\_BASE\_SIM7080 | [Read example source: iot\_base\_sim7080](https://github.com/m5stack/IoT_BASE_SIM7080/tree/master/examples/Modbus/ModBus-RTU/Master) |
+| Example source: IoT\_BASE\_SIM7080 | [Read example source: iot\_base\_sim7080](https://github.com/m5stack/IoT_BASE_SIM7080/tree/master/examples/Modbus/ModBus-RTU/Slave)  |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

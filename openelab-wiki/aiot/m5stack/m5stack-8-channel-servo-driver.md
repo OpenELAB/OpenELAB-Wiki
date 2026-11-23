@@ -23,6 +23,12 @@ layout:
 
 # M5Stack 8-Channel Servo Driver
 
+{% hint style="info" %}
+[**View M5Stack M5StickC 8-Channel Servo Driver HAT on OpenELAB**](https://openelab.io/products/8-channel-servo-driver-hat)
+
+**Store SKU / option:** `M5-U076-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack M5StickC 8-Channel Servo Driver HAT
 
 ***
@@ -82,3 +88,17 @@ layout:
 ### Schematics <a href="#schematics" id="schematics"></a>
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/hat/hat_8servos_1.1/hat_8servos_1.1_sch_01.webp" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Hat 8Servos v1.1](https://docs.m5stack.com/en/hat/Hat_8Servos_v1.1) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U076-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                                  | Model-specific reference                                                                                                                                                            |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic                              | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/583/Sch_8ServoV1.1.pdf)                                                                                |
+| Official source: M5Hat-8Servos                    | [Read official source: m5hat-8servos](https://github.com/m5stack/M5Hat-8Servos)                                                                                                     |
+| Example source: Hat\_8Servos1.1\_M5StickC.ino     | [Read example source: hat\_8servos1.1\_m5stickc.ino](https://github.com/m5stack/M5Hat-8Servos/blob/master/examples/Hat_8Servos1.1_M5StickC/Hat_8Servos1.1_M5StickC.ino)             |
+| Example source: Hat\_8Servos1.1\_M5StickCPlus.ino | [Read example source: hat\_8servos1.1\_m5stickcplus.ino](https://github.com/m5stack/M5Hat-8Servos/blob/master/examples/Hat_8Servos1.1_M5StickCPlus/Hat_8Servos1.1_M5StickCPlus.ino) |
+| Official source: HAT\_8Servos\_v1.1\_Firmware     | [Read official source: hat\_8servos\_v1.1\_firmware](https://github.com/m5stack/HAT_8Servos_v1.1_Firmware)                                                                          |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

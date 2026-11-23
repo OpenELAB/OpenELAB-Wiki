@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 3.5inch RPi LCD (A)
 
+{% hint style="info" %}
+[**View Waveshare 3.5inch Resistive Touch Display (A) for Raspberry Pi 480×320 on OpenELAB**](https://openelab.io/products/3-5inch-rpi-lcd)
+
+**Store SKU / option:** `Waveshare-9904`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 3.5inch RPi LCD (A)
 
 ***
@@ -295,3 +301,9 @@ Commercial grade (0\~70 degrees Celsius).
 When working with 5V input, the current is about 200mA.
 
 </details>
+
+## Official documentation and development resources
+
+Use [Features](https://www.waveshare.com/wiki/3.5inch_RPi_LCD_\(A\)) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

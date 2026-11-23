@@ -23,6 +23,12 @@ layout:
 
 # XIAO ESP32-C3 WIFI
 
+{% hint style="info" %}
+[**View Seeed Studio XIAO ESP32C3 RISC-V Wi-Fi BLE 5.0 Battery Charge Supported on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-esp32c3)
+
+**Store SKU / option:** `Seeed-113991054`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Seeed Studio XIAO ESP32-C3 WIFI Dev Board
 
 ***
@@ -304,8 +310,12 @@ You will see the following output
 
 You will see the following output when flashing is successful
 
-
-
 <img src="https://files.seeedstudio.com/wiki/XIAO_WiFi/esp-flash-9.png" alt="" data-size="original">
 
 </details>
+
+## Official documentation and development resources
+
+Use [Getting Started with Seeed Studio XIAO ESP32C3](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

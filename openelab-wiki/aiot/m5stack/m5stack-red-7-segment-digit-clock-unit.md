@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Red 7-Segment Digit Clock Unit
 
+{% hint style="info" %}
+[**View M5Stack Red 7-Segment Digit Clock Unit M5-U146 TM1637 I2C Display on OpenELAB**](https://openelab.io/products/m5stack-digit-clock-unit)
+
+**Store SKU / option:** `M5-U146`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Red 7-Segment Digit Clock Unit
 
 ***
@@ -37,8 +43,6 @@ Digi-Clock unit is a 2.1-inch 4-digit 7-segment display module designed to displ
 The unit utilizes the TM1637 as the driver IC, which controls the display and facilitates easy communication with the connected microcontroller or system. The I2C communication protocol is employed, and the unit incorporates an STM32F030 microcontroller for I2C communication.\
 To provide flexibility, the I2C address of the Digi-Clock unit can be modified using a 4-bit dip switch, allowing multiple modules to be connected and addressed individually. This feature simplifies the integration and control of multiple display modules within a system. The red LED display supports eight levels of brightness, providing options for optimal visibility in different environments or applications. Users can adjust the brightness level to meet their specific requirements.\
 Additionally, the unit includes four fixing holes, which allow for secure mounting and integration into various projects or installations. This ensures stability and ease of use when incorporating the Digi-Clock unit into different applications or systems.
-
-
 
 <figure><img src="../../.gitbook/assets/image (469).png" alt=""><figcaption></figcaption></figure>
 
@@ -72,8 +76,6 @@ Additionally, the unit includes four fixing holes, which allow for secure mounti
 size:50 \* 31 \* 14mm
 
 weight:12.5g
-
-
 
 ### How to Use
 
@@ -176,3 +178,15 @@ void loop()
 }
 
 ```
+
+## Official documentation and development resources
+
+Use [Unit DigiClock](https://docs.m5stack.com/en/unit/Unit_DigiClock) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U146`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                  | Model-specific reference                                                                                  |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Electrical schematic              | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/601/Sch_UNIT_Digi-Clock.pdf) |
+| Official source: M5Unit-DigiClock | [Read official source: m5unit-digiclock](https://github.com/m5stack/M5Unit-DigiClock)                     |
+| Arduino development tutorial      | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_digiclock)     |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

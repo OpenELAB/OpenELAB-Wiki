@@ -23,6 +23,10 @@ layout:
 
 # Waveshare SIM7600CE-CNSE 4G HAT for Raspberry Pi 4G 3G 2G GNSS
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### Waveshare SIM7600CE-CNSE 4G HAT for Raspberry Pi 4G 3G 2G GNSS
 
 ***
@@ -389,17 +393,13 @@ sudo python3 TCP.py
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=Sim7600CE-Jetson_Nano-53.png&#x26;width=400" alt=""><figcaption></figcaption></figure>
 
 \
-More sample demos are continuously updated... &#x20;
+More sample demos are continuously updated...
 
 ### FAQ
-
-
 
 <details>
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion35"><strong>When compiling the BCM2835 library, Makefile:327:recipe for target 'aclocal.m4' failed ?</strong><br></a><a href="https://www.waveshare.com/wiki/File:Bcm2835-make-error.jpg"><img src="https://www.waveshare.com/w/upload/8/83/Bcm2835-make-error.jpg" alt="Bcm2835-make-error.jpg"></a></summary>
-
-
 
 * Execute autoreconf -vfi, and then recompile, see the figure below:
 
@@ -499,7 +499,7 @@ echo "0" > /sys/class/gpio/gpio6/value
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion27"><strong>What is the function of the com port for ttyUSB0-ttyUSB5 that appears under the Linux system?</strong></a></summary>
 
-&#x20;Answer:As shown below:
+Answer:As shown below:
 
 ```
 1) /dev/ttyUSB0-diag port for output developing messages
@@ -574,8 +574,6 @@ Using a USB 5V power supply, after successful networking, the current is general
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion20"><strong>Why can I access the Internet with a regular cell phone SIM card that can make phone calls, but not with an IoT card (traffic card)?</strong></a></summary>
 
-
-
 * Confirm whether the frequency band supported by the IoT card covers the frequency band supported by the module.
 * APN is not set, please use the following command to configure APN.
 * Note: Different operators' APNs is different, here the APN is changed to the corresponding operator.
@@ -639,8 +637,6 @@ If the short message is stored in the SIM card, the limit is generally 50. You c
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion14"><strong>The command for SIM7600Xcall recording and playback is?</strong></a></summary>
 
-
-
 ```
 SIM7600X makes a call and the phone answers
 ATD131xxxxx816.
@@ -689,8 +685,6 @@ Note: The difference between Volte calls and regular phone calls: The network of
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion12"><strong>How to locate the base station for SIM7600X, what is the command?</strong></a></summary>
 
-
-
 Common commands for the LBS base station positioning function of SIM7600X are as follows:
 
 ```
@@ -705,8 +699,6 @@ AT+CLBS=2 //Get the detailed address
 <details>
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion11"><strong>Why is the positioning inaccurate and the coordinates obtained are different from those found online?</strong></a></summary>
-
-
 
 After turning on the GPS in the AT debug serial port, turn on the NMEA port to get the dynamic information.<br>
 
@@ -723,8 +715,6 @@ SIM7600X gets the latitude and longitude in units, we commonly use degrees as th
 <details>
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion10"><strong>AT PORT does not get the location information, HS-USB NMEA port can get it, what is the problem?</strong></a></summary>
-
-
 
 GNSS parameter problem, after restarting the module, initialize the GNSS parameters with the following command can be;
 
@@ -762,8 +752,6 @@ From left to right, they are (1) dimension, (2) longitude, (3) date, (4) time, (
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion7"><strong>Why is my dial-up internet connection so slow?</strong></a></summary>
 
-
-
 * Generally, the default configuration of SIM7600 is to automatically select the network standard, and it is likely to choose 2G Internet access; if you need to force the use of 4G mode, you need to enter the following AT command configuration:<br>
 
 ```
@@ -796,7 +784,7 @@ AT+CNBP=0x0002000004400180,0x000001E000000000,0x000000000000003F   //If the spee
 
 [AT$QCRMCALL=1,1](https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion6)[![SIM7600 dial up no.png](https://www.waveshare.com/w/upload/0/00/SIM7600_dial_up_no.png)](https://www.waveshare.com/wiki/File:SIM7600_dial_up_no.png)
 
-&#x20;Answer:
+Answer:
 
 * Under normal circumstances, SIM7600X has already dialed automatically when it is connected to the Windows system, no need to repeat the dialing, the repeated dialing will return NO CARRIER
 *   If you still cannot dial up, please use the following command to change to the Windows default dial-up mode
@@ -822,8 +810,6 @@ AT+CNBP=0x0002000004400180,0x000001E000000000,0x000000000000003F   //If the spee
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion5"><strong>How to get SIM7600X to switch to IPV6 after dial-up?</strong></a></summary>
 
-
-
 Set up as below:
 
 ```
@@ -836,8 +822,6 @@ AT+CGDCONT=1, "IP", "APN" //Switch back to IPV4
 <details>
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion4"><strong>Why can't I control the module with UART on Raspberry Pi, can't open ttyS0 through minicom, prompting any ttyS0?</strong></a></summary>
-
-
 
 * Open the Raspberry Pi terminal and input the following commands:
 
@@ -861,8 +845,6 @@ ls -l /dev/serial*
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion3"><strong>Why is the command sent not displayed after sending an AT command and returning OK?</strong></a></summary>
 
-
-
 The SIM7600X can send the following command plus carriage return, and successfully turn on the display after displaying OK.
 
 ```
@@ -874,8 +856,6 @@ ATE1
 <details>
 
 <summary><a href="https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT#accordion2"><strong>What is the difference between RNDIS, NDIS, PPP, and ECM dialing methods?</strong></a></summary>
-
-
 
 Differences as shown below:\
 [![Dial-PPP-ECM-RNDIS.png](https://www.waveshare.com/w/upload/a/a8/Dial-PPP-ECM-RNDIS.png)](https://www.waveshare.com/wiki/File:Dial-PPP-ECM-RNDIS.png)<br>
@@ -915,3 +895,13 @@ In this case, it may be that you have not successfully connected to the network,
 [![SIM7600X network check.png](https://www.waveshare.com/w/upload/d/df/SIM7600X_network_check.png)](https://www.waveshare.com/wiki/File:SIM7600X_network_check.png)
 
 </details>
+
+## Official documentation and development resources
+
+Use [Overview](https://www.waveshare.com/wiki/SIM7600CE-CNSE_4G_HAT) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need     | Model-specific reference                                                                             |
+| -------------------- | ---------------------------------------------------------------------------------------------------- |
+| Electrical schematic | [Read electrical schematic](https://files.waveshare.com/upload/6/63/SIM7600G-H-4G-HAT-schematic.pdf) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Real Time Clock
 
+{% hint style="info" %}
+[**View M5Stack Real Time Clock (RTC) Unit on OpenELAB**](https://openelab.io/products/real-time-clock-rtc-unit)
+
+**Store SKU / option:** `M5-U126`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Real Time Clock (RTC) Unit
 
 ***
@@ -72,3 +78,20 @@ layout:
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (956).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit RTC](https://docs.m5stack.com/en/unit/Unit_RTC) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U126`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                            | Model-specific reference                                                                                                                                       |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files                      | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U126_Unit_RTC/Structures)                                            |
+| Mechanical / CAD files                      | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U126_Unit_RTC/Structures/Unit_RTC.stl)                               |
+| Example source: Unit\_RTC\_M5Series.ino     | [Read example source: unit\_rtc\_m5series.ino](https://github.com/m5stack/M5Unit-RTC/blob/master/examples/Unit_RTC_M5Series/Unit_RTC_M5Series.ino)             |
+| Example source: Unit\_RTC\_M5Atom.ino       | [Read example source: unit\_rtc\_m5atom.ino](https://github.com/m5stack/M5Unit-RTC/blob/master/examples/Unit_RTC_M5Atom/Unit_RTC_M5Atom.ino)                   |
+| Example source: Unit\_RTC\_M5Core.ino       | [Read example source: unit\_rtc\_m5core.ino](https://github.com/m5stack/M5Unit-RTC/blob/master/examples/Unit_RTC_M5Core/Unit_RTC_M5Core.ino)                   |
+| Example source: Unit\_RTC\_M5Core2.ino      | [Read example source: unit\_rtc\_m5core2.ino](https://github.com/m5stack/M5Unit-RTC/blob/master/examples/Unit_RTC_M5Core2/Unit_RTC_M5Core2.ino)                |
+| Example source: Unit\_RTC\_M5StickC.ino     | [Read example source: unit\_rtc\_m5stickc.ino](https://github.com/m5stack/M5Unit-RTC/blob/master/examples/Unit_RTC_M5StickC/Unit_RTC_M5StickC.ino)             |
+| Example source: Unit\_RTC\_M5StickCPlus.ino | [Read example source: unit\_rtc\_m5stickcplus.ino](https://github.com/m5stack/M5Unit-RTC/blob/master/examples/Unit_RTC_M5StickCPlus/Unit_RTC_M5StickCPlus.ino) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

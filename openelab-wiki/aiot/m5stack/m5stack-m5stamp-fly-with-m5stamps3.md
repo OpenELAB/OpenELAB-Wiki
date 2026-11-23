@@ -23,6 +23,10 @@ layout:
 
 # M5Stack M5Stamp Fly with M5StampS3
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack M5Stamp Fly with M5StampS3
 
 ***
@@ -144,3 +148,16 @@ EasyLoader is a simple and fast program burner that comes with a product-related
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="../../.gitbook/assets/QQ_1728265097703 (1).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [StampFly](https://docs.m5stack.com/en/app/StampFly) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`K138`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need            | Model-specific reference                                                                                                                                   |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic        | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1069/Sch_PMW3901MB_SPI.pdf)                                                   |
+| Mechanical / CAD files      | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/K138_StampFly/Structures)                                        |
+| Mechanical / CAD files      | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/K138_StampFly/Structures/StampFly_Battery_Protect_Component.stl) |
+| Official source: M5StampFly | [Read official source: m5stampfly](https://github.com/m5stack/M5StampFly)                                                                                  |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

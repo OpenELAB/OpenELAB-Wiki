@@ -23,6 +23,12 @@ layout:
 
 # M5Stack PIR Motion Sensor
 
+{% hint style="info" %}
+[**View M5Stack PIR Motion Sensor on OpenELAB**](https://openelab.io/products/pir-motion-sensor)
+
+**Store SKU / option:** `M5-U004`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack PIR Motion Sensor
 
 ***
@@ -82,3 +88,14 @@ This Unit communicates with the M5Core via the GROVE B.
 ### Module Size <a href="#module-size" id="module-size"></a>
 
 <figure><img src="../../.gitbook/assets/image (922).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit PIR](https://docs.m5stack.com/en/unit/Unit_PIR) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U004`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U004_Unit_PIR/Structures)              |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U004_Unit_PIR/Structures/Unit_PIR.stl) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

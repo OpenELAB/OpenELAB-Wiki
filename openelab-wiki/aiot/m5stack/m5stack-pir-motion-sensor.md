@@ -23,6 +23,12 @@ layout:
 
 # M5Stack PIR Motion Sensor
 
+{% hint style="info" %}
+[**View M5Stack PIR Motion Sensor on OpenELAB**](https://openelab.io/products/pir-motion-sensor)
+
+**Store SKU / option:** `M5-U004`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack PIR Motion Sensor
 
 ***
@@ -64,7 +70,7 @@ This Unit communicates with the M5Core via the GROVE B.
 | Product Weight | 5g           |
 | Package Weight | 20g          |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/PIR/img-958951eb-482b-443b-9e98-fb752819607b.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/PIR/img-d3d367ff-4aa0-43f5-bff0-c32d9fe9e45c.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/PIR/img-958951eb-482b-443b-9e98-fb752819607b.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/PIR/img-d3d367ff-4aa0-43f5-bff0-c32d9fe9e45c.webp)
 
 ### Schematic <a href="#schematic" id="schematic"></a>
 
@@ -107,3 +113,13 @@ This Unit communicates with the M5Core via the GROVE B.
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/PIR/blockIntro-cca57dd5-203b-497f-83cd-dd3182c5d230.png" alt=""><figcaption></figcaption></figure>
 
+## Official documentation and development resources
+
+Use [Unit PIR](https://docs.m5stack.com/en/unit/Unit_PIR) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U004`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need       | Model-specific reference                                                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U004_Unit_PIR/Structures)              |
+| Mechanical / CAD files | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U004_Unit_PIR/Structures/Unit_PIR.stl) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

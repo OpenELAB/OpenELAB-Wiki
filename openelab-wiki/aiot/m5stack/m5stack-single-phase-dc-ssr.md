@@ -23,6 +23,10 @@ layout:
 
 # M5Stack Single-phase DC SSR
 
+{% hint style="info" %}
+**Manufacturer reference.** A matching current OpenELAB global-store listing has not been verified for this model/revision. Use the hardware label and the exact official reference below; do not select firmware or wiring from a similar store product.
+{% endhint %}
+
 ### M5Stack Single-phase DC SSR Unit
 
 ***
@@ -79,3 +83,18 @@ layout:
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (390).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit DCSSR](https://docs.m5stack.com/en/unit/Unit_DCSSR) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U140`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need               | Model-specific reference                                                                                                             |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Arduino development tutorial   | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_acssr)                                    |
+| Mechanical / CAD files         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U140_Unit_DCSSR/Structures)                |
+| Mechanical / CAD files         | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U140_Unit_DCSSR/Structures/Unit_DCSSR.stl) |
+| Official source: M5Unit-ACSSR  | [Read official source: m5unit-acssr](https://github.com/m5stack/M5Unit-ACSSR)                                                        |
+| Official source: ArduinoRS485  | [Read official source: arduinors485](https://github.com/m5stack/ArduinoRS485)                                                        |
+| Official source: ArduinoModbus | [Read official source: arduinomodbus](https://github.com/m5stack/ArduinoModbus)                                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

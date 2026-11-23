@@ -23,6 +23,12 @@ layout:
 
 # M5Stack Ultrasonic Distance Unit I2C
 
+{% hint style="info" %}
+[**View M5Stack Ultrasonic I2C Unit RCWL-9620 Distance Measurement Sensor on OpenELAB**](https://openelab.io/products/ultrasonic-distance-unit)
+
+**Store SKU / option:** `M5-U098-B1`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack Ultrasonic Distance Unit I2C
 
 ***
@@ -70,7 +76,7 @@ Note: When the measurement is more than 3.5m, there will be a slight delay in th
 | Product size                     | 56 \* 24 \* 15mm |
 | Packing size                     | 76 \* 47 \* 29mm |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/sonic.i2c/sonic.i2c_04.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/sonic.i2c/sonic.i2c_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/sonic.i2c/sonic.i2c_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/sonic.i2c/sonic.i2c_04.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/sonic.i2c/sonic.i2c_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/sonic.i2c/sonic.i2c_06.webp)
 
 ### Pinout <a href="#pin-mapping" id="pin-mapping"></a>
 
@@ -93,3 +99,20 @@ Note: When the measurement is more than 3.5m, there will be a slight delay in th
 * [M5Unit-Sonic with M5Core2](https://github.com/m5stack/M5Unit-Sonic/blob/master/examples/Unit_SonicI2C_M5Core2/Unit_SonicI2C_M5Core2.ino)
 * [M5Unit-Sonic with M5StickC](https://github.com/m5stack/M5Unit-Sonic/blob/master/examples/Unit_SonicI2C_M5StickC/Unit_SonicI2C_M5StickC.ino)
 * [M5Unit-Sonic with M5StickCPlus](https://github.com/m5stack/M5Unit-Sonic/blob/master/examples/Unit_SonicI2C_M5StickCPlus/Unit_SonicI2C_M5StickCPlus.ino)
+
+## Official documentation and development resources
+
+Use [Unit Ultrasonic-I2C](https://docs.m5stack.com/en/unit/Unit_Ultrasonic-I2C) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U098-B1`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need                                 | Model-specific reference                                                                                                                                                        |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files                           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U098-B1_Unit_Ultrasonic-I2C/Structures)                                               |
+| Mechanical / CAD files                           | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U098-B1_Unit_Ultrasonic-I2C/Structures/Unit_Ultrasonic-I2C.stl)                       |
+| Arduino development tutorial                     | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/unit/unit_ultrasonic_i2c)                                                                      |
+| Example source: Unit\_SonicI2C\_M5Atom.ino       | [Read example source: unit\_sonici2c\_m5atom.ino](https://github.com/m5stack/M5Unit-Sonic/blob/master/examples/Unit_SonicI2C_M5Atom/Unit_SonicI2C_M5Atom.ino)                   |
+| Example source: Unit\_SonicI2C\_M5Core.ino       | [Read example source: unit\_sonici2c\_m5core.ino](https://github.com/m5stack/M5Unit-Sonic/blob/master/examples/Unit_SonicI2C_M5Core/Unit_SonicI2C_M5Core.ino)                   |
+| Example source: Unit\_SonicI2C\_M5Core2.ino      | [Read example source: unit\_sonici2c\_m5core2.ino](https://github.com/m5stack/M5Unit-Sonic/blob/master/examples/Unit_SonicI2C_M5Core2/Unit_SonicI2C_M5Core2.ino)                |
+| Example source: Unit\_SonicI2C\_M5StickC.ino     | [Read example source: unit\_sonici2c\_m5stickc.ino](https://github.com/m5stack/M5Unit-Sonic/blob/master/examples/Unit_SonicI2C_M5StickC/Unit_SonicI2C_M5StickC.ino)             |
+| Example source: Unit\_SonicI2C\_M5StickCPlus.ino | [Read example source: unit\_sonici2c\_m5stickcplus.ino](https://github.com/m5stack/M5Unit-Sonic/blob/master/examples/Unit_SonicI2C_M5StickCPlus/Unit_SonicI2C_M5StickCPlus.ino) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

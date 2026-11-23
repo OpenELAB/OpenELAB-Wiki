@@ -23,6 +23,12 @@ layout:
 
 # Waveshare 8.8inch Desktop RGB Ambient Screen Type-C
 
+{% hint style="info" %}
+[**View Waveshare 8.8 inch Desktop RGB Ambient Screen USB Monitor on OpenELAB**](https://openelab.io/products/8-8inch-desktop-screen)
+
+**Store SKU / option:** `Waveshare-27465`, `Waveshare-27464`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### Waveshare 8.8inch Desktop RGB Ambient Screen Type-C
 
 ***
@@ -260,3 +266,8 @@ Please download the latest version of the image on the [#USB-Monitor-windows-img
 
 </details>
 
+## Official documentation and development resources
+
+Use [Working with PC Windows](https://www.waveshare.com/wiki/8.8inch-USB-Monitor) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

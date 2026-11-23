@@ -90,3 +90,14 @@ The [SO-ARM101 training guide](https://wiki.seeedstudio.com/sensecraft_robotics_
 | [SenseCraft Robotics training guide](https://wiki.seeedstudio.com/sensecraft_robotics_so_arm101/) | Alternative manufacturer application workflow |
 
 **Review date:** 17 November 2026. **Validation:** official documentation and the cited software interfaces reviewed. Commands and examples have not been compiled or run on physical hardware by OpenELAB for this guide. Record your hardware revision, firmware, software versions and actual results when reproducing it.
+
+## Official documentation and development resources
+
+Use [Getting Started with SO-ARM100 and SO-ARM101 Robotic Arms in LeRobot](https://wiki.seeedstudio.com/lerobot_so100m_new/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+
+| Development need         | Model-specific reference                                                                                       |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| Official source: lerobot | [Read official source: lerobot](https://github.com/Seeed-Projects/lerobot)                                     |
+| Mechanical / CAD files   | [Read mechanical / cad files](https://files.seeedstudio.com/wiki/robotics/projects/lerobot/so101/soarm101.stl) |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

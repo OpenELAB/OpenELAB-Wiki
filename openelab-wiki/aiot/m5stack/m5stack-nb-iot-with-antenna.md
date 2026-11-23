@@ -23,6 +23,12 @@ layout:
 
 # M5Stack NB-IoT with Antenna
 
+{% hint style="info" %}
+[**View M5Stack NB-IoT 2 Unit Golbal Version with Antenna on OpenELAB**](https://openelab.io/products/m5stack-nb-iot-2-unit)
+
+**Store SKU / option:** `M5-U111-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack NB-IoT 2 Unit Golbal Version with Antenna
 
 ***
@@ -127,3 +133,16 @@ DifferencesThe main differences between SIM7028 and SIM7020G are frequency band 
 ### Compatible
 
 <figure><img src="../../.gitbook/assets/image (372).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Unit NBIoT2](https://docs.m5stack.com/en/unit/Unit_NBIoT2) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U111-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need         | Model-specific reference                                                                                                                 |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Electrical schematic     | [Read electrical schematic](https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/593/Sch_UNIT-NB-IoT2.pdf)                                   |
+| Mechanical / CAD files   | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U111-B_Unit_NBIoT2/Structures)                 |
+| Mechanical / CAD files   | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U111-B_Unit_NBIoT2/Structures/Unit_NBIoT2.stl) |
+| Official source: TinyGSM | [Read official source: tinygsm](https://github.com/m5stack/TinyGSM)                                                                      |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

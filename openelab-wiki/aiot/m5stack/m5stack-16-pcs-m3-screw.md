@@ -23,6 +23,12 @@ layout:
 
 # M5Stack 16 PCS M3 Screw
 
+{% hint style="info" %}
+[**View M5Stack 16 PCS M3 Screw Kit on OpenELAB**](https://openelab.io/products/16-pcs-m3-screw-kit)
+
+**Store SKU / option:** `M5-A050-B`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack 16 PCS M3 Screw Kit
 
 ***
@@ -55,3 +61,9 @@ layout:
 | Gross weight | 67g           |
 | Product Size | 110\*52\*15mm |
 | Package Size | 110\*52\*15mm |
+
+## Official documentation and development resources
+
+Use [Screw](https://docs.m5stack.com/en/accessory/Screw) for the manufacturer's model information, dimensions and applicable connection instructions. The official product code is **`A050-B`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+Check the accessory's physical fit and any electrical connections against the exact host. Firmware and software instructions belong to that host; do not treat a passive part as a separately programmable controller. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

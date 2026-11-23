@@ -23,6 +23,12 @@ layout:
 
 # M5Stack COM.LTE Module
 
+{% hint style="info" %}
+[**View M5Stack COM.LTE Module on OpenELAB**](https://openelab.io/products/com-lte-module)
+
+**Store SKU / option:** `M5-M031-A`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ## M5Stack COM.LTE Module
 
 ***
@@ -158,3 +164,14 @@ According to the different needs of different hosts, the DIP switch fluctuates t
 ### Compatible <a href="#compatible" id="compatible"></a>
 
 <figure><img src="../../.gitbook/assets/image (964).png" alt=""><figcaption></figcaption></figure>
+
+## Official documentation and development resources
+
+Use [Module COMX LTE](https://docs.m5stack.com/en/module/Module_COMX_LTE) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`M031-A`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need             | Model-specific reference                                                                                 |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Arduino development tutorial | [Read arduino development tutorial](https://docs.m5stack.com/en/arduino/projects/module/module_comx_lte) |
+| Example source: M5Stack      | [Read example source: m5stack](https://github.com/m5stack/M5Stack/tree/master/examples/Modules/COM_LTE)  |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.

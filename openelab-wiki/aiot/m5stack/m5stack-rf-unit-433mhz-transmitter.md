@@ -23,6 +23,12 @@ layout:
 
 # M5Stack RF UNIT 433MHz Transmitter
 
+{% hint style="info" %}
+[**View M5Stack RF UNIT 433MHz Transmitter on OpenELAB**](https://openelab.io/products/m5stack-rf-unit)
+
+**Store SKU / option:** `M5-U114`. Match the purchased model and revision to the official reference below.
+{% endhint %}
+
 ### M5Stack RF UNIT 433MHz Transmitter
 
 ***
@@ -64,7 +70,7 @@ layout:
 | Product Size                  | 48\*24\*8mm   |
 | Package Size                  | 136\*92\*12mm |
 
-![](https://static-cdn.m5stack.com/resource/docs/products/unit/rf433_t/rf433_t_05.webp)![](https://static-cdn.m5stack.com/resource/docs/products/unit/rf433_t/rf433_t_06.webp)
+![](https://static-cdn.m5stack.com/resource/docs/products/unit/rf433_t/rf433_t_05.webp) ![](https://static-cdn.m5stack.com/resource/docs/products/unit/rf433_t/rf433_t_06.webp)
 
 ### Pinout <a href="#pinmap" id="pinmap"></a>
 
@@ -86,3 +92,15 @@ layout:
 #### Arduino <a href="#arduino" id="arduino"></a>
 
 * [RF433 T/R Example](https://github.com/m5stack/M5Stack/blob/master/examples/Unit/RF433/RF433.ino)
+
+## Official documentation and development resources
+
+Use [Unit RF433T](https://docs.m5stack.com/en/unit/Unit_RF433T) for the manufacturer's complete model reference, diagrams and maintained examples. The official product code is **`U114`**; match the board/Unit label before choosing a firmware or host example. The references below complement this guide's local instructions.
+
+| Development need          | Model-specific reference                                                                                                               |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/tree/master/Products/U114_Unit_RF433T/Structures)                 |
+| Mechanical / CAD files    | [Read mechanical / cad files](https://github.com/m5stack/M5_Hardware/blob/master/Products/U114_Unit_RF433T/Structures/Unit_RF433T.stl) |
+| Example source: RF433.ino | [Read example source: rf433.ino](https://github.com/m5stack/M5Stack/blob/master/examples/Unit/RF433/RF433.ino)                         |
+
+Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.
