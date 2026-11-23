@@ -8,6 +8,15 @@ M5Stack develops modular controllers, sensors, and expansion units for connected
 
 [Browse M5Stack products on OpenELAB](https://openelab.io/collections/brands-m5stack)
 
+## Expanded engineering guides
+
+These guides contain on-page procedures, original examples, attributed hardware illustrations and model-specific diagnostics. Sources are reviewed; build/hardware validation is stated separately in each guide.
+
+| Model                                                                                   | Start here                                                                                 |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| [ATOM Lite C008](m5stack-atom-lite-esp32-iot-development-kit.md)                        | Button, one-pixel RGB, IR, Grove, UIFlow and Home Assistant.                               |
+| [ENV-III U001-C](m5stack-env-iii-unit-with-temperature-humidity-air-pressure-sensor.md) | Seven host pin maps, complete Arduino/UIFlow recipes and pressure/accuracy interpretation. |
+
 ## Start from the exact M5Stack model
 
 This directory retains 241 existing guide URLs in their established order. Match the manufacturer product code and board revision before choosing Arduino, UIFlow1, UIFlow2 or a firmware target. Model pages link to the official product reference, example libraries and applicable electrical/mechanical resources.

@@ -1,4 +1,7 @@
 ---
+description: >-
+  XIAO ESP32C3 hardware and power reference with retained diagrams, boot-pin
+  constraints and a link to the consolidated development guide.
 layout:
   width: default
   title:
@@ -21,67 +24,70 @@ layout:
     visible: true
 ---
 
-# XIAO ESP32C3 RISC-V Wi-Fi BLE 5.0
+# XIAO ESP32C3 Hardware Reference
 
 {% hint style="info" %}
-[**View Seeed Studio XIAO ESP32C3 RISC-V Wi-Fi BLE 5.0 Battery Charge Supported on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-esp32c3)
+[**View Seeed Studio XIAO ESP32C3 on OpenELAB**](https://openelab.io/products/seeed-studio-xiao-esp32c3)
 
-**Store SKU / option:** `Seeed-113991054`. Match the purchased model and revision to the official reference below.
+**Model:** XIAO ESP32C3 · **SKU:** `Seeed-113991054` · This retained URL is the hardware reference. Use the [main development guide](xiao-esp32-c3-wifi.md) for complete programming, radio, battery, sleep and recovery procedures.
 {% endhint %}
 
-### Seeed Studio XIAO ESP32C3 RISC-V Wi-Fi BLE 5.0 Battery Charge Supported
+## Description
 
-***
+XIAO ESP32C3 combines a single-core 160 MHz RISC-V ESP32-C3, 4 MB flash, 400 KB SRAM, 2.4 GHz Wi-Fi and Bluetooth LE with eleven exposed I/O and a single-cell charging circuit. It has no hardware floating-point unit and no general-purpose onboard Blink LED. Its USB interface provides Serial/JTAG; CircuitPython does not expose a CIRCUITPY mass-storage drive on this chip. [Chip data sheet](https://files.seeedstudio.com/wiki/XIAO_WiFi/Resources/esp32-c3_datasheet.pdf), [CircuitPython board reference](https://circuitpython.org/board/seeed_xiao_esp32c3/).
 
-### Product Link
+## Specifications
 
-{% embed url="https://openelab.io/products/seeed-studio-xiao-esp32c3" %}
+| Integration item         | Scope / limit                                                           |
+| ------------------------ | ----------------------------------------------------------------------- |
+| Logic and ADC domain     | 3.3 V; analog measurable range also depends on attenuation              |
+| Initial supply           | USB5 V; distinguish VBUS, regulated3V3 and battery contacts             |
+| Size                     | 21 ×17.8 mm in Seeed's board reference                                  |
+| Reliable first ADC route | A0–A2 on ADC1; D3/GPIO5 is ADC2 and has a documented reliability caveat |
+| External interfaces      | D4/D5 I2C, D6/D7 UART, D8/D9/D10 SPI                                    |
+| Revision reference       | v1.3 schematic dated15 January2026; check received board                |
 
-### Description
+[Schematic](https://files.seeedstudio.com/wiki/XIAO_WiFi/Resources/XIAO_ESP32C3_v1.3_SCH_260116.pdf) and [exact Arduino variant](https://github.com/espressif/arduino-esp32/blob/master/variants/XIAO_ESP32C3/pins_arduino.h) establish routes. This hardware reference and the main guide describe the **same purchased SKU**, not two separately sold products.
 
-**Seeed Studio XIAO ESP32C3** is an IoT mini development board based on the Espressif **ESP32-C3** WiFi/Bluetooth dual-mode chip, featuring a **32-bit RISC-V CPU** that delivers powerful computing performance with its efficient architecture. It has excellent radio frequency performance, supporting **IEEE 802.11 b/g/n WiFi**, and **Bluetooth 5 (BLE)** protocols. This board comes included with an external antenna to increase the signal strength for your wireless applications. It also has a **small and exquisite form-factor** combined with a **single-sided surface-mountable design**. It is equipped with rich interfaces and has **11 digital I/O** that can be used as **PWM pins** and **3 analog I/O** that can be used as **ADC pins**. It supports four serial interfaces such as **UART, I2C and SPI**. There is also a small **reset button** and a **bootloader mode button** on the board. XIAO ESP32C3 is fully compatible with the Grove Shield for Seeeduino XIAO and Seeeduino XIAO Expansion board except for the Seeeduino XIAO Expansion board, the SWD spring contacts on the board will not be compatible.
+## Hardware overview
 
-With regard to the features highlighted above, XIAO ESP32C3 is positioned as a **high-performance, low-power, cost-effective IoT mini development board**, suitable for **low-power IoT applications and wireless wearable applications**.[​](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/#specifications)
+Use the [main guide's full pin table and original front/back diagrams](xiao-esp32-c3-wifi.md#hardware-and-connections) when wiring. D0/A0→GPIO2, D1/A1→3, D2/A2→4, D3→5, D4→6, D5→7, D6→21, D7→20, D8→8, D9→9, D10→10. Pin labels in code are not interchangeable with native numbers from another XIAO model.
 
-### Specifications <a href="#specifications" id="specifications"></a>
+The included antenna attaches to U.FL/IPEX. The back pads include battery contacts and debug signals. A shield's SWD spring contacts do not establish an ESP32-C3-compatible debug path. Disconnect power before fitting a shield or soldering contacts.
 
-| Item                  | Seeed Studio XIAO ESP32C3      | Seeeduino XIAO         | Seeed XIAO RP2040                   | Seeed XIAO nRF52840                    | Seeed XIAO nRF52840 Sense               |
-| --------------------- | ------------------------------ | ---------------------- | ----------------------------------- | -------------------------------------- | --------------------------------------- |
-| Processor             | ESP32-C3 32-bit RISC-V @160MHz | SAMD21 M0+@48MHz       | RP2040 Dual-core M0+@133Mhz         | nRF52840 M4F@64MHz                     | nRF52840 M4F@64MHz                      |
-| Wireless Connectivity | WiFi and Bluetooth 5 (BLE)     | N/A                    | N/A                                 | Bluetooth 5.0/BLE/NFC                  | Bluetooth 5.0/BLE/NFC                   |
-| Memory                | 400KB SRAM, 4MB onboard Flash  | 32KB SRAM 256KB FLASH  | 264KB SRAM 2MB onboard Flash        | 256KB RAM, 1MB Flash 2MB onboard Flash | 256KB RAM,1MB Flash 2MB onboard Flash   |
-| Built-in Sensors      | N/A                            | N/A                    | N/A                                 | N/A                                    | 6 DOF IMU (LSM6DS3TR-C), PDM Microphone |
-| Interfaces            | I2C/UART/SPI                   | I2C/UART/SPI           | I2C/UART/SPI                        | I2C/UART/SPI                           | I2C/UART/SPI                            |
-| PWM/Analog Pins       | 11/4                           | 11/11                  | 11/4                                | 11/6                                   | 11/6                                    |
-| Onboard Buttons       | Reset/ Boot Button             | N/A                    | Reset/ Boot Button                  | Reset Button                           | Reset Button                            |
-| Onboard LEDs          | Charge LED                     | N/A                    | Full-color RGB/ 3-in-one LED        | 3-in-one LED/ Charge LED               | 3-in-one LED/ Charge LED                |
-| Battery Charge Chip   | ETA4054S2F                     | N/A                    | N/A                                 | BQ25101                                | BQ25101                                 |
-| Programming Languages | Arduino/ MicroPython           | Arduino/ CircuitPython | Arduino/ MicroPython/ CircuitPython |                                        |                                         |
+## Power Pins
 
-### Hardware <a href="#hardware-overview" id="hardware-overview"></a>
+VBUS/5V is the USB rail,3V3 is regulated output and GND is the common reference. The v1.3 drawing includes a 700 mA-rated regulator and 500 mA USB fuse; the usable external-load budget also includes supply, temperature and the board's own current. The wiki's500 mA test condition and 700 mA regulator statement are not an unconditional load guarantee. Never apply5 V to an I/O simply because USB or a Grove module uses5 V supply.
 
-<figure><img src="../../.gitbook/assets/image (987).png" alt=""><figcaption></figcaption></figure>
+Battery contacts support the documented single-cell arrangement. Verify polarity, cell charging requirements and actual board revision. Do not create a capacity percentage from a nonexistent onboard battery ADC. The [main battery workflow](xiao-esp32-c3-wifi.md#battery-usage) explains an optional external divider, calibration and its pin/boot implications.
 
-<figure><img src="../../.gitbook/assets/image (988).png" alt=""><figcaption></figcaption></figure>
+## Strapping Pins
 
-<figure><img src="../../.gitbook/assets/image (989).png" alt=""><figcaption></figcaption></figure>
+D0/GPIO2, D8/GPIO8 and D9/GPIO9 affect boot configuration; D9 also serves BOOT. Check peripheral loading during reset. For upload recovery, disconnect external wiring and hold BOOT while connecting USB, then release and reselect the observed port. A continually forced strap level can prevent a good image from starting.
 
-[​](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/#power-pins)
+## Development routes
 
-### Power Pins
-
-* 5V - This is 5v out from the USB port. You can also use this as a voltage input but you must have some sort of diode (schottky, signal, power) between your external power source and this pin with anode to battery, cathode to 5V pin.
-* 3V3 - This is the regulated output from the onboard regulator. You can draw 700mA
-* GND - Power/data/signal ground
-
-### Strapping Pins <a href="#strapping-pins" id="strapping-pins"></a>
-
-According to the chip manual of ESP32C3, **GPIO2**, **GPIO8** and **GPIO9** in the chip are Strapping Pins, the high and low level configurations of these pins may allow the chip to enter into different Boot modes, please pay attention to this point when you use these pins, otherwise it may prevent your XIAO from uploading or executing the program all the time.
-
-<div align="center"><img src="https://files.seeedstudio.com/wiki/XIAO_WiFi/20.png" alt=""></div>
+The [main guide](xiao-esp32-c3-wifi.md) contains complete Arduino LED/ADC/PWM/UART/OLED/Wi-Fi/BLE examples, battery and sleep procedures, plus PlatformIO, CircuitPython, NuttX, Zephyr and ESPHome paths. Use one exact framework/target and a known first result before combining peripherals. Existing URLs are retained for readers/bookmarks; development instructions are maintained in that one main guide.
 
 ## Official documentation and development resources
 
-Use [Getting Started with Seeed Studio XIAO ESP32C3](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/) for the manufacturer's complete model reference, diagrams and maintained examples. The references below complement this guide's local instructions.
+| Resource                                                                                                         | Use                                            |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| [Official product wiki](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/)                              | Product identity, original galleries and files |
+| [v1.3 schematic](https://files.seeedstudio.com/wiki/XIAO_WiFi/Resources/XIAO_ESP32C3_v1.3_SCH_260116.pdf)        | Power, battery and pin circuit                 |
+| [Main OpenELAB guide](xiao-esp32-c3-wifi.md)                                                                     | Complete consolidated development procedures   |
+| [Framework variant](https://github.com/espressif/arduino-esp32/blob/master/variants/XIAO_ESP32C3/pins_arduino.h) | Arduino aliases and bus defaults               |
 
-Keep the example's host model, interface pins and dependency versions together when reproducing a result. A schematic or SDK link does not establish that another revision uses the same wiring. Official model pages and accessible tutorial links reviewed **23 November 2026**. Other downloads above are manufacturer-listed resources; listing a file is not a test of its contents. Compilation, firmware flashing and hardware operation were **not performed** in this review.
+## Existing illustrations
+
+<figure><img src="../../.gitbook/assets/image (987).png" alt="Retained OpenELAB XIAO ESP32C3 reference illustration"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (988).png" alt="Retained OpenELAB XIAO ESP32C3 reference illustration"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (989).png" alt="Retained OpenELAB XIAO ESP32C3 reference illustration"><figcaption></figcaption></figure>
+
+![Retained OpenELAB XIAO ESP32C3 reference illustration](https://files.seeedstudio.com/wiki/XIAO_WiFi/20.png)
+
+## References and validation
+
+Hardware/framework sources reviewed23 November 2026. Existing page ID/URL and illustrations are retained; the main guide contains the consolidated procedures. Source review is not a build or bench test. No flashing, battery or physical validation was performed for this revision.

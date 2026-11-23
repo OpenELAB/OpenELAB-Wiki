@@ -12,6 +12,18 @@ Explore documentation for microcontrollers, single-board computers, wireless dev
 
 Browse 29 manufacturer and brand directories with 516 visible wiki pages beneath them. Coverage updated 23 November 2026.
 
+## Engineering guides with complete first-result workflows
+
+Start with an exact model rather than transferring a related board's pins or firmware. The expanded guides include source-backed specifications, original examples, official diagrams, expected results and troubleshooting. Compilation and hardware-test status are stated on each page.
+
+| Manufacturer                  | Model-specific starting points                                                                                                                                            |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Waveshare](waveshare/)       | [ESP32-S3-ETH](waveshare/waveshare-esp32-s3-eth-development-guide.md); [ESP32-S3-Nano](waveshare/esp32-s3-nano-development-board.md)                                      |
+| [M5Stack](m5stack/)           | [ATOM Lite C008](m5stack/m5stack-atom-lite-esp32-iot-development-kit.md); [ENV-III U001-C](m5stack/m5stack-env-iii-unit-with-temperature-humidity-air-pressure-sensor.md) |
+| [Seeed Studio](seeed-studio/) | [Standard XIAO RP2040](seeed-studio/xiao-rp2040.md); [XIAO ESP32C3](seeed-studio/xiao-esp32-c3-wifi.md)                                                                   |
+
+The remaining directory remains accessible in its existing order; detailed rewrites are progressing in batches.
+
 ## Start here
 
 | What you want to do                                      | Where to find documentation                                                                                                 |

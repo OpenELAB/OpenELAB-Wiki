@@ -8,6 +8,15 @@ Waveshare supplies development boards, displays, cameras, and interface modules 
 
 [Browse Waveshare products on OpenELAB](https://openelab.io/collections/brands-waveshare)
 
+## Expanded engineering guides
+
+These guides contain on-page procedures, original examples, attributed hardware illustrations and model-specific diagnostics. Sources are reviewed; build/hardware validation is stated separately in each guide.
+
+| Model                                                       | Start here                                                                        |
+| ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [ESP32-S3-ETH](waveshare-esp32-s3-eth-development-guide.md) | Wired DHCP, full example map, SD/camera integration and recovery.                 |
+| [ESP32-S3-Nano](esp32-s3-nano-development-board.md)         | Nano/native GPIO mapping, RGB, UART, Wi-Fi/BLE, MicroPython and firmware offsets. |
+
 ## Choose a board, interface and host
 
 This directory retains 61 existing guide URLs. A screen size or ESP32 family name is not enough to select wiring, firmware or an example. Use the exact module/kit and host platform, then the model page's official documentation links for schematics, example code and advanced features.
