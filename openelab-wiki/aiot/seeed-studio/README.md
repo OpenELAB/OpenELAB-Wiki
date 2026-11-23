@@ -1,5 +1,8 @@
 ---
-description: XIAO, Grove, SenseCAP, Wio, ReSpeaker, and edge-AI platforms.
+description: >-
+  Develop Seeed XIAO, Jetson, ReSpeaker and mesh hardware with exact model
+  selection, power, pinouts, first-result workflows, recovery and official
+  sources.
 layout:
   width: default
   title:
@@ -30,14 +33,21 @@ Seeed Studio develops hardware for sensing, connectivity, and edge computing. It
 
 ## Expanded engineering guides
 
-These guides contain on-page procedures, original examples, attributed hardware illustrations and model-specific diagnostics. Sources are reviewed; build/hardware validation is stated separately in each guide.
+These guides provide on-page commissioning procedures, source-backed specifications, attributed diagrams and model-specific troubleshooting. Each page states its software and hardware test status.
 
-| Model                                  | Start here                                                                |
-| -------------------------------------- | ------------------------------------------------------------------------- |
-| [Standard XIAO RP2040](xiao-rp2040.md) | Correct LED, ADC, I2C/SPI/UART examples and language/RTOS workflows.      |
-| [XIAO ESP32C3](xiao-esp32-c3-wifi.md)  | Battery, sleep, ADC, USB/UART, Wi-Fi/BLE and framework-specific bring-up. |
+| Exact model or family                                                         | Development workflow                                                                            |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| [reServer Industrial J4012](reserver-industrial-j4012-development-guide.md)   | PoE camera power/networking, storage, isolated I/O, CAN, serial and carrier-specific recovery.  |
+| [reComputer Super J4012](recomputer-super-j4012-development-guide.md)         | Super power/BSP selection, external CAN transceiver, CSI and accelerated-video checks.          |
+| [reSpeaker XVF3800](respeaker-xvf3800-four-mic-development-guide.md)          | Four exact XIAO/case packages, USB capture, DSP routing, I2S clock roles and firmware recovery. |
+| [SO-ARM101 Pro assembled kit](so-arm101-pro-development-guide.md)             | Leader/follower supplies, calibration, bounded teleoperation and local dataset inspection.      |
+| [SenseCAP Solar Node P1-Pro](sensecap-solar-node-p1-pro-development-guide.md) | MeshCore versus Meshtastic, solar/battery commissioning and two-way radio verification.         |
+| [Wio Tracker L1 Pro](wio-tracker-l1-pro-development-guide.md)                 | Exact mesh ecosystem, serial inventory, a private reply, Grove sensors and bootloader recovery. |
+| [SenseCAP MeshTracker X1](sensecap-meshtracker-x1-development-guide.md)       | Meshtastic position, alerts, bounded receive logging and USB DFU.                               |
+| [Standard XIAO RP2040](xiao-rp2040.md)                                        | Correct LED, ADC, I2C/SPI/UART examples and language/RTOS workflows.                            |
+| [XIAO ESP32C3](xiao-esp32-c3-wifi.md)                                         | Battery, sleep, ADC, USB/UART, Wi-Fi/BLE and framework-specific bring-up.                       |
 
-The [retained XIAO ESP32C3 hardware reference](xiao-esp32c3-risc-v-wi-fi-ble-5.0.md) and the main development guide describe the same SKU; the reference is not an additional product.
+The [XIAO ESP32C3 hardware reference](xiao-esp32c3-risc-v-wi-fi-ble-5.0.md) supplements the main guide for the same SKU; it is not an additional product.
 
 ## Develop from the exact Seeed platform
 

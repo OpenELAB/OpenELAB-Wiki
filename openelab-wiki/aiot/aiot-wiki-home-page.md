@@ -1,7 +1,7 @@
 ---
 description: >-
-  Guides for development boards, connected devices, sensors, displays and edge
-  computing.
+  Find model-specific development workflows for microcontrollers, Jetson edge
+  AI, voice, mesh radios, sensors, displays and robotics.
 ---
 
 # AIoT Documentation
@@ -10,19 +10,25 @@ description: >-
 
 Explore documentation for microcontrollers, single-board computers, wireless devices and the components around them. Use this section to find hardware references, interfaces, configuration steps and software resources for your connected-device project.
 
-Browse 29 manufacturer and brand directories with 516 visible wiki pages beneath them. Coverage updated 23 November 2026.
+Browse 29 manufacturer and brand directories with 516 visible wiki pages beneath them. Coverage updated 24 November 2026.
 
 ## Engineering guides with complete first-result workflows
 
-Start with an exact model rather than transferring a related board's pins or firmware. The expanded guides include source-backed specifications, original examples, official diagrams, expected results and troubleshooting. Compilation and hardware-test status are stated on each page.
+Choose the exact model, kit and firmware before applying a related board's wiring. These expanded guides include commissioning steps, original examples, official diagrams, expected results and model-specific troubleshooting. Each guide states what was source-reviewed and what was actually tested.
 
-| Manufacturer                  | Model-specific starting points                                                                                                                                            |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Waveshare](waveshare/)       | [ESP32-S3-ETH](waveshare/waveshare-esp32-s3-eth-development-guide.md); [ESP32-S3-Nano](waveshare/esp32-s3-nano-development-board.md)                                      |
-| [M5Stack](m5stack/)           | [ATOM Lite C008](m5stack/m5stack-atom-lite-esp32-iot-development-kit.md); [ENV-III U001-C](m5stack/m5stack-env-iii-unit-with-temperature-humidity-air-pressure-sensor.md) |
-| [Seeed Studio](seeed-studio/) | [Standard XIAO RP2040](seeed-studio/xiao-rp2040.md); [XIAO ESP32C3](seeed-studio/xiao-esp32-c3-wifi.md)                                                                   |
+| Development task                                             | Model-specific starting point                                                                                                                                                                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Bring up one PoE camera and isolated industrial interfaces   | [Seeed reServer Industrial J4012](seeed-studio/reserver-industrial-j4012-development-guide.md)                                                                                                                                             |
+| Establish a Super Jetson multimedia and CSI baseline         | [Seeed reComputer Super J4012](seeed-studio/recomputer-super-j4012-development-guide.md)                                                                                                                                                   |
+| Capture USB speech or develop a XIAO I2S voice application   | [Seeed reSpeaker XVF3800, four package variants](seeed-studio/respeaker-xvf3800-four-mic-development-guide.md)                                                                                                                             |
+| Calibrate an assembled leader/follower robot pair            | [Seeed SO-ARM101 Pro](seeed-studio/so-arm101-pro-development-guide.md)                                                                                                                                                                     |
+| Configure a solar repeater or portable mesh node             | [Solar Node P1-Pro](seeed-studio/sensecap-solar-node-p1-pro-development-guide.md), [Wio Tracker L1 Pro](seeed-studio/wio-tracker-l1-pro-development-guide.md), [MeshTracker X1](seeed-studio/sensecap-meshtracker-x1-development-guide.md) |
+| Match a Waveshare Orin NX kit to its actual carrier/BSP      | [16GB kit](waveshare/jetson-orin-nx-16gb-waveshare-development-guide.md), [8GB kit](waveshare/waveshare-jetson-orin-nx-8gb-development-guide.md)                                                                                           |
+| Program an ESP32 with correct pin names and recovery offsets | [ESP32-S3-ETH](waveshare/waveshare-esp32-s3-eth-development-guide.md), [ESP32-S3-Nano](waveshare/esp32-s3-nano-development-board.md)                                                                                                       |
+| Test modular M5Stack controller and sensor functions         | [ATOM Lite C008](m5stack/m5stack-atom-lite-esp32-iot-development-kit.md), [ENV-III U001-C](m5stack/m5stack-env-iii-unit-with-temperature-humidity-air-pressure-sensor.md)                                                                  |
+| Develop from the correct XIAO microcontroller family         | [Standard RP2040](seeed-studio/xiao-rp2040.md), [ESP32C3](seeed-studio/xiao-esp32-c3-wifi.md)                                                                                                                                              |
 
-The remaining directory remains accessible in its existing order; detailed rewrites are progressing in batches.
+See the [M5Stack](m5stack/), [Waveshare](waveshare/) and [Seeed Studio](seeed-studio/) directories for the complete existing model lists. Further detailed rewrites are progressing in batches.
 
 ## Start here
 

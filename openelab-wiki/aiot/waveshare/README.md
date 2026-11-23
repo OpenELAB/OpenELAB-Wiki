@@ -1,5 +1,7 @@
 ---
-description: Displays, ESP32 boards, Raspberry Pi HATs, cameras, and industrial I/O.
+description: >-
+  Develop Waveshare Jetson and ESP32 boards, displays and interfaces with exact
+  carrier selection, pinouts, first-result workflows and recovery.
 ---
 
 # Waveshare
@@ -10,12 +12,14 @@ Waveshare supplies development boards, displays, cameras, and interface modules 
 
 ## Expanded engineering guides
 
-These guides contain on-page procedures, original examples, attributed hardware illustrations and model-specific diagnostics. Sources are reviewed; build/hardware validation is stated separately in each guide.
+These guides provide on-page commissioning procedures, source-backed specifications, attributed diagrams and model-specific troubleshooting. Each page states its software and hardware test status.
 
-| Model                                                       | Start here                                                                        |
-| ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| [ESP32-S3-ETH](waveshare-esp32-s3-eth-development-guide.md) | Wired DHCP, full example map, SD/camera integration and recovery.                 |
-| [ESP32-S3-Nano](esp32-s3-nano-development-board.md)         | Nano/native GPIO mapping, RGB, UART, Wi-Fi/BLE, MicroPython and firmware offsets. |
+| Exact model or family                                                         | Development workflow                                                                        |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| [Jetson Orin NX 16GB kit](jetson-orin-nx-16gb-waveshare-development-guide.md) | Carrier identification, RAM versus NVMe, first boot, CUDA execution check and BSP recovery. |
+| [Jetson Orin NX 8GB kit](waveshare-jetson-orin-nx-8gb-development-guide.md)   | Exact 8GB module and package, power/cooling, Linux/CUDA baseline and recovery.              |
+| [ESP32-S3-ETH](waveshare-esp32-s3-eth-development-guide.md)                   | Wired DHCP, full example map, SD/camera integration and recovery.                           |
+| [ESP32-S3-Nano](esp32-s3-nano-development-board.md)                           | Nano/native GPIO, RGB, UART, Wi-Fi/BLE, MicroPython and firmware offsets.                   |
 
 ## Choose a board, interface and host
 
