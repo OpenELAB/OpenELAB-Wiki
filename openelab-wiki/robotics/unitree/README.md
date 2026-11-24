@@ -57,6 +57,13 @@ These guides distinguish source-reviewed instructions, original offline checks, 
 * [Unitree Laikago and Laikago Pro: historical models and ROS resources](unitree-laikago.md)
 * [Unitree XDog: historical quadruped prototype reference](unitree-xdog.md)
 
+## Robot arms and teleoperation hardware <a href="#unitree-batch-04-arms" id="unitree-batch-04-arms"></a>
+
+* [Unitree Z1 AIR and PRO: Ethernet SDK and ROS Development Guide](unitree-z1.md)
+* [Unitree D1-T Teleoperation Kits: Edition and Development Guide](unitree-d1-t.md)
+* [Unitree D2 Arm: ArmEcho, Python SDK and State Diagnostics](unitree-d2.md)
+* [Unitree R1-7a Arm: Serial SDK, Web Console and Teleoperation Guide](unitree-r1-7a.md)
+
 ## Unitree Official Site <a href="#unitree-official-site" id="unitree-official-site"></a>
 
 * [Unitree official products](https://www.unitree.com/)
