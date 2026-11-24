@@ -64,6 +64,13 @@ These guides distinguish source-reviewed instructions, original offline checks, 
 * [Unitree D2 Arm: ArmEcho, Python SDK and State Diagnostics](unitree-d2.md)
 * [Unitree R1-7a Arm: Serial SDK, Web Console and Teleoperation Guide](unitree-r1-7a.md)
 
+## Teleoperation, simulation and navigation <a href="#unitree-batch-06-advanced" id="unitree-batch-06-advanced"></a>
+
+* [Unitree teleoperation: AVP, Kinect and model compatibility](unitree-teleoperation.md)
+* [Unitree RL Gym: training, policy contracts and simulator transfer](unitree-reinforcement-learning.md)
+* [Unitree quadruped control practice: FSM, simulation and timing](unitree-algorithm-practice.md)
+* [Unitree industrial navigation: maps, routes, APIs and offline data](unitree-industrial-navigation.md)
+
 ## Unitree Official Site <a href="#unitree-official-site" id="unitree-official-site"></a>
 
 * [Unitree official products](https://www.unitree.com/)
