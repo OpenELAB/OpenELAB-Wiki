@@ -38,6 +38,17 @@ These guides distinguish source-reviewed instructions, original offline checks, 
 * [Unitree H2-X and H2-X EDU: model differences and SDK state contracts](unitree-h2-x.md)
 * [Unitree G1+ and G1+ EDU: configuration, power and development evidence](unitree-g1-plus.md)
 
+## Industrial quadruped guides <a href="#unitree-batch-03" id="unitree-batch-03"></a>
+
+* [Unitree A2 and A2 Pro: Hardware, Operation and State Development](unitree-a2.md)
+* [Unitree A2-W and A2-W Pro: Wheel Hardware and Development Boundaries](unitree-a2-w.md)
+* [Unitree As2 AIR, PRO, X and EDU: Model and Development Guide](unitree-as2.md)
+* [Unitree As2-W X and EDU: Wheel Robot and State Development Guide](unitree-as2-w.md)
+* [Unitree B2: power, remote revisions and read-only development](unitree-b2.md)
+* [Unitree B2-W: wheel mapping, operating limits and first state checks](unitree-b2-w.md)
+* [Unitree B2-Ex: chassis and inspection-solution engineering boundaries](unitree-b2-ex.md)
+* [Unitree B1: specifications and unresolved SDK compatibility](unitree-b1.md)
+
 ## Unitree Official Site <a href="#unitree-official-site" id="unitree-official-site"></a>
 
 * [Unitree official products](https://www.unitree.com/)
