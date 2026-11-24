@@ -17,6 +17,10 @@ Unitree B2-Ex is a separately named industrial quadruped presented by the manufa
 
 This is a manufacturer model reference with an explicit deployment evidence gap. The reviewed source is a living product page, not a certificate, certificate schedule, installation manual or site acceptance record. The first result is an offline configuration/evidence review. No SDK or physical connection is proposed until the actual configuration, certification conditions, power/stop design and firmware interface have been established.
 
+### Scope of newly available portal evidence <a href="#scope-of-newly-available-portal-evidence" id="scope-of-newly-available-portal-evidence"></a>
+
+The saved B2 developer corpus was checked as related context. It does not identify this exact model as a supported hardware/firmware configuration. The existing exact-model manufacturer/manual evidence remains the basis of this reference. No new SKU, host controller or electrical rating is inferred from the B2 family name.
+
 ## Applications <a href="#applications" id="applications"></a>
 
 The manufacturer describes route-based inspections, equipment-status collection and assisted anomaly identification at industrial sites, including oil/gas and chemical facilities. Listed payload integration categories include PTZ/visible/thermal cameras, gas sensing/imaging, acoustic imaging, communications, LiDAR and robotic arms. These are integration capabilities and proposed applications, not proof that every attached sensor/arm is covered by a particular robot certificate.
@@ -81,6 +85,10 @@ No SDK2, legacy UDP SDK or ROS package is declared compatible with B2-Ex hardwar
 
 The next software evidence needed is an exact manufacturer package/release with a B2-Ex support statement, controller/firmware pairing, environment requirements, IDL/topic or request schema, network configuration and an approved receive-only diagnostic. Until then, do not initialize DDS, discover a live industrial network, import a guessed decoder or substitute another model's firmware.
 
+### No inherited B2 development clearance <a href="#no-inherited-b2-development-clearance" id="no-inherited-b2-development-clearance"></a>
+
+B2-Ex needs the actual certificate, installation conditions and approved configuration before any hazardous-area deployment. A B2 connector table, DDS interface or SLAM example does not qualify an Ex installation or identify an explosion-protected accessory. The certificate and firmware gaps above remain open. [Obtain SDK](https://support.unitree.com/home/en/B2_developer/Obtain%20SDK); [About B2](https://support.unitree.com/home/en/B2_developer/About%20B2).
+
 ## Getting started <a href="#getting-started" id="getting-started"></a>
 
 ### Offline first result: reject incomplete deployment evidence <a href="#offline-first-result-reject-incomplete-deployment-evidence" id="offline-first-result-reject-incomplete-deployment-evidence"></a>
@@ -122,6 +130,10 @@ Once the documents have been substantively reviewed and per-unit conditions reso
 
 **Where are firmware, calibration and recovery instructions?** They were not established by the read product page. There is no guessed reset, downgrade, recalibration or service-mode procedure in this guide.
 
+### Does the new B2 portal resolve this model’s control gap? <a href="#does-the-new-b2-portal-resolve-this-models-control-gap" id="does-the-new-b2-portal-resolve-this-models-control-gap"></a>
+
+No exact-model support or stop/electrical contract was established. Use the existing original offline document/state worksheet. Do not run a B2 stand, wheel, calibration or navigation program to test family compatibility. Keep the delivered label, controller/pack revision and manufacturer response with the unresolved record.
+
 ## Downloads and technical documents <a href="#downloads-and-technical-documents" id="downloads-and-technical-documents"></a>
 
 | Resource                                                                                                                               | Actual access and use                                                                                                                                               |
@@ -132,10 +144,22 @@ Once the documents have been substantively reviewed and per-unit conditions reso
 | Installation, stop/isolation, battery/charger, remote and maintenance manuals                                                          | No exact B2-Ex edition was established in the private manual set reviewed here. B2/B2-W documents remain separate.                                                  |
 | SDK/firmware/IDL and mechanical/electrical drawings                                                                                    | Exact B2-Ex releases and drawings unresolved. General SDK indexes are discovery aids only.                                                                          |
 
+### Related portal resources, excluded from qualification <a href="#related-portal-resources-excluded-from-qualification" id="related-portal-resources-excluded-from-qualification"></a>
+
+[About B2](https://support.unitree.com/home/en/B2_developer/About%20B2) and [Obtain SDK](https://support.unitree.com/home/en/B2_developer/Obtain%20SDK) are B2 resources. Their35-article corpus is recorded privately as excluded context for this exact model. It does not replace the exact-model manual/resource inventory above.
+
 ## References and validation <a href="#references-and-validation" id="references-and-validation"></a>
 
 Reviewed 24 November 2026 from the cached official B2-Ex product HTML and range/source inventory, with relevant B2/B2-W SDK examples inspected only to bound unsupported transfer. The product page is undated and living; its cached content hash is retained privately. No complete B2-Ex user manual, certificate, portal chapter set or firmware release was read.
 
 **Validation:** original offline worksheet plus missing/unknown-configuration cases, source hashes and nine-section structure checked. **Not run:** SDK imports, dependency installation/build, ROS/DDS/network discovery, hardware, motion, charging or flashing. Hardware/deployment readiness remains a draft because certification conditions, power/stop procedures and the software interface are unresolved. The ordinary browser's parent-owned portal access does not imply these B2-Ex resources have been read.
+
+**Related documentation:** [Unitree model and development directory](./).
+
+### Portal-expansion validation boundary <a href="#portal-expansion-validation-boundary" id="portal-expansion-validation-boundary"></a>
+
+Expanded 24 November2026 from the actual saved published Markdown and exact cached manufacturer portal records. Existing nine-section anchors, all original executable code fences, source figures, manual image/chapter coverage and product identities were preserved. Applicable prose/tables and full resource/section inventories were reviewed; vendor source/example blocks were statically inspected, not compiled or executed. The source ledger distinguishes direct applicability, copied documentation, related-only wheel material, empty articles and linked-only assets. No claim is made that every external link/video/archive or all628 portal articles was read.
+
+Only original offline examples/fixtures and static preservation/source checks were run. No vendor SDK import, install/build, ROS/DDS/multicast activation, hardware, motion, calibration, charging, reboot, route edit or flashing occurred. Exact delivered firmware, independent stop and revision-specific electrical/support gaps remain visible. This is an author replacement candidate for independent review; the parent remains the sole CMS writer.
 
 **Related documentation:** [Unitree model and development directory](./).

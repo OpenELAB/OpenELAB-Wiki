@@ -17,6 +17,10 @@ Unitree B1 is an earlier industrial quadruped with a published approximately 50 
 
 The most important development limit is unresolved SDK support. The inspected legacy SDK v3.8.6 explicitly excludes B1, and its pointer to v3.3.1 does not establish B1 support: that historical README names Aliengo and A1, not B1. No SDK2/firmware pairing, B1 power/stop manual or connector pinout was verified in this task. A source-only reference is useful; a guessed live robot procedure would not be.
 
+### Scope of newly available portal evidence <a href="#scope-of-newly-available-portal-evidence" id="scope-of-newly-available-portal-evidence"></a>
+
+The saved B2 developer corpus was checked as related context. It does not identify this exact model as a supported hardware/firmware configuration. The existing exact-model manufacturer/manual evidence remains the basis of this reference. No new SKU, host controller or electrical rating is inferred from the B2 family name.
+
 ## Applications <a href="#applications" id="applications"></a>
 
 The manufacturer describes agriculture, industrial work, inspection/security patrol research, surveys and rescue/exploration applications. Its published load and endurance values support early sizing, with actual terrain and payload validation still required. A payload attached above the chassis changes balance and electrical demand; the 80 kg maximum standing number is not a continuous walking allowance.
@@ -76,6 +80,10 @@ The legacy README's UDP transport, dependencies and firmware values belong to it
 
 For later development, obtain a manufacturer-confirmed B1 SDK release and license, exact robot/controller/image target, supported OS/toolchain, protocol/message definitions, endpoint/interface plan, sample timing and an approved receive-only diagnostic. The [shared SDK2 guide](unitree-sdk2-state-development.md) and [ROS 2 guide](unitree-ros2-integration.md) can explain their own ecosystems, but do not close the B1 compatibility gap. No installation/build command is proposed here.
 
+### No inherited B2 development clearance <a href="#no-inherited-b2-development-clearance" id="no-inherited-b2-development-clearance"></a>
+
+B1 remains a historical model reference. The legacy README redirect to 3.3.1 excludes B1, and the new B2 portal does not supply missing B1 firmware/SDK qualification. Do not infer SDK2 support or a legacy firmware pair from a related robot. [Obtain SDK](https://support.unitree.com/home/en/B2_developer/Obtain%20SDK); [About B2](https://support.unitree.com/home/en/B2_developer/About%20B2).
+
 ## Getting started <a href="#getting-started" id="getting-started"></a>
 
 ### Offline first result: make the compatibility decision explicit <a href="#offline-first-result-make-the-compatibility-decision-explicit" id="offline-first-result-make-the-compatibility-decision-explicit"></a>
@@ -118,6 +126,10 @@ A later first hardware result should be a manufacturer-supported, bounded read o
 
 **Is B1 discontinued?** The observed manufacturer navigation still links B1, but that alone proves neither manufacturing availability nor retirement. No stock, shipment or lifecycle claim is made here.
 
+### Does the new B2 portal resolve this model’s control gap? <a href="#does-the-new-b2-portal-resolve-this-models-control-gap" id="does-the-new-b2-portal-resolve-this-models-control-gap"></a>
+
+No exact-model support or stop/electrical contract was established. Use the existing original offline document/state worksheet. Do not run a B2 stand, wheel, calibration or navigation program to test family compatibility. Keep the delivered label, controller/pack revision and manufacturer response with the unresolved record.
+
 ## Downloads and technical documents <a href="#downloads-and-technical-documents" id="downloads-and-technical-documents"></a>
 
 | Resource                                                                                                                               | Purpose and evidence boundary                                                                                         |
@@ -129,10 +141,22 @@ A later first hardware result should be a manufacturer-supported, bounded read o
 | Exact B1 user/remote/battery/charger, wiring/mechanical, calibration and recovery manuals                                              | Not established in the English manual collection reviewed for this task. Do not replace with B2/B2-W chapters.        |
 | Exact B1 SDK release/firmware or independent IP68 report                                                                               | Not read/verified. Required before the corresponding hardware or environmental claim can become operational guidance. |
 
+### Related portal resources, excluded from qualification <a href="#related-portal-resources-excluded-from-qualification" id="related-portal-resources-excluded-from-qualification"></a>
+
+[About B2](https://support.unitree.com/home/en/B2_developer/About%20B2) and [Obtain SDK](https://support.unitree.com/home/en/B2_developer/Obtain%20SDK) are B2 resources. Their35-article corpus is recorded privately as excluded context for this exact model. It does not replace the exact-model manual/resource inventory above.
+
 ## References and validation <a href="#references-and-validation" id="references-and-validation"></a>
 
 Reviewed 24 November 2026 from the official B1 product content, the two actual legacy README texts, the SDK matrix and the scoped ROS model description. Source content hashes and the historical tag reference are retained privately. No complete B1 manual or support-portal chapter set was read; newly accessible parent browser articles remain separate evidence until actually reviewed.
 
 **Validation:** original offline worksheet, source/hash/structure and unsupported-transfer checks only. **Not performed:** vendor import/execution, SDK installation/build, ROS/DDS/network discovery, hardware, motion, charging, calibration or firmware flashing. Hardware readiness remains draft because exact power, stop and SDK/controller/firmware support are unresolved.
+
+**Related documentation:** [Unitree model and development directory](./).
+
+### Portal-expansion validation boundary <a href="#portal-expansion-validation-boundary" id="portal-expansion-validation-boundary"></a>
+
+Expanded 24 November2026 from the actual saved published Markdown and exact cached manufacturer portal records. Existing nine-section anchors, all original executable code fences, source figures, manual image/chapter coverage and product identities were preserved. Applicable prose/tables and full resource/section inventories were reviewed; vendor source/example blocks were statically inspected, not compiled or executed. The source ledger distinguishes direct applicability, copied documentation, related-only wheel material, empty articles and linked-only assets. No claim is made that every external link/video/archive or all628 portal articles was read.
+
+Only original offline examples/fixtures and static preservation/source checks were run. No vendor SDK import, install/build, ROS/DDS/multicast activation, hardware, motion, calibration, charging, reboot, route edit or flashing occurred. Exact delivered firmware, independent stop and revision-specific electrical/support gaps remain visible. This is an author replacement candidate for independent review; the parent remains the sole CMS writer.
 
 **Related documentation:** [Unitree model and development directory](./).
