@@ -1,7 +1,8 @@
 ---
 description: >-
-  RobStride model guides and integration references: actuator-specific CAN
-  limits, debug and power boards, and the LeRobot humanoid motor set.
+  RobStride actuator engineering guides: exact motor limits, CAN frames and
+  parameters, feedback, calibration, debug/power boards and humanoid integration
+  resources.
 cover: ../../.gitbook/assets/robstride-logo.jpg
 coverY: 0
 ---
@@ -40,7 +41,13 @@ Each individual actuator manual keeps its own voltage, torque, scaling and hardw
 
 [Official model/accessory resources](https://github.com/RobStride/Product_Information) · [LeRobot reference hardware and BOM](https://github.com/huggingface/lerobot-humanoid-hardware)
 
-### Product range
+### Actuator protocol and configuration references
+
+The expanded 00, 02, 02-IP67, 03, 04, 05, 06 and EduLite 05 guides retain the full model-specific manual content and illustrations, with actual CAN identifiers, payload fields, feedback and parameter dictionaries, control modes, calibration, diagnostics and development resources. Rated/peak physical limits and protocol mapping ranges are distinguished for each model.
+
+Begin with the documented disabled-state feedback and identity checks. Confirm the actual firmware and stored limits before applying a command from a different model or transport. The guides retain dated source differences and corrections beside the relevant fields; source/static checks are separate from hardware commissioning.
+
+## Product range
 
 * ROBSTRIDE00–06 integrated joint motor families
 * Compact and higher-torque quasi-direct-drive actuators
@@ -48,12 +55,12 @@ Each individual actuator manual keeps its own voltage, torque, scaling and hardw
 
 ### Product families and examples
 
-| Product     | Typical use                        | Links                                                                                                                                                      |
-| ----------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ROBSTRIDE00 | Compact robotic joints             | [Wiki guide](robstride-00-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/robstride00-qdd-14n-m-integrated-joint-motor-module)    |
-| ROBSTRIDE02 | Small articulated robot mechanisms | [Wiki guide](robstride-02-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/robstride02-qdd-17n-m-joint-motor-module-dual-encoders) |
-| ROBSTRIDE04 | Higher-torque robot joints         | [Wiki guide](robstride-04-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/robstride04-qdd-120n-m-integrated-joint-motor-module)   |
-| ROBSTRIDE05 | Lightweight actuator experiments   | [Wiki guide](robstride-05-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/robstride05-qdd-joint-motor-module)                     |
+| Product     | Typical use                        | Links                                                                                                                                                                           |
+| ----------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ROBSTRIDE00 | Compact robotic joints             | [RobStride 00 Instruction Manual](robstride-00-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/robstride00-qdd-14n-m-integrated-joint-motor-module)    |
+| ROBSTRIDE02 | Small articulated robot mechanisms | [RobStride 02 Instruction Manual](robstride-02-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/robstride02-qdd-17n-m-joint-motor-module-dual-encoders) |
+| ROBSTRIDE04 | Higher-torque robot joints         | [RobStride 04 Instruction Manual](robstride-04-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/robstride04-qdd-120n-m-integrated-joint-motor-module)   |
+| ROBSTRIDE05 | Lightweight actuator experiments   | [RobStride 05 Instruction Manual](robstride-05-instruction-manual.md) · [OpenELAB product](https://openelab.io/products/robstride05-qdd-joint-motor-module)                     |
 
 ### Popular applications
 
