@@ -10,7 +10,7 @@ Yahboom develops robotics learning platforms built around controllers such as Ra
 
 ### Popular product guides
 
-Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
+Products in the OpenELAB Top200 net-sales snapshot for 17 August–17 November 2026, ordered by their original sales rank. Shared model-family guides appear once; match the exact model, SKU and purchased option. This dated sales order is separate from manufacturer website-traffic ranking.
 
 | Product guide                                                                       | Models / order codes |
 | ----------------------------------------------------------------------------------- | -------------------- |
