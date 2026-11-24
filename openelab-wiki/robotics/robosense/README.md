@@ -83,3 +83,9 @@ Products in the OpenELAB Top200 net-sales snapshot for 17 August–17 November 2
 </details>
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Model-specific protocol and development references
+
+Follow the exact Airy, Airy Lite, M1+, E1R, EMX, AC1 or Fairy guide in the product table. The references distinguish mechanical LiDAR packets and per-channel timing from solid-state models and AC1 camera/IMU pipelines. On-page material includes driver APIs and callback ownership, configuration and service settings, timestamps, replay, diagnostics, mechanical constraints and official downloads. The Fairy listing does not establish 48TX versus 48T1 PHY or the supplied harness: identify the actual unit and matching harness before wiring.
+
+Source review and static validation are distinct from executing an SDK or commissioning physical hardware. Follow each guide’s stated evidence and validation limits.

@@ -86,3 +86,9 @@ Check the exact model, firmware, and protection variant before using a manual or
 </details>
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Model-specific protocol and development references
+
+The [10P CAN/CAN-FD engineering reference](robstride-10p-development-guide.md) adds the model’s complete transport and command reference: extended identifiers, payload fields, parameter/register maps, feedback scaling, modes, calibration, GUI and SDK integration. Keep its 42 Nm physical peak and ±13 rad/s model limit separate from protocol encoding ranges. CAN and CAN-FD are distinct firmware/transport lanes; the source’s zero-span velocity-range typo is identified rather than used as a scaling formula.
+
+Source review and static validation are distinct from executing an SDK or commissioning physical hardware. Follow each guide’s stated evidence and validation limits.

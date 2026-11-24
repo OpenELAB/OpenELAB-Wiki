@@ -68,3 +68,9 @@ HAP T1 and TX have separate manuals. Select the manual for your variant; the com
 </details>
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Model-specific protocol and development references
+
+Choose [MID-360S sensor or kit](livox-mid-360s-3d-lidar-sensor-engineering-guide.md), [MID-360L](livox-mid-360l-development-guide.md), [Avia 2](livox-avia-2-development-guide.md) or [MID-70](livox-mid-70-user-manual.md) by the purchased model. The guides distinguish first-generation SDK/Viewer/ROS1 from SDK2/Viewer2 and model-specific ROS support. They add packet and command fields, configuration keys, callback/message contracts, time synchronization, recording/replay, diagnostics and observable first-result checks. Reserved S/L pins and model-specific upgrade identities remain explicitly bounded.
+
+Source review and static validation are distinct from executing an SDK or commissioning physical hardware. Follow each guide’s stated evidence and validation limits.

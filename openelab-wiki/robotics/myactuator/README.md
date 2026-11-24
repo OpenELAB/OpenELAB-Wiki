@@ -15,10 +15,11 @@ MyActuator develops integrated servo actuators and motor-control hardware for ro
 
 Products in the OpenELAB Top200 net-sales snapshot for 17 August–17 November 2026, ordered by their original sales rank. Shared model-family guides appear once; match the exact model, SKU and purchased option. This dated sales order is separate from manufacturer website-traffic ranking.
 
-| Product guide                                                                                           | Models / order codes                                     |
-| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [MyActuator RMD-X12-P20-320-E Development Guide](rmd-x12-p20-320-e-development-guide.md)                | MyActuator-RMD-X12-P20-320-E                             |
-| [MyActuator RMD-X6-P20 and RMD-X8-P20 Engineering Guide](myactuator-rmd-x6-x8-p20-development-guide.md) | MyActuator-RMD-X6-P20-60-E · MyActuator-RMD-X8-P20-120-E |
+| Product guide                                                                                           | Models / order codes         |
+| ------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| [MyActuator RMD-X12-P20-320-E Development Guide](rmd-x12-p20-320-e-development-guide.md)                | MyActuator-RMD-X12-P20-320-E |
+| [MyActuator RMD-X6-P20 and RMD-X8-P20 Engineering Guide](myactuator-rmd-x6-x8-p20-development-guide.md) | MyActuator-RMD-X6-P20-60-E   |
+| [MyActuator RMD-X8-P20-120-E Development Guide](rmd-x8-p20-120-e-development-guide.md)                  | MyActuator-RMD-X8-P20-120-E  |
 
 ### Product guide directory
 

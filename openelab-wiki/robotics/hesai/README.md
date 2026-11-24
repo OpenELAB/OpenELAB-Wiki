@@ -38,3 +38,9 @@ Products in the OpenELAB Top200 net-sales snapshot for 17 August–17 November 2
 * Capture point clouds for mapping and perception research.
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Model-specific protocol and development references
+
+The [JT128 guide](hesai-jt128-3d-lidar-engineering-guide.md) covers the exact model, power/network boundaries, PTC configuration, SDK and ROS parameters, packet interpretation, timing, calibration files, diagnostics and capture/replay. Retain the delivered calibration and firmware identity with recorded data; a point-cloud display alone does not prove calibration or synchronization accuracy.
+
+Source review and static validation are distinct from executing an SDK or commissioning physical hardware. Follow each guide’s stated evidence and validation limits.

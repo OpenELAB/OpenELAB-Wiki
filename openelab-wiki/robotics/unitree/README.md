@@ -1,4 +1,7 @@
 ---
+description: >-
+  Unitree L2 4D LiDAR engineering references for interfaces, packets, SDK and
+  ROS; historical OpenELAB listing and package identity remain unverified.
 cover: ../../.gitbook/assets/unitree-wordmark.png
 coverY: 0
 ---
@@ -34,3 +37,9 @@ Main site: [https://www.unitree.com/](https://www.unitree.com/)
 </details>
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Model-specific protocol and development references
+
+The [L2 4D LiDAR guide](unitree-l2-4d-lidar-engineering-guide.md) develops the official serial/Ethernet, packet/IMU, SDK and ROS configuration references with acceptance checks and diagnostics. The historical Unitree-L24DLiDAR OpenELAB URL currently returns 404, and its current exact package/listing is unverified. That store gap is preserved for reconciliation; accessory inclusion is not inferred from another model.
+
+Source review and static validation are distinct from executing an SDK or commissioning physical hardware. Follow each guide’s stated evidence and validation limits.

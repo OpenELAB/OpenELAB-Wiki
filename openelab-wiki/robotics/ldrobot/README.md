@@ -38,3 +38,9 @@ Products in the OpenELAB Top200 net-sales snapshot for 17 August–17 November 2
 * Add compact single-point distance measurements to embedded devices.
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Model-specific protocol and development references
+
+The [D800/STL-27L guide](ldrobot-d800-stl27l-development-guide.md) connects the ordered package to its scan module and explains power/interface selection, packet fields and checksum, angle/speed units, driver and ROS configuration, diagnostics and timing acceptance. It distinguishes wrapper/package identity from the underlying scan engine and retains the manufacturer resources beside the relevant procedures.
+
+Source review and static validation are distinct from executing an SDK or commissioning physical hardware. Follow each guide’s stated evidence and validation limits.

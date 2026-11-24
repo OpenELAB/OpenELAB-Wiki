@@ -38,3 +38,9 @@ Products in the OpenELAB Top200 net-sales snapshot for 17 August–17 November 2
 * Integrate laser sensing into automation and spatial monitoring systems.
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Model-specific protocol and development references
+
+The [C1 guide](lslidar-c1-development-guide.md) includes measured-model selection, mounting and power/network constraints, ROS driver parameters and services, scan and point-cloud formats, timing, capture/replay, configuration and diagnostics. Confirm the delivered C1 hardware and firmware before applying a related family model’s packet or timing settings.
+
+Source review and static validation are distinct from executing an SDK or commissioning physical hardware. Follow each guide’s stated evidence and validation limits.
