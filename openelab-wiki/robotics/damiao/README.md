@@ -1,5 +1,8 @@
 ---
-description: Joint and hub motors, CAN debugging tools, and model-specific manuals.
+description: >-
+  DAMIAO actuator references: exact V3/V4 and voltage options, typed CAN
+  registers, DMTool setup, read-only diagnostics, calibration and firmware
+  resources.
 cover: ../../.gitbook/assets/damiao-logo.jpg
 coverY: 0
 ---
@@ -17,6 +20,14 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | Product guide                                                                                           | Models / order codes                   |
 | ------------------------------------------------------------------------------------------------------- | -------------------------------------- |
 | [DAMIAO DM-J4310-2EC and DM-J8009P-2EC Engineering Guide](damiao-2ec-j4310-j8009p-development-guide.md) | DM-J4310-2EC-24V-V3 · DM-J8009P-2EC-V3 |
+
+### Exact-model development reference
+
+The [DM-J4310-2EC and DM-J8009P-2EC guide](damiao-2ec-j4310-j8009p-development-guide.md) covers the listed V3 options in one comparison with both product links. It separates the 4310 24V configuration from the 8009P's 24–48V supply, distinct connector faces, encoder generations and firmware families.
+
+The page includes a complete typed register dictionary with per-model address differences, mode-specific frame layouts, command/persistence semantics, version-gated CAN-FD notes, calibration and firmware navigation, and an original non-enabling parameter reader. DMTool adapter configuration is separate from motor firmware and the mechanical CAD.
+
+Start with the exact motor label, saved configuration and isolated readback before selecting a motion mode. Physical or software execution is not claimed by the source review. [4310 official resources](https://github.com/dmBots/DM-J4310-2EC) · [8009P official resources](https://github.com/dmBots/DM-J8009P-2EC) · [DMTool documentation](https://github.com/dmBots/motor-debugging-tool)
 
 ### Product range
 

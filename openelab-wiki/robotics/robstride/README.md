@@ -1,5 +1,7 @@
 ---
-description: Integrated CAN robot joints, actuator manuals, and debugging tools.
+description: >-
+  RobStride model guides and integration references: actuator-specific CAN
+  limits, debug and power boards, and the LeRobot humanoid motor set.
 cover: ../../.gitbook/assets/robstride-logo.jpg
 coverY: 0
 ---
@@ -27,6 +29,16 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | [RobStride 02-IP67 Instruction Manual](robstride-02-ip67-instruction-manual.md)                              | ROBSTRIDE-02IP67                  |
 | [RobStride Debug Board and Power Board Integration Guide](robstride-debug-power-boards-development-guide.md) | ROBSTRIDE-Debug · ROBSTRIDE-Power |
 | [RobStride 10P CAN and CAN-FD Engineering Guide](robstride-10p-development-guide.md)                         | ROBSTRIDE-10P                     |
+
+### Integration paths and development checks
+
+Use the [debug and power-board guide](robstride-debug-power-boards-development-guide.md) to distinguish USB/serial AT from native CAN, actuator supply from adapter power, switched source-voltage branches from regulated auxiliaries, and motor E-stop scope from live logic power. It includes complete communication/parameter tables, a version-only first query, and explicit boundaries for ambiguous status fields.
+
+The [LeRobot humanoid motor-set guide](lerobot-humanoid-motor-set-development-guide.md) maps the twelve supplied motors to the pinned biped BOM, IDs and runtime. It adds an offline inventory check and separates logic-only power, isolated actuator readback, protocol/ID changes, calibration and supported motion. The motor set is not a complete walking robot.
+
+Each individual actuator manual keeps its own voltage, torque, scaling and hardware revision. The two integration guides cover three purchased items—the Debug Board, Power Board and motor set—rather than three additional motor models. Source review and synthetic software fixtures do not establish bench-tested hardware.
+
+[Official model/accessory resources](https://github.com/RobStride/Product_Information) · [LeRobot reference hardware and BOM](https://github.com/huggingface/lerobot-humanoid-hardware)
 
 ### Product range
 
