@@ -71,6 +71,12 @@ These guides distinguish source-reviewed instructions, original offline checks, 
 * [Unitree quadruped control practice: FSM, simulation and timing](unitree-algorithm-practice.md)
 * [Unitree industrial navigation: maps, routes, APIs and offline data](unitree-industrial-navigation.md)
 
+## Perception and charging accessories <a href="#unitree-batch-06-sensors" id="unitree-batch-06-sensors"></a>
+
+* [Unitree L1 4D LiDAR: power, MAVLink, frames and development](unitree-l1.md)
+* [Unitree SV1-25: USB stereo capture, calibration and exact SDK interfaces](unitree-sv1-25.md)
+* [Unitree BA2 / A2 Autonomous Charging Dock: ratings and integration boundaries](unitree-ba2.md)
+
 ## Unitree Official Site <a href="#unitree-official-site" id="unitree-official-site"></a>
 
 * [Unitree official products](https://www.unitree.com/)
