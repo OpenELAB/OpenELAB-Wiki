@@ -20,7 +20,7 @@ This set supplies the **four exact actuator classes** in the reviewed 12-DOF LeR
 
 _Existing OpenELAB product illustration; retained native asset. Reference build details come from the dated project files, not the illustration._
 
-## Applications
+## Applications <a href="#applications" id="applications"></a>
 
 Use the set for one-motor commissioning, bench validation of a biped joint, model/encoder identification and the documented legged-research build. Inventory and interface validation precede simulation-to-real or policy evaluation. The reviewed runtime is a 12-DOF **biped without arms**; upper-body CAD and HOPE-Jr arm/hand tutorials do not expand this kit’s contents or establish software compatibility. [Hardware README](https://github.com/huggingface/lerobot-humanoid-hardware/blob/8171f5799b046f8a696e7b787a34226f119c4797/README.md), [runtime README](https://github.com/Virgileboat/lerobot-humanoid-runtime/blob/e4dc62795e83b2e69580cad4d3229bdb558e912e/README.md).
 
@@ -50,21 +50,21 @@ Rated torque depends on the individual manual’s speed, cooling and thermal tes
 
 ## Hardware and connections <a href="#hardware-and-software-prerequisites" id="hardware-and-software-prerequisites"></a>
 
-### Build a physical map before making a chain
+### Build a physical map before making a chain <a href="#build-a-physical-map-before-making-a-chain" id="build-a-physical-map-before-making-a-chain"></a>
 
 Label every motor with model, serial, voltage/driver revision, physical joint, desired node ID and bus. Keep RS03’s separate power/signal connectors distinct from the compact motors’ combined XT30(2+2) layout. Use each exact connector face drawing; a wire-side view is mirrored. Check continuity and polarity with all drive supplies removed. [Individual model guides above](./), [project connector catalog](https://github.com/huggingface/lerobot-humanoid-hardware/blob/8171f5799b046f8a696e7b787a34226f119c4797/hardware/electronics/connectors.md).
 
 The reference adapter’s DB9 pins are **2=CAN-L, 3=GND, 7=CAN-H**. This statement applies to that project adapter/harness, not every DB9 product. The upstream connector catalog explicitly marks motor/inter-cable pin maps as **partial**. Do not fill unspecified contacts from colors or connector appearance. Use the actual manufacturer motor drawing and approved harness documentation before power. It calls for bus-end 120 Ω termination and power lines designed for the actual branch current; its 30 A branch target is not a fuse or connector rating for arbitrary cable. [Connector catalog](https://github.com/huggingface/lerobot-humanoid-hardware/blob/8171f5799b046f8a696e7b787a34226f119c4797/hardware/electronics/connectors.md).
 
-### Logic-only power is not full-drive commissioning
+### Logic-only power is not full-drive commissioning <a href="#logic-only-power-is-not-full-drive-commissioning" id="logic-only-power-is-not-full-drive-commissioning"></a>
 
 The first-power document starts with controller logic only, a **2 A** bench limit and roughly 1 A maximum expected idle current. It then separately introduces one actuator with low limits and only later tiny motion around neutral. This does **not** tell a builder to power all twelve motors through a 2 A logic supply. Keep the structure supported, provide accessible drive-power isolation and inspect voltage/temperature/noise/communication at each stage. [First-power phases](https://github.com/huggingface/lerobot-humanoid-hardware/blob/8171f5799b046f8a696e7b787a34226f119c4797/docs/electronics/first_power_on.md).
 
 Mounting sequence, bearings, link alignment and cable routing are described in the [assembly guide](https://github.com/huggingface/lerobot-humanoid-hardware/blob/8171f5799b046f8a696e7b787a34226f119c4797/docs/assembly/assembly_guide.md). Check the exact CAD/STL and screw engagement against the motor’s real housing; do not force a link onto a miscentered output or use zero calibration to hide wrong mechanical assembly.
 
-## Software and development resources
+## Software and development resources <a href="#software-and-development-resources" id="software-and-development-resources"></a>
 
-### Three separately versioned layers
+### Three separately versioned layers <a href="#three-separately-versioned-layers" id="three-separately-versioned-layers"></a>
 
 | Layer               | Reviewed source / role                                                                                                              |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -76,7 +76,7 @@ Mounting sequence, bearings, link alignment and cable routing are described in t
 
 The hardware commissioning script imports `python-can` and opens classical SocketCAN at 1 Mbit/s. The runtime README configures CAN interfaces with 1 Mbit/s arbitration plus 5 Mbit/s data phase and `fd on`; match the **actual adapter, firmware and frame type** instead of assuming every motor sends CAN-FD merely because the adapter supports it. [Commissioning source](https://github.com/huggingface/lerobot-humanoid-hardware/blob/8171f5799b046f8a696e7b787a34226f119c4797/hardware/config/commission_motor.py), [runtime bus configuration](https://github.com/Virgileboat/lerobot-humanoid-runtime/blob/e4dc62795e83b2e69580cad4d3229bdb558e912e/README.md).
 
-### Source behavior that changes the commissioning decision
+### Source behavior that changes the commissioning decision <a href="#source-behavior-that-changes-the-commissioning-decision" id="source-behavior-that-changes-the-commissioning-decision"></a>
 
 The pinned wizard can scan, switch protocol, change IDs and request power cycles. Its scan is **not passive**: it transmits probes including a MIT clear-fault command. Its default motion routine enables the motor and requests a broad ± 180° sway; the brief prose recipe elsewhere in the project describes a different 90° test. Use the actual code as the behavior reference and keep **`--skip-motion-test`** during initial setup. Skipping the sway does not turn protocol/ID writes into read-only operations. [Exact source](https://github.com/huggingface/lerobot-humanoid-hardware/blob/8171f5799b046f8a696e7b787a34226f119c4797/hardware/config/commission_motor.py).
 
@@ -84,7 +84,7 @@ The reference runtime requires calibration of motor signs, offsets, joint limits
 
 ## Getting started <a href="#getting-started-inspect-and-commission-one-actuator" id="getting-started-inspect-and-commission-one-actuator"></a>
 
-### Original offline inventory check
+### Original offline inventory check <a href="#original-offline-inventory-check" id="original-offline-inventory-check"></a>
 
 1. Count and label the twelve received motors against the packing table. Save serial/role/revision information before assembly. Download the pinned hardware repository, then inspect the BOM without connecting a CAN adapter:
 
@@ -117,7 +117,7 @@ python3 check_motor_bom.py
 
 **Expected result:** `BOM_12_MATCH` with 2, 2, 4, 4 counts, or an assertion identifying a changed source BOM. This checks the reference file, not delivered hardware; compare the printed record with actual labels. `O0` in the CSV is the model label, while the tool token below is lowercase letter `o` followed by digit 0. [Pinned BOM fields](https://github.com/huggingface/lerobot-humanoid-hardware/blob/8171f5799b046f8a696e7b787a34226f119c4797/hardware/bom/bom_buy.csv).
 
-### Isolated motor readback before state changes
+### Isolated motor readback before state changes <a href="#isolated-motor-readback-before-state-changes" id="isolated-motor-readback-before-state-changes"></a>
 
 3. Fixture one unloaded motor, connect its exact power/CAN harness with power off, and establish the individually confirmed node/protocol. Use its model guide’s **read-only voltage/position/speed** workflow first. Do not run a whole-robot enable or use the wizard to replace a missing electrical check.
 4. Record a baseline and only then prepare the pinned commissioning utility in a separate Python environment:
@@ -173,7 +173,12 @@ Follow its power-cycle checkpoints, retain the prior state and verify the **fina
 | [Runtime](https://github.com/Virgileboat/lerobot-humanoid-runtime/blob/e4dc62795e83b2e69580cad4d3229bdb558e912e/README.md)                                                                                                                                                       | Environment, simulation, CAN, IMU, logging, calibration and LeRobot layer |
 | [Individual RobStride manuals/CAD](https://github.com/RobStride/Product_Information)                                                                                                                                                                                             | Use 00/02/03/05 exact model resources; not a generic all-motor pinout     |
 
-## References and validation
+### Pinned cabling and runtime resources
+
+* [Humanoid electronics/cabling source](https://github.com/huggingface/lerobot-humanoid-hardware/tree/8171f5799b046f8a696e7b787a34226f119c4797/hardware/electronics/cabling) — source-specific harness layout and assembly context; verify actual connectors, conductor sizing and protection for the received build.
+* [Reviewed humanoid runtime snapshot](https://github.com/Virgileboat/lerobot-humanoid-runtime/tree/e4dc62795e83b2e69580cad4d3229bdb558e912e) — complete code/configuration navigation for the commit discussed above. Inspect the selected startup path and command ownership before running a connected robot.
+
+## References and validation <a href="#references-and-validation" id="references-and-validation"></a>
 
 Reviewed **24 November 2026** against the store’s exact packing list, upstream BOM, commissioning source, assembly/connector/first-power files and pinned runtime. The source utility’s default motion and nonpassive scan are explicitly distinguished from original offline inspection and individual readback.
 

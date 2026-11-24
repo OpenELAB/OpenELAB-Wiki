@@ -7,7 +7,7 @@ description: >-
 # DAMIAO DM-J4310-2EC and DM-J8009P-2EC Engineering Guide
 
 {% hint style="info" %}
-[**View DAMIAO DM-J4310-2EC 24 V V3 on OpenELAB**](https://openelab.io/products/damiao-brushless-servo-dm-j4310) · [**View DAMIAO DM-J8009P-2EC V3 on OpenELAB**](https://openelab.io/products/damiao-brushless-servo-dm-j8009p)
+[**View DAMIAO DM-J4310-2EC 24 V V3 on OpenELAB**](https://openelab.io/products/damiao-brushless-servo-dm-j4310?variant=45377205108934) · [**View DAMIAO DM-J8009P-2EC V3 on OpenELAB**](https://openelab.io/products/damiao-brushless-servo-dm-j8009p?variant=45445122097350)
 
 **Models/options:** DM-J4310-2EC, 24 V, V3 · **SKU:** `DM-J4310-2EC-24V-V3`; DM-J8009P-2EC, V3 · **SKU:** `DM-J8009P-2EC-V3`. V4 and the 4310 48 V option are separate configurations.
 {% endhint %}
@@ -16,9 +16,9 @@ description: >-
 
 These two DAMIAO joint actuators combine a brushless motor, gear reduction, drive and two encoders, but they are not electrically interchangeable. This guide uses **24 V for the first isolated read test** on either model and obtains firmware, gear ratio and the stored mapping ranges without enabling motion. The 4310 24 V SKU must never receive 48 V. The 8009 P has a separate CAN connector and opposite power-contact orientation in its manual’s face drawing. [4310 V1.1 hardware manual V1.3, 14 September 2026](https://raw.githubusercontent.com/dmBots/DM-J4310-2EC/master/manual/DM-J4310-2EC%20V1.1%20Geared%20Motor%20User%20Manual%20V1.3%202026-09-14.pdf), [8009 P manual V1.3 filename, 10 September 2026](https://raw.githubusercontent.com/dmBots/DM-J8009P-2EC/master/manual/DM-J8009P-2EC%20Gear%20Motor%20User%20Manual%20V1.3%202026-09-10.pdf).
 
-The verified store options identify **V3** as the earlier 14-bit dual-encoder family: 4310 corresponds to the V1.1 hardware reference; 8009 P to the original 8009 P reference. The V4 options correspond to 4310 V1.2 and 8009 P V1.1 hardware with changed encoder specifications. A manual’s V1.3/V1.4 document revision is not the motor generation. Inspect the actual label/firmware before adopting that mapping; a swapped unit requires its own manual. The 8009 P September PDF’s filename/cover says V1.3 while internal page headers say V1.2; this guide identifies that document by date, filename and content, rather than silently treating those labels as different products. [Exact 4310 listing](https://openelab.io/products/damiao-brushless-servo-dm-j4310), [exact 8009 P listing](https://openelab.io/products/damiao-brushless-servo-dm-j8009p).
+The verified store options identify **V3** as the earlier 14-bit dual-encoder family: 4310 corresponds to the V1.1 hardware reference; 8009 P to the original 8009 P reference. The V4 options correspond to 4310 V1.2 and 8009 P V1.1 hardware with changed encoder specifications. A manual’s V1.3/V1.4 document revision is not the motor generation. Inspect the actual label/firmware before adopting that mapping; a swapped unit requires its own manual. The 8009 P September PDF’s filename/cover says V1.3 while internal page headers say V1.2; this guide identifies that document by date, filename and content, rather than silently treating those labels as different products. [Exact 4310 listing](https://openelab.io/products/damiao-brushless-servo-dm-j4310?variant=45377205108934), [exact 8009 P listing](https://openelab.io/products/damiao-brushless-servo-dm-j8009p?variant=45445122097350).
 
-## Applications
+## Applications <a href="#applications" id="applications"></a>
 
 The compact 4310 suits a small geared joint or benchtop control experiment; the larger 8009 P provides a different torque/bearing/load envelope. Select from the torque–speed curve, mounting drawing, phase current, cooling and duty cycle. Neither 7 N·m nor 40 N·m peak establishes continuous holding capability. Support gravity-loaded mechanisms before disabling or removing supply.
 
@@ -44,7 +44,7 @@ Use one actuator at a time to record serial/model, voltage option, firmware, com
 
 [4310 specifications/driver conditions, PDF pp.5–10](https://raw.githubusercontent.com/dmBots/DM-J4310-2EC/master/manual/DM-J4310-2EC%20V1.1%20Geared%20Motor%20User%20Manual%20V1.3%202026-09-14.pdf#page=5), [8009 P specifications/driver conditions, PDF pp.5–10](https://raw.githubusercontent.com/dmBots/DM-J8009P-2EC/master/manual/DM-J8009P-2EC%20Gear%20Motor%20User%20Manual%20V1.3%202026-09-10.pdf#page=5). Phase-current ratings are not DC source-current ratings. The 4310 protection table’s suggested overvoltage threshold does **not** authorize exceeding its 28 V maximum for the 24 V driver maximum. Hot-plugging is unsuitable for this first test; connect with power removed and account for regenerated energy.
 
-### V3 and V4 are not interchangeable files
+### V3 and V4 are not interchangeable files <a href="#v3-and-v4-are-not-interchangeable-files" id="v3-and-v4-are-not-interchangeable-files"></a>
 
 | Store generation        | Appropriate document identity              | Integration consequence                                             |
 | ----------------------- | ------------------------------------------ | ------------------------------------------------------------------- |
@@ -55,9 +55,9 @@ Use one actuator at a time to record serial/model, voltage option, firmware, com
 
 The [4310 V1.2 reference reader](damiao-dm-j4310-2ec-v1.2-motor-instruction-manual.md) and [8009 P source reader](damiao-dm-j8009p-2ec-motor-instruction-manual.md) remain useful reference destinations; their existence does not replace this exact-option comparison. [DAMIAO guide index](./).
 
-## Hardware and connections
+## Hardware and connections <a href="#hardware-and-connections" id="hardware-and-connections"></a>
 
-### Use each model’s actual connector face
+### Use each model’s actual connector face <a href="#use-each-models-actual-connector-face" id="use-each-models-actual-connector-face"></a>
 
 | Connection                                | 4310 V1.1 diagram                                                        | 8009 P original diagram                                                |
 | ----------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
@@ -70,27 +70,27 @@ These directions describe the manual figure, not an arbitrary mating-cable view;
 
 Use the dimensioned thread-depth drawing before selecting screws. The 4310 drawing specifies several distinct M3 patterns/depths; a through-hole-looking feature is not proof that an arbitrary bolt can pass through. Keep rotating parts clear and do not use a long screw to find a hole’s bottom.
 
-### Supplied harnesses and protection references
+### Supplied harnesses and protection references <a href="#supplied-harnesses-and-protection-references" id="supplied-harnesses-and-protection-references"></a>
 
 The 4310 manual lists one integrated motor, an XT30(2+2)-F power/CAN cable and a GH1.25 three-pin debug cable. The original 8009P list instead includes a 200mm XT30 power cable, 300mm GH1.25 two-pin CAN cable and 300mm three-pin debug cable. Those are manufacturer package references; confirm the received option rather than building a cable from its length or connector name alone. [4310 p.9](https://raw.githubusercontent.com/dmBots/DM-J4310-2EC/master/manual/DM-J4310-2EC%20V1.1%20Geared%20Motor%20User%20Manual%20V1.3%202026-09-14.pdf#page=9), [8009P p.9](https://raw.githubusercontent.com/dmBots/DM-J8009P-2EC/master/manual/DM-J8009P-2EC%20Gear%20Motor%20User%20Manual%20V1.3%202026-09-10.pdf#page=9)
 
 The manuals describe driver overtemperature shutdown at 120°C, recommended motor-winding protection at or below 100°C, and an overcurrent coefficient no greater than 0.98. These protection settings are not continuous operating targets. The 4310 24V version remains limited to 28V even though a protection-table example names 32V; the 8009P manual separately gives 52V as its outer driver boundary. Match the installed source and thresholds to the exact model.
 
-### CAN network and power path
+### CAN network and power path <a href="#can-network-and-power-path" id="can-network-and-power-path"></a>
 
 Use a linear twisted-pair CAN bus, compatible common-reference/isolation arrangement and 120 Ω termination only at the two physical ends. With power removed, two 120 Ω terminators normally read about 60 Ω across CAN-H/CAN-L. Check built-in adapter termination before adding resistors. This resistance check does not prove correct bitrate or protocol.
 
 Use a suitably protected 24 V source for the first result, with accessible drive isolation and no external load. Check voltage/polarity at the actuator before enabling its supply. A source that cannot absorb regenerated energy needs a designed absorption/discharge path before subsequent motion. Do not infer the required bus supply or branch fuse directly from phase-current peak.
 
-## Software and development resources
+## Software and development resources <a href="#software-and-development-resources" id="software-and-development-resources"></a>
 
-### Supported setup utility and transport
+### Supported setup utility and transport <a href="#supported-setup-utility-and-transport" id="supported-setup-utility-and-transport"></a>
 
 The official **DMTool 2.2.2.2-hotfix** directory provides Windows x86\_64, Linux x86\_64/arm64, and macOS Intel/Apple Silicon packages. This is a proprietary application; its dynamically linked Qt/Qwt/libusb components have separate LGPL obligations. Obtain the matching binary from the official repository, read its included user guide and keep the package version with your configuration. No binary or driver was executed for this guide. [Official package README](https://raw.githubusercontent.com/dmBots/motor-debugging-tool/master/README.en.md), [DMTool user guide](https://raw.githubusercontent.com/dmBots/motor-debugging-tool/master/DMTool%E4%B8%8A%E4%BD%8D%E6%9C%BA%E8%BD%AF%E4%BB%B6%E8%AF%B4%E6%98%8E%E4%B9%A6.pdf).
 
 DMTool’s **F2 adapter configuration** distinguishes USB2CAN-FD, serial and channel choices. CAN bitrate 1 Mbit/s and UART 921600 baud are different settings; selecting 921600 as the CAN bus rate will not configure a standard 1 Mbit/s motor. The V3 path does not support all newer V4 parameter reads over UART, so use the documented **CAN parameter-read path** for this guide’s range/version check. Do not assume every parameter shown in a new UI is implemented by a V3 motor. [DMTool connection/parameter chapters](https://raw.githubusercontent.com/dmBots/motor-debugging-tool/master/DMTool%E4%B8%8A%E4%BD%8D%E6%9C%BA%E8%BD%AF%E4%BB%B6%E8%AF%B4%E6%98%8E%E4%B9%A6.pdf).
 
-### Mode and byte-layout distinctions
+### Mode and byte-layout distinctions <a href="#mode-and-byte-layout-distinctions" id="mode-and-byte-layout-distinctions"></a>
 
 | Mode or operation     | Integration rule                                                                        |
 | --------------------- | --------------------------------------------------------------------------------------- |
@@ -114,9 +114,9 @@ The manuals describe mode-specific command offsets; match the selected mode befo
 
 The register-value bytes are **little endian** in response bytes 4–7. Ordinary packed motor feedback is different: position is bytes 1–2 high-byte first; velocity combines byte 3 and the high nibble of byte 4; torque combines byte 4’s low nibble and byte 5; bytes 6/7 give MOS/rotor temperatures. Data 0 packs node/status in nibbles. For a multi-motor design use IDs below 16 for unambiguous nibble identification and unique command/feedback routing. Decode using the actual read mapping ranges, not another library’s defaults. [Register map and feedback tables](https://raw.githubusercontent.com/dmBots/DM-J4310-2EC/master/manual/DM-J4310-2EC%20V1.1%20Geared%20Motor%20User%20Manual%20V1.3%202026-09-14.pdf#page=14).
 
-## Getting started
+## Getting started <a href="#getting-started" id="getting-started"></a>
 
-### First result with DMTool
+### First result with DMTool <a href="#first-result-with-dmtool" id="first-result-with-dmtool"></a>
 
 1. Verify the physical model/voltage label and V3 option, fixture one unloaded actuator, and keep its output clear. Connect 24 V and the exact harness with power off. Use the supported adapter and one motor only.
 2. Download the CPU/OS-matched DMTool package. For Linux x86\_64, extract its documented archive in an ordinary user directory and start the named application:
@@ -132,7 +132,7 @@ tar -xzf DMTool-v2.2.2.2-hotfix-x86_64.AppImage.tar.gz
 
 **Expected result:** readable firmware/version and positive model-consistent ratio/mapping values, with the drive remaining disabled. Solid red is the documented normal disabled LED; flashing red is a fault, not the same state. **F3’s command queue defaults to repeated enable/disable rounds**, so it is unsuitable for a read-only check. [DMTool guide](https://raw.githubusercontent.com/dmBots/motor-debugging-tool/master/DMTool%E4%B8%8A%E4%BD%8D%E6%9C%BA%E8%BD%AF%E4%BB%B6%E8%AF%B4%E6%98%8E%E4%B9%A6.pdf), [manufacturer parameter/LED procedure](https://raw.githubusercontent.com/dmBots/DM-J4310-2EC/master/manual/DM-J4310-2EC%20V1.1%20Geared%20Motor%20User%20Manual%20V1.3%202026-09-14.pdf#page=11).
 
-### Original Linux read-only register example
+### Original Linux read-only register example <a href="#original-linux-read-only-register-example" id="original-linux-read-only-register-example"></a>
 
 6. Use this alternative only if the adapter already exposes SocketCAN and the motor’s exact IDs/rate are recorded. A USB serial port is not automatically `can0`. Configure the actual interface:
 
@@ -199,7 +199,7 @@ python3 read_dm_v3.py --channel can0 --motor-id 1 --master-id 0
 
 **Expected result:** `sw_ver`, `Gr`, `PMAX_rad`, `VMAX_rad_s`, `TMAX_Nm` followed by raw bytes, or a bounded unmatched-read error. For an isolated ID1 node, the firmware read request is arbitration `7FF`, DLC4, data `01 00 33 0E`; the remaining four storage bytes in a Linux CAN frame are padding, not extra transmitted payload. The reply echoes those four bytes and returns a little-endian uint32. This check reads configuration rather than motor voltage or live motion telemetry; it never enables, clears a fault, zeros, writes, saves or calibrates. [4310 read-register frame, p.17](https://raw.githubusercontent.com/dmBots/DM-J4310-2EC/master/manual/DM-J4310-2EC%20V1.1%20Geared%20Motor%20User%20Manual%20V1.3%202026-09-14.pdf#page=17), [8009 P frame, p.18](https://raw.githubusercontent.com/dmBots/DM-J8009P-2EC/master/manual/DM-J8009P-2EC%20Gear%20Motor%20User%20Manual%20V1.3%202026-09-10.pdf#page=18).
 
-### Before later motion or calibration
+### Before later motion or calibration <a href="#before-later-motion-or-calibration" id="before-later-motion-or-calibration"></a>
 
 Keep the confirmed mapping ranges with the decoder. A zero-filled MIT payload maps signed fields to negative endpoints and is not a neutral test. Verify coordinate sign, zero, units and mode on a supported unloaded fixture before increasing demand. Establish current/torque/position/velocity limits and a tested stop workflow separately.
 
@@ -228,7 +228,7 @@ The manufacturer supplies factory calibration; encoder calibration can rotate th
 
 Read version and archive parameters first. The official firmware library separates model/hardware images and bootloader/update requirements. The newer DMTool guide’s CAN upgrade requires a compatible bootloader (documented 3.2.0.5 or later) and adapter/rate; this is not evidence that every V3 motor can use every new update route. The [official pinned firmware notes](https://raw.githubusercontent.com/dmBots/motor-firmware/8a9125e5b269fdf49b4338d0e20df8f0164bdbee/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E/%E5%9B%BA%E4%BB%B6%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E.md) require reading the current version and matching its two-digit model-family code; that is necessary in addition to model/encoder/voltage compatibility. They also document a zero-storage migration: upgrading an older unit directly toV17-02 can require resetting zero, whereasV17-01 is the stated migration path. Preserve the existing zero/configuration and follow the manufacturer’s exact staged route instead of treating a new image as a drop-in update. Use the exact model/revision package and manufacturer recovery sequence; preserve the existing image/version and zero. Do not rename another model’s binary or assume a shared filename prefix establishes compatibility. [DMTool update chapter](https://raw.githubusercontent.com/dmBots/motor-debugging-tool/master/DMTool%E4%B8%8A%E4%BD%8D%E6%9C%BA%E8%BD%AF%E4%BB%B6%E8%AF%B4%E6%98%8E%E4%B9%A6.pdf), [official firmware repository](https://github.com/dmBots/motor-firmware).
 
-## Downloads and technical documents
+## Downloads and technical documents <a href="#downloads-and-technical-documents" id="downloads-and-technical-documents"></a>
 
 | Resource                                                                                                                                                                                                                                                                                       | Version and purpose                                                                                                          |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -247,7 +247,7 @@ Read version and archive parameters first. The official firmware library separat
 
 The exact manuals include example implementations and the register/protocol definitions; the Linux reader here is original. Mechanical drawing/STEP links above use the actual observed pinned paths, not fabricated filenames. Consult the repository’s hardware revision folder before importing CAD.
 
-### Complete CAN control and state reference
+### Complete CAN control and state reference <a href="#complete-can-control-and-state-reference" id="complete-can-control-and-state-reference"></a>
 
 This reference describes the dated manuals' wire contract. It complements the non-enabling first result above; command documentation is not a request to transmit the table as a test sequence. Keep the selected control mode, physical limits, actual firmware, command ID and master/reply ID with every capture. [4310 manual, pp.13–21](https://raw.githubusercontent.com/dmBots/DM-J4310-2EC/master/manual/DM-J4310-2EC%20V1.1%20Geared%20Motor%20User%20Manual%20V1.3%202026-09-14.pdf#page=13), [8009P manual, pp.13–22](https://raw.githubusercontent.com/dmBots/DM-J8009P-2EC/master/manual/DM-J8009P-2EC%20Gear%20Motor%20User%20Manual%20V1.3%202026-09-10.pdf#page=13)
 
@@ -266,7 +266,7 @@ The 8009P manual p.16 gives example mapping bounds of ±12.5rad, ±45rad/s and �
 
 MIT derives torque from position error, velocity error and feedforward torque. With Kp zero, Kd and velocity demand can produce velocity behavior; with both gains zero, feedforward torque alone remains active and can accelerate an unloaded motor. Position control requires nonzero damping according to the manual. In the cascaded modes, the older GUI's automatic gain calculation requires a positive damping-factor value; its recommended example is 4.0 within a stated 2–10 range. Those are documented tuning references, not a universal gain set for an attached mechanism.
 
-### Enable, disable, zero, faults and persistence
+### Enable, disable, zero, faults and persistence <a href="#enable-disable-zero-faults-and-persistence" id="enable-disable-zero-faults-and-persistence"></a>
 
 | Operation       | Documented payload / destination                                                     | State and persistence consequence                                                                                |
 | --------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
@@ -282,13 +282,13 @@ The manuals allow up to 30ms for saving and quote approximately 10,000 erase/wri
 
 For position-mode migration, the manual recommends reading `0x50` at zero speed before switching. That register is the rotor-derived position; `0x51` is the direct output-encoder position. Preserve the coordinate/sign/zero relation rather than treating the two feedback sources as identical.
 
-### Feedback layout and diagnostic interpretation
+### Feedback layout and diagnostic interpretation <a href="#feedback-layout-and-diagnostic-interpretation" id="feedback-layout-and-diagnostic-interpretation"></a>
 
 The ordinary state frame uses the configured master ID and eight bytes. Byte 0 combines node/status nibbles; position is `(byte1<<8)+byte2`, velocity `(byte3<<4)+(byte4>>4)`, torque `((byte4 & 15)<<8)+byte5`, followed by MOS and winding temperature bytes in °C. Position is a 16-bit mapped value, velocity/torque 12-bit mapped values. The manufacturer also describes an eight-bit node comparison while sharing byte 0 with status; choosing uniquely identified motor IDs 1–15 avoids relying on an ambiguous wider ID representation in that byte.
 
 Status 0 means disabled and 1 enabled. Faults 3/4/5 concern output calibration/sensor/motor calibration; 8/9 are over/undervoltage; A overcurrent; B/C MOS/winding temperature; D communication loss; E overload. Solid red is the default disabled indication, solid green enabled, flashing red a fault indication. A decoded status is not proof that an external load is mechanically supported.
 
-### Full register dictionary, with model differences
+### Full register dictionary, with model differences <a href="#full-register-dictionary-with-model-differences" id="full-register-dictionary-with-model-differences"></a>
 
 The following factual dictionary condenses the two manuals without replacing their hardware/firmware scope. `float` means little-endian float32, `u32` little-endian uint32. Ranges are **register acceptance/mapping ranges**, not safe physical operating limits; `fmax` is the source's floating-point bound, not a motor specification. Both manuals share these entries unless otherwise noted. [4310 dictionary, pp.20–21](https://raw.githubusercontent.com/dmBots/DM-J4310-2EC/master/manual/DM-J4310-2EC%20V1.1%20Geared%20Motor%20User%20Manual%20V1.3%202026-09-14.pdf#page=20), [8009P dictionary, pp.21–22](https://raw.githubusercontent.com/dmBots/DM-J8009P-2EC/master/manual/DM-J8009P-2EC%20Gear%20Motor%20User%20Manual%20V1.3%202026-09-10.pdf#page=21)
 
@@ -351,7 +351,7 @@ These **non-shared entries must not be merged into one universal map**:
 
 An unlisted register is not established by this manual, even if a newer DMTool UI displays it. Keep the read-only starter limited to the actual supported range/version registers; extend a parser only after confirming the fitted firmware's contract.
 
-### Rate changes, timeout units and CAN-FD boundary
+### Rate changes, timeout units and CAN-FD boundary <a href="#rate-changes-timeout-units-and-can-fd-boundary" id="rate-changes-timeout-units-and-can-fd-boundary"></a>
 
 | Rate code         | Documented rate                     |
 | ----------------- | ----------------------------------- |
@@ -362,7 +362,7 @@ The September manuals describe replying at the old rate before changing to the n
 
 TIMEOUT uses 50µs/count in the parameter chapter: for example, 2000 counts arithmetically corresponds to 100ms. This is an interpretation example, not a suggested setting. The manual says timeout protection acts while enabled; it does not define a universal meaning for zero. Changing a node's rate/ID on an assembled multi-motor bus can make recovery harder, so inventory and deliberate reconfiguration belong to separate sessions.
 
-### Calibration, tuning and physical-model interpretation
+### Calibration, tuning and physical-model interpretation <a href="#calibration-tuning-and-physical-model-interpretation" id="calibration-tuning-and-physical-model-interpretation"></a>
 
 | Maintenance activity           | Specific procedure / acceptance clue                                                                                                                                                                                                                        |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -378,7 +378,7 @@ The source's example position and velocity targets are demonstrations, not first
 
 The visually reviewed p.9 formulas are `VMAX = 0.57735*VBUS/(Npp*Gr*flux)` in rad/s and `Kt = 1.5*Npp*flux*Gr*GREF`. They are model/parameter relationships, not substitutes for the physical speed/thermal ratings. The 4310 p.9 caption says 36rpm, while the plotted speed trace is near 120rpm; do not derive a qualified efficiency curve by silently choosing one. The graph's supply, ambient, torque, electrical input, mechanical power and efficiency axes need to be interpreted together.
 
-### Firmware-family and full manual navigation
+### Firmware-family and full manual navigation <a href="#firmware-family-and-full-manual-navigation" id="firmware-family-and-full-manual-navigation"></a>
 
 The 4310 manual names firmware prefix **70**; the original 8009P manual names **73**. Match that family in addition to voltage, encoder, hardware and bootloader revision. Serial update is Select file → verify filename/family → Upgrade Firmware → completion; CAN update additionally requires the documented compatible bootloader (3.2.0.5+), a supported USB-CAN adapter, matching recorded bus rate and target ID. Preserve zeros and parameters before applying the firmware repository's staged migration instructions.
 
@@ -395,6 +395,12 @@ The 4310 manual names firmware prefix **70**; the original 8009P manual names **
 | Firmware check, serial and CAN update                                    | 48–50          | 49–51           |
 
 The originals retain complete screen illustrations and assembly drawings. This on-page reference supplies the technical fields and model differences in searchable form, while the starter remains a separately bounded read-only workflow. None of these maintenance or control operations was executed on a motor during this review.
+
+### Related integration resources
+
+* [dmBots motor-debugging-tool repository](https://github.com/dmBots/motor-debugging-tool) — original tool source, release navigation and supporting resources; use the dated protocol/GUI contract above.
+* [DAMIAO integration documentation](https://damiao.enactic.ai/en/) — related integration reference, with its own version scope; the exact manufacturer manuals above govern electrical and register differences.
+* [Seeed ReBot B601-DM getting started](https://wiki.seeedstudio.com/rebot_b601_dm_getting_started/) — a separate controller-board integration example, not a substitute for either actuator's power/connector drawing.
 
 ## References and validation <a href="#sources-and-validation" id="sources-and-validation"></a>
 

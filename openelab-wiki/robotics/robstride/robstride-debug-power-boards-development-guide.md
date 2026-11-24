@@ -8,18 +8,18 @@ description: >-
 # RobStride Debug Board and Power Board Integration Guide
 
 {% hint style="info" %}
-[**View the RobStride Debug Board option on OpenELAB**](https://openelab.io/products/robstride04-qdd-120n-m-integrated-joint-motor-module) · [**View the RobStride Power Supply Board on OpenELAB**](https://openelab.io/products/robstride-power-supply-board)
+[**View the RobStride Debug Board option on OpenELAB**](https://openelab.io/products/robstride-can-to-usb-debugging-module?variant=44550413189318) · [**View the RobStride Power Supply Board on OpenELAB**](https://openelab.io/products/robstride-power-supply-board?variant=45757973463238)
 
-**Accessories:** Debug Board · **SKU:** `ROBSTRIDE-Debug` · choose **Debug Board**, not the motor, on the shared ROBSTRIDE04 listing. Power distribution board · **SKU:** `ROBSTRIDE-Power`. These are separately purchased accessories with different roles.
+**Accessories:** Debug Board · **SKU:** `ROBSTRIDE-Debug` · the opening link selects the dedicated CAN-to-USB debugger listing. Power distribution board · **SKU:** `ROBSTRIDE-Power`. These are separately purchased accessories with different roles.
 {% endhint %}
 
 ## Product overview <a href="#product-and-scope" id="product-and-scope"></a>
 
-The **RobStride Debug Board** connects a supported host tool to an actuator’s CAN bus. The **RobStride Power Supply Board** distributes an external DC source to motor branches and regulated auxiliary outputs, with sequencing, precharge/discharge, monitoring and fault control. Neither accessory is a ROBSTRIDE04 motor. The power board is not a mains AC/DC converter, and debugger USB power does not supply the motors. [Verified Debug Board option](https://openelab.io/products/robstride04-qdd-120n-m-integrated-joint-motor-module), [verified power board listing](https://openelab.io/products/robstride-power-supply-board).
+The **RobStride Debug Board** connects a supported host tool to an actuator’s CAN bus. The **RobStride Power Supply Board** distributes an external DC source to motor branches and regulated auxiliary outputs, with sequencing, precharge/discharge, monitoring and fault control. Neither accessory is a ROBSTRIDE04 motor. The power board is not a mains AC/DC converter, and debugger USB power does not supply the motors. [Verified Debug Board option](https://openelab.io/products/robstride-can-to-usb-debugging-module?variant=44550413189318), [verified power board listing](https://openelab.io/products/robstride-power-supply-board?variant=45757973463238).
 
 This guide separates a debugger’s first USB/tool result from a power board’s **non-enabling version read**. Power-board numbers below use the English **V1.3 manual, 2025-12-26**, checked against the newer Chinese **V1.5, 2026-05-07**. A manual version is not a guarantee that a photographed PCB with POWER\_V1.2 silkscreen is your hardware revision. Match the actual board/connector layout before wiring. [English manual](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf), [Chinese V1.5 manual](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99/powerBoard/%E7%94%B5%E6%BA%90%E6%9D%BF%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8EV1.5_20260507.pdf).
 
-## Applications
+## Applications <a href="#applications" id="applications"></a>
 
 Use the Debug Board for isolated actuator identification, parameter export, status/fault observation and documented updates. Its serial AT transport differs from a native SocketCAN adapter; pick the interface before selecting software.
 
@@ -27,7 +27,7 @@ Use the Power Board when a robot needs independently controlled motor branches, 
 
 ## Specifications <a href="#hardware-and-technical-documents" id="hardware-and-technical-documents"></a>
 
-### Debug Board: host interface, not motor power
+### Debug Board: host interface, not motor power <a href="#debug-board-host-interface-not-motor-power" id="debug-board-host-interface-not-motor-power"></a>
 
 | Item               | Documented debugger scope                                                  |
 | ------------------ | -------------------------------------------------------------------------- |
@@ -40,7 +40,7 @@ Use the Power Board when a robot needs independently controlled motor branches, 
 
 [ROBSTRIDE04 host/debug interface chapter](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/CAN2.0/RS04/RS04User%20Manual260713.pdf#page=16), [manufacturer MotorStudio instructions](https://raw.githubusercontent.com/RobStride/MotorStudio/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6-Instructions/Instructions%20for%20using%20the%20Studio_241122.pdf). These switch meanings apply to the documented adapter, not every third-party CH340/USB-CAN product.
 
-### Power Board: electrical and protection conditions
+### Power Board: electrical and protection conditions <a href="#power-board-electrical-and-protection-conditions" id="power-board-electrical-and-protection-conditions"></a>
 
 | Parameter                        | Dated power-board reference                                                                       |
 | -------------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -59,9 +59,9 @@ Use the Power Board when a robot needs independently controlled motor branches, 
 
 [English electrical table, PDF pp.4–6](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf#page=4), [Chinese V1.5 electrical table](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99/powerBoard/%E7%94%B5%E6%BA%90%E6%9D%BF%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8EV1.5_20260507.pdf#page=4). The store’s duplicated total-current accuracy entries do not override the manual’s ± 2% aggregate figure. Current-limit/protection trip figures are not continuous load ratings or a guarantee that an arbitrary wire/connector can carry them.
 
-## Hardware and connections
+## Hardware and connections <a href="#hardware-and-connections" id="hardware-and-connections"></a>
 
-### Separate the three power/control roles
+### Separate the three power/control roles <a href="#separate-the-three-power-control-roles" id="separate-the-three-power-control-roles"></a>
 
 | Connection group             | Function and installation check                                                                                |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -77,7 +77,7 @@ Inspect the [manufacturer annotated interface figure, English PDF p.5](https://r
 
 The V1.5 document states the board will not complete normal power-up self-check with the required precharge/discharge resistor absent. The resistor handles charging/bleeding energy as well as steady heat; 50 W is a starting document rating, not proof that any 50 W resistor is adequate for the robot’s capacitance or regenerative pulses. As an engineering sizing check, capacitor energy is `E=0.5*C*(Vhigh²−Vlow²)`; compare that energy, duty cycle and initial `V/R` current with the resistor/board ratings. Use the actual circuit path and source conditions rather than applying that equation as a complete design. [V1.5 precautions/precharge requirements](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99/powerBoard/%E7%94%B5%E6%BA%90%E6%9D%BF%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8EV1.5_20260507.pdf).
 
-### Power-up modes and revision traps
+### Power-up modes and revision traps <a href="#power-up-modes-and-revision-traps" id="power-up-modes-and-revision-traps"></a>
 
 | MODE1/MODE0 pair as a two-bit setting | Actual documented behavior                                                                                   |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -89,7 +89,7 @@ Both reviewed manuals use **00 and 11**. A listing that calls the second mode 01
 
 The English manual describes an older X2510WRS-04-9TSN fan connector and a later standard-PC four-pin change; the newer Chinese manual describes the PC-style 2510 connector. Confirm the fitted connector/key/pin labels rather than forcing an older cable. The fan supply is 12 V, not input voltage. [Fan section](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf#page=7).
 
-### Emergency stop and regenerated energy
+### Emergency stop and regenerated energy <a href="#emergency-stop-and-regenerated-energy" id="emergency-stop-and-regenerated-energy"></a>
 
 The documented E-stop action removes motor-branch power; 5 V/control circuits can remain live. The vendor claims about 5 µs branch cutoff, not a certified system stop or mechanical brake. A gravity load may fall when drive power disappears. E-stop is latched in this reference: release the input, fix the condition and reapply input power before restoring controlled branches. [Protection section](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf#page=6).
 
@@ -97,7 +97,7 @@ Default bleed thresholds are 64 V on/60 V off. The configurable full-supply sett
 
 ## Software and development resources <a href="#development-software-and-recovery" id="development-software-and-recovery"></a>
 
-### Choose serial AT or native CAN deliberately
+### Choose serial AT or native CAN deliberately <a href="#choose-serial-at-or-native-can-deliberately" id="choose-serial-at-or-native-can-deliberately"></a>
 
 | Route                    | Prepare                                                                                             | First result                                                     |
 | ------------------------ | --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -107,7 +107,7 @@ Default bleed thresholds are 64 V on/60 V off. The configurable full-supply sett
 
 [MotorStudio instructions](https://raw.githubusercontent.com/RobStride/MotorStudio/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6-Instructions/Instructions%20for%20using%20the%20Studio_241122.pdf), [Power Board transport/protocol chapters](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf#page=7). A Linux `/dev/ttyUSB0` port is not `can0`; do not run the native-CAN example against a serial endpoint. The 2024 host-tool manual’s older motor watchdog scaling is not the power-board protocol or a replacement for the dated motor manual.
 
-### Power-board protocol and register scope
+### Power-board protocol and register scope <a href="#power-board-protocol-and-register-scope" id="power-board-protocol-and-register-scope"></a>
 
 The native-CAN request identifier is `(type<<24)|(data_area2<<8)|POWER_ID`. Read the exact per-type table: the response puts POWER\_ID in bits 23–16, not necessarily in the request’s low byte. Do not copy an actuator’s source/host routing filter onto this accessory. [CAN data format and version query, English pp.8–13](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf#page=8).
 
@@ -137,9 +137,9 @@ The Type 3 voltage fields are tenths-of-a-hundredth-style unsigned 16-bit scales
 
 These are the manufacturer’s parameter ranges, not values to write during discovery. Parameter read/write tables explicitly place the index low byte first and multi-byte values low byte first; that does not resolve the separate status-table ambiguity. Archive original configuration before any change. [Parameter tables, English pp.14–16](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf#page=14).
 
-## Getting started
+## Getting started <a href="#getting-started" id="getting-started"></a>
 
-### Debug Board first result
+### Debug Board first result <a href="#debug-board-first-result" id="debug-board-first-result"></a>
 
 1. Select the **Debug Board** option and inspect the delivered adapter revision/connector labels. Prepare the official host application/CH340 driver from the manufacturer download route and a separately secured, unloaded actuator with its exact manual.
 2. Connect the debugger to the host only. Check enumeration: Windows Device Manager should show its serial port; on Linux inspect `lsusb` and the actual `/dev/serial/by-id/` entry. Enumeration proves USB transport, not CAN/motor compatibility.
@@ -148,7 +148,7 @@ These are the manufacturer’s parameter ranges, not values to write during disc
 
 **Expected result:** a stable serial connection and the correct isolated motor identity/status, without commanded movement. No motor response means supply/CAN/protocol investigation is still needed even if the USB port exists. [MotorStudio connection/parameter sequence](https://raw.githubusercontent.com/RobStride/MotorStudio/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6-Instructions/Instructions%20for%20using%20the%20Studio_241122.pdf), [motor manual host chapter](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/CAN2.0/RS04/RS04User%20Manual260713.pdf#page=16).
 
-### Power Board first result without load enable
+### Power Board first result without load enable <a href="#power-board-first-result-without-load-enable" id="power-board-first-result-without-load-enable"></a>
 
 5. Inspect the board revision and labelled input/outputs; keep all motor/auxiliary loads disconnected. Install the required correctly rated precharge/discharge resistor. With input power removed, set the documented mode 11 and connect one suitable CAN interface plus correct bus-end termination. Prepare a protected 48 V DC bench input within the board range, with accessible input isolation; no motor is attached for this board-only test.
 6. Confirm polarity and intended zero-load outputs with a meter, then apply input power. Logic/5 V may already be live. Observe startup indication and verify that no fault/self-test failure is present. Do not clear a fault to bypass an absent resistor or wiring defect.
@@ -213,7 +213,7 @@ python3 read_powerboard_version.py --channel can0 --board-id 0xaa
 
 **Expected result:** `board_version=` followed by the actual printable ASCII version, the reply identifier and raw bytes. `PBV1.00` is the manual’s example string, not an enforced firmware version. For reference IDAA, the request identifier is `0x050000AA`; the response is Type 5 with source boardAA in bits 23–16. No rails are enabled, no registers changed and no fault reset is sent by this code. USB COM requires the separate AT wrapper; this example does not implement it. [Version-query table, English p.13](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf#page=13).
 
-### Pairing and controlled-output checks later
+### Pairing and controlled-output checks later <a href="#pairing-and-controlled-output-checks-later" id="pairing-and-controlled-output-checks-later"></a>
 
 Pair a remote only after the unloaded board’s read/measurement checks. The documented sequence holds any remote key, briefly presses the board pairing button twice, releases both, then presses the remote again to verify the indicator. ButtonA controls the four motor branches; B controls 24 V; C controls 12 V; doubleD shuts controlled rails off in the documented motor→12 V→24 V order. These are **output-changing actions**, not a diagnostic version query. Recheck measured voltage and branch identity before connecting one load. [Remote/sequencing section](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf#page=6).
 
@@ -239,7 +239,7 @@ Undervoltage and auxiliary-rail current-limit/short faults have different recove
 
 **Does mode 11 guarantee a safe dead board?** No. 5 V/control logic are live by default and an output command/remote can change state. Disconnect input before touching wiring.
 
-## Downloads and technical documents
+## Downloads and technical documents <a href="#downloads-and-technical-documents" id="downloads-and-technical-documents"></a>
 
 | Resource                                                                                                                                                                                                                                                                | Verified version / use                                                                                                     |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -254,7 +254,7 @@ Undervoltage and auxiliary-rail current-limit/short faults have different recove
 
 [ROBSTRIDE04 motor guide](robstride-04-instruction-manual.md) · [RobStride manufacturer index](./). Motor guides retain their own power, pinout, firmware and protocol limits; this accessory guide does not expand those limits.
 
-### Power-board field reference for driver authors
+### Power-board field reference for driver authors <a href="#power-board-field-reference-for-driver-authors" id="power-board-field-reference-for-driver-authors"></a>
 
 The following condenses the English manual's complete communication tables, pp.8–16. Requests use an extended identifier with communication type in bits 28–24, data area 2 in bits 23–8 and target POWER\_ID in bits 7–0. Replies put source POWER\_ID in bits 23–16 according to each reply table. The status/current table's other identifier field is internally inconsistent; retain its raw ID rather than extracting total current from an assumed bit allocation. All eight payload bytes and frame flags should remain in a diagnostic capture. [Original protocol tables](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf#page=8)
 
@@ -285,7 +285,7 @@ For Type 3, bytes 0–1 represent battery voltage and bytes 2–3 motor-bus volt
 
 Type 4 allocates byte pairs 0–1, 2–3, 4–5 and 6–7 to AL, AR, LL and LR current, respectively, at 0.01A/code. Its printed upper code is 65536, which a 16-bit word cannot carry; the representable maximum is 65535. This mathematical correction does not establish byte order or authorize that current physically—the branch's electrical rating remains separate.
 
-### Complete parameter types, defaults and immediate effects
+### Complete parameter types, defaults and immediate effects <a href="#complete-parameter-types-defaults-and-immediate-effects" id="complete-parameter-types-defaults-and-immediate-effects"></a>
 
 | Hex index / name    | Documented value type    | Documented range and default                                                                                       |
 | ------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
@@ -305,6 +305,11 @@ Read/write index and multi-byte parameter values are explicitly little endian in
 A smaller discharge resistance improves clamping but increases pulse current, resistor dissipation and potential bus transients; a larger resistance reduces current at the cost of weaker clamping. Long supply wiring changes those transients. Choose resistance, energy rating, thermal mounting and source capacitance together, then verify the actual board's precharge and discharge behavior. Rated auxiliary currents use 25°C test conditions and may need derating or the documented fan. The English manual also notes larger 24V ripple below 20mA load. [Operating notes, pp.17–18](https://raw.githubusercontent.com/RobStride/Product_Information/9dcbce6df00bfe5a887fd6839ec1f64b2a230778/Product%20Literature/powerBoard/Power%20supply%20board%20instructionsV1.3_20251226.pdf#page=17)
 
 The source's final pages contain its manufacturer service/warranty policy and exclusions. Keep the original regional policy with the purchase record; current OpenELAB terms, purchase channel and applicable rights must be checked separately rather than turning that historical policy into a global-store promise.
+
+### Related board and purchasing references
+
+* [English Power Board source folder](https://github.com/RobStride/Product_Information/tree/main/Product%20Literature/powerBoard) and [Chinese Power Board source folder](https://github.com/RobStride/Product_Information/tree/main/%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99/powerBoard) — original document, illustration and revision navigation. The version-specific field reference above remains the implementation basis.
+* [Shared ROBSTRIDE04 listing, Debug Board variant](https://openelab.io/products/robstride04-qdd-120n-m-integrated-joint-motor-module?variant=45204236435654) — established alternate listing for `ROBSTRIDE-Debug`; the unselected family page can instead default to a motor. The opening link uses the dedicated debugger page.
 
 ## References and validation <a href="#sources-and-validation" id="sources-and-validation"></a>
 
