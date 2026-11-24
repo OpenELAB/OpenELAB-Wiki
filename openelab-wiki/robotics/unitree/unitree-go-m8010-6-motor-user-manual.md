@@ -317,6 +317,8 @@ For multi-motor faults, check supply sag, cable drop, external end termination a
 
 ## Downloads and technical documents <a href="#downloads-and-technical-documents" id="downloads-and-technical-documents"></a>
 
+The previously published [legacy ARM-host SDK porting reference](https://dev-motor.unitree.com/sdkUse/?highlight=ARM) is retained for continuity. Its current contents were not reverified; use the pinned actuator SDK and current official article index in this guide for supported implementation details.
+
 Use the actual [motor Download Page](https://doc-cdn.unitree.com/8/1483/en/8_1483_en) for direct upstream resources. It lists the [English manual dated 2024-05-15](https://oss-global-cdn.unitree.com/static/33c284af73014b2184b18dffe0b5be4c.pdf), Chinese manual, GO STM32 HAL example, four-channel multi-motor example, GO STP, A1 STEP, the HW2/v1.4.5 firmware ZIP, FTDI driver, CAD footprint library and hardware links. These files were **listed only**, not opened, installed, built or flashed. The third-party real-time-kernel article is also listed-only.
 
 The read source contracts are pinned: [SDK README](https://github.com/unitreerobotics/unitree_actuator_sdk/blob/5b79a42d81cd69adac1367db79efdb972a898fd1/README.md), [public command/data API](https://github.com/unitreerobotics/unitree_actuator_sdk/blob/5b79a42d81cd69adac1367db79efdb972a898fd1/include/unitreeMotor/unitreeMotor.h), [serial API](https://github.com/unitreerobotics/unitree_actuator_sdk/blob/5b79a42d81cd69adac1367db79efdb972a898fd1/include/serialPort/SerialPort.h), [packed GO protocol](https://github.com/unitreerobotics/unitree_actuator_sdk/blob/5b79a42d81cd69adac1367db79efdb972a898fd1/include/unitreeMotor/include/motor_msg_GO-M8010-6.h), [CRC helper](https://github.com/unitreerobotics/unitree_actuator_sdk/blob/5b79a42d81cd69adac1367db79efdb972a898fd1/include/crc/crc_ccitt.h), [build configuration](https://github.com/unitreerobotics/unitree_actuator_sdk/blob/5b79a42d81cd69adac1367db79efdb972a898fd1/CMakeLists.txt) and [BSD 3-Clause license](https://github.com/unitreerobotics/unitree_actuator_sdk/blob/5b79a42d81cd69adac1367db79efdb972a898fd1/LICENSE). Source licensing does not transfer the same terms to manuals, photos, firmware, prebuilt libraries or bundled third-party components. The original inline example is separate from upstream vendor code.
@@ -368,5 +370,7 @@ This update preserves published page ID `95b3cc1ad3fb568fc035d33f060838587dd06e8
 | [Motor Debugging Assistant](https://doc-cdn.unitree.com/8/158/en/8_158_en)   | GUI immediate traffic, query state change, version/ID/firmware and restoration distinction                                   |
 | [FAQ](https://doc-cdn.unitree.com/8/162/en/8_162_en)                         | All17FAQ topics grouped across link/permission/position/thermal/driver/power/gains/modes/LED/build/recovery/topology text    |
 | [DownloadPage](https://doc-cdn.unitree.com/8/1483/en/8_1483_en)              | Manuals, SDK/tools, examples, CAD, HW2release, drivers/thirdparty/hardware links and footprints with read/listed distinction |
+
+**Related documentation:** [Unitree model and development directory](./).
 
 **Related documentation:** [Unitree model and development directory](./).
