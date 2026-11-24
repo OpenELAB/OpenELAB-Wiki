@@ -1,5 +1,7 @@
 ---
-description: ROS robot cars, hexapods, robotic arms, bus servos, and chassis.
+description: >-
+  Hiwonder robot development guides for ROSpider, SpiderPi Pro, ROSOrin,
+  JetRover, NexArm and LanderPi: exact kits, SDKs, ROS, calibration and courses.
 ---
 
 # Hiwonder
@@ -150,3 +152,20 @@ Choose the exact model and controller generation. Each guide identifies its Open
 | [Suspension Tracked Chassis](hiwonder-suspension-tracked-chassis-guide.md)                   | Suspension Tracked Chassis is a mechanical drive platform for a separately chosen controller and motor-driver system.  |
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Development paths and commissioning references
+
+Choose the purchased host, chassis and kit before selecting an image or course. These guides carry the operational reference onto the product page, with source links, API and parameter tables, ordered procedures, expected results and version-specific limitations.
+
+| Development path                                                                         | Canonical engineering guide                                                  |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| ROS 2 interfaces, gait control, posture reset, vision and mapping                        | [ROSpider](hiwonder-rospider-development-guide.md)                           |
+| Pi kit selection, Python servo/kinematics APIs, vision and calibration                   | [SpiderPi Pro Pi 4/Pi 5 options](hiwonder-spiderpi-pro-development-guide.md) |
+| Pro NX SUPER 16 GB versus standard Orin Nano SUPER 8 GB, images and course configuration | [ROSOrin Pro / ROSOrin](hiwonder-rosorin-pro-development-guide.md)           |
+| Orin Nano SUPER 8 GB Mecanum Developer Kit, controller APIs, perception and navigation   | [JetRover](hiwonder-jetrover-development-guide.md)                           |
+| Orin arm kinematics, MoveIt, scene configuration, calibration and voice/AI courses       | [NexArm](hiwonder-nexarm-ros-development-guide.md)                           |
+| Pi 5 8 GB Mecanum Advanced Kit, ROS 2 container, mobile manipulation and simulation      | [LanderPi](hiwonder-landerpi-development-guide.md)                           |
+
+The guides distinguish a documented example from a verified installed implementation. Known source-code cancellation, calibration, unit or model-parser limitations are explained at the affected operation. A stopped publisher, a posture reset and physical power isolation have different effects; match the guide’s stated control ownership and commissioning checks.
+
+Source review and applicable static checks are recorded separately from building software, flashing firmware, calibration or physical motion. Use each guide’s source and validation notes when planning a development session.

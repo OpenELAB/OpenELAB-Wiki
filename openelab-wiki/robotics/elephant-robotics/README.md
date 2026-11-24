@@ -1,5 +1,7 @@
 ---
-description: myCobot desktop arms, grippers, cameras, and learning accessories.
+description: >-
+  Elephant Robotics manuals and myAGV Raspberry Pi 2023 development reference:
+  exact image, serial SDK, ROS 1, calibration, mapping and navigation.
 ---
 
 # Elephant Robotics
@@ -38,3 +40,9 @@ Products in the OpenELAB Top200 net-sales snapshot for 17 August–17 November 2
 * Compare gripper and suction approaches for small-object handling.
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Development paths and commissioning references
+
+[myAGV Raspberry Pi 2023](myagv-2023-pi.md) covers the Pi 4 / Ubuntu 20.04 / ROS 1 Noetic lane, hardware and power, serial protocol and Python SDK, myBlockly/myStudio/AGV\_UI, image/MCU versions, ROS configuration, mapping, navigation and recovery. It retains the documented test-mode exclusions, autonomous motor-test sequence and Cancel → stopped → Start → next-goal behavior. Do not substitute myAGV Plus, Jetson or a ROS 2 image solely because the product family name is similar. The historical SKU differs in case from the current store SKU and is flagged in the product-link audit.
+
+Source review and applicable static checks are recorded separately from building software, flashing firmware, calibration or physical motion. Use each guide’s source and validation notes when planning a development session.

@@ -1,5 +1,8 @@
 ---
-description: ROSMASTER, MicroROS, DOFBOT, and JetCobot robotics platforms.
+description: >-
+  Yahboom robotics documentation and ROSMASTER M3 Pro NX SUPER 16 GB course
+  reference: controller APIs, perception, calibration, navigation and
+  manipulation.
 ---
 
 # Yahboom
@@ -48,3 +51,9 @@ Products in the OpenELAB Top200 net-sales snapshot for 17 August–17 November 2
 </details>
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Development paths and commissioning references
+
+[ROSMASTER M3 Pro NX SUPER 16 GB](rosmaster-m3-pro-development-guide.md) includes the model-specific controller, power and sensor interfaces, SDK/ROS contracts, calibration, LiDAR/depth/vision, navigation, arm handling, voice, simulation and agent integration courses. Its on-page course reference retains the official lesson resources and separates ROS/software generations before giving commands. The source commit pins the documentation, not the delivered robot image or cloud services. Factory calibration and the actual host, MCU firmware and configuration remain part of every commissioning record.
+
+Source review and applicable static checks are recorded separately from building software, flashing firmware, calibration or physical motion. Use each guide’s source and validation notes when planning a development session.

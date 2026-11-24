@@ -1,5 +1,7 @@
 ---
-description: SO-ARM101, XLeRobot, LeKiwi, robotic hands, and tactile-sensing kits.
+description: >-
+  WowRobo SO-ARM101 kit guide: assembly, exact motor gearing and supplies, IDs,
+  calibration, cameras and reproducible LeRobot development workflows.
 ---
 
 # WowRobo
@@ -44,3 +46,9 @@ These kits implement community projects with their own upstream documentation. C
 * [WowRobo robotics kits](https://shop.wowrobo.com/collections/so-arm-lerobot-kits)
 
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
+
+### Development paths and commissioning references
+
+[SO-ARM101 leader–follower kit](wowrobo-so-arm101-lerobot.md) explains the exact WR-ARM101-Kit contents, motor models and gearing, separate supplies, assembly and servo IDs, calibration, camera setup, LeRobot configuration, teleoperation, recording and later learning/deployment workflows. Read the torque-on connection and calibration boundaries before using an SDK example. Other assembled, single-arm or parts-only options are separate purchases; an upstream mount or camera example is not evidence of kit inclusion.
+
+Source review and applicable static checks are recorded separately from building software, flashing firmware, calibration or physical motion. Use each guide’s source and validation notes when planning a development session.
