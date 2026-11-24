@@ -91,6 +91,14 @@ These guides distinguish source-reviewed instructions, original offline checks, 
 * [Unitree H2-A and H2-D: Fixed and Mobile Manipulation Guide](unitree-h2-a-h2-d-upper-body.md)
 * [Unitree R1-A5, A7 and D Variants: Dual-Arm Development Guide](unitree-r1-a5-a7-mobile-upper-body.md)
 
+## Dexterous hands and grippers <a href="#unitree-batch-06-hands" id="unitree-batch-06-hands"></a>
+
+* [Unitree Dex1-1: power, RS485 bridge and offline state inspection](unitree-dex1-1.md)
+* [Unitree Dex3-1: seven-joint mapping, power and DDS boundaries](unitree-dex3-1.md)
+* [Unitree Dex5-1 and Dex5-1P: coupled joints, tactile data and power](unitree-dex5-1.md)
+* [Unitree Dex5-S and Pro: 22-axis hand integration boundaries](unitree-dex5-s.md)
+* [Unitree Dex2/5: tendon hand and host-specific control](unitree-dex2-5.md)
+
 ## Unitree Official Site <a href="#unitree-official-site" id="unitree-official-site"></a>
 
 * [Unitree official products](https://www.unitree.com/)
