@@ -1,532 +1,807 @@
-# NERO User Manual
+---
+description: >-
+  Mount and power NERO, resolve newer25 V and joint-limit guidance, access its
+  web controller and read fresh seven-joint feedback with the matching SDK
+  profile.
+---
+
+# AgileX NERO: 7-axis power, web setup and firmware-aware CAN feedback
 
 {% hint style="info" %}
-[**View NERO gripper on OpenELAB**](https://openelab.io/products/agilex-nero-gripper) · [**View NERO robotic arm on OpenELAB**](https://openelab.io/products/agilex-nero-embodied-ai-arm)
-
-**Model:** NERO User Manual · **OpenELAB SKU:** `Agilex-NERO` · Arm and gripper are distinct product options.
+[**AgileX NERO 7-DOF arm on OpenELAB — SKU Agilex-NERO**](https://openelab.io/products/agilex-nero-embodied-ai-arm?variant=45854559305926)
 {% endhint %}
 
-### AgileX NERO 7-DOF 3kg Payload Robotic Arm for Embodied A
+## Product overview <a href="#ffsaj" id="ffsaj"></a>
 
-### AgileX NERO Gripper
+NERO is a seven-axis, 3 kg-rated robotic arm with an integrated controller, browser-based operator interface and external CAN development connection. Its extra joint permits redundant postures: an endpoint pose does not uniquely identify all seven joint angles. This guide establishes mounting, 24 V power, browser access and firmware-aware joint feedback before introducing trajectories, teaching or ROS 2. [OpenELAB exact option](https://openelab.io/products/agilex-nero-embodied-ai-arm?variant=45854559305926), [current manufacturer resources](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/hf8x32y0tevqyi3g).
 
-{% embed url="https://openelab.io/products/agilex-nero-gripper" %}
+The arm is not a PiPER with a seventh value appended. NERO has different geometry, CAN profiles, joint limits and calibration behavior. Select `ArmModel.NERO`, its reported firmware and a NERO URDF. Grippers, teaching handles, dexterous hands and desktop clamps are accessories; establish which are physically fitted before configuring payload and tool coordinates.
 
-Accessory reference see Gripper Master-Slave Control and Legacy Gripper Compatibility in this manual.
+## Applications
 
-{% embed url="https://openelab.io/products/agilex-nero-embodied-ai-arm" %}
+NERO suits controlled manipulation experiments, embodied-data collection, leader–follower research and workstation integration. Begin with a stationary seven-joint log, then a small repeatable joint motion, a two-point trajectory and a measured tool transform. This provides separate evidence for communication, motion repeatability and task geometry.
 
-<img src="../../.gitbook/assets/image (1171).png" alt="image.png" width="592">
+A redundant arm can change elbow posture while holding a similar endpoint pose. Inspect the entire link sweep when planning around a table, camera or another robot. Collision sensitivity is an additional controller function, not a certified person-detection system. The manufacturer states that the arm lacks automatic proximity/obstacle sensing. [NERO manual](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb).
 
-Document Version: V1.0.0
+## Specifications
 
-<img src="../../.gitbook/assets/image (1172).png" alt="image.png" width="449">
+| Parameter             | NERO value                                                     | Scope                                                                 |
+| --------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Controlled axes       | 7                                                              | Separate attached tool from arm joints                                |
+| Payload               | 3 kg                                                           | Tool and carried load must fit the actual reach/load condition        |
+| Arm mass              | 4.8 kg                                                         | Excludes optional tool                                                |
+| Reach                 | 580 mm                                                         | Nominal radius, not an obstacle-free operating envelope               |
+| Repeatability         | ±0.1 mm                                                        | Manufacturer controlled-condition claim                               |
+| Supply                | 24 VDC nominal                                                 | Newer manual: **must not exceed25 V**, regulated external supply≥10 A |
+| Arm power             | ≤150 W maximum;≤60 W typical/comprehensive                     | Does not replace transient-current supply requirement                 |
+| End electrical output | 24 V, 2 A maximum                                              | Keyed XT30(2+2); approved AgileX accessories only on end CAN          |
+| Mounting              | Four M5 holes on 70 × 70 mm pattern                            | Mounting orientation must match controller setting                    |
+| Environment           | −20 to +50 °C; 25–85 %RH noncondensing; IP22 unless customized | Not an outdoor weatherproof rating                                    |
+| Communication         | CAN; browser interface; listed HTTP/TCP capabilities           | API transport support must be checked independently                   |
 
-Version Update Description
+The older downloadable English PDF says26 V maximum and gives different J2/J6/J7 ranges. The newer Chinese manual and November2026 English quick-start agree on the 25 V ceiling and the following nominal joint table; use24 V regulated power and verify controller limits for the arm's revision rather than averaging the documents. [Current manual](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb), [current quick-start](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/famocdascsqfvyrq), [older PDF](https://cdn.shopify.com/s/files/1/0551/0630/6141/files/NERO_USER_MANUAL_2732ff89-040d-4b89-9b02-a09019f21b18.pdf?v=1792486598).
 
-| No. | Version | Date       | Editor  | Reviewer     | Note          |
-| --- | ------- | ---------- | ------- | ------------ | ------------- |
-| 1   | V.1.0.0 | 2025/12/18 | Cynthia | <p>​<br></p> | File Creation |
-|     |         |            |         |              |               |
-|     |         |            |         |              |               |
-|     |         |            |         |              |               |
+| Joint | Current manual range | Maximum speed | Older PDF range where different |
+| ----- | -------------------- | ------------- | ------------------------------- |
+| J1    | −157°…+157°          | 180°/s        | same                            |
+| J2    | −102°…+102°          | 180°/s        | −15°…190°                       |
+| J3    | −160°…+160°          | 180°/s        | same                            |
+| J4    | −60°…+125°           | 225°/s        | same                            |
+| J5    | −160°…+160°          | 225°/s        | same                            |
+| J6    | −44°…+57°            | 225°/s        | −43°…+58°                       |
+| J7    | −97°…+97°            | 225°/s        | −90°…+90°                       |
 
-## **Important Safety Information** <a href="#odniv" id="odniv"></a>
+These are reference envelopes, not targets for a first command. Software configuration can impose narrower limits. A maximum speed is not a commissioning speed.
 
-This chapter contains crucial safety instructions. Any individual or organization must read and understand this information before using the device, especially before powering it on for the first time. It is essential to follow all assembly instructions and guidelines provided in this manual. Pay special attention to the text with warning signs. Before using the Nero device, be sure to read the **NERO User Manual**. For any questions regarding usage, please contact us at support@agilex.ai.
+Optional two-finger gripper: 500 g, 0–100 mm opening, 40 N rated/50 N maximum gripping force,±0.5 mm stated accuracy, 24 V,≤50 W maximum. The teaching handle is 550 g with 0–70 mm opening. Include fitted-tool mass and center of gravity in configuration; a nominal 3 kg arm payload does not mean3 kg of object plus an arbitrarily heavy tool. [Current manual accessory tables](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb).
 
-> **Warning**: ⚠ This indicates a potentially hazardous situation. Failure to avoid it may result in personal injury, property damage, and severe equipment damage.
+## Hardware and connections
 
-> **WARNING ⚠**: Agilex Robotics shall not be liable for any damage caused by a robotic arm that has been damaged, altered, or modified in any way. Agilex Robotics shall not be held responsible for any damage to the robotic arm or other equipment arising from program errors or non-standard operations.
+### Mounting and cable orientation
 
-**​**<br>
+![AgileX NERO electrical panel: keyed aviation connector, Ethernet, Wi-Fi antenna and status indication](<../../.gitbook/assets/电器面板 (2).png>)
 
-Limitation of Liability: By using this robotic arm, you acknowledge that you have read, understood, and accepted all terms and content of this user manual and safety information. The user undertakes full responsibility for their actions and all resulting consequences. The user agrees to use the robotic arm solely for legitimate purposes and complies with these terms as well as any related policies or guidelines established by Agilex Robotics. During operation, strictly adhere to all requirements, including but not limited to the user manual and safety information. Agilex Robotics shall not be liable for personal injury, accidents, property damage, legal disputes, or conflicts of interest caused by non-compliance with usage instructions or unavoidable factors. This robotic arm is not suitable for use by individuals under 18 years of age or those without full civil capacity. Please prevent such individuals from accessing this product, and exercise extra caution when operating the device in their presence.
+Manufacturer electrical-panel drawing, retained from the existing manual. The aviation harness contains power and external CAN branches. Align its red dot with the socket's red dot before inserting. Release with the textured sleeve rather than pulling the wires. Keep the internal/service CAN connector unused; it is reserved for technical support. The base's Ethernet jack is for the embedded controller, not a USB-CAN substitute. [Quick-start electrical panel and wiring](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/famocdascsqfvyrq).
 
-The information in this manual does not cover the design, installation, and operation of a complete robotic arm application, nor does it include all peripheral equipment that may affect the safety of the complete system. The design and use of the complete system must comply with safety requirements specified in the standards and regulations of the country where the robotic arm is installed.
+Mount the arm with four suitable M5 fasteners using the 70 × 70 mm pattern and a rigid supporting surface. The optional desktop fixture must be securely clamped before operation. Confirm screw engagement and underside clearance against the mechanical drawing rather than interpreting “M5 × 4” as a 4 mm screw length. Check resistance to the arm's overturning moment, not just its4.8 kg static weight.
 
-Integrators and end-users of the robotic arm are responsible for ensuring compliance with relevant regulations and applicable laws, and for ensuring that no significant hazards exist in the complete robotic arm application.
+![NERO manufacturer workspace illustration retained from the existing manual](<../../.gitbook/assets/image (1174).png>)
 
-This includes but is not limited to the following:
+For an end tool, follow its keyed flange orientation and specified screws. The current quick-start distinguishes a standard gripper orientation from a side mount by the camera-hole face relative to the XT30 connection. Tool orientation changes the TCP configuration. A previously purchased PiPER gripper can require a **NERO-specific ID modification**; an ID collision can disturb kinematics and gravity compensation. Do not connect it and repeatedly retry enabling. [Manual installation and legacy-gripper notice](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb).
 
-1. **Validity and Responsibility**
+### Power and CAN
 
-* Conduct a risk assessment of the complete robotic arm system.
-* Integrate additional safety devices for machinery as defined in the risk assessment.
-* Verify the accuracy of the design and installation of the entire robotic arm system, including software and hardware components.
-* Integrators and end-users must conduct safety assessments in accordance with relevant regulations and applicable laws for all functions related to this robotic arm, ensuring no significant hazards or safety risks exist in practical applications.
-* Be aware of potential safety risks before operating and using the equipment.
-* Ensure that users do not modify any safety measures.
-* Collect all documents in the technical files, including the risk assessment and this manual.
+1. Keep the supply off while assembling the harness. Connect its CAN\_H/yellow and CAN\_L/blue branches to the corresponding supplied adapter terminals.
+2. Secure each conductor under the terminal's clamping tab and tug-test gently. Connect matching keyed power branches and the base aviation connector.
+3. Power the supplied 24 V adapter; wait for the documented boot indication, then attach the USB-CAN connection to the development computer.
+4. Leave the arm supported and disabled while establishing browser access. Do not use the status LED alone to decide that a fault is cleared; inspect the web joint-status panel.
 
-2. **Environment**
+The published connector orientation, not a remembered left/right viewpoint, determines wiring. Do not hot-plug a tool, backfeed its24 V output or connect third-party devices to the reserved end CAN. The arm CAN interface uses1 Mbit/s; the SDK's Linux path is SocketCAN. Preserve the supplied single-arm termination arrangement before considering a multi-arm topology. [Quick-start wiring](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/famocdascsqfvyrq), [SDK CAN guide](https://github.com/agilexrobotics/pyAgxArm/blob/d90e234ba8e408cfa964b38aa9120b3131fc9f85/docs/can_user.md).
 
-* Read this manual carefully before first use to understand the basic operation content and specifications.
-* Use the robotic arm in a relatively open area. The robotic arm is not equipped with any automatic obstacle avoidance or sensing sensors.
-* Operate within an ambient temperature range of -20℃ to 50℃.
-* Unless customized with a specific IP rating, the robotic arm has an IP22 rating for dust and water resistance.
+## Software and development resources
 
-3. **Inspection**
+### Browser control and state ownership
 
-* Ensure the robotic arm has no obvious abnormalities.
-* Verify that all wire connections are secure during use.
+The embedded web controller provides joint status, system usage, enable/disable, emergency stop, error information, speed, joint/Cartesian motion, drag teaching, dexterous-hand control, leader–follower operation, trajectories, calibration, tool/mounting configuration, network configuration and upgrade panels. Treat these as different operating states. Switching to **Web** control stops trajectory-mode operation before web commands are accepted. Preserve faults in a log before using Clear Error. [Complete web manual](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb).
 
-4. **Operation**
+| Motion facility | Prerequisite and limit                                                                             |
+| --------------- | -------------------------------------------------------------------------------------------------- |
+| Joint target    | Seven values in the current joint reference; check limits and link sweep                           |
+| Point           | Reachable endpoint pose; redundant IK can choose a different elbow posture                         |
+| Line            | Entire interpolated path must remain reachable, not only the endpoint                              |
+| Circle          | Start, intermediate and end poses must define a feasible arc                                       |
+| MIT/torque      | Version-specific torque and velocity encoding; advanced controller design, not a first-run mode    |
+| Drag teaching   | Correct physical zeros, mounting orientation, tool mass and gravity compensation                   |
+| Leader–follower | Start both arms near matching reference poses, identify roles and avoid conflicting CAN publishers |
 
-* Maintain a clear and unobstructed area around the robotic arm during operation.
-* Operate the robotic arm within the line of sight.
-* The maximum payload capacity of the robotic arm is 3KG. Ensure the effective load does not exceed this limit during use.
-* Immediately stop using the device if any abnormality occurs to avoid secondary damage.
-* Contact relevant technical personnel if the device malfunctions. Do not attempt to handle the issue without authorization.
-* Use the device in an environment that meets the requirements of its IP rating.
+### SDK versions and units
 
-5. **Usage Warnings ⚠**
+Use [pyAgxArm](https://github.com/agilexrobotics/pyAgxArm) rather than a six-axis PiPER script. The source reviewed here is commit `d90e234ba8e408cfa964b38aa9120b3131fc9f85` (package1.0.0, LGPL-3.0-only). The example below targets Ubuntu 22.04/Python 3.10 with a functioning Linux SocketCAN adapter. The upstream keyword is spelled **`firmeware_version`**.
 
-* Ensure the robotic arm and tools/end-effectors are always correctly and securely fastened in place.
-* Wear safety goggles and protective equipment when entering the robotic arm's workspace is unavoidable.
-* Ensure the robotic arm has sufficient space for unrestricted movement.
-* Ensure safety measures are established as defined in the risk assessment.
-* Do not wear loose clothing when operating the robotic arm. Tie long hair back before the operation.
-* Do not use the robotic arm if it is damaged or shows any signs of abnormality.
-* If the host computer software displays an error message, perform an emergency stop immediately and contact technical personnel.
-* Ensure that people keep their heads, faces, and other body parts outside the reach of the robotic arm during operation or before starting the operation.
-* Do not modify the robotic arm. Modifications may lead to unpredictable hazards for integrators.
-* Do not expose the robotic arm to permanent magnetic fields. Strong magnetic fields may damage the robotic arm.
-* The robotic arm generates heat during operation. Do not handle or touch the robotic arm while it is operating or immediately after stopping, as prolonged contact may cause discomfort. Disconnect the power supply and wait for one hour for the robotic arm to cool down completely.
-* Connecting different machinery may increase hazards or create new ones. Always conduct a comprehensive risk assessment of the entire installation. Different functional safety levels may apply based on the risk assessment; therefore, always select the highest performance level when different safety and emergency stop performance levels are required. Always read and understand the manuals of all equipment used in the installation.
-* This robotic arm is not suitable for use by individuals under 18 years of age or those without full civil capacity.
+| Arm firmware reported by `get_firmware()` | SDK profile | Material behavior                                                                    |
+| ----------------------------------------- | ----------- | ------------------------------------------------------------------------------------ |
+| ≤1.10                                     | `default`   | Older Cartesian workaround; 8-bit MIT torque; reported motor velocity forced to 0    |
+| 1.11                                      | `v111`      | 12-bit MIT torque, changed motion encoding and calibration support                   |
+| 1.12                                      | `v112`      | CPV and IK feedback; revised leader feedback; follower/CAN-push behavior changes     |
+| 1.20                                      | `v120`      | Real motor velocity and corrected CPV feedback; some command sign workarounds remain |
+| ≥1.21 in this published matrix            | `v121`      | MIT/CPV command velocity retains requested sign                                      |
 
-## 1 Robotic Arm Overview <a href="#sygvh" id="sygvh"></a>
+Do not use an unknown future firmware merely because its number sorts higher. Confirm it remains covered by the selected SDK's matrix. The older full API table is less detailed than the current firmware-reference document; preserve both the reported firmware and resolved profile in logs. `get_joint_angles().msg` contains **seven radians**, not degrees. [NERO API](https://github.com/agilexrobotics/pyAgxArm/blob/d90e234ba8e408cfa964b38aa9120b3131fc9f85/docs/nero/nero_api.md), [firmware matrix](https://github.com/agilexrobotics/pyAgxArm/blob/d90e234ba8e408cfa964b38aa9120b3131fc9f85/docs/nero/firmware_reference.md).
 
-This 7-degree-of-freedom (DOF) robotic arm is specially designed for the education and research industry, consumer application scenarios, and industrial automation. It has a payload capacity of 3kg and is suitable for various scientific research and industrial applications, such as humanoid robots, automatic assembly, and automatic handling. The 7 joints provide comprehensive operational flexibility, ensuring high precision and repeatability. The robotic arm adopts a modular design for easy maintenance and upgrades. It provides an intuitive user interface that simplifies programming and operation processes, enabling even non-professionals to get started quickly. It can be widely used in scientific research, education and teaching, automobile manufacturing, electronic assembly, food processing, laboratory automation, and medical equipment operation.
+ROS 2 Humble support is in [agx\_arm\_ros](https://github.com/agilexrobotics/agx_arm_ros), with NERO description/model assets and simulation resources in [agx\_arm\_urdf](https://github.com/agilexrobotics/agx_arm_urdf) and [agx\_arm\_sim](https://github.com/agilexrobotics/agx_arm_sim). A URDF, MoveIt plan or MuJoCo scene does not qualify a physical mount or tool. The SDK can describe custom joint limits without applying every custom configuration to real control; retain controller-side limits and inspect the actual API behavior.
 
-### 1.1 Product List <a href="#xvxiq" id="xvxiq"></a>
+## Getting started
 
-| Name                                 | Quantity |
-| ------------------------------------ | -------- |
-| 7 DOF Robotic Arm                    | 1        |
-| USB to CAN module                    | 1        |
-| Power Adapter (Adapter + Power Cord) | 1        |
-| MicroUSB cable                       | 1        |
-| Base Mounting Screws                 | 4        |
-| Base Mounting Wrench                 | 1        |
+### 1. First result through the embedded web interface
 
-### 1.2 Performance Parameters <a href="#mnuck" id="mnuck"></a>
+1. Secure the arm and clear its reachable workspace. Use the supplied adapter and support any attached tool before booting.
+2. Join its documented hotspot `agx-7ax-xx`, password `12345678`, and open `http://192.168.31.1/`. Published initial web credentials are `admin` / `123456`.
+3. Alternatively, connect Ethernet directly and give the computer an unused address such as `10.90.0.153/24`, with the robot at its published default `10.90.0.150`. Keep both on the same subnet; no gateway is needed for a direct isolated link.
+4. Open the status page and record firmware, joint state, faults, mounting orientation and tool configuration **without enabling motion**. Check that seven joints are represented.
+5. Preserve screenshots/configuration before changing credentials, hotspot or Ethernet settings. A network change can disconnect the current session; keep the alternative access path available.
 
-| **Parameter Type**          | **Item**                                                                                                       | **Specification**                                                                                                                                           |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Structural Parameters**   | Degrees of Freedom                                                                                             | 7                                                                                                                                                           |
-| Payload                     | 3KG                                                                                                            |                                                                                                                                                             |
-| Weight                      | 4.8KG                                                                                                          |                                                                                                                                                             |
-| Repeat Positioning Accuracy | ±0.1mm                                                                                                         |                                                                                                                                                             |
-| Working Radius              | 580mm                                                                                                          |                                                                                                                                                             |
-| Standard Supply Voltage     | DC24V                                                                                                          |                                                                                                                                                             |
-| Power Consumption           | <p>Max Power ≤ 150W;</p><p>Comprehensive Power ≤ 60W</p>                                                       |                                                                                                                                                             |
-| Material                    | <p>Aluminum Alloy Frame;</p><p>Plastic Shell</p>                                                               |                                                                                                                                                             |
-| Controller                  | Integrated                                                                                                     |                                                                                                                                                             |
-| Communication Method        | CAN/HTTP/TCP                                                                                                   |                                                                                                                                                             |
-| Control Method              | Drag Teaching/Offline Trajectory/API/Host Software teaching                                                    |                                                                                                                                                             |
-| External Interfaces         | 1×Power Interface, 1×CAN Interface, 1×Ethernet Interface                                                       |                                                                                                                                                             |
-| Base Mounting Dimensions    | 70mm×70mm×M5×4                                                                                                 |                                                                                                                                                             |
-| Operating Environment       | Temperature: -20℃ to 50℃; Humidity: 25% to 85%, Non-condensing                                                 |                                                                                                                                                             |
-| Noise                       | <60dB                                                                                                          |                                                                                                                                                             |
-| Mounting Method             | <p>Table Mounting, Side Mounting, Upside-down Mounting;</p><p>Compatible with All Agilex Robotics Products</p> |                                                                                                                                                             |
-| **Motion Parameters**       | Joint Motion Range                                                                                             | <p>J1: -157° ~ 157°</p><p>J2: -15° ~ 190°</p><p>J3: -160° ~ 160°</p><p>J4: -60° ~ 125°</p><p>J5: -160° ~ 160°</p><p>J6: -43° ~ 58°</p><p>J7: -90° ~ 90°</p> |
-| <p><br></p>                 | Maximum Joint Speed                                                                                            | <p>J1: 180°/s</p><p>J2: 180°/s</p><p>J3: 180°/s</p><p>J4: 225°/s</p><p>J5: 225°/s</p><p>J6: 225°/s</p><p>J7: 225°/s</p>                                     |
+**Expected result:** the web interface loads, seven joint statuses are readable and the actual software/firmware and mounting configuration are recorded. A successful login proves the embedded network path; it does not prove external CAN feedback. [Connection and web manual](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb).
 
-**Note**: The above data are test results of Agilex robotic arms in a controlled test environment. Results may vary under different environments and usage conditions; please refer to actual experience.
+### 2. Prepare a separate SDK environment
 
-## 2 Basic Introduction <a href="#ouh54" id="ouh54"></a>
+```bash
+git clone https://github.com/agilexrobotics/pyAgxArm.git
+cd pyAgxArm
+git checkout d90e234ba8e408cfa964b38aa9120b3131fc9f85
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -e .
+ip -details -statistics link show can0
+```
 
-This robotic arm features 7 degrees of freedom and a 3kg end-effector payload. The seven rotating joints provide comprehensive operational flexibility, ensuring high precision and repeatability. It adopts a lightweight design, enabling the robotic arm to achieve fast movement while maintaining a high load capacity. It can be widely used for real-scenario data collection in embodied intelligence research.
+The last command must identify the actual supplied adapter configured at 1,000,000bit/s with no persistent bus-off state. If it is not configured, follow the SDK's adapter-identification instructions; do not reconfigure a similarly named interface already serving another device. Installation downloads dependencies but does not operate the arm. [CAN setup](https://github.com/agilexrobotics/pyAgxArm/blob/d90e234ba8e408cfa964b38aa9120b3131fc9f85/docs/can_user.md).
 
-<img src="../../.gitbook/assets/微信图片_20260118225938_441_140 (2).png" alt="微信图片_20260118225938_441_140.png" width="934">
+### 3. Original seven-joint freshness logger
 
-> **Precautions**：
->
-> * **Joint Zero-Point Calibration:** The joint zero-point must be set while the robotic arm is in its default vertical upright position. Otherwise, the gravity compensation function in Teaching mode and Master-Slave mode may not function correctly.
-> * **Mode Management:** The system utilizes a state machine for mode management. Teaching mode, Trajectory mode, Master-Slave (Linkage Control) mode, and Web Control mode are mutually independent. For example, if you need to adjust the speed while in Trajectory Control mode, you must first switch to Web Control mode via the Web button; trajectory motion will stop upon switching, after which the speed can be configured.
-> * **Automatic Zero-Setting:** During the automatic joint zero-setting process, the motors will first move to the mechanical limit positions before returning to the correct position. Do not obstruct or interfere with the robotic arm during this process.
-> * **Joint 6 Calibration:** After any manual or automatic zero-setting of Joint 6, the system will execute a calibration process. Please do not obstruct this process.
-> * **Master-Slave Connection:** When connecting the master and slave arms, ensure that the master arm and slave arm are in close proximity. Otherwise, the slave arm will move rapidly to track the master arm's position, posing a safety risk.
-> * **Gripper Master-Slave Control:** To use master-slave control for the gripper, select the "Gripper" type in the custom controller column and enable the gripper before operation.
-> * **Kinematic Control:** During kinematic control, avoid positioning joints J2, J3, J4, and J5 at 0 position as much as possible to reduce the risk of the robotic arm entering a singularity configuration.
-> * **Legacy Gripper Compatibility:** If using a previously purchased Piper gripper on Nero (not required for new purchases), the gripper ID must be modified according to the 《_Nero Gripper ID Modification Guide》_ before the first use. Failure to do so will cause ID conflicts, which will severely impact kinematics and gravity compensation.
-> * **Mounting Definitions:** Side mounting is defined as installing the arm with the Ethernet port facing downward at the default zero-point position. Inverted mounting is defined as installing the robotic arm completely upside down.
+For older firmware, enable the documented **CAN publishing** setting in the web interface before the observer; this changes telemetry, not a motor-enable command. Firmware1.12 changes startup push behavior. Keep one arm on this external bus and close other SDK/ROS controllers.
 
-### 2.1 Electrical Interface <a href="#e8e54" id="e8e54"></a>
+Save as `nero_feedback.py` and run `python nero_feedback.py` inside the environment. It queries firmware, reconnects with the corresponding NERO profile and prints only fresh, finite seven-joint samples. There is no enable, calibration or motion call.
+
+```python
+import math
+import time
+from pyAgxArm import (AgxArmFactory, ArmModel,
+                      create_agx_arm_config, resolve_firmware_profile)
+
+def make_arm(profile):
+    cfg = create_agx_arm_config(robot=ArmModel.NERO,
+                               firmeware_version=profile,
+                               interface='socketcan', channel='can0')
+    return AgxArmFactory.create_arm(cfg)
+
+probe = make_arm('default')
+try:
+    probe.connect()
+    firmware = probe.get_firmware(timeout=2.0)
+    if not firmware or not firmware.get('software_version'):
+        raise RuntimeError('No firmware reply: inspect CAN path and publishing')
+    version = firmware['software_version']
+    profile = resolve_firmware_profile(ArmModel.NERO, version)
+    print('firmware=', version, 'profile=', profile)
+finally:
+    probe.disconnect()
+
+arm = make_arm(profile)
+try:
+    arm.connect()
+    deadline = time.monotonic() + 10.0
+    previous = None
+    accepted = 0
+    while time.monotonic() < deadline:
+        sample = arm.get_joint_angles()
+        if sample is not None:
+            age = time.time() - sample.timestamp
+            angles = sample.msg
+            if (0 <= age <= 0.5 and sample.timestamp != previous
+                    and len(angles) == 7
+                    and all(math.isfinite(v) for v in angles)):
+                print('rad=', ','.join(f'{v:.5f}' for v in angles))
+                previous = sample.timestamp
+                accepted += 1
+        time.sleep(0.05)
+    if not accepted:
+        raise RuntimeError('No fresh seven-joint samples; no motion attempted')
+    print('fresh_samples=', accepted)
+finally:
+    arm.disconnect()
+```
+
+**Expected result:** a reported firmware/profile followed by seven-radian rows and a nonzero fresh-sample count. A stationary supported arm should show nearly constant values. A timeout is a failed telemetry checkpoint; do not fix it by enabling motors or resetting zeros. Compare a sample with the web's displayed angles after converting radians to degrees, allowing for the documented joint reference and presentation convention. [API definitions and implementation](https://github.com/agilexrobotics/pyAgxArm/blob/d90e234ba8e408cfa964b38aa9120b3131fc9f85/docs/nero/nero_api.md).
+
+### 4. Controlled progression through web modes
+
+After mounting/tool settings and feedback are verified, choose Web mode, retain the operator's stop control and use a low speed percentage. Start from the **displayed current joint pose**, alter one joint by a small amount within a clear local envelope and apply once. Observe that only the intended axis changes; stop if direction or reference differs. Return using the recorded original pose, not a newly invented all-zero target.
+
+For a two-point trajectory, save the current pose, make the same small checked move, save the second point, export the trajectory and inspect its points before replay. Run once before considering repetition. Point/line/circle demos require reachable intermediate poses; an IK error is a planning failure, not a reason to expand limits.
+
+For drag teaching, support the arm before entering gravity compensation and verify that the configured tool and mount match the hardware. Create a named teaching record, start recording, guide a short clear path and pause recording before leaving that mode. Review the record before playback. Avoid J2/J3/J4/J5 simultaneously near the kinematic singular configuration identified by the manufacturer. [Motion, teaching and trajectory chapters](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb).
+
+For ROS 2, select `arm_type:=nero` and inspect the launch arguments before starting. The reviewed launch defaults can auto-enable and accept control, so passive commissioning must explicitly use `auto_enable:=false control_enabled:=false` and the actual CAN port. Keep the browser's motion mode and every other physical controller inactive. MoveIt/Gazebo, Isaac Sim and MuJoCo are separate environments listed in the resource index; validate geometry and units there before enabling a real bridge. [ROS launch source](https://github.com/agilexrobotics/agx_arm_ros/blob/747d0722074d4cebc095d8d44f3ef68d2023ba6f/src/agx_arm_ctrl/launch/start_single_agx_arm.launch.py).
+
+## Troubleshooting and FAQs
+
+| Symptom                                | Diagnostic and recovery boundary                                                                                                                |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Web page absent                        | Check boot/power, selected hotspot or Ethernet subnet, actual configured address and link LEDs; do not factory-reset zeros to repair networking |
+| Firmware reply but no joints           | Check CAN-push setting and firmware profile; retain external CAN ownership and inspect receive counters                                         |
+| Cached angles repeat forever           | Inspect timestamp age and connection health; require fresh samples, not merely a non-`None` object                                              |
+| Web says incorrect control mode        | Switch to Web mode deliberately; this can stop an active trajectory. Do not issue repeated commands across competing modes                      |
+| Gravity compensation pulls incorrectly | Stop teaching; verify mount, tool mass/CoG, zero calibration and legacy-gripper ID before further motion                                        |
+| Cartesian target rejected              | Check units, joint limits, redundancy, singularity and the complete path; do not widen limits as a workaround                                   |
+| Leader–follower CAN abnormal           | Check assigned roles and duplicate push streams; follow the manual's restart procedure with both arms supported                                 |
+| Arm drops on power loss                | Plan mechanical support and power-off posture. Software disconnect does not disable a robot, and removing power can release load                |
+
+**Should I zero the arm on every first boot?** No. Read and preserve existing calibration. The dedicated August2026 zeroing guide distinguishes upright/no-tool automatic calibration from side/inverted or loaded cases. Automatic calibration moves to mechanical limits and returns; it is not a harmless reset. For side mounting, select the correct mounting orientation before any permitted single-joint procedure. Loaded/nonstandard cases need the documented manual method and support. J6 can perform an additional calibration movement. [Manufacturer zeroing guide](https://agilexsupport.yuque.com/staff-hso6mo/ihw47g/ugnfto98dgopiuwh).
+
+**Can two connected arms both be followers?** The manual warns against two follower configurations and simultaneous CAN push on the connected pair. Begin near matched reference poses before linking; otherwise a follower can move rapidly to match its leader. Role names and normal-mode support also changed with firmware 1.12. [Manual](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb), [SDK firmware reference](https://github.com/agilexrobotics/pyAgxArm/blob/d90e234ba8e408cfa964b38aa9120b3131fc9f85/docs/nero/firmware_reference.md).
+
+**How are upgrades recovered?** Record controller/software and every joint firmware version, export trajectories/configuration, support the arm and obtain an exact matching package. Joint firmware upgrade requires entering Upgrade Mode; the arm is disabled, and the manual requires **Exit Upgrade** after completion. Do not interrupt power or repeatedly load an unverified binary. A controller software update and a joint firmware update are different operations. Persistent faults or incomplete calibration need manufacturer-supported recovery. [Upgrade chapters](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb).
+
+Maintenance begins with a supported, powered-off arm: inspect cable jackets, connector retention, fasteners and deformation; clean without forcing liquid into the housing. Preserve calibration and settings rather than re-zeroing as routine cleaning. The manual's emergency power-disconnection description warns of immediate arm drop; provide a suitable system stop arrangement before actuation.
+
+## Downloads and technical documents
+
+| Resource                       | Direct destination and version boundary                                                                                                                                                                                                      |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Current manual                 | [Chinese manual](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb); [English manual](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/vx3iqycffq0pg8af)                                                               |
+| First-use guide                | [English quick-start, November2026](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/famocdascsqfvyrq)                                                                                                                                    |
+| Downloadable historical manual | [Official PDF](https://cdn.shopify.com/s/files/1/0551/0630/6141/files/NERO_USER_MANUAL_2732ff89-040d-4b89-9b02-a09019f21b18.pdf?v=1792486598); electrical/joint differences identified above                                                 |
+| Current CAN protocol           | [V1.2 route from resource index](https://agilexsupport.yuque.com/staff-hso6mo/gp5vq8/rxwtftfridv9qg0c); public text export requested login during review                                                                                     |
+| Python SDK/API/examples        | [pyAgxArm](https://github.com/agilexrobotics/pyAgxArm)                                                                                                                                                                                       |
+| ROS 2 Humble                   | [agx\_arm\_ros](https://github.com/agilexrobotics/agx_arm_ros)                                                                                                                                                                               |
+| URDF and simulation            | [agx\_arm\_urdf](https://github.com/agilexrobotics/agx_arm_urdf); [MoveIt2/Gazebo](https://github.com/agilexrobotics/agx_arm_sim/tree/master/Moveit2); [MuJoCo](https://github.com/agilexrobotics/agx_arm_sim/tree/master/mujoco/agilex_arm) |
+| Bare-arm CAD                   | [nero3D.zip](https://agilexsupport.yuque.com/attachments/yuque/0/2026/zip/68774675/1786175467832-1ad8998f-7925-48e3-a916-39a409486831.zip)                                                                                                   |
+| Tool flange CAD                | [Two-finger gripper STEP ZIP](https://agilexsupport.yuque.com/attachments/yuque/0/2026/zip/29291030/1773671857392-59c9dda7-b459-48c4-83d6-892f21e13fee.zip)                                                                                  |
+| All tool/camera mounts         | [Official model collection](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/alsnhlaawartt3k8): bare/tool-equipped arm, dexterous-hand flanges, DC1/D435i/D405/custom camera mounts and 100 mm gripper model                              |
+| Zero calibration               | [Dedicated upright/side/manual guide](https://agilexsupport.yuque.com/staff-hso6mo/ihw47g/ugnfto98dgopiuwh)                                                                                                                                  |
+
+CAD links were observed in the manufacturer index; archives were not mechanically qualified. Use the supplied revision's drawings and confirm dimensions before machining. The integrated controller is not an open general-purpose computer; do not infer shell access from the web system-usage display.
+
+### Operating environment and inspection reference
+
+These arms have no built-in automatic obstacle-avoidance sensing. The manufacturer's ordinary enclosure rating is **IP22 unless customized**; this does not qualify rain, washdown or conductive dust exposure. Use the stated −20 to +50 °C and 25–85% RH noncondensing environment. Keep people outside the complete arm/tool sweep, operate within sight and secure hair/clothing that could catch. The manufacturer excludes unsupervised use by people under 18 and requires the complete installation, including other machines and its stop arrangement, to be assessed separately.
+
+Before operation, check base/tool fasteners, harness retention, jacket damage, deformed brackets and visible motor faults. Stop on abnormal motion or a controller error, preserve the diagnostic record and resolve the cause before clearing it. Do not modify protective measures or expose the arm to strong permanent magnetic fields. After demanding operation, isolate/support it and allow the manufacturer's stated **one-hour cooling interval** before handling hot joints. Clean only the exterior using a dry or lightly water-dampened cloth; do not flood connectors. The arm manual and diagrams remain part of the installation record, rather than a claim that a GUI stop or collision sensitivity makes a completed cell safe.
+
+[Manufacturer operating and safety reference](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb).
+
+### Arm and optional-tool reference details
+
+The arm uses an aluminum-alloy frame with a plastic enclosure and an integrated controller. The manual reports noise below 60 dB under its stated conditions; this is not a measured result for the reader's installation. Optional gripper and teaching accessories have their own integrated controllers, rubber contact surfaces, CAN communication and flange mounting. Their listed 24 V supply, up-to-50 W maximum and 30 W comprehensive power figures are accessory specifications, not extra current available from an arbitrary host port. Keep the end-output limit above when choosing a tool.
+
+Historical accessory tables describe a 500 g two-finger gripper and a 550 g teaching handle with ±0.5 mm stated accuracy. Some older English tables give a 0–100 mm opening for both, while newer Chinese teaching-handle tables give **0–70 mm**. Those values identify differing documentation/accessory revisions; read the actual handle label and matched drawing before choosing a stroke. The two-finger gripper's 0–100 mm opening is separate. Do not use arm joint travel as a tool-opening range.
+
+[Manufacturer operating and safety reference](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb).
+
+### Detailed operating reference
+
+The following model-specific operating details and native manufacturer illustrations complement the commissioning procedure above. GUI screenshots depict their documented release; current firmware, power and calibration requirements take precedence where versions differ. [Manufacturer manual](https://agilexsupport.yuque.com/staff-hso6mo/alxgtf/air57k7k3nhgeuxb).
+
+#### NERO User Manual
+
+This operating reference belongs to the exact arm model named on this page. Secure the base and tool, preserve the matching power/CAN connections and clear the entire reachable workspace before enabling. Record current mode, firmware, joint status, mounting orientation and tool configuration; begin with stationary observation, then one checked small motion. Keep the manufacturer diagrams below with their original model context and apply the current numerical/version corrections in Specifications and Software before using an older GUI illustration.
+
+#### AgileX NERO 7-DOF 3 kg Payload Robotic Arm for Embodied A <a href="#agilex-nero-7-dof-3kg-payload-robotic-arm-for-embodied-a" id="agilex-nero-7-dof-3kg-payload-robotic-arm-for-embodied-a"></a>
+
+NERO is nominally3 kg with 580 mm reach. The workspace illustration and tool-equipped envelope must be considered together; a heavy or offset hand consumes the load/moment budget. Use the exact mount/tool configuration, collision geometry and current joint limits. A reachable FK/IK result does not establish payload capacity or a collision-free path.
+
+#### AgileX NERO Gripper <a href="#agilex-nero-gripper" id="agilex-nero-gripper"></a>
+
+The illustrated optional tool is a separate fitted accessory, not part of every bare-arm order. Confirm its exact model, supply, firmware/device identity and mechanical flange before connection. The two-finger gripper and teaching handle have different opening ranges, mass and feedback roles. Include the tool in payload/TCP configuration and verify motion direction with a light test object before using it to retain anything.
+
+<details>
+
+<summary>AgileX NERO Gripper — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for AgileX NERO Gripper](<../../.gitbook/assets/image (1171).png>)
+
+![Manufacturer NERO illustration for AgileX NERO Gripper](<../../.gitbook/assets/image (1172).png>)
+
+</details>
+
+#### Important Safety Information <a href="#odniv" id="odniv"></a>
+
+This operating reference belongs to the exact arm model named on this page. Secure the base and tool, preserve the matching power/CAN connections and clear the entire reachable workspace before enabling. Record current mode, firmware, joint status, mounting orientation and tool configuration; begin with stationary observation, then one checked small motion. Keep the manufacturer diagrams below with their original model context and apply the current numerical/version corrections in Specifications and Software before using an older GUI illustration.
+
+#### 1 Robotic Arm Overview <a href="#sygvh" id="sygvh"></a>
+
+This operating reference belongs to the exact arm model named on this page. Secure the base and tool, preserve the matching power/CAN connections and clear the entire reachable workspace before enabling. Record current mode, firmware, joint status, mounting orientation and tool configuration; begin with stationary observation, then one checked small motion. Keep the manufacturer diagrams below with their original model context and apply the current numerical/version corrections in Specifications and Software before using an older GUI illustration.
+
+#### 1.1 Product List <a href="#xvxiq" id="xvxiq"></a>
+
+Inventory the arm, supplied USB-CAN adapter, power adapter/cable, mounting hardware and tools against the ordered package. Optional gripper, teaching handle, dexterous hand and desktop fixture remain separate items unless listed. The model-specific Specifications table above distinguishes rated payload, reach, mass, joint travel/speed and accessory limits. Treat manufacturer repeatability/power/environment figures as conditions to verify in the actual setup, not measurements from this guide.
+
+#### 1.2 Performance Parameters <a href="#mnuck" id="mnuck"></a>
+
+Inventory the arm, supplied USB-CAN adapter, power adapter/cable, mounting hardware and tools against the ordered package. Optional gripper, teaching handle, dexterous hand and desktop fixture remain separate items unless listed. The model-specific Specifications table above distinguishes rated payload, reach, mass, joint travel/speed and accessory limits. Treat manufacturer repeatability/power/environment figures as conditions to verify in the actual setup, not measurements from this guide.
+
+#### 2 Basic Introduction <a href="#ouh54" id="ouh54"></a>
+
+This operating reference belongs to the exact arm model named on this page. Secure the base and tool, preserve the matching power/CAN connections and clear the entire reachable workspace before enabling. Record current mode, firmware, joint status, mounting orientation and tool configuration; begin with stationary observation, then one checked small motion. Keep the manufacturer diagrams below with their original model context and apply the current numerical/version corrections in Specifications and Software before using an older GUI illustration.
+
+<details>
+
+<summary>2 Basic Introduction — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 2 Basic Introduction](<../../.gitbook/assets/微信图片_20260118225938_441_140 (2).png>)
+
+</details>
+
+#### 2.1 Electrical Interface <a href="#e8e54" id="e8e54"></a>
+
+The base external power/CAN harness, Ethernet where fitted and end accessory connector have different functions. The end XT30(2+2) supplies24 V up to 2 A and its CAN is reserved for supported AgileX accessories; it is not a general CAN expansion socket. Follow the illustrated mating viewpoint and keying, not wire color alone. Keep the internal/service CAN unused without manufacturer service instructions and remove power before changing an end tool.
 
 #### 2.1.1 Electrical Panel Introduction <a href="#mt4wn" id="mt4wn"></a>
 
-The robotic arm base panel is equipped with an aviation connector, a standard Ethernet port, a WIFI antenna, and status indicator lights. The aviation connector contains two sets of lines: one for power supply to the robotic arm and one for CAN communication between the upper system and the robotic arm.
+The base external power/CAN harness, Ethernet where fitted and end accessory connector have different functions. The end XT30(2+2) supplies24 V up to 2 A and its CAN is reserved for supported AgileX accessories; it is not a general CAN expansion socket. Follow the illustrated mating viewpoint and keying, not wire color alone. Keep the internal/service CAN unused without manufacturer service instructions and remove power before changing an end tool.
 
-Electrical Panel Status Light Indication
+<details>
 
-<img src="../../.gitbook/assets/电器面板 (2).png" alt="电器面板.png" width="764.3636363636364">
+<summary>2.1.1 Electrical Panel Introduction — manufacturer figures</summary>
 
-&#x20;
+![Manufacturer NERO illustration for 2.1.1 Electrical Panel Introduction](<../../.gitbook/assets/电器面板 (2).png>)
 
-<img src="../../.gitbook/assets/image (1173).png" alt="image.png" width="680.48828125">
+![Manufacturer NERO illustration for 2.1.1 Electrical Panel Introduction](<../../.gitbook/assets/image (1173).png>)
 
-> **Note**: Align the red dot on the base panel with the red dot on the cable. The textured part of the aviation connector is a retractable area under force. For insertion, align the red dots and insert directly. For pulling out, press the textured part and pull out.
+</details>
 
 #### 2.1.2 End-Effector Connection Description <a href="#g9qjn" id="g9qjn"></a>
 
-The end joint reserves an XT30 2+2 interface, with power and CAN definitions shown in the figure below. The voltage is 24V, with a maximum current of 2A. The end-effector CAN communication only supports AgileX's own devices. Unauthorized connection of other CAN devices is strictly prohibited, as it may cause uncontrollable damage.
+The base external power/CAN harness, Ethernet where fitted and end accessory connector have different functions. The end XT30(2+2) supplies24 V up to 2 A and its CAN is reserved for supported AgileX accessories; it is not a general CAN expansion socket. Follow the illustrated mating viewpoint and keying, not wire color alone. Keep the internal/service CAN unused without manufacturer service instructions and remove power before changing an end tool.
 
-<img src="../../.gitbook/assets/NERO User Manual image 6 (2)" alt="NERO User Manual image 6" width="292">
+<details>
 
-### 2.2 Robotic Arm Workspace and Payload <a href="#cgwnl" id="cgwnl"></a>
+<summary>2.1.2 End-Effector Connection Description — manufacturer figures</summary>
 
-This chapter clearly defines the motion space boundaries and joint movement ranges of the robotic arm through kinematic diagrams, providing a basis for users to design workstation layouts, plan trajectories, and implement safety protection measures.
+![Manufacturer NERO illustration for 2.1.2 End-Effector Connection Description](<../../.gitbook/assets/NERO User Manual image 6 (2)>)
 
-<img src="../../.gitbook/assets/image (1174).png" alt="image.png" width="1074">
+</details>
 
-&#x20;
+#### 2.2 Robotic Arm Workspace and Payload <a href="#cgwnl" id="cgwnl"></a>
 
-<img src="../../.gitbook/assets/image (1175).png" alt="image.png" width="964">
+NERO is nominally3 kg with 580 mm reach. The workspace illustration and tool-equipped envelope must be considered together; a heavy or offset hand consumes the load/moment budget. Use the exact mount/tool configuration, collision geometry and current joint limits. A reachable FK/IK result does not establish payload capacity or a collision-free path.
 
-### 2.3 Mechanical Installation Instructions <a href="#guu5a" id="guu5a"></a>
+<details>
+
+<summary>2.2 Robotic Arm Workspace and Payload — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 2.2 Robotic Arm Workspace and Payload](<../../.gitbook/assets/image (1175).png>)
+
+![Manufacturer NERO illustration for 2.2 Robotic Arm Workspace and Payload](<../../.gitbook/assets/image (1174).png>)
+
+</details>
+
+#### 2.3 Mechanical Installation Instructions <a href="#guu5a" id="guu5a"></a>
+
+Use the dimensioned view for the identified bare-arm, tool-equipped, base or end-flange assembly. Keep its viewpoint, units and model revision with any fixture design; an axonometric picture is not a scale drawing. Check hole pattern, screw engagement, cable exit and the complete swept volume against the physical parts before machining. The numerical arm limits and actual tool transform remain separate from the drawing envelope.
 
 #### 2.3.1 Base Mounting Instructions <a href="#dwawn" id="dwawn"></a>
 
-The robotic arm base is fixed with screws. The base has 4 pre-reserved M5 threaded through holes, and 4 M5 screws are included in the accessory package. The included hexagon tool can be used for installation. The hole spacing is 70mm. If you are designing an adapter structure for mobile equipment or fixed platforms, you can make the hole positions with a 70mm spacing.
-
-\
-Base Mounting Diagram
+The arm base uses four M5 mounting positions on a 70 × 70 mm pattern. Support the arm while fitting it to a rigid plate and check both hole spacing and thread engagement against the drawing. Neither the notation M5 × 4 nor the base mass establishes screw length, tightening torque or allowable overturning moment. Inspect contact flatness and the underside of the mount before power; a mobile or inverted installation also needs the corresponding controller mounting setting.
 
 #### 2.3.2 End-Effector Installation Instructions <a href="#wp2ga" id="wp2ga"></a>
 
-**Dexterous Hand Installation**
+The historical dexterous-hand assembly uses a baffle/flange: six M3 × 6 countersunk screws at the output shaft, four M3 × 8 screws for the side flange and four M3 × 6 screws securing the hand, with its cable outlet aligned to the flange opening. This is a dexterous-hand assembly, not the newer two-finger gripper's keyed M2.5 × 6 attachment. Select the drawing for the actual tool revision, fit it with power off and configure its mass/CoG/TCP before enabling. The manual's J6 electrical-interface wording must not be used to infer a six-axis NERO or a seventh pose actuator beyond the actual chain.
 
-1. Secure the robotic arm to the installation platform. Take out the dexterous hand, flange accessories, including the flange and accessory bolts.
-2. Install the flange plate as shown in the diagram:
-3. Use 6 M3×6 hexagon socket countersunk head bolts to mount the baffle to the motor output shaft.
-4. Use 4 M3×8 hexagon socket countersunk head bolts to fix the flange on both sides of the baffle.
-5. Insert the dexterous hand into the flange plate (ensure the cable outlet is aligned with the gap in the flange plate).
+<details>
 
-<img src="../../.gitbook/assets/灵巧手安装 (2).png" alt="灵巧手安装.png" width="698.5454711914062">
+<summary>2.3.2 End-Effector Installation Instructions — manufacturer figures</summary>
 
-d. Install four M3×6 screws to mount the dexterous hand onto the flange.
+![Manufacturer NERO illustration for 2.3.2 End-Effector Installation Instructions](<../../.gitbook/assets/灵巧手安装 (2).png>)
 
-<img src="../../.gitbook/assets/安装手 (2).png" alt="安装手.png" width="669.8181818181819">
+![Manufacturer NERO illustration for 2.3.2 End-Effector Installation Instructions](<../../.gitbook/assets/安装手 (2).png>)
 
-<br>
-
-3. After installing the dexterous hand, connect the power and communication cable from the accessory package to the J6 end interface and the interface on the gripper teach pendant.
-4. Connect the aviation cable to the robotic arm. Connect the USB-to-CAN module to the aviation cable by matching CAN-H to yellow and CAN-L to blue. Plug the USB cable of the USB-to-CAN module into the computer. Connect the aviation cable to the adapter and power on the adapter.
-
-<br>
+</details>
 
 #### 2.3.3 Installation Instructions on Desktop <a href="#bemxi" id="bemxi"></a>
 
-The desktop installation module is an optional accessory and is not included with the standard product. Dimensions are shown in the figure below. Ensure the module is securely fixed before using the robotic arm.
+The desktop mounting module is optional; the bare-arm packing list does not imply it is supplied. Fit the arm to the matched module before clamping it to a sound, suitable bench, keep all clamp pads seated and preserve access to power/CAN release. Recheck rocking and cable interference after relocation. Changing the fixture location changes the external workcell transform even if joint zeros remain correct; redo the affected camera/workbench calibration.
 
-<img src="../../.gitbook/assets/NERO User Manual image 12 (2)" alt="NERO User Manual image 12" width="1213">
+<details>
 
-## 3 Robotic Arm Operation <a href="#vkpyt" id="vkpyt"></a>
+<summary>2.3.3 Installation Instructions on Desktop — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 2.3.3 Installation Instructions on Desktop](<../../.gitbook/assets/NERO User Manual image 12 (2)>)
+
+</details>
+
+#### 3 Robotic Arm Operation <a href="#vkpyt" id="vkpyt"></a>
+
+This operating reference belongs to the exact arm model named on this page. Secure the base and tool, preserve the matching power/CAN connections and clear the entire reachable workspace before enabling. Record current mode, firmware, joint status, mounting orientation and tool configuration; begin with stationary observation, then one checked small motion. Keep the manufacturer diagrams below with their original model context and apply the current numerical/version corrections in Specifications and Software before using an older GUI illustration.
 
 #### 3.1 CAN cable connection <a href="#wgh5f" id="wgh5f"></a>
 
-Find the CAN cable from the aviation connector. Connect CAN\_H and CAN\_L in the CAN cable to the CAN\_TO\_USB adapter, respectively. Connect the CAN\_TO\_USB adapter to the USB port of the laptop. Refer to the connection diagram for details.
+Use the external keyed harness and the supplied USB-CAN adapter, matching CAN\_H/yellow and CAN\_L/blue. Align the red marks before seating the base connector and clamp conductors under the terminal tab without loose strands. Select the actual adapter/channel and 1 Mbit/s configuration before connecting the GUI. Preserve factory termination for a single-arm topology; an empty feedback panel calls for adapter, power, mode and receive-counter checks before any enable or firmware update.
 
-<img src="../../.gitbook/assets/NERO User Manual image 13 (2)" alt="NERO User Manual image 13" width="552">
+<details>
 
-**Note**: If a non-standard charger is used, the input power supply must not exceed 26V, and the current must be at least 10A.
+<summary>3.1 CAN cable connection — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 3.1 CAN cable connection](<../../.gitbook/assets/NERO User Manual image 13 (2)>)
+
+</details>
 
 #### 3.2 Power-On Instructions <a href="#kkruz" id="kkruz"></a>
 
-Follow the steps below for the first power-on of the robotic arm:
+With the arm supported and disabled, assemble CAN and keyed power branches, seat the base connector, power the matched regulated adapter and wait for the documented boot indication before the host connection. Confirm live status/feedback and faults before enabling. NERO uses the newer25 V ceiling; the PiPER-family limits in Specifications remain model-specific. Never substitute a power-cycle or connector removal for a planned controlled stop when gravity can drop the arm.
 
-1. Connect the CAN cable of the aviation connector to the CAN\_H and CAN\_L terminals of device B, respectively.
-2. Align and insert the XT30 foolproof connector of device C.
-3. Align the red dot of the aviation connector D with the red dot of the aviation socket on the arm base and insert it.
-4. Plug the adapter E into the mains power supply.
-5. Check and confirm that the AC plug F of adapter E is properly connected and powered on. Wait until the indicator light on the electrical panel of the robotic arm base flashes green.
-6. Insert the USB cable G into the computer to start using the robotic arm.
+<details>
 
-**Note**: Align the red dot with the red dot on the cable below. The textured part of the aviation connector is a retractable area under force.
+<summary>3.2 Power-On Instructions — manufacturer figures</summary>
 
-<img src="../../.gitbook/assets/7轴 (2).png" alt="7轴.png" width="3055">
+![Manufacturer NERO illustration for 3.2 Power-On Instructions](<../../.gitbook/assets/7轴 (2).png>)
 
-<br>
+</details>
 
 #### 3.3 DH for robotic arm <a href="#hyhqd" id="hyhqd"></a>
 
-| joint | aᵢ₋₁(m) | αᵢ₋₁(°) | dᵢ (m)  | θᵢ offset (°) |
-| ----- | ------- | ------- | ------- | ------------- |
-| j1    | 0       | 0       | 0.138   | 0             |
-| j2    | 0       | 90      | 0       | 180           |
-| j3    | 0       | 90      | 0.31    | 180           |
-| j4    | 0       | 90      | 0       | 180           |
-| j5    | 0       | 90      | 0.27001 | 90            |
-| j6    | 0       | 90      | 0       | 90            |
-| j7    | 0       | 90      | 0.0235  | 0             |
+The manual's DH reference uses meters for link offsets and degrees for twist/joint offsets. Keep this convention with the chosen URDF/SDK rather than treating a DH offset as a raw encoder zero. The following numerical table belongs to the illustrated NERO chain; a tool transform is additional.
 
-## 4 Robotic Arm Connection <a href="#rqecy" id="rqecy"></a>
+| Joint | a(i−1), m | alpha(i−1),° | d(i), m | theta offset,° |
+| ----- | --------- | ------------ | ------- | -------------- |
+| j1    | 0         | 0            | 0.138   | 0              |
+| j2    | 0         | 90           | 0       | 180            |
+| j3    | 0         | 90           | 0.31    | 180            |
+| j4    | 0         | 90           | 0       | 180            |
+| j5    | 0         | 90           | 0.27001 | 90             |
+| j6    | 0         | 90           | 0       | 90             |
+| j7    | 0         | 90           | 0.0235  | 0              |
 
-### 4.1 WIFI connection <a href="#wc5sc" id="wc5sc"></a>
+Before using it for external FK, compare a known supported pose with the current controller's reported flange pose. A matrix calculation does not establish collision clearance.
 
-WIFI name：agx-7ax-xx WIFI password：12345678
+#### 4 Robotic Arm Connection <a href="#rqecy" id="rqecy"></a>
 
-Backend IP Address for Login : [http://192.168.31.1/](http://192.168.31.1/)，
+This operating reference belongs to the exact arm model named on this page. Secure the base and tool, preserve the matching power/CAN connections and clear the entire reachable workspace before enabling. Record current mode, firmware, joint status, mounting orientation and tool configuration; begin with stationary observation, then one checked small motion. Keep the manufacturer diagrams below with their original model context and apply the current numerical/version corrections in Specifications and Software before using an older GUI illustration.
 
-Web Login Username: admin Web Login Password: 123456
+#### 4.1 WIFI connection <a href="#wc5sc" id="wc5sc"></a>
 
-### &#x20;<a href="#ffsaj" id="ffsaj"></a>
+The NERO factory hotspot follows agx-7ax-xx with the published initial password12345678, and the web page is at 192.168.31.1 with initial admin/123456 credentials. Read the actual configured values if a previous owner changed them. Hotspot configuration and Ethernet address settings are separate; record both and keep a fallback route before applying changes. Change default credentials before shared-network operation.
 
-### 4.2 Ethernet Connection <a href="#ia38d" id="ia38d"></a>
+#### 4.2 Ethernet Connection <a href="#ia38d" id="ia38d"></a>
 
-Connect the controller to the computer via an Ethernet cable. Connect one end of the cable to the controller's network interface and the other end to the computer's or local area network's network interface. If the connection is successful, the Ethernet port indicator light will flash frequently. The default IP address of the robotic arm controller is 10.90.0.150. For communication with the robotic arm, the IP addresses of all computers must be in the same network segment as the robotic arm controller.
+The factory NERO wired address is 10.90.0.150. Use an unused computer address on the same subnet, such as10.90.0.153/24 for an isolated direct link, then open the controller page. Record old IP/mask/gateway before changing network settings and retain a tested alternative access path. A saved address change can disconnect the current browser session; it is unrelated to joint zero or motor calibration.
 
-## 5 Web-Based Host Computer Introduction <a href="#wddhs" id="wddhs"></a>
+#### 5 Web-Based Host Computer Introduction <a href="#wddhs" id="wddhs"></a>
 
-### 5.1 Page Introduction <a href="#fit2d" id="fit2d"></a>
+Use the mode/navigation panel to identify which subsystem currently owns control before editing a target. Connection, motion, tool configuration, diagnostics, upgrade and trajectories are separate pages. Preserve the current configuration and read feedback first; changing page, minimizing the window or closing a display is not automatically a physical stop. Confirm the active mode and operator stop action before a test.
 
-### &#x20;<a href="#f1zmr" id="f1zmr"></a>
+#### 5.1 Page Introduction <a href="#fit2d" id="fit2d"></a>
+
+Use the mode/navigation panel to identify which subsystem currently owns control before editing a target. Connection, motion, tool configuration, diagnostics, upgrade and trajectories are separate pages. Preserve the current configuration and read feedback first; changing page, minimizing the window or closing a display is not automatically a physical stop. Confirm the active mode and operator stop action before a test.
 
 #### 5.1.1 System Usage Rate <a href="#wws92" id="wws92"></a>
 
-The robotic arm has a built-in control board. The system usage rate displays the disk, CPU, and memory usage of the main board. This control board is not open to users.
+The web system-usage panel reports the integrated controller disk, CPU and memory condition. It is useful for recording whether the web service is responsive, but it does not expose a supported general-purpose shell or prove healthy motor communication. Compare joint status and firmware separately. Do not delete controller files or install host packages merely because the usage view resembles a normal Linux dashboard.
 
-<img src="../../.gitbook/assets/image (1179).png" alt="image.png" width="767.7777981169435">
+<details>
+
+<summary>5.1.1 System Usage Rate — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 5.1.1 System Usage Rate](<../../.gitbook/assets/image (1179).png>)
+
+</details>
 
 #### 5.1.2 Robotic Arm Status <a href="#gbndg" id="gbndg"></a>
 
-Displays the status of each joint motor of the robotic arm.
-
-### &#x20;<a href="#z7gt8" id="z7gt8"></a>
+The joint-information/status view monitors connected joints in real time, while the overall status bar reports arm-level state. Confirm expected joint count, changing timestamps/feedback, temperatures and fault indicators before motion. A colored status button or a frozen3D pose alone is insufficient evidence of healthy communication. Preserve the fault/time/operating pose before clearing an error, and compare requested mode with reported mode when commands appear ignored.
 
 #### 5.1.3 Top Function Button Description <a href="#pjqyc" id="pjqyc"></a>
 
-| **Function Button**    | **Function Button**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | **Function Button**                                                 |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| Robotic Arm Speed      | <img src="../../.gitbook/assets/image (1181).png" alt="image.png" data-size="original">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Adjust the movement speed of the robotic arm by dragging the button |
-| Emergency Stop         | <img src="../../.gitbook/assets/image (1182).png" alt="image.png" data-size="original">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Stop the movement of the robotic arm immediately                    |
-| Web Mode               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Switch to web control mode                                          |
-| Clear Error            | <img src="../../.gitbook/assets/image (1183).png" alt="image.png" data-size="original">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Clear error information of robotic arm joints                       |
-| Enable                 | <img src="../../.gitbook/assets/image (1184).png" alt="image.png" data-size="original">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Enable individual robotic arm joints or all joints                  |
-| Restart System         | <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAkCAYAAAB15jFqAAACNklEQVRYCe2WO08CQRDH/TwkWlrYGAoaY2gkxNaEBgsLKxso7YwJoTAhIbEgWlBBQmNCjJ0aobGwUQTlqSAcx/M4xszCLXCZvQOioblNLrc7O//53cw+YA1W0NZWwAQL+q9Vt8prlfdPKmBtJNMyZmw2wGeZtlR5O/f3DIhQ7GtNlSSta/g2h6oqDKpV6L+9gVKpsGAUVMlm2YcU3G5Qm83FoXIiAR8OB2Q3N3lGLKuHByG09/zMfSsnJ4tDUdF5fITc1hYPhNDWzY0QihM/Fxfcv3F5KQQblrd4cADv4w2DUCkaNYTiZPnwkIMH4+XQ04XQ9u0tEyMUS43QRjhsCu2m0xyKMagmhNbOzrgYA335/VA7PzeFDns9yGxsMG0tGKSY4n8O3z4fE37u7nLhTyDA+5g5PlQruFxsDktNNWGmJa93BN3ZoXSGNm05vv1+0k8I1TLNrK/DUFFIMWVUGw32sWwPRCKUi7i8cizGxf3XV1JMGbupFNd1np4oFzEUbyBt3erjXUtG0Bmrp6dMl7PbQW21dLOjobC8OF0+PuZgUq0zKsUi96+HQrrZydAQqtbrgGuKGRf290F02DEcHg+tMnmnU5gl+hpC0UGOx3kwDIrBpasraCWTgHc0nt2SxzPjI11fT9IieqZQ1Ez/qmjZUO/83h607+4IzKxpLihKBqUSlI+O+JWoQT+2t5lddPvM4kajuaHTYlWWoffyAv1cbto8d38p6NzRBY4WVFCYvzGvpLy/L0piAzJyZt0AAAAASUVORK5CYII=" alt="image.png" data-size="original"> | Restart the entire web operating system                             |
-| Search                 | <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAABzElEQVRYCe2Wv8tBYRTH/TUUgwxkFIMBu8FgsBgMophNdMugmFmUDFYTg4nCqEwGg1JKfm2+OmcQdZ/7PPe972B4nrp17znnOefT9znn6brwQ8v1QyzQMKLT0MpoZUQKiOy6Z7QyIgVEdls9cz6f0el0kMlk+MnlchiPx3g+n6L8tuzKMKPRCH6/Hz6fD+l0mmGSySTcbjdSqRT2+72twmbBSjDT6ZSLFotFnE6nrzzL5RKRSATRaBT3+/3LZ/dDCkMFwuEwqtWqMPfxeEQoFEKj0RDGqDikMP1+n4/ner1a5uv1ehz3eDws46ycUphKpYJsNmuVg3273Y6PcrVaSWNFAVKYcrmMfD4v2v+2Xy4XhpnNZm+b3RcpTLPZRCwWk+ZdLBYM42SqpDCbzYaLTCYTS6BCoYB4PO7ozpHCEEGpVEIwGMR2uzUFoouP7hu6ApwsJRiapEQiAa/XC8MwsF6vQVNDcHSMHo+HYdrtthMW9R9yatB6vY5AIMCFSQl6qJ9ImW63y9804n9dSsp8Jr/dbpjP56ARPhwOXz3SarUYaDgcfm5RfrcNI8tcq9UwGAxkYab+f4cxraJo1DAiobQyWhmRAiK77hmRMi8imY+52D5ZtQAAAABJRU5ErkJggg==" alt="image.png" data-size="original">                                                                                                                                             | Search function                                                     |
-| Switch Chinese/English | <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAoCAYAAAAG0SEsAAAByElEQVRYCe2Uy0tCQRTG/VOjRdHCFhGiSe2KrLCSFHr5oKCSHuKrdvlalKmoGGYLA8M2trilLmxz4kzMcBnlPpzwbu7AcM98d875zfm4dyxg4LAYyAYTboj7pu2m7RN1wPzgJmo3hem2XZIkmiv81A2fmp6Bm0hUGIwFFOHrri3gJ8J5DdflclX3gRTh/kBoJIjC5Qep11/+Fy6vhsV7vR6TAsETQHir9c40vYFi5/JiCFpdcxGp3+8T8I5nT75Fd6wZfnUdIcD7VAbOzsMkrtWeGfDg0A849QzN8MHgB6zzC2SiC0fHQcZpNF7JYVBvNt+YrhZohmOhTDbHIJ3OJ6sdDJ0y/SJ8yXS1QBfc7lhmENo5foSzc1bY2HSDw7kCizaHGpO91wT/7nbB69sn4ETyjlwyaDFeNrF4kuiFYgmisQSJHx7zDKAUqMLzTwWwL/11nEpnWa10Jgft9gfpFjvGXxEnHsq97WH7lAJVOF4oNrsTisXSUJ1KpUpgCOSnJH0N7ecFVTifIF/verwESrumTzxIPHEr3zoyFoIjBK9gftBrmdf5tRAcOxUZQnARMOaacFEHx8o3bR/LNtEk03ZRB8fKN9T2X1lcvUQOQoJEAAAAAElFTkSuQmCC" alt="image.png" data-size="original">                                                                                                                                                     | Switch the language of the web interface                            |
-| Full Screen            | <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAmCAYAAABOFCLqAAAAw0lEQVRYCe2VwQnAIAxFu4xDOYK6nK7gLq7g1ZLC7yEiiHhQ+IcQElPzfU3rU2ttp9hzihDRQTGjt0EyJDMiMMpzZkhmRGCUv39mnHPNGPNbSqm7bGOM/7rUeu+7Gk1oiUwIoVlrW875s1JK10hyWJdaeUY31/GSGCEzc1I0m62/XwxOvNsvkdktAvtRDEhov0Rm9utAs9n6+8Uc99M75jrALOz2SzOzWwT2oxiQ0J5kNBHEJAMS2pOMJoKYZEBC+6PIvNuC0vCTtkweAAAAAElFTkSuQmCC" alt="image.png" data-size="original">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Set the web page to full-screen display                             |
-| Notification           | <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAoCAYAAACWwljjAAABXElEQVRYCe1Uz0sCURD2T40QiRXpUgevEai0pdRBSuiQeFYM+mGm0UnMm4Xd2tCL/Qt7mPge7oIrj3m7bw97mIFh5833vZ2Pb0dzlLHIZUwPiSDui4hD4hDnAIfLDolDnAMcnniHfN+nk9OKStRpRSJBnvdL/fsH2tsvqESNXhoRW9BwOKJ8waGz8wa5m0SNHjDbiCVo/vmlHJl+zHbmogfHwLEJY0HL5YoOnBL9eJ52HjBwwE0axoImkynVG1fsHHCeBy8sT0cwFvT4NKC7dkf3nrAPTvO6FZ7jFsaCur0+IbkAp1pzOZoWF0FaazaAOGTtEP7wsKiVmqsSCxvUeEbP6B0dl9Wd19GYm7+Ds59s/PauhmKIUzw0Tgg1+VVGFbGCoheC83r9R4vFd5hB3/aZWBAG37Ru6aJ+aath676VoK03pXQQQZyR4pA4xDnA4bJD4hDnAIdnbof+Af6S/nP8IOWQAAAAAElFTkSuQmCC" alt="image.png" data-size="original">                                                                                                                                                                                                                                                                                                     | Notification function                                               |
-| Web Settings           | <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAjCAYAAACD1LrRAAAB4ElEQVRYCe2Wz6pBURTG78uQGVH+jAxIPIKJJEoiJgZ4C8pMmZAxmXkKQjJhgomJf9Pv9u06u9O+R4fudtPNYOXsdXb7t9a3z1rL1+12wyvser1CtcvlAtr5fMbXK6A88x70f4LVbLk2y/wyqd8GbGRr3O+fZfwBf6TW1jrVcnqbj+t0Oj3fq3u9HrLZLPL5PPr9vqVKdhk/DT4ej/D7/YhEIsKCwSDoUweNFvBut0Oj0cBkMkE6nYbH48F2u8Vms4Hb7UYmkxHvuGe/34sgtIBTqRQcDoeAlEolrFYrmeF8Pgd9DIB7GNgjI9FWakJ44GAwkDBVVmPN++be9XptO4ttwdPpFF6vF/V6XYKHwyFisZgwPhvgWq0Gn8+H2Wz2ezAPbTabCIVCEkBopVIREsfjcekntN1ui7WWO261WuDXa2RGGMHFYhFmcCAQ0Ae+J3U0GkUikcBoNJIBVatVfVIvl0s4nU6Mx2MJMDJXf3nfLpdLlJkWqZmJUU7lchmLxUIGwXIqFAqynFjLDEgL+HA4iAbCjNgq1QaSy+WE5IQaXUwL2CwpB3g4HJYtk62TEPMebRmrh3Y6HSSTSWHdbvcH9GVgNRCrtXaprSBWvg9Y/etjOySsZHzE95H6raT+BszpQ/D+qzixAAAAAElFTkSuQmCC" alt="image.png" data-size="original">                                                                                                                     | Customize the interface according to personal preference            |
+The web toolbar combines speed, stop, Web-mode selection, fault clearing, enabling and system restart with display/language/search controls. Separate passive display functions from physical or state-changing buttons. Read current mode and joint status before changing speed/enable, save fault information before clearing and stop active work before restart. A return to Web mode can stop a running trajectory; inspect remaining targets before any resumption.
 
-## 6 User Control Area <a href="#gu7uu" id="gu7uu"></a>
+<details>
 
-### 6.1 Motion Control <a href="#mffqi" id="mffqi"></a>
+<summary>5.1.3 Top Function Button Description — manufacturer figures</summary>
 
-| **Motion Mode** | **Motion Mode**                                                                                                                                                                                                                                                                                                                   | **Note**                                                                                                                                                                                                                                                                                                                  |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Point           | Enter the end-effector position (x, y, z, rx, ry, rz) and click Apply. The robotic arm will move to the specified position. Alternatively, click the x, y, and z icons to increase or decrease the coordinate values, modify the end-effector coordinates, and click **Apply to move the robotic arm to the specified position.** | The entered position may be unreachable. In this case, the robotic arm will not move, and an error prompt will appear.                                                                                                                                                                                                    |
-| Circle          | <p>Enter three positions: start point (x, y, z, rx, ry, rz), midpoint (x, y, z, rx, ry, rz), and end point (x, y, z, rx, ry, rz). The robotic arm will plan and execute circular motion based on these three points.</p><p>​<br></p>                                                                                              | The entered positions or positions in the planned circular trajectory may be unreachable. In this case, the robotic arm will not move, and an error prompt will appear.                                                                                                                                                   |
-| Joint           | Enter the joint angle of each joint and click Apply. The robotic arm's underlying system will respond and execute the command. In addition, drag the slider to change the value. **Note that you still need to click "Apply" for the changes to take effect.**                                                                    | If the sent joint angle exceeds the joint limit, the robotic arm will not move. Commands must be issued within the joint limit range.                                                                                                                                                                                     |
-| Line            | Enter the position and posture (x, y, z, rx, ry, rz) of the robotic arm. The robotic arm will move linearly to the specified position.                                                                                                                                                                                            | If there are unreachable positions between the entered point or within the planned linear trajectory, the motion state will have no solution.                                                                                                                                                                             |
-| MIT             | Select the target joint number. Enter the robotic arm joint angle, speed, kp (position gain), kd (speed gain), and joint torque.                                                                                                                                                                                                  | This mode allows direct control of joint motor position, speed, and torque. Mixing control of joint position, speed, and torque can be achieved by adjusting relevant parameters (target speed, kp, kd, torque). This mode is relatively dangerous. Contact technical support to confirm relevant information before use. |
+![Manufacturer NERO illustration for 5.1.3 Top Function Button Description](<../../.gitbook/assets/image (1181).png>)
 
-Note: If the prompt "Please configure the correct control mode" appears during web interface control, it indicates that the system is not in web control mode. Click the "WEB" button at the top of the interface to switch to web control mode.
+![Manufacturer NERO illustration for 5.1.3 Top Function Button Description](<../../.gitbook/assets/image (1183).png>)
 
-### 6.2 Drag Teaching <a href="#ztlxj" id="ztlxj"></a>
+![Manufacturer NERO illustration for 5.1.3 Top Function Button Description](<../../.gitbook/assets/image (1182).png>)
 
-Click to add a new teaching program, enter the teaching name, and confirm it. Then click Add in the operation panel — the robotic arm will then enter the gravity compensation mode, allowing you to manually drag the arm to move. After completing the recording, click Pause to end the process.
+![Manufacturer NERO illustration for 5.1.3 Top Function Button Description](<../../.gitbook/assets/image (1184).png>)
 
-<img src="../../.gitbook/assets/image (1185).png" alt="image.png" width="390">
+</details>
 
-### 6.3 Dexterous hand <a href="#fddbu" id="fddbu"></a>
+#### 6 User Control Area <a href="#gu7uu" id="gu7uu"></a>
 
-（Wa）
+This operating reference belongs to the exact arm model named on this page. Secure the base and tool, preserve the matching power/CAN connections and clear the entire reachable workspace before enabling. Record current mode, firmware, joint status, mounting orientation and tool configuration; begin with stationary observation, then one checked small motion. Keep the manufacturer diagrams below with their original model context and apply the current numerical/version corrections in Specifications and Software before using an older GUI illustration.
 
-### 6.4 Coordinated control <a href="#i8jvi" id="i8jvi"></a>
+#### 6.1 Motion Control <a href="#mffqi" id="mffqi"></a>
 
-The core function of this interface is to set and switch the operating modes of the operating modes of the robotic arm.
+NERO offers Point, Joint, Line, Circle and firmware-dependent MIT/torque control. Joint entry is bounded by current limits; Point requires reachable IK; Line requires reachable intermediate positions; Circle requires a feasible start/intermediate/end arc. Editing a value is separate from Apply. MIT mixes position, velocity, gains and torque and requires its exact firmware protocol; it is excluded from first-run motion. Start from displayed current joints and one small checked change, not an arbitrary all-zero pose.
 
-`normal`: This is the independent operating mode. When this mode is selected, the robotic arm（or the control unit）will not participate in any leader-follower coordination and will operate as an independent unit.
+#### 6.2 Drag Teaching <a href="#ztlxj" id="ztlxj"></a>
 
-`leader`: This is the master control mode. Designate the currently controlled robotic arm as the "leader unit". In the leader-follower mode, the leader arm is responsible for leading the movement and is used to drive the 'follower arm'.
+Create a named teaching program, add/start the recording and verify the gravity-compensated mode before guiding the arm. Keep correct zeros, tool mass/CoG and mounting orientation; a wrong compensation direction is a fault to investigate, not resistance to overcome. Pause to end recording, preserve/export the record and inspect its complete path before one supervised replay. Mode changes and power loss can change support behavior, so do not leave a held payload unsupported.
 
-`follower`: This is the follower control mode. Designate the currently controlled robotic arm as the 'follower unit'. The follower arm will follow the motion commands of the leader arm in real time to achieve precise synchronous movement.
+<details>
 
-<img src="../../.gitbook/assets/image (1186).png" alt="image.png" width="548.8889034294791">
+<summary>6.2 Drag Teaching — manufacturer figures</summary>
 
-Note: When using the leader-follower arms, do not set both robotic arms to follower arm mode simultaneously, and do not enable CAN push at the same time when the two robotic arms are connected. Otherwise, it will cause abnormal external network CAN communication. If this happens, the device needs to be restarted.
+![Manufacturer NERO illustration for 6.2 Drag Teaching](<../../.gitbook/assets/image (1185).png>)
 
-### 6.5 Speed Regulation <a href="#bgcrw" id="bgcrw"></a>
+</details>
 
-In the speed adjustment interface, you can drag the progress bar to adjust the percentage of the overall speed of the robotic arm.
+#### 6.3 Dexterous hand <a href="#fddbu" id="fddbu"></a>
 
-### 6.6 Trajectory
+Dexterous-hand control applies only to a supported fitted hand and its matching flange, wiring, device identity and controller configuration. A hand illustration is not an inclusion guarantee for the bare arm. Preserve the associated mounting drawing and tool mass/center-of-gravity data, then verify individual hand functions with the arm supported before combined motion. Avoid reusing a two-finger gripper ID/configuration for a multi-actuator hand.
 
-Trajectory Management is a core control interface that integrates the creation, management, execution, and storage of robotic arm motion trajectories. Through this interface, users can conveniently plan a continuous path composed of multiple "motion points", as well as save, retrieve, and batch-process the path.
+#### 6.4 Coordinated control <a href="#i8jvi" id="i8jvi"></a>
 
-​<br>
+The older NERO interface includes normal/leader/follower, while firmware 1.12 changes the role/CAN-push model and makes the old normal-mode SDK operation a no-op. Use the firmware matrix rather than assuming every menu exists. Before coupling arms, bring them near matching reference postures and identify one leader and the correct follower. The manual warns against two followers and conflicting CAN pushes on a connected pair. A role change can cause rapid synchronization; do not connect arbitrary mismatched poses.
 
-**Includes Buttons**：
+<details>
 
-* **`New Trajectory`:** Create a new blank trajectory.
-* **`Refresh`**: Refresh the trajectory list below to obtain the latest data.
-* **`Export`**: Export the selected trajectory file to the local device for backup or sharing.
-* **`Import`**: Import existing trajectory files from the local device for quick loading and use.
+<summary>6.4 Coordinated control — manufacturer figures</summary>
 
-<img src="../../.gitbook/assets/image (1187).png" alt="image.png" width="767.7777981169435">
+![Manufacturer NERO illustration for 6.4 Coordinated control](<../../.gitbook/assets/image (1186).png>)
 
-### 6.7 Set Zero Position <a href="#auyaw" id="auyaw"></a>
+</details>
 
-After long-term operation of the robotic arm, the zero position of the arm may deviate due to various factors, such as mechanical wear. When the zero position of the robotic arm joints deviates, we need to recalibrate the zero position of the joints in the Zero Point Setting section of the control panel. This calibration is divided into two methods: manual zero point setting and automatic zero point setting.
+#### 6.5 Speed Regulation <a href="#bgcrw" id="bgcrw"></a>
+
+The global speed percentage scales motion within the controller configuration; it does not redefine joint limits, guarantee braking distance or validate a recorded path. Begin at a low setting for commissioning, apply it only in the mode that accepts the change and verify actual behavior with a small checked movement. A trajectory or leader–follower mode may require returning to Web/GUI control before editing the setting.
+
+#### 6.6 Trajectory <a href="#id-6.6-trajectory" id="id-6.6-trajectory"></a>
+
+Create a separately named trajectory, load the current pose and add only checked points. Import loads a saved library; Export preserves it; Delete removes the selected entry. The secondary editor supports adding, deleting and changing individual points. Send/Run can execute once, a finite count or continuously depending on settings, so inspect the loop/count and every intermediate path before replay. Export a backup before edits, start with one short unloaded run and verify stop/resume behavior before considering repetition.
+
+<details>
+
+<summary>6.6 Trajectory — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 6.6 Trajectory](<../../.gitbook/assets/image (1187).png>)
+
+</details>
+
+#### 6.7 Set Zero Position <a href="#auyaw" id="auyaw"></a>
+
+NERO's zero is a physical reference, not an arbitrary convenient pose. Manual setting requires supporting and disabling the selected joint, placing it at the documented reference and confirming; re-enabling can move it. Automatic zero searches can travel to mechanical limits and then return, and J6 has a further calibration movement. The newer dedicated procedure restricts all-joint automatic calibration to the upright, unloaded/no-gripper configuration; side mounting requires its permitted single-joint procedure and correct mounting setting. Loaded/nonstandard setups use the documented manual procedure. Preserve the old calibration and do not run either method as a connection test.
 
 #### 6.7.1 Auto Set Zero Position <a href="#aqj79" id="aqj79"></a>
 
-For Auto Set Zero Point, you can select a specific joint, choose Auto Set, and click Confirm.
+NERO's zero is a physical reference, not an arbitrary convenient pose. Manual setting requires supporting and disabling the selected joint, placing it at the documented reference and confirming; re-enabling can move it. Automatic zero searches can travel to mechanical limits and then return, and J6 has a further calibration movement. The newer dedicated procedure restricts all-joint automatic calibration to the upright, unloaded/no-gripper configuration; side mounting requires its permitted single-joint procedure and correct mounting setting. Loaded/nonstandard setups use the documented manual procedure. Preserve the old calibration and do not run either method as a connection test.
 
-<img src="../../.gitbook/assets/image (1188).png" alt="image.png" width="768.888909257489">
+<details>
+
+<summary>6.7.1 Auto Set Zero Position — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 6.7.1 Auto Set Zero Position](<../../.gitbook/assets/image (1188).png>)
+
+</details>
 
 #### 6.7.2 Manual Set Zero Position <a href="#nmifu" id="nmifu"></a>
 
-For Manual Set Zero Point, you can select a specific joint, disable the joint, then rotate it manually to the zero position and click Confirm.
+NERO's zero is a physical reference, not an arbitrary convenient pose. Manual setting requires supporting and disabling the selected joint, placing it at the documented reference and confirming; re-enabling can move it. Automatic zero searches can travel to mechanical limits and then return, and J6 has a further calibration movement. The newer dedicated procedure restricts all-joint automatic calibration to the upright, unloaded/no-gripper configuration; side mounting requires its permitted single-joint procedure and correct mounting setting. Loaded/nonstandard setups use the documented manual procedure. Preserve the old calibration and do not run either method as a connection test.
 
-<img src="../../.gitbook/assets/image (1189).png" alt="image.png" width="765.5555758358526">
+<details>
 
-### 6.8 System Settings <a href="#e0zbr" id="e0zbr"></a>
+<summary>6.7.2 Manual Set Zero Position — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 6.7.2 Manual Set Zero Position](<../../.gitbook/assets/image (1189).png>)
+
+</details>
+
+#### 6.8 System Settings <a href="#e0zbr" id="e0zbr"></a>
+
+This operating reference belongs to the exact arm model named on this page. Secure the base and tool, preserve the matching power/CAN connections and clear the entire reachable workspace before enabling. Record current mode, firmware, joint status, mounting orientation and tool configuration; begin with stationary observation, then one checked small motion. Keep the manufacturer diagrams below with their original model context and apply the current numerical/version corrections in Specifications and Software before using an older GUI illustration.
 
 #### 6.8.1 Joint Limit Settings <a href="#yht1m" id="yht1m"></a>
 
-This interface allows users to precisely define **the motion range** and **maximum allowable speed** of each joint of the robotic arm according to practical application scenarios. This prevents the robotic arm from performing hazardous movements due to program errors, misoperations, or unexpected interference, which may result in equipment collision, overload, or damage. To reset the original settings, simply click Reset.
+Record the existing minimum/maximum angle, speed and acceleration for every joint before editing. The GUI Edit→Save sequence writes settings; narrower workcell limits should remain within the physical model/firmware envelope. An IK failure or blocked path is not solved by widening limits. Verify one deliberate change and preserve a rollback copy; resetting defaults can remove application-specific restrictions.
 
-<img src="../../.gitbook/assets/image (1190).png" alt="image.png" width="768.888909257489">
+<details>
+
+<summary>6.8.1 Joint Limit Settings — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 6.8.1 Joint Limit Settings](<../../.gitbook/assets/image (1190).png>)
+
+</details>
 
 #### 6.8.2 End Effector Speed Settings <a href="#til6j" id="til6j"></a>
 
-**This is an advanced parameter setting interface for fine-tuning the motion performance of the robotic arm's end effector**. It allows users to set the upper limits of speed and acceleration for the movement of the end effector tool in accordance with specific process tasks and safety requirements.
+This panel limits endpoint linear/angular velocity and acceleration, separately from global speed percentage and individual joint limits. Record both units and values before editing. A Cartesian path can still require high joint speed near a singularity even when endpoint speed looks small. Initialize/Reset restores factory settings and may remove tuned application limits; do not press it as a harmless view refresh.
 
-<img src="../../.gitbook/assets/image (1191).png" alt="image.png" width="783.763916015625">
+<details>
 
-&#x20;
+<summary>6.8.2 End Effector Speed Settings — manufacturer figures</summary>
 
-<img src="../../.gitbook/assets/image (1192).png" alt="image.png" width="613">
+![Manufacturer NERO illustration for 6.8.2 End Effector Speed Settings](<../../.gitbook/assets/image (1192).png>)
+
+![Manufacturer NERO illustration for 6.8.2 End Effector Speed Settings](<../../.gitbook/assets/image (1191).png>)
+
+</details>
 
 #### 6.8.3 Collision Protection Settings <a href="#mapdt" id="mapdt"></a>
 
-This is a **collision safety sensitivity adjustment panel**, used to set the level of each robotic arm joint in response to collisions or abnormal resistance. When the robotic arm experiences an accidental collision or encounters excessive resistance, the system will detect the incident in a timely manner and trigger an emergency stop according to the preset level, thus protecting personnel safety and preventing equipment damage.
+Collision sensitivity is configured per joint and must be interpreted for the installed firmware. The historical GUI illustrates levels 1–8; newer material also includes0 as disabled. Do not copy a numeric setting across revisions without its definition. Keep sensitivity active as appropriate to the supported application, investigate recurrent triggers and verify tool mass/mount/zero before reducing sensitivity. This feature does not replace collision-free planning or certified personnel protection.
 
-<img src="../../.gitbook/assets/image (1193).png" alt="image.png" width="747.7777975871245">
+<details>
+
+<summary>6.8.3 Collision Protection Settings — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 6.8.3 Collision Protection Settings](<../../.gitbook/assets/image (1193).png>)
+
+</details>
 
 #### 6.8.4 Mounting Position Settings <a href="#q0xjw" id="q0xjw"></a>
 
-This interface is used to set **the physical mounting posture of the robotic arm body**, which serves as a fundamental step for the robotic arm's coordinate system calibration. Its results directly affect the robotic arm's motion control logic and spatial coordinate calculation. Users can select vertical mounting, horizontal mounting, and inverted mounting according to actual application scenarios.
+The mounting setting must describe the physical upright, side or inverted installation so gravity compensation and motion coordinates agree with the arm. Record the previous setting, select the actual orientation in motor/system configuration and confirm it before teaching or actuation. On NERO, the manual defines side mounting relative to the Ethernet-port direction at the reference pose. The arm supporting an orientation does not qualify every clamp or mobile base for it.
 
-<img src="../../.gitbook/assets/image (1194).png" alt="image.png" width="744.444464165488">
+<details>
+
+<summary>6.8.4 Mounting Position Settings — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 6.8.4 Mounting Position Settings](<../../.gitbook/assets/image (1194).png>)
+
+</details>
 
 #### 6.8.5 End Effector Configuration <a href="#rpdak" id="rpdak"></a>
 
-This interface is used for parameter calibration of the robotic arm's end effector tool, which serves to precisely define the physical properties of the tool mounted on the end effector. This enables the robotic arm control system to accurately calculate the tool's parameters, such as mass, center of gravity, and dimensions, thereby achieving precise motion control and torque compensation
+Enter the actual tool mass, center of gravity and geometric/TCP offset for the mounted accessory, keeping units and reference axes explicit. Gravity compensation and endpoint motion depend on these values. Read/save the current configuration before a tool change, verify the keyed orientation and compare a known supported pose afterward. An unloaded calibration or bare-flange model cannot be assumed valid with a heavy or reversed tool.
 
-<img src="../../.gitbook/assets/image (1195).png" alt="image.png" width="744.444464165488">
+<details>
 
-## 7 Configuration <a href="#d7lwh" id="d7lwh"></a>
+<summary>6.8.5 End Effector Configuration — manufacturer figures</summary>
 
-### 7.1 Ethernet Port Settings <a href="#osr14" id="osr14"></a>
+![Manufacturer NERO illustration for 6.8.5 End Effector Configuration](<../../.gitbook/assets/image (1195).png>)
 
-This module provides users with the function of configuring core parameters for network connections. By manually setting the device's network protocol and other relevant parameters, it enables the device to achieve network identity identification, route addressing, and domain name resolution, ensuring that the device can access the target network normally and conduct data communication with other devices or servers in the network.
+</details>
 
-<img src="../../.gitbook/assets/image (1196).png" alt="image.png" width="768.888909257489">
+#### 7 Configuration <a href="#d7lwh" id="d7lwh"></a>
 
-After manually setting the ip address of the robotic arm, you can connect the robotic arm and the host computer via the Ethernet port. Ensuring that the host computer and the robotic arm are on the same network segment will enable successful communication between them.
+This operating reference belongs to the exact arm model named on this page. Secure the base and tool, preserve the matching power/CAN connections and clear the entire reachable workspace before enabling. Record current mode, firmware, joint status, mounting orientation and tool configuration; begin with stationary observation, then one checked small motion. Keep the manufacturer diagrams below with their original model context and apply the current numerical/version corrections in Specifications and Software before using an older GUI illustration.
 
-### 7.2 Hotspot Settings <a href="#c3mor" id="c3mor"></a>
+#### 7.1 Ethernet Port Settings <a href="#osr14" id="osr14"></a>
 
-This interface is used to configure **the** **basic network parameters** for the robotic arm to act as a **Wi-Fi hotspot**, enabling other devices(mobile devices)to connect to it via Wi-Fi and realize wireless data transmission and control functions.
+The factory NERO wired address is 10.90.0.150. Use an unused computer address on the same subnet, such as10.90.0.153/24 for an isolated direct link, then open the controller page. Record old IP/mask/gateway before changing network settings and retain a tested alternative access path. A saved address change can disconnect the current browser session; it is unrelated to joint zero or motor calibration.
 
-<img src="../../.gitbook/assets/image (1197).png" alt="image.png" width="768.888909257489">
+<details>
 
-<br>
+<summary>7.1 Ethernet Port Settings — manufacturer figures</summary>
 
-## 8 Upgrade <a href="#li6zm" id="li6zm"></a>
+![Manufacturer NERO illustration for 7.1 Ethernet Port Settings](<../../.gitbook/assets/image (1196).png>)
 
-### 8.1 Software Upgrade <a href="#einpj" id="einpj"></a>
+</details>
 
-This module provides the robotic arm with software version management and system upgrade capabilities, and supports functions including firmware version query, system update, and soft restart.
+#### 7.2 Hotspot Settings <a href="#c3mor" id="c3mor"></a>
 
-<img src="../../.gitbook/assets/image (1198).png" alt="image.png" width="768.888909257489">
+The NERO factory hotspot follows agx-7ax-xx with the published initial password12345678, and the web page is at 192.168.31.1 with initial admin/123456 credentials. Read the actual configured values if a previous owner changed them. Hotspot configuration and Ethernet address settings are separate; record both and keep a fallback route before applying changes. Change default credentials before shared-network operation.
 
-### 8.2 Firmware Upgrade <a href="#abh87" id="abh87"></a>
+<details>
 
-This module provides a firmware upgrade function for the robotic arm's joint modules. It also supports features including joint information monitoring and joint hardware version query, which ensures the reliability of the firmware upgrade process and system compatibility of the joint modules.
+<summary>7.2 Hotspot Settings — manufacturer figures</summary>
 
-\
-**Note**: **When upgrading the firmware, you must first click the Upgrade Mode button to enter the upgrade mode, then perform the joint firmware upgrade. The robotic arm will be disabled during the upgrade. Ensure the robotic arm is placed in a safe posture. After the firmware upgrade of all joint modules is completed, you must click the Exit Upgrade button. Otherwise, the robotic arm will be unavailable for use.**
+![Manufacturer NERO illustration for 7.2 Hotspot Settings](<../../.gitbook/assets/image (1197).png>)
 
-<img src="../../.gitbook/assets/image (1199).png" alt="image.png" width="767.7777981169435">
+</details>
 
-## 9 Secondary Development <a href="#m3qcd" id="m3qcd"></a>
+#### 8 Upgrade <a href="#li6zm" id="li6zm"></a>
 
-You need to get a Python-based API interface for the secondary development of the robotic arm currently provided. Only links are provided here; for detailed secondary development of the robotic arm, please refer to the GitHub link.
+NERO separates embedded software updates from joint-module firmware. Read versions and hardware identity first, obtain a matched package and support the disabled arm. For joint firmware, enter Upgrade Mode, verify that the intended joints are recognized, update with stable power, then explicitly Exit Upgrade after completion; remaining in upgrade mode prevents ordinary operation. Recheck calibration, mounting, tool and the SDK firmware profile afterward. Do not treat the older26 V PDF or generic raw protocol as the authority for the newer controller.
 
-Before using the sdk, please go to the web page and enable the CAN publishing.
+#### 8.1 Software Upgrade <a href="#einpj" id="einpj"></a>
 
-<img src="../../.gitbook/assets/image (1200).png" alt="image.png" width="1727.2726898351">
+NERO separates embedded software updates from joint-module firmware. Read versions and hardware identity first, obtain a matched package and support the disabled arm. For joint firmware, enter Upgrade Mode, verify that the intended joints are recognized, update with stable power, then explicitly Exit Upgrade after completion; remaining in upgrade mode prevents ordinary operation. Recheck calibration, mounting, tool and the SDK firmware profile afterward. Do not treat the older26 V PDF or generic raw protocol as the authority for the newer controller.
 
-| Content               | Address                                                                                  |
-| --------------------- | ---------------------------------------------------------------------------------------- |
-| SDK API Documentation | [https://github.com/agilexrobotics/pyAgxArm](https://github.com/agilexrobotics/pyAgxArm) |
+<details>
 
-## 10 Robotic Arm CAN Protocol <a href="#egpj6" id="egpj6"></a>
+<summary>8.1 Software Upgrade — manufacturer figures</summary>
 
-The robotic arm provides a CAN interface for users'development, and users can perform command control on the robotic arm via this interface.
+![Manufacturer NERO illustration for 8.1 Software Upgrade](<../../.gitbook/assets/image (1198).png>)
 
-The CAN communication standard adopted by the robotic arm is CAN 2.0B, with a communication baud rate of 1000k and the message format following the MOTOROLA(MSB) format.
+</details>
 
-If you need to develop with CAN commands, please contact AgileX Robotics Support Tea to obtain the CAN Protocol Manual.
+#### 8.2 Firmware Upgrade <a href="#abh87" id="abh87"></a>
 
-## 11 Maintenance and Servicing <a href="#djrl0" id="djrl0"></a>
+NERO separates embedded software updates from joint-module firmware. Read versions and hardware identity first, obtain a matched package and support the disabled arm. For joint firmware, enter Upgrade Mode, verify that the intended joints are recognized, update with stable power, then explicitly Exit Upgrade after completion; remaining in upgrade mode prevents ordinary operation. Recheck calibration, mounting, tool and the SDK firmware profile afterward. Do not treat the older26 V PDF or generic raw protocol as the authority for the newer controller.
 
-To ensure the robotic arm maintains high performance for an extended period, regular maintenance must be performed. All maintenance and servicing operations must strictly comply with all instructions specified in this manual. The purpose of maintenance and servicing is to ensure the normal operation of the robotic arm and its accessories.
+<details>
 
-### 11.1 Storage Notes <a href="#jwysf" id="jwysf"></a>
+<summary>8.2 Firmware Upgrade — manufacturer figures</summary>
 
-After use, perform a zero position calibration before powering off and storing the robotic arm. Tidy up and organize all wire harnesses to avoid entanglement or excessive pulling.
+![Manufacturer NERO illustration for 8.2 Firmware Upgrade](<../../.gitbook/assets/image (1199).png>)
 
-Operating and Storage Environmental Requirements: Temperature:-20 to 50 ℃, Humidity:25% to 85% non-condensing.
+</details>
 
-### 11.2 Servicing Notes <a href="#gb3xn" id="gb3xn"></a>
+#### 9 Secondary Development <a href="#m3qcd" id="m3qcd"></a>
 
-Maintenance and servicing must be performed when the robotic arm is in a zero-reset and power-off state. After powering-off, perform the following operations:
+Use the current model/firmware-specific SDK, CAN mapping and ROS description rather than copying another arm profile. The public implementation defines message units, version-dependent encoders/decoders and connection cleanup; raw protocol documents can be gated or older. Query firmware before selecting a profile, preserve the supplied CAN topology and begin with stationary fresh feedback. Keep original direct SDK/protocol/model downloads with the project revision and do not equate a source review with compilation or hardware validation.
 
-> **Note：**\
-> **Robotic Arm Cleaning**: Use wet wipes or dry rags dampened with water to remove dust, dirt, and oil stains from the robotic arm.
->
-> **Motor Inspection**: Check for damage or deformation of the motor and its structural components.
->
-> **Cable Inspection**: Check for the security of power cables and CAN cables, and any damage to their outer sheaths.
+<details>
 
-### 11.3 Emergency Handling <a href="#g4akm" id="g4akm"></a>
+<summary>9 Secondary Development — manufacturer figures</summary>
 
-In case of an emergency, you can unplug the aviation connector directly to cut off the power supply. Note that the robotic arm will be deactivated and drop directly after power-off. Take extreme care to prevent damage to the robotic arm, as well as harm to the surrounding environment and personnel. Power off by unplugging the connector is an emergency response measure only, and is not intended to prevent injury.
+![Manufacturer NERO illustration for 9 Secondary Development](<../../.gitbook/assets/image (1200).png>)
 
-## Appendix: Dimension Drawings <a href="#f42f0" id="f42f0"></a>
+</details>
 
-### 1 Robotic Arm Dimensions <a href="#hltmk" id="hltmk"></a>
+#### 10 Robotic Arm CAN Protocol <a href="#egpj6" id="egpj6"></a>
 
-<img src="../../.gitbook/assets/资源 7 (2).png" alt="资源 7.png" width="9612">
+Use the current model/firmware-specific SDK, CAN mapping and ROS description rather than copying another arm profile. The public implementation defines message units, version-dependent encoders/decoders and connection cleanup; raw protocol documents can be gated or older. Query firmware before selecting a profile, preserve the supplied CAN topology and begin with stationary fresh feedback. Keep original direct SDK/protocol/model downloads with the project revision and do not equate a source review with compilation or hardware validation.
 
-### 2 Robotic Arm with Dexterous Hand <a href="#iw9im" id="iw9im"></a>
+#### 11 Maintenance and Servicing <a href="#djrl0" id="djrl0"></a>
 
-<div><img src="../../.gitbook/assets/image (1201).png" alt="image.png" width="277"> <img src="../../.gitbook/assets/image (1202).png" alt="image.png" width="235.25"></div>
+Return through a checked path to the supported storage posture, stop the active mode and power down before cleaning or mechanical inspection. Do not reinterpret a storage instruction as routine recalibration of zero. Inspect fasteners, motor/bracket damage, cable jackets and connector retention; clean the exterior with a lightly dampened cloth without flooding openings. Keep the specified−20…50 °C and 25–85 %RH noncondensing environment where applicable, avoid strong magnetic fields and allow hot joints to cool before handling. Log wear or repeated faults before replacing parts.
 
-### 3 Base <a href="#wdxps" id="wdxps"></a>
+#### 11.1 Storage Notes <a href="#jwysf" id="jwysf"></a>
 
-### 4 Dexterous Hand Diagram <a href="#kyqfk" id="kyqfk"></a>
+Return through a checked path to the supported storage posture, stop the active mode and power down before cleaning or mechanical inspection. Do not reinterpret a storage instruction as routine recalibration of zero. Inspect fasteners, motor/bracket damage, cable jackets and connector retention; clean the exterior with a lightly dampened cloth without flooding openings. Keep the specified−20…50 °C and 25–85 %RH noncondensing environment where applicable, avoid strong magnetic fields and allow hot joints to cool before handling. Log wear or repeated faults before replacing parts.
 
-<img src="../../.gitbook/assets/image (1204).png" alt="image.png" width="1256.2499812804165">
+#### 11.2 Servicing Notes <a href="#gb3xn" id="gb3xn"></a>
 
-<br>
+Return through a checked path to the supported storage posture, stop the active mode and power down before cleaning or mechanical inspection. Do not reinterpret a storage instruction as routine recalibration of zero. Inspect fasteners, motor/bracket damage, cable jackets and connector retention; clean the exterior with a lightly dampened cloth without flooding openings. Keep the specified−20…50 °C and 25–85 %RH noncondensing environment where applicable, avoid strong magnetic fields and allow hot joints to cool before handling. Log wear or repeated faults before replacing parts.
 
-### 5 Dexterous Hand Flange Mounting Diagram <a href="#wif9z" id="wif9z"></a>
+#### 11.3 Emergency Handling <a href="#g4akm" id="g4akm"></a>
 
-<img src="../../.gitbook/assets/image (1205).png" alt="image.png" width="952">
+The manual describes power disconnection as an emergency measure and warns that the disabled arm can drop immediately. Plan support and access before actuation; never reach into the sweep merely to unplug a connector. GUI pause/stop depends on a live communication path and can preserve a trajectory for later resumption. Clear the workcell and inspect pending commands before restart. Neither power removal nor a PC toggle is a complete certified injury-prevention system.
 
-### Development Resources
+#### Appendix: Dimension Drawings <a href="#f42f0" id="f42f0"></a>
 
-* [pyAgxArm Python SDK](https://github.com/agilexrobotics/pyAgxArm) — official CAN communication, status, motion-control, and end-effector SDK for NERO.
-* [AgileX arm ROS 2 driver](https://github.com/agilexrobotics/agx_arm_ros/tree/ros2) — use `arm_type:=nero`.
-* [NERO URDF, Xacro, and mesh resources](https://github.com/agilexrobotics/agx_arm_urdf) — official `nero` model directory.
-* [NERO firmware compatibility reference](https://github.com/agilexrobotics/pyAgxArm/blob/master/docs/nero/firmware_reference.md) — select the SDK driver from the firmware reported by `get_firmware()`; this is a compatibility matrix, not a firmware binary download.
+Use the dimensioned view for the identified bare-arm, tool-equipped, base or end-flange assembly. Keep its viewpoint, units and model revision with any fixture design; an axonometric picture is not a scale drawing. Check hole pattern, screw engagement, cable exit and the complete swept volume against the physical parts before machining. The numerical arm limits and actual tool transform remain separate from the drawing envelope.
+
+#### 1 Robotic Arm Dimensions <a href="#hltmk" id="hltmk"></a>
+
+Use the dimensioned view for the identified bare-arm, tool-equipped, base or end-flange assembly. Keep its viewpoint, units and model revision with any fixture design; an axonometric picture is not a scale drawing. Check hole pattern, screw engagement, cable exit and the complete swept volume against the physical parts before machining. The numerical arm limits and actual tool transform remain separate from the drawing envelope.
+
+<details>
+
+<summary>1 Robotic Arm Dimensions — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 1 Robotic Arm Dimensions](<../../.gitbook/assets/资源 7 (2).png>)
+
+</details>
+
+#### 2 Robotic Arm with Dexterous Hand <a href="#iw9im" id="iw9im"></a>
+
+Dexterous-hand control applies only to a supported fitted hand and its matching flange, wiring, device identity and controller configuration. A hand illustration is not an inclusion guarantee for the bare arm. Preserve the associated mounting drawing and tool mass/center-of-gravity data, then verify individual hand functions with the arm supported before combined motion. Avoid reusing a two-finger gripper ID/configuration for a multi-actuator hand.
+
+<details>
+
+<summary>2 Robotic Arm with Dexterous Hand — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 2 Robotic Arm with Dexterous Hand](<../../.gitbook/assets/image (1201).png>)
+
+![Manufacturer NERO illustration for 2 Robotic Arm with Dexterous Hand](<../../.gitbook/assets/image (1202).png>)
+
+</details>
+
+#### 3 Base <a href="#wdxps" id="wdxps"></a>
+
+Use the dimensioned view for the identified bare-arm, tool-equipped, base or end-flange assembly. Keep its viewpoint, units and model revision with any fixture design; an axonometric picture is not a scale drawing. Check hole pattern, screw engagement, cable exit and the complete swept volume against the physical parts before machining. The numerical arm limits and actual tool transform remain separate from the drawing envelope.
+
+#### 4 Dexterous Hand Diagram <a href="#kyqfk" id="kyqfk"></a>
+
+Dexterous-hand control applies only to a supported fitted hand and its matching flange, wiring, device identity and controller configuration. A hand illustration is not an inclusion guarantee for the bare arm. Preserve the associated mounting drawing and tool mass/center-of-gravity data, then verify individual hand functions with the arm supported before combined motion. Avoid reusing a two-finger gripper ID/configuration for a multi-actuator hand.
+
+<details>
+
+<summary>4 Dexterous Hand Diagram — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 4 Dexterous Hand Diagram](<../../.gitbook/assets/image (1204).png>)
+
+</details>
+
+#### 5 Dexterous Hand Flange Mounting Diagram <a href="#wif9z" id="wif9z"></a>
+
+Dexterous-hand control applies only to a supported fitted hand and its matching flange, wiring, device identity and controller configuration. A hand illustration is not an inclusion guarantee for the bare arm. Preserve the associated mounting drawing and tool mass/center-of-gravity data, then verify individual hand functions with the arm supported before combined motion. Avoid reusing a two-finger gripper ID/configuration for a multi-actuator hand.
+
+<details>
+
+<summary>5 Dexterous Hand Flange Mounting Diagram — manufacturer figures</summary>
+
+![Manufacturer NERO illustration for 5 Dexterous Hand Flange Mounting Diagram](<../../.gitbook/assets/image (1205).png>)
+
+</details>
+
+#### Development Resources <a href="#development-resources" id="development-resources"></a>
+
+Use the current model/firmware-specific SDK, CAN mapping and ROS description rather than copying another arm profile. The public implementation defines message units, version-dependent encoders/decoders and connection cleanup; raw protocol documents can be gated or older. Query firmware before selecting a profile, preserve the supplied CAN topology and begin with stationary fresh feedback. Keep original direct SDK/protocol/model downloads with the project revision and do not equate a source review with compilation or hardware validation.
+
+#### Additional model resources
+
+The following direct resources retain the manufacturer/model context of the detailed manual. Select the package matching the installed hardware and firmware; a historical download is not an update recommendation.
+
+* [View NERO gripper on OpenELAB](https://openelab.io/products/agilex-nero-gripper)
+* [AgileX arm ROS 2 driver](https://github.com/agilexrobotics/agx_arm_ros/tree/ros2)
+* [NERO firmware compatibility reference](https://github.com/agilexrobotics/pyAgxArm/blob/master/docs/nero/firmware_reference.md)
+
+### &#x20;<a href="#f1zmr" id="f1zmr"></a>
+
+See [Product overview](nero-user-manual.md#ffsaj) for the model-specific procedure and its source conditions.
+
+### &#x20;<a href="#z7gt8" id="z7gt8"></a>
+
+Seefor the model-specific procedure and its source conditions.
+
+## References and validation
+
+Reviewed current manufacturer manuals, quick-start, calibration/resource pages and pinned SDK/ROS source. The base, keyed connector and mounting/workspace diagrams were visually checked; retained images remain attributed to AgileX. The older PDF's26 V and joint-range differences are explicitly bounded by newer guidance and controller verification.
+
+The original logger passed Python syntax parsing. No SDK installation, CAN connection, firmware update, calibration, physical motion, payload or precision test was run. The login-gated V1.2 raw protocol was not treated as read; the example uses the public SDK's documented firmware query and joint decoder. For related six-axis models, see [PiPER](https://wiki.openelab.io/robotics/agilex/piper-product-user-manual) and [PiPER-H](https://wiki.openelab.io/robotics/agilex/piper-h-user-manual); their limits and geometry do not apply to NERO.
