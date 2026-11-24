@@ -1016,7 +1016,7 @@
     * [Franka training 3 — Franka World — complete reference](robotics/franka/source-library/complete-world.md)
 * [MyActuator](robotics/myactuator/README.md)
   * [MyActuator RMD-X12-P20-320-E Development Guide](robotics/myactuator/rmd-x12-p20-320-e-development-guide.md)
-  * [MyActuator RMD-X6-P20 and RMD-X8-P20 Engineering Guide](robotics/myactuator/myactuator-rmd-x6-x8-p20-development-guide.md)
+  * [MyActuator RMD-X6-P20-60-E Development Guide](robotics/myactuator/myactuator-rmd-x6-x8-p20-development-guide.md)
   * [MyActuator RMD-X8-P20-120-E Development Guide](robotics/myactuator/rmd-x8-p20-120-e-development-guide.md)
   * [MyActuator RMD-L-7015 CAN Development Guide](robotics/myactuator/rmd-l-7015-can-development-guide.md)
   * [MyActuator RMD-X2-P28-7-E Development Guide](robotics/myactuator/rmd-x2-p28-7-e-development-guide.md)

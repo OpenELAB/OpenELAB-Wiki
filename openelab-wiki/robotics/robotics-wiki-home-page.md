@@ -49,6 +49,16 @@ Use the exact power, mechanism and software revision before moving hardware. The
 
 Guide order follows our Top 200 net-sales snapshot for 17 August–17 November 2026. Guides shared by multiple variants appear once.
 
+## Develop with model-specific references <a href="#develop-with-model-specific-references" id="develop-with-model-specific-references"></a>
+
+**Receive and interpret sensor data.** [MID-360S](livox/livox-mid-360s-3d-lidar-sensor-engineering-guide.md), [Airy](robosense/robosense-airy.md) and [AC1](robosense/robosense-ac1-active-camera-engineering-guide.md) connect packet fields, timing, SDK callbacks and configuration to observable data checks.
+
+**Read joint telemetry before motion.** [RMD-X6-P20-60-E](myactuator/myactuator-rmd-x6-x8-p20-development-guide.md) and [RobStride 10P](robstride/robstride-10p-development-guide.md) distinguish physical limits from encoded ranges and keep model, transport and firmware differences explicit.
+
+**Develop with the correct robot image.** [ROSMASTER M3 Pro](yahboom/rosmaster-m3-pro-development-guide.md), [ROSpider](hiwonder/hiwonder-rospider-development-guide.md) and [JetRover](hiwonder/hiwonder-jetrover-development-guide.md) bring controller APIs, perception, navigation, calibration and course procedures onto the canonical product guides.
+
+**Calibrate and recover.** [SO-ARM101](wowrobo/wowrobo-so-arm101-lerobot.md) and [myAGV Raspberry Pi 2023](elephant-robotics/myagv-2023-pi.md) retain exact-kit and host boundaries, configuration records, diagnostic steps and recovery resources. Source review is stated separately from hardware execution.
+
 ## Manufacturer directory
 
 Manufacturers are ordered by recorded GitBook website page views over the last three months, then by visible wiki-page count when views are tied. Equal view and page counts are ordered by brand name. Ranking snapshot: 24 November 2026.

@@ -70,6 +70,14 @@ Use the model guides alongside their official references for schematics, library
 
 Guide order follows the Top200 net-sales snapshot for 17 August–17 November 2026. Match model/SKU and read the guide’s stated validation limits.
 
+## Develop with model-specific references <a href="#develop-with-model-specific-references" id="develop-with-model-specific-references"></a>
+
+**Host and image selection.** [Jetson AGX Orin 64GB Developer Kit](nvidia/nvidia-jetson-agx-orin-64gb-development-guide.md) and [Banana Pi BPI-R4 Pro 8X](banana-pi/bpi-r4-pro-8x.md) distinguish the purchased hardware option, supported images, storage and network setup before peripheral integration.
+
+**Regional radio and firmware.** [T-Deck Plus](lilygo/t-deck-plus-meshtastic.md), [WiFi LoRa 32 V4.3.1](heltec/heltec-wifi-lora-32-v4.3.1-sx1262-engineering-guide.md) and [ThinkNode M9 MeshCore](elecrow/thinknode-m9-meshcore-development-guide.md) explain board identity, radio region, firmware selection, interfaces and first-message diagnostics.
+
+**Field interfaces and positioning.** [T-2CAN-FD](lilygo/lilygo-t-2can-fd-development-guide.md), [T-SIM7080G S3 H606](lilygo/lilygo-t-sim7080g-s3-h606-development-guide.md) and [RAK10724](rakwireless/rak10724-battery-powered.md) cover their distinct CAN, cellular/GNSS and battery-powered tracker workflows.
+
 ## Manufacturer directory
 
 Manufacturers are ordered by recorded GitBook website page views over the last three months, then by visible wiki-page count when views are tied. Equal view and page counts are ordered by brand name. Ranking snapshot: 24 November 2026.
