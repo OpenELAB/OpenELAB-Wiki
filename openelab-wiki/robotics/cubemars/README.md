@@ -1,5 +1,8 @@
 ---
-description: Robot actuators, gimbal motors, underwater thrusters, and setup guides.
+description: >-
+  CubeMars AK80-64, AK10-9 V3.0 and AKH70-48 engineering guides: exact drives,
+  CAN and UART protocols, MIT control, feedback, calibration and source
+  conflicts.
 layout:
   width: default
   title:
@@ -37,6 +40,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | [CubeMars AK80-64 Actuator BLDC Motor Compact High-Torque Power](cubemars-ak80-64-actuator-bldc-motor-compact-high-torque-power.md)             | CubeMars-AK80-64D      |
 | [CubeMars AK10-9 V3.0 Actuator Motor Compact High-Torque Power Module](cubemars-ak10-9-v3.0-actuator-motor-compact-high-torque-power-module.md) | CubeMars-AK10-9-V3.0D  |
 | [CubeMars AKH70-48 V1.0 KV41 Engineering Guide](cubemars-akh70-48-v1-kv41-development-guide.md)                                                 | CubeMars-AKH70-48-KV41 |
+
+### AK and AKH model-specific control references
+
+The expanded AK80-64, AK10-9 V3.0 and AKH70-48 guides cover exact-model specifications, power and connector roles, CAN/servo/MIT/UART packet fields where applicable, feedback units, calibration, fault handling and firmware/configuration resources. Select the matching driver generation before using an example from another AK model.
+
+The AKH70-48 guide explicitly retains its conflicting published peak-current and encoder-resolution declarations; they require received-unit/manufacturer confirmation. Source/static checks are documented separately from hardware or SDK commissioning.
 
 ### Product range
 

@@ -1,3 +1,9 @@
+---
+description: >-
+  Mateksys H743-SLIM V4 flight-controller reference: exact pad map, power, UART
+  and receiver options, PWM, SWD and SPI, firmware targets and bench setup.
+---
+
 # Mateksys
 
 Product manuals, setup guides, and technical references for Mateksys.
@@ -9,6 +15,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | Product guide                                                                                        | Models / order codes |
 | ---------------------------------------------------------------------------------------------------- | -------------------- |
 | [MATEKSYS H743-SLIM V4 Flight Controller Engineering Guide](matek-h743-slim-v4-development-guide.md) | MATEK-H743-SLIM-V4   |
+
+### H743-SLIM V4 setup and interface reference
+
+The expanded H743-SLIM V4 guide covers the actual V4 pad map, regulated power domains, UART/receiver choices, PWM and peripheral connections, firmware-target selection and initial bench checks. It separates SWD D/C/G from the SPI3 group and retains the official diagrams and software resources.
+
+Use the exact board/firmware configuration before assigning a receiver, serial peripheral or output. A successful USB connection is one checkpoint; sensor recognition, configured interfaces and recorded first results are checked separately.
 
 ### More manuals and tutorials
 

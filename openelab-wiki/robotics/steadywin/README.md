@@ -1,5 +1,8 @@
 ---
-description: GIM robot joint actuators and motor-control hardware.
+description: >-
+  SteadyWin GIM8108-8 and GDS68 engineering guide: exact actuator and drive,
+  wiring, CAN fields, feedback scales, calibration, diagnostics and rating
+  differences.
 ---
 
 # SteadyWin
@@ -15,6 +18,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | Product guide                                                                                              | Models / order codes |
 | ---------------------------------------------------------------------------------------------------------- | -------------------- |
 | [SteadyWin GIM8108-8 GDS68 Dual-Encoder Engineering Guide](steadywin-gim8108-8-gds68-development-guide.md) | SW-GIM8108-8-S68-2E  |
+
+### GIM8108-8 with GDS68 development
+
+The expanded GIM8108-8/GDS68 guide combines the exact actuator and drive reference with connector roles, configuration and feedback fields, commissioning/calibration, diagnostics and official resources. Match the drive/protocol revision and stored mapping values before packing a command.
+
+The current listing and Rev1.4 manual disagree on peak/stall current (22 A versus 25 A). The guide preserves that unresolved difference and excludes using either as an established peak-test limit; communication scaling and continuous operating ratings are separate quantities.
 
 ### Product range
 

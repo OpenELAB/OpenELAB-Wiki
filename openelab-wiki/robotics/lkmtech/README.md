@@ -1,4 +1,8 @@
 ---
+description: >-
+  LKMTECH MG motor engineering references: exact models, gear ratios, dual
+  encoders, drive and harness identification, CAN/RS485 fields, calibration and
+  resources.
 layout:
   width: default
   title:
@@ -38,6 +42,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 ### Product gallery
 
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="image">Cover image</th></tr></thead><tbody><tr><td><a href="mg4010e-i10-v3-dual-encoder-robot-motor.md">mg4010e-i10-v3-dual-encoder-robot-motor.md</a></td><td><a href="../../.gitbook/assets/MG4010E-i10_V3_Dual_Encoder_Robot_Motor-1.webp">MG4010E-i10_V3_Dual_Encoder_Robot_Motor-1.webp</a></td></tr><tr><td><a href="mg6010-i6-v3-dual-encoder-robot-motor.md">mg6010-i6-v3-dual-encoder-robot-motor.md</a></td><td><a href="../../.gitbook/assets/MG6010-i6_V3_Dual_Encoder_Robot_Motor-1.webp">MG6010-i6_V3_Dual_Encoder_Robot_Motor-1.webp</a></td></tr></tbody></table>
+
+### MG dual-encoder model and drive identification
+
+The expanded MG references compare the selected MG4005E, MG4010E, MG5010E and MG6010-family options against the dated catalog, mechanical drawings and drive/protocol documentation. They include actual configuration and communication fields, calibration, connector/driver distinctions, firmware boundaries and current verified purchasing options.
+
+Historical Top 200 order codes remain in the ranking table. Their correspondence to current CAN/RS485 listings is not assumed: unresolved aliases, gear-ratio wording, encoder resolution and drive-board differences are identified on each guide. Confirm the received nameplate, drive, harness and approved sheet before applying power or motion settings.
 
 ### More manuals and tutorials
 
