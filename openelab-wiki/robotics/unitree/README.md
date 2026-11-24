@@ -1,8 +1,8 @@
 ---
 description: >-
-  Unitree G1, Go2/Go2-W and R1 robot guides, SDK2 and ROS 2 development,
-  official English manuals, LiDAR and motor references with model-specific
-  limits.
+  Unitree robot and development documentation: model-specific hardware,
+  operating manuals, SDK2 and ROS 2 contracts, official resources, LiDAR and
+  motor references.
 cover: ../../.gitbook/assets/unitree-wordmark.png
 coverY: 0
 ---
@@ -29,6 +29,14 @@ The existing Top200 net-sales order for 17 August–17 November 2026 is retained
 * [Unitree ROS 2 integration: message families, Cyclone DDS and subscriber-first checks](unitree-ros2-integration.md)
 
 These guides distinguish source-reviewed instructions, original offline checks, compatible-hardware prerequisites and untested operations. Go2 Air/Pro versus EDU and G1 base versus EDU must not be treated as equivalent SDK entitlements. The exact delivered firmware and physical stop/commissioning controls remain model-specific.
+
+## Humanoid model guides <a href="#unitree-batch-02" id="unitree-batch-02"></a>
+
+* [Unitree H1: 19-joint hardware, power scope and state-only development](unitree-h1.md)
+* [Unitree H1-2: 27-joint hardware, parallel ankles and HG state telemetry](unitree-h1-2.md)
+* [Unitree H2 and H2 EDU: interfaces, manuals and SDK contract checks](unitree-h2.md)
+* [Unitree H2-X and H2-X EDU: model differences and SDK state contracts](unitree-h2-x.md)
+* [Unitree G1+ and G1+ EDU: configuration, power and development evidence](unitree-g1-plus.md)
 
 ## Unitree Official Site <a href="#unitree-official-site" id="unitree-official-site"></a>
 
