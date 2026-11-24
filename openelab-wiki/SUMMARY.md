@@ -1132,7 +1132,7 @@
   * [Holybro PM07 V2 Power Module 14S](stem-and-diy/holybro/holybro-pm07-v2-power-module-14s.md)
   * [Holybro Power Distribution Board (PDB)](stem-and-diy/holybro/holybro-power-distribution-board-pdb.md)
 * [Genmitsu](stem-and-diy/genmitsu/README.md)
-  * [Genmitsu 4040-PRO MAX CNC Router Engineering Guide](stem-and-diy/genmitsu/genmitsu-4040-pro-max-cnc-router-engineering-guide.md)
+  * [Genmitsu 4040-PRO MAX: assembly, GRBL checks and first dry run](stem-and-diy/genmitsu/genmitsu-4040-pro-max-cnc-router-engineering-guide.md)
   * [Genmitsu PROVerXL 4030 V2: assembly, control and first dry run](stem-and-diy/genmitsu/proverxl-4030-v2.md)
 * [DXW](stem-and-diy/dxw/README.md)
   * [DXW 4114 400KV High Power Brushless Motors](stem-and-diy/dxw/dxw-4114-400kv-high-power-brushless-motors.md)
