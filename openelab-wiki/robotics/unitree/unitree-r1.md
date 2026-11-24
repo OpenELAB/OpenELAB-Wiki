@@ -1,8 +1,8 @@
 ---
 description: >-
-  Identify R1 editions and seven OpenELAB SKUs, charge the BT2-72 pack,
-  interpret stop and controller states, and plan an EDU-only read-only SDK2
-  check.
+  Identify seven R1 retail SKUs, operate and charge the correct edition, and
+  develop EDU telemetry, arm, audio, stereo and SLAM interfaces with source
+  limits.
 ---
 
 # Unitree R1, R1 AIR and R1 EDU: Setup, Charging and SDK Boundaries
@@ -82,6 +82,39 @@ Sources: [B2](https://doc-cdn.unitree.com/static/2026/5/27/57bc762844654f4cb78eb
 
 The manual's arm row is labeled torque but uses kilograms, and its 2 kg figure differs from the live product page's 3–5 kg wording. Neither is used here as a torque limit or guaranteed payload. Mechanical range diagrams likewise do not define safe command limits, collisions, or joint-controller settings. [U7](https://doc-cdn.unitree.com/static/2026/7/8/894d7777583e432e9df68464e3f968a5_2481x3509.png) [P](https://www.unitree.com/R1)
 
+### Portal additions: model geometry and sparse joint slots <a href="#portal-additions-model-geometry-and-sparse-joint-slots" id="portal-additions-model-geometry-and-sparse-joint-slots"></a>
+
+The portal describes AIR20 DOF and Basic/EDU26 DOF before optional hands; the current product comparison's EDU26–40 range remains configuration-dependent. Its specification table labels the20-DOF column simply “R1,” although its component section calls it AIR. Match physical configuration and the retail identity table above, not that abbreviated column label. Folded dimensions are690 ×450 ×300 mm, lower-plus-upper leg length0.6 m and arm span0.435 m. Hollow-shaft internal wiring, localized air cooling and dual-encoder descriptions do not grant a connector/payload modification entitlement. [R1 portal overview](https://support.unitree.com/home/en/R1_developer/about_R1)
+
+Camera values are source-specific: the portal overview gives1280 ×1080 RGB, while the V1.3 manual gives1270 ×720; the video-service article describes a separate1280 ×720 `img` stream and544 ×448 left/right processed streams. Do not merge sensor maximum, negotiated output and encoded stream into one specification. The overview also lists10 Hz depth,30 Hz RGB,66 dB normal dynamic range/>100 dB HDR and external exposure/synchronization/I2C features. Those sensor features do not establish an exported SDK control endpoint or hardware synchronization of recorded images. [Overview camera table](https://support.unitree.com/home/en/R1_developer/about_R1), [video-service formats](https://support.unitree.com/home/en/R1_developer/video_service)
+
+The portal's26-DOF joint map occupies **26 positions in a sparse0–30 index space**, not a contiguous0–25 array. The generated HG message has35 slots, allowing additional entries without establishing that35 actuators are installed. Angles below are portal nominal radians, not verified safe command boundaries. [Overview limits](https://support.unitree.com/home/en/R1_developer/about_R1), [sequence article](https://support.unitree.com/home/en/R1_developer/joint_motor_sequence), [basic messages](https://support.unitree.com/home/en/R1_developer/basic_services_interface)
+
+| Slot           | Joint                                 | Nominal range, rad                          |
+| -------------- | ------------------------------------- | ------------------------------------------- |
+| 0 /6           | Left/right hip pitch                  | −2.9322…2.5482                              |
+| 1              | Left hip roll                         | −1.0472…1.7453                              |
+| 2 /8           | Left/right hip yaw                    | ±2.7402                                     |
+| 3 /9           | Left/right knee                       | −0.1745…2.4260                              |
+| 4 /10          | Left/right ankle pitch, PR convention | −0.8727…0.5760                              |
+| 5 /11          | Left/right ankle roll, PR convention  | ±0.2618                                     |
+| 7              | Right hip roll                        | −1.7453…1.0472                              |
+| 12             | Waist roll                            | ±0.5236                                     |
+| 13             | Waist yaw                             | ±2.618                                      |
+| 14             | Empty                                 | No actuator permission                      |
+| 15 /22         | Left/right shoulder pitch             | −3.1416…2.0944                              |
+| 16             | Left shoulder roll                    | −0.2269…2.4784                              |
+| 17 /24         | Left/right shoulder yaw               | ±1.9199                                     |
+| 18 /25         | Left/right elbow                      | −0.9757…2.1850                              |
+| 19 /26         | Left/right wrist roll                 | ±1.9199                                     |
+| 20 /21 /27 /28 | Empty in this26-DOF map               | Do not command hypothetical wrist pitch/yaw |
+| 23             | Right shoulder roll                   | −2.4784…0.2269                              |
+| 29 /30         | Head pitch /yaw                       | ±0.6283 /±2.0071                            |
+
+The motor-sequence article has extra unlabeled numerical columns and inconsistent alternate waist names. These do not establish torque ratings or additional joints. Its26-DOF heading says `mode_machine==1`, whereas the basic-services article retains23/29/27-DOF comments associated with other configurations. Observe and confirm the installed mode/model with Unitree; do not choose a write format from either copied comment alone. [Sequence](https://support.unitree.com/home/en/R1_developer/joint_motor_sequence), [message comments](https://support.unitree.com/home/en/R1_developer/basic_services_interface)
+
+For the ankles, PR means pitch/roll coordinates; AB addresses the physically driven motors of a parallel mechanism and needs its own kinematics. Two coordinate descriptions still represent two physical DOF. PR/AB selection is a topic-specific low-level control convention; the upper-body `rt/arm_sdk` route reuses `mode_pr` as a blend weight instead. The same field name must not be interpreted globally. [Ankle explanation](https://support.unitree.com/home/en/R1_developer/basic_motion_routine), [upper-body interface](https://support.unitree.com/home/en/R1_developer/arm_control_routine)
+
 ## Hardware and connections <a href="#hardware-and-connections" id="hardware-and-connections"></a>
 
 ### Prepare the site and identify the support hardware <a href="#prepare-the-site-and-identify-the-support-hardware" id="prepare-the-site-and-identify-the-support-hardware"></a>
@@ -92,7 +125,7 @@ Unpack on level ground, with the case facing upward. Inventory the robot, matchi
 
 The stand comprises a base, support sleeve/inner tube, wave washer, quick-release clamp, protective foam and top bracket. Assemble the base/rod/washer, orient the clamp as drawn, extend the inner tube, fit foam and bracket, then secure height and clamping force. **The AIR/base and EDU hanging orientations differ.** Verify the actual engagement before loading it. No torque value is specified in the reviewed instructions; do not invent one or infer a stand load rating. See Unitree's [assembly figures](https://doc-cdn.unitree.com/static/2026/7/8/b67d0e5f47d0468ba7507a6be111a1eb_2481x3509.png), [clamp figure](https://doc-cdn.unitree.com/static/2026/7/8/30926ce98e2e4c53925b018993adb2e7_2481x3509.png) and [edition-specific hanging diagram](https://doc-cdn.unitree.com/static/2026/7/8/96c09f9ec9ac4c1b83cb01d3ee756cb0_2482x3509.png).
 
-The manual gives M4 mounting-hole information and a front-panel modification procedure, but that is not a free external mounting interface. Use the original [mounting drawing](https://doc-cdn.unitree.com/static/2026/7/8/4edc89d4669e42169248cc0cd2437b04_2481x3509.png) and obtain the exact revision's accessory instructions before drilling, removing panels, adding mass or rerouting wires. Backpack, hand and radar installation are referred to videos, not fully specified in the accessible pages. No connector pinout, auxiliary power budget or verified CAD package was established here. [U31](https://doc-cdn.unitree.com/static/2026/7/8/64c2b104d080436a9b264e30540b014d_2481x3509.png)
+The manual gives M4 mounting-hole information and a front-panel modification procedure, but that is not a free external mounting interface. Use the original [mounting drawing](https://doc-cdn.unitree.com/static/2026/7/8/4edc89d4669e42169248cc0cd2437b04_2481x3509.png) and obtain the exact revision's accessory instructions before drilling, removing panels, adding mass or rerouting wires. The portal expansion below adds body/backpack electrical ratings, actual developer/service interfaces and model-download links. A revision-specific mating-pin polarity/schematic and complete delivered accessory commissioning are still not established. [U31](https://doc-cdn.unitree.com/static/2026/7/8/64c2b104d080436a9b264e30540b014d_2481x3509.png)
 
 ### Charge the robot battery outside the robot <a href="#charge-the-robot-battery-outside-the-robot" id="charge-the-robot-battery-outside-the-robot"></a>
 
@@ -108,6 +141,40 @@ Do not charge inside the robot, while the pack is on, immediately after a hot ru
 With the controller off, connect its Type-C port to the recommended 5 V / 2 A USB supply. Its charge indication flashes at about 1 Hz and becomes fully lit at completion; unplug then. Fit the removable joystick tips clockwise without forcing them. The remote's advertised >100 m range is for an open environment, not a working safety separation or a guarantee through walls. [R3](https://doc-cdn.unitree.com/static/2026/5/26/f9d61c8a5f3042f7b4420527bdc6b135_2481x3508.png) [R6](https://doc-cdn.unitree.com/static/2026/5/26/583308f05ac548dc8fff085d17f8ebe7_2482x3508.png)
 
 The new remote has a dedicated stop button and a separate stop-link indicator. A blinking stop indicator means that stop unit is not connected to the robot; a steady light indicates link readiness. Do not equate the main DL link with this separate stop-link check. The stop indicator turns red on activation and green on deactivation; its button has a three-second retrigger lockout. Verify the physically supplied controller, because the manual warns that old and new versions may differ. [R2](https://doc-cdn.unitree.com/static/2026/5/26/811c3ea381ec4d0ab788169e9ec184e6_2481x3508.png) [R5](https://doc-cdn.unitree.com/static/2026/5/26/3e198574d90f448591658be9e31b9739_2481x3508.png) [U25](https://doc-cdn.unitree.com/static/2026/7/8/96b7ca834f134233aac66e0e7396ceef_2481x3509.png)
+
+### Documented body ports and optional EDU backpack <a href="#documented-body-ports-and-optional-edu-backpack" id="documented-body-ports-and-optional-edu-backpack"></a>
+
+The now-readable portal adds a numbered [upper-back connector drawing](https://doc-cdn.unitree.com/static/2026/1/8/5babe175427948c880f80e8325ff089f_894x1164.png), ©Unitree Robotics. Numbered roles below were checked against that figure and its table; the drawing does not show mating-pin polarity. [About R1, electrical interfaces](https://support.unitree.com/home/en/R1_developer/about_R1)
+
+| Drawing number | Interface        | Source-defined role                                                                                        |
+| -------------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| 1              | Stand/lie button | A short press schedules posture motion3 seconds after the voice announcement finishes; not a status button |
+| 2              | Type-C           | NC; article says removed on newer machines                                                                 |
+| 3              | XT30UPB-F        | 24 V /3 A **output**, not robot supply input                                                               |
+| 4              | XT30UPB-F        | 36 V /5 A **output**, not charger connection                                                               |
+| 5 /6           | GH1.25 reserved  | NC; article says removed on newer machines                                                                 |
+| 7              | RJ45             | 1000BASE-T Ethernet                                                                                        |
+| 8              | Reserved button  | NC                                                                                                         |
+
+These auxiliary ratings resolve part of the earlier access gap but not polarity, shared load budget, fusing or revision compatibility. Check the delivered panel and approved harness before attaching equipment. The portal's chest-hole procedure involves removing two neck, two rear shoulder and four side waist screws, drilling from inside with a3.3 mm bit and passing an M4 tap along existing threads. This is structural work with swarf/thread-damage risks: it belongs to a qualified, revision-confirmed accessory installation, not this guide's telemetry setup. Preserve the original [front/back/head hole drawings](https://support.unitree.com/home/en/R1_developer/about_R1) and installation-video link. No tightening torque or unlimited added-payload approval is provided.
+
+The optional EDU computing backpack shares hardware with a Go2 docking unit but uses R1 software. Its [interface drawing](https://doc-cdn.unitree.com/static/2024/5/14/7ca51de5cdc34b63bd6ff3a7ec74216b_1814x396.png), ©Unitree Robotics, identifies distinct inputs and outputs. Do not apply backpack supply specifications to the robot battery socket. [Payload/backpack article](https://support.unitree.com/home/en/R1_developer/Payload)
+
+| Backpack interface     | Published role / rating                                                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| XT30U-F                | Two16–45 V inputs,60 V peak wording; one powers the dock, one routes external arm power. Separate12 V /3 A and5 V /3 A outputs |
+| RJ45                   | Two gigabit ports: robot connection and user connection                                                                        |
+| M8 aviation connector  | Gigabit lidar channel plus12 V /2 A lidar power                                                                                |
+| Type-A                 | USB3.2 Gen2 host only,10 Gbit/s,5 V /1 A                                                                                       |
+| USB/DP Alt-Mode Type-C | USB host with USB2.0 or DP1.4,5 V /3 A                                                                                         |
+| Separate Type-C        | USB3.2 Gen2,5 V /2 A                                                                                                           |
+| GH1.25 four-pin        | Described as external gigabit channel; no pin-level wiring is established here                                                 |
+
+“Peak60 V” is not permission for continuous60 V operation. The rail dimensions and connector orientation remain linked manufacturer drawings; use the actual module/harness revision and confirm combined loading. The portal identifies developer compute at192.168.123.164, but its PC1/PC2 names conflict across articles. Developer ownership follows the approved compute unit and serial/address record, not an ambiguous label. [Architecture](https://support.unitree.com/home/en/R1_developer/architecture_description), [quick development](https://support.unitree.com/home/en/R1_developer/quick_development)
+
+### Optional hands: identity before installation <a href="#optional-hands-identity-before-installation" id="optional-hands-identity-before-installation"></a>
+
+The portal provides video-only installation records for Dex1-1, Dex2/5, Dex3-1, LinkerHand O6 and Revo2. Their actual media URLs are retained in the resource index; the videos were not downloaded or watched. Empty EDU-expansion and generic hand-installation directory entries contain no hidden wiring instructions. No hand is inferred from U1–U6 alone. A fitted hand changes collision and ground-clearance requirements; the portal discourages violent running/balance tests with hands and warns about lie/squat damage. [Hand scope](https://support.unitree.com/home/en/R1_developer/about_R1), [remote cautions](https://support.unitree.com/home/en/R1_developer/remote_control), [installation records](https://support.unitree.com/home/en/R1_developer/Dexterous%20Hand%20Installation)
 
 ## Software and development resources <a href="#software-and-development-resources" id="software-and-development-resources"></a>
 
@@ -129,9 +196,202 @@ This is an example-specific map, not 35 physical motors and not a contiguous 0�
 
 **Keep command ownership explicit.** The user manual says the built-in motion program starts automatically and periodically sends zero-speed commands. High-level remote/API commands may coexist and destabilize the robot; low-level development can make ordinary remote commands ineffective. The manual's EDU debug procedure requires suspension/damping and includes a position-mode posture change. It is not a read-only diagnostic. [U4](https://doc-cdn.unitree.com/static/2026/7/8/8561d363d02b4795902af2e68e864f4e_2482x3509.png) [U30](https://doc-cdn.unitree.com/static/2026/7/8/2403d80b393048c6be0bdbdf649e6a44_2481x3509.png) [U31](https://doc-cdn.unitree.com/static/2026/7/8/64c2b104d080436a9b264e30540b014d_2481x3509.png)
 
-The inspected R1 example calls `ReleaseMode()`, creates an `rt/lowcmd` publisher and writes joint commands; do not run it just to see status. A read-only first check must neither release the current controller nor enter debug/position mode, publish motor commands, start a locomotion client or call an actuator example. Clearing controller ownership is a separate commissioning step that needs the exact firmware procedure and an established support/stop plan. [R1EX](https://github.com/unitreerobotics/unitree_sdk2_python/blob/814556d15970dd2ecf1c9984e845ca02ab07e206/example/r1/low_level/r1_low_level_example.py)
+The inspected R1 example calls `ReleaseMode()`, creates an `rt/lowcmd` publisher and writes joint commands; do not run it just to see status. A read-only first check must neither release the current controller nor enter debug/position mode, publish motor commands, send a locomotion/actuator request or call an actuator example. Clearing controller ownership is a separate commissioning step that needs the exact firmware procedure and an established support/stop plan. [R1EX](https://github.com/unitreerobotics/unitree_sdk2_python/blob/814556d15970dd2ecf1c9984e845ca02ab07e206/example/r1/low_level/r1_low_level_example.py)
 
 Both inspected SDK2 repositories carry BSD-3-Clause licenses. Preserve their required notices if redistributing source/binaries; the code license does not grant development access to a base R1, authorize firmware modification, or license the manual images for wholesale republication. [CPL](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/LICENSE) [PYL](https://github.com/unitreerobotics/unitree_sdk2_python/blob/814556d15970dd2ecf1c9984e845ca02ab07e206/LICENSE)
+
+### Architecture, network and controller ownership <a href="#architecture-network-and-controller-ownership" id="architecture-network-and-controller-ownership"></a>
+
+R1 uses DDS publish/subscribe for continuous data and DDS RPC for request/reply operations, with request identity associating responses. The architecture article describes BLE provisioning/authentication, WebRTC for image/state/control traffic, HTTP account binding and MQTT fault/update/signaling traffic; TURN/STUN can relay a WebRTC session. These are manufacturer architecture statements, not a new privacy or cloud-service verification. The article says cloud connection requires user authorization. [SDK overview](https://support.unitree.com/home/en/R1_developer/sdk_overview), [architecture](https://support.unitree.com/home/en/R1_developer/architecture_description), [service overview](https://support.unitree.com/home/en/R1_developer/services_interface)
+
+**PC numbering is a source conflict.** Architecture calls the developer-accessible external unit **PC1,192.168.123.164**; Quick Development calls **PC1 official/private and PC2 developer-accessible**. About R1 also assigns developer compute `.164`. Treat `.164` developer compute and `.161` robot/network service endpoint as separate roles; do not move software onto the private motion controller to reconcile the labels. The documented external-PC examples use unused192.168.123.x/24 addresses such as `.99` or `.222`; an interface name from a screenshot is not your NIC. Ping checks network reachability, not SDK/firmware agreement. Obtain owner-provided access credentials for the actual unit. [Architecture](https://support.unitree.com/home/en/R1_developer/architecture_description), [quick development](https://support.unitree.com/home/en/R1_developer/quick_development), [about compute](https://support.unitree.com/home/en/R1_developer/about_R1)
+
+The portal recommends Ubuntu20.04 for SDK development and gives source-build stages for SDK installation and example compilation. Those instructions were read, not run; platform support must be matched to the pinned package and delivered computer. The downloadable26-DOF EDU simplified model includes backpack/hand interface/dual cameras, and the URDF is a model reference rather than a payload or actuator permission. [SDK/model downloads](https://support.unitree.com/home/en/R1_developer/get_sdk)
+
+The resident motion program starts automatically and can send zero-speed commands even without remote input. A low-level **publisher** therefore needs the documented supervised development/ownership transition; an ordinary state subscriber does not. Debug stops the built-in controller, which makes high-level locomotion, `arm_sdk` and the arm action service ineffective. The portal's L2+R2/L2+A checks are active state-changing controls, not steps to “fix” a telemetry-only reader. Do not repeatedly toggle them based on an unexplained log. [Basic development](https://support.unitree.com/home/en/R1_developer/basic_motion_development), [remote states](https://support.unitree.com/home/en/R1_developer/remote_control), [upper-body scope](https://support.unitree.com/home/en/R1_developer/arm_control_routine)
+
+### DDS initialization and message contracts <a href="#dds-initialization-and-message-contracts" id="dds-initialization-and-message-contracts"></a>
+
+At SDK2 pin `b7fec6020eb93d4c059a6edf19905e12a75a8d3d`, use the actual two-argument `ChannelFactory::Instance()->Init(domain, interface)` declaration. The portal lists a third `enableSharedMemory` argument that the pinned header does not declare. Its subscriber paragraph mistakenly says CreateSendChannel; receiving uses CreateRecvChannel. The pinned `GetServerApiVersion()` returns `std::string` by value, unlike the portal's reference spelling. Do not make a compile recipe from those mismatched signatures. [Portal DDS article](https://support.unitree.com/home/en/R1_developer/dds_services_interface), [pinned factory](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/robot/channel/channel_factory.hpp), [pinned client](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/robot/client/client.hpp)
+
+Initialize the factory before creating typed publishers/subscribers. Publisher `InitChannel` creates a writer; check the Boolean `Write` result and call `CloseChannel` when finished. Subscriber initialization creates the receive path, with callback/queue management; callbacks must not block and a larger queue can retain stale data. `GetLastDataAvailableTime()` is documented as monotonic microseconds, −1 before initialization; it is not wall-clock or a robot sample timestamp. Factory `Release` frees shared resources. Closing host channels does not cancel an accepted robot operation. HelloWorld's custom topic demonstrates transport rather than R1 state compatibility. [DDS/API descriptions](https://support.unitree.com/home/en/R1_developer/dds_services_interface), [DDS routine](https://support.unitree.com/home/en/R1_developer/dds_communication_routine)
+
+Client `Init()` registers APIs. For a seconds-valued timeout at this pin, select **`SetTimeout(float)`**, for example `client.SetTimeout(2.0f)`. The same header separately declares **`SetTimeout(int64_t)`** for internal timing units; an integer literal must not be described as seconds or substituted for that float call. The pinned default constant is 1000000, accompanied by a one-second comment. `WaitLeaseApplied` may block indefinitely when lease acquisition is enabled; it is not physical isolation. Record client `GetApiVersion`, server `GetServerApiVersion` and the actual return status before using output arguments. The server version's by-value return and factory prototype mismatches are identified above. [Portal client description](https://support.unitree.com/home/en/R1_developer/dds_services_interface), [actual overloads and default](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/robot/client/client_base.hpp), [pinned client](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/robot/client/client.hpp)
+
+| Interface / topic                         | Message and interpretation                                                                   |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `rt/lowstate`                             | HG `LowState_`: mode fields,1 ms tick, IMU,35 motor slots,40 remote bytes, reserves/CRC      |
+| `rt/lowcmd`                               | HG `LowCmd_`: low-level actuator commands; publishing is active control                      |
+| `rt/lf/lowstate`                          | Documented lower-rate form; measure actual delivered frequency rather than assuming a number |
+| `rt/lf/bmsstate`                          | HG `BmsState_`; not a charger-setting interface                                              |
+| `rt/lf/mainboardstate`                    | HG mainboard status in the shared topic list; delivered availability must be checked         |
+| `rt/secondary_imu` /`rt/lf/secondary_imu` | HG IMU state; the shared list gives no verified R1-specific frequency                        |
+| `rt/odommodestate` /`rt/lf/odommodestate` | Shared table labels go2 `IMUState_`; do not infer a full odometry schema from the name       |
+| `rt/dex3/{left,right}/{cmd,state}`        | Separate HG hand command/state; arm and hand index spaces differ                             |
+
+The shared DDS page is still titled “G1” in places and inconsistently captions normal/`lf` hand topics. Existence, rates and robot compatibility need actual service discovery and the exact generated types; `lf` text is not a measured rate. [Topic list](https://support.unitree.com/home/en/R1_developer/dds_services_interface)
+
+IMU quaternion order is **qw,qx,qy,qz**, with gyroscope, acceleration, RPY and temperature. Motor command fields are mode0/1, `q`, `dq`, feedforward `tau`, `kp`, `kd`. The **pinned HG `MotorState_` declaration** contains mode, q/dq/ddq, estimated torque, two temperatures, voltage, sensor words, motorstate and reserve words. Joint feedback units are radians/rad·s⁻¹/rad·s⁻². The portal's HG sketch additionally lists `q_raw/dq_raw/ddq_raw` as reserved raw feedback, but **those members are absent from this pinned generated HG header**. Do not build a decoder or schema extension from the portal sketch, and do not transplant Go2 raw-position members into HG. HG BMS includes40 cell entries, voltage arrays in mV, current in mA, SOC/SOH%,12 temperatures, cycle/date/state arrays; valid channel count is model-dependent. [Portal message sketch](https://support.unitree.com/home/en/R1_developer/basic_services_interface), [actual pinned HG declaration](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/idl/hg/MotorState_.hpp)
+
+The physical remote contributes40 raw bytes inside lowstate; its sticks are normalized−1…1 and button combinations yield key values. The article does not itself define a portable binary layout: use the matching SDK decoder, not a guessed `struct.unpack` order. Remote link status, input values and emergency-stop linkage are distinct. [Remote data](https://support.unitree.com/home/en/R1_developer/remote_control_data)
+
+For the ankle low-level route only, the source defines `mode_pr=0` PR and1 AB. In its26-DOF sequence, ankle slots4/5 correspond to left B/A when interpreted as AB, and10/11 to right B/A. This coordinate-mode alias does not add joints, supply inverse kinematics or change the upper-body weight convention. [Sequence](https://support.unitree.com/home/en/R1_developer/joint_motor_sequence), [ankle mechanism](https://support.unitree.com/home/en/R1_developer/basic_motion_routine)
+
+### Low-level ankle routine and high-level locomotion <a href="#low-level-ankle-routine-and-high-level-locomotion" id="low-level-ankle-routine-and-high-level-locomotion"></a>
+
+The ankle example targets R1 EDU26 DOF, creates500 Hz command/control loops, validates received CRC, caches motor/IMU state, copies observed mode-machine and prints RPY. It first drives all joints toward zero for3 s, then oscillates in PR for3 s and continues AB oscillation until exit. It is a motion program, not a read-only IMU demo. Its source-local PD gains, zero posture, raw CRC memory layout and parallel-ankle calculations are not universal commissioning settings. [Routine analysis](https://support.unitree.com/home/en/R1_developer/basic_motion_routine)
+
+High-level `unitree::robot::r1::LocoClient` retains the resident controller. The pinned header uses service **`sport`**, API version1.0.0.0; the portal says `ai_sport>=1.0.2.0` uses `sport`, earlier versions `loco`. A different delivered service needs a matching client, not a guessed string replacement. [RPC version boundary](https://support.unitree.com/home/en/R1_developer/rpc_routine), [pinned API](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/robot/r1/loco/r1_loco_api.hpp)
+
+| API / function                           | Contract / consequence                                                                 |
+| ---------------------------------------- | -------------------------------------------------------------------------------------- |
+| 7001 `GetFsmId`;7002 `GetFsmMode`        | Read controller state; use returned values only when status0                           |
+| 7101 `SetFsmId`                          | Active mode request; transitions remain controller-dependent                           |
+| 7105 `SetVelocity(vx,vy,omega,duration)` | Translational m/s, yaw rad/s, duration seconds; explicit target/motion request         |
+| 7107 `SetSpeedMode`                      | Active speed-mode change                                                               |
+| `Damp` /`ZeroTorque`                     | Modes1/0, neither provides balance                                                     |
+| `StandUp` /`Start`                       | Locked stand4 /gait811; locked standing is not self-balance                            |
+| `GetUp` /`LieDown`                       | Header helper requests locked stand, waits3 s, then701 /requests702; whole-body motion |
+| `Move` /`StopMove`                       | Velocity request /zero velocity request, not joint-power isolation                     |
+
+The header's default noncontinuous Move uses1 s command duration; `SwitchMoveMode(true)` selects an864000 s duration. The portal's wording “takes effect after1 second” is not adopted as a verified startup delay. Every live command needs bounded planning, return-code checks and a stop/recovery path; the portal CLI handles multiple sorted arguments and often ignores returns, so it is not reproduced as a turnkey motion script. [Sport article](https://support.unitree.com/home/en/R1_developer/sport_services_interface), [pinned client](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/robot/r1/loco/r1_loco_client.hpp), [RPC routine](https://support.unitree.com/home/en/R1_developer/rpc_routine)
+
+`RobotStateClient` is documented through a reused B2 interface. ServiceSwitch takes1 to request on/0 off, but reports status0 on/1 off—the two fields use opposite conventions. SetReportFreq takes interval and duration in seconds and modifies reporting, not a read-only query. Codes5201/5202 mean execution failure/protected service. The copied service list includes `ai_sport`, `basic_service`, `g1_arm_example`, `vui_service`, `unitree_slam`; a G1 name does not prove an R1 service exists. Do not switch control services as telemetry troubleshooting. [Robot-state article](https://support.unitree.com/home/en/R1_developer/robot_state_client_interface)
+
+ROS2 examples describe Foxy/Ubuntu20.04 and Humble/Ubuntu22.04 with Cyclone DDS0.10.x, the matching message packages and `rmw_cyclonedds_cpp` bound to the actual NIC. They distinguish a clean terminal for middleware build from a ROS-sourced terminal for messages. Their shared package list and old examples do not prove that a particular deployed R1 HG schema matches. Retain the parent's separate SDK/ROS guide for detailed environment work; no ROS build, launch or topic command was executed here. [ROS2 routine](https://support.unitree.com/home/en/R1_developer/ros2_communication_routine)
+
+### Upper-body control is a separate authority path <a href="#upper-body-control-is-a-separate-authority-path" id="upper-body-control-is-a-separate-authority-path"></a>
+
+`rt/arm_sdk` accepts HG `LowCmd_` while the resident controller maintains the legs/balance. The R1 publisher wraps13 joints: left15–19, right22–26, waist yaw13 and head29/30. Waist roll and legs are outside this route; this26-DOF mapping has no wrist pitch/yaw. Its `mode_pr` byte stores a0–100 blend weight, not ankle PR/AB selection. The pinned `ArmSdk::weight()` converts0–1 to a clamped integer percentage. [Arm control article](https://support.unitree.com/home/en/R1_developer/arm_control_routine), [actual R1 publisher](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/dds_wrapper/robots/r1/r1_pub.h)
+
+The article's intended sequence is fresh measured-position targets and gains before takeover, smooth100 Hz commands, then roughly1 s ramp down to zero weight while continuing to publish. It provides **no joint-limit or collision checking**. A crash can leave the last upper-body command holding, and abrupt release can drop arms. Do not run the arm action service and another `arm_sdk` publisher simultaneously; debug disables this high-level route. These are commissioning conditions, not actions to perform for the reader above. [Ownership/release boundaries](https://support.unitree.com/home/en/R1_developer/arm_control_routine)
+
+| Published gain reference | KP /KD |
+| ------------------------ | ------ |
+| Shoulder pitch/roll      | 50 /2  |
+| Shoulder yaw/elbow       | 40 /2  |
+| Wrist roll               | 30 /2  |
+| Waist yaw                | 50 /3  |
+| Head pitch/yaw           | 15 /1  |
+
+These are the arm-action implementation's reference gains, not validated gains for a different hand/payload. The PD expression is `kp*(q_des-q)+kd*(dq_des-dq)+tau_ff`; positions are radians, velocity rad/s and feedforward torque N·m. Increasing stiffness can cause oscillation; manual guidance requires much lower stiffness plus appropriate gravity compensation, not simply zero torque. The portal's complete example lacks a general collision/fault-supervised trajectory and guaranteed crash cleanup; it is a source to inspect, not a certified motion recipe. [Control/gain explanation](https://support.unitree.com/home/en/R1_developer/arm_control_routine)
+
+### Preset and custom actions <a href="#preset-and-custom-actions" id="preset-and-custom-actions"></a>
+
+R1's action service is `arm`, with request/response topics `rt/api/arm/request` and `rt/api/arm/response`, JSON parameters/data, and a model-specific client example at the pinned SDK2 revision. G1's arm-action client is not interchangeable: overlapping service/API IDs do not give matching actions or error meanings. [Arm action article](https://support.unitree.com/home/en/R1_developer/arm_action_interface), [pinned R1 client example](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/example/r1/high_level/r1_arm_action_example.cpp)
+
+| API                 | Parameter / behavior                                                                                     |
+| ------------------- | -------------------------------------------------------------------------------------------------------- |
+| 7106 preset execute | `action_id`; blocking until action completes; use a sufficient RPC timeout and check its return          |
+| 7107 action list    | Read available preset/custom actions; server list overrides static tables                                |
+| 7108 custom execute | Case-sensitive `action_name`; asynchronous, releases after completion                                    |
+| 7113 custom stop    | Returns arms toward the initial pose; not a force-off stop; returns0 even if nothing was playing         |
+| 7110 teach          | Named start; article describes empty parameters as both heartbeat and stop—see unresolved boundary below |
+| 7111 pause          | Explicit `pause` true/false; paused motion is not recorded                                               |
+| 7109 rename         | `pre_name`, `new_name`; stored-data modification                                                         |
+| 7112 delete         | `action_name`; stored-data deletion                                                                      |
+
+The accessible portal lists the following **firmware-dependent** preset catalog. This is not a promise that every current robot supports it. Values are source durations/hold flags; read GetActionList before selecting an action. [Action list](https://support.unitree.com/home/en/R1_developer/arm_action_interface)
+
+| ID         | Action identifier                                                 | Seconds     | Holds final pose |
+| ---------- | ----------------------------------------------------------------- | ----------- | ---------------- |
+| 99         | release\_arm                                                      | —           | No               |
+| 11 /12 /13 | blow\_kiss\_with\_both\_hands /left\_hand /right\_hand            | 3 /3 /3     | No               |
+| 15         | both\_hands\_up                                                   | 1           | Yes              |
+| 17         | clamp (clap)                                                      | 2.2         | No               |
+| 18 /19     | high\_five /hug                                                   | 1 /2        | Yes              |
+| 22 /23     | refuse /right\_hand\_up                                           | 0.9 /1      | Yes              |
+| 24         | ultraman\_ray                                                     | 2.1         | Yes              |
+| 25 /26     | wave\_under\_head /wave\_above\_head                              | 2.6 /5.7    | No               |
+| 27         | shake\_hand                                                       | 1           | Yes              |
+| 28 /29 /30 | box\_left\_hand\_win /box\_right\_hand\_win /box\_both\_hand\_win | 1 /1 /2.5   | Yes              |
+| 31         | extend\_right\_arm\_forward                                       | 1           | Yes              |
+| 33         | right\_hand\_on\_heart                                            | 1.6         | Yes              |
+| 34 /35 /36 | both\_hands\_up\_deviate\_right /emphasize /forward\_push         | 1 /0.6 /1.5 | Yes              |
+
+While holding, another action is rejected with7401;99 or the same held action releases toward the initial pose. Holding lasts at most20 s. `rt/arm/action/state` is documented as10 Hz JSON with `holding`, `id`, `name`; custom playback uses id100 and teaching−1. Do not interpret completion of a blocking call as force release. GetActionList returns preset/custom arrays; entries may include state restrictions (`fsm`) and custom duration (`time`). [State/holding contract](https://support.unitree.com/home/en/R1_developer/arm_action_interface)
+
+Action errors are7399 internal,7400 upper-body/topic occupied or action running,7401 holding,7402 invalid ID,7403 missing/corrupt action,7404 current controller-state rejection,7405 rename collision,7406 low battery and7407 motor error. The portal associates7406 with battery below6%; that is a service rejection threshold, **not** permission to keep operating down to6% against the battery manual's earlier stop recommendation. Generic3103/3104/3204 mean unregistered API/timeout/bad parameter. Preserve response codes and measured state rather than retrying a motion blindly. [Errors](https://support.unitree.com/home/en/R1_developer/arm_action_interface)
+
+Teaching records the same13 upper-body joints at100 Hz, switches to low stiffness and needs qualified physical support. Names allow letters/digits/underscore/hyphen/colon; duplicate names overwrite silently, and recording ends/saves at180 s. The article requires1 s heartbeats and times out after10 s, but assigns an empty parameter to **both heartbeat and stop**. The pinned example implements execute/list/stop-custom, not this teach handshake. Do not invent a distinguishing field or publish a working teach client until the delivered service contract is clarified. Rename/delete can destroy or replace user data; back it up first. [Teaching APIs](https://support.unitree.com/home/en/R1_developer/arm_action_interface), [pinned example scope](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/example/r1/high_level/r1_arm_action_example.cpp)
+
+### Hand interfaces and index/encoding differences <a href="#hand-interfaces-and-indexencoding-differences" id="hand-interfaces-and-indexencoding-differences"></a>
+
+Internally wired Dex1-1/Dex2/5 use body slots31/33 for left/right gripper or four-finger groups; Dex2/5 additionally uses32/34 for left/right thumb. The article requires selecting the actual peripheral model in Explore and restarting. It says Dex2/5 supports **torque control only**, while its generic closing paragraph suggests KP40/KD2. Do not convert that generic PD advice into a Dex2/5 position-control recipe. Verify the model-specific hand SDK and service. [Internal hand mapping](https://support.unitree.com/home/en/R1_developer/Dex1-1%20and%20Dex2_5%20Dexterous%20Hands)
+
+Dex3-1 is a separate seven-motor hand with thumb0–2, **middle3–4**, index5–6 in HG IDL. Left URDF numbering differs: zero/one/two→IDL0/1/2, five/six→3/4, three/four→5/6; the right URDF zero…six maps sequentially. Publish/subscribe uses `rt/dex3/{left,right}/cmd` /`state`, not body slots31–34. The about-page range12–58 V and separate hand table's rated24 V describe different electrical quantities; confirm the actual hand/harness. Sensor count is also revision/option-dependent: one article says9 arrays, another6 tactile locations. [Dex3 parameters/mapping](https://support.unitree.com/home/en/R1_developer/about_R1), [hand article](https://support.unitree.com/home/en/R1_developer/dexterous_%20hand)
+
+The hand article mixes a raw20-byte serial `MotorCmd_t` (FE EE header, mode/timeout, integer torque/speed/position/gains, CRC) into its DDS description. That raw packet is **not** the generated floating-point HG `MotorCmd_` memory layout. Its sample mode comments also disagree with assigned values, and the grip example disables timeout despite a contradictory comment. Do not transmit those examples unchanged or infer a safe stop from their function names. The state-normalization example clamps joint angles to0–1; those are display fractions, not measured gripping force. [Hand examples and raw-frame text](https://support.unitree.com/home/en/R1_developer/dexterous_%20hand), [HG motor messages](https://support.unitree.com/home/en/R1_developer/basic_services_interface)
+
+The portal declares `unsigned short data[12]` tactile samples while also saying valid values begin at100000—outside a16-bit field. At the inspected pin, **`PressSensorState_` actually has float `pressure[12]`, float `temperature[12]`, uint32 `lost` and `reserve`**. No source justifies applying the old100000/30000 sentinels or scaling to that generated schema. Resolve firmware/type/units first; missing or lost tactile data is not zero contact. [Portal tactile paragraph](https://support.unitree.com/home/en/R1_developer/dexterous_%20hand), [actual generated sensor type](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/idl/hg/PressSensorState_.hpp)
+
+Third-party Revo2/BrainCo and LinkerHand O6 are six-DOF hands using separate USB/serial-to-DDS services. BrainCo topics are `rt/brainco/{left,right}/{cmd,state}`, normalized position/speed0–1, finger order Thumb,Thumb\_aux,Index,Middle,Ring,Pinky; its service examples use IDs126/127 left/right. O6 uses Modbus RTU, topics `rt/linker/{left,right}/{cmd,state}`, normalized position/speed/torque0–1 (open0,closed1) and Thumb,Thumb Abduction,Index,Middle,Ring,Little. Service setup/build/test/autostart scripts are active deployment; tests repeatedly actuate hands. Links to manufacturer SDKs and Unitree service repositories are retained as resources, not as verified installations. Keep one service owner per physical adapter and inspect logs/status before any separately approved control. [BrainCo service](https://support.unitree.com/home/en/R1_developer/brainco_hand), [Linker service](https://support.unitree.com/home/en/R1_developer/LinkerBot%20development)
+
+### Voice, audio playback and light interfaces <a href="#voice-audio-playback-and-light-interfaces" id="voice-audio-playback-and-light-interfaces"></a>
+
+The portal describes network voice assistance for `chat go>=1.9.2.75`, separate from the offline ASR/TTS service. It uses “Hello Robot” wake-up or press-to-talk: L1+L2 changes mode, L2+SELECT wakes/records while held, release submits, L1+SELECT interrupts. Wake conversation ends after15 s silence. Blue/green breathing helps distinguish heard audio and awakened input; recordings can be affected by playback/noise/distance. The article's suggestion to stand within1 m of the microphones is voice troubleshooting, not a general safe robot clearance. Voice commands can trigger actions; keep interaction off during a status-only check. Cloud provider identity/privacy and whether a voice action is installed are not independently verified here. [Voice article](https://support.unitree.com/home/en/R1_developer/voice_assistant_instructions)
+
+Imported playback uses Explore→go→More Functions→Player. The article requires Android/iOS1.6.1+, Vui Service2.2.0.9+, Webrtc Bridge1.0.0.2+, Audio Hub1.0.0.1+. File format is WAV,16 kHz **mono**, at most10 MB and3 minutes; stereo is not supported. The listed speech-synthesis providers are source examples, not a requirement to use a paid external service. A synthesized voice/persona name is not an audio encoding. [Playback instructions](https://support.unitree.com/home/en/R1_developer/audio_playback)
+
+SDK audio/light functions require Vui\_Service≥2.2.0.0 and Vui Module≥2.0.0.3. The portal describes four microphones,20 mm spacing and8 Ω/3 W speakers with5 W peak wording. Its introduction says local TTS only Chinese, while the API table lists speaker0 Chinese and1 English with no mixed-language mode; confirm the installed service instead of promising either language universally. The article's code uses G1 AudioClient, but the pinned SDK has an actual **`unitree::robot::r1::AudioClient`**. Its `PlayStop()` discards the RPC call result and returns0, so that zero alone cannot confirm playback stopped; check actual play-state feedback before relying on silence. [VUI article](https://support.unitree.com/home/en/R1_developer/VuiClient_Service), [R1 audio header](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/robot/r1/audio/audio_client.hpp)
+
+| Audio/light function                 | Contract                                                                                                              |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `TtsMaker(text,speaker_id)`          | Starts speech; select installed voice/language, check status                                                          |
+| `GetVolume` /`SetVolume`             | 0–100; setter changes device state                                                                                    |
+| `LedControl(R,G,B)`                  | Each0–255; portal requests more than200 ms between calls                                                              |
+| `PlayStream(app_name,stream_id,pcm)` | 16 kHz mono16-bit PCM; same stream ID continues cached playback, a different ID interrupts                            |
+| `PlayStop(app_name)`                 | Playback stop request, not motion stop; pinned implementation returns0 without propagating the underlying Call result |
+
+Subscribe to `rt/audio_msg` as `std_msgs::msg::dds_::String_` for JSON ASR and play state. Recognition fields are sequence `index`, timestamp, text, angle0–180, speaker ID, emotion/sense, confidence, language and final flag; play\_state0/1 means stopped/started. The source JSON is illustrative and has a missing comma; its table calls `is_final` integer while its example uses Boolean. Parse actual strict JSON with schema/version checks. The raw microphone example joins multicast239.168.123.161:5555 for16 kHz16-bit mono PCM, records5 s and changes volume/lights/TTS before recording; it is not a passive ASR-only diagnostic. No microphone/audio program was run. [VUI messages and example](https://support.unitree.com/home/en/R1_developer/VuiClient_Service)
+
+### EDU stereo video: services, ports and formats <a href="#edu-stereo-video-services-ports-and-formats" id="edu-stereo-video-services-ports-and-formats"></a>
+
+The SDK overview's older statement “GST unsupported” conflicts with the later detailed streaming article, which requires **Patch≥1.0.1.17, R1 Stereo Patch PC1≥0.0.1.42, R1 Stereo Patch X5≥0.0.0.17, Stereo Patch PC1≥0.4.0.4 and System\_patch\_pc4≥2.0.0.0**. Record actual service versions before selecting this path. AIR's monocular hardware is not made stereo by a family guide. [Overview limitation](https://support.unitree.com/home/en/R1_developer/sdk_overview), [streaming requirements](https://support.unitree.com/home/en/R1_developer/video_service)
+
+The documented Explore→Settings→Service Status workflow stops `video_hub` to avoid conflict and starts the appropriate Stereo patch service; that service is not necessarily autostarted. Changing services is active configuration and does not belong to the first telemetry-only result. The receiving/visualization examples run on the accompanying NX dock with a screen or remote desktop. [Push-service procedure](https://support.unitree.com/home/en/R1_developer/video_service)
+
+| Output                               | Documented transport / decoder                                                                                 |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| `img`, nominal1280×720               | UDP5001, RTP H264,90 kHz clock,payload96; depay→H264 decode→display                                            |
+| Processed left/right, nominal544×448 | UDP5002/5003, same H264 RTP pipeline                                                                           |
+| Depth, nominal544×448 at10 Hz        | `/dev/video-dep` V4L2 loopback after `unitree_depth_start`; stop receiver with `unitree_depth_stop` afterwards |
+| Original left/right                  | UDP5004/5005, RTP JPEG,payload96; JPEG depay/parse/decode, **not** H264                                        |
+
+Use negotiated caps/frame timestamps to determine actual output; the manufacturer gives GStreamer `fakesink -v` inspections as well as display pipelines. Starting a receiver does not establish that the correct service is sending, and a colored window does not establish calibrated distance. The depth sample reads16-bit values, treats0/65535 as invalid, uses percentile or chosen display range, divides by1000 for a source-described meter display, supports color-map selection/save and closes descriptors/windows. It can return the **last cached frame after read failures**, and selects the first listed V4L2 resolution rather than proving the current format. Add explicit capture time, age, current-format and metric-calibration checks in an independent pipeline before using data for motion. Its UI uses q to quit, s to save a color PNG plus raw .npy, c to switch color map and +/− to change a manually selected normalization range (the default automatic range is unchanged by those keys). The unmodified sample is not presented as a verified fresh-depth driver. [Depth example](https://support.unitree.com/home/en/R1_developer/video_service)
+
+For source-supported resolution/rate configuration, the article uses **http://192.168.123.161:9080** from the dock after the relevant service switch, saves/synchronizes settings and says they take effect after a power cycle. The same page offers `cam_param.txt` stereo calibration download. This is a robot-side configuration endpoint, not `.164` developer-host identity or a universal public web URL. Retain the camera's serial/service/configuration with calibration; changing resolution can invalidate a previously assumed intrinsic matrix. No service, camera or web endpoint was contacted during this work. [Configuration and calibration](https://support.unitree.com/home/en/R1_developer/video_service)
+
+### Mid360 SLAM and navigation: optional, bounded service <a href="#mid360-slam-and-navigation-optional-bounded-service" id="mid360-slam-and-navigation-optional-bounded-service"></a>
+
+The article targets **R1 EDU with Mid360**, static feature-rich flat indoor areas, with X/Y extent less than45 m. It is an education/research interface, not an industrial-navigation qualification. Avoid high-impact movement, lidar hot-plugging and loose/non-forward sensor mounting. Check stationary point-cloud layering and IMU anomalies before use; damaged sensors need supplier service. Its frame originates at the Mid360 IMU, +X forward/+Z up. [SLAM scope](https://support.unitree.com/home/en/R1_developer/slam_navigation_services_interface)
+
+Documented endpoints are NX developer compute192.168.123.164, lidar192.168.123.120 and robot192.168.123.161. Match actual wiring/addresses and unused host subnet allocation; this does not resolve PC1/PC2 naming. Service **`slam_operate`**, version **1.0.0.1**, uses DDS RPC JSON. Each response carries `succeed`, `errorCode`, `info`, `data`; check both transport/RPC result and service result. The source's commented/trailing-comma JSON is illustrative, not strict parser input. [Network/service definition](https://support.unitree.com/home/en/R1_developer/slam_navigation_services_interface)
+
+| API ID     | Operation               | Required data / effect                                                        |
+| ---------- | ----------------------- | ----------------------------------------------------------------------------- |
+| 1801       | Start mapping           | `data.slam_type="indoor"`; active mapping state                               |
+| 1802       | End/save map            | `data.address` is PCD path; can replace a stored file                         |
+| 1804       | Initialize/relocalize   | Position x/y/z, quaternion q\_x/q\_y/q\_z/q\_w and map address                |
+| 1102       | Navigate                | `targetPose` with position/quaternion and mode1; commands whole-body movement |
+| 1201 /1202 | Pause/resume navigation | Empty `data` objects; resume can restart movement                             |
+| 1901       | Close SLAM              | Empty `data`; service-state change                                            |
+
+Navigation requests are limited to30 m between current and target positions and described as straight-line movement. The lidar limitation on obstacles below50 cm means this service cannot establish all-obstacle protection. Pause/resume is not a dedicated hard-stop circuit. Never take a successful RPC as evidence of a collision-free route or arrival. Map retention/overwrite should follow an explicit backup policy rather than silently following the source's reuse of test1–test10 names. [Service limits](https://support.unitree.com/home/en/R1_developer/slam_navigation_services_interface)
+
+| DDS topic                               | Type / content                                            |
+| --------------------------------------- | --------------------------------------------------------- |
+| `rt/unitree/slam_mapping/points`        | `sensor_msgs::msg::dds_::PointCloud2_` mapping cloud      |
+| `rt/unitree/slam_mapping/odom`          | `nav_msgs::msg::dds_::Odometry_` mapping pose             |
+| `rt/unitree/slam_relocation/points`     | PointCloud2 relocation cloud                              |
+| `rt/unitree/slam_relocation/odom`       | Odometry relocation pose                                  |
+| `rt/unitree/slam_relocation/global_map` | PointCloud2 global map, sent once after relocation starts |
+| `rt/slam_info`                          | `std_msgs::msg::dds_::String_` JSON state/pose/control    |
+| `rt/slam_key_info`                      | String JSON per-task result                               |
+
+`robot_data` includes motor temperatures/errors, battery mA/%/°C/mV and CPU temperature/usage/memory/frequency; gait/sport−1 fields are unavailable, not measured modes. `pos_info`/`mapping_info` carries current position/quaternion and PCD identity/path. `ctrl_info` carries start/target pose, navigation state flags/velocities, obstacles and timing/progress. `task_result` reports target identity and `is_arrived`. Retain `sec/nanosec`, error and description; do not confuse an accepted target with final task success. SLAM quaternion order q\_x/q\_y/q\_z/q\_w differs from the IMU array's w-first order. [Topic formats](https://support.unitree.com/home/en/R1_developer/slam_navigation_services_interface)
+
+The article links a4 June2026 R1 EDU Mid360 package and describes `unitree_slam`, `mid360_driver`, `keyDemo` plus RViz2 configurations under the installed module directory. Starting these changes system behavior and can move the robot. The dock has limited resources; the article discourages resource-heavy concurrent work such as RViz2 during SLAM. No package, daemon, lidar, mapping or navigation task was run. [Package/demo reference](https://support.unitree.com/home/en/R1_developer/slam_navigation_services_interface)
 
 ## Getting started <a href="#getting-started" id="getting-started"></a>
 
@@ -163,7 +423,7 @@ See [supine figures, scans 15–17](https://doc-cdn.unitree.com/static/2026/7/8/
 
 ### Conditional R1 EDU 26-actuator telemetry checkpoint <a href="#conditional-r1-edu-26-actuator-telemetry-checkpoint" id="conditional-r1-edu-26-actuator-telemetry-checkpoint"></a>
 
-Proceed only on an identified, already commissioned **R1 EDU with the exact 26-actuator configuration**, manufacturer-confirmed firmware/IDL pairing, and an already provisioned host/network. The inaccessible developer portal prevents this guide from verifying the R1-specific IP/subnet, interface allocation, onboarding procedure or firmware pairing. Do not reuse a Go2 IP, install packages speculatively or change the active robot's network just to run this check.
+Proceed only on an identified, already commissioned **R1 EDU with the exact 26-actuator configuration**, manufacturer-confirmed firmware/IDL pairing, and an already provisioned host/network. Actual portal articles now document R1 network roles and interfaces, with PC1/PC2 naming conflicts retained below. They still do not verify the installed firmware/IDL pair. Use the approved delivered configuration rather than changing a robot network or installing packages speculatively.
 
 For a later authorized session on that verified setup, the original OpenELAB `r1_read_state.py` accompanying this guide subscribes to `rt/lowstate`, reads for at most ten seconds and closes the subscriber after receiving three distinct ticks or timing out. It imports only `ChannelFactoryInitialize`, `ChannelSubscriber` and the HG `LowState_` from SDK2. Its receive calls and timeout/close behavior follow the inspected [channel implementation](https://github.com/unitreerobotics/unitree_sdk2_python/blob/814556d15970dd2ecf1c9984e845ca02ab07e206/unitree_sdk2py/core/channel.py). It never creates a robot command publisher or requests control ownership.
 
@@ -174,6 +434,77 @@ python3 r1_read_state.py --interface YOUR_VERIFIED_ROBOT_INTERFACE --edition R1-
 `YOUR_VERIFIED_ROBOT_INTERFACE` is a required substitution supplied from the approved setup record. The `--edition` option is an operator acknowledgment, not automatic hardware detection. The script checks a 35-slot message before extracting the 26 positions above. It displays raw joint `q` values, `tick` and `mode_machine`; do not infer units, calibration quality or safe ranges from plausible numbers.
 
 **Expected result:** three records with distinct ticks, followed by a telemetry-only PASS message. No numeric log is claimed as observed here. On no data, wrong array length, type errors or unexpected edition, close the reader and inspect firmware/interface/IDL support; do not call `ReleaseMode()`, start a publisher, disable control services or enter debug to “fix” reception. A subscriber still participates in DDS discovery; it is not electrically passive packet capture. The script and SDK have not been executed against a robot.
+
+### Portal-aware preflight for an EDU telemetry session <a href="#portal-aware-preflight-for-an-edu-telemetry-session" id="portal-aware-preflight-for-an-edu-telemetry-session"></a>
+
+The portal now establishes model-specific network and interface references; it still cannot identify the delivered robot's firmware, hand options or actual NIC. Keep the first result as identity/state reception, with no command publisher, ownership transfer, service toggle, audio command or posture transition.
+
+1. Record the same seven-SKU/physical-edition identity used above. For the26-actuator reader, confirm that exact configuration, approved host and35-slot HG message schema. AIR, an expanded hand/arm configuration or a source comment borrowed from G1 does not satisfy that condition.
+2. Have the trained operator establish the supported posture, clearance and fitted stop system. Confirm ordinary controller ownership; do **not** enter debug for a subscriber. Never assume standing lock, damping, zero torque or a support frame provides autonomous balance.
+3. On the authorized user/developer computer, identify the dedicated robot-facing NIC and approved unused192.168.123.x/24 host address. The portal distinguishes `.161` robot services from `.164` optional development compute, while PC1/PC2 labels conflict. Resolve identity from the delivered setup record before any login or network change.
+4. Use the pinned two-argument initialization in the existing original reader. Run it only in an already provisioned, firmware-matched environment. Three distinct ticks, valid message shape and plausible finite measured positions establish telemetry reception only; they do not validate calibration, support, payload or safe joint motion. Preserve raw mode-machine instead of reinterpreting a copied enum comment.
+
+The unchanged original `r1_read_state.py` source is included below for review; SDK imports are delayed until its main function and were not executed here. Its output is the bounded expected result described above, not a hardware log. The script does not validate every possible stale/invalid sensor field; an integration pipeline still needs age, finite-value, sequence/rollover and fault handling appropriate to its task.
+
+```python
+"""Original OpenELAB finite state reader; network/SDK execution is not validated.
+Requires an already provisioned and firmware-matched R1 EDU environment.
+Never publishes a robot command or changes motion-service ownership.
+"""
+import argparse
+import json
+import time
+
+# These are 26 actuator positions in the inspected R1 example's HG IDL array.
+# They are not a contiguous 0..25 array and are not a map for AIR or expanded EDU.
+R1_26_SLOTS = tuple(range(14)) + tuple(range(15, 20)) + tuple(range(22, 27)) + (29, 30)
+
+
+def summarize(sample):
+    if len(sample.motor_state) != 35:
+        raise ValueError("Unexpected HG motor-state array length; stop and verify IDL/firmware")
+    return {
+        "tick": int(sample.tick),
+        "mode_machine": int(sample.mode_machine),
+        "r1_26_actuator_positions": [float(sample.motor_state[i].q) for i in R1_26_SLOTS],
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--interface", required=True, help="verified dedicated robot network interface")
+    parser.add_argument("--edition", required=True, choices=["R1-EDU-26"])
+    args = parser.parse_args()
+    # Delayed imports allow offline parsing/testing without loading any vendor package.
+    from unitree_sdk2py.core.channel import ChannelFactoryInitialize, ChannelSubscriber
+    from unitree_sdk2py.idl.unitree_hg.msg.dds_ import LowState_
+
+    ChannelFactoryInitialize(0, args.interface)
+    sub = ChannelSubscriber("rt/lowstate", LowState_)
+    sub.Init()
+    ticks = set()
+    deadline = time.monotonic() + 10.0
+    try:
+        while time.monotonic() < deadline and len(ticks) < 3:
+            sample = sub.Read(timeout=0.5)
+            if sample is not None:
+                row = summarize(sample)
+                ticks.add(row["tick"])
+                print(json.dumps(row))
+    finally:
+        sub.Close()
+    if len(ticks) < 3:
+        raise SystemExit("No three distinct state ticks; stop and check edition/firmware/interface/DDS")
+    print("PASS: three distinct ticks; telemetry reception only, not calibration or safety validation")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+The portal's remote-control sticker is explicitly for control version≥1.0.2.0. Its preparation mode takes about5 s and has **no balance control**; it also states stair climbing is not deployed and warns against lie/squat with hands or on unsuitable ground. Treat these as versioned operator conditions alongside the manual, not new automatic recovery keys. Its button table uses hold-modifier/click descriptions, while emergency soft damping in operation requires a>5 s hold. A visible LED, successful API return or released stop request does not establish robot recovery. [Remote version/mode definitions](https://support.unitree.com/home/en/R1_developer/remote_control), [startup procedure](https://support.unitree.com/home/en/R1_developer/quick_start)
+
+A later motion project is a separate commissioning task: choose **one** of whole-body low-level control with confirmed debug ownership, high-level LocoClient with the resident controller, upper-body `arm_sdk`, or the action service. Confirm its release/timeout/physical-stop behavior and keep other publishers out. The SDK ankle, arm, hand, navigation and remote demonstration programs all change actuation or system state; none is required to prove state reception. [Development categories](https://support.unitree.com/home/en/R1_developer/application_development), [basic development](https://support.unitree.com/home/en/R1_developer/basic_motion_development), [high-level development](https://support.unitree.com/home/en/R1_developer/high_motion_development), [other examples](https://support.unitree.com/home/en/R1_developer/more_cases)
 
 ## Troubleshooting and FAQs <a href="#troubleshooting-and-faqs" id="troubleshooting-and-faqs"></a>
 
@@ -223,6 +554,58 @@ Store the removed pack dry, away from heat, conductive objects and children. The
 
 Do not reuse or ship a swollen, punctured, wet or heavily impacted pack. Arrange qualified battery handling/recycling; do not attempt to force-discharge a damaged pack. Battery disposal, radio permissions, warranty and shipping depend on the actual product and location. The manuals' own legal, radio and warranty chapters are linked in the source index rather than reproduced as new OpenELAB terms. [U35](https://doc-cdn.unitree.com/static/2026/7/8/cc2c70c4183846f69bacacca7b364f1f_2481x3509.png) [U36](https://doc-cdn.unitree.com/static/2026/7/8/7a85b89b255e46f08a352b5f2cba39b2_2481x3509.png) [U37](https://doc-cdn.unitree.com/static/2026/7/8/837b209e8b234343b7503a2c4017219d_2481x3509.png) [U38](https://doc-cdn.unitree.com/static/2026/7/8/24feb845fb2e4aa4b1020f63af1cba55_2481x3509.png) [U39](https://doc-cdn.unitree.com/static/2026/7/8/83829b4623354eb19ae4c9ba6ef2d244_2482x3509.png) [B10](https://doc-cdn.unitree.com/static/2026/5/27/126be7f6717543ac91bcc52707493cb2_2481x3508.png)
 
+### Portal fault namespaces: do not combine unrelated code tables <a href="#portal-fault-namespaces-do-not-combine-unrelated-code-tables" id="portal-fault-namespaces-do-not-combine-unrelated-code-tables"></a>
+
+DDS RPC, whole-device status, individual motor bits, battery alarms and arm-action errors have separate meanings. Record the field/topic, complete numeric value, time, firmware and circumstances. A zero unreported field or transport timeout cannot establish healthy motors. [DDS errors](https://support.unitree.com/home/en/R1_developer/dds_services_interface), [device/motor/BMS definitions](https://support.unitree.com/home/en/R1_developer/common_istakes_and_definitions)
+
+| RPC code         | Interpretation                                                 |
+| ---------------- | -------------------------------------------------------------- |
+| 3001             | Unclassified error                                             |
+| 3102 /3103 /3104 | Client send failure /unregistered API /request timeout         |
+| 3105 /3106 /3107 | Request-response mismatch /invalid reply /invalid client lease |
+| 3201             | Server response-send failure; not normally returned to client  |
+| 3202 /3203 /3204 | Server internal error /unimplemented API /invalid parameter    |
+| 3205 /3206 /3207 | Rejected request /invalid server lease /lease already exists   |
+
+A timeout does not prove an active action stopped. Repeated state-changing retries can overlap a still-running operation; inspect actual controller state before retrying. For timeout overloads, client/server versions, subscriber receive paths and lease blocking, use **DDS initialization and message contracts** above, including the explicit `SetTimeout(2.0f)` seconds-valued example. Handle each return code from this table before using output data. [Portal DDS APIs](https://support.unitree.com/home/en/R1_developer/dds_services_interface), [pinned overloads](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/include/unitree/robot/client/client_base.hpp)
+
+| Whole-device bit    | Source meaning                                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 0x1                 | Upper-control command error                                                                                                          |
+| 0x2 /0x4 /0x8       | Lower-layer /IMU /motor feedback timeout                                                                                             |
+| 0x10 /0x20          | Battery /physical-remote feedback timeout                                                                                            |
+| 0x40 /0x80 /0x100   | Battery-model mismatch /soft-start error /motor-state error                                                                          |
+| 0x200 /0x400 /0x800 | Source-described motor current/voltage threshold protections; high/low-limit wording is inconsistent, obtain firmware interpretation |
+| 0x1000 /0x2000      | Soft-stop request /serial-number error                                                                                               |
+| 0x4000 /0x8000      | Upper/lower model mismatch                                                                                                           |
+| 0x10000 /0x40000    | USB device fault /pelvis IMU timeout                                                                                                 |
+| 0x80000 /0x100000   | Mainboard battery-/motor-undervoltage judgment                                                                                       |
+
+| Motor bit                 | Source meaning                                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| 0x1 /0x2 /0x4 /0x8        | Overcurrent /transient overvoltage /sustained “overpressure” (source wording; verify) /transient undervoltage |
+| 0x10 /0x20 /0x40          | Chip temperature /MOS hot-or-cold protection /MOS temperature abnormality                                     |
+| 0x80 /0x100 /0x200        | Shell hot-or-cold protection /shell temperature abnormality /winding overheat                                 |
+| 0x400 /0x800 /0x1000      | Rotor encoder1 /rotor encoder2 /output encoder error                                                          |
+| 0x2000 /0x4000            | Calibration/BOOT data /abnormal reset                                                                         |
+| 0x8000 /0x10000           | Motor locked/authentication /chip verification                                                                |
+| 0x20000 /0x40000 /0x80000 | Calibration warning /communication verification /driver version too old                                       |
+| 0x40000000 /0x80000000    | Motor judges PC timeout /PC judges motor-disconnect timeout                                                   |
+
+The original table repeats several rows and contains translation anomalies. Unknown bits remain unknown; do not invent meanings for gaps or infer reset permission from an error label. Preserve the complete mask and use Unitree's revision-specific diagnostic process. [Original code table](https://support.unitree.com/home/en/R1_developer/common_istakes_and_definitions)
+
+For HG BMS `bmsstate[5]`, index0 is battery type,2 alarms,4 valid series count;1/3 are undefined. Validate series count before interpreting the40-entry cell array. Alarm bits are0 cell overvoltage (>4.25 V),1 cell undervoltage (<2.9 V),2 dead cell (<2.5 V),3/4 total over/undervoltage,5/6 charge overcurrent stages,7/8 discharge overcurrent stages,9/10 charge/discharge short circuit,11 MOS overtemperature,12 battery overtemperature,13 battery low temperature,14 balancing temperature,15 open cell,16 imbalance,17 FET driver,18 chip system/init,19 analog sensing deviation,20 parallel/duplex error and21–31 reserved. These are **alarm definitions, not charging setpoints or permission to operate to cutoff**. Keep the dedicated pack manual's charging/temperature/early-stop requirements above. [BMS field/alarm table](https://support.unitree.com/home/en/R1_developer/common_istakes_and_definitions)
+
+### EDU compute backup and recovery boundary <a href="#edu-compute-backup-and-recovery-boundary" id="edu-compute-backup-and-recovery-boundary"></a>
+
+The portal's backup article concerns the **optional docking-compute NVMe**, not a robot-motor firmware reset or an account unlock. It requires removing that drive and using an NVMe enclosure plus a host; the article warns about damage/service terms. Identify the correct physical device by serial/capacity/mounts, preserve a backup and verify its hash before any restore. No drive was removed, formatted, written or imaged here. [Backup/recovery](https://support.unitree.com/home/en/R1_developer/Backup%20and%20Recovery)
+
+The documented personal-backup path reads a complete disk into a compressed image; restoration reverses that process and overwrites the target. Its example `/dev/sdc` is **not a device to copy onto another machine**, and formatting is destructive. The article quotes≥300 GB free space and hours for that path. Those requirements do not identify the installed NVMe size or a universal restore time. Do not publish its root `dd/mkfs` examples as an unattended repair recipe.
+
+Factory images are separately named `r1_nx_img_jetpack5.1.1_v2603.tar.gz` for100 TOPS NX and `r1_nano_img_jetpack5.1.1_v2603.tar.gz` for40 TOPS Nano. The factory script workflow specifies a physical x86 Ubuntu20.04/22.04/24.04 host, **no VM**, dependencies partclone/gawk/gzip/parted/util-linux/udisks2, extracted `disk_backups` beside `disk_recovery.sh`, explicit image/disk selection and erasure confirmation. Its approximate10-minute claim concerns that partition-image path, not the personal whole-disk path. Resolve actual compute variant, source/checksum and backup coverage with the supplier before an approved restore. The archive/script contents were not downloaded or executed. [Factory image instructions/resources](https://support.unitree.com/home/en/R1_developer/Backup%20and%20Recovery)
+
+A compute-image restore does not establish matching robot controller/IDL, hand calibration, credentials, cloud binding or all application data. Reconnect only under the approved configuration and repeat identity/state verification before any motion. Physical faults, model mismatches or repeated communication/temperature alarms require supplier diagnosis rather than repeated reflash, service disabling or broadened joint limits.
+
 ## Downloads and technical documents <a href="#downloads-and-technical-documents" id="downloads-and-technical-documents"></a>
 
 | Resource                                                                                                                                                                                                                                                                                                                                                       | Purpose and reviewed scope                                                                                      |
@@ -235,7 +618,7 @@ Do not reuse or ship a swollen, punctured, wet or heavily impacted pack. Arrange
 | [C++ SDK2 at reviewed commit](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/README.md) / [Python SDK2 at reviewed commit](https://github.com/unitreerobotics/unitree_sdk2_python/blob/814556d15970dd2ecf1c9984e845ca02ab07e206/README.md)                                                                      | Read source and licensing; exact delivered EDU firmware compatibility still required                            |
 | [R1 HG source example](https://github.com/unitreerobotics/unitree_sdk2_python/blob/814556d15970dd2ecf1c9984e845ca02ab07e206/example/r1/low_level/r1_low_level_example.py) / [HG message definition](https://github.com/unitreerobotics/unitree_sdk2_python/blob/814556d15970dd2ecf1c9984e845ca02ab07e206/unitree_sdk2py/idl/unitree_hg/msg/dds_/_LowState_.py) | Evidence for topic, type and example-specific index map; example itself commands motion                         |
 
-Schematics, auxiliary pinouts, revision-matched CAD, a complete camera bring-up, firmware recovery images and complete EDU peripheral-installation procedures were not verified. The main developer portal returned HTTP 567 in this research environment; accessible marketing-hosted manuals are **not proof of complete portal coverage**. The following source index covers every accessible image in these three manuals, including cover/revision and legal pages. It provides original engineering interpretation and direct source-image links, not a transcript or a republished facsimile library.
+Actual English portal bodies now add auxiliary ratings, CAD/URDF links, stereo bring-up and compute-image recovery documentation. Linked archives were not validated or executed; exact pin polarity, manufacturing revision and delivered firmware matching still require confirmation. All58 R1 portal text records were read through the official CDN cache; two are empty and19 contain only video resources, whose videos were not watched. This does not claim review of all628 portal articles. The following source index covers every accessible image in these three manuals, including cover/revision and legal pages. It provides original engineering interpretation and direct source-image links, not a transcript or a republished facsimile library.
 
 ### Accessible-manual functional coverage index <a href="#accessible-manual-functional-coverage-index" id="accessible-manual-functional-coverage-index"></a>
 
@@ -315,12 +698,91 @@ Schematics, auxiliary pinouts, revision-matched CAD, a complete camera bring-up,
 | [B9](https://doc-cdn.unitree.com/static/2026/5/27/fe3d698052d34fa5a1e2b84b4be20e78_2481x3508.png) / 11    | Charging / storage safety                     | Supervise charging on a ventilated noncombustible surface, cool the pack first, and separate terminals from metal; ideal storage is 22–28 °C.                       |
 | [B10](https://doc-cdn.unitree.com/static/2026/5/27/126be7f6717543ac91bcc52707493cb2_2481x3508.png) / 12   | Transport / maintenance / disposal / revision | Check long storage charge, obtain transport requirements, isolate damaged packs for qualified handling, and retain the 27 May 2026 V1.1 revision.                   |
 
+### R1 portal source coverage and video resource index <a href="#r1-portal-source-coverage-and-video-resource-index" id="r1-portal-source-coverage-and-video-resource-index"></a>
+
+All58 actual article records are indexed below. Functional text is explained in the corresponding sections above; video-only records prove a resource link, not a reviewed calibration/installation sequence. Article update time is not installed firmware.
+
+| Source                                                                                                                              | Functional coverage / access                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [01: About R1](https://support.unitree.com/home/en/R1_developer/about_R1)                                                           | Edition differences, sparse joint limits, body ports, compute modules, cameras and source conflicts. |
+| [02: Operational Guidance](https://support.unitree.com/home/en/R1_developer/Operational_guidance)                                   | Protective support and the automatically running resident controller.                                |
+| [03: Quick Start](https://support.unitree.com/home/en/R1_developer/quick_start)                                                     | Supine or bracket startup, supported transfer, shutdown and stop-related fall risks.                 |
+| [04: Remote Control](https://support.unitree.com/home/en/R1_developer/remote_control)                                               | Versioned remote controls, preparation without balance, LEDs and hand/terrain limits.                |
+| [05: Voice Assistant Instructions](https://support.unitree.com/home/en/R1_developer/voice_assistant_instructions)                   | Wake or press-to-talk operation, interruption, silence timeout and network-dependent voice behavior. |
+| [06: Audio\_Playback](https://support.unitree.com/home/en/R1_developer/audio_playback)                                              | Explore playback, service-version gates and mono16kHz WAV restrictions.                              |
+| [07: R1 Unboxing Video](https://support.unitree.com/home/en/R1_developer/unboxing)                                                  | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [08: R1 Bracket Installation Video](https://support.unitree.com/home/en/R1_developer/bracket_installation)                          | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [09: R1 Startup Video (Lying Flat)](https://support.unitree.com/home/en/R1_developer/lying_start)                                   | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [10: R1 Startup Video on Bracket](https://support.unitree.com/home/en/R1_developer/bracket_start)                                   | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [11: Remote Control Binding](https://support.unitree.com/home/en/R1_developer/remote_binding)                                       | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [12: Robot Control via Remote Controller](https://support.unitree.com/home/en/R1_developer/remote_robot)                            | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [13: R1 Shutdown Video](https://support.unitree.com/home/en/R1_developer/shutdown)                                                  | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [14: R1 Packing Video](https://support.unitree.com/home/en/R1_developer/packing)                                                    | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [15: Joint Calibration Tutorial (20 DoF)](https://support.unitree.com/home/en/R1_developer/calibration_20dof)                       | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [16: Joint Calibration Tutorial (26 DoF)](https://support.unitree.com/home/en/R1_developer/calibration_26dof)                       | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [17: IMU Calibration Tutorial](https://support.unitree.com/home/en/R1_developer/imu_calibration)                                    | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [18: Development & Debugging Tutorial](https://support.unitree.com/home/en/R1_developer/development_debugging)                      | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [19: EDU Expansion Module](https://support.unitree.com/home/en/R1_developer/edu_expansion)                                          | Empty directory record; no functional procedure.                                                     |
+| [20: Installation Hole Instructions and Usage](https://support.unitree.com/home/en/R1_developer/installation)                       | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [21: Installation of R1 EDU Backpack](https://support.unitree.com/home/en/R1_developer/edu_backpack)                                | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [22: Backup and Recovery](https://support.unitree.com/home/en/R1_developer/Backup%20and%20Recovery)                                 | Optional compute NVMe backup, destructive restoration and model-specific factory images.             |
+| [23: R1 EDU Edition Dexterous Hand Installation](https://support.unitree.com/home/en/R1_developer/Dexterous%20Hand%20Installation)  | Empty directory record; no functional procedure.                                                     |
+| [24: Dex1-1 Dexterous Hand Installation](https://support.unitree.com/home/en/R1_developer/Dex1-1%20Installation)                    | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [25: Dex2/5 Dexterous Hand Installation](https://support.unitree.com/home/en/R1_developer/Dex2-5%20%20Installation)                 | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [26: Dex3-1 Dexterous Hand Installation](https://support.unitree.com/home/en/R1_developer/Dex3-1%20Installation)                    | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [27: LinkerHand O6 Dexterous Hand Installation](https://support.unitree.com/home/en/R1_developer/LinkerHand%20O6%20Installation)    | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [28: Revo 2 Dexterous Hand Installation](https://support.unitree.com/home/en/R1_developer/Revo%202%20Installation)                  | Video resource only; actual link retained, footage not downloaded or watched.                        |
+| [29: Application Development](https://support.unitree.com/home/en/R1_developer/application_development)                             | Application-development stages and editorial video-presentation guidance; no new actuator API.       |
+| [30: SDK Overview](https://support.unitree.com/home/en/R1_developer/sdk_overview)                                                   | Continuous DDS and RPC overview, with a historical GST limitation.                                   |
+| [31: Architecture Description](https://support.unitree.com/home/en/R1_developer/architecture_description)                           | BLE, WebRTC, cloud and local architecture; conflicting PC1/PC2 role labels.                          |
+| [32: Get SDK](https://support.unitree.com/home/en/R1_developer/get_sdk)                                                             | Exact SDK, simplified26-DOF STEP and URDF download entry points.                                     |
+| [33: Quick Development](https://support.unitree.com/home/en/R1_developer/quick_development)                                         | Development host and subnet setup; active ankle example and conflicting computer labels.             |
+| [34: Payload](https://support.unitree.com/home/en/R1_developer/Payload)                                                             | Optional backpack power inputs, regulated outputs, data interfaces and mounting-rail drawings.       |
+| [35: Basic Motion Development](https://support.unitree.com/home/en/R1_developer/basic_motion_development)                           | Low-level publishing ownership and debug transitions; subscriber reception needs no takeover.        |
+| [36: Basic Motion Routine](https://support.unitree.com/home/en/R1_developer/basic_motion_routine)                                   | Parallel ankle PR/AB coordinates and the active500Hz example stages, CRC and telemetry callbacks.    |
+| [37: Joint Motor Sequence](https://support.unitree.com/home/en/R1_developer/joint_motor_sequence)                                   | Sparse26-actuator ordering, empty slots and ambiguous alternate table columns.                       |
+| [38: Remote Control Data](https://support.unitree.com/home/en/R1_developer/remote_control_data)                                     | Forty raw remote bytes and normalized sticks; no invented binary layout.                             |
+| [39: Dex1-1 and Dex2/5 Dexterous Hands](https://support.unitree.com/home/en/R1_developer/Dex1-1%20and%20Dex2_5%20Dexterous%20Hands) | Internal Dex1/Dex2 body indices, peripheral selection and torque-versus-PD inconsistency.            |
+| [40: dexterous\_ hand](https://support.unitree.com/home/en/R1_developer/dexterous_%20hand)                                          | Dex3 motor ordering, URDF mapping, DDS/raw-packet differences and tactile schema conflicts.          |
+| [41: brainco\_hand](https://support.unitree.com/home/en/R1_developer/brainco_hand)                                                  | BrainCo/Revo2 serial-to-DDS service, six-finger ordering and normalized state/control fields.        |
+| [42: LinkerBot development](https://support.unitree.com/home/en/R1_developer/LinkerBot%20development)                               | LinkerHand O6 Modbus-to-DDS service, normalized values and exclusive adapter ownership.              |
+| [43: Services Interface](https://support.unitree.com/home/en/R1_developer/services_interface)                                       | Publish/subscribe versus request/reply service roles.                                                |
+| [44: DDS Services Interface](https://support.unitree.com/home/en/R1_developer/dds_services_interface)                               | Channel/client functions, RPC errors and differences from pinned generated SDK interfaces.           |
+| [45: Robot State Client Interface](https://support.unitree.com/home/en/R1_developer/robot_state_client_interface)                   | Service switching, opposite request/status conventions and copied service names.                     |
+| [46: Basic Services Interface](https://support.unitree.com/home/en/R1_developer/basic_services_interface)                           | HG IMU, motor, low-level and BMS fields; model-comment inconsistency.                                |
+| [47: Sport Services Interface](https://support.unitree.com/home/en/R1_developer/sport_services_interface)                           | R1 LocoClient modes and velocity operations with resident-controller ownership.                      |
+| [48: VuiClient Service Interface](https://support.unitree.com/home/en/R1_developer/VuiClient_Service)                               | AudioClient, ASR JSON, PCM stream ownership, language and return-value limitations.                  |
+| [49: Video\_streaming\_service\_interface](https://support.unitree.com/home/en/R1_developer/video_service)                          | Stereo service versions, five image ports, stale-depth pitfalls and calibration/configuration.       |
+| [50: SLAM and Navigation Services Interface](https://support.unitree.com/home/en/R1_developer/slam_navigation_services_interface)   | Mid360-only SLAM, seven APIs, seven topics, coordinates and navigation limits.                       |
+| [51: High Motion Development](https://support.unitree.com/home/en/R1_developer/high_motion_development)                             | High-level development depends on the built-in controller.                                           |
+| [52: RPC Routine](https://support.unitree.com/home/en/R1_developer/rpc_routine)                                                     | Loco service-version boundary, CLI argument behavior and unchecked-return risks.                     |
+| [53: arm\_control\_routine](https://support.unitree.com/home/en/R1_developer/arm_control_routine)                                   | Thirteen upper-body joints, blend weight, gains, smooth commands and release conditions.             |
+| [54: arm\_action\_interface](https://support.unitree.com/home/en/R1_developer/arm_action_interface)                                 | R1 preset/custom actions, API/state/error tables, teaching ambiguity and authority conflicts.        |
+| [55: More Cases](https://support.unitree.com/home/en/R1_developer/more_cases)                                                       | Other examples are development references, not hardware validation.                                  |
+| [56: Ros2 Communication Routine](https://support.unitree.com/home/en/R1_developer/ros2_communication_routine)                       | ROS2 distributions, middleware/NIC selection, message pairing and separate build environments.       |
+| [57: DDS Communication Routine](https://support.unitree.com/home/en/R1_developer/dds_communication_routine)                         | HelloWorld DDS transport examples do not establish robot-schema compatibility.                       |
+| [58: common\_istakes\_and\_definitions](https://support.unitree.com/home/en/R1_developer/common_istakes_and_definitions)            | Separate device, motor, BMS and RPC fault namespaces with bounded recovery.                          |
+
+### Additional model and compute recovery resources <a href="#additional-model-and-compute-recovery-resources" id="additional-model-and-compute-recovery-resources"></a>
+
+| Resource                                                                                                                | Scope                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [R1 EDU26-DOF simplified STEP](https://oss-global-cdn.unitree.com/static/b46c78eed0d2417c8a2b968df8e8e2b3.zip)          | Observed manufacturerlink;archive notdownloaded orusedformachining      |
+| [R1 URDF](https://github.com/unitreerobotics/unitree_ros/tree/master/robots/r1_description)                             | Modelscope;notnewactuatorpermission                                     |
+| [Ankleparallelmodel](https://oss-global-cdn.unitree.com/static/45c8b6fa817749918465b4ff2c1b7156.zip)                    | PR/ABmechanismreference;notexecuted                                     |
+| [Control-version≥1.0.2.0remote sticker](https://oss-global-cdn.unitree.com/static/34bedfe99eae48a2ab39cefab43c48a2.pdf) | Versionedoperatorreference,notagenericremoteconversion                  |
+| [Factorycomputeimagefolder](https://drive.google.com/drive/folders/1FatwUW_PGPow5CGcFTcr6SBtkPEWblJP?usp=drive_link)    | NX/Nanoimagesnamedintheportal;foldercontentsnotindependentlyinventoried |
+| [Diskrecoveryscriptarchive](https://oss-global-cdn.unitree.com/static/2f3fce8d1c3f473cac06adb5731e950b.zip)             | Destructivecompute-driveworkflow;notdownloadedorexecuted                |
+| [R1EDU/Mid360SLAMpackage](https://oss-global-cdn.unitree.com/static/b81dbc88df5a4d859cdb994e41221ad1.zip)               | Portaldated4June2026;noinstalledversionortestclaim                      |
+
 ## References and validation <a href="#references-and-validation" id="references-and-validation"></a>
 
-Reviewed on **24 November 2026** against the accessible manufacturer product page, original manual images and pinned SDK source. The source-manual scan index above covers 40 user, 11 remote and 10 battery images, including chapter/revision/terms pages. It does not establish access to the blocked main support portal or the QR-linked videos. Product identity comes from the verified OpenELAB catalog/search; source statements are not measurements of a delivered robot.
+Reviewed on **24 November 2026** against the accessible manufacturer product page, original manual images and pinned SDK source. The source-manual scan index above covers 40 user, 11 remote and 10 battery images, including chapter/revision/terms pages. The expansion additionally covers all58 actual R1 portal records via the official CDN, while19 video-only resources remain unwatched and two records are empty. Product identity comes from the verified OpenELAB catalog/search; source statements are not measurements of a delivered robot.
 
 The original read-only example received offline syntax, source-map and mock checks only. No Unitree package, SDK example, robot network, ROS node, firmware operation, calibration, charging session or physical motion was run. Manufacturer-reported outcomes are labeled expected. The original manuals and selected source diagrams remain hosted by Unitree; their text/images are not republished as a replacement manual.
 
 Before hardware commissioning, resolve the exact U1–U6 package, delivered firmware/IDL pairing, pack timing/label discrepancies and fitted stop system. This guide provides a bounded engineering reference; it does not certify a new controller, power supply, attached hand or autonomous behavior. Keep its state-reception workflow distinct from an authorized motion-control commissioning procedure.
 
 **Related documentation:** [Unitree robot and development directory](./).
+
+**Related documentation:** [Unitree model and development directory](./).
