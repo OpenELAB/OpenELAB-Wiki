@@ -49,6 +49,14 @@ These guides distinguish source-reviewed instructions, original offline checks, 
 * [Unitree B2-Ex: chassis and inspection-solution engineering boundaries](unitree-b2-ex.md)
 * [Unitree B1: specifications and unresolved SDK compatibility](unitree-b1.md)
 
+## Earlier robot platforms <a href="#unitree-batch-05" id="unitree-batch-05"></a>
+
+* [Unitree Go1 Air, Pro and EDU: legacy SDK, interfaces and manual guide](unitree-go1.md)
+* [Unitree A1 Standard and Exploration: legacy SDK and manual guide](unitree-a1.md)
+* [Unitree AlienGo: legacy SDK lineages, interfaces and compatibility](unitree-aliengo.md)
+* [Unitree Laikago and Laikago Pro: historical models and ROS resources](unitree-laikago.md)
+* [Unitree XDog: historical quadruped prototype reference](unitree-xdog.md)
+
 ## Unitree Official Site <a href="#unitree-official-site" id="unitree-official-site"></a>
 
 * [Unitree official products](https://www.unitree.com/)
