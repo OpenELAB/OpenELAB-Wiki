@@ -1,8 +1,8 @@
 ---
 description: >-
-  Inspect pinned Unitree ROS 2 interfaces, select GO or HG messages, configure
-  Humble/Cyclone DDS domains and interfaces, and plan a subscriber-only first
-  result with explicit firmware limits.
+  Integrate Unitree ROS 2 messages and Cyclone DDS using subscriber-first
+  checks, exact GO/HG types and corrected official setup, topic and
+  visualization guidance.
 ---
 
 # Unitree ROS 2 integration: message families, Cyclone DDS and subscriber-first checks
@@ -32,7 +32,7 @@ The observed primary manufacturer tables distinguish the following editions. The
 
 Both table notes refer the reader to a secondary-development manual for details. No precise Go2 X permission set, ROS 2-specific access guarantee, minimum/maximum firmware range or mapping from G1 EDU U options to a delivered joint configuration was established by these table rows. Resolve those facts for the actual unit before activating a robot-facing subscriber. The observed table snapshots were reviewed on 24 November 2026; they do not certify later product changes.
 
-**Hardware readiness remains unresolved.** The public support portal was reported blocked with status 567 in the series research; its linked protocol pages were not read here. The instructions below are a reviewable integration recipe, not evidence of a working robot connection. Repository/table review and offline text parsing were performed; ROS execution, installation, compilation, DDS activation and hardware tests were not performed.
+**Hardware readiness remains unresolved.** The official G1 and Go2 ROS 2 articles have now been read and cross-checked against the pinned repository. Exact-model commissioning, delivered firmware and runtime interoperability remain separate qualifications. The instructions below are a reviewable integration recipe, not evidence of a working robot connection. Repository/table review and offline text parsing were performed; ROS execution, installation, compilation, DDS activation and hardware tests were not performed.
 
 ## Applications <a href="#applications" id="applications"></a>
 
@@ -143,6 +143,42 @@ Use an unused destination rather than overwriting an existing checkout. If geome
 Foxy uses a different two-stage upstream workflow: build Cyclone DDS in a terminal without a sourced ROS environment, then source Foxy and build the interface workspace. The mutable `releases/0.10.x`/`foxy` references and CI workspace-path differences must be resolved in a separate validation record; do not label the README sequence an exact dependency lock. [Foxy procedure](https://github.com/unitreerobotics/unitree_ros2/blob/668d1ec5a05d1c38d3306bdca7d59f2ba3581a88/README.md), [CI variants](https://github.com/unitreerobotics/unitree_ros2/tree/668d1ec5a05d1c38d3306bdca7d59f2ba3581a88/.github/workflows/)
 
 The repository's root license is BSD-3-Clause. Retain required notices when redistributing code or snapshots. Vendored dependencies and external middleware have their own notices; the root license is not a firmware-distribution grant. [License](https://github.com/unitreerobotics/unitree_ros2/blob/668d1ec5a05d1c38d3306bdca7d59f2ba3581a88/LICENSE)
+
+### Reading the official ROS 2 workflow against the pinned source <a href="#official-ros2-workflow-and-source-corrections" id="official-ros2-workflow-and-source-corrections"></a>
+
+The official G1 and Go2 ROS 2 articles name Ubuntu 20.04/Foxy and Ubuntu 22.04/Humble as their tested combinations, and say the examples were developed under Foxy. These are manufacturer-reported, source-era combinations, not systems tested by OpenELAB. The articles prescribe Cyclone DDS 0.10.2, `rmw_cyclonedds_cpp` and ROS IDL generation support. Their moving `releases/0.10.x` and ROS branch instructions do not produce an immutable dependency lock; retain the explicit repository/package pins and unresolved runtime-interoperability limits in this guide. [G1 ROS 2 article](https://doc-cdn.unitree.com/11/244/en/11_244_en), [Go2 ROS 2 interface article](https://doc-cdn.unitree.com/6/112/en/6_112_en).
+
+The documented environment sequence has two phases: build the selected Cyclone DDS source before sourcing a conflicting ROS environment, then source the intended ROS installation to build message/interface packages. Use a separate clean terminal or approved build environment to control that distinction; editing a login file with elevated privileges is not a necessary part of this guide. Select one ROS distribution and one intended overlay chain per terminal. A successful `colcon build` still would not establish delivered-robot compatibility. No build, package installation or ROS process was run here.
+
+| Official instruction or example                                                                                    | How to interpret it with this guide                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Clone `unitree_ros2`, install the selected distro's RMW/IDL dependencies, build Cyclone DDS, then message packages | Inspect the actual pinned `cyclonedds_ws/src` layout and dependencies above. Older prose omits a `src` component in some package paths; do not create a second workspace based on a stale spelling. SDK2 is not automatically a dependency of every pure ROS message subscriber. |
+| Ethernet host address `192.168.123.99`, mask `255.255.255.0`, example NIC `enp3s0`                                 | A documented network example, not a guaranteed free address or actual adapter name. Obtain the exact model/edition/port contract and avoid duplicate addresses or a connection to a private control computer.                                                                    |
+| `RMW_IMPLEMENTATION=rmw_cyclonedds_cpp` and an interface-selected `CYCLONEDDS_URI`                                 | Each participating process needs the intended environment and domain. Correct XML syntax alone does not prove that the loaded Cyclone library supports that schema or that multicast discovery is working.                                                                       |
+| `setup_local.sh` selects loopback; `setup_default.sh` does not specify a NIC                                       | Loopback and automatic-interface selection are different scopes. Preserve explicit simulation isolation and the chosen domain; an automatic interface must not bridge a development test onto a robot network unintentionally.                                                   |
+| `ros2 topic list`                                                                                                  | Discovery only. It is not proof of fresh data, correct GO/HG types, full joint coverage or permission to publish. Continue with the subscriber-only checks already given.                                                                                                        |
+| `read_motion_state`, `read_low_state`, wireless-state readers                                                      | Observation examples, with source-specific field selections. The reviewed GO low-state example prints only the first 12 motor entries; it does not enumerate every H1 or HG humanoid joint.                                                                                      |
+| `sport_mode_ctrl` and `low_level_ctrl`                                                                             | Action examples: the source describes walking after a delay and leg-motor movement respectively. They are not connection tests and must not replace the first state-only result.                                                                                                 |
+
+Source: [Go2 ROS 2 setup, examples and message descriptions](https://doc-cdn.unitree.com/6/112/en/6_112_en). The source command `cd ~unitree_ros2/example` has a path typo; use the actual checked-out directory path, not a shell user-home expansion for a nonexistent account. Likewise, generated binary names and locations come from the selected CMake/install tree, not a filename in an older screenshot.
+
+### Topic direction, fields and units must survive ROS conversion <a href="#ros2-topic-direction-and-source-message-limits" id="ros2-topic-direction-and-source-message-limits"></a>
+
+The ROS article calls `/lowcmd` a subscription while describing motor control; a controller actually **publishes commands toward the robot**, and a state viewer **subscribes to state**. Keep that direction explicit. The source's `/api/sport/request` example also publishes an action request. No application motion writer or request publisher is needed to inspect `lowstate`, `sportmodestate` or the wireless controller. [Go2 ROS 2 state/control definitions](https://doc-cdn.unitree.com/6/112/en/6_112_en).
+
+The same source describes GO sport state as timestamp/error/IMU/mode/gait information, dance progress, foot-raise and body height, position/velocity/yaw speed, obstacle ranges, force entries and four feet's position/velocity in the **body frame**. Its mode enumeration includes both ordinary states and active routines; a numeric mode is not a permission to invoke that routine. Preserve the exact pinned message definition, array shape and frame interpretation instead of copying a shortened prose table into a decoder. Topic prefixes and remapping must be confirmed from actual discovery; an SDK `rt/…` name is not a literal ROS command to paste blindly.
+
+GO low-state examples include the motor array, IMU, battery, remote bytes, tick, voltage/current, fans, NTC temperature fields and CRC. The pinned ROS schema's signed NTC fields differ from the reviewed SDK GO schema's unsigned fields, as detailed above. HG is a separate contract. A Go2-oriented `20`-slot example is not a 20-joint physical model and must not become the H1-2/G1/R1 decoder by changing a topic string. [Portal GO definitions](https://doc-cdn.unitree.com/6/112/en/6_112_en), [G1 ROS 2 source context](https://doc-cdn.unitree.com/11/244/en/11_244_en).
+
+The portal's displayed motor-command example uses `unsigned long` for reserved values. That C++ platform-dependent spelling is not a wire-format declaration: use the pinned generated message's fixed-width fields and serialization rather than serializing an in-memory native struct. The documented command fields have position in radians, velocity in radians per second and feed-forward torque in N·m; those units do not establish approved gains, limits, motor mapping or permission to command an unidentified unit. [Official motor-command description](https://doc-cdn.unitree.com/6/112/en/6_112_en).
+
+For the separate wireless-controller message, the article describes four joystick axes in `[-1, 1]` and a `uint16` button word. This differs from treating the raw 40-byte remote array in low state as that ROS message. Use the actual message/bit definition for the model and controller revision; neutral values and a received packet do not prove remote stop authority.
+
+### LiDAR visualization checkpoint after model and sensor qualification <a href="#ros2-lidar-visualization-contract" id="ros2-lidar-visualization-contract"></a>
+
+The Go2 ROS article illustrates a cloud topic `/utlidar/cloud` with frame `utlidar_lidar`. Its RViz sequence is: discover the real topics, inspect the cloud's actual `header.frame_id`, launch RViz, add the point-cloud display and select a fixed frame that is present in the real transform/data setup. Treat the source's topic/frame as examples for that documented stack; do not assign them to every L1/L2 configuration or humanoid payload. [Original RViz workflow and figures](https://doc-cdn.unitree.com/6/112/en/6_112_en).
+
+Check message type, nonempty point data, time basis, units, sensor revision and transforms before interpreting the display. A visible cloud does not validate extrinsic calibration, motion compensation or navigation safety. If the topic exists but the display is empty, inspect the received frame, available transforms, timestamp/time synchronization and compatible QoS before changing the robot's motion state. The separate canonical LiDAR guides provide sensor-specific packet and connection requirements; no RViz or physical-sensor result was executed here.
 
 ## Getting started <a href="#getting-started" id="getting-started"></a>
 
@@ -270,14 +306,23 @@ All vendor code links below identify the reviewed source revision; they are insp
 
 ### Missing or limited evidence <a href="#missing-or-limited-evidence" id="missing-or-limited-evidence"></a>
 
-| Resource / decision                                                                                  | Access or evidence state                                                                                     | Effect on integration                                                                                              |
-| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| Support-center sports services, basic services and remote-controller protocol pages linked by README | Portal was reported blocked with 567; not read here, and no access bypass attempted.                         | Detailed mode/units/remote-bit definitions and hardware-specific limits remain unresolved.                         |
-| Exact robot firmware bounds and development-option entitlement                                       | Not specified by the read repository sources.                                                                | Blocks a claim of a validated G1/Go2 hardware configuration; no flashing or firmware downgrade recipe is supplied. |
-| Exact robot power/port pinout, mechanical restraint and emergency-stop behavior                      | Outside the ROS source tree; exact host commissioning manuals were not read in this task.                    | Required from the canonical host guide before connection/startup. No substitute wiring is invented.                |
-| Resolved ROS/RMW/Cyclone dependency lock                                                             | Upstream provides distros and mutable branches, not a complete transitive version lock.                      | Record resolved versions during a separate authorized build/interoperability test.                                 |
-| ROS 2 topic-name design article                                                                      | Additional public raw fetch was unavailable; no content from that failed fetch is used as evidence.          | Topic discussion here is limited to names actually present in the reviewed Unitree source.                         |
-| Repository images and external network/RViz screenshots                                              | Resource locations were listed; screenshots were not used to infer hidden numeric values or hardware wiring. | Textual settings and source code supply the facts above.                                                           |
+| Resource / decision                                                                                  | Access or evidence state                                                                                               | Effect on integration                                                                                              |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Support-center sports services, basic services and remote-controller protocol pages linked by README | Selected ROS 2 and shared DDS chapters reviewed; model-specific service and remote contracts remain separately scoped. | Detailed mode/units/remote-bit definitions and hardware-specific limits remain unresolved.                         |
+| Exact robot firmware bounds and development-option entitlement                                       | Not specified by the read repository sources.                                                                          | Blocks a claim of a validated G1/Go2 hardware configuration; no flashing or firmware downgrade recipe is supplied. |
+| Exact robot power/port pinout, mechanical restraint and emergency-stop behavior                      | Outside the ROS source tree; exact host commissioning manuals were not read in this task.                              | Required from the canonical host guide before connection/startup. No substitute wiring is invented.                |
+| Resolved ROS/RMW/Cyclone dependency lock                                                             | Upstream provides distros and mutable branches, not a complete transitive version lock.                                | Record resolved versions during a separate authorized build/interoperability test.                                 |
+| ROS 2 topic-name design article                                                                      | Additional public raw fetch was unavailable; no content from that failed fetch is used as evidence.                    | Topic discussion here is limited to names actually present in the reviewed Unitree source.                         |
+| Repository images and external network/RViz screenshots                                              | Resource locations were listed; screenshots were not used to infer hidden numeric values or hardware wiring.           | Textual settings and source code supply the facts above.                                                           |
+
+### Official portal chapters reviewed for this shared update <a href="#shared-ros2-portal-source-index" id="shared-ros2-portal-source-index"></a>
+
+These chapters support the original engineering explanations above. Their code/assets remain available at the attributed originals; collection or source review does not establish a robot or ROS execution result. Model-specific chapters and videos retain their separate coverage limits.
+
+| Model context | Official chapter                                                              | Source revision     |
+| ------------- | ----------------------------------------------------------------------------- | ------------------- |
+| G1\_developer | [Ros2 Communication Routine](https://doc-cdn.unitree.com/11/244/en/11_244_en) | 2025-11-17 20:29:22 |
+| developer     | [ROS2 Services Interface](https://doc-cdn.unitree.com/6/112/en/6_112_en)      | 2024-06-05 21:29:10 |
 
 ## References and validation <a href="#references-and-validation" id="references-and-validation"></a>
 
@@ -292,3 +337,5 @@ All vendor code links below identify the reviewed source revision; they are insp
 **Related engineering entry points:** [G1 hardware and commissioning](unitree-g1-standard-edu-development-guide.md) and [Go2 hardware and commissioning](unitree-go2.md). The shared SDK2 state-acquisition guide owns its native SDK installation and broader SDK selection guidance; this page retains ROS-specific message/environment decisions.
 
 **Related documentation:** [Unitree robot and development directory](./).
+
+**Related documentation:** [Unitree model and development directory](./).
