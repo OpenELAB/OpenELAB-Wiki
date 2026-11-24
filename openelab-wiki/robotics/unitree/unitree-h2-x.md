@@ -97,6 +97,14 @@ The termination executable prints orientation and connection warnings every 100 
 
 No exact H2-X high-level locomotion service compatibility was verified. Do not assign H2's `sport` getters/setters or Python H2 client to H2-X merely because SDK2 has a low-level H2-X directory. SDK2's BSD-3-Clause root license was read; third-party notices remain applicable. [License](https://github.com/unitreerobotics/unitree_sdk2/blob/b7fec6020eb93d4c059a6edf19905e12a75a8d3d/LICENSE)
 
+### Portal expansion scope: H2-X remains a distinct target <a href="#portal-expansion-scope-h2-x-remains-a-distinct-target" id="portal-expansion-scope-h2-x-remains-a-distinct-target"></a>
+
+The supplied current portal collections contain **43 H1-family, 29 H2 and 37 G1+ records**. Their article text has now been reviewed, including empty category nodes and repeated shared-service descriptions. A text search of the supplied complete article cache found no exact `H2-X`/`H2X` match. This is a finding about the supplied snapshot, not a claim that Unitree has no H2-X documentation elsewhere.
+
+The [H2 resource chapter](https://doc-cdn.unitree.com/25/1264/en/25_1264_en) and [H2Plus GMSL chapter](https://doc-cdn.unitree.com/25/1576/en/25_1576_en) identify H2-family resources and H2Plus camera configurations. **H2Plus is not established as an alias for H2-X.** Their PC addresses, mixed power/data connectors, single-pack charging values, stereo-service controls, head calibration and remote state transitions are therefore not assigned to H2-X. The existing exact H2-X product and pinned `example/h2x` source findings above remain the accepted scope.
+
+The SDK transport definitions can explain shared HG serialization, but the delivered H2-X firmware, domain/interface, array-to-physical-joint map, permissions and stop behavior still require exact qualification. No additional live program or controller handover is introduced by this portal expansion.
+
 ## Getting started <a href="#getting-started" id="getting-started"></a>
 
 ### Prerequisites and model qualification <a href="#prerequisites-and-model-qualification" id="prerequisites-and-model-qualification"></a>
@@ -220,5 +228,7 @@ Reviewed November 24, 2026: official H2-X product content, pinned SDK2 H2-X READ
 **Readiness:** source-bounded draft. Power, stop/commissioning, developer entitlement on the actual unit, firmware/SDK pairing, network and physical pinout remain unresolved. No H2 developer portal article or manual is represented as H2-X documentation. No H2-X developer article content is claimed reviewed here.
 
 **Offline validation:** the standalone seven-case synthetic example was executed successfully; this does not test robot connectivity. **Vendor software execution:** not run; no SDK install/build/import, ROS or DDS. **Hardware validation:** not run; no charging, hot-swap, motion, calibration or flashing.
+
+**Related documentation:** [Unitree model and development directory](./).
 
 **Related documentation:** [Unitree model and development directory](./).
