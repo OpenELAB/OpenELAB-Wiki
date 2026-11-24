@@ -1,8 +1,15 @@
+---
+description: >-
+  ELEGOO printer engineering guides: Centauri Carbon 2 Combo setup, CANVAS
+  multicolor printing, LAN and Matrix, diagnostics, maintenance and official
+  resources.
+---
+
 # ELEGOO
 
-Product manuals and engineering guides for ELEGOO hardware.
+ELEGOO develops FDM and resin 3D printers. These guides distinguish exact printer generations, material workflows, and maintenance procedures so you can select the right manual, software profile and replacement part.
 
-### Popular product guides
+#### Popular product guides
 
 Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
 
@@ -10,7 +17,13 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | ------------------------------------------------------------------------------------------------------- | ------------------------ |
 | [ELEGOO Centauri Carbon 2 Combo Engineering Guide](elegoo-centauri-carbon-2-combo-engineering-guide.md) | Elegoo-Centauri-Carbon-2 |
 
-### More manuals and tutorials
+#### Centauri Carbon 2 Combo documentation
+
+The expanded [Centauri Carbon 2 Combo engineering guide](elegoo-centauri-carbon-2-combo-engineering-guide.md) covers the V2.1 manual and 88 official support articles: assembly, CANVAS four-color loading, first print, LAN/Matrix operation, TPU, error codes, cleaning, diagnostics and component replacement. It distinguishes Carbon 2 from the shared Centauri 2 support range and links the original diagrams, downloads and firmware resources.
+
+Source and static checks are recorded on the guide. Hardware commissioning was not performed; inaccessible attachments and video-only procedures are identified.
+
+#### More manuals and tutorials
 
 <details>
 
