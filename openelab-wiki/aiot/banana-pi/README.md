@@ -1,5 +1,7 @@
 ---
-description: Single-board computers, router platforms, and expansion hardware.
+description: >-
+  Banana Pi engineering guides for router boards and embedded Linux, including
+  R4 Pro 8X boot choices, shared ports, pinouts and technical resources.
 ---
 
 # Banana Pi
@@ -8,7 +10,7 @@ Banana Pi offers single-board computers, router boards, and related expansion ha
 
 [Browse Banana Pi products on OpenELAB](https://openelab.io/collections/brands-banana-pi)
 
-### Popular product guides
+## Popular product guides
 
 Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
 
@@ -16,13 +18,13 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | ------------------------------------------------------------------------------------ | -------------------- |
 | [Banana Pi BPI-R4 Pro 8X: image selection and first network setup](bpi-r4-pro-8x.md) | BPI-R4P-8X           |
 
-### Product range
+## Product range
 
 * BPI single-board computers and compact Linux boards
 * Router boards and OpenWrt-oriented networking platforms
 * Compute-module carrier boards, Wi-Fi modules, cases, and accessories
 
-### Product families and examples
+## Product families and examples
 
 | Product                        | Typical use                                         | Links                                                                                                     |
 | ------------------------------ | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
@@ -31,12 +33,22 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | BPI-R4 Pro 8X                  | Expandable router and networking builds             | [OpenELAB product](https://openelab.io/products/banana-pi-bpi-r4-pro)                                     |
 | BPI-R4-NIC-BE14 Wi-Fi 7 module | Adding a compatible Wi-Fi 7 radio to a BPI-R4 build | [OpenELAB product](https://openelab.io/products/banana-pi-bpi-r4-nic-be14-wifi7-module-mediatek-mt7995av) |
 
-### Popular applications
+## Popular applications
 
 * Build custom routers, network services, and home-lab gateways.
 * Learn embedded Linux and develop compact edge computers.
 * Prototype connected appliances using board-level expansion interfaces.
 
 Check the supported operating-system image and board revision before choosing a case, radio module, or expansion board.
+
+## R4 Pro 8X development paths
+
+The 8X guide includes shared Ethernet/PCIe paths, exact boot-medium choices, first serial and wired-network checks, all 16 connector reference tables, manufacturer power/thermal test conditions and direct technical downloads.
+
+* [Establish the stock console and network baseline](bpi-r4-pro-8x.md#getting-started).
+* [Check connector and measured-reference tables](bpi-r4-pro-8x.md#connector-and-measured-reference-appendix).
+* [Select 8X firmware and hardware resources](bpi-r4-pro-8x.md#downloads-and-technical-documents).
+
+The 4E, 8X and original R4 are different hardware/image targets. Keep Wi-Fi, cellular and storage options explicit and resolve documented pin-control conflicts before custom electrical work.
 
 [Explore AIoT documentation](../aiot-wiki-home-page.md) · [OpenELAB Wiki home](../../)
