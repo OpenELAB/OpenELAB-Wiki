@@ -1,5 +1,8 @@
 ---
-description: LoRa boards, mesh nodes, trackers, e-paper devices, and product guides.
+description: >-
+  HELTEC engineering guides: WiFi LoRa 32 V4.3.1, expansion kit, T114, T1 and
+  Wireless Stick Lite V3; board revisions, pins, firmware, power and radio
+  setup.
 layout:
   width: default
   title:
@@ -40,6 +43,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | [HELTEC Mesh Node T1 and T096 Engineering Guide](heltec-mesh-node-t1-t096-development-guide.md)                         | HT-Mesh-T1 · HT-MeshT096     |
 | [Wireless Stick Lite ESP32S3 SX1262 Meshtastic LoRaWAN V3](wireless-stick-lite-esp32s3-sx1262-meshtastic-lorawan-v3.md) | HT-WS-Lite-V3                |
 
+### HELTEC board and firmware compatibility
+
+The expanded Top 200 references cover WiFi LoRa 32 V4.3.1, its V2 expansion kit, Mesh Node T114, Mesh Node T1/T096 and Wireless Stick Lite V3. They separate ESP32-S3 and nRF52840 boards, revision-specific pin maps, firmware targets and supported radio/application workflows.
+
+Check the exact board revision, radio band and power path before flashing or wiring an expansion. The guides include first-message or first-uplink checkpoints, firmware recovery, battery/solar constraints where documented, and the original download, drawing and project resources.
+
 ### Product range
 
 * WiFi LoRa 32 and Wireless Stick development boards
@@ -48,12 +57,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 
 ### Product families and examples
 
-| Product                           | Typical use                                               | Links                                                                                                                                                                                                |
-| --------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| WiFi LoRa 32 V4.3.1 (without GPS) | ESP32 and SX1262 mesh-node development                    | [Wiki guide](heltec-wifi-lora-32-v4.3.1-sx1262-engineering-guide.md) · [OpenELAB product](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps)               |
-| Mesh Node T114 V2                 | nRF52840-based mesh and tracking projects                 | [T114 family guide](mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan.md) · [OpenELAB product](https://openelab.io/products/heltec-mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan-868mhz) |
-| Wireless Paper                    | E-paper mesh information displays                         | [Wiki guide](wireless-paper-esp32s3-sx1262-e-paper-meshtastic-lorawan.md) · [OpenELAB product](https://openelab.io/products/heltec-wireless-paper-esp32s3-meshtastic)                                |
-| MeshPocket                        | Portable mesh communication with power-bank functionality | [Wiki guide](meshpocket-qi2-magnetic-charging-power.md) · [OpenELAB product](https://openelab.io/products/heltec-meshpocket-qi2-magnetic-meshtastic)                                                 |
+| Product                           | Typical use                                               | Links                                                                                                                                                                                                                                    |
+| --------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| WiFi LoRa 32 V4.3.1 (without GPS) | ESP32 and SX1262 mesh-node development                    | [HELTEC WiFi LoRa 32 V4.3.1 SX1262 Engineering Guide](heltec-wifi-lora-32-v4.3.1-sx1262-engineering-guide.md) · [OpenELAB product](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps)          |
+| Mesh Node T114 V2                 | nRF52840-based mesh and tracking projects                 | [Mesh Node T114 nRF52840 SX1262 GPS Meshtastic LoRaWAN](mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan.md) · [OpenELAB product](https://openelab.io/products/heltec-mesh-node-t114-nrf52840-sx1262-gps-meshtastic-lorawan-868mhz) |
+| Wireless Paper                    | E-paper mesh information displays                         | [Wiki guide](wireless-paper-esp32s3-sx1262-e-paper-meshtastic-lorawan.md) · [OpenELAB product](https://openelab.io/products/heltec-wireless-paper-esp32s3-meshtastic)                                                                    |
+| MeshPocket                        | Portable mesh communication with power-bank functionality | [Wiki guide](meshpocket-qi2-magnetic-charging-power.md) · [OpenELAB product](https://openelab.io/products/heltec-meshpocket-qi2-magnetic-meshtastic)                                                                                     |
 
 ### Popular applications
 

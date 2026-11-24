@@ -1,88 +1,132 @@
+---
+description: >-
+  Set up the 868 MHz ThinkNode M9 MeshCore terminal, check shared SPI and
+  standalone Ripple controls, and verify private messages, GNSS and maps.
+---
+
 # Elecrow ThinkNode M9 MeshCore Development Guide
 
 {% hint style="info" %}
-[**View Elecrow ThinkNode M9 MeshCore on OpenELAB**](https://openelab.io/products/elecrow-thinknode-m9-meshcore-with-2-4inch-lcd-keyboard)
+[**View Elecrow ThinkNode M9 MeshCore with 2.4 inch LCD & Keyboard on OpenELAB**](https://openelab.io/products/elecrow-thinknode-m9-meshcore-with-2-4inch-lcd-keyboard)
 
-**Product model/family:** Elecrow ThinkNode M9 MeshCore · **OpenELAB SKU:** `ELECROW-LMM16509D-868`
+**Model / option:** 868 MHz With Case · **SKU:** `ELECROW-LMM16509D-868`
 {% endhint %}
 
-![Elecrow ThinkNode M9 MeshCore Development Guide](../../.gitbook/assets/thinknode-m9-meshcore-development-guide.webp)
+## Product overview <a href="#product-and-firmware-scope" id="product-and-firmware-scope"></a>
 
-_Product image: OpenELAB._ [_Image source_](https://cdn.shopify.com/s/files/1/0621/0050/4774/files/global-elecrow-lmm16509d-01-thinknode-m9-white.webp?v=1786354648)_._
+ThinkNode M9 LMM16509D is a standalone **MeshCore/Ripple** keyboard terminal. This page covers the purchased 868 MHz with-case option, M9 V1.0 hardware and the manufacturer guide's Ripple v12.0 interface. The similarly shaped **Meshtastic M9 LMM15409D** uses another application and has its own [Meshtastic guide](thinknode-m9-meshtastic-development-guide.md). Two devices must share a protocol as well as compatible radio settings.
 
-[Product at OpenELAB](https://openelab.io/products/elecrow-thinknode-m9-meshcore-with-2-4inch-lcd-keyboard) · [Manufacturer wiki hub](./)
+Default M9 Standalone/Client operation does not make the handheld a repeater. Its local keyboard/display permit the basic text test without a phone. [Elecrow M9 MeshCore guide, 13 August 2026](https://www.elecrow.com/wiki/ThinkNode_M9_MeshCore_Communication_Terminal_with_Full_Keyboard.html).
 
-## Product and firmware scope
+## Applications
 
-**Elecrow ThinkNode M9, LMM16509D**, is a handheld LoRa terminal with a physical keyboard and screen. This page covers the **MeshCore/Ripple** configuration sold as EU868 or US915 with case. Elecrow's reviewed guide is for **M9 V1.0, Ripple v12.0**, document version 13 August 2026. Check the installed firmware: M9 also has a separate Meshtastic guide, and the two ecosystems do not exchange messages simply because both use LoRa.
+Use M9 for typed text, public/private channels, contact conversations, GNSS/map trials and diagnosing paths through an existing MeshCore repeater. Begin with two handhelds directly reachable, then introduce one routing change at a time. Offline LoRa chat does not need Wi-Fi licensing or a GNSS fix.
 
-Use it for standalone text communication, contact/channel management, location sharing and mesh diagnostics. In its default client/standalone role it can use a compatible repeater, but it does not automatically forward traffic as a repeater.
+Treat map, time, sensor and Internet functions as separate acceptance checks. A Wi-Fi icon, cached position or previously heard node is evidence of a different boundary from a received private reply.
 
-## Hardware and developer interfaces
+## Specifications
 
-| Item                | M9 reference configuration                                      |
-| ------------------- | --------------------------------------------------------------- |
-| Main/keyboard MCU   | ESP32-S3-R8 / separate ESP32-S2 keyboard controller             |
-| Radio               | Semtech LR1110; match 868/915 MHz hardware and antenna          |
-| Display             | 2.4-inch, 320 × 240 color LCD                                   |
-| Storage             | microSD/TF; marketed 16 GB is storage, not MCU RAM              |
-| Positioning/sensors | GNSS, PCF8563 RTC, QMC6309 magnetic and QMI8658B motion sensors |
-| Power/host          | 2300 mAh battery; USB-C charge/data; CH340K USB-UART            |
+| Subsystem                    | M9 V1.0 scope                                                                                                                   |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Main / keyboard host         | ESP32-S3-R8 / separate ESP32-S2                                                                                                 |
+| Radio                        | LR1110; purchased 868 MHz option                                                                                                |
+| Screen                       | 2.4-inch LCD, 320 × 240                                                                                                         |
+| GNSS                         | ATGM336H-5NR32 /BM72A named by manufacturer                                                                                     |
+| RTC / sensors                | PCF8563, QMC6309, QMI8658B                                                                                                      |
+| Battery / external interface | 2300 mAh rechargeable pack; USB-C charge/data; CH340K serial bridge                                                             |
+| Flash / card                 | ZD25Q128CSIGT; microSD/TF. ZD25Q128 is a 128 Mbit (16 MB) flash device; old “16 GB” storage wording is not its onboard capacity |
+| Local wireless               | 2.4 GHz Wi-Fi/BLE; radio-network interoperability is separate                                                                   |
 
-Source: [Elecrow's model guide](https://www.elecrow.com/wiki/ThinkNode_M9_MeshCore_Communication_Terminal_with_Full_Keyboard.html). Its complete pin tables are the primary electrical reference. The LCD, radio and microSD **share SPI**, so custom firmware must keep non-target chip selects inactive.
+The reviewed wiki specifies USB-C but no complete input-current rating or replacement-cell procedure. Use the assembled device's USB charging path and original pack; do not bypass its charger or fit a mechanically similar cell based on nominal capacity alone. [Hardware table](https://www.elecrow.com/wiki/ThinkNode_M9_MeshCore_Communication_Terminal_with_Full_Keyboard.html#131-key-specifications).
 
-| Shared SPI connection                 | Main ESP32-S3 GPIO |
-| ------------------------------------- | ------------------ |
-| SCK / MOSI / MISO                     | 40 / 47 / 38       |
-| LR1110 NSS / BUSY / interrupt / reset | 39 / 41 / 42 / 45  |
-| LCD CS / reset / DC                   | 16 / 14 / 15       |
-| microSD CS                            | 48                 |
+## Hardware and connections <a href="#hardware-and-developer-interfaces" id="hardware-and-developer-interfaces"></a>
 
-Keyboard matrix pins belong to the ESP32-S2; do not treat them as the main controller's GPIOs. Follow the full guide for peripheral rails, GNSS UART and coprocessor wake lines before custom firmware work.
+### Power, bus sharing and pin namespaces
 
-## Getting started: a two-terminal message exchange
+Fit the matching antenna before radio operation. Keep the enclosure/charging harness intact during first setup; no internal wiring is needed. USB supply and GPIO logic are different domains. The LCD, radio and card share SPI: keep non-target CS lines high, including during initialization.
 
-Prepare two compatible MeshCore nodes with adequate charge and matching-band antennas. Start with the installed application when it already boots correctly.
+| Internal connection                      | Main ESP32-S3 GPIO                      |
+| ---------------------------------------- | --------------------------------------- |
+| SPI SCK/MOSI/MISO                        | 40/47/38                                |
+| LR1110 NSS/busy/IRQ/reset                | 39/41/42/45                             |
+| LCD CS/reset/DC/backlight/TE             | 16/14/15/17/19                          |
+| microSD CS                               | 48                                      |
+| GNSS host RX/TX/PPS/reset                | 2/3/4/5                                 |
+| GNSS on-off/power                        | 10/11                                   |
+| RTC/sensor SDA/SCL                       | 7/6; QMC6309/QMI8658B through resistors |
+| Peripheral enable / battery ADC / buzzer | 18/13/9                                 |
+| Keyboard link SDA/SCL/wakeup             | 20/21/12                                |
+| Main BOOT / key-light net                | 0/46                                    |
 
-1. Confirm the installed application identifies itself as **MeshCore Ripple**. Complete its built-in selection/menu tutorial. Direction keys move focus, center confirms, Home returns and Menu opens page actions.
-2. On first setup select **New Network → MeshCore**, then a complete preset appropriate to the operating region and local network. Give the profile a recognizable name. The profile name does not substitute for matching radio settings.
-3. Confirm both nodes agree on **frequency, bandwidth, spreading factor, coding rate**, channel key and any required scope. Use the complete community preset; changing only frequency is insufficient.
-4. Use **Discover → Send ID Local / Scan Local** to confirm each device can discover the other, then reverse the roles. Confirm live information from the intended physical nodes.
-5. Open **Public**, type a unique test message and send it. Check its arrival at the other terminal, then send a different reply. Continue with a private channel only after its key matches on both devices.
+The keyboard matrix belongs to **ESP32-S2**, with its own GPIO numbering and firmware. The main host does not scan that matrix directly. LCD FPC J6 pins are also not the same as MCU numbers. Use the wiki's complete tables 2.2–2.8 for FPC, S2 rows/columns and maintenance-net details before custom wiring. [Official pin reference](https://www.elecrow.com/wiki/ThinkNode_M9_MeshCore_Communication_Terminal_with_Full_Keyboard.html#2-product-pinout).
 
-Expected result: fresh messages received in both directions. A message in the sending terminal's history, an enabled Wi-Fi icon or a detected contact alone does not prove delivery. Record application version, selected preset, node identities and results.
+No complete revision-specific schematic/CAD download was linked in that reviewed resource section. The pin tables enable software review but do not establish replacement-battery, power-injection or daughterboard wiring.
 
-## GNSS, maps and service dependencies
+## Software and development resources <a href="#firmware-recovery-and-development" id="firmware-recovery-and-development"></a>
 
-Test GNSS outdoors with sky visibility and check **GPS Info** for a current fix/time. A stored map position is not a fresh fix. The reviewed guide recommends a reliable **FAT32 microSD**; map directories and tile formats depend on firmware. Validate map browsing separately from GNSS.
+The source-reviewed user interface is **Ripple v12.0**, documented 13 August 2026 for M9 V1.0. Preserve that version/identity before updates. The general MeshCore source/flasher is a protocol/device resource; it does not establish that an arbitrary open-source M9 binary reproduces Ripple's entire standalone UI, licensed Wi-Fi features or map functions.
 
-Wi-Fi features and automatic map downloading in the reviewed Ripple application can require an **official paid unlock**. Check the installed release and its licensing before depending on those functions. Hardware Wi-Fi availability alone does not establish that the application feature is enabled. Do not place credentials or private channel keys in public logs.
+The manufacturer directs updates to the [MeshCore flasher](https://meshcore.io/flasher). Select firmware explicitly naming **ThinkNode M9** and the intended standalone/Companion application. Back up channels, identities and map/media first. An M9 Companion Bluetooth image changes how the phone communicates with it; it is not automatically the purchased standalone Ripple experience.
 
-## Firmware, recovery and development
+In Ripple's Terminal, **`get radio`** is a read-only configuration check. Its response is frequency in MHz, bandwidth in kHz, spreading factor, coding rate. Record those values; the network's displayed profile name does not prove they match a peer. [Radio and maintenance sections](https://www.elecrow.com/wiki/ThinkNode_M9_MeshCore_Communication_Terminal_with_Full_Keyboard.html#33-network-and-radio-settings).
 
-Back up profile/channel settings and keys before an update. Follow the model guide's maintenance section and the [MeshCore flasher](https://meshcore.io/flasher), selecting firmware that explicitly names **ThinkNode M9** and the intended application. Preserve the currently working binary/version and any provided checksum. An ESP32-S3 image for another ThinkNode is not a safe substitute.
+## Getting started <a href="#getting-started-a-two-terminal-message-exchange" id="getting-started-a-two-terminal-message-exchange"></a>
 
-The [MeshCore repository](https://github.com/meshcore-dev/MeshCore) supplies protocol/device firmware references, but do not assume its license, UI or binary reproduces Ripple's complete standalone application and unlocked features. Start custom work from the intended M9 target and separately verify keyboard, SPI chip selects and peripheral power management.
+### Original staged first result
 
-The official wiki provides architecture and detailed pin tables. A complete revision-specific schematic/CAD download was not identified in the reviewed resources; request it from Elecrow before a PCB or enclosure redesign.
+Prerequisites: charged 868 MHz M9, correct antenna and a compatible MeshCore peer. Use local controls: D-pad focus, center confirm, Home home, Back return and Menu actions. A roughly 1 s center hold can blank/wake the screen on applicable pages; it is not proof of shutdown.
 
-## Troubleshooting and FAQ
+1. Verify startup identifies **MeshCore Ripple**, then finish the built-in selection/menu tutorial. Record firmware, physical node identity and the network profile before altering it.
+2. Choose **New Network → MeshCore → appropriate complete local preset**. Give it a recognizable local name. At **Extra → Networks → selected profile → Profile Details**, compare frequency, BW, SF, CR with the peer. Keep Scope compatible; a MeshCore logical Region/Scope is not the 868/915 MHz hardware selection.
+3. On A, open **Discover → Menu → Send ID Local**; on B use **Scan Local**. Reverse the roles. Inspect fresh last-heard identity rather than relying on an old contact row.
+4. Open **Public**, send `M9-A-01`, receive it at B, and return `M9-B-01`. Wait for retries before repeating; rapidly flooding duplicate messages obscures the test.
+5. Create/enable one private channel with the same name/slot/key at both ends, then exchange distinct messages. For a private contact, verify/save the discovered identity and test a reply separately. The channel name alone does not provide confidentiality.
+6. Remove USB and repeat one private reply. Only after the direct pair works introduce a repeater and compare **Trace/Optimise**, last-heard, RSSI/SNR and actual delivery.
 
-| Symptom                            | Check and next step                                                                                                                            |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Discovery or messages fail         | Exact ecosystem, radio preset, band/antenna, channel key, scope and a close two-node test.                                                     |
-| Contact visible but no delivery    | Actual recipient online, contact route/repeater and channel versus private-chat settings.                                                      |
-| Wi-Fi icon but no Internet         | Official feature unlock, connected SSID, 2.4 GHz, address and router access; an icon is not a connectivity test.                               |
-| Blank map                          | Card format, release-specific tile paths, coverage and zoom; check independently of GPS fix.                                                   |
-| Custom firmware breaks radio or SD | Shared SPI chip selects and peripheral rail sequencing; return to an exact M9 stock build.                                                     |
-| Can it serve as a repeater?        | The default standalone/client role does not forward other clients' traffic; use explicitly supported repeater firmware/hardware for that role. |
+**Expected result:** two fresh message receipts in Public, then in the intended private channel/contact. “Heard” or a local chat-history entry alone does not confirm remote delivery. [Manufacturer operation guide](https://www.elecrow.com/wiki/ThinkNode_M9_MeshCore_Communication_Terminal_with_Full_Keyboard.html).
 
-## Technical documents and software
+### GNSS, maps and optional online services <a href="#gnss-maps-and-service-dependencies" id="gnss-maps-and-service-dependencies"></a>
 
-| Resource                                                                                                                      | Use                                                |
-| ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| [Elecrow M9 MeshCore wiki](https://www.elecrow.com/wiki/ThinkNode_M9_MeshCore_Communication_Terminal_with_Full_Keyboard.html) | Controls, pin maps, firmware scope and maintenance |
-| [MeshCore flasher](https://meshcore.io/flasher)                                                                               | Exact model/application firmware selection         |
-| [MeshCore source](https://github.com/meshcore-dev/MeshCore)                                                                   | Protocol and supported device implementations      |
+For GNSS, open **Extra → GPS Info**, enable the receiver and wait outdoors for a current Fix/Valid, time and coordinates. GNSS is not required for basic text. Use a FAT32 card with the installed release's map directory/tile format; test pan/zoom and an existing tile without a fix, then center on a fresh position. `none`, `share` and `prefs` location policies respectively omit, use current fix or use a stored location; choose deliberately before an advert.
 
-**Review date:** 17 November 2026. **Validation:** official documentation and the cited software interfaces reviewed. Commands and examples have not been compiled or run on physical hardware by OpenELAB for this guide. Record your hardware revision, firmware, software versions and actual results when reproducing it.
+Treat **Extra** as separate controls: Sound/Vib-LED alerts, timestamps, brightness/day-night, display sleep, timezone, GPS Config, waypoints and canned messages. Check one setting at a time with a received test message; enabled hardware does not prove every UI mode has been configured.
+
+Wi-Fi/Internet Link/Core Browser/OTA features can require a device-specific **official Ripple license**. Use **Extra → Unlock** or the installed About/Activate/License entry and the [manufacturer-linked registration service](https://register.rippleradios.com). After activation/restart, scan/select a 2.4 GHz SSID and confirm Connected plus an IP before a time/Internet test. Licensing failure is independent of LoRa chat; no shared license or alternate firmware is assumed compatible.
+
+Before updates export configuration and card contents, retain the working binary/version, and verify a vendor-provided checksum when available. Use only an exact M9 release, keep power/card stable, then repeat the direct message test. The reviewed documentation does not establish a universal raw flash offset or coprocessor recovery image, so those operations are excluded.
+
+## Troubleshooting and FAQs <a href="#troubleshooting-and-faq" id="troubleshooting-and-faq"></a>
+
+| Failure                                | Isolate in this order                                                                                            |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| No discovery                           | Exact MeshCore application, four RF parameters, antenna/band, Send ID Local/Scan Local, then fresh time/Scope    |
+| Public works, private fails            | Channel key/slot versus contact identity, recipient online, learned path; Trace/Optimise after a direct baseline |
+| No map but GNSS fix                    | Card recognition, FAT32, release-specific tiles/directory/coverage/zoom                                          |
+| Map works, no position                 | Device GPS enable, sky view, new fix and timestamp; cached tiles are not GNSS                                    |
+| Wi-Fi icon only                        | Official unlock, 2.4 GHz SSID, credentials, Connected/IP, router access                                          |
+| Radio fails after display/card changes | Shared SPI chip selects, peripheral power and exact M9 board support                                             |
+
+Can a stock M9 extend everyone else's traffic? Its default Standalone/Client role does not automatically forward; use a supported Repeater role/device. Can the Meshtastic M9 and this MeshCore M9 exchange text unchanged? They need a compatible application protocol, not just the same RF band.
+
+## Downloads and technical documents <a href="#technical-documents-and-software" id="technical-documents-and-software"></a>
+
+| Resource                                                                                                                                                                                         | Exact scope                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| [Complete M9 MeshCore wiki](https://www.elecrow.com/wiki/ThinkNode_M9_MeshCore_Communication_Terminal_with_Full_Keyboard.html)                                                                   | V1.0 hardware/Ripple v12.0; 13 August 2026; full pins and local UI                  |
+| [Manufacturer product/resources](https://www.elecrow.com/thinknode-m9-meshcore-communication-terminal-with-full-keyboard-2-4inch-lcd-esp32-s3-lr1110-gps-2300mah.html)                           | M9 MeshCore option and linked certification resources                               |
+| [MeshCore flasher](https://meshcore.io/flasher) /[source](https://github.com/meshcore-dev/MeshCore)                                                                                              | Exact device/application selection; not proof of Ripple feature/license equivalence |
+| [CE report](https://www.elecrow.com/download/product/LMM16509D/CE_Report_of_ThinkNode-M9.pdf) /[RoHS report](https://www.elecrow.com/download/product/LMM16509D/RoHS_Report_of_ThinkNode-M9.pdf) | Manufacturer-listed reports; separate from a schematic or firmware license          |
+
+For a PCB, cell or enclosure redesign obtain the received revision's complete drawings; the current wiki's net tables are not a dimensional/power substitute.
+
+### Retained illustrations
+
+![Retained Elecrow ThinkNode M9 MeshCore Development Guide illustration](../../.gitbook/assets/thinknode-m9-meshcore-development-guide.webp)
+
+[Original OpenELAB product photograph](https://cdn.shopify.com/s/files/1/0621/0050/4774/files/global-elecrow-lmm16509d-01-thinknode-m9-white.webp?v=1786354648).
+
+## References and validation
+
+The manufacturer's complete hardware and Ripple operation sections were read, including pin namespaces, radio inspection, private channels/contacts, GNSS/maps, license-bound online features, roles/Scope and maintenance. The guide retains its canonical identity and original asset. The numbered acceptance sequence separates local UI, RF, routing and Internet failures.
+
+[Manufacturer guides](./). Reviewed 24 November 2026. **Firmware/SDK installation, compilation, flashing, radio/serial operation and hardware tests not run.** Examples and expected results are source-reviewed procedures, not observed bench results.

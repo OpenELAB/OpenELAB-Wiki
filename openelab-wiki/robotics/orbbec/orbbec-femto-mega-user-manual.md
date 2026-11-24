@@ -1689,7 +1689,7 @@ _Reviewed source:_ [_Depth Camera (Femto Mega)_](https://doc.orbbec.com/document
 
 This page describes how to use the depth camera in Femto Mega. The depth camera is the second of two cameras. As described in earlier sections, the other camera is the RGB camera.
 
-#### 1. Working PrincipleThe Femto Mega depth camera uses amplitude modulated continuous wave (AMCW) time-of-flight (ToF) principles. The camera projects modulated light in the near infrared (NIR) spectrum into the scene. It then records an indirect measurement of the time it takes for the light to travel from the camera to the scene and back. <a href="#id-1.-working-principlethe-femto-mega-depth-camera-uses-amplitude-modulated-continuous-wave-amcw-time-o" id="id-1.-working-principlethe-femto-mega-depth-camera-uses-amplitude-modulated-continuous-wave-amcw-time-o"></a>
+#### 1. Working PrincipleThe Femto Mega depth camera uses amplitude modulated continuous wave (AMCW) time-of-flight (ToF) principles. The camera projects modulated light in the near infrared (NIR) spectrum into the scene. It then records an indirect measurement of the time it takes for the light to travel from the camera to the scene and back.
 
 {% hint style="info" %}
 Retained `-e -8` recorder examples use older exposure syntax. The [reviewed K4A v2-main parser](https://github.com/orbbec/OrbbecSDK-K4A-Wrapper/blob/c469e24e63958d0aa62e3a0cb44b0cfb3095e721/tools/k4arecorder/main.cpp) instead accepts `-e` in 100–409500 microseconds; `sub` and `subordinate` are both accepted. Match the installed binary; inspect `--help` before adapting exposure. Typographic long dashes in command flags are normalized to ASCII below.

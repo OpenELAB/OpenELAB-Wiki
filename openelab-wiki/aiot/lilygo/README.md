@@ -1,5 +1,7 @@
 ---
-description: Handheld boards, LoRa and cellular platforms, CAN, and RS485 interfaces.
+description: >-
+  LILYGO development guides for T-Deck, T-Embed, T-Watch, T-2CAN-FD, T-SIM7080G
+  and T5: exact boards, pinouts, software, first results and recovery resources.
 layout:
   width: default
   title:
@@ -41,6 +43,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | [LILYGO T-SIM7080G S3 H606 Engineering Guide](lilygo-t-sim7080g-s3-h606-development-guide.md)           | LILYGO-H606          |
 | [LILYGO T5 E-Paper S3 Pro H752-01 Engineering Guide](lilygo-t5-epaper-s3-pro-h752-development-guide.md) | LILYGO-H752-01       |
 
+### LILYGO board-specific development
+
+The expanded Top 200 guides cover the selected T-Deck Plus, T-Embed CC1101 Plus, T-Watch Ultra, T-2CAN-FD, T-SIM7080G-S3 and T5 e-paper S3 Pro configurations. They retain board-specific pin and peripheral references with software versions, official examples, schematic/resource links and reproducible first-result checkpoints.
+
+Select the exact PCB revision and firmware target: shared product-family names do not make GNSS, microphone, cellular modem, CAN-FD, display or radio wiring interchangeable. Recovery, battery/USB behavior and untested hardware steps are identified in each guide.
+
 ### Product range
 
 * T-Deck, T-Embed, and other handheld or display-equipped boards
@@ -49,12 +57,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 
 ### Product families and examples
 
-| Product        | Typical use                            | Links                                                                                                           |
-| -------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| T-Deck Plus    | Keyboard-equipped Meshtastic messaging | [Wiki guide](t-deck-plus-meshtastic.md) · [OpenELAB product](https://openelab.io/products/lilygo-t-deck-plus)   |
-| T-Embed CC1101 | Embedded display and radio experiments | [Wiki guide](t-embed-cc1101-module.md) · [OpenELAB product](https://openelab.io/products/lilygo-t-embed-cc1101) |
-| T-CAN485       | CAN and RS485 communication projects   | [OpenELAB product](https://openelab.io/products/lilygo-t-can485)                                                |
-| T-SIM7080G S3  | Cellular and GNSS connected prototypes | [OpenELAB product](https://openelab.io/products/lilygo-t-sim7080g-s3)                                           |
+| Product        | Typical use                            | Links                                                                                                                     |
+| -------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| T-Deck Plus    | Keyboard-equipped Meshtastic messaging | [T-Deck Plus Meshtastic](t-deck-plus-meshtastic.md) · [OpenELAB product](https://openelab.io/products/lilygo-t-deck-plus) |
+| T-Embed CC1101 | Embedded display and radio experiments | [Wiki guide](t-embed-cc1101-module.md) · [OpenELAB product](https://openelab.io/products/lilygo-t-embed-cc1101)           |
+| T-CAN485       | CAN and RS485 communication projects   | [OpenELAB product](https://openelab.io/products/lilygo-t-can485)                                                          |
+| T-SIM7080G S3  | Cellular and GNSS connected prototypes | [OpenELAB product](https://openelab.io/products/lilygo-t-sim7080g-s3)                                                     |
 
 ### Popular applications
 

@@ -1,5 +1,8 @@
 ---
-description: ThinkNode mesh devices, CrowPanel displays, and CrowPi learning platforms.
+description: >-
+  Elecrow ThinkNode engineering guides: M1, M5, M6, M7 and M9 hardware,
+  Meshtastic and MeshCore targets, power, interfaces, radio setup and
+  troubleshooting.
 ---
 
 # Elecrow
@@ -21,6 +24,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | [Elecrow ThinkNode M9 Meshtastic Engineering Guide](thinknode-m9-meshtastic-development-guide.md)         | ELECROW-LMM15409D-868   |
 | [Elecrow ThinkNode M7 Meshtastic Gateway Engineering Guide](thinknode-m7-meshtastic-development-guide.md) | ELECROW-LMM15507D       |
 
+### ThinkNode firmware and model selection
+
+The expanded ThinkNode guides distinguish M1, M5, M6, M7 and M9 hardware and keep the M9 Meshtastic and MeshCore firmware paths separate. Each guide identifies the purchased option, power/charging role, radio band, firmware target, setup resources and an observable first result.
+
+Use the model-specific connector and pin references before adding peripherals. A successful USB connection does not establish GNSS reception, a LoRa mesh exchange or network delivery; the guides provide separate checkpoints and recovery guidance.
+
 ### Product range
 
 * ThinkNode mesh communication devices and gateways
@@ -29,12 +38,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 
 ### Product families and examples
 
-| Product          | Typical use                                               | Links                                                                                                                                     |
-| ---------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| ThinkNode M1     | Portable Meshtastic communication with an e-paper display | [Wiki guide](thinknode-m1-development-guide.md) · [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m1-lora-transceiver)  |
-| ThinkNode M5     | Handheld LoRa messaging                                   | [Wiki guide](thinknode-m5-development-guide.md) · [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m5-walkie-talkie-pro) |
-| ThinkNode M6     | Solar-powered outdoor mesh deployment                     | [Wiki guide](thinknode-m6-development-guide.md) · [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m6-outdoor-solar)     |
-| Meshstick SX1262 | USB-based LoRa development                                | [OpenELAB product](https://openelab.io/products/elecrow-meshstick-usb-to-spi-sx1262-tcxo-lora-usb-stick)                                  |
+| Product          | Typical use                                               | Links                                                                                                                                                                 |
+| ---------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ThinkNode M1     | Portable Meshtastic communication with an e-paper display | [Elecrow ThinkNode M1 Development Guide](thinknode-m1-development-guide.md) · [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m1-lora-transceiver)  |
+| ThinkNode M5     | Handheld LoRa messaging                                   | [Elecrow ThinkNode M5 Development Guide](thinknode-m5-development-guide.md) · [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m5-walkie-talkie-pro) |
+| ThinkNode M6     | Solar-powered outdoor mesh deployment                     | [Elecrow ThinkNode M6 Development Guide](thinknode-m6-development-guide.md) · [OpenELAB product](https://openelab.io/products/elecrow-thinknode-m6-outdoor-solar)     |
+| Meshstick SX1262 | USB-based LoRa development                                | [OpenELAB product](https://openelab.io/products/elecrow-meshstick-usb-to-spi-sx1262-tcxo-lora-usb-stick)                                                              |
 
 ### Popular applications
 

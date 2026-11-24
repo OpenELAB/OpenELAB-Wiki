@@ -1,5 +1,8 @@
 ---
-description: WisBlock modules, LoRaWAN hardware, gateways, and WisMesh devices.
+description: >-
+  RAKwireless RAK10724 battery-powered development guide: module inventory,
+  power, LoRaWAN configuration, payloads, decoders, troubleshooting and official
+  resources.
 ---
 
 # RAKwireless
@@ -15,6 +18,12 @@ Guides for products in our Top 200 sales list, shown in popularity order. Shared
 | Product guide                                                                                           | Models / order codes |
 | ------------------------------------------------------------------------------------------------------- | -------------------- |
 | [RAK10724 battery-powered WisMesh booster kit: power and Meshtastic setup](rak10724-battery-powered.md) | Rak-115280           |
+
+### RAK10724 development reference
+
+The expanded RAK10724 guide distinguishes its battery-powered WisBlock installation from externally powered devices. Use its module inventory, power path, regional LoRaWAN setup, payload/decoder reference and source-linked maintenance resources to establish a first uplink before adding an application.
+
+Match the exact module, antenna band and network configuration. Source review and static checks are recorded separately from device, network and battery-life tests.
 
 ### Product range
 

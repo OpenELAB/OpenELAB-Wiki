@@ -1,230 +1,214 @@
+---
+description: >-
+  Choose the correct HELTEC V4-R2 or V4-R8 OLED firmware, power and FEM
+  configuration, then verify a two-node link and safe USB recovery.
+---
+
 # HELTEC WiFi LoRa 32 V4.3.1 SX1262 Engineering Guide
 
 {% hint style="info" %}
-[**View HELTEC WiFi LoRa 32 V4.3.1 SX1262 on OpenELAB**](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps)
+[**View HELTEC WiFi LoRa 32 V4.3.1 SX1262 LoRa Node Meshtastic LoRaWAN without GPS module version on OpenELAB**](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps)
 
-**Product model/family:** HELTEC WiFi LoRa 32 V4.3.1 SX1262 · **OpenELAB SKUs:** `HT-LoRa32V4-R8`, `HT-LoRa32V4` · Check exact board/kit option and revision for firmware selection.
+**Model / option:** WiFi LoRa 32 V4-R8 · **SKU:** `HT-LoRa32V4-R8`
+
+[**View HELTEC WiFi LoRa 32 V4.3.1 SX1262 LoRa Node Meshtastic LoRaWAN without GPS module version on OpenELAB**](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps)
+
+**Model / option:** WiFi LoRa 32 V4-R2 · **SKU:** `HT-LoRa32V4`
 {% endhint %}
 
-**Product link:** [HELTEC WiFi LoRa 32 V4.3.1 SX1262 LoRa Node on OpenELAB](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps)
-
-The HELTEC WiFi LoRa 32 V4.3.1 is an ESP32-S3R2 + SX1262 development board for Meshtastic, MeshCore, LoRaWAN, private LoRa telemetry, solar-assisted field nodes, and general ESP32-S3 wireless projects. It combines Wi-Fi, Bluetooth LE, Bluetooth Mesh, LoRa, an onboard 0.96 inch OLED, Li-Po battery management, solar input, IPEX antenna ports, 2 MB PSRAM, 16 MB flash, and a GNSS expansion connector in a compact 51.7 x 25.4 mm board. This guide collects the practical details engineers need for firmware selection, hardware bring-up, low-power operation, radio configuration, and field deployment.
-
-## Quick Summary
-
-* **Product:** HELTEC WiFi LoRa 32 V4.3.1, OpenELAB SKU HT-LoRa32V4.
-* **MCU:** ESP32-S3R2, Xtensa 32-bit LX7 dual-core processor.
-* **Radio:** SX1262 LoRa transceiver; high-power 863 to 928 MHz version listed by OpenELAB.
-* **Wireless:** Wi-Fi 802.11 b/g/n, Bluetooth LE, Bluetooth 5, Bluetooth Mesh, and LoRa.
-* **Memory:** 384 KB ROM, 512 KB SRAM, 16 KB RTC SRAM, 2 MB PSRAM, 16 MB external flash.
-* **Interfaces:** USB Type-C, Li-Po battery connector, solar connector, GNSS connector, LoRa IPEX1.0, 2.4 GHz IPEX1.0, OLED, and 40-pin expansion layout.
-* **Best fit:** Meshtastic routers, MeshCore nodes, LoRaWAN sensors, remote telemetry, smart agriculture, solar relay nodes, and ESP32-S3 + SX1262 development.
-
-## What Is the HELTEC WiFi LoRa 32 V4.3.1?
-
-WiFi LoRa 32 V4 is the newer generation of Heltec's classic ESP32 + LoRa board family. Compared with WiFi LoRa 32 V3, Heltec lists major upgrades including ESP32-S3R2, external 16 MB flash, 2 MB PSRAM, higher LoRa transmit power, solar input, a GNSS interface, a protected OLED assembly, and a 40-pin expansion interface. The board is still intended to feel familiar to V3 users, but firmware, pin behavior, antenna routing, and hardware resources must be checked against the V4/V4.3.1 documentation before reuse.
-
-The board can be used as a Meshtastic node, MeshCore node, LoRaWAN end device, or custom point-to-point LoRa device. For low-risk bring-up, treat it as a version-specific hardware platform: select the correct V4/V4.3.x firmware image, use the correct pin map, and document the exact hardware revision in every project.
-
-## Key Specifications
-
-| Parameter             | HELTEC WiFi LoRa 32 V4.3.1                                                                         | Engineering note                                                                                                 |
-| --------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| MCU                   | ESP32-S3R2, Xtensa LX7 dual core                                                                   | Suitable for LoRa networking, display UI, BLE/Wi-Fi setup, and custom ESP32-S3 applications.                     |
-| LoRa chip             | SX1262                                                                                             | Use the correct SX1262 pin mapping and library configuration; this is not an SX127x board.                       |
-| Frequency             | High-power version 863 to 928 MHz; low-power versions also list 433 MHz and 470 to 510 MHz options | OpenELAB listing is for the high-power V4.3.1 board; always configure the legal regional band.                   |
-| Max TX power          | High-power version 28 +/- 1 dBm; low-power version 21 +/- 1 dBm                                    | Observe local EIRP, duty-cycle, antenna-gain, and amateur/ISM-band rules.                                        |
-| Receiver sensitivity  | -137 dBm at SF12, BW 125 kHz                                                                       | Range depends on antenna, line of sight, terrain, noise floor, spreading factor, bandwidth, and packet settings. |
-| Wi-Fi                 | 802.11 b/g/n, up to 150 Mbps                                                                       | Useful for provisioning, OTA, gateways, dashboards, and local web tools.                                         |
-| Bluetooth             | Bluetooth LE, Bluetooth 5, Bluetooth Mesh                                                          | Commonly used for Meshtastic mobile-app pairing and local configuration.                                         |
-| Memory                | 384 KB ROM, 512 KB SRAM, 16 KB RTC SRAM, 2 MB PSRAM, 16 MB flash                                   | More suitable than earlier boards for UI-heavy firmware and larger application images.                           |
-| Hardware resources    | 7 x ADC1, 2 x ADC2, 7 x touch, 3 x UART, 2 x I2C, 2 x SPI, and more                                | Use Heltec's V4 pin map and schematic before assigning custom peripherals.                                       |
-| Interfaces            | USB Type-C, 1.25-2P Li-Po battery, 1.25-2P solar, 1.25-8P GNSS, LoRa IPEX1.0, 2.4 GHz IPEX1.0      | Solar and GNSS connectors are key V4 additions; verify connector orientation and voltage limits.                 |
-| Solar input           | 1.25-2P solar interface; Heltec product page notes 4.7 to 6 V solar input                          | Use a suitable small solar panel and confirm charge behavior under real light conditions.                        |
-| Battery               | 3.3 to 4.4 V lithium battery range                                                                 | Use protected Li-Po cells and validate low-voltage behavior in firmware.                                         |
-| Low power             | Heltec lists less than 20 uA low-power behavior                                                    | Actual current depends on firmware, peripherals, OLED, LoRa state, GNSS accessory, and external loads.           |
-| Operating temperature | -20 to 70 C                                                                                        | For outdoor solar nodes, also validate enclosure heating, condensation, and battery temperature limits.          |
-| Dimensions            | 51.7 x 25.4 x 10.7 mm                                                                              | Use the official 3D model for enclosure and mounting work.                                                       |
-
-## Hardware Revision Notes
-
-* **Use V4.3.1-specific resources.** The OpenELAB product is listed as hardware V4.3.1. Avoid blindly using V3 firmware, V3 pin maps, or V3 enclosure assumptions.
-* **V4 removes the CP2102 USB-UART chip.** USB behavior differs from older Heltec boards; for Arduino uploads Heltec notes USB CDC and USB-OTG-CDC/TinyUSB settings in example workflows.
-* **V4 adds solar and GNSS interfaces.** These are useful for routers, trackers, and solar-powered field deployments, but the GNSS connector is an expansion interface rather than a guarantee that every board package includes a GNSS module.
-* **The 2.4 GHz antenna routing changed.** Heltec documents the default FPC antenna path and optional IPEX routing for the 2.4 GHz antenna; inspect the V4.3 hardware note before modifying RF components.
-* **MeshCore firmware must match the V4.3 generation.** Heltec's product page provides MeshCore firmware resources for V4.3 and notes firmware version requirements for this hardware family. Use the latest matching firmware path rather than a generic board image.
-
-## Meshtastic, MeshCore, and LoRaWAN
-
-| Workflow    | Use case                                                                           | Engineering notes                                                                                                                                                   |
-| ----------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Meshtastic  | Off-grid text messaging, routers, trackers, sensor telemetry                       | Use the Meshtastic Web Flasher and select the correct Heltec WiFi LoRa 32 V4/V4.3-compatible target when available. Set the legal radio region before transmitting. |
-| MeshCore    | Private mesh communication and MeshCore experiments                                | Use MeshCore resources matching hardware V4.3.x; Heltec provides V4.3 MeshCore firmware links on the product page.                                                  |
-| LoRaWAN     | Sensor-to-gateway telemetry for agriculture, smart city, and industrial monitoring | Use Heltec LoRaWAN examples, correct regional parameters, and gateway/network-server configuration.                                                                 |
-| Custom LoRa | Point-to-point links, lab testing, proprietary telemetry                           | Use SX1262-aware libraries and keep frequency, bandwidth, spreading factor, coding rate, preamble, sync word, and IQ inversion consistent between nodes.            |
-
-## Radio, Antenna, and Regulatory Checklist
-
-* **Always attach a matched LoRa antenna before transmitting.** Operating high-power LoRa without a suitable antenna can damage the RF stage.
-* **Configure the correct region.** For Meshtastic, region settings control allowed frequency ranges and modem presets. For LoRaWAN, use the correct frequency plan and sub-band.
-* **Respect power limits.** The high-power board can reach 28 dBm, but legal EIRP depends on region, antenna gain, and service rules.
-* **Keep telemetry sparse on mesh networks.** LoRa mesh bandwidth is limited; frequent GPS or sensor packets can congest the network.
-* **Prefer antenna placement over raw transmit power.** Height, line of sight, cable loss, enclosure material, and nearby metal often matter more than TX power.
-
-## Firmware and Development Workflow
-
-1. **Identify the hardware revision.** Record that the board is WiFi LoRa 32 V4.3.1 / HT-LoRa32V4.
-2. **Download the official resources.** Save the V4 resource directory, V4.3 schematic, pin map, datasheets, and 3D model.
-3. **Choose the firmware path.** Use Meshtastic for mesh messaging, MeshCore for MeshCore deployments, Heltec LoRaWAN examples for LoRaWAN, or Arduino/PlatformIO/ESP-IDF/MicroPython for custom firmware.
-4. **Set up the Heltec ESP32 framework.** In Arduino IDE, add Heltec's package URL and install the Heltec ESP32 framework and HELTEC ESP32 library.
-5. **Use correct upload settings.** Heltec's example page notes enabling USB CDC on boot and selecting USB-OTG-CDC/TinyUSB for serial debugging on this generation.
-6. **Use BootLoader mode if upload fails.** Heltec's product FAQ describes connecting USB-C, holding PRG, pressing RST once, then releasing PRG.
-7. **Validate board functions.** Run the factory test or examples for OLED, LoRa, battery, solar input, Wi-Fi/BLE, and optional GNSS.
-8. **Measure current before field deployment.** Confirm sleep current, transmit peaks, solar charge behavior, and battery runtime with your actual firmware.
+## Product overview
 
-## Official Resources and Downloads
+### R2 and R8 hardware scope <a href="#what-is-the-heltec-wifi-lora-32-v4.3.1" id="what-is-the-heltec-wifi-lora-32-v4.3.1"></a>
 
-| Resource                      | Use                                                                                     | Link                                                                                                                                  |
-| ----------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| OpenELAB product page         | Purchase and listing details                                                            | [HELTEC WiFi LoRa 32 V4.3.1 on OpenELAB](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps) |
-| Heltec product page           | Official V4.3.1 overview, V3/V4 comparison, firmware notes, and key specifications      | [WiFi LoRa 32 V4.3.1 product page](https://heltec.org/project/wifi-lora-32-v4/)                                                       |
-| Heltec documentation          | Official docs, links, examples, FAQ, and hardware update log                            | [WiFi LoRa 32 documentation](https://docs.heltec.org/en/node/esp32/wifi_lora_32/index.html)                                           |
-| V4 resource directory         | Download directory for 3D files, datasheets, firmware, pin map, schematics, and sensors | [WiFi LoRa 32 V4 resources](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/)                                                     |
-| V4.3 schematic                | Electrical reference for the V4.3/V4.3.1 hardware family                                | [HTIT-WB32LAF\_V4.3 schematic PDF](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/Schematic/HTIT-WB32LAF_V4.3.pdf)               |
-| V4 datasheet                  | Board-level datasheet/reference                                                         | [WiFi LoRa 32 V4.2.0 datasheet PDF](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/datasheet/WiFi_LoRa_32_V4.2.0.pdf)            |
-| Pin map                       | GPIO and peripheral assignment reference                                                | [WiFi LoRa 32 V4 pin map](https://heltec.org/wp-content/uploads/2025/09/V4_pinmap-scaled.png)                                         |
-| 3D model directory            | Mechanical integration and enclosure design                                             | [WiFi LoRa 32 V4 3D resources](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/3D/)                                               |
-| ESP32-S3 datasheet            | MCU hardware reference                                                                  | [ESP32-S3 datasheet](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/datasheet/esp32-s3_datasheet_en.pdf)                         |
-| SX1261/2 datasheet            | LoRa radio reference                                                                    | [SX1261/2 datasheet](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/datasheet/SX1261_2%20V2-2.pdf)                               |
-| OLED controller datasheet     | Display controller reference                                                            | [SSD1315 datasheet](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/datasheet/SSD1315_1.0_withcomand_.pdf)                        |
-| Arduino/ESP32 quick start     | Heltec framework and library installation                                               | [Heltec ESP32 Series Quick Start](https://docs.heltec.org/en/node/esp32/esp32_general_docs/quick_start.html)                          |
-| Example manual                | Factory test and upload settings                                                        | [WiFi LoRa 32 example manual](https://docs.heltec.org/en/node/esp32/wifi_lora_32/example.html)                                        |
-| Heltec board-manager package  | Arduino package URL                                                                     | [package\_heltec\_esp32\_index.json](https://resource.heltec.cn/download/package_heltec_esp32_index.json)                             |
-| Heltec ESP32 framework        | Board framework, examples, installation guides                                          | [Heltec-Aaron-Lee/WiFi\_Kit\_series](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series)                                             |
-| Heltec ESP32 library          | LoRa, LoRaWAN, display, GPS, sensor, and factory test examples                          | [HelTecAutomation/Heltec\_ESP32](https://github.com/HelTecAutomation/Heltec_ESP32)                                                    |
-| LoRaWAN sample docs           | LoRaWAN workflow and examples                                                           | [Heltec LoRaWAN Sample](https://docs.heltec.org/en/node/esp32/esp32_general_docs/lorawan/index.html)                                  |
-| Meshtastic introduction       | Heltec Meshtastic setup notes                                                           | [Heltec Meshtastic Introduction](https://docs.heltec.org/en/node/esp32/esp32_general_docs/meshtastick.html)                           |
-| Meshtastic flasher            | Browser-based Meshtastic firmware flashing                                              | [Meshtastic Web Flasher](https://flasher.meshtastic.org/)                                                                             |
-| Meshtastic Heltec peripherals | Meshtastic-specific peripheral notes for Heltec LoRa32 boards                           | [Meshtastic LoRa32 peripherals](https://meshtastic.org/docs/hardware/devices/heltec-automation/lora32/peripherals/)                   |
-| MeshCore                      | MeshCore project and firmware ecosystem                                                 | [MeshCore official site](https://meshcore.co.uk/)                                                                                     |
-| MeshCore flasher              | MeshCore browser flasher                                                                | [MeshCore flasher](https://flasher.meshcore.co.uk/)                                                                                   |
-| Heltec MeshCore V4.3 firmware | Heltec-provided MeshCore firmware resource for V4.3 hardware                            | [heltec-v4.3-meshcore-1.14.zip](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/firmware/meshcore/heltec-v4.3-meshcore-1.14.zip)  |
+WiFi LoRa 32 V4 combines ESP32-S3, SX1262 and a power-amplifier/low-noise-amplifier front end. **HT-LoRa32V4-R8** is the 8 MB PSRAM board; **HT-LoRa32V4** is the 2 MB PSRAM R2 option. Their common product URL does not make their pin use or firmware identical. This canonical page covers both OLED board options and keeps the [V2 touchscreen kit](heltec-wifi-lora32-expansion-kit-v2-development-guide.md) separate.
 
-## Field Deployment Checklist
+### GNSS inventory and first-test scope <a href="#quick-summary" id="quick-summary"></a>
 
-1. Confirm the board is V4.3.1 and record the firmware target selected.
-2. Attach the correct LoRa antenna before any transmit test.
-3. Set the legal Meshtastic region or LoRaWAN frequency plan before transmitting.
-4. Run a local short-range test before rooftop, vehicle, or outdoor deployment.
-5. Measure sleep current, active current, LoRa TX current, and solar charging behavior.
-6. Validate battery connector polarity, enclosure protection, cable strain relief, and antenna waterproofing.
-7. For GNSS projects, verify whether your build includes a compatible GNSS accessory and confirm serial output before field use.
-8. Save known-good firmware, board package version, library versions, radio settings, and recovery steps.
+The live store title now says “GPS Included,” while the original row described no GPS and the manufacturer's bare-board list provides a GNSS connector. Inventory any delivered GNSS accessory separately; a connector is not proof of a receiver. The first radio test below needs no GNSS wiring. [Current manufacturer variants](https://heltec.org/project/wifi-lora-32-v4/).
 
-## Engineering Best Practices
+## Applications
 
-* **Do not mix V3 and V4 assumptions.** The board keeps a familiar form factor, but USB, flash, power, antenna, GNSS, and pin details changed.
-* **Start from the factory test.** Confirm OLED, LoRa, USB, battery, and basic board health before adding custom application code.
-* **Keep node telemetry disciplined.** For mesh deployments, low packet rates improve network stability and battery runtime.
-* **Plan solar nodes around worst-case weather.** Size the panel and battery for cloudy days, winter light, enclosure temperature, and standby current.
-* **Use V4.3 schematic and pin map for custom hats.** Especially check I2C, SPI, UART, battery, solar, GNSS, and RF-related pins.
-* **Document radio settings.** Frequency, bandwidth, spreading factor, coding rate, preamble, sync word, IQ inversion, and TX power must match where direct LoRa nodes communicate.
+Use the board for a two-node mesh link, an explicitly supported LoRaWAN end device, or a private LoRa telemetry experiment. Meshtastic, MeshCore and LoRaWAN are different firmware/network paths. Start with one and preserve its known-good version before switching.
 
-## Project References and Application Ideas
+For solar work, measure the assembled workload and charging behavior over complete cycles. The high-power radio stage changes both current demand and the relation between a chip-level output setting and actual RF output; a generic SX1262 demo is not a complete V4 power-control implementation.
 
-* [Heltec LoRa Node Series Application for Meshtastic](https://heltec.org/eadge-computing/): official Heltec application reference for using LoRa node hardware in Meshtastic-style networks.
-* [Heltec MeshSolar reference](https://heltec.org/meshsolar-where-solar-power-meets-meshtastic-freedom/): practical inspiration for solar-assisted Meshtastic relay/router deployments.
-* [Heltec MeshPocket](https://heltec.org/meshpocket/): example of Meshtastic communication packaged into a daily-use handheld product concept.
-* [Meshtastic firmware](https://github.com/meshtastic/firmware): open-source firmware ecosystem for off-grid LoRa mesh communication.
-* [Heltec ESP32 examples](https://github.com/HelTecAutomation/Heltec_ESP32/tree/master/examples): official examples for LoRa, LoRaWAN, display, sensors, low power, and board tests.
-* [Heltec LoRaWAN sample](https://docs.heltec.org/en/node/esp32/esp32_general_docs/lorawan/index.html): reference workflow for turning the board into a LoRaWAN end device.
+## Specifications <a href="#key-specifications" id="key-specifications"></a>
 
-## FAQ
+| Parameter            | V4-R2                                                           | V4-R8                                                          |
+| -------------------- | --------------------------------------------------------------- | -------------------------------------------------------------- |
+| Exact SKU            | HT-LoRa32V4                                                     | HT-LoRa32V4-R8                                                 |
+| Host / PSRAM         | ESP32-S3R2 /2 MB                                                | ESP32-S3R8 /8 MB                                               |
+| External flash       | 16 MB                                                           | 16 MB                                                          |
+| Bare-board display   | SSD1315 0.96-inch 128 × 64 OLED                                 | Same OLED class; not the TFT kit                               |
+| Radio                | SX1262 plus revision-specific FEM                               | SX1262 plus KCT8103L FEM in reviewed source                    |
+| High-band hardware   | 863–928 MHz product family; configure a permitted regional plan | Same family; use the received RF option                        |
+| Published RF ceiling | 28±1 dBm high-power family                                      | 28±1 dBm high-power family                                     |
+| USB / solar supply   | 5 V nominal; datasheet range 4.7–6 V                            | 5 V nominal; datasheet range 4.7–6 V                           |
+| Battery              | Single-cell lithium, 3.3–4.2 V                                  | Single-cell lithium, 3.3–4.2 V                                 |
+| Board dimensions     | 51.7 × 25.4 × 10.7 mm                                           | Same nominal form factor; use exact CAD/board revision for fit |
 
-<details>
+Sources: [R2 Rev1.4 datasheet](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/datasheet/WiFi_LoRa_32_V4.2.0.pdf), [R8 Rev1.1.0 datasheet](https://resource.heltec.cn/download/WiFi_LoRa_32_V4-R8/datasheet/WiFi_LoRa_32_V4R8.pdf), [current product page](https://heltec.org/project/wifi-lora-32-v4/). The older sheet lists broader silicon/board temperature limits than the current product's −20 to +70 °C; use the current product scope and the battery's separate charging limits. Neither range guarantees charging suitability.
 
-<summary>What is the HELTEC WiFi LoRa 32 V4.3.1 used for?</summary>
+At 25 °C the data sheets list roughly 75 mA RX, 750 mA at a 27 dBm transmit condition, 500 mA USB charging, 2 mA USB sleep and 20 µA battery sleep. These are manufacturer mode figures, not independently measured current or a promise that a 500 mA USB port supports simultaneous high-power TX and charging.
 
-It is used for Meshtastic nodes, MeshCore nodes, LoRaWAN sensors, private LoRa telemetry, solar-powered routers, smart agriculture, remote monitoring, and ESP32-S3 + SX1262 development.
+## Hardware and connections
 
-</details>
+### Supply and connector boundaries
 
-<details>
+Use regulated 5 V USB-C for first setup. Do not connect USB and an independent 5 V header supply together. Battery and solar inputs may coexist as the documented charger arrangement, but verify SH1.25-2P polarity against PCB markings before attaching a cell/panel. A mating connector alone does not establish polarity. Do not apply USB5 V to 3.3 V logic or bypass the charging path. The old guide's 4.4 V battery maximum is replaced here by the current 4.2 V limit.
 
-<summary>What is different between WiFi LoRa 32 V3 and V4?</summary>
+Attach the matched LoRa antenna before radio use. The 2.4 GHz FPC/IPEX path is a separate network. Keep the factory FPC route intact for first setup; the V4.2 and V4.3 RF resistor modifications differ. Do not bridge both routes as a routine troubleshooting step. [Product hardware/antenna notes](https://heltec.org/project/wifi-lora-32-v4/).
 
-V4 upgrades to ESP32-S3R2, external 16 MB flash, 2 MB PSRAM, higher LoRa transmit power, solar input, GNSS interface, 40-pin expansion, protected OLED assembly, and changed 2.4 GHz antenna routing. Firmware and pin maps must be selected for V4/V4.3.x.
+| Internal function       | R2 reviewed source          | R8 reviewed source                             |
+| ----------------------- | --------------------------- | ---------------------------------------------- |
+| SX1262 SCK/MISO/MOSI/CS | 9/11/10/8                   | 9/11/10/8                                      |
+| Reset/IRQ/busy          | 12/14/13                    | 12/14/13                                       |
+| OLED SDA/SCL/reset      | 17/18/21                    | 17/18/21                                       |
+| Vext control            | 36, active LOW              | 40, active LOW in firmware                     |
+| LED                     | 35                          | 46                                             |
+| Battery ADC             | 1; gate GPIO37 in R2 source | 1; **no ADC gate GPIO37 defined** in R8 source |
+| GNSS host TX/RX/PPS     | 38/39/41                    | 38/39/41                                       |
+| GNSS enable             | 34, active LOW              | 42, active LOW                                 |
+| User/BOOT               | 0                           | 0                                              |
 
-</details>
+Exact sources: [R2 variant](https://github.com/meshtastic/firmware/blob/d0f4096788545fb3c5e22d2a7e52ac6c268caac1/variants/esp32s3/heltec_v4/variant.h), [R8 variant](https://github.com/meshtastic/firmware/blob/d0f4096788545fb3c5e22d2a7e52ac6c268caac1/variants/esp32s3/heltec_v4_r8/variant.h). These are MCU identities, not a connector contact-order diagram. R8 reserves more memory-related pins; do not reuse R2 “free GPIO” assumptions.
 
-<details>
+### Hardware Revision Notes <a href="#hardware-revision-notes" id="hardware-revision-notes"></a>
 
-<summary>Does this board support Meshtastic?</summary>
+**R8 document conflicts:** its datasheet repeats the R2 GPIO37 ADC note and says Vext GPIO40 should be HIGH, while the reviewed firmware marks Vext GPIO40 active LOW. The later R8 V4.3.2 schematic shows the switched path; it is a later revision than the store's V4.3.1 naming. Use the stock exact-board implementation for this first result; custom Vext loads or a raw ADC-control routine are excluded until the received revision is matched. The divider drawing uses 390 kΩ/100 kΩ, so the ideal battery reconstruction is approximately `Vbat=4.9×Vadc`, not the inverted formula printed in the table; actual ADC calibration remains board-specific. [R8 schematic](https://resource.heltec.cn/download/WiFi_LoRa_32_V4-R8/Schematic/HTIT-WBR8H_V4.3.2.pdf).
 
-Yes. Heltec and OpenELAB both position WiFi LoRa 32 V4.3.1 as Meshtastic-compatible when flashed with the correct firmware target for this board generation. Use Meshtastic Web Flasher and select the matching board/firmware path.
+V4.2 uses GC1109 and V4.3 uses KCT8103L. The current Arduino instructions require **USE\_GC1109\_PA** or **USE\_KCT8103L\_PA** accordingly. The FEM handles PA/LNA paths and its output calibration; do not wire generic TXEN/RXEN over its control signals. Both reviewed radio variants use DIO2 switching and a 1.8 V TCXO setting. [Current wiki](https://wiki.heltec.org/docs/devices/open-source-hardware/esp32-series/lora-32/wifi-lora-32-v4/).
 
-</details>
+## Software and development resources
 
-<details>
+### Meshtastic, MeshCore, and LoRaWAN <a href="#meshtastic-meshcore-and-lorawan" id="meshtastic-meshcore-and-lorawan"></a>
 
-<summary>Does this board support MeshCore?</summary>
+| Hardware/application    | Reviewed Meshtastic source environment |
+| ----------------------- | -------------------------------------- |
+| R2 OLED board           | `heltec-v4`                            |
+| R8 OLED board           | `heltec-v4-r8-oled`                    |
+| R8 Expansion Kit V2 TFT | `heltec-v4-r8-tft`, separate kit guide |
 
-Yes, the OpenELAB listing and Heltec product page reference MeshCore support for the V4.3 hardware family. Use MeshCore firmware that explicitly matches V4.3.x hardware.
+The source snapshot is `d0f4096788545fb3c5e22d2a7e52ac6c268caac1`; [R2 environments](https://github.com/meshtastic/firmware/blob/d0f4096788545fb3c5e22d2a7e52ac6c268caac1/variants/esp32s3/heltec_v4/platformio.ini) and [R8 environments](https://github.com/meshtastic/firmware/blob/d0f4096788545fb3c5e22d2a7e52ac6c268caac1/variants/esp32s3/heltec_v4_r8/platformio.ini) also define the 16 MB partitioning. The manufacturer's minimum-version guidance differs: R2 Meshtastic above 2.7.20, R8 above 2.7.25; choose a current release explicitly offering the correct target. Do not select touchscreen “Meshtastic UI” for an ordinary OLED board.
 
-</details>
+For Arduino, the observed **Heltec-esp32 board package 3.3.8** is listed in the official package index. Add that index, install the package/library, reload board data and select the V4 board/memory/FEM options matching the received revision. Package availability is source-verified; SDK installation/build was not run. Legacy docs redirect to the current wiki. LoRaWAN examples additionally require a suitable network server, activation keys, frequency plan and any Heltec library license; Meshtastic keys are not LoRaWAN credentials.
 
-<details>
+MeshCore requires an exact R2/R8 and hardware-generation image. The manufacturer's temporary firmware archives and LNA-specific builds are version-bound resources, not interchangeable defaults. Preserve the package release and read its target before any update.
 
-<summary>Does it have GPS?</summary>
+## Getting started
 
-The board includes a 1.25-8P GNSS expansion interface and separate GNSS power control, but engineers should verify the exact package contents and connect a compatible GNSS accessory if position data is required.
+### First radio result without external wiring <a href="#radio-antenna-and-regulatory-checklist" id="radio-antenna-and-regulatory-checklist"></a>
 
-</details>
+Prepare a known-good 5 V data connection, matched antenna and a second compatible Meshtastic radio. Start with installed firmware when it already runs the desired application.
 
-<details>
+1. Inspect the board's R2/R8 and hardware revision markings. Read the installed identity over the supported serial/BLE client and save the version/configuration. Confirm an OLED target rather than a TFT kit build.
+2. Select the permitted region, wait for restart, and match the peer's modem preset, frequency slot and channel name/key. Keep the FEM-aware target's power behavior; do not override it with a chip-level 22/28 dBm assumption.
+3. Send `V4-A-01`, observe it at the peer, then return `V4-B-01`. Keep both receive timestamps and available RSSI/SNR. Repeat with unique sequence numbers before increasing separation.
+4. Check OLED updates independently from BLE and radio receipts. If custom firmware fails only on battery, inspect board-specific peripheral power rather than borrowing a V3/V4-R2 pin definition.
+5. Add GNSS only after identifying the delivered accessory, connector orientation and matched power-control implementation. Verify fresh receiver data outdoors separately from text reception.
 
-<summary>Can I use this as a LoRaWAN node?</summary>
+**Expected result:** exact board identity, a live OLED and two received text messages in opposite directions. A factory “LORA ERROR” can mean its test application found no matching factory-test peer; inspect firmware identity before diagnosing damaged hardware. [Product FAQ](https://heltec.org/project/wifi-lora-32-v4/).
 
-Yes. Heltec provides LoRaWAN examples and parameter documentation. Configure the correct frequency plan, sub-band, keys, activation mode, and network server settings for your region.
+### Firmware and Development Workflow <a href="#firmware-and-development-workflow" id="firmware-and-development-workflow"></a>
 
-</details>
+The command below selects R8 OLED. For R2 use `heltec-v4`; never substitute the TFT environment just to obtain a UI option.
 
-<details>
+```sh
+git clone --recursive https://github.com/meshtastic/firmware.git
+cd firmware
+git checkout d0f4096788545fb3c5e22d2a7e52ac6c268caac1
+git submodule update --init --recursive
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install platformio
+pio run -e heltec-v4-r8-oled
+```
 
-<summary>What antenna should I use?</summary>
+Expected build output is a target-specific artifact under `.pio/build/heltec-v4-r8-oled/`; no successful compilation is claimed. First build unchanged source and inspect the target/configuration before any upload.
 
-Use an antenna matched to the board's LoRa frequency band and connector. The high-power board covers 863 to 928 MHz, so a 868/915 MHz antenna is typical depending on region. Always install the antenna before transmission.
+### USB recovery
 
-</details>
+Export configuration before erasing. Connect USB-C, hold PRG, press/release RST, then release PRG. Select the exact board/application in the supported flasher and the newly observed USB port. Flash only its documented image/partition layout, reset afterward and repeat the identity/reply test. Do not apply an assumed raw offset to an app-only binary. [Manufacturer recovery instructions](https://heltec.org/project/wifi-lora-32-v4/).
 
-<details>
+### Field Deployment Checklist <a href="#field-deployment-checklist" id="field-deployment-checklist"></a>
 
-<summary>How do I enter BootLoader mode?</summary>
+Use the same known-good firmware/radio configuration for a bench-to-field comparison:
 
-Heltec's product FAQ describes connecting USB-C, holding the PRG button, pressing RST once, and then releasing PRG. Also use a real USB data cable, not a charge-only cable.
+1. Record R2/R8 identity, received PCB revision, firmware target, antenna and any GNSS accessory. Keep a recoverable image/configuration locally.
+2. Repeat a short direct message/reply at the bench, then at the intended mounting location. Log actual receiver times, missed replies and RSSI/SNR; do not compare only local send histories.
+3. With a suitable cell and verified connector polarity, measure sleep, receive and transmit peaks at the battery boundary. USB sleep and battery sleep include different circuits.
+4. For the documented solar charger path, record panel voltage under useful light, charging state, battery trend, shading, local temperature and message/GNSS workload over full day/night cycles. The 4.7–6 V input range and 4.2 V cell maximum remain applicable; a connector does not establish panel polarity.
+5. Recheck enclosure moisture protection, cable strain, antenna clearance from metal and access for service. The bare board is not a sealed outdoor product. Do not leave it inaccessible until battery trends support the intended workload.
 
-</details>
+**Expected result:** a repeatable baseline and a measured energy/delivery record for the actual assembly. No autonomous-runtime or range claim is made from the board's headline sleep/current values.
 
-<details>
+### Engineering Best Practices <a href="#engineering-best-practices" id="engineering-best-practices"></a>
 
-<summary>Why does firmware selection matter for V4.3.1?</summary>
+Change one interface at a time. If a sensor addition breaks RF, compare the last working build, pin ownership, Vext state and peak supply voltage before changing modem parameters. If GNSS alone fails, keep the established radio profile fixed and inspect the installed accessory, host UART and receiver-specific driver. A direct LoRa project must match bandwidth, spreading factor, coding rate, sync word, preamble, CRC and IQ inversion at both endpoints; Meshtastic and LoRaWAN manage those through their own application configuration.
 
-WiFi LoRa 32 V4 changes MCU resources, flash, USB behavior, power management, antenna routing, GNSS interface, and pin count compared with earlier boards. Wrong firmware can break display, radio, USB, power, or peripheral behavior.
+## Troubleshooting and FAQs
 
-</details>
+### FAQ <a href="#faq" id="faq"></a>
 
-<details>
+**What changed from V3?** V4 changes flash/PSRAM options, native USB behavior, the PA/LNA path, antenna routing and solar/GNSS expansion. The R2/R8 memory and occupied-pin distinctions in this guide must also be preserved; familiar dimensions do not make the firmware interchangeable.
 
-<summary>Is the board suitable for solar-powered nodes?</summary>
+**Does a GNSS connector mean GPS is installed?** No. The live listing's title changed, while the manufacturer describes a connector/accessory path. Inventory the received module and confirm a fresh fix separately from text delivery.
 
-Yes, V4 adds a solar input and optimized battery management, and Heltec lists low-power behavior below 20 uA. A reliable solar node still requires current measurement, proper panel sizing, battery protection, waterproofing, and conservative firmware settings.
+**Can MeshCore, LoRaWAN and Meshtastic share a binary?** They are separate firmware/application paths. Select exact R2/R8 and intended UI support, preserve a working release and retest the direct result after switching.
 
-</details>
+| Symptom                              | Useful diagnosis                                                                                                              |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| OLED black after flashing            | R2 versus R8 and OLED versus TFT target; do not select touchscreen UI for OLED                                                |
+| Radio fails only at higher settings  | Supply sag, antenna, exact FEM revision and calibration; do not raise power to diagnose it                                    |
+| App works but no peer messages       | Protocol, complete RF preset/channel key, receiving device and actual replies                                                 |
+| Battery reading implausible          | R2 ADC gate versus R8 implementation, divider direction and calibration; do not drive R8 GPIO37 from the copied note          |
+| GNSS absent                          | Is a receiver actually supplied/fitted? Verify its connector and R2/R8 enable pins; bare GNSS connector alone is insufficient |
+| Sleep current much higher than 20 µA | Measurement boundary, USB path, active OLED/GNSS/FEM and actual firmware sleep state                                          |
+| LNA changes reception                | Record firmware/hardware and RF environment; compare packets rather than assuming higher gain always improves a noisy site    |
 
-## Source Notes
+V3's similar shape does not establish compatible flash, pin reservations, power mapping or PA calibration. Custom power loads remain outside this first-result scope until the exact board revision is confirmed.
 
-* Product details: [OpenELAB HELTEC WiFi LoRa 32 V4 product page](https://openelab.io/products/heltec-wifi-lora-32-v4-sx1262-lora-node-meshtastic-lorawan-gps).
-* Official product details and V4.3 resources: [Heltec WiFi LoRa 32 V4.3.1 product page](https://heltec.org/project/wifi-lora-32-v4/) and [Heltec documentation](https://docs.heltec.org/en/node/esp32/wifi_lora_32/index.html).
-* Official development resources: [Heltec ESP32 framework](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series) and [Heltec ESP32 library](https://github.com/HelTecAutomation/Heltec_ESP32).
-* Meshtastic and MeshCore references: [Meshtastic](https://meshtastic.org/), [Meshtastic Web Flasher](https://flasher.meshtastic.org/), and [MeshCore](https://meshcore.co.uk/).
-* Reviewed for OpenELAB wiki publication on 2026-05-25.
+## Downloads and technical documents <a href="#official-resources-and-downloads" id="official-resources-and-downloads"></a>
+
+| Resource                                                                                                                                                                                                              | Version/scope                                                                                                                                                                        |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Current product](https://heltec.org/project/wifi-lora-32-v4/) /[current wiki](https://wiki.heltec.org/docs/devices/open-source-hardware/esp32-series/lora-32/wifi-lora-32-v4/)                                       | R2/R8 comparison, FEM selection, firmware/antenna/FAQ notes                                                                                                                          |
+| [R2 datasheet](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/datasheet/WiFi_LoRa_32_V4.2.0.pdf) /[R2 V4.3 schematic](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/Schematic/HTIT-WB32LAF_V4.3.pdf)       | Older R2 data and V4.3 circuit; do not transfer all pins to R8                                                                                                                       |
+| [R8 datasheet](https://resource.heltec.cn/download/WiFi_LoRa_32_V4-R8/datasheet/WiFi_LoRa_32_V4R8.pdf) /[R8 V4.3.2 schematic](https://resource.heltec.cn/download/WiFi_LoRa_32_V4-R8/Schematic/HTIT-WBR8H_V4.3.2.pdf) | R8-specific resources; apply ADC/Vext conflicts above                                                                                                                                |
+| [R2 resource center](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/) /[R8 resource center](https://resource.heltec.cn/download/WiFi_LoRa_32_V4-R8/)                                                             | Pin maps, firmware, data sheets and revision-specific schematics                                                                                                                     |
+| [R2 mechanical files](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/3D/)                                                                                                                                        | Mechanical resource directory; verify R8 physical fit separately                                                                                                                     |
+| [Historical V4 pin-map URL](https://heltec.org/wp-content/uploads/2025/09/V4_pinmap-scaled.png)                                                                                                                       | Retained older V4/R2-context reference; this URL served HTML rather than the drawing at review. Use the revision-specific R2/R8 resources above; do not transfer an R2 pin map to R8 |
+| [Board package index](https://resource.heltec.cn/download/package_heltec_esp32_index.json)                                                                                                                            | Observed Heltec-esp32 v3.3.8; Arduino package configuration                                                                                                                          |
+| [Heltec library](https://github.com/HelTecAutomation/Heltec_ESP32)                                                                                                                                                    | Factory/display/LoRaWAN examples and licenses                                                                                                                                        |
+
+The retained technical links below also expose the ESP32-S3, SX1261/2 and SSD1315 component documents, LoRaWAN/mesh introductions and earlier example/manual resources. They are references, not proof that every historical example supports every V4 option.
+
+### Project References and Application Ideas <a href="#project-references-and-application-ideas" id="project-references-and-application-ideas"></a>
+
+The Heltec mesh-node application collection and MeshSolar reference below are useful for thinking about fixed-node placement and energy balance. They are **other projects**, not electrical or firmware authorities for this R2/R8 board. MeshPocket illustrates an assembled handheld form factor; it does not establish V4 charging or antenna wiring. For a new sensor project, begin with a documented 3.3 V interface and a local decoded reading, then add sparse telemetry and confirm the exact payload at the receiver/server before field mounting.
+
+* [Heltec documentation](https://docs.heltec.org/en/node/esp32/wifi_lora_32/index.html)
+* [ESP32-S3 datasheet](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/datasheet/esp32-s3_datasheet_en.pdf)
+* [SX1261/2 datasheet](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/datasheet/SX1261_2%20V2-2.pdf)
+* [SSD1315 datasheet](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/datasheet/SSD1315_1.0_withcomand_.pdf)
+* [Heltec ESP32 Series Quick Start](https://docs.heltec.org/en/node/esp32/esp32_general_docs/quick_start.html)
+* [WiFi LoRa 32 example manual](https://docs.heltec.org/en/node/esp32/wifi_lora_32/example.html)
+* [Heltec ESP32 framework](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series)
+* [Heltec LoRaWAN sample](https://docs.heltec.org/en/node/esp32/esp32_general_docs/lorawan/index.html)
+* [Heltec Meshtastic Introduction](https://docs.heltec.org/en/node/esp32/esp32_general_docs/meshtastick.html)
+* [Meshtastic Web Flasher](https://flasher.meshtastic.org/)
+* [Meshtastic LoRa32 peripherals](https://meshtastic.org/docs/hardware/devices/heltec-automation/lora32/peripherals/)
+* [MeshCore](https://meshcore.co.uk/)
+* [MeshCore flasher](https://flasher.meshcore.co.uk/)
+* [heltec-v4.3-meshcore-1.14.zip](https://resource.heltec.cn/download/WiFi_LoRa_32_V4/firmware/meshcore/heltec-v4.3-meshcore-1.14.zip)
+* [Heltec LoRa Node Series Application for Meshtastic](https://heltec.org/eadge-computing/)
+* [Heltec MeshSolar reference](https://heltec.org/meshsolar-where-solar-power-meets-meshtastic-freedom/)
+* [Heltec MeshPocket](https://heltec.org/meshpocket/)
+* [Heltec ESP32 examples](https://github.com/HelTecAutomation/Heltec_ESP32/tree/master/examples)
+* [Meshtastic](https://meshtastic.org/)
+
+## References and validation <a href="#source-notes" id="source-notes"></a>
+
+Read sources include both data sheets, current manufacturer/wiki comparison, exact Meshtastic variants/environments, package index and the R2 V4.3/R8 V4.3.2 schematics. The R8 drawing was visually inspected. Original additions separate model-specific pin reservations, FEM handling, source-build selection and the two-way acceptance procedure. The older published guide's R2-only memory/power assumptions are explicitly corrected.
+
+[Manufacturer guides](./). Reviewed 24 November 2026. **Firmware/SDK installation, compilation, flashing, radio/serial operation and hardware tests not run.** Examples and expected results are source-reviewed procedures, not observed bench results.
