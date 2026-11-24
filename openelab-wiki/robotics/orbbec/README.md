@@ -1,5 +1,8 @@
 ---
-description: Gemini and Femto depth cameras for robot vision and 3D sensing.
+description: >-
+  Orbbec Gemini and Femto development guides: exact camera models, USB, Ethernet
+  and GMSL transport, SDK and firmware compatibility, calibration, sync and
+  depth capture.
 ---
 
 # Orbbec
@@ -12,16 +15,22 @@ Orbbec develops 3D cameras and depth-sensing technology for machines that need t
 
 Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
 
-| Product guide                                                                   | Models / order codes                                                              |
-| ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| [Orbbec Gemini 435Le User Manual](orbbec-gemini-435le-user-manual.md)           | ORBBEC-Gemini435Le                                                                |
-| [Orbbec Gemini 330 Series User Manual](orbbec-gemini-330-series-user-manual.md) | ORBBEC-Gemini-336L · ORBBEC-Gemini-335L · ORBBEC-Gemini-336 · ORBBEC-Gemini-335Le |
-| [Orbbec Gemini 335 User Manual](orbbec-gemini-335-user-manual.md)               | ORBBEC-Gemini-335                                                                 |
-| [Orbbec Gemini 305 User Manual](orbbec-gemini-305-user-manual.md)               | ORBBEC-Gemini-305                                                                 |
-| [Orbbec Gemini 2](orbbec-gemini-2.md)                                           | ORBBEC-Gemini2                                                                    |
-| [Orbbec Femto Bolt User Manual](orbbec-femto-bolt-user-manual.md)               | ORBBEC-Femto-Bolt                                                                 |
-| [Orbbec Gemini 305g Engineering Guide](orbbec-gemini-305g-development-guide.md) | ORBBEC-Gemini-305G                                                                |
-| [Orbbec Femto Mega User Manual](orbbec-femto-mega-user-manual.md)               | ORBBEC-Femto-Mega                                                                 |
+| Product guide                                                                                       | Models / order codes                                                              |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [Orbbec Gemini 435Le: PoE depth streaming and network setup](orbbec-gemini-435le-user-manual.md)    | ORBBEC-Gemini435Le                                                                |
+| [Orbbec Gemini 330 series: USB and PoE camera integration](orbbec-gemini-330-series-user-manual.md) | ORBBEC-Gemini-336L · ORBBEC-Gemini-335L · ORBBEC-Gemini-336 · ORBBEC-Gemini-335Le |
+| [Orbbec Gemini 335: USB depth capture and SDK development](orbbec-gemini-335-user-manual.md)        | ORBBEC-Gemini-335                                                                 |
+| [Orbbec Gemini 305: close-range USB wrist-camera development](orbbec-gemini-305-user-manual.md)     | ORBBEC-Gemini-305                                                                 |
+| [Orbbec Gemini 2: USB RGB-D and IMU development](orbbec-gemini-2.md)                                | ORBBEC-Gemini2                                                                    |
+| [Orbbec Femto Bolt: ToF depth capture and K4A migration](orbbec-femto-bolt-user-manual.md)          | ORBBEC-Femto-Bolt                                                                 |
+| [Orbbec Gemini 305g: GMSL2 wrist-camera integration](orbbec-gemini-305g-development-guide.md)       | ORBBEC-Gemini-305G                                                                |
+| [Orbbec Femto Mega: PoE and USB ToF camera development](orbbec-femto-mega-user-manual.md)           | ORBBEC-Femto-Mega                                                                 |
+
+### Camera integration and documentation
+
+The expanded Top 200 guides cover eight canonical camera families and eleven product options. They retain the existing manual diagrams and technical references, with exact-model transport, power, optical range and SDK/firmware compatibility checks added before first capture. Use the model tables to distinguish Gemini 335/336/L/Le, Ethernet 435Le, GMSL 305g and Femto ToF cameras.
+
+Start with a free-running depth capture using a supported profile, then verify units, timestamps and calibration before registration, synchronization or multi-camera work. Custom trigger wiring and firmware updates require the exact connector and version contract stated in the relevant guide. Source/static checks are documented; no physical camera tests are claimed.
 
 ### Product range
 

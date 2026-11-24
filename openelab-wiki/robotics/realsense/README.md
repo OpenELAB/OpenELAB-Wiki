@@ -1,5 +1,8 @@
 ---
-description: Stereo depth cameras for close-range vision and robot perception.
+description: >-
+  RealSense D435, D435i, D455f and D405 engineering reference: exact models,
+  power and USB, librealsense capture, calibration, IMU, sync, depth processing
+  and troubleshooting.
 ---
 
 # RealSense
@@ -12,9 +15,15 @@ RealSense develops depth cameras that combine image sensing with distance inform
 
 Guides for products in our Top 200 sales list, shown in popularity order. Shared guides appear once; use the model or order code to select the correct variant.
 
-| Product guide                                                                                            | Models / order codes                                |
-| -------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| [RealSense D435 D435i D455f and D405 Engineering Guide](realsense-d400-usb-cameras-development-guide.md) | Intel-D435i · Intel-D455F · Intel-D435 · Intel-D405 |
+| Product guide                                                                                                   | Models / order codes                                |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [RealSense D435i, D455f, D435 and D405: USB depth development](realsense-d400-usb-cameras-development-guide.md) | Intel-D435i · Intel-D455F · Intel-D435 · Intel-D405 |
+
+### D400 model selection and development
+
+The expanded [D435, D435i, D455f and D405 engineering guide](realsense-d400-usb-cameras-development-guide.md) covers four Top 200 products in one canonical reference. It distinguishes the near-field D405, D435i IMU and D455f optical configuration; D455 examples elsewhere in this range are not a substitute for D455f identification.
+
+Use its model/profile tables, matched librealsense resources, first depth-capture workflow, processing/calibration reference and recovery guidance. Check actual depth units and timestamps before ROS or application integration. Source/static checks and untested hardware procedures are recorded separately.
 
 ### Product range
 
