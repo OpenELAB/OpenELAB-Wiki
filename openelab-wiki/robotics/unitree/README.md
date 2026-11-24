@@ -1,45 +1,109 @@
 ---
 description: >-
-  Unitree L2 4D LiDAR engineering references for interfaces, packets, SDK and
-  ROS; historical OpenELAB listing and package identity remain unverified.
+  Unitree G1, Go2/Go2-W and R1 robot guides, SDK2 and ROS 2 development,
+  official English manuals, LiDAR and motor references with model-specific
+  limits.
 cover: ../../.gitbook/assets/unitree-wordmark.png
 coverY: 0
 ---
 
 # Unitree
 
-> Unitree Robot Motor: Engineered for high precision and stability, our motors are the driving force in robotics technology.
+Unitree documentation spans quadrupeds, wheel-legged robots, humanoids, arms, hands, LiDAR and joint actuators. Identify the exact hardware, retail/EDU option and software release before selecting a development interface. A shared model name, DDS topic or SDK repository does not establish the same joint map or development entitlement.
 
-### Popular product guides
+## Popular product guides <a href="#popular-product-guides" id="popular-product-guides"></a>
 
-Products in the OpenELAB Top200 net-sales snapshot for 17 August–17 November 2026, ordered by their original sales rank. Shared model-family guides appear once; match the exact model, SKU and purchased option. This dated sales order is separate from manufacturer website-traffic ranking.
+The existing Top200 net-sales order for 17 August–17 November 2026 is retained. It is separate from manufacturer website-traffic ranking.
 
-| Product guide                                                                     | Models / order codes |
-| --------------------------------------------------------------------------------- | -------------------- |
-| [Unitree L2 4D LiDAR Engineering Guide](unitree-l2-4d-lidar-engineering-guide.md) | Unitree-L24DLiDAR    |
+| Product guide                                                                     | Scope                                                                                                             |
+| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| [Unitree L2 4D LiDAR engineering guide](unitree-l2-4d-lidar-engineering-guide.md) | Serial/Ethernet, packets/IMU, SDK and ROS; its historical exact OpenELAB package/listing match remains unverified |
 
-### Unitree Official Site
+## Robot setup and development guides <a href="#robot-setup-and-development-guides" id="robot-setup-and-development-guides"></a>
 
-Main site: [https://www.unitree.com/](https://www.unitree.com/)
+* [Unitree G1 Standard and EDU: Robot Setup and State Development Guide](unitree-g1-standard-edu-development-guide.md)
+* [Unitree Go2 Air, Pro and EDU: model selection, startup and development limits](unitree-go2.md)
+* [Unitree Go2-W U1–U5: wheeled hardware, startup and SDK status](unitree-go2-w.md)
+* [Unitree R1, R1 AIR and R1 EDU: Setup, Charging and SDK Boundaries](unitree-r1.md)
+* [Unitree SDK2 State Development: Go2, G1 and R1](unitree-sdk2-state-development.md)
+* [Unitree ROS 2 integration: message families, Cyclone DDS and subscriber-first checks](unitree-ros2-integration.md)
 
-### Product Collections
+These guides distinguish source-reviewed instructions, original offline checks, compatible-hardware prerequisites and untested operations. Go2 Air/Pro versus EDU and G1 base versus EDU must not be treated as equivalent SDK entitlements. The exact delivered firmware and physical stop/commissioning controls remain model-specific.
+
+## Unitree Official Site <a href="#unitree-official-site" id="unitree-official-site"></a>
+
+* [Unitree official products](https://www.unitree.com/)
+* [Official support and developer portal](https://support.unitree.com/main/en)
+* [Official Unitree source repositories](https://github.com/unitreerobotics)
+
+## Product Collections <a href="#product-collections" id="product-collections"></a>
+
+[Browse the full OpenELAB Unitree brand collection](https://openelab.io/collections/brands-unitree). Use the exact model guide's store/SKU links for its purchased configuration. The separate [Unitree collection](https://openelab.io/collections/unitree) is narrower and must not be used as a complete product inventory.
 
 {% embed url="https://openelab.io/collections/unitree" %}
 
-### More manuals and tutorials
+## More manuals and tutorials <a href="#more-manuals-and-tutorials" id="more-manuals-and-tutorials"></a>
 
 <details>
 
 <summary>Browse 1 additional guides</summary>
 
-* [Unitree GO-M8010-6 Motor User Manual](unitree-go-m8010-6-motor-user-manual.md)
+* [Unitree GO-M8010-6 motor user manual](unitree-go-m8010-6-motor-user-manual.md)
 
 </details>
 
+### Official English manual library <a href="#official-english-manual-library" id="official-english-manual-library"></a>
+
+These are the manufacturer's original manuals, including model-specific user, battery, controller and mounting documents. Check the edition printed in the source and the configuration stated in the model guide; a live document URL may be revised over time. Their availability does not establish firmware compatibility or that every manual section has been covered by the guides currently linked above.
+
+| Model / document                 | Original English manual                                                                               | Source scan pages |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------- |
+| A2-W — Battery Charger           | [Manufacturer original](https://marketing.unitree.com/article/en/A2-W/Battery_Charger.html)           | 14                |
+| A2-W — Remote Control            | [Manufacturer original](https://marketing.unitree.com/article/en/A2-W/Remote_Control.html)            | 9                 |
+| A2-W — User Manual               | [Manufacturer original](https://marketing.unitree.com/article/en/A2-W/User_Manual.html)               | 28                |
+| A2 — Battery Charger             | [Manufacturer original](https://marketing.unitree.com/article/en/A2/Battery_Charger.html)             | 15                |
+| A2 — Companion Remote Control    | [Manufacturer original](https://marketing.unitree.com/article/en/A2/Companion_Remote_Control.html)    | 7                 |
+| A2 — Remote Control              | [Manufacturer original](https://marketing.unitree.com/article/en/A2/Remote_Control.html)              | 9                 |
+| A2 — User Manual                 | [Manufacturer original](https://marketing.unitree.com/article/en/A2/User_Manual.html)                 | 28                |
+| As2-W — Battery Charger          | [Manufacturer original](https://marketing.unitree.com/article/en/As2-W/Battery_Charger.html)          | 11                |
+| As2-W — Companion Remote Control | [Manufacturer original](https://marketing.unitree.com/article/en/As2-W/Companion_Remote_Control.html) | 7                 |
+| As2-W — Remote Control           | [Manufacturer original](https://marketing.unitree.com/article/en/As2-W/Remote_Control.html)           | 9                 |
+| As2-W — User Manual              | [Manufacturer original](https://marketing.unitree.com/article/en/As2-W/User_Manual.html)              | 37                |
+| As2 — Battery Charger            | [Manufacturer original](https://marketing.unitree.com/article/en/As2/Battery_Charger.html)            | 11                |
+| As2 — Companion Remote Control   | [Manufacturer original](https://marketing.unitree.com/article/en/As2/Companion_Remote_Control.html)   | 7                 |
+| As2 — Remote Control             | [Manufacturer original](https://marketing.unitree.com/article/en/As2/Remote_Control.html)             | 9                 |
+| As2 — User Manual                | [Manufacturer original](https://marketing.unitree.com/article/en/As2/User_Manual.html)                | 38                |
+| B2-W — Remote Control            | [Manufacturer original](https://marketing.unitree.com/article/en/B2-W/Remote_Control.html)            | 14                |
+| B2-W — User Manual               | [Manufacturer original](https://marketing.unitree.com/article/en/B2-W/User_Manual.html)               | 23                |
+| B2 — Battery Charger             | [Manufacturer original](https://marketing.unitree.com/article/en/B2/Battery_Charger.html)             | 14                |
+| B2 — Remote Control              | [Manufacturer original](https://marketing.unitree.com/article/en/B2/Remote_Control.html)              | 14                |
+| B2 — User Manual                 | [Manufacturer original](https://marketing.unitree.com/article/en/B2/User_Manual.html)                 | 23                |
+| G1 — Battery Charger             | [Manufacturer original](https://marketing.unitree.com/article/en/G1/Battery_Charger.html)             | 9                 |
+| G1 — Lumbar fasteners            | [Manufacturer original](https://marketing.unitree.com/article/en/G1/Lumbar_fasteners.html)            | 6                 |
+| G1 — Remote Control              | [Manufacturer original](https://marketing.unitree.com/article/en/G1/Remote_Control.html)              | 10                |
+| G1 — User Manual                 | [Manufacturer original](https://marketing.unitree.com/article/en/G1/User_Manual.html)                 | 31                |
+| Go2-W — User Manual              | [Manufacturer original](https://marketing.unitree.com/article/en/Go2-W/User_Manual.html)              | 16                |
+| Go2 — Battery Charger            | [Manufacturer original](https://marketing.unitree.com/article/en/Go2/Battery_Charger.html)            | 10                |
+| Go2 — Companion Remote Control   | [Manufacturer original](https://marketing.unitree.com/article/en/Go2/Companion_Remote_Control.html)   | 6                 |
+| Go2 — Handheld Remote Control    | [Manufacturer original](https://marketing.unitree.com/article/en/Go2/Handheld_Remote_Control.html)    | 16                |
+| Go2 — User Manual                | [Manufacturer original](https://marketing.unitree.com/article/en/Go2/User_Manual.html)                | 17                |
+| H1-2 — Remote Control            | [Manufacturer original](https://marketing.unitree.com/article/en/H1-2/Remote_Control.html)            | 16                |
+| H1-2 — User Manual               | [Manufacturer original](https://marketing.unitree.com/article/en/H1-2/User_Manual.html)               | 23                |
+| H1 — Battery Charger             | [Manufacturer original](https://marketing.unitree.com/article/en/H1/Battery_Charger.html)             | 9                 |
+| H1 — Remote Control              | [Manufacturer original](https://marketing.unitree.com/article/en/H1/Remote_Control.html)              | 17                |
+| H1 — User Manual                 | [Manufacturer original](https://marketing.unitree.com/article/en/H1/User_Manual.html)                 | 26                |
+| H2 — Battery Charger             | [Manufacturer original](https://marketing.unitree.com/article/en/H2/Battery_Charger.html)             | 11                |
+| H2 — Remote Control              | [Manufacturer original](https://marketing.unitree.com/article/en/H2/Remote_Control.html)              | 10                |
+| H2 — User Manual                 | [Manufacturer original](https://marketing.unitree.com/article/en/H2/User_Manual.html)                 | 39                |
+| R1 — Battery Charger             | [Manufacturer original](https://marketing.unitree.com/article/en/R1/Battery_Charger.html)             | 10                |
+| R1 — Remote Control              | [Manufacturer original](https://marketing.unitree.com/article/en/R1/Remote_Control.html)              | 11                |
+| R1 — User Manual                 | [Manufacturer original](https://marketing.unitree.com/article/en/R1/User_Manual.html)                 | 40                |
+| R1\_A5A7 — User Manual           | [Manufacturer original](https://marketing.unitree.com/article/en/R1_A5A7/User_Manual.html)            | 32                |
+
+## Model-specific protocol and development references <a href="#model-specific-protocol-and-development-references" id="model-specific-protocol-and-development-references"></a>
+
+Use the model guide for power, battery, connector, joint and startup requirements; use SDK2/ROS 2 references for pinned message contracts and subscriber-first checks. GO and HG schemas differ, and a message array's capacity is not the robot's active joint count. Motion, ownership release, calibration and firmware replacement need their own model-specific prerequisites and recovery evidence.
+
+The existing [L2 protocol and development reference](unitree-l2-4d-lidar-engineering-guide.md) remains the canonical guide for that LiDAR. Its store-link gap is retained; no replacement product URL or package contents are inferred from another sensor. The [GO-M8010-6 manual](unitree-go-m8010-6-motor-user-manual.md) covers its separate motor scope.
+
 [Explore Robotics documentation](../robotics-wiki-home-page.md) · [OpenELAB Wiki home](../../)
-
-### Model-specific protocol and development references
-
-The [L2 4D LiDAR guide](unitree-l2-4d-lidar-engineering-guide.md) develops the official serial/Ethernet, packet/IMU, SDK and ROS configuration references with acceptance checks and diagnostics. The historical Unitree-L24DLiDAR OpenELAB URL currently returns 404, and its current exact package/listing is unverified. That store gap is preserved for reconciliation; accessory inclusion is not inferred from another model.
-
-Source review and static validation are distinct from executing an SDK or commissioning physical hardware. Follow each guide’s stated evidence and validation limits.
