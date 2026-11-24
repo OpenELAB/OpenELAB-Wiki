@@ -84,6 +84,13 @@ These guides distinguish source-reviewed instructions, original offline checks, 
 * [Unitree A1 Motor: Component Identification and SDK Development](unitree-a1-motor.md)
 * [Unitree B1-16 Waterproof Joint: Hardware and Development Boundaries](unitree-b1-16-motor.md)
 
+## Mobile and fixed upper-body platforms <a href="#unitree-batch-04-mobile" id="unitree-batch-04-mobile"></a>
+
+* [Unitree G1-A: Fixed-Base Dual-Arm Robot Integration Guide](unitree-g1-a-fixed-upper-body.md)
+* [Unitree G1-D Standard and Flagship: Chassis, Lift and SDK Guide](unitree-g1-d-mobile-manipulator.md)
+* [Unitree H2-A and H2-D: Fixed and Mobile Manipulation Guide](unitree-h2-a-h2-d-upper-body.md)
+* [Unitree R1-A5, A7 and D Variants: Dual-Arm Development Guide](unitree-r1-a5-a7-mobile-upper-body.md)
+
 ## Unitree Official Site <a href="#unitree-official-site" id="unitree-official-site"></a>
 
 * [Unitree official products](https://www.unitree.com/)
