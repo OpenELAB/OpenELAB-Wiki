@@ -77,6 +77,13 @@ These guides distinguish source-reviewed instructions, original offline checks, 
 * [Unitree SV1-25: USB stereo capture, calibration and exact SDK interfaces](unitree-sv1-25.md)
 * [Unitree BA2 / A2 Autonomous Charging Dock: ratings and integration boundaries](unitree-ba2.md)
 
+## Motors and servos <a href="#unitree-batch-06-motors" id="unitree-batch-06-motors"></a>
+
+* [Unitree IM6014 Motor: Wiring, Protocol and Development Guide](unitree-im6014-motor.md)
+* [Unitree J288 and S288 Brushless Servos: Wiring and Development Guide](unitree-j288-s288-servo.md)
+* [Unitree A1 Motor: Component Identification and SDK Development](unitree-a1-motor.md)
+* [Unitree B1-16 Waterproof Joint: Hardware and Development Boundaries](unitree-b1-16-motor.md)
+
 ## Unitree Official Site <a href="#unitree-official-site" id="unitree-official-site"></a>
 
 * [Unitree official products](https://www.unitree.com/)
