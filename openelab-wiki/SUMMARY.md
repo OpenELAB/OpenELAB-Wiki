@@ -1,6 +1,7 @@
 # Table of contents
 
 * [🚀 OpenELAB Wiki](README.md)
+* [Use OpenELAB Wiki with AI](use-openelab-wiki-with-ai.md)
 
 ## AIoT
 
