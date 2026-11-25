@@ -42,6 +42,40 @@ https://wiki.openelab.io/~gitbook/mcp
 
 See the [GitBook setup guide](https://gitbook.com/docs/ai-for-your-readers/mcp-servers-for-published-docs#connect-an-ai-tool) for Claude Code, Cursor, Codex, and other clients. The endpoint is for your MCP client.
 
+<figure><img src=".gitbook/assets/openelab-mcp-clients.svg" alt="Supported MCP clients: Codex, Claude Code, and Cursor"><figcaption></figcaption></figure>
+
+### Client setup commands
+
+#### Codex
+
+Copy and run this command in your terminal. [Codex setup guide](https://developers.openai.com/codex/mcp)
+
+```
+codex mcp add openelab-wiki --url https://wiki.openelab.io/~gitbook/mcp
+```
+
+#### Claude Code
+
+Copy and run this command in your terminal. [Claude Code setup guide](https://code.claude.com/docs/en/mcp)
+
+```
+claude mcp add --transport http openelab-wiki https://wiki.openelab.io/~gitbook/mcp
+```
+
+#### Cursor
+
+Add this server in your Cursor MCP settings or your `.cursor/mcp.json` file. [Cursor setup guide](https://cursor.com/docs/context/mcp)
+
+```
+{
+  "mcpServers": {
+    "openelab-wiki": {
+      "url": "https://wiki.openelab.io/~gitbook/mcp"
+    }
+  }
+}
+```
+
 ### Try it with ESP32-CAM
 
 > Use OpenELAB Wiki MCP to find which camera and USB-to-serial adapter come with the ESP32-CAM Camera Module. Include the original Wiki link.
