@@ -97,9 +97,11 @@ After using ATOM to power on with Demo, you need to press the button to return t
 
 [UIFlow2.0](https://docs.m5stack.com/en/uiflow2/uiflow_web)[UIFlow2.0](https://docs.m5stack.com/en/uiflow2/uiflow_web)This tutorial will show you how to initialize the configuration using the UIFlow2.0 graphical programming platform
 
-[Scale Unit Programming Guide](https://uiflow-micropython.readthedocs.io/en/latest/units/miniscale.html)
+[Scale Unit Programming Guide](https://uiflow-micropython.readthedocs.io/en/latest/unit/scales.html)
 
-<figure><img src="https://static-cdn.m5stack.com/mpy_docs/unit/miniscales/example.svg" alt=""><figcaption></figcaption></figure>
+This guide documents the 20 kg Unit Scales; use ScalesUnit at its configured I2C address (default 0x26). Mini Scale examples are for a different device.
+
+<figure><img src="https://static-cdn.m5stack.com/mpy_docs/unit/miniscales/example.svg" alt=""><figcaption><p>Legacy Mini Scale illustration. Use the ScalesUnit reference above for the 20 kg Unit Scales.</p></figcaption></figure>
 
 #### UIFlow example <a href="#uiflow-example" id="uiflow-example"></a>
 

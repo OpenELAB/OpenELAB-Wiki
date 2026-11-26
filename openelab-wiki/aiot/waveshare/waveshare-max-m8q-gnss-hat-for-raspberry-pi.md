@@ -83,7 +83,7 @@ RTK (Real Time Kinematic), also known as carrier phase differential technology, 
 3\. Note that you should set the side without sticker upward, Open Device Manager and view the COM port, connect MAX-M8Q, and use auto-baudrate.\
 4\. Power the MAX-M8Q module and set it to 3D mode, select File -> Database Export -> Google Map Html to export file.\
 5\. Download [Test file](https://files.waveshare.com/upload/6/63/Test_Release.zip), unzip and open it by Chrome browser, and import the file which is saved from u-center above to check position information.\
-6\. Please refer to the [User guide](https://www.u-blox.com/sites/default/files/u-center_Userguide_\(UBX-13005250\).pdf) about how to use the u-center.<br>
+6\. Please refer to the [User guide](https://www.u-blox.com/sites/default/files/u-center_Userguide_UBX-13005250.pdf) about how to use the u-center.<br>
 
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=MAX-M8Q_GNSS_HAT_002.jpg&#x26;width=600" alt=""><figcaption></figcaption></figure>
 
@@ -114,12 +114,14 @@ RTK (Real Time Kinematic), also known as carrier phase differential technology, 
 
 Open the Raspberry Pi Terminal and configure by commands.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo raspi-config
 #Choose Interfacing Options -> Serial -> No -> Yes
 #You should disable shell login and enable the hardware serial
 sudo reboot
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/upload/3/31/L76X_GPS_Module_rpi_serial.png" alt=""><figcaption></figcaption></figure>
 
@@ -127,14 +129,17 @@ sudo reboot
 
 * Install the Python library function:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get update
 sudo apt-get install gpsd gpsd-clients gpsd-tools
 sudo pip3 install gps3
 ```
+{% endcode %}
 
 * Modify gpsd:
 
+{% code collapsedlinecount="10" %}
 ```
 #Open gpsd file
 sudo nano /etc/default/gpsd
@@ -143,24 +148,29 @@ USBAUTO="false"
 DEVICES="/dev/ttyS0"
 GPSD_OPTIONS="/dev/ttyUSB0"
 ```
+{% endcode %}
 
 * Download demo codes:
 
+{% code collapsedlinecount="10" %}
 ```
 mkdir ~/Documents/MAX-XXX_GNSS_HAT_Code
 cd ~/Documents/MAX-XXX_GNSS_HAT_Code/
 wget https://files.waveshare.com/upload/0/0f/MAX-XXX_GNSS_HAT_Code.zip
 unzip MAX-XXX_GNSS_HAT_Code.zip
 ```
+{% endcode %}
 
 #### Python Example
 
 Enter the python directory (demo codes), and run the example.
 
+{% code collapsedlinecount="10" %}
 ```
 cd ~/Documents/MAX-XXX_GNSS_HAT_Code/RaspberryPi/python/coordinate_converter
 sudo python3 main.py
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=MAX-M8Q_GNSS_HAT_006.jpg&#x26;width=800" alt=""><figcaption></figcaption></figure>
 
@@ -174,6 +184,7 @@ The system clock of personal computers, servers, and other equipment will be ske
 2\. Connect the NEO-M8T connected to the antenna to the Raspberry Pi, power it on, and wait for the NE0-M8T to output the PPS signal.\
 3\. Copy and paste the following command to the Raspberry Pi command line to execute.<br>
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get install git
 cd ~/Documents
@@ -181,20 +192,25 @@ sudo git clone
 cd RPi-GPS-PPS-StratumOne
 sudo chmod 777 install-gps-pps.sh
 ```
+{% endcode %}
 
 4\. The installation takes a long time, reboot the Raspberry Pi after installation.\
 5\. Open the /boot/config.txt file, jump to the last line, change gpiopin=4 to gpiopin=18, press Ctrl+X then Y and press Enter to save.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo nano /boot/config.txt
 dtoverlay=pps-gpio,gpiopin=18,capture_clear  # /dev/pps0
 ```
+{% endcode %}
 
 6\. Use the following command to test the operation of pps0, the Raspberry Pi time has already used the time system provided by NEO-M8T
 
+{% code collapsedlinecount="10" %}
 ```
 watch -n1 chronyc syntaxhighlightstats -v
 ```
+{% endcode %}
 
 7.To provide time for other devices, obtain the address of the Raspberry Pi running NTP, such as 192.168.6.93.
 
@@ -204,10 +220,12 @@ watch -n1 chronyc syntaxhighlightstats -v
 
 8\. For Linux devices, use the following command to synchronize the time.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt install ntpdate
 sudo ntpdate 192.168.6.93
 ```
+{% endcode %}
 
 ### Using STM32 Board
 
@@ -232,15 +250,18 @@ Download the demo codes. Open the STM32 project by Keil software, compile and do
 
 * Install Python library function:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get update
 sudo apt-get install python-serial
 sudo apt-get install gpsd gpsd-clients python-gps
 sudo pip3 install gps3
 ```
+{% endcode %}
 
 * Modify gpsd parameters:
 
+{% code collapsedlinecount="10" %}
 ```
 #Open gpsd document
 sudo nano /etc/default/gpsd
@@ -249,18 +270,22 @@ USBAUTO="false"
 DEVICES="/dev/ttyTHS1"
 GPSD_OPTIONS="/dev/ttyUSB0"
 ```
+{% endcode %}
 
 * Download the demo:
 
+{% code collapsedlinecount="10" %}
 ```
 mkdir -p ~/Documents/MAX-XXX_GNSS_HAT_Code
 cd ~/Documents/MAX-XXX_GNSS_HAT_Code/
 wget https://files.waveshare.com/upload/0/0f/MAX-XXX_GNSS_HAT_Code.zip
 unzip MAX-XXX_GNSS_HAT_Code.zip
 ```
+{% endcode %}
 
 * Check the port for data:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo chmod 777 /dev/ttyTHS1
 sudo minicom -D /dev/ttyTHS1 -b 9600
@@ -270,15 +295,18 @@ sudo cgps -s
 sudo killall gpsd
 sudo reboot
 ```
+{% endcode %}
 
 #### python
 
 Enter the python directory and run the demo, and you can view the information directly on Google Maps.
 
+{% code collapsedlinecount="10" %}
 ```
 cd ~/Documents/MAX-XXX_GNSS_HAT_Code/RaspberryPi/python/coordinate_converter
 sudo python3 main.py
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=MAX-M8Q_GNSS_HAT_016.jpg&#x26;width=600" alt=""><figcaption></figcaption></figure>
 

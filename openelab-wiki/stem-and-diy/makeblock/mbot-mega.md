@@ -259,7 +259,7 @@ In order to connect the hardware on the web side of Wise Programming, we need to
 
 Download mLink to your computer by visiting this website:
 
-{% embed url="https://mblock.makeblock.com/en/download/" %}
+{% embed url="https://mblock.cc/pages/downloads" %}
 
 <figure><img src="../../.gitbook/assets/5.png" alt=""><figcaption></figcaption></figure>
 

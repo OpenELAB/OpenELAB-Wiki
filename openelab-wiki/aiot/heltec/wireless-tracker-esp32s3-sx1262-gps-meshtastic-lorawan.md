@@ -105,7 +105,7 @@ Wireless Tracker supports L1 + L5/L2, and supports GPS, GLONASS, BDS, Galileo, N
 {% step %}
 #### Upon downloading the code, if the screen does not respond?
 
-Connect the serial port and check whether the node is activated. If the node is not activated, refer to this link to activate it: [https://docs.heltec.org/general/how\_to\_use\_license.html.](https://docs.heltec.org/general/how_to_use_license.html.)
+Connect the serial port and check whether the node is activated. If the node is not activated, refer to this link to activate it: [https://docs.heltec.org/general/how\_to\_use\_license.html.](https://docs.heltec.org/general/how_to_use_license.html)
 {% endstep %}
 
 {% step %}

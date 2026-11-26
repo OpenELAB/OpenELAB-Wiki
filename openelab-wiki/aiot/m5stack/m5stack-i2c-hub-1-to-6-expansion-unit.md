@@ -124,7 +124,7 @@ After welding the 0 ohm resistor, the corresponding pin will change from low lev
 
 **Feature Introduction**
 
-![](https://static-cdn.m5stack.com/resource/docs/static/image/Units/Pa.HUB.webp)
+![](https://raw.githubusercontent.com/m5stack/m5-docs/e5354c5dcc61d16fdc1dff9d92c2c760728d0b60/docs/image/Units/Pa.HUB.webp)
 
 * **set pos state** Set designated port I2C
 * **set pos open** Set the port to enable I2C

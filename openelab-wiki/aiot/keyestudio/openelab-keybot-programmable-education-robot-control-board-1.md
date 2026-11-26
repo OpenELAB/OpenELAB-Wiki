@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# OpenELAB KEYBOT Programmable Education Robot Control Board
+# Keyestudio KEYBOT Programmable Education Robot Control Board
 
 ### OpenELAB KEYBOT Programmable Education Robot Control Board
 
@@ -167,7 +167,7 @@ Up to now, the driver is installed well. Then you can right click “Computer”
 
 Double-click the icon of Arduino software downloaded well, you will get the interface shown below.\
 [![Ks0313图片1.png](https://wiki.keyestudio.com/images/4/4f/Ks0313%E5%9B%BE%E7%89%871.png)](https://wiki.keyestudio.com/File:Ks0313%E5%9B%BE%E7%89%871.png)\
-(Note: if the Arduino software loads in the wrong language, you can change it in the preferences dialog. See [the environment page](https://www.arduino.cc/en/Guide/Environment-Languages) for details.)
+(Note: if the Arduino software loads in the wrong language, you can change it in the preferences dialog. See [the environment page](https://support.arduino.cc/hc/en-us/articles/4403365287826-Change-the-language-in-Arduino-IDE) for details.)
 
 <figure><img src="https://wiki.keyestudio.com/images/5/5d/717.png" alt=""><figcaption></figcaption></figure>
 
@@ -186,6 +186,7 @@ The functions of each button on the Toolbar are listed below:\
 
 Below is an example code, you can copy and paste it on [Arduino IDE](http://wiki.keyestudio.com/index.php/Download_Arduino_IDE).
 
+{% code collapsedlinecount="10" %}
 ```
 const int PWMA = 5;  // define the left motor speed control of pin D5
 const int PWMB = 6;  // define the right motor speed control of pin D6 
@@ -216,6 +217,7 @@ void loop()
 }
 
 ```
+{% endcode %}
 
 #### Step3| Upload the Code
 

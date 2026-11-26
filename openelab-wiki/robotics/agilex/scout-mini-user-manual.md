@@ -749,7 +749,7 @@ $ git clone [https://github.com/agilexrobotics/scout\_ros.git](https://github.co
 $ cd ..\
 $ catkin\_make
 
-Please refer to: [https://github.com/agilexrobot-ics/scout\_mini\_ros](https://github.com/agilexrobot-ics/scout_mini_ros)
+Please refer to: [https://github.com/agilexrobotics/scout\_ros](https://github.com/agilexrobotics/scout_ros)
 
 <br>
 

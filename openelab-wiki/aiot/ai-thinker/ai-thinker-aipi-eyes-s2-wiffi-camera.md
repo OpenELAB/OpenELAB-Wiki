@@ -53,7 +53,9 @@ Ai-Pi-Eyes-S2 ：[Ai-Pi\_Eyes-S2 Schematic diagram](https://docs.ai-thinker.com/
 
 #### Source code and firmware <a href="#source_code_and_firmware" id="source_code_and_firmware"></a>
 
-Secondary development SDK source address: [https://github.com/Ai-Thinker-Open/Ai-Pi\_Eeys](https://github.com/Ai-Thinker-Open/Ai-Pi_Eeys)
+Secondary development SDK source address: https://github.com/Ai-Thinker-Open/Ai-Pi\_Eeys (source unavailable)
+
+The manufacturer-listed SDK source is currently unavailable. Obtain the matching release from the manufacturer before attempting the source-dependent build steps.
 
 Ai-Pi-Eyes-S2 test firmware：[click to download](https://docs.ai-thinker.com/_media/m61_s2_display_whole_v1.1.zip)
 

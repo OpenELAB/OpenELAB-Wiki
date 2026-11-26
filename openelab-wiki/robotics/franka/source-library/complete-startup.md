@@ -43,6 +43,7 @@ These October 2025 training slides link several older document versions. Use the
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Basic Training
@@ -51,6 +52,7 @@ Marc Fuest
 .10.2025
 © FRANKA ROBOTICS 2025
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -64,6 +66,7 @@ Marc Fuest
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 Basic Training
 Table of Contents
@@ -75,6 +78,7 @@ Updates and
 licenses
 Overview Videos, Handbooks and other Documentations
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -88,6 +92,7 @@ Overview Videos, Handbooks and other Documentations
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Equipment Overview
@@ -102,10 +107,11 @@ Embedded hyperlinks
 https://franka.de/documents
 https://franka.de/hubfs/Product%20Manual%20Franka%20Research%203_R02210_2.0_EN.pdf?hsLang=en
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
-**Embedded slide links:** [Source link 1](https://franka.de/documents) · [Source link 2](https://franka.de/hubfs/Product%20Manual%20Franka%20Research%203_R02210_2.0_EN.pdf?hsLang=en)
+**Embedded slide links:** [Source link 1](https://franka.de/documents) · [Source link 2](https://franka.de/hubfs/Product%20Manual%20Franka%20Research%203_Arm_2.0_R02210_EN.pdf?hsLang=en)
 
 ## Slide 4
 
@@ -117,6 +123,7 @@ https://franka.de/hubfs/Product%20Manual%20Franka%20Research%203_R02210_2.0_EN.p
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Datasheet
@@ -129,6 +136,7 @@ Embedded hyperlinks
 https://franka.de/documents
 https://franka.de/hubfs/Datasheet%20Franka%20Research%203_R02212_2.4_EN.pdf?hsLang=en
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -144,6 +152,7 @@ https://franka.de/hubfs/Datasheet%20Franka%20Research%203_R02212_2.4_EN.pdf?hsLa
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Getting Started
@@ -158,10 +167,11 @@ Embedded hyperlinks
 https://robot.franka.de/
 https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_R02216_1.0_EN.pdf?hsLang=en
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
-**Embedded slide links:** [Source link 1](https://robot.franka.de/) · [Source link 2](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_R02216_1.0_EN.pdf?hsLang=en)
+**Embedded slide links:** [Source link 1](https://robot.franka.de/) · [Source link 2](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_System%20Image%20v5.6.0_R02216_1.0_EN.pdf?hsLang=en)
 
 ## Slide 6
 
@@ -173,6 +183,7 @@ https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_R02216_1.0_EN
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Getting Started
@@ -190,10 +201,11 @@ https://franka.world/
 https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_R02216_1.0_EN.pdf?hsLang=en
 https://download.franka.de/franka-world-manual/
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
-**Embedded slide links:** [Source link 1](https://franka.world/) · [Source link 2](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_R02216_1.0_EN.pdf?hsLang=en) · [Source link 3](https://download.franka.de/franka-world-manual/)
+**Embedded slide links:** [Source link 1](https://franka.world/) · [Source link 2](https://franka.de/hubfs/Operating%20Manual%20Franka%20Research%203_System%20Image%20v5.6.0_R02216_1.0_EN.pdf?hsLang=en) · [Source link 3](https://download.franka.de/franka-world-manual/)
 
 ## Slide 7
 
@@ -205,6 +217,7 @@ https://download.franka.de/franka-world-manual/
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Franka World
@@ -215,6 +228,7 @@ The Franka Robot system consists of the Arm and Control, including the robot rea
 Embedded hyperlinks
 https://franka.world/resources
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -230,12 +244,14 @@ https://franka.world/resources
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Franka World
 Software Updates and licenses
 You can use the controller's serial number to update your system and synchronize your licenses.
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -249,6 +265,7 @@ You can use the controller's serial number to update your system and synchronize
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Overview Videos
@@ -278,6 +295,7 @@ https://www.youtube.com/@frankarobotics1747
 https://www.youtube.com/watch?v=TRMIA2J29MA&list=PL9FoYHNFGS3TyHsLcL0-qNIi-e14Xw7np
 https://www.franka-community.de/
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -293,6 +311,7 @@ https://www.franka-community.de/
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Overview Handbooks
@@ -309,6 +328,7 @@ Franka Emika Robot
 Embedded hyperlinks
 https://franka.de/documents
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -324,6 +344,7 @@ https://franka.de/documents
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Overview Documentations
@@ -338,6 +359,7 @@ https://franka.world/resources
 https://download.franka.de/ride-cli-doc/index.html
 https://download.franka.de/ride-cli-doc-v1.1.1/index.html
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -353,6 +375,7 @@ https://download.franka.de/ride-cli-doc-v1.1.1/index.html
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Overview Documentations
@@ -374,6 +397,7 @@ https://github.com/frankarobotics/libfranka
 https://franka.world/resources
 https://frankarobotics.github.io/docs/
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -389,6 +413,7 @@ https://frankarobotics.github.io/docs/
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 System Startup
 Overview Documentations
@@ -407,6 +432,7 @@ https://franka.world/resources
 https://download.franka.de/opcua-server-doc-v2.0.4/index.html
 https://download.franka.de/opcua-server-doc-v7.0.2/index.html
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -422,8 +448,10 @@ https://download.franka.de/opcua-server-doc-v7.0.2/index.html
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 Diagnostics And Testing
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}

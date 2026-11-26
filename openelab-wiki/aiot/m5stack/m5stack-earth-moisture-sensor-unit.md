@@ -109,7 +109,7 @@ The code below is incomplete. To get the complete code, please click [here](http
 
 <figure><img src="https://static-cdn.m5stack.com/mpy_docs/unit/earth/example.png" alt=""><figcaption></figcaption></figure>
 
-[UIFlow2.0 EARTH Unit instructions](https://uiflow-micropython.readthedocs.io/zh-cn/latest/units/earth.html)[UIFlow2.0 EARTH Unit instructions](https://uiflow-micropython.readthedocs.io/zh-cn/latest/units/earth.html)How to use Unit EARTH and related API instructions in the UIFlow2.0 graphical programming platform
+[UIFlow2.0 EARTH Unit instructions](https://uiflow-micropython.readthedocs.io/zh-cn/latest/unit/earth.html)[UIFlow2.0 EARTH Unit instructions](https://uiflow-micropython.readthedocs.io/zh-cn/latest/unit/earth.html)How to use Unit EARTH and related API instructions in the UIFlow2.0 graphical programming platform
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/static/assets/img/uiflow/blockly/unit/earth/uiflow_block_earth_demo.svg" alt=""><figcaption></figcaption></figure>
 

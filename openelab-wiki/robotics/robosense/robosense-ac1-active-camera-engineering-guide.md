@@ -167,7 +167,7 @@ In `recorddataconfig`, choose time segmentation (`RS_RECORD_SEGMENT_BY_TIME`) or
 
 Monitoring at commit **1d7a7dfd4b10db5a7a7946a305ee0a78da589b28** publishes resource and rate diagnostics to `/diagnostics` by default. `ros2_process_manager.refresh_interval_ms` defaults to **6000 ms**. Each monitor has `enable`, `exec_interval_ms` and optional `publish_topic_name`; frequency-topic entries use `name` plus `min_freq`, while timestamp entries use `name` plus `max_difference_ms`. A time-offset alarm compares a message header with host time, so it is meaningful only after deliberately choosing the clock domain.
 
-Use the launch's `config_file`, `node_name`, `enable_self_recording` and `self_recording_dir` arguments to select an explicit config and an optional recorder. A recorded monitor bag containing `metadata.yaml` is the input to `ros2 run rs_monitor parser.py BAG_DIRECTORY`; the parser generates HTML statistics/plots, with optional `--split_duration=1h` for long sessions. A process exit can raise the monitor's cumulative CPU figure because it includes child-process times; RSS is its memory measure and I/O counters exclude cached bytes. [Pinned monitoring configuration and report arguments](https://github.com/RoboSense-Robotics/robosense_monitor/blob/1d7a7dfd4b10db5a7a7946a305ee0a78da589b28/README.md).
+Use the launch's `config_file`, `node_name`, `enable_self_recording` and `self_recording_dir` arguments to select an explicit config and an optional recorder. A recorded monitor bag containing `metadata.yaml` is the input to `ros2 run rs_monitor parser.py BAG_DIRECTORY`; the parser generates HTML statistics/plots, with optional `--split_duration=1h` for long sessions. A process exit can raise the monitor's cumulative CPU figure because it includes child-process times; RSS is its memory measure and I/O counters exclude cached bytes. [Pinned monitoring configuration and report arguments](https://github.com/RoboSense-Robotics/robosense_monitor/blob/1d7a7dfd4b10db5a7a7946a305ee0a78da589b28/readme.md).
 
 For an original acceptance check, record the already-established stationary three-stream session and its diagnostics, reopen the recording, and compare topic counts, header time progression and dimensions with the live journal. Keep an untouched recording and configuration before changing compression, crop, clock or middleware settings. These instructions describe source-supported behavior; collection/monitor execution has not been performed here.
 
@@ -265,6 +265,7 @@ The [detection chapter](https://robosense-wiki-en.readthedocs.io/en/latest/ac_st
 
 Use a new Ubuntu 22.04/Humble workspace with colcon and the repository's platform dependencies. The optional GPUJPEG/Rockchip multimedia paths require their own dependencies; the first launch below leaves JPEG and rectification disabled.
 
+{% code collapsedlinecount="10" %}
 ```bash
 mkdir -p ~/ac1_dev
 cd ~/ac1_dev
@@ -275,21 +276,26 @@ git submodule update --init --recursive
 source /opt/ros/humble/setup.bash
 colcon build
 ```
+{% endcode %}
 
 If USB access is denied, read the repository's permission script before installing it. It creates udev rules for AC1/AC2 identifiers with MODE 0666 and restarts/reloads device services; this changes local USB access for all users. On the dedicated development host, after reviewing that scope:
 
+{% code collapsedlinecount="10" %}
 ```bash
 cd ~/ac1_dev/robosense_ac_driver
 sudo bash src/modules/ac_driver/scripts/AC_usb_permission.sh --install
 ```
+{% endcode %}
 
 Reconnect as instructed by the repository, then:
 
+{% code collapsedlinecount="10" %}
 ```bash
 source /opt/ros/humble/setup.bash
 source ~/ac1_dev/robosense_ac_driver/install/setup.bash
 ros2 launch ac_driver start_ac1.launch.py start_rviz_node:=true
 ```
+{% endcode %}
 
 **Expected result:** the AC1 launch publishes `/rs_lidar/points`, the color image and `/rs_imu`. Use `ros2 topic list -t` and verify actual types before adding an algorithm. The AC2 USB/GMSL launch is not a substitute.
 
@@ -297,6 +303,7 @@ ros2 launch ac_driver start_ac1.launch.py start_rviz_node:=true
 
 In a second sourced terminal, run this original Python 3/rclpy program. It records counts, actual image dimensions and backward header timestamps without commanding the sensor:
 
+{% code collapsedlinecount="10" %}
 ```python
 import collections
 import time
@@ -338,6 +345,7 @@ rclpy.shutdown()
 if any(counts[name] == 0 for name in ("cloud", "rgb", "imu")):
     raise SystemExit("Missing stream; inspect USB, launch enables and topic types")
 ```
+{% endcode %}
 
 **Expected result:** all three counts increase and image dimensions are printed. A low count or timestamp reversal is a useful diagnostic; the absence of reversals does not prove cross-stream synchronization or valid UTC. Preserve the journal with firmware/launch/calibration records.
 

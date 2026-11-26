@@ -82,7 +82,7 @@ Bottom of PCB reserved TFT screen SPI interface，FPC connector check [8PIN ](ht
 
 ### PCB package <a href="#pcb-package" id="pcb-package"></a>
 
-* [kicad PCB package](https://github.com/m5stack/M5_Hardware/tree/master/KiCAD/M5KiCad/M5KiCad.pretty)
+* [kicad PCB package](https://github.com/m5stack/M5_Hardware/tree/master/KiCad/Footprints/M5Stack.pretty)
 
 ### Module Size <a href="#module-size" id="module-size"></a>
 

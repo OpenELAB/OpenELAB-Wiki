@@ -98,7 +98,7 @@ Drive RGB LED to light up different colors.
 
 [UIFlow2.0](https://docs.m5stack.com/en/uiflow2/uiflow_web)[UIFlow2.0](https://docs.m5stack.com/en/uiflow2/uiflow_web)tutorial will show you how to initialize the configuration using the UIFlow2.0 graphical programming platform
 
-[RGB Unit Programming Guide](https://uiflow-micropython.readthedocs.io/zh-cn/latest/units/rgb.html)
+[RGB Unit Programming Guide](https://uiflow-micropython.readthedocs.io/zh-cn/latest/unit/rgb.html)
 
 <figure><img src="https://static-cdn.m5stack.com/mpy_docs/unit/rgb/example.svg" alt=""><figcaption></figcaption></figure>
 

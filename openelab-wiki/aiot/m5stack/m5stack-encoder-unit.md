@@ -81,7 +81,7 @@ weight:32 \* 24 \* 22mm
 
 * Libraries
   * [Unit Encoder Library](https://github.com/m5stack/UNIT_ENCODER)
-  * [Unit Encoder Test With M5Core](https://github.com/m5stack/UNIT_ENCODER/blob/master/examples/GET_VALUE/GET_VALUE.ino)
+  * [Unit Encoder Test With M5Core](https://github.com/m5stack/M5Unit-Encoder/blob/master/examples/Unit_Encoder_M5Core/Unit_Encoder_M5Core.ino)
 * Firmware
   * [M5UnitEncoder\_Firmware](https://github.com/m5stack/M5UnitEncoder_Firmware)
 

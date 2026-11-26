@@ -126,6 +126,7 @@ Older `piper_sdk`, `piper_ros` Noetic/Humble and `Piper_sdk_ui` use different AP
 1. Check mounting, arm model, harness orientation, supply and clear workspace. Keep the mechanism supported and disabled; do not recalibrate or replay a trajectory to obtain feedback.
 2. On Ubuntu 22.04/Python 3.10 install the tools and create a dedicated environment:
 
+{% code collapsedlinecount="10" %}
 ```bash
 sudo apt update
 sudo apt install can-utils ethtool python3-venv
@@ -134,9 +135,11 @@ source ~/piper-env/bin/activate
 python -m pip install "git+https://github.com/agilexrobotics/pyAgxArm.git@d90e234ba8e408cfa964b38aa9120b3131fc9f85"
 ip -details link show type can
 ```
+{% endcode %}
 
 3. Identify the supplied adapter by unplug/replug observation or the manufacturer's `find_all_can_port.sh`. Replace `can0` below if that adapter has another name. Configure it only after confirming no other application owns it:
 
+{% code collapsedlinecount="10" %}
 ```bash
 sudo ip link set can0 down
 sudo ip link set can0 type can bitrate 1000000
@@ -144,6 +147,7 @@ sudo ip link set can0 up
 ip -details -statistics link show can0
 timeout 5s candump -L can0
 ```
+{% endcode %}
 
 **Expected result:** the intended interface is UP at 1,000,000bit/s and receives arm frames without a rising bus-off/error count. No frames calls for power, mode, wiring, adapter and termination checks; it does not justify enabling a motor. Stop `candump` after the bounded capture. [Official CAN workflow](https://github.com/agilexrobotics/pyAgxArm/blob/d90e234ba8e408cfa964b38aa9120b3131fc9f85/docs/can_user.md).
 
@@ -151,6 +155,7 @@ timeout 5s candump -L can0
 
 Save as `piper_feedback.py` in the activated environment. The first connection requests firmware; it is closed before creating a matching profile. The second connection samples six measured joints for ten seconds. It sends no enable, position, calibration or trajectory command.
 
+{% code collapsedlinecount="10" %}
 ```python
 import json
 import math
@@ -202,10 +207,13 @@ finally:
 if samples < 5:
     raise SystemExit("Insufficient fresh samples: inspect power, arm role and CAN errors")
 ```
+{% endcode %}
 
+{% code collapsedlinecount="10" %}
 ```bash
 python piper_feedback.py
 ```
+{% endcode %}
 
 **Expected result:** a real firmware identifier, a matching profile and repeated finite six-joint samples with changing receive timestamps. A stationary arm can report constant angles; freshness comes from new feedback, not invented movement. Displayed degrees are a presentation conversion only. Source-reviewed API/thread behavior: [connect/disconnect](https://github.com/agilexrobotics/pyAgxArm/blob/d90e234ba8e408cfa964b38aa9120b3131fc9f85/pyAgxArm/protocols/can_protocol/drivers/core/arm_driver_abstract.py), [firmware/joint readers](https://github.com/agilexrobotics/pyAgxArm/blob/d90e234ba8e408cfa964b38aa9120b3131fc9f85/pyAgxArm/protocols/can_protocol/drivers/piper/default/driver.py).
 
@@ -229,6 +237,7 @@ Do not rewrite zeros simply because a Cartesian pose looks unexpected. Check too
 
 After the standalone check, install ROS 2 and the repository dependencies according to its supported environment. In a workspace using the same Python/SDK environment as the ROS node, clone the reviewed driver and its recorded submodules:
 
+{% code collapsedlinecount="10" %}
 ```bash
 mkdir -p ~/agx_ws/src
 cd ~/agx_ws/src
@@ -237,12 +246,15 @@ cd agx_arm_ros
 git checkout 747d0722074d4cebc095d8d44f3ef68d2023ba6f
 git submodule update --init --recursive
 ```
+{% endcode %}
 
 Use the repository's dependency installation instructions, source the chosen ROS distribution, then build from `~/agx_ws` with `colcon build` and source `install/setup.bash`. First inspect with control disabled:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ros2 launch agx_arm_ctrl start_single_agx_arm.launch.py can_port:=can0 arm_type:=piper effector_type:=none auto_enable:=false control_enabled:=false
 ```
+{% endcode %}
 
 In another sourced terminal, use `ros2 topic list -t` and inspect the advertised feedback topic before subscribing. **Expected result:** the standard model and real joint feedback, without an automatic motor enable. For model-only work use `agx_arm_description`/RViz without a hardware control node; MoveIt planning and Isaac/Gazebo simulation are separate workflows. A successful planned path must still be checked against the physical tool, joint limits and environment before execution.
 
@@ -284,14 +296,14 @@ For loss of host communication, distinguish a CAN fault from power loss and a so
 
 These historical links remain useful for reproducing an existing installation; select a current supported release through the resource index for a new setup.
 
-| Original resource                                                                                                                                                                                | Scope                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| [ArmRobotUA1.5.2.260310 executable](https://www.dropbox.com/scl/fi/78e4ch20ok9n040onay0y/ArmRobotUA_V1.5.2.260310_release.exe?rlkey=q4q1xr9f7k1gc5j0vtl803m5f\&st=kw1yaszi\&dl=0)                | Manufacturer-linked Windows host build; download only, not executed here |
-| [Original ROS Noetic branch](https://github.com/agilexrobotics/Piper_ros/tree/ros-noetic-no-aloha)                                                                                               | Legacy ROS 1 configuration                                               |
-| [Original ROS Humble branch](https://github.com/agilexrobotics/Piper_ros/tree/ros-humble-no-aloha)                                                                                               | Legacy ROS 2 configuration, distinct from current agx\_arm\_ros          |
-| [Legacy MoveIt1](https://github.com/agilexrobotics/piper_ros/tree/noetic/src/piper_moveit) / [MoveIt2](https://github.com/agilexrobotics/piper_ros/tree/humble/src/piper_moveit)                 | Matching branch-specific planning examples                               |
-| [Legacy Gazebo](https://github.com/agilexrobotics/piper_ros/tree/noetic/src/piper_sim/piper_gazebo) / [URDF](https://github.com/agilexrobotics/piper_ros/tree/noetic/src/piper_description/urdf) | Legacy simulation and geometry sources                                   |
-| [Legacy Python demos](https://github.com/agilexrobotics/piper_sdk/tree/master/demo)                                                                                                              | Read each demo before running: some enable or move the arm               |
+| Original resource                                                                                                                                                                                                                                                                                                                                                     | Scope                                                                    |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [ArmRobotUA1.5.2.260310 executable](https://www.dropbox.com/scl/fi/78e4ch20ok9n040onay0y/ArmRobotUA_V1.5.2.260310_release.exe?rlkey=q4q1xr9f7k1gc5j0vtl803m5f\&st=kw1yaszi\&dl=0)                                                                                                                                                                                     | Manufacturer-linked Windows host build; download only, not executed here |
+| [Original ROS Noetic branch](https://github.com/agilexrobotics/Piper_ros/tree/ros-noetic-no-aloha)                                                                                                                                                                                                                                                                    | Legacy ROS 1 configuration                                               |
+| [Original ROS Humble branch](https://github.com/agilexrobotics/Piper_ros/tree/ros-humble-no-aloha)                                                                                                                                                                                                                                                                    | Legacy ROS 2 configuration, distinct from current agx\_arm\_ros          |
+| [Legacy MoveIt1](https://github.com/agilexrobotics/piper_ros/tree/noetic/src/piper_moveit) / [MoveIt2](https://github.com/agilexrobotics/piper_ros/tree/humble/src/piper_moveit)                                                                                                                                                                                      | Matching branch-specific planning examples                               |
+| [Legacy Gazebo](https://github.com/agilexrobotics/piper_ros/tree/noetic/src/piper_sim/piper_gazebo) / [URDF](https://github.com/agilexrobotics/piper_ros/tree/noetic/src/piper_description/urdf)                                                                                                                                                                      | Legacy simulation and geometry sources                                   |
+| <p><a href="https://github.com/agilexrobotics/piper_sdk/tree/b847e5393a7ce6ff8508d713eca7bdd3a42421b4/piper_sdk/demo">PiPER Python SDK demos (V2/V3, pinned source)</a></p><p>Select the demo interface for the installed firmware and inspect each example before running it. Current V2/V3 demos do not establish compatibility with a legacy PiPER controller.</p> | Read each demo before running: some enable or move the arm               |
 
 The manual's dimensional section covers the zero posture, complete arm, leader/follower grippers, base and end flange. Use its drawings for fabrication; do not scale a screenshot. Existing drawing references are retained below.
 

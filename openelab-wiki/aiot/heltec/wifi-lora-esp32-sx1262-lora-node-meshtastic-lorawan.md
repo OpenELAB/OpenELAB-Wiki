@@ -119,7 +119,9 @@ What development methods does it support?
 * Platform.io
 * Espressif IDE
 
-We strongly recommend using Arduino. We have complete technical support and provide complete [LoRaWAN code for ESP32 Arduino framework](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/tree/master/esp32/libraries/LoraWan102).
+We strongly recommend using Arduino. We have complete technical support and provide complete [Official Heltec ESP32 LoRaWAN examples](https://github.com/HelTecAutomation/Heltec_ESP32/tree/master/examples/LoRaWAN).
+
+These maintained examples use the Heltec ESP32 package and its supported board/framework version; they are not a drop-in copy of the retired LoraWan102 package.
 {% endstep %}
 
 {% step %}

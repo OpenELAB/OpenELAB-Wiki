@@ -2579,10 +2579,9 @@ This network policy brings up an issue where users cannot directly access servic
 1. You can connect to the ORIN's AP hotspot. The default password can be found in the `password.md` file in the AimDK package. This allows direct access to the ORIN hotspot IP.
 2.  You can configure port forwarding on the X86, accessing the corresponding port on the X86 to forward to the ORIN's corresponding port. The configuration file is located at `/opt/orin_use_x86_wifi/x86_cfg.sh` on the X86. An example of the forwarding entry is as follows (the network interface names may differ for different models, but the principle is similar):bash
 
-    ```
-    sudo iptables -t nat -A PREROUTING -i wifi_x86 -p tcp --dport 51056 -j DNAT --to-destination 192.168.100.110:51056
+    <pre data-collapsed-line-count="10"><code>sudo iptables -t nat -A PREROUTING -i wifi_x86 -p tcp --dport 51056 -j DNAT --to-destination 192.168.100.110:51056
     sudo iptables -t nat -A POSTROUTING -d 192.168.100.110 -p tcp --dport 51056 -j SNAT --to-source 192.168.100.100
-    ```
+    </code></pre>
 
     \
     New forwarding entries can be added to modify the forwarding and destination ports to support more port forwarding.
@@ -2680,9 +2679,11 @@ Some modules exist on both orin and X86, with a suffix of 1 for orin and 0 for X
 
 text
 
+{% code collapsedlinecount="10" %}
 ```
                                                                                                                                           |
 ```
+{% endcode %}
 
 **2.2.1 System Mode**
 
@@ -2690,6 +2691,7 @@ The modules activated and started in each system mode are different, as shown be
 
 python
 
+{% code collapsedlinecount="10" %}
 ````
   # System status
   system_modes:
@@ -2999,6 +3001,7 @@ python
         - [ activate rc ]
         - [ deactivate task_engine TaskMaster cancel ]
 ````
+{% endcode %}
 
 **2.2.2 Module Disabling Method (Caution)**
 
@@ -3013,6 +3016,7 @@ Taking the motion\_play module as an example, follow the steps below to disable 
 
 diff
 
+{% code collapsedlinecount="10" %}
 ```
 @@ -20,7 +20,6 @@ process_manager:
      "iox_roudi",
@@ -3023,20 +3027,24 @@ diff
      "ota_master",
      "fota_slave",
 ```
+{% endcode %}
 
 Then, remove motion\_player from the group in SystemManagerModule within sm.yaml (orin), update the MoCap configuration to empty, and remove the activate / deactivate operations for motion\_player in all states.
 
 diff
 
+{% code collapsedlinecount="10" %}
 ```
 @@ -14,7 +14,7 @@ SystemManagerModule:
 -      group: [ota_master, motion_player, motion_streamer, sota_slave0, mc, tf, dr, rc, hal_ethercat, poweroff0, reboot0, setting0, recordbag0, data_collector, health_monitor0]
 +      group: [ota_master, motion_streamer, sota_slave0, mc, tf, dr, rc, hal_ethercat, poweroff0, reboot0, setting0, recordbag0, data_collector, health_monitor0]
        url: "http://${AGIBOT_NEIGHBOR_HOST_IP}:50081"
 ```
+{% endcode %}
 
 diff
 
+{% code collapsedlinecount="10" %}
 ```
 @@ -40,7 +40,7 @@ SystemManagerModule:
      "RC":
@@ -3047,9 +3055,11 @@ diff
      "MoStream":
        [ "motion_streamer" ]
 ```
+{% endcode %}
 
 diff
 
+{% code collapsedlinecount="10" %}
 ```
     "Ready":
 @@ -100,7 +100,6 @@ SystemManagerModule:
@@ -3100,6 +3110,7 @@ diff
          - [ deactivate task_engine TaskMaster cancel ]
 -        - [ activate motion_player ]
 ```
+{% endcode %}
 
 #### 2.3 Onboard Disk Directories <a href="#web-02-2-3-onboard-disk-directories" id="web-02-2-3-onboard-disk-directories"></a>
 
@@ -3113,12 +3124,14 @@ diff
 
 text
 
+{% code collapsedlinecount="10" %}
 ```
 ```
+{% endcode %}
 
 ### 3. Overview of Secondary Development Interfaces <a href="#web-03-3-overview-of-secondary-development-interfaces" id="web-03-3-overview-of-secondary-development-interfaces"></a>
 
-Most of the modules in the aforementioned software system use AimRT as the underlying framework. AimRT is a robot runtime underlying framework that benchmarks against ROS2, open-sourced by Agibot Robotics in 09/2024. AimRT provides two basic underlying communication methods: Channel and RPC (for more details, refer to the [AimRT official documentation](https://docs.aimrt.org/v0.10.0/tutorials/concepts/concepts.html#aimrt-channel)). These two communication methods can correspond to multiple different communication backends.
+Most of the modules in the aforementioned software system use AimRT as the underlying framework. AimRT is a robot runtime underlying framework that benchmarks against ROS2, open-sourced by Agibot Robotics in 09/2024. AimRT provides two basic underlying communication methods: Channel and RPC (for more details, refer to the [AimRT official documentation](https://github.com/AimRT/AimRT/blob/v0.10.0/document/sphinx-cn/tutorials/concepts/concepts.md?plain=1#L74-L94)). These two communication methods can correspond to multiple different communication backends.
 
 To reduce the cognitive load of secondary development, we provide two forms of relatively simple and general interfaces for secondary development: HTTP JSON RPC and ROS2 Topic. HTTP JSON RPC is suitable for low-frequency interface one-to-many calls, while ROS2 Topic is suitable for high-frequency interface many-to-many calls. The following are the two
 
@@ -3134,11 +3147,13 @@ The following is an example of a command-line RPC request to get the battery pow
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 curl -i     -H 'content-type:application/json' \
             -H 'timeout: 1000'   -X POST 'http://192.168.100.100:56421/rpc/aimdk.protocol.HalBmsService/GetBmsState' \
             -d '{}'
 ```
+{% endcode %}
 
 Where:
 
@@ -3157,20 +3172,24 @@ The topic interfaces use native ROS2 topics. The machine defaults to **ROS2 Humb
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=232
 export ROS_LOCALHOST_ONLY=0
 export FASTRTPS_DEFAULT_PROFILES_FILE=/agibot/software/v0/entry/bin/cfg/ros_dds_configuration.xml
 ```
+{% endcode %}
 
 > If your program needs to start with root privileges, change the above dds configuration file to use the following configuration file:
 >
 > bash
 >
+> {% code collapsedlinecount="10" %}
 > ```
 > export FASTRTPS_DEFAULT_PROFILES_FILE=/agibot/software/v0/entry/bin/cfg/privileged_ros_dds_configuration.xml
 > ```
+> {% endcode %}
 >
 > In `ros_dds_configuration.xml`, both shared memory communication and UDP communication are enabled, while in `privileged_ros_dds_configuration.xml`, only UDP communication is enabled to avoid permission issues with shared memory.
 
@@ -3182,11 +3201,13 @@ Additionally, note that the default QoS for topics on the machine is
 
 yaml
 
+{% code collapsedlinecount="10" %}
 ```
   history: keep_last
   depth: 10
   reliability: best_effort
 ```
+{% endcode %}
 
 When using, ensure that the QoS is consistent to guarantee smooth communication.
 
@@ -3196,6 +3217,7 @@ The following is an example script for subscribing to joint state ROS2 Topics.
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 #!/usr/bin/env python3
 import rclpy
@@ -3239,6 +3261,7 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 ```
+{% endcode %}
 
 **3.2.4 External PC Communication for ROS2 Topics**
 
@@ -3246,6 +3269,7 @@ To ensure the stability of ROS2 communication on the machine, we have modified t
 
 xml
 
+{% code collapsedlinecount="10" %}
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <dds>
@@ -3279,6 +3303,7 @@ xml
     </participant>
   </profiles>
 ```
+{% endcode %}
 
 The whitelist includes the IP `192.168.100.110`, which is the IP of the network card connecting ORIN and X86. Adding this IP ensures that topics published and subscribed to on ORIN can communicate normally with the X86 industrial PC. If you need to receive and send the corresponding ROS2 Topics on a third-party PC or an additional industrial PC, you need to add the IP of the local network card, usually `192.168.2.50`, to the whitelist (`/agibot/software/v0/entry/bin/cfg/ros_dds_configuration.xml` and `/agibot/software/v0/entry/bin/cfg/privileged_ros_dds_configuration.xml`). After adding, restart the robot and connect via a wired connection to the corresponding network port to perform the corresponding ROS2 communication.
 
@@ -3312,18 +3337,22 @@ The recommended directory for program deployment is /agibot/data/home/agi/Deskto
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 mkdir -p /agibot/data/home/agi/Desktop
 ```
+{% endcode %}
 
 If you encounter permission issues, consider using the following command to create the folder:
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 sudo mkdir -p /agibot/data/home/agi/Desktop
 sudo chown -R agi:agi /agibot/data/home/agi
 ```
+{% endcode %}
 
 **5.1.1 Python Virtual Environment**
 
@@ -3341,33 +3370,29 @@ The default data path for Docker, /var/lib/docker, has a small partition capacit
 
 1.  Move the default storage pathbash
 
-    ```
-    # Stop the Docker service
+    <pre data-collapsed-line-count="10"><code># Stop the Docker service
     sudo systemctl stop docker
 
     # Move the default storage path（please create the target path first /agibot/data/home/agi/Desktop）
     sudo mv /var/lib/docker /agibot/data/home/agi/Desktop
-    ```
+    </code></pre>
 2.  Modify the configuration filebash
 
-    ```
-    # Modify Docker configuration
+    <pre data-collapsed-line-count="10"><code># Modify Docker configuration
     sudo vim /etc/docker/daemon.json
-    ```
+    </code></pre>
 
     \
     Add the following to the configuration file:json
 
-    ```
-    {
+    <pre data-collapsed-line-count="10"><code>{
       "data-root": "/agibot/data/home/agi/Desktop/docker"
     }
-    ```
+    </code></pre>
 3.  Restart Docker:bash
 
-    ```
-    sudo systemctl start docker
-    ```
+    <pre data-collapsed-line-count="10"><code>sudo systemctl start docker
+    </code></pre>
 
     \
     Docker configuration is complete.
@@ -3378,27 +3403,23 @@ By default, the container cannot normally communicate with the onboard system vi
 
 1.  When creating the container, share IPC and network communication with the host, adding the following optionsbash
 
-    ```
-    --ipc=host --net=host
-    ```
+    <pre data-collapsed-line-count="10"><code>--ipc=host --net=host
+    </code></pre>
 2.  Use the same agi user inside the container as on the ORIN, with uid and gid both set to 1001bash
 
-    ```
-    groupadd -g 1001 agi && useradd -u 1001 -g 1001 -m -s /bin/bash agi
-    ```
+    <pre data-collapsed-line-count="10"><code>groupadd -g 1001 agi &#x26;&#x26; useradd -u 1001 -g 1001 -m -s /bin/bash agi
+    </code></pre>
 3.  Use the same DDS configuration file inside and outside the container. Copy the /agibot/software/v0/entry/bin/cfg/ros\_dds\_configuration.xml from the ORIN to the container. Before running ROS2 programs or using ros2 commands in the container, execute the following command (replace /path/to with the actual path)bash
 
-    ```
-    source /opt/ros/humble/setup.bash
+    <pre data-collapsed-line-count="10"><code>source /opt/ros/humble/setup.bash
     export ROS_DOMAIN_ID=232
     export ROS_LOCALHOST_ONLY=0
     export FASTRTPS_DEFAULT_PROFILES_FILE=/path/to/ros_dds_configuration.xml
-    ```
+    </code></pre>
 4.  At this point, the container should be able to receive ROS2 topics published by the ORINbash
 
-    ```
-    ros2 topic list
-    ```
+    <pre data-collapsed-line-count="10"><code>ros2 topic list
+    </code></pre>
 
 #### 5.2 Third-Party Industrial PC Deployment <a href="#web-05-5-2-third-party-industrial-pc-deployment" id="web-05-5-2-third-party-industrial-pc-deployment"></a>
 
@@ -3410,11 +3431,10 @@ Recommended network topology configuration:
 2. Modify the DDS configuration files for the ORIN and X86, `/agibot/software/v0/entry/bin/cfg/ros_dds_configuration.xml` and `/agibot/software/v0/entry/bin/cfg/privileged_ros_dds_configuration.xml`. Add `<address>192.168.2.50</address>` to the ORIN configuration file and `<address>192.168.2.150</address>` to the X86 configuration file, then restart the robot.
 3.  Set the wired network port of the PC to a fixed IP of 192.168.2.100, and install ROS2 Humble with Fastdds on it. Following the wiring diagram above, you can correctly communicate with the robot's industrial PC via ROS2. Note that before running ROS2 programs, you need to set the following environment variablesbash
 
-    ```
-    source /opt/ros/humble/setup.bash
+    <pre data-collapsed-line-count="10"><code>source /opt/ros/humble/setup.bash
     export ROS_DOMAIN_ID=232
     export ROS_LOCALHOST_ONLY=0
-    ```
+    </code></pre>
 
 ### 6. Quick Start for Secondary Development <a href="#web-06-6-quick-start-for-secondary-development" id="web-06-6-quick-start-for-secondary-development"></a>
 
@@ -3431,40 +3451,35 @@ There are multiple ways to connect to ORIN; choose any one of the following meth
 1.  Wired Connection\
     **Set the IP address of the PC's wired network port to a static IP of 192.168.2.100**, then connect one end of the Ethernet cable to the PC's wired network port and the other end to the robot's right debugging network port at the back.yaml
 
-    ```
-    ping 192.168.2.50 # Check whether it is connected
+    <pre data-collapsed-line-count="10"><code>ping 192.168.2.50 # Check whether it is connected
     ssh agi@192.168.2.50
-    ```
+    </code></pre>
 2.  Wireless AP Hotspot Connection\
     Connect the development machine to the ORIN AP hotspot, which usually starts with Robot-. The default password can be found in the `password.md` file in the AimDK package. Then, log in to the robot via SSH using the AP hotspot IP.bash
 
-    ```
-    ssh agi@192.168.88.88
-    ```
+    <pre data-collapsed-line-count="10"><code>ssh agi@192.168.88.88
+    </code></pre>
 3.  Via X86 WiFi Jump\
     Both the development machine and the robot need to be connected to the same wireless network. Obtain the robot's IP from the AimMaster settings - Wireless LAN interface, which is actually the X86 WiFi IP. After connecting via SSH, jump to ORIN using 192.168.100.110.bash
 
-    ```
-    ssh agi@192.168.xxx.xxx # x86 ip
+    <pre data-collapsed-line-count="10"><code>ssh agi@192.168.xxx.xxx # x86 ip
     ssh agi@192.168.100.110
-    ```
+    </code></pre>
 
     \
     ORIN and X86 are directly connected via an Ethernet cable in the 192.168.100.0/24 subnet, and you can jump between them using the IPs 192.168.100.100 and 192.168.100.110.\
     You can also use the ssh proxyjump function to make a one-time jump (you still need to enter the password twice).bash
 
-    ```
-    ssh -J agi@192.168.xxx.xxx agi@192.168.100.110
-    ```
+    <pre data-collapsed-line-count="10"><code>ssh -J agi@192.168.xxx.xxx agi@192.168.100.110
+    </code></pre>
 
     \
     The proxyjump function can also be used with rsync to quickly sync local folders to ORIN without transferring through the X86 (the X86 WiFi IP and folder need to be modified):bash
 
-    ```
-    rsync -avzP --exclude ".git/" \
+    <pre data-collapsed-line-count="10"><code>rsync -avzP --exclude ".git/" \
             -e "ssh -J agi@192.168.xxx.xxx" \
             /path/to/local/dir agi@192.168.100.110:/agibot/data/home/agi/Desktop/working_dir
-    ```
+    </code></pre>
 
 **6.1.2 Creating a Deployment Folder**
 
@@ -3474,28 +3489,34 @@ The recommended directory for deploying programs is `/agibot/data/home/agi/Deskt
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 mkdir -p /agibot/data/home/agi/Desktop
 ```
+{% endcode %}
 
 If you encounter permission issues, consider using the following command to create the folder:
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 sudo mkdir -p /agibot/data/home/agi/Desktop
 sudo chown -R agi:agi /agibot/data/home/agi
 ```
+{% endcode %}
 
 **6.1.3 Creating a Python Virtual Environment**
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 cd /agibot/data/home/agi/Desktop
 python -m venv mydev
 source mydev/bin/activate
 ```
+{% endcode %}
 
 Subsequent examples assume that the virtual environment has been created and activated, and this step will not be repeated.
 
@@ -3507,16 +3528,19 @@ Run the following script directly in the ORIN command line:
 
 yaml
 
+{% code collapsedlinecount="10" %}
 ```
 curl -i     -H 'content-type:application/json' \
             -H 'timeout: 1000'   -X POST 'http://192.168.100.100:56421/rpc/aimdk.protocol.HalBmsService/GetBmsState' \
             -d '{}'
 ```
+{% endcode %}
 
 The returned result should look like the following (the specific field meanings are explained in detail in the subsequent API chapters):
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
@@ -3525,6 +3549,7 @@ Content-Length: 705
 
 {"data":{"ver":{"hardware_major":48,"hardware_minor":48,"hardware_revision":49,"software_major":51,"software_minor":48,"software_revision":49},"voltage":54410,"current":-304,"power":0,"temperature":308,"capacity":13971,"charge":99,"power_supply_health":"PowerSupplyHealth_GOOD","power_supply_status":"PowerSupplyStatus_IDEL","cycles_num":129,"cycles_capacity":12,"abnormal_state":"PowerAbnormalStatus_NORMAL","charger_state":"ChargerConnected","bms_state":"BatteryStatus_Connected","max_current":25490,"battery_firmware_type":"BatteryFirmwareType_OLD","battery_key_state":"BatteryKeyStatus_SHORT_CURCUIT","battery_pack_state":"BatteryPackStatus_NORMAL","battery_comm_state":"BatteryCommunication_NORMAL"}}
 ```
+{% endcode %}
 
 #### 6.3 Example of Getting the Upper Limb Joint State <a href="#web-06-6-3-example-of-getting-the-upper-limb-joint-state" id="web-06-6-3-example-of-getting-the-upper-limb-joint-state"></a>
 
@@ -3532,6 +3557,7 @@ Save the following code on ORIN as /agibot/data/home/agi/Desktop/joint\_state.py
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 #!/usr/bin/env python3
 import rclpy
@@ -3575,11 +3601,13 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 ```
+{% endcode %}
 
 Then execute the following command:
 
 yaml
 
+{% code collapsedlinecount="10" %}
 ```
 source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=232
@@ -3587,6 +3615,7 @@ export ROS_LOCALHOST_ONLY=0
 export FASTRTPS_DEFAULT_PROFILES_FILE=/agibot/software/v0/entry/bin/cfg/ros_dds_configuration.xml
 python3 /agibot/data/home/agi/Desktop/joint_state.py
 ```
+{% endcode %}
 
 #### 6.4 Example of Controlling the Head Shaking Interface <a href="#web-06-6-4-example-of-controlling-the-head-shaking-interface" id="web-06-6-4-example-of-controlling-the-head-shaking-interface"></a>
 
@@ -3598,6 +3627,7 @@ Using the HTTP interface is simpler. Save and run the following script:
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 #!/usr/bin/env python3
 
@@ -3660,6 +3690,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+{% endcode %}
 
 In this, `velocity` and `effort` are ineffective; only `position` is a valid value.
 
@@ -3670,18 +3701,18 @@ Using the ROS2 interface to call the head shaking program requires some prerequi
 1. You need to switch the state machine of the motion control module to the RL\_LOCOMOTION\_ARM\_EXT\_JOINT\_SERVO state. This can be done by switching to the upper body action mode on the AimMaster. The subsequent detailed interface explanation will also cover how to use the program interface for switching.
 2.  Call the following command to release the control of the upper body joints by the action playback module.bash
 
-    ```
-    curl -i \
+    <pre data-collapsed-line-count="10"><code>curl -i \
         -H 'content-type:application/json' \
         -H 'timeout: 1000' \
         -X POST http://192.168.100.100:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer \
         -d '{}'
-    ```
+    </code></pre>
 
 Next, save the following script as /agibot/data/home/agi/Desktop/neck.py
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 #!/usr/bin/env python3
 import rclpy
@@ -3734,11 +3765,13 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 ```
+{% endcode %}
 
 Then run
 
 yaml
 
+{% code collapsedlinecount="10" %}
 ```
 source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=232
@@ -3746,6 +3779,7 @@ export ROS_LOCALHOST_ONLY=0
 export FASTRTPS_DEFAULT_PROFILES_FILE=/agibot/software/v0/entry/bin/cfg/ros_dds_configuration.xml
 python3 /agibot/data/home/agi/Desktop/neck.py
 ```
+{% endcode %}
 
 ### 7. Detailed Interface Documentation <a href="#web-07-7-detailed-interface-documentation" id="web-07-7-detailed-interface-documentation"></a>
 
@@ -3785,29 +3819,31 @@ This simulation system is provided as a container image, containing executable f
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 docker login tongyong-public-cn-shanghai.cr.volces.com -u crrobot@aima-public-reader -p Aima123456
 ```
+{% endcode %}
 
 2. Pull the corresponding image.
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 docker pull tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-simulator:v1.3
 ```
+{% endcode %}
 
 **8.3.2 Starting the Image**
 
 1.  Allow Docker to access the display, which is used to configure the access control list for the X Window System. Running `xhost +` will allow all hosts to connect to the current user's X server, effectively disabling access control for the X server and allowing any user to access and operate it.bash
 
-    ```
-    xhost +
-    ```
+    <pre data-collapsed-line-count="10"><code>xhost +
+    </code></pre>
 2.  Start the Docker container.bash
 
-    ```
-    docker run -it \
+    <pre data-collapsed-line-count="10"><code>docker run -it \
             --name=a2-ultra-sim \
             --privileged \
             --net=host \
@@ -3817,13 +3853,12 @@ docker pull tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-simulator:v
             -v /tmp/.X11-unix:/tmp/.X11-unix \
             -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro \
             -d tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-simulator:v1.3
-    ```
+    </code></pre>
 
     \
     If you find that the simulation interface is lagging when using an NVIDIA graphics card, try starting the container with the following command:bash
 
-    ```
-    docker run -it \
+    <pre data-collapsed-line-count="10"><code>docker run -it \
             --name=a2-ultra-sim \
             --gpus all \
             --privileged \
@@ -3836,39 +3871,35 @@ docker pull tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-simulator:v
             -v /tmp/.X11-unix:/tmp/.X11-unix \
             -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro \
             -d tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-simulator:v1.3
-    ```
+    </code></pre>
 3.  Enter the container.bash
 
-    ```
-    docker start a2-ultra-sim && docker exec -it a2-ultra-sim /bin/bash
-    ```
+    <pre data-collapsed-line-count="10"><code>docker start a2-ultra-sim &#x26;&#x26; docker exec -it a2-ultra-sim /bin/bash
+    </code></pre>
 
 **8.3.3 Starting the Simulation, Motion Control, and Action Playback Modules**
 
 1.  Enter the image and run the following command to start the simulation.bash
 
-    ```
-    docker start a2-ultra-sim && docker exec -it a2-ultra-sim /bin/bash
+    <pre data-collapsed-line-count="10"><code>docker start a2-ultra-sim &#x26;&#x26; docker exec -it a2-ultra-sim /bin/bash
 
     cd /home/agi/a2_simulation/mujoco_sim_ultra_1.3/bin
     ./start_a2_t2d0_ultra.sh
-    ```
+    </code></pre>
 2.  In a new window, connect to the container and start the motion control program.bash
 
-    ```
-    docker start a2-ultra-sim && docker exec -it a2-ultra-sim /bin/bash
+    <pre data-collapsed-line-count="10"><code>docker start a2-ultra-sim &#x26;&#x26; docker exec -it a2-ultra-sim /bin/bash
 
     cd /home/agi/a2_simulation/motion_control_ultra_1.3.26/scripts/motion_control
     ./start_motion_control.sh
-    ```
+    </code></pre>
 3.  In another new window, connect to the container and start the action playback program.bash
 
-    ```
-    docker start a2-ultra-sim && docker exec -it a2-ultra-sim /bin/bash
+    <pre data-collapsed-line-count="10"><code>docker start a2-ultra-sim &#x26;&#x26; docker exec -it a2-ultra-sim /bin/bash
 
     cd /home/agi/a2_simulation/motion_player_ultra_1.3.26/scripts/motion_player
     ./start_motion_player.sh
-    ```
+    </code></pre>
 
 **8.3.4 Controlling Robot Walking**
 
@@ -3876,41 +3907,36 @@ Here, we will use robot walking as an example to explain the basic logic of call
 
 1.  Open a new window, enter the container, and switch the motion control Action to joint standing mode (RL\_JOINT\_DEFAULT).bash
 
-    ```
-    docker start a2-ultra-sim && docker exec -it a2-ultra-sim /bin/bash
+    <pre data-collapsed-line-count="10"><code>docker start a2-ultra-sim &#x26;&#x26; docker exec -it a2-ultra-sim /bin/bash
 
     cd /home/agi/a2_simulation/tools-ultra/mc
     ./SetAction.py # Select the number corresponding to RL_JOINT_DEFAULT.
-    ```
+    </code></pre>
 2.  Click the Load-Key button in the mujoco\_sim interface to stabilize the robot.<br>
 
     <figure><img src="../../.gitbook/assets/unknown (372).webp" alt="Official AgiBot illustration"><figcaption><p>Official AgiBot illustration</p></figcaption></figure>
 3.  Continue to switch the motion control Action to enhanced walking mode (RL\_LOCOMOTION\_DEFAULT).bash
 
-    ```
-    ./SetAction.py # Select the number corresponding to RL_LOCOMOTION_DEFAULT.
-    ```
+    <pre data-collapsed-line-count="10"><code>./SetAction.py # Select the number corresponding to RL_LOCOMOTION_DEFAULT.
+    </code></pre>
 4.  Call the walking example script.bash
 
-    ```
-    source /home/agi/a2_simulation/ros2_plugin_proto_x86_64/share/ros2_plugin_proto/local_setup.bash
+    <pre data-collapsed-line-count="10"><code>source /home/agi/a2_simulation/ros2_plugin_proto_x86_64/share/ros2_plugin_proto/local_setup.bash
     ./walk.py
-    ```
+    </code></pre>
 
 **8.3.5 Controlling Robot for Action Playback**
 
 1.  Switch the motion control state to enhanced walking upper limb servo mode (RL\_LOCOMOTION\_ARM\_EXT\_JOINT\_SERVO).bash
 
-    ```
-    cd /home/agi/a2_simulation/tools-ultra/mc
+    <pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-ultra/mc
     ./SetAction.py # Select the number corresponding to RL_LOCOMOTION_ARM_EXT_JOINT_SERVO.
-    ```
+    </code></pre>
 2.  Call the SendMotionCommand interface to perform the action.bash
 
-    ```
-    cd ../motion_player
+    <pre data-collapsed-line-count="10"><code>cd ../motion_player
     ./send_motion_id.sh /agibot/data/resources/default/motion/speech10s/speech10s.mcap
-    ```
+    </code></pre>
 
 ### 9. Interaction Secondary Development Guide <a href="#web-09-9-interaction-secondary-development-guide" id="web-09-9-interaction-secondary-development-guide"></a>
 
@@ -3966,12 +3992,11 @@ In this mode, it is necessary to have the Agibot interaction program exit the in
 *   voice\_face: Outputs the noise-reduced microphone audio /agent/process\_audio\_output and face recognition results /agent/vision/face\_id, and all subsequent chains are disconnected.\
     For example, the rpc call required to adjust to only\_voice mode is as follows:bash
 
-    ```
-    curl -i \
+    <pre data-collapsed-line-count="10"><code>curl -i \
         -H 'content-type:application/json' \
         -X POST 'http://192.168.100.110:59301/rpc/aimdk.protocol.AgentControlService/SetAgentPropertiesRequest' \
         -d '{ "contents": { "properties": { "2": "only_voice" } } }'
-    ```
+    </code></pre>
 
     \
     After the call, the robot needs to be restarted for the changes to take effect. You can wait until the second step's modifications are completed before restarting together. After the restart, you can use the `GetAgentPropertiesRequest` interface in the microphone management section to query the current interaction mode and determine if the mode has been successfully modified. (If recovery is needed, change "only\_voice / voice\_face" in the `SetAgentPropertiesRequest` interface to "normal" and restart the robot.)
@@ -3979,9 +4004,8 @@ In this mode, it is necessary to have the Agibot interaction program exit the in
 2.  Modify the configuration to default not start the hal\_audio module (modify once, no need to repeat)\
     First, back up the /agibot/software/v0/entry/bin/cfg/run\_agibot.yaml file on ORIN.bash
 
-    ```
-    cp /agibot/software/v0/entry/bin/cfg/run_agibot.yaml  /agibot/software/v0/entry/bin/cfg/run_agibot.yaml.backup
-    ```
+    <pre data-collapsed-line-count="10"><code>cp /agibot/software/v0/entry/bin/cfg/run_agibot.yaml  /agibot/software/v0/entry/bin/cfg/run_agibot.yaml.backup
+    </code></pre>
 
     \
     Then, in the run\_agibot.yaml file, delete the hal\_audio module from the default\_apps, do not modify other parts. After the modification, restart the robot. (If recovery is needed, restore the above file and restart the robot.)<br>
@@ -3998,6 +4022,7 @@ After exiting the interaction chain, you can obtain the denoised microphone audi
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 #!/usr/bin/env python3
 
@@ -4201,6 +4226,7 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 ```
+{% endcode %}
 
 The above program depends on the Python protocol package a2\_aimdk and the ROS2 protocol package ros2\_plugin\_proto. The corresponding packages have been placed in the prebuilt directory of the AimDK development kit. Install the Python package using `pip install prebuilt/a2_aimdk-1.0.0-py3-none-any.whl`, and source the ROS2 package using `source prebuilt/ros2_plugin_proto_aarch64/share/ros2_plugin_proto/local_setup.bash`.
 
@@ -4208,12 +4234,14 @@ Please note that the above program receives ROS2 messages and requires the follo
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=232
 export ROS_LOCALHOST_ONLY=0
 export FASTRTPS_DEFAULT_PROFILES_FILE=/agibot/software/v0/entry/bin/cfg/ros_dds_configuration.xml
 ```
+{% endcode %}
 
 The audio data is 16kHz sample rate, 16-bit mono PCM data (little-endian). The output audio is clean human voice that has undergone denoising, echo cancellation, etc., and can be directly used for ASR recognition.
 
@@ -4245,9 +4273,11 @@ You can use the following devices for playback. Please implement the program cal
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 aplay -D multiplay_def -c 1 -r 24000 -f S16_LE /agibot/data/var/interaction/audio/wake.pcm
 ```
+{% endcode %}
 
 Here are the volume control instructions:
 
@@ -4257,34 +4287,39 @@ Here are the volume control instructions:
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 amixer cset name='x Headphone Volume' 15（0~31）
 ```
+{% endcode %}
 
 * Get playback volume
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 amixer cget name='x Headphone Volume'
 ```
+{% endcode %}
 
 * Set mute
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 amixer sset 'x Headphone Left' off
 amixer sset 'x Headphone Right' off
 ```
+{% endcode %}
 
 * Unmute
 *   bash
 
-    ```
-    amixer sset 'x Headphone Left' on
+    <pre data-collapsed-line-count="10"><code>amixer sset 'x Headphone Left' on
     amixer sset 'x Headphone Right' on
-    ```
+    </code></pre>
 
     2. T3 Machine
 
@@ -4292,33 +4327,29 @@ amixer sset 'x Headphone Right' off
 
     bash
 
-    ```
-    amixer -c DefPDevice sset Speaker 80%（0~100%）
-    ```
+    <pre data-collapsed-line-count="10"><code>amixer -c DefPDevice sset Speaker 80%（0~100%）
+    </code></pre>
 
     * Get playback volume
 
     bash
 
-    ```
-    amixer -c DefPDevice sget Speaker
-    ```
+    <pre data-collapsed-line-count="10"><code>amixer -c DefPDevice sget Speaker
+    </code></pre>
 
     * Set mute
 
     bash
 
-    ```
-    amixer -c DefPDevice set Speaker off
-    ```
+    <pre data-collapsed-line-count="10"><code>amixer -c DefPDevice set Speaker off
+    </code></pre>
 
     * Unmute
 
     bash
 
-    ```
-    amixer -c DefPDevice set Speaker on
-    ```
+    <pre data-collapsed-line-count="10"><code>amixer -c DefPDevice set Speaker on
+    </code></pre>
 
     **9.2.4 Face Recognition**
 
@@ -4330,8 +4361,7 @@ amixer sset 'x Headphone Right' off
 
     python
 
-    ```
-    #!/usr/bin/env python3
+    <pre data-collapsed-line-count="10"><code>#!/usr/bin/env python3
 
     import rclpy
     from rclpy.node import Node
@@ -4401,7 +4431,7 @@ amixer sset 'x Headphone Right' off
 
     if __name__ == "__main__":
         main()
-    ```
+    </code></pre>
 
     The above program depends on the Python protocol package a2\_aimdk and the ROS2 protocol package ros2\_plugin\_proto. The corresponding packages have been placed in the prebuilt directory of the AimDK development kit. Install the Python package using `pip install prebuilt/a2_aimdk-1.0.0-py3-none-any.whl`, and source the ROS2 package using `source prebuilt/ros2_plugin_proto_aarch64/share/ros2_plugin_proto/local_setup.bash`.
 
@@ -4409,22 +4439,20 @@ amixer sset 'x Headphone Right' off
 
     bash
 
-    ```
-    source /opt/ros/humble/setup.bash
+    <pre data-collapsed-line-count="10"><code>source /opt/ros/humble/setup.bash
     export ROS_DOMAIN_ID=232
     export ROS_LOCALHOST_ONLY=0
     export FASTRTPS_DEFAULT_PROFILES_FILE=/agibot/software/v0/entry/bin/cfg/ros_dds_configuration.xml
-    ```
+    </code></pre>
 
     A local face registration interface is also provided. This interface is neither a conventional HTTP JSON RPC nor a ROS2 Topic; instead, a dedicated invocation script is provided: examples/agent/run\_face\_id\_register.sh. The content is as follows:
 
     bash
 
-    ```
-    #!/bin/bash
+    <pre data-collapsed-line-count="10"><code>#!/bin/bash
 
     # 1. Directory containing images to be registered (same level as the sh script)
-    RUN_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    RUN_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &#x26;&#x26; pwd)"
     IMAGES_DIR="${RUN_SCRIPT_DIR}/images"
 
     # 2. Faceid base directory
@@ -4442,14 +4470,13 @@ amixer sset 'x Headphone Right' off
     # 4. Call
     rm -rf "$FACEID_OFFLINE_FEAT"/*
     "$EXEC" "$CONF" "$IMAGES_DIR"
-    ```
+    </code></pre>
 
     Place the facial data to be registered into the images directory located in the same folder as the script. Execute this script on the ORIN to complete the registration. After registration, the correspondence between IDs and images, along with the registration success status, will be stored in the Result.txt file in the same directory. See the example below (note that registration was successful even for blurred images and images where the face was too small; however, for actual usage, it is still recommended to use clear, frontal facial images as shown in the satisfied.png to avoid negative impacts on the recognition rate):
 
     text
 
-    ```
-    GID17648293009168001    satisfactory.png          OK    Registration successful
+    <pre data-collapsed-line-count="10"><code>GID17648293009168001    satisfactory.png          OK    Registration successful
     GID17648293018063607    side-face.png          FAIL  Face quality does not meet requirements
     GID17648293020281011    too-dark.png          FAIL  Face quality does not meet requirements
     GID17648293021878934    blurred.png          OK    Registration successful
@@ -4457,7 +4484,7 @@ amixer sset 'x Headphone Right' off
     GID17648293026684491    No face.png       FAIL  No face detected
     GID17648293028768487    Not a face.png       FAIL  No face detected
     GID17648293030305970    Face too small.png    OK    Registration successful
-    ```
+    </code></pre>
 
     Face Registration and Recognition Logic Rules:
 
@@ -4476,8 +4503,7 @@ amixer sset 'x Headphone Right' off
 
     python
 
-    ```
-    #!/usr/bin/env python3
+    <pre data-collapsed-line-count="10"><code>#!/usr/bin/env python3
 
     import rclpy
     from rclpy.node import Node
@@ -4558,7 +4584,7 @@ amixer sset 'x Headphone Right' off
 
     if __name__ == "__main__":
         main()
-    ```
+    </code></pre>
 
     The above program depends on the Python protocol package `a2_aimdk` and the ROS2 protocol package `ros2_plugin_proto`. Both packages are already included in the `prebuilt` directory of the AimDK development package. Install the Python package with `pip install prebuilt/a2_aimdk-2.0.1-py3-none-any.whl`, and source the ROS2 package with `source prebuilt/ros2_plugin_proto_aarch64/share/ros2_plugin_proto/local_setup.bash`.
 
@@ -4566,12 +4592,11 @@ amixer sset 'x Headphone Right' off
 
     bash
 
-    ```
-    source /opt/ros/humble/setup.bash
+    <pre data-collapsed-line-count="10"><code>source /opt/ros/humble/setup.bash
     export ROS_DOMAIN_ID=232
     export ROS_LOCALHOST_ONLY=0
     export FASTRTPS_DEFAULT_PROFILES_FILE=/agibot/software/v0/entry/bin/cfg/ros_dds_configuration.xml
-    ```
+    </code></pre>
 
     ### 10. Troubleshooting Interface Calls <a href="#troubleshooting-interface-calls" id="troubleshooting-interface-calls"></a>
 
@@ -4594,11 +4619,10 @@ amixer sset 'x Headphone Right' off
     3. Check if the local environment variables `ROS_DOMAIN_ID=232` and `ROS_LOCALHOST_ONLY=0` are loaded. The exported environment variables only take effect in the current terminal. A new terminal will need to re-export these variables. You can use the command `env | grep ROS` to view the relevant environment variable settings in the current terminal.
     4.  Ensure that the QoS of the topic is consistent with the default QoS on the board.yaml
 
-        ```
-          history: keep_last
+        <pre data-collapsed-line-count="10"><code>  history: keep_last
           depth: 10
           reliability: best_effort
-        ```
+        </code></pre>
     5. After SSHing into the x86/orin industrial PC, execute `aima em load-env` (to load the ROS2 environment variables) and then use the `ros2 topic` command to check if the related topics are being sent or received by any modules.
 
     **10.1.3 Common Troubleshooting Methods**
@@ -4615,20 +4639,18 @@ amixer sset 'x Headphone Right' off
 
         yaml
 
-        ```
-        curl -i \
+        <pre data-collapsed-line-count="10"><code>curl -i \
             -H 'content-type:application/json' \
             -H 'timeout: 1000' \
             -X POST http://192.168.100.100:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer \
             -d '{}'
-        ```
+        </code></pre>
     2. Why does calling any motion playback only result in the right hand raising action?
        1. This is the default action of the motion playback module. When the `motion_id` parameter is incorrect, it will default to this action.
        2.  A correct motion path should find the corresponding .mcap (new version) or .db (old version) file and pass the complete path, for example:bash
 
-           ```
-           /agibot/data/resources/default/motion/salute/salute.mcap
-           ```
+           <pre data-collapsed-line-count="10"><code>/agibot/data/resources/default/motion/salute/salute.mcap
+           </code></pre>
 
     #### 10.3 Feedback Channels <a href="#web-10-10-3-feedback-channels" id="web-10-10-3-feedback-channels"></a>
 

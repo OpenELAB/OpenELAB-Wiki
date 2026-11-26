@@ -104,6 +104,7 @@ The display and SD share SPI signal lines but have different CS. Deselect displa
 2. Install [Seeed\_GFX2](https://github.com/Seeed-Studio/Seeed_GFX2) with its Sticky examples. Save the library commit/version and current firmware/content before upload. Legacy Seeed\_GFX `BOARD_SCREEN_COMBO` instructions are a different API.
 3. Upload this complete original static-frame test. Its API was checked against the model's current [HelloWorld source](https://github.com/Seeed-Studio/Seeed_GFX2/blob/main/examples/ePaper%20Displays/reTerminal%20E%20Series/reTerminal%20Sticky/HelloWorld/HelloWorld.ino).
 
+{% code collapsedlinecount="10" %}
 ```cpp
 #include <Arduino.h>
 #include <Seeed_GFX.h>
@@ -127,6 +128,7 @@ void setup() {
 }
 void loop() { delay(1000); }
 ```
+{% endcode %}
 
 **Expected result:** the new label, black rectangle and complete border appear after a full refresh; Serial1 at 115200 reports the checkpoint. The product profile detects SSD1677/SSD2677 and handles orientation; place buttons at the top and do not add a second coordinate rotation.
 
@@ -136,6 +138,7 @@ Run the GFX2 **Gray4** example with its `image.h`, OPI PSRAM and `PanelMode::Gra
 
 This standalone original sketch reports a button change only after 35 ms of stable input. It preserves the power latch and does not start display or network tasks.
 
+{% code collapsedlinecount="10" %}
 ```cpp
 #include <Arduino.h>
 constexpr int keys[] = {4, 5, 6};
@@ -160,6 +163,7 @@ void loop() {
   delay(2);
 }
 ```
+{% endcode %}
 
 Expected output is one pressed/released pair for each deliberate action, rather than dozens of contact-bounce events. Keep a 1 kHz/short-duration `tone(48,1000,60)` buzzer test separate. For SHT40 use SDA1/SCL0 and the exact Sensirion library; for IMU verify address0x6A and stationary orientation before interpreting acceleration units. BQ27220 state-of-charge and external-power GPIO9 are separate observations: external power present is not a measured “charging” current. [Standalone peripherals](https://www.seeedstudio.com/sticky/docs/en/device-guide/arduino-peripherals/).
 
@@ -167,6 +171,7 @@ Expected output is one pressed/released pair for each deliberate action, rather 
 
 1. Open an **ESP-IDF v5.4** terminal and confirm `idf.py --version`. Clone the maintained dashboard, record its source commit and set the exact target.
 
+{% code collapsedlinecount="10" %}
 ```bash
 git clone https://github.com/Seeed-Projects/sticky-esp-idf-dashboard.git
 cd sticky-esp-idf-dashboard
@@ -174,12 +179,15 @@ git rev-parse HEAD
 idf.py set-target esp32s3
 idf.py build
 ```
+{% endcode %}
 
 2. Identify the actual serial device. Replace `PORT` below with its COM, `/dev/cu.*` or `/dev/tty*` name, then flash and monitor.
 
+{% code collapsedlinecount="10" %}
 ```bash
 idf.py -p PORT flash monitor
 ```
+{% endcode %}
 
 3. Wait for Home, then navigate **Home → Sensor → Battery → Note → Imu → Microphone → Home** using Up/Down and swipes. Short AI refreshes the current demo page; on Microphone it initiates the documented capture. Exit monitor with **Ctrl+]**.
 
@@ -189,6 +197,7 @@ idf.py -p PORT flash monitor
 
 In the dashboard source, create `main/pages/bench_page.h` declaring `void bench_page_render(Canvas&, const AppState&);` with forward declarations, and `bench_page.cpp` below. This example uses the reviewed existing `AppState.environment` fields and `page_draw_layout`/Canvas interfaces; it does not read hardware from a renderer.
 
+{% code collapsedlinecount="10" %}
 ```cpp
 #include <cstdio>
 #include "app_state.h"
@@ -210,8 +219,11 @@ void bench_page_render(Canvas& canvas, const AppState& state) {
   canvas.draw_line(76, 320, 718, 320, GrayLevel::Black);
 }
 ```
+{% endcode %}
 
-Append `Bench` to `PageId` to preserve existing IDs. In `app.cpp`, include its header, add its name and renderer in `page_name()`/`render_current_page()`, and insert it in **both** next/previous navigation. Extend the restored-page upper-bound check to `PageId::Bench`. Add `pages/bench_page.cpp` to `main/CMakeLists.txt` SRCS. Keep the existing version/length/checksum validation and event loop. Rebuild, open Bench from both directions and verify both valid and unavailable rendering states. A state-layout change beyond an appended page ID needs a separate retention-format compatibility decision. [Source interfaces](https://github.com/Seeed-Projects/sticky-esp-idf-dashboard), [page integration guide](https://www.seeedstudio.com/sticky/docs/en/device-guide/esp-basics/).
+Append `Bench` to `PageId` to preserve existing IDs. In `app.cpp`, include its header, add its name and renderer in `page_name()`/`render_current_page()`, and insert it in **both** next/previous navigation. Extend the restored-page upper-bound check to `PageId::Bench`. Add `pages/bench_page.cpp` to `main/CMakeLists.txt` SRCS. Keep the existing version/length/checksum validation and event loop. Rebuild, open Bench from both directions and verify both valid and unavailable rendering states. A state-layout change beyond an appended page ID needs a separate retention-format compatibility decision. Source interfaces (source unavailable), [page integration guide](https://www.seeedstudio.com/sticky/docs/en/device-guide/esp-basics/).
+
+The manufacturer-listed SDK source is currently unavailable. Obtain the matching release from the manufacturer before attempting the source-dependent build steps.
 
 ### Peripheral and sleep verification
 
@@ -245,16 +257,16 @@ For a stuck application use the documented Reset hole and reconnect the observed
 
 ## Downloads and technical documents <a href="#technical-documents-and-software" id="technical-documents-and-software"></a>
 
-| Resource                                                                                                                        | Use                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| [Sticky schematic PDF](https://files.seeedstudio.com/wiki/reterminal_sticky/res/reTerminal_Sticky_Schematic_diagram_260609.pdf) | June 2026 hardware reference; power and pin relationships         |
-| [Official STEP model](https://files.seeedstudio.com/wiki/reterminal_sticky/res/reTerminal_Sticky_3D.stp)                        | Fixture/enclosure integration; manufacturer-listed download       |
-| [Seeed\_GFX2](https://github.com/Seeed-Studio/Seeed_GFX2)                                                                       | Product profile, display/controller handling and Arduino examples |
-| [ESP-IDF dashboard](https://github.com/Seeed-Projects/sticky-esp-idf-dashboard)                                                 | Board/device/app/page implementation                              |
-| [ESP-IDF peripherals](https://github.com/Seeed-Projects/sticky-esp-idf-peripherals)                                             | Focused device examples                                           |
-| [Playground firmware](https://www.seeedstudio.com/sticky/playground/firmware/)                                                  | Exact Sticky application selection                                |
-| [Official firmware restoration/tools](https://www.seeedstudio.com/sticky/playground/official-firmware/)                         | Factory application and font tooling                              |
-| [Playground registry](https://github.com/Seeed-Projects/reterminal-sticky-playground-registry)                                  | Third-party source, licenses and compatibility records            |
+| Resource                                                                                                                                                                                                                 | Use                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| [Sticky schematic PDF](https://files.seeedstudio.com/wiki/reterminal_sticky/res/reTerminal_Sticky_Schematic_diagram_260609.pdf)                                                                                          | June 2026 hardware reference; power and pin relationships         |
+| [Official STEP model](https://files.seeedstudio.com/wiki/reterminal_sticky/res/reTerminal_Sticky_3D.stp)                                                                                                                 | Fixture/enclosure integration; manufacturer-listed download       |
+| [Seeed\_GFX2](https://github.com/Seeed-Studio/Seeed_GFX2)                                                                                                                                                                | Product profile, display/controller handling and Arduino examples |
+| <p>ESP-IDF dashboard (source unavailable)</p><p>The manufacturer-listed SDK source is currently unavailable. Obtain the matching release from the manufacturer before attempting the source-dependent build steps.</p>   | Board/device/app/page implementation                              |
+| <p>ESP-IDF peripherals (source unavailable)</p><p>The manufacturer-listed SDK source is currently unavailable. Obtain the matching release from the manufacturer before attempting the source-dependent build steps.</p> | Focused device examples                                           |
+| [Playground firmware](https://www.seeedstudio.com/sticky/playground/firmware/)                                                                                                                                           | Exact Sticky application selection                                |
+| [Official firmware restoration/tools](https://www.seeedstudio.com/sticky/playground/official-firmware/)                                                                                                                  | Factory application and font tooling                              |
+| [Playground registry](https://github.com/Seeed-Projects/reterminal-sticky-playground-registry)                                                                                                                           | Third-party source, licenses and compatibility records            |
 
 ## References and validation <a href="#official-documentation-and-development-resources" id="official-documentation-and-development-resources"></a>
 

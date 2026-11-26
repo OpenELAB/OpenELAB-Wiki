@@ -116,7 +116,7 @@ Connect the device to the PC and open Device Manager to install the [FTDI driver
 
 For MacOS users, before installation, please check `System Preferences` -> `Security & Privacy` -> `General` -> `Allow apps downloaded from` -> `App Store and identified developers`.
 
-<figure><img src="https://static-cdn.m5stack.com/resource/docs/static/image/base/System_preferences.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://raw.githubusercontent.com/m5stack/m5-docs/e5354c5dcc61d16fdc1dff9d92c2c760728d0b60/docs/image/base/System_preferences.webp" alt=""><figcaption></figcaption></figure>
 
 #### 3. Download the Control Board
 

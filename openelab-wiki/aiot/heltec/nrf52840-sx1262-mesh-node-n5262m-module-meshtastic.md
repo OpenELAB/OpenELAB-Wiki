@@ -86,7 +86,7 @@ layout:
 * [Heltec nRF52 framework and Lib](https://github.com/HelTecAutomation/Heltec_nRF52)
 * [SnapEmu IoT Platform](https://platform.snapemu.com/user/login)
 * [Shematic Diagram](https://resource.heltec.cn/download/HT-N5262M/HT-N5262M_Schematic_Diagram.pdf)
-* [Reference design](https://resource.heltec.cn/download/Mesh_Node_N5262M/Reference_design)
+* [Reference design](https://resource.heltec.cn/download/HT-N5262M/Reference_design)
 * [Datasheet](https://resource.heltec.cn/download/HT-N5262M/Datasheet/HT-N5262M_V1.0.pdf)
 * [Related Resources](https://resource.heltec.cn/download/HT-N5262M)&#x20;
 

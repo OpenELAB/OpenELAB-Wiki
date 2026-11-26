@@ -55,7 +55,9 @@ AiPi-Eyes series is a development board specially designed for Ai-M61-32S by Ai-
 
 #### &#x20;Source code and firmware <a href="#source_code_and_firmware" id="source_code_and_firmware"></a>
 
-Secondary development SDK source address: [https://github.com/Ai-Thinker-Open/Ai-Pi\_Eeys](https://github.com/Ai-Thinker-Open/Ai-Pi_Eeys)
+Secondary development SDK source address: https://github.com/Ai-Thinker-Open/Ai-Pi\_Eeys (source unavailable)
+
+The manufacturer-listed SDK source is currently unavailable. Obtain the matching release from the manufacturer before attempting the source-dependent build steps.
 
 Ai-Pi-Eyes-S1 test firmware：[click to download](https://docs.ai-thinker.com/_media/m61_s1_display_whole_v1.1.zip)
 

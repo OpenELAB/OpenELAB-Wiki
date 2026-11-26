@@ -443,6 +443,7 @@ Use an aluminum heat path with conductivity **>50 W/(m·K)**, suitable contact a
 
 Close other applications using UDP 6699. Save as `e1r_first_vector.py` and run Python 3 on the configured host. It samples one normal point from the documented packet; it does not send commands or replace the full decoder's CRC/integrity handling.
 
+{% code collapsedlinecount="10" %}
 ```python
 import math
 import socket
@@ -477,6 +478,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as receiver:
 if not found:
     raise SystemExit("No normal E1R vector observed; inspect profile and traffic")
 ```
+{% endcode %}
 
 **Expected result:** one nonzero range/XYZ sample in metres and a direction norm near one. Treat it as a parser/units checkpoint; do not interpret a single sample as a calibrated distance test or obstacle decision. Unexpected sizes or fields require the exact received protocol. [Vector definitions](https://robosense-robotics.github.io/product-manual/en/E1R/#4312-data-packet).
 
@@ -484,6 +486,7 @@ if not found:
 
 With ROS2 Humble/PCL/yaml-cpp/libpcap/colcon installed, create a new workspace and use the reviewed SDK snapshot:
 
+{% code collapsedlinecount="10" %}
 ```bash
 mkdir -p ~/e1r_ws/src
 cd ~/e1r_ws/src
@@ -498,6 +501,7 @@ cd ~/e1r_ws
 colcon build
 source install/setup.bash
 ```
+{% endcode %}
 
 Edit `src/rslidar_sdk/config/config.yaml`: live `msg_source:1`,`lidar_type:RSE1`, ports 6699/7788 and `send_point_cloud_ros:true`. Start `ros2 launch rslidar_sdk start.py`; in another sourced terminal run `ros2 topic info /rslidar_points --verbose` and `ros2 topic hz /rslidar_points`. Set the RViz fixed frame to the actual sensor frame first.
 
@@ -565,4 +569,4 @@ Reviewed **24 November 2026**: exact sensor/3.5 m/8 m SKUs, current E1R manual a
 
 ### Additional established references
 
-* [http://www.robosense.ai/resource](http://www.robosense.ai/resource)
+* [http://www.robosense.ai/resource](https://www.robosense.ai/en/resources)

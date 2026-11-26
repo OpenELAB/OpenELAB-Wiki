@@ -112,7 +112,7 @@ What is EasyLoader?1.EasyLoader is a simple and fast program burner. Every produ
 
 #### UIFlow <a href="#uiflow" id="uiflow"></a>
 
-* [Click here to download the UIFlow example](https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Hat/hat-yun/UIFlow)
+* [Click here to download the UIFlow example](https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Hat/tof-hat/UIFlow)
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/hat/hat-tof/hat-tof_uiflow_01.webp" alt=""><figcaption></figcaption></figure>
 

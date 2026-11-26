@@ -20,7 +20,7 @@ Date: 2025-01-20
 
 [LICENSE](https://gitee.com/LockzhinerDAQ/DAQ_SDK/blob/master/LICENSE)
 
-[README.md](https://readme.mdhttps/gitee.com/LockzhinerDAQ/DAQ_SDK/blob/master/README.md)
+[README.md](https://gitee.com/LockzhinerDAQ/DAQ_SDK/blob/master/README.md)
 
 ***
 
@@ -66,6 +66,7 @@ Note: If you need dynamic libraries for the AArch64 architecture, please contact
 
 ### 📁 Directory Structure <a href="#usercontent-mu-lu-jie-gou" id="usercontent-mu-lu-jie-gou"></a>
 
+{% code collapsedlinecount="10" %}
 ```
 DAQ_SDK/
 ├── DAQ_SDK/                    # 🔧 SDK core files
@@ -101,6 +102,7 @@ DAQ_SDK/
 │   └── README.md              # Example code navigation
 └── README.md                   # 🏠 Main documentation (this file)
 ```
+{% endcode %}
 
 <br>
 

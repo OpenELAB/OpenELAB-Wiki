@@ -1,8 +1,8 @@
 ---
 description: >-
-  Shared WEB Teaching Pendant operation reference. For product-specific setup
-  and specifications, use RealMan RM65 Series User Manual V1.2.0 or RealMan
-  ECO65 Series User Manual V1.2.0.
+  Preserved WEB Teaching Pendant V1.5 introduction and figures, with links to
+  separate RM65 and ECO65 operating references. Match the delivered model,
+  controller and manual revision.
 ---
 
 # RealMan Robot WEB Teaching Pendant User Manual V1.5
@@ -31,7 +31,7 @@ description: >-
 
 ## Model and firmware entry points
 
-Use [RM65](realman-rm65-series-user-manual-v1.2.0.md) or [ECO65](realman-eco65-series-user-manual-v1.2.0.md) for product-specific setup and the newer supplied revisions; use [shared commissioning/SDK guide](realman-arm-commissioning-and-sdk.md) before running development examples. This V1.5 page retains the existing source material and figures; it is not a universal current-firmware screen reference. Motion, force control, calibration and program execution require the exact delivered controller manual. Reviewed 22 November 2026; software/hardware tests not run.
+Use [RM65](realman-rm65-series-user-manual-v1.2.0.md) or [ECO65](realman-eco65-series-user-manual-v1.2.0.md) for product-specific setup and separate supplied manual revisions; use [shared commissioning/SDK guide](realman-arm-commissioning-and-sdk.md) before running development examples. This V1.5 page retains the existing source material and figures; it is not a universal current-firmware screen reference. Motion, force control, calibration and program execution require the exact delivered controller manual. Reviewed 22 November 2026; software/hardware tests not run.
 
 ## Preserved teaching-pendant reference
 
@@ -63,11 +63,9 @@ For model-specific installation wiring specifications maintenance and troublesho
 
 [RealMan ECO65 Series User Manual V1.2.0](realman-eco65-series-user-manual-v1.2.0.md)
 
-### Contents
-
 ### Model and Version Applicability
 
-This page reproduces the official RealMan Robot WEB Teaching Pendant User Manual V1.5 dated November 1 2023. The shared operating instructions apply to the RM65 and ECO65 basic integrated six-axis force and supported vision-arm configurations listed above.
+This page preserves only the introduction, version record, product composition and figures from the RealMan Robot WEB Teaching Pendant User Manual V1.5 dated November 1, 2023. It does not reproduce the complete V1.5 operating manual. The model-specific references below are separate documents; match the delivered arm, controller and software version before using them.
 
 Before using controller-specific or interface-specific instructions compare the installed controller and software versions with the official version correspondence. Later firmware may change screen layouts supported functions model adaptations and API compatibility.
 
@@ -78,21 +76,28 @@ Before using controller-specific or interface-specific instructions compare the 
 
 **RM65-B-V Vision Configuration**
 
-The V1.5 content covers installation controller access teaching motion IO programming and the functions shared by the vision-arm configuration. Camera calibration visual recognition and application deployment require the applicable vision package and its own setup procedure. Confirm the complete arm model and controller version before following a vision example. Current official release notes explicitly list RM65-B-V among the supported vision-arm models.
+The preserved V1.5 introduction lists the vision-arm configuration; detailed installation, teaching and programming procedures are not present on this page. Camera calibration visual recognition and application deployment require the applicable vision package and its own setup procedure. Confirm the complete arm model and controller version before following a vision example. Current official release notes explicitly list RM65-B-V among the supported vision-arm models.
 
 * [Introduction and Product Composition](realman-robot-web-teaching-pendant-user-manual-v1.5.md#introduction-and-product-composition)
-* [Safety, Handling, Maintenance and Quality Assurance](realman-robot-web-teaching-pendant-user-manual-v1.5.md#safety-handling-maintenance-and-quality-assurance)
-* [Robot Hardware and Interfaces](realman-robot-web-teaching-pendant-user-manual-v1.5.md#robot-hardware-and-interfaces)
-* [Installation, Wiring and First Startup](realman-robot-web-teaching-pendant-user-manual-v1.5.md#installation-wiring-and-first-startup)
-* [Teaching and Jogging the Robot](realman-robot-web-teaching-pendant-user-manual-v1.5.md#teaching-and-jogging-the-robot)
-* [Creating and Running Programs](realman-robot-web-teaching-pendant-user-manual-v1.5.md#creating-and-running-programs)
-* [Robot Configuration and Calibration](realman-robot-web-teaching-pendant-user-manual-v1.5.md#robot-configuration-and-calibration)
-* [System Information, Logs and Expansion](realman-robot-web-teaching-pendant-user-manual-v1.5.md#system-information-logs-and-expansion)
-* [Programming Examples and System Update](realman-robot-web-teaching-pendant-user-manual-v1.5.md#programming-examples-and-system-update)
-* [MODBUS and External Interfaces](realman-robot-web-teaching-pendant-user-manual-v1.5.md#modbus-and-external-interfaces)
-* [Technical Specifications](realman-robot-web-teaching-pendant-user-manual-v1.5.md#technical-specifications)
-* [Optional Functions and Additional Materials](realman-robot-web-teaching-pendant-user-manual-v1.5.md#optional-functions-and-additional-materials)
-* [Quick Troubleshooting Index](realman-robot-web-teaching-pendant-user-manual-v1.5.md#quick-troubleshooting-index)
+
+### Current model-specific operating references <a href="#current-model-specific-operating-references" id="current-model-specific-operating-references"></a>
+
+The references below link to separate RM65/RM75 (58 PDF pages) and ECO (56 PDF pages) hardware manuals, and to the RM65/ECO65 model guides titled V1.2.0. They are not chapters of the WEB Teaching Pendant V1.5 manual. Match the delivered arm, controller and software version; detailed V1.5 programming, calibration, log-viewer and firmware-update procedures are not reproduced here.
+
+| Topic                                                | RM65 reference                                                                                                                                                                            | ECO65 reference                                                                                                                                                               |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Safety, quality assurance, handling and maintenance  | [Safety and quality assurance, pp. 1–10](realman-source-library/complete-rm65-rm75-manual.md); [Handling and maintenance, pp. 56–58](realman-source-library/complete-rm65-rm75-manual.md) | [Safety and quality assurance, pp. 1–10](realman-source-library/complete-eco-manual.md); [Handling and maintenance, pp. 54–56](realman-source-library/complete-eco-manual.md) |
+| Controller and tool hardware interfaces              | [Hardware interfaces, pp. 21–29](realman-source-library/complete-rm65-rm75-manual.md)                                                                                                     | [Hardware interfaces, pp. 21–29](realman-source-library/complete-eco-manual.md)                                                                                               |
+| Mounting, wiring and power-on                        | [Installation and power-on, pp. 12–15](realman-source-library/complete-rm65-rm75-manual.md)                                                                                               | [Installation and power-on, pp. 12–15](realman-source-library/complete-eco-manual.md)                                                                                         |
+| Teach-pendant connection and drag teaching           | [Connection, pp. 16–19](realman-source-library/complete-rm65-rm75-manual.md); [Drag teaching, pp. 20–21](realman-source-library/complete-rm65-rm75-manual.md)                             | [Connection, pp. 16–19](realman-source-library/complete-eco-manual.md); [Drag teaching, pp. 20–21](realman-source-library/complete-eco-manual.md)                             |
+| Programming and SDK resource selection               | [Software and development resources](realman-rm65-series-user-manual-v1.2.0.md)                                                                                                           | [Software and development resources](realman-eco65-series-user-manual-v1.2.0.md)                                                                                              |
+| Electrical and tool configuration context            | [Installation and electrical integration](realman-rm65-series-user-manual-v1.2.0.md)                                                                                                      | [Installation and electrical integration](realman-eco65-series-user-manual-v1.2.0.md)                                                                                         |
+| Startup and controller-status checks                 | [Getting started](realman-rm65-series-user-manual-v1.2.0.md)                                                                                                                              | [Getting started](realman-eco65-series-user-manual-v1.2.0.md)                                                                                                                 |
+| Manual downloads and controller-generation selection | [Downloads and technical documents](realman-rm65-series-user-manual-v1.2.0.md)                                                                                                            | [Downloads and technical documents](realman-eco65-series-user-manual-v1.2.0.md)                                                                                               |
+| RS485 and Modbus RTU interface reference             | [Communication interface, pp. 28–29](realman-source-library/complete-rm65-rm75-manual.md)                                                                                                 | [Communication interface, pp. 28–29](realman-source-library/complete-eco-manual.md)                                                                                           |
+| Exact-model specifications and parameters            | [RM65 parameters, from p. 29](realman-source-library/complete-rm65-rm75-manual.md)                                                                                                        | [ECO65 parameters, from p. 40](realman-source-library/complete-eco-manual.md)                                                                                                 |
+| Additional developer resources                       | [Additional Information, p. 58](realman-source-library/complete-rm65-rm75-manual.md)                                                                                                      | [Additional Information, p. 56](realman-source-library/complete-eco-manual.md)                                                                                                |
+| Operating and communication FAQs                     | [FAQs, pp. 53–56](realman-source-library/complete-rm65-rm75-manual.md)                                                                                                                    | [FAQs, pp. 51–54](realman-source-library/complete-eco-manual.md)                                                                                                              |
 
 ### Introduction and Product Composition
 

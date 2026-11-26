@@ -108,7 +108,7 @@ The printer runs ELEGOO's EL3D-4.0 system and supports USB transfer, built-in Wi
 * [Motherboard Replacement](https://wiki.elegoo.com/saturn/saturn-4-u-16k-motherboard-replacement) - official Saturn 4 Ultra 16K motherboard replacement procedure.
 * [Camera Replacement](https://wiki.elegoo.com/saturn/saturn-4-ultra-16k-camera-replacement) - official camera service reference for the Saturn 4 Ultra 16K.
 * [Resin Tank Status Failure During Self-Test](https://wiki.elegoo.com/saturn/resin-tank-status-failure-during-self-test) - official troubleshooting page for tank detection and self-test failures.
-* [Wi-Fi Connection Fails](https://wiki.elegoo.com/en/general/faq/resin-printer/wifi-connection-fail) and [Print Failure](https://wiki.elegoo.com/general/faq/resin-printer/print-failure) - official resin-printer troubleshooting references.
+* [Wi-Fi Connection Fails](https://wiki.elegoo.com/en/saturn/saturn-4-ultra-16k/wifi-connection) and [Print Failure](https://wiki.elegoo.com/general/faq/resin-printer/print-failure) - official resin-printer troubleshooting references.
 * [CHITUBOX Free Download](https://www.chitubox.com/en/download/chitubox-free) - official CHITUBOX slicer download page for compatible resin-printing workflows.
 
 ## Best Practices

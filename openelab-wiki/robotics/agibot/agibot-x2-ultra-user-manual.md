@@ -575,7 +575,9 @@ Important
         ### 3 <i class="fa-cloud-arrow-down">:cloud-arrow-down:</i>Get the SDK
 
         * The **SDK package** now supports self-service download. Click the **floating panel in the bottom-right corner** of the page to get it.
-        * And URDF(s) related to this SDK version: [\[X2 URDF\]](https://x2-aimdk.agibot.com/en/latest/_downloads/2ffc9785259556f409e385974a7a0461/X2_URDF-v1.3.0.zip)
+        *   And URDF(s) related to this SDK version: [X2 Ultra URDF v1.3.0 (official source folder)](https://github.com/AgibotTech/agibot_x2_urdf/tree/main/X2_URDF-v1.3.0)
+
+            This is the official v1.3.0 source folder for the original X2 Ultra. It replaces the unavailable ZIP reference; X2 Ultra-N uses a separate v1.4.0 resource.
         * To update the **SDK package** or get further assistance, you can also **contact after-sales technical support**.
 
         Caution
@@ -644,15 +646,14 @@ Important
 
         Place the SDK into the target environment and extract it.
 
-        ```
-        # Set environment variables (this step can be skipped when running directly on the development computing unit)
+        <pre data-collapsed-line-count="10"><code># Set environment variables (this step can be skipped when running directly on the development computing unit)
         source /opt/ros/humble/setup.bash
 
         # Build the SDK
         # Assume the extracted top-level directory for the X2 AimDK project is named 'aimdk'
         cd ./aimdk/
         colcon build
-        ```
+        </code></pre>
 
         Caution
 

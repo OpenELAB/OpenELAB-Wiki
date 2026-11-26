@@ -53,7 +53,7 @@ Some interesting projects that support T-Embed-CC1101：
 |     name     |                             code                            |                                     web                                    |
 | :----------: | :---------------------------------------------------------: | :------------------------------------------------------------------------: |
 |     Bruce    |     [github](https://github.com/pr3y/Bruce/tree/WebPage)    |                 [web](https://bruce.computer/flasher.html)                 |
-|   Launcher   | [github](https://github.com/bmorcelli/M5Stick-Launcher.git) |       [web](https://bmorcelli.github.io/M5Stick-Launcher/flash0.html)      |
+|   Launcher   | [github](https://github.com/bmorcelli/M5Stick-Launcher.git) |         [web](https://bmorcelli.github.io/Launcher/webflasher.html)        |
 | CapibaraZero |       [github](https://github.com/CapibaraZero/fw.git)      | [web](https://capibarazero.com/docs/esp32_s3/boards/LilyGo_T_Embed_CC1101) |
 
 ### Module

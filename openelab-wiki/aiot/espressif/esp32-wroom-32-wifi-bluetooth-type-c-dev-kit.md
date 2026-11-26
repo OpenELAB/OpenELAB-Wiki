@@ -39,7 +39,7 @@ ESP32-DevKitC V4 is a small-sized ESP32-based development board produced by [Esp
 
 The following figure and the table below describe the key components, interfaces and controls of the ESP32-DevKitC V4 board.
 
-<figure><img src="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/_images/esp32-devkitc-functional-overview.jpg" alt="ESP32-DevKitC V4 with ESP-WROOM-32 module soldered"><figcaption><p>ESP32-DevKitC V4 with ESP32-WROOM-32 module soldered</p></figcaption></figure>
+<figure><img src="https://raw.githubusercontent.com/espressif/esp-idf/v3.3/docs/_static/esp32-devkitc-functional-overview.jpg" alt="ESP32-DevKitC V4 with ESP-WROOM-32 module soldered"><figcaption><p>ESP32-DevKitC V4 with ESP32-WROOM-32 module soldered</p></figcaption></figure>
 
 | Key Component      | Description                                                                                                                                                                                                                                                       |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

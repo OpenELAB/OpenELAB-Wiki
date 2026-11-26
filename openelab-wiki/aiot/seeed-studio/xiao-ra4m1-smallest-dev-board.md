@@ -54,21 +54,21 @@ The XIAO RA4M1 integrates Renesas' RA4M1 chip (32-bit ARM® Cortex®-M4 MCU up t
 
 ### Specification[​](https://wiki.seeedstudio.com/getting_started_xiao_ra4m1/#specification) <a href="#specification" id="specification"></a>
 
-| Product                     | XIAO RA4M1                                                                                                                                                                                       |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Processor                   | [Renesas RA4M1](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi) |
-| 48-MHz Arm® Cortex®-M4 Core |                                                                                                                                                                                                  |
-| RAM                         | 32 KB SRAM                                                                                                                                                                                       |
-| Flash                       | 256 KB                                                                                                                                                                                           |
-| LEDs                        | 1 User LED, 1 Power LED, 1 RGB LED                                                                                                                                                               |
-| Interfaces                  | 19 Pins:14x Analog,19x Digital, 2x IIC, 2x UART, 2x SPI                                                                                                                                          |
-| Buttons                     | 1 RESET Button, 1 BOOT Button                                                                                                                                                                    |
-| Security                    | AES128/256                                                                                                                                                                                       |
-| Low Power                   | 45μA                                                                                                                                                                                             |
-| Software Compatibility      | Arduino IDE                                                                                                                                                                                      |
-| Working Temperature         | -20°C-70°C                                                                                                                                                                                       |
-| Dimensions                  | 21x17.8 mm                                                                                                                                                                                       |
-| Power                       | <p>Type-C: 5V<br>BAT: 3.8V</p>                                                                                                                                                                   |
+| Product                     | XIAO RA4M1                                                 |
+| --------------------------- | ---------------------------------------------------------- |
+| Processor                   | [Renesas RA4M1](https://www.renesas.com/en/products/ra4m1) |
+| 48-MHz Arm® Cortex®-M4 Core |                                                            |
+| RAM                         | 32 KB SRAM                                                 |
+| Flash                       | 256 KB                                                     |
+| LEDs                        | 1 User LED, 1 Power LED, 1 RGB LED                         |
+| Interfaces                  | 19 Pins:14x Analog,19x Digital, 2x IIC, 2x UART, 2x SPI    |
+| Buttons                     | 1 RESET Button, 1 BOOT Button                              |
+| Security                    | AES128/256                                                 |
+| Low Power                   | 45μA                                                       |
+| Software Compatibility      | Arduino IDE                                                |
+| Working Temperature         | -20°C-70°C                                                 |
+| Dimensions                  | 21x17.8 mm                                                 |
+| Power                       | <p>Type-C: 5V<br>BAT: 3.8V</p>                             |
 
 ### Hardware[​](https://wiki.seeedstudio.com/getting_started_xiao_ra4m1/#hardware-overview) <a href="#hardware-overview" id="hardware-overview"></a>
 

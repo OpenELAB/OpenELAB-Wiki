@@ -92,11 +92,11 @@ UNIT 8EnCoder is a set of 8 rotary encoders as one of the input unit, the intern
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208EnCoder/arduinoCase-1668582336160map.png" alt=""><figcaption></figcaption></figure>
 
-* [I2C timing diagram](https://docs.m5stack.com/en/unit/UNIT%208EnCoder)
+* [I2C timing diagram](https://docs.m5stack.com/en/unit/Unit_8Encoder)
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208EnCoder/arduinoCase-1668596208234i2c1.png" alt=""><figcaption></figcaption></figure>
 
-* [Compared to the standard I2C's ReStart, 8EnCoder has an additional stop bit, which is identified as shown in the following figure:](https://docs.m5stack.com/en/unit/UNIT%208EnCoder)
+* [Compared to the standard I2C's ReStart, 8EnCoder has an additional stop bit, which is identified as shown in the following figure:](https://docs.m5stack.com/en/unit/Unit_8Encoder)
 
 <figure><img src="https://static-cdn.m5stack.com/resource/docs/products/unit/UNIT%208EnCoder/arduinoCase-1668596502197image.png" alt=""><figcaption></figcaption></figure>
 

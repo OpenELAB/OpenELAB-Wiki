@@ -22,25 +22,25 @@ AGIBOT G2 wheeled humanoid robot
 ### Contents
 
 * [Preface and safety](agibot-g2-user-manual.md#preface)
-* [Product overview](agibot-g2-user-manual.md#product-overview)
-* [Components and interfaces](agibot-g2-user-manual.md#components)
-* [Wireless terminal](agibot-g2-user-manual.md#wireless-terminal)
-* [Product specifications](agibot-g2-user-manual.md#product-specifications)
-* [Basic configuration](agibot-g2-user-manual.md#basic-configuration)
-* [Intelligent interaction](agibot-g2-user-manual.md#intelligent-interaction)
-* [Emergency stop](agibot-g2-user-manual.md#emergency-stop-e-stop)
-* [Remote and joint control](agibot-g2-user-manual.md#remote-control)
+* [Product overview](agibot-g2-user-manual.md#id-1.-product-overview)
+* [Components and interfaces](agibot-g2-user-manual.md#id-2.-components)
+* [Wireless terminal](agibot-g2-user-manual.md#id-5.-wireless-terminal)
+* [Product specifications](agibot-g2-user-manual.md#id-7.-product-specifications)
+* [Basic configuration](agibot-g2-user-manual.md#id-8.-basic-configuration)
+* [Intelligent interaction](agibot-g2-user-manual.md#id-9.-intelligent-interaction)
+* [Emergency stop](agibot-g2-user-manual.md#id-10.-emergency-stop-e-stop)
+* [Remote and joint control](agibot-g2-user-manual.md#id-11.-remote-control)
 * [Teleoperation](agibot-g2-user-manual.md#teleoperation)
-* [Data collection](agibot-g2-user-manual.md#data-collection)
-* [Software upgrade](agibot-g2-user-manual.md#software-upgrade)
+* [Data collection](agibot-g2-user-manual.md#id-14.-data-collection)
+* [Software upgrade](agibot-g2-user-manual.md#id-15.-software-upgrade)
 
 ### Key Fault and Safety Index
 
-* [Low battery, charging, emergency-stop, and severe-fault indicators](agibot-g2-user-manual.md#light-indicator-status)
-* [Critical-fault and emergency-stop display expressions](agibot-g2-user-manual.md#expression-status)
-* [Soft and hard emergency-stop procedures](agibot-g2-user-manual.md#emergency-stop-e-stop)
+* [Low battery, charging, emergency-stop, and severe-fault indicators](agibot-g2-user-manual.md#id-9.2-light-indicator)
+* [Critical-fault and emergency-stop display expressions](agibot-g2-user-manual.md#id-9.3-expressions)
+* [Soft and hard emergency-stop procedures](agibot-g2-user-manual.md#id-10.-emergency-stop-e-stop)
 * [Teleoperation network anomalies and disconnection](agibot-g2-user-manual.md#network-requirements)
-* [Upgrade power warning](agibot-g2-user-manual.md#software-upgrade)
+* [Upgrade power warning](agibot-g2-user-manual.md#id-15.-software-upgrade)
 
 ### Update Log
 

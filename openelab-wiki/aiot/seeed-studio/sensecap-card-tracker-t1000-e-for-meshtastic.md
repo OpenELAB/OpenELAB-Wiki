@@ -117,6 +117,7 @@ Never flash `xiao_ble`, WM1110, Feather DIY, ProMicro DIY, generic dongle or oth
 
 After installing the official `meshtastic` Python package in a virtual environment, save this as `tracker_inventory.py` and replace `YOUR_PORT` with the observed serial device. Close any browser/serial monitor using that port first.
 
+{% code collapsedlinecount="10" %}
 ```python
 import json
 import meshtastic.serial_interface
@@ -134,8 +135,9 @@ try:
 finally:
     radio.close()
 ```
+{% endcode %}
 
-Run `python tracker_inventory.py`. Expected output is the local protobuf identity and the currently known node records; an empty position for a peer means no position is stored, not necessarily a GNSS hardware failure. This uses the [official Python API](https://meshtastic.org/docs/software/python/). It is newly authored, and was not run against a tracker here.
+Run `python tracker_inventory.py`. Expected output is the local protobuf identity and the currently known node records; an empty position for a peer means no position is stored, not necessarily a GNSS hardware failure. This uses the [official Python API](https://python.meshtastic.org/). It is newly authored, and was not run against a tracker here.
 
 ### Temperature, ringtone and web client
 

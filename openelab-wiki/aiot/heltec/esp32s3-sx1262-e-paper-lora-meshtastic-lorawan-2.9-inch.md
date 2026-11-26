@@ -106,7 +106,7 @@ LoRa modules are optional and can reduce a lot of costs if you don't need a LoRa
 * [Heltec ESP (ESP32\&ESP8266) framework](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series) (Include LoRaWAN library)
 * [Heltec ESP32 special library](https://github.com/HelTecAutomation/Heltec_ESP32)
 * [Schematic diagram](https://resource.heltec.cn/download/HT-VME290/HT-VME290_Schematic_Diagram_V0.3.1.pdf)
-* [Datasheet](https://resource.heltec.cn/download/HT-VME290/HT-VME290%20Datasheet.pdf)
+* [Datasheet](https://resource.heltec.cn/download/HT-VME290/HT-VME290-Datasheet.pdf)
 * [E-Ink Datasheet](https://resource.heltec.cn/download/HT-VME290/DEPG0290BNS800F6_V2.1.pdf)
 * [User manual and related documents](https://docs.heltec.cn/en/node/esp32/ht_vme290/index.html)
 * [Downloadable Resources](https://resource.heltec.cn/download/HT-VME290)&#x20;
@@ -134,7 +134,9 @@ What development methods does it support?
 * PlatformIO
 * Espressif IDE
 
-We strongly recommend using Arduino. We have complete technical support and provide complete [LoRaWAN code for ESP32 Arduino framework](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/tree/master/esp32/libraries/LoraWan102).
+We strongly recommend using Arduino. We have complete technical support and provide complete [Official Heltec ESP32 LoRaWAN examples](https://github.com/HelTecAutomation/Heltec_ESP32/tree/master/examples/LoRaWAN).
+
+These maintained examples use the Heltec ESP32 package and its supported board/framework version; they are not a drop-in copy of the retired LoraWan102 package.
 {% endstep %}
 
 {% step %}

@@ -101,7 +101,7 @@ This Unit communicates with the M5Core via the GROVE B.
 
 [UIFlow2.0](https://docs.m5stack.com/en/uiflow2/uiflow_web)[UIFlow2.0](https://docs.m5stack.com/en/uiflow2/uiflow_web)This tutorial will show you how to initialize the configuration using the UIFlow2.0 graphical programming platform
 
-[PIR Unit Programming Guide](https://uiflow-micropython.readthedocs.io/en/latest/units/pir.html)
+[PIR Unit Programming Guide](https://uiflow-micropython.readthedocs.io/en/latest/unit/pir.html)
 
 <figure><img src="https://static-cdn.m5stack.com/mpy_docs/unit/pir/example.svg" alt=""><figcaption></figcaption></figure>
 

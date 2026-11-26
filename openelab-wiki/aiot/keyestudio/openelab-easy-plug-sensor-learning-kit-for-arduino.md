@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# OpenELAB EASY PLUG Sensor Learning Kit for Arduino
+# Keyestudio EASY PLUG Sensor Learning Kit for Arduino
 
 ### OpenELAB EASY PLUG Sensor Learning Kit for Arduino
 
@@ -31,9 +31,9 @@ layout:
 
 {% embed url="https://openelab.io/products/easy-plug-sensor-learning-kit" %}
 
-### KS0157 OpenELAB EASY plug learning kit for Arduino super makers[](https://docs.keyestudio.com/projects/KS0157/en/latest/KS0157.html#ks0157-keyestudio-easy-plug-learning-kit-for-arduino-super-makers)
+### KS0157 OpenELAB EASY plug learning kit for Arduino super makers[](https://github.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/blob/5eb83315d2b54d3b1363892e4f4fb894cd819848/KS0157.md#ks0157-keyestudio-easy-plug-learning-kit-for-arduino-super-makers)
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/e6417dd1bc07aae8fd4f89fb30dc7ca6-1686547886585-1.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/e6417dd1bc07aae8fd4f89fb30dc7ca6-1686547886585-1.jpeg)
 
 **● EASY plug starter kit for Arduino**
 
@@ -43,7 +43,7 @@ layout:
 
 **● For you to make interesting projects**
 
-#### 1.Summary:[](https://docs.keyestudio.com/projects/KS0157/en/latest/KS0157.html#summary)
+#### 1.Summary:[](https://github.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/blob/5eb83315d2b54d3b1363892e4f4fb894cd819848/KS0157.md#1summary)
 
 What about you and your kids being makers? What about getting creative and making your ideas come true? Well, let’s get started right away!
 
@@ -53,35 +53,35 @@ The tutorial of this kit has fully considered the learning interest of beginners
 
 Its unique EASY plug interface makes the wire connection easier than ever! You never have to worry about wrong connection or complicated soldering, avoiding component damage due to wrong wiring or wrong soldering. It’s both safe and environmental-friendly.
 
-#### 2.Kit list[](https://docs.keyestudio.com/projects/KS0157/en/latest/KS0157.html#kit-list)
+#### 2.Kit list[](https://github.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/blob/5eb83315d2b54d3b1363892e4f4fb894cd819848/KS0157.md#2kit-list)
 
-| No. | Name                                             | QTY | Picture                                                                                                                            |
-| --- | ------------------------------------------------ | --- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | EASY plug controller Board                       | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps1.jpg" alt="img" data-size="original">                  |
-| 2   | Acrylic Board + Copper bush set                  | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/t1-1686547886586-2.png" alt="img" data-size="original">    |
-| 3   | EASY plug cable                                  | 3   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps3.jpg" alt="img" data-size="original">                  |
-| 4   | USB cable                                        | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps4.jpg" alt="img" data-size="original">                  |
-| 5   | EASY plug Piranha LED Module                     | 3   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps5.jpg" alt="img" data-size="original">                  |
-| 6   | EASY plug Line Tracking Sensor                   | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps6.png" alt="img" data-size="original">                  |
-| 7   | EASY plug Infrared obstacle avoidance sensor     | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps7.png" alt="img" data-size="original">                  |
-| 8   | EASY plug Photo Interrupter Module               | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps8.png" alt="img" data-size="original">                  |
-| 9   | EASY plug PIR Motion Sensor                      | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps9.png" alt="img" data-size="original">                  |
-| 10  | EASY plug DS18B20 Temperature Sensor             | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps10.png" alt="img" data-size="original">                 |
-| 11  | EASY plug IR Receiver Module                     | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps11.png" alt="img" data-size="original">                 |
-| 12  | EASY plug IR Transmitter Module                  | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps12.jpg" alt="img" data-size="original">                 |
-| 13  | EASY plug Single Relay Module                    | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps13.png" alt="img" data-size="original">                 |
-| 14  | EASY plug ADXL345 Three Axis Acceleration Module | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps14.jpg" alt="img" data-size="original">                 |
-| 15  | EASY plug DHT11 Temperature and Humidity Sensor  | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps15.jpg" alt="img" data-size="original">                 |
-| 16  | EASY plug DS3231 Clock Module                    | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps16.jpg" alt="img" data-size="original">                 |
-| 17  | EASY plug Analog Gas Sensor                      | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps17.png" alt="img" data-size="original">                 |
-| 18  | EASY plug Analog Alcohol Sensor                  | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps18.png" alt="img" data-size="original">                 |
-| 19  | EASY plug MQ135 Air Quality Sensor               | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps19.png" alt="img" data-size="original">                 |
-| 20  | EASY plug BMP180 Barometric Pressure Sensor      | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps20.jpg" alt="img" data-size="original">                 |
-| 21  | EASY plug Bluetooth Module                       | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps21.png" alt="img" data-size="original">                 |
-| 22  | EASY plug 1602 I2C Module                        | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps22.png" alt="img" data-size="original">                 |
-| 23  | EASY plug I2C 8x8 LED Matrix                     | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps23-1686547886587-3.png" alt="img" data-size="original"> |
+| No. | Name                                             | QTY | Picture                                                                                                                                                                                                                              |
+| --- | ------------------------------------------------ | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | EASY plug controller Board                       | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps1.jpg" alt="img" data-size="original">                                                                                                                    |
+| 2   | Acrylic Board + Copper bush set                  | 1   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/t1-1686547886586-2.png" alt="img" data-size="original">    |
+| 3   | EASY plug cable                                  | 3   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps3.jpg" alt="img" data-size="original">                                                                                                                    |
+| 4   | USB cable                                        | 1   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/wps4.jpg" alt="img" data-size="original">                  |
+| 5   | EASY plug Piranha LED Module                     | 3   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/wps5.jpg" alt="img" data-size="original">                  |
+| 6   | EASY plug Line Tracking Sensor                   | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps6.png" alt="img" data-size="original">                                                                                                                    |
+| 7   | EASY plug Infrared obstacle avoidance sensor     | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps7.png" alt="img" data-size="original">                                                                                                                    |
+| 8   | EASY plug Photo Interrupter Module               | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps8.png" alt="img" data-size="original">                                                                                                                    |
+| 9   | EASY plug PIR Motion Sensor                      | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps9.png" alt="img" data-size="original">                                                                                                                    |
+| 10  | EASY plug DS18B20 Temperature Sensor             | 1   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/wps10.png" alt="img" data-size="original">                 |
+| 11  | EASY plug IR Receiver Module                     | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps11.png" alt="img" data-size="original">                                                                                                                   |
+| 12  | EASY plug IR Transmitter Module                  | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps12.jpg" alt="img" data-size="original">                                                                                                                   |
+| 13  | EASY plug Single Relay Module                    | 1   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/wps13.png" alt="img" data-size="original">                 |
+| 14  | EASY plug ADXL345 Three Axis Acceleration Module | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps14.jpg" alt="img" data-size="original">                                                                                                                   |
+| 15  | EASY plug DHT11 Temperature and Humidity Sensor  | 1   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/wps15.jpg" alt="img" data-size="original">                 |
+| 16  | EASY plug DS3231 Clock Module                    | 1   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/wps16.jpg" alt="img" data-size="original">                 |
+| 17  | EASY plug Analog Gas Sensor                      | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps17.png" alt="img" data-size="original">                                                                                                                   |
+| 18  | EASY plug Analog Alcohol Sensor                  | 1   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/wps18.png" alt="img" data-size="original">                 |
+| 19  | EASY plug MQ135 Air Quality Sensor               | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps19.png" alt="img" data-size="original">                                                                                                                   |
+| 20  | EASY plug BMP180 Barometric Pressure Sensor      | 1   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/wps20.jpg" alt="img" data-size="original">                 |
+| 21  | EASY plug Bluetooth Module                       | 1   | <img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/wps21.png" alt="img" data-size="original">                                                                                                                   |
+| 22  | EASY plug 1602 I2C Module                        | 1   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/wps22.png" alt="img" data-size="original">                 |
+| 23  | EASY plug I2C 8x8 LED Matrix                     | 1   | <img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/wps23-1686547886587-3.png" alt="img" data-size="original"> |
 
-#### 3.Lesson list[](https://docs.keyestudio.com/projects/KS0157/en/latest/KS0157.html#lesson-list)
+#### 3.Lesson list[](https://github.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/blob/5eb83315d2b54d3b1363892e4f4fb894cd819848/KS0157.md#3lesson-list)
 
 1\. Who’s blinking
 
@@ -123,7 +123,7 @@ Its unique EASY plug interface makes the wire connection easier than ever! You n
 
 20\. How humid & hot is the air
 
-#### 4.Lesson details:[](https://docs.keyestudio.com/projects/KS0157/en/latest/KS0157.html#lesson-details)
+#### 4.Lesson details:[](https://github.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/blob/5eb83315d2b54d3b1363892e4f4fb894cd819848/KS0157.md#4lesson-details)
 
 Lesson 1: Who’s blinking
 
@@ -140,7 +140,7 @@ As the first lesson of this kit, we will begin with something simple. In this le
 
 First, let’s take a look at this Piranha LED Module.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/62c8bc0446018b977284153ea0ffac74-1686547886587-4.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/62c8bc0446018b977284153ea0ffac74-1686547886587-4.png)
 
 This is a special LED module. When you connect it to ARDUINO, after program, it can emit beautiful light. Of course, you can also control it using PWM. It will be like fireflies at night. Isn’t it cool? We can also combine it with other sensors to do various interesting interactive experiments. Below are its specifications:
 
@@ -154,12 +154,13 @@ This is a special LED module. When you connect it to ARDUINO, after program, it 
 
 Now, let’s connect this module to the D11 port of the controller board using the EASY plug cable, just as simple as that!
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/1b47541cbacf54ea18b08a02c209d4fd-1686547886587-5.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/1b47541cbacf54ea18b08a02c209d4fd-1686547886587-5.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 int ledPin = 11; // define digital pin 11
 void setup()
@@ -175,6 +176,7 @@ digitalWrite(ledPin, LOW); // set the LED off
 delay(1000); // wait for a second
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -197,12 +199,13 @@ LED can do many things. I believe you have seen billboards with lights changing 
 
 Now, connect the LED modules one by one to D9, D10 and D11 ports of the controller board using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/61ae9a490983ee2be76ece6edac9fc9e-1686547886587-6.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/61ae9a490983ee2be76ece6edac9fc9e-1686547886587-6.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 int BASE = 9 ;// the I/O pin for the first LED
 int NUM = 3;//number of LEDs
@@ -228,6 +231,7 @@ void loop()
     }
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -246,7 +250,7 @@ LCDs are very common and useful in our life. It’s widely applied on phone scre
 
 First, let’s take a look at this 1602 I2C Module.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/d57fdcc3783bd353d9436874a1f87523-1686547886587-7.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/d57fdcc3783bd353d9436874a1f87523-1686547886587-7.jpeg)
 
 EASY plug 1602 I2C module is a 16 character by 2 line LCD display with blue background and white backlight. This LCD is ready-to-use because it is compatible with the Arduino Liquid Crystal Library. The original 1602 LCD needs 7 IO ports to be up and running, this easy plug design makes the wire connection easier than ever. Below are its specifications:
 
@@ -261,12 +265,13 @@ EASY plug 1602 I2C module is a 16 character by 2 line LCD display with blue back
 
 Now, connect the LCD module to the IIC port of the controller board using the EASY plug cable.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/dd9a6137059c24c6e403357cc8c42d61-1686547886587-8.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/dd9a6137059c24c6e403357cc8c42d61-1686547886587-8.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 //Compatible with the Arduino IDE 1.0
 //Library version:1.1
@@ -288,12 +293,13 @@ void loop()
 {
 }
 ```
+{% endcode %}
 
 **Result**
 
 After power is on, the first line of LCD will display “Hello, world!”, and the second line will display “Hello, keyes!”.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/033a9a384c8069009f2fa7b70667d557-1686547886587-9.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/033a9a384c8069009f2fa7b70667d557-1686547886587-9.jpeg)
 
 Lesson 4: Running light
 
@@ -308,7 +314,7 @@ Walking down a business street a night, you must be amazed by all the beautiful 
 
 Let’s first meet this EASY plug I2C 8x8 LED Matrix.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/009d6ab100da79bc439a433f3eb8a781-1686547886587-10.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/009d6ab100da79bc439a433f3eb8a781-1686547886587-10.jpeg)
 
 What’s better than a single LED? Lots of LEDs! A fun way to make a small display is to use an 8x8 matrix. This matrix uses a driver chip that does all the heavy lifting for you: They have a built in clock so they multiplex the display. They use constant-current drivers for ultra-bright, consistent color, 1/16 step display dimming, all via a simple I2C interface. Below are its specifications:
 
@@ -321,12 +327,13 @@ What’s better than a single LED? Lots of LEDs! A fun way to make a small displ
 
 Now, connect the module to the IIC port of the controller board using the EASY plug cable.&#x20;
 
-<figure><img src="https://docs.keyestudio.com/projects/KS0157/en/latest/_images/aa1d4f6a324399321abb2155f0d60418-1686547886587-11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/aa1d4f6a324399321abb2155f0d60418-1686547886587-11.png" alt=""><figcaption></figcaption></figure>
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <Wire.h>  // Place file “Wire.h” under the directory “library” of Arduino
 #include "Adafruit_LEDBackpack.h" // Place file “Adafruit_LEDBackpack.h” under the directory “library” of Arduino
@@ -355,14 +362,15 @@ void loop() {
     if (counter >= 16) counter = 0;  
 }
 ```
+{% endcode %}
 
 **Result**
 
 After all the above are done (circuit connection, program uploading), press the “reset” button on the main board. The LED matrix begins to display a beautiful light pattern, as pictures show below.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/f5b42e0a145089d90c325ff0dbbd7e6e-1686547886587-12.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/f5b42e0a145089d90c325ff0dbbd7e6e-1686547886587-12.jpeg)
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/5a85e1445cffa80340d91111ba0f2018-1686547886588-13.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/5a85e1445cffa80340d91111ba0f2018-1686547886588-13.jpeg)
 
 Lesson 5: Control electricity
 
@@ -377,7 +385,7 @@ In this lesson, we will learn to use a very important element in the switch fami
 
 Next is a brief introduction of this relay module.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/1d044761d93cc36c4b52dfc866c4d05a-1686547886588-14.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/1d044761d93cc36c4b52dfc866c4d05a-1686547886588-14.jpeg)
 
 Relay is an automatic switch element with isolation function. It’s widely used in remote control, remote sensing, communication, automatic control, mechatronics and electronic devices. It is one of the most important control elements. Besides, it’s easy to control and use just by inputting different level signals to corresponding ports of the relay. The single relay we introduced here has a status indicator light, convenient for you to observe the on and off status of the relay. Below are its specifications:
 
@@ -398,12 +406,13 @@ Digital interface
 
 Now, let’s connect this module to the D8 port of the controller board using the EASY plug cable.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/62f841617c218412e182bca9e1b8b550-1686547886588-15.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/62f841617c218412e182bca9e1b8b550-1686547886588-15.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 int Relay = 8;
 void setup()
@@ -418,6 +427,7 @@ void loop()
     delay(1000);                
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -437,7 +447,7 @@ Have you seen a line tracking smart car? That is a car going along a line with s
 
 First, we will learn something about this Line Tracking Sensor.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/4fba3bba5c6dc19222726d0f1f443222-1686547886588-16.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/4fba3bba5c6dc19222726d0f1f443222-1686547886588-16.jpeg)
 
 This Line Tracking Sensor can detect white line in black and black line in white. The single line-tracking signal provides a stable output signal TTL for a more accurate and more stable line. Multi-channel option can be easily achieved by installing required number of line-tracking sensors.
 
@@ -457,12 +467,13 @@ Below are its specifications:
 
 Now, connect the LED module to the D10 port of the controller board, and line tracking sensor module to D3 port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/88766d6837ac0da3a156b605235767c7-1686547886588-17.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/88766d6837ac0da3a156b605235767c7-1686547886588-17.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #define Sensor 3
 #define ledpin 10
@@ -480,6 +491,7 @@ void loop()
   delay(200);
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -499,7 +511,7 @@ If you are interested in smart cars, you might be intrigued in how they avoid ob
 
 Below is a brief introduction of this infrared obstacle avoidance sensor.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/def80c7a624c66390f1323180fd76d11-1686547886588-18.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/def80c7a624c66390f1323180fd76d11-1686547886588-18.jpeg)
 
 Infrared obstacle avoidance sensor is equipped with distance adjustment function and is especially designed for wheeled robots. This sensor has strong adaptability to ambient light and is of high precision. It has a pair of infrared transmitting and receiving tube. When infrared ray launched by the transmitting tube encounters an obstacle (its reflector), the infrared ray is reflected to the receiving tube, and the indicator will light up. A robot mounted with the sensor can sense changes in the environment. Below are its specifications:
 
@@ -518,12 +530,13 @@ Infrared obstacle avoidance sensor is equipped with distance adjustment function
 
 Now, connect the LED module to the D10 port of the controller board and obstacle avoidance sensor to D3 port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/3af1d4ca7d0836d772f5648049f62344-1686547886588-19.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/3af1d4ca7d0836d772f5648049f62344-1686547886588-19.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 const int sensorPin = 3;     // the number of the sensor pin
 const int ledPin =  10;      // the number of the LED pin
@@ -543,6 +556,7 @@ void loop(){
   }
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -562,7 +576,7 @@ If you have seen a production line, you must be wondering how the machines do th
 
 In realizing the counting process, below is a critical part called Photo Interrupter Module.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/df29746e2f49ea25e7acb633e7e39904-1686547886589-20.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/df29746e2f49ea25e7acb633e7e39904-1686547886589-20.jpeg)
 
 Upright part of this sensor is an infrared emitter and on the other side, it’s a shielded infrared detector. By emitting a beam of infrared light from one end to another end, the sensor can detect an object when it passes through the beam. It is used for many applications including optical limit switches, pellet dispensing, general object detection, etc. Below are its specifications:
 
@@ -575,12 +589,13 @@ Upright part of this sensor is an infrared emitter and on the other side, it’s
 
 Now, connect the LED module to the D10 port of the controller board and Photo Interrupter Module to D3 port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/3197d4c0b386a03109366c02bcf959f6-1686547886589-21.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/3197d4c0b386a03109366c02bcf959f6-1686547886589-21.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 // photo interrupter module
 
@@ -605,6 +620,7 @@ void loop ()
     }
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -622,7 +638,7 @@ In this lesson, we will learn how to measure the static acceleration of an objec
 4. EASY plug ADXL345 Three Axis Acceleration Module x1
 5. Below is a brief introduction of this module.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/4e91d528dab547d82fcba8ec5eb503bf-1686547886589-22.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/4e91d528dab547d82fcba8ec5eb503bf-1686547886589-22.png)
 
 The ADXL345 module is a 3-axis MEMS accelerometer with low power consumption and compact design. It’s of high resolution of 13-bit, measurement up to ±16g(gravitational force). Digital output data is formatted as 16-bit twos complement and is accessible through either a SPI (3- or 4-wire) or I2C digital interface. Below are its specifications:
 
@@ -638,12 +654,13 @@ The ADXL345 module is a 3-axis MEMS accelerometer with low power consumption and
 
 Now, let’s connect this module to the IIC port of the controller board using the EASY plug cable.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/54a907c480fca0ee4c5f41cf497de2c1-1686547886589-23.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/54a907c480fca0ee4c5f41cf497de2c1-1686547886589-23.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <Wire.h>    // place file “Wire.h” under the directory “libraries” of Arduino
 // Registers for ADXL345
@@ -741,6 +758,7 @@ void loop() {
     delay(100);
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -748,11 +766,11 @@ Now, open serial monitor, you can see it displays data as pic 1; when you move t
 
 Pic 1:
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/256392b1fcb46f7d04e55290368effdf-1686547886589-24.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/256392b1fcb46f7d04e55290368effdf-1686547886589-24.png)
 
 Pic 2:
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/e45f3668a2186a66928880c412f389ab-1686547886589-25.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/e45f3668a2186a66928880c412f389ab-1686547886589-25.png)
 
 Lesson 10: Make a clock
 
@@ -765,7 +783,7 @@ Time is of essence in our life. We have all sort of stuff that tells time. In th
 3. EASY plug cable x1
 4. EASY plug DS3231 Clock Module x1
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/2538cda752649e83e101fa3c599a7a45-1686547886589-27.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/2538cda752649e83e101fa3c599a7a45-1686547886589-27.png)
 
 The DS3231 is a low-cost, extremely accurate I2C real-time clock (RTC) with an integrated temperature-compensated crystal oscillator (TCXO) and crystal. The device incorporates a battery input, and maintains accurate timekeeping when main power to the device is interrupted. The integration of the crystal resonator enhances the long-term accuracy of the device as well as reduces the piece-part count in a manufacturing line. The DS3231 is available in commercial and industrial temperature ranges, and is offered in a 16-pin, 300-mil SO package. Below are its specifications:
 
@@ -787,12 +805,13 @@ The DS3231 is a low-cost, extremely accurate I2C real-time clock (RTC) with an i
 
 Now, connect the DS3231 module to the IIC port of the controller board using the EASY plug cable.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/768b05baee95bbcbbc39f826d4acdd36-1686547886589-26.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/768b05baee95bbcbbc39f826d4acdd36-1686547886589-26.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <Wire.h>   // place file “Wire.h” under the directory “libraries” of Arduino
 #include "DS3231.h"  // place file “DS3231.h” under the directory “libraries” of Arduino
@@ -827,12 +846,13 @@ void loop () 
     delay(1000);
 }
 ```
+{% endcode %}
 
 **Result**
 
 Now, open serial monitor, set baud rate to 57600, it will display the date we set in the program. You can change the code for it to display different dates; the module will then begin time counting, as below picture shows.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/c1e86e43284ac384d4375501027403ab-1686547886589-28.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/c1e86e43284ac384d4375501027403ab-1686547886589-28.jpeg)
 
 Lesson 11: What’s the air pressure
 
@@ -847,7 +867,7 @@ In this lesson, we will measure the Temperature, Pressure, Standard Atmosphere a
 
 We will briefly take a look at this BMP180 first.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/56cdac4a24448a2b8b172c8ca2c7a481-1686547886590-29.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/56cdac4a24448a2b8b172c8ca2c7a481-1686547886590-29.png)
 
 BMP180 is a pressure sensor with high precision, compact design and low power consumption. It can be used in mobile devices. Minimum absolute accuracy reaches 0.03hpa with only 3uA power consumption. Below are its specifications:
 
@@ -867,12 +887,13 @@ BMP180 is a pressure sensor with high precision, compact design and low power co
 
 Now, connect the BMP180 module to the IIC port of the controller board using the EASY plug cable.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/d20e9825ff1a76ab70403a68ae5e21f3-1686547886590-30.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/d20e9825ff1a76ab70403a68ae5e21f3-1686547886590-30.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <Wire.h>  // place file “Wire.h” under the directory “library” of Arduino
 #define BMP085_ADDRESS 0x77  // I2C address of BMP085
@@ -1071,6 +1092,7 @@ float calcAltitude(float pressure){
     return C;
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -1078,11 +1100,11 @@ Now, open serial monitor, set baud rate to “9600”, serial monitor displays c
 
 Pic 1:
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/e19200276cae49f80b29b7785bdfc895-1686547886590-32.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/e19200276cae49f80b29b7785bdfc895-1686547886590-32.png)
 
 Pic 2:
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/dfdfbd4cb8f05c00d7b071f5ae26347c-1686547886590-31.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/dfdfbd4cb8f05c00d7b071f5ae26347c-1686547886590-31.png)
 
 Lesson 12: Bluetooth so easy
 
@@ -1098,7 +1120,7 @@ Wireless communication is very common in our everyday life. In this lesson, we w
 
 First, let’s take a look at this EASY plug Bluetooth Module.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/c45f762d5fad6efa0aa9839710637bda-1686547886590-33.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/c45f762d5fad6efa0aa9839710637bda-1686547886590-33.jpeg)
 
 This Bluetooth module can easily achieve serial wireless data transmission. Its operating frequency is among the most popular 2.4GHz ISM frequency band (i.e.Industrial, scientific and medical). It adopts Bluetooth 2.1+EDR standard. In Bluetooth 2.1, signal transmit time of different devices stands at a 0.5 seconds interval so that the workload of bluetooth chip can be reduced substantially and more sleeping time can be saved for bluetooth. Below are its specifications:
 
@@ -1121,12 +1143,13 @@ This Bluetooth module can easily achieve serial wireless data transmission. Its 
 
 Now, connect the Bluetooth module to the COM port of the controller board, and LCD module to IIC port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/29a70e37f8b5376f242f02b98b67bdf2-1686547886590-34.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/29a70e37f8b5376f242f02b98b67bdf2-1686547886590-34.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <Wire.h>  // place file “Wire.h” under the “library” directory of Arduino
 #include <LiquidCrystal_I2C.h>  // place file “LiquidCrystal_I2C.h” under the “library” directory of Arduino
@@ -1161,12 +1184,13 @@ if(val=='a')
     lcd.clear(); 
 }
 ```
+{% endcode %}
 
 **Result**
 
 In this experiment, you need to download an App called “BTClient” to your phone. After power is on, the LED on the Bluetooth module begins to blink; open Bluetooth on your phone, pair up the device, enter PIN number “1234”; device is paired. Now, open BTClient, search and pair up the device. The LED on the Bluetooth module stops blinking and becomes stable. Enter “a” on BTClient page, you can see the LCD displays “welcome to keyes” for 1 second. When you input “a” again, the LCD will display the information again.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/31cf489349a242858c5fd96864035fc1-1686547886590-35.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/31cf489349a242858c5fd96864035fc1-1686547886590-35.jpeg)
 
 Lesson 13: I receive a signal
 
@@ -1183,7 +1207,7 @@ IR is widely used in remote control. In this lesson, we will use a IR receiver m
 
 Below is a brief introduction of IR Receiver Module so you can gain a better idea of how IR remote control works.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/7667fad52f9dde5af11920b38261772b-1686547886590-36.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/7667fad52f9dde5af11920b38261772b-1686547886590-36.jpeg)
 
 Infrared receiver is a component with functions of reception, amplification, and demodulation. Its internal IC has already completed demodulation so it directly outputs digital signal. This module is usually used together with IR transmitter module. Below are its specifications:
 
@@ -1198,12 +1222,13 @@ Infrared receiver is a component with functions of reception, amplification, and
 
 Now, connect the IR Receiver Module to the D11 port of the controller board, and LCD module to IIC port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/3b4e43389c37873764154a191dbafd5c-1686547886590-37.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/3b4e43389c37873764154a191dbafd5c-1686547886590-37.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <IRremote.h>    // place file “IRremote.h” under the directory “libraries” of Arduino
 #include <Wire.h>    // place file “Wire.h” under the directory “libraries” of Arduino
@@ -1237,12 +1262,13 @@ void loop() {
     }
 }
 ```
+{% endcode %}
 
 **Result**
 
 After the above are done, you can see the first line of LCD displays “remote control:”; after you press buttons on the remote controller, in the second line of LCD, you can see it displays a hexadecimal number for 0.5S corresponding to each button; if you hold a button in pressed state, you can see the second line displays “FFFFFFFF”.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/fef75b60a833a05f81520247f026d91a-1686547886590-38.jpeg) ![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/d7dd355b4baabb1a50e11b17f9914ae3-1686547886590-39.jpeg) ![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/d586cb5e6d448c1d4edf8c2d3c06b3d6-1686547886590-40.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/fef75b60a833a05f81520247f026d91a-1686547886590-38.jpeg) ![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/d7dd355b4baabb1a50e11b17f9914ae3-1686547886590-39.jpeg) ![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/d586cb5e6d448c1d4edf8c2d3c06b3d6-1686547886590-40.jpeg)
 
 Lesson 14: Transmit a signal
 
@@ -1258,7 +1284,7 @@ In the above lesson, we use a remote controller as an IR transmitting device. He
 
 Below is a brief introduction of IR transmitter module.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/de1ba599926a66cc64a380aec7758dbb-1686547886590-41.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/de1ba599926a66cc64a380aec7758dbb-1686547886590-41.png)
 
 Infrared transmitting tube, also known as infrared emitting diode, belongs to the diode family. It is a light-emitting device that can directly convert electrical energy to near-infrared light and emit. Its structure and principle is similar to an LED. Only material of semiconductor is different. This module is usually used together with IR receiver module. Below are its specifications:
 
@@ -1275,12 +1301,13 @@ Infrared transmitting tube, also known as infrared emitting diode, belongs to th
 
 Now, connect the button module to the D10 port of the controller board, and IR Transmitter Module to D3 port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/209f48549feddd467961549094f8af0d-1686547886590-42.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/209f48549feddd467961549094f8af0d-1686547886590-42.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <IRremote.h>
 IRsend irsend;
@@ -1298,6 +1325,7 @@ void loop() {
     }
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -1318,7 +1346,7 @@ We always say man cannot live without water and air. So we know how important ai
 
 In this lesson, one critical component is MQ135 Air Quality Sensor. Below is its brief introduction.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/10fc050f185e3a9b1b8f5238cff2f6d4-1686547886590-43.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/10fc050f185e3a9b1b8f5238cff2f6d4-1686547886590-43.jpeg)
 
 MQ135 adopts SnO2 as its gas sensitive material because SnO2 has low electrical conductivity in the clean air. So when surrounded by polluted air, the electrical conductivity of MQ135 will increase with the increase of pollutants, and the change in electrical conductivity can be converted to corresponding output signal.
 
@@ -1337,12 +1365,13 @@ MQ135 has a high sensitivity to Ammonia, sulfide, benzene vapor, smoke and other
 
 Now, connect the LED module to the D10 port of the controller board, and MQ-135 module to IIC port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/058a36fcb87f7bc790809ea8ce1d4eca-1686547886590-44.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/058a36fcb87f7bc790809ea8ce1d4eca-1686547886590-44.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 int gas_din=18;
 int gas_ain=A5;
@@ -1372,6 +1401,7 @@ void loop()
     delay(500);
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -1392,7 +1422,7 @@ This lesson is very much the same as the above one. The only difference is that 
 
 Below is a brief introduction of this analog gas sensor.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/a78caf2fa08664038eb35f0097fb12df-1686547886590-45.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/a78caf2fa08664038eb35f0097fb12df-1686547886590-45.jpeg)
 
 This analog gas sensor - MQ2 is used in gas leakage detecting equipment in consumer electronics and industrial markets. This sensor is suitable for detecting LPG, I-butane, propane, methane, alcohol, Hydrogen and smoke. It has high sensitivity and quick response. In addition, the sensitivity can be adjusted by the potentiometer. Below are its specifications:
 
@@ -1409,12 +1439,13 @@ This analog gas sensor - MQ2 is used in gas leakage detecting equipment in consu
 
 Now, connect the LED module to the D10 port of the controller board, and gas sensor to IIC port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/058a36fcb87f7bc790809ea8ce1d4eca-1686547886590-44.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/058a36fcb87f7bc790809ea8ce1d4eca-1686547886590-44.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 int gas_din=18;
 int gas_ain=A5;
@@ -1444,6 +1475,7 @@ void loop()
     delay(500);
 }
 ```
+{% endcode %}
 
 **Result**
 
@@ -1465,7 +1497,7 @@ In previous two lessons, we introduced you two types of gas sensors. Here, we wi
 
 First, let’s learn a little bit about this analog alcohol sensor.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/5615a06e61b8c2117dbe433ac0321d79-1686547886590-46.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/5615a06e61b8c2117dbe433ac0321d79-1686547886590-46.jpeg)
 
 This analog gas sensor - MQ3 is suitable for detecting alcohol. It can be used in a Breath analyzer Also it has high sensitivity to alcohol and low sensitivity to Benzine. The sensitivity can be adjusted by the potentiometer. Below are its specifications:
 
@@ -1481,12 +1513,13 @@ This analog gas sensor - MQ3 is suitable for detecting alcohol. It can be used i
 
 Now, connect the alcohol sensor to the D2 port of the controller board, and LCD module to IIC port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/961667886371521fcefd33b3b71780eb-1686547886590-47.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/961667886371521fcefd33b3b71780eb-1686547886590-47.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
@@ -1520,14 +1553,15 @@ void loop()
     delay(500);
 }
 ```
+{% endcode %}
 
 **Result**
 
 After all the above are done, you can see the power LED1 on the module is on, for LED2 on the module, you need to use a screw driver to adjust the knob for LED2 to be in a “off” state when it’s about to be turned on. Now, the LCD is displaying “Alcohol not leak”; spill some alcohol on the cloth and place it on the sensing area of the sensor, you can see the LCD displays “Alcohol leakage”.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/69d0120ed4a2c69cdc62e7fc54d5689d-1686547886590-48.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/69d0120ed4a2c69cdc62e7fc54d5689d-1686547886590-48.jpeg)
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/1d82b9d14ae9e397c387626f7abd16ed-1686547886590-49.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/1d82b9d14ae9e397c387626f7abd16ed-1686547886590-49.jpeg)
 
 Lesson 18: Somebody is in this area
 
@@ -1546,7 +1580,7 @@ In this lesson, we will combine PIR Motion Sensor, 1602 I2C Module and Piranha L
 
 Below is a brief introduction of EASY plug PIR Motion Sensor.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/d4d02ed71b1a61ce8ffadbddbe672a6f-1686547886590-50.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/d4d02ed71b1a61ce8ffadbddbe672a6f-1686547886590-50.jpeg)
 
 Pyroelectric infrared motion sensor can detect infrared signals from a moving person or moving animal, and outputs switching signals. It has advantages of low power consumption, good concealing, low cost etc. It can be applied to a variety of occasions to detect the movement of human body. Below are its specifications:
 
@@ -1566,12 +1600,13 @@ Pyroelectric infrared motion sensor can detect infrared signals from a moving pe
 
 Now, connect the LED module to the D10 port of the controller board, motion sensor module to D3, and LCD module to IIC port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/009fd3a3bdf4eebac6112727266b1ce0-1686547886590-51.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/009fd3a3bdf4eebac6112727266b1ce0-1686547886590-51.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <Wire.h>  // place file “Wire.h” under the “library” directory of Arduino 
 #include <LiquidCrystal_I2C.h> // place file “LiquidCrystal_I2C.h” under the “library” directory of Arduino 
@@ -1611,14 +1646,15 @@ void loop()
     delay(500);
 }
 ```
+{% endcode %}
 
 **Result**
 
 After power is on, when there is no movement near the motion sensor, LCD displays “no one”, and piranha LED is off; when there is someone moving near the motion sensor, LCD will display “somebody is in this area!”, and the LED will be turn on.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/d4d1e9f263a8920535a449aaea426574-1686547886590-52.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/d4d1e9f263a8920535a449aaea426574-1686547886590-52.png)
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/4228afbe061832b3e48f59fac23547a4-1686547886590-53.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/4228afbe061832b3e48f59fac23547a4-1686547886590-53.png)
 
 Lesson 19: What’s the temperature
 
@@ -1634,7 +1670,7 @@ In this lesson, we will combine DS18B20 Temperature Sensor and 1602 I2C Module t
 
 Before we get to the test, let’s take a look at this DS18B20 Temperature Sensor.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/eae6afbd02574692042f8aa78413d11c-1686547886590-54.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/eae6afbd02574692042f8aa78413d11c-1686547886590-54.jpeg)
 
 This DS18B20 Temperature Sensor Module is not like traditional analog temperature sensors that need additional A/D and D/A conversion chip, placing a challenge on limited port resources of Arduino, this newly developped DS18B20 Temperature Sensor can be easily connected to an Arduino digital input. The sensor communicates over a one-wire bus and requires little in the way of additional components so users can easily create a sensor network. Below are its specifications:
 
@@ -1648,12 +1684,13 @@ This DS18B20 Temperature Sensor Module is not like traditional analog temperatur
 
 Now, connect the DS18B20 module to the D2 port of the controller board, and LCD module to IIC using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/1be7a63e2c722e56f87e00dedf6d3176-1686547886590-55.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/1be7a63e2c722e56f87e00dedf6d3176-1686547886590-55.png)
 
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <OneWire.h>   // Place file “OneWire.h” under the directory “library” of Arduino
 #include <Wire.h>    // Place file “OneWire.h” under the directory “library” of Arduino
@@ -1723,11 +1760,12 @@ float getTemp(){
   return TemperatureSum;
 }
 ```
+{% endcode %}
 
 **Result**\
 After power is on, LCD first line displays “temperature is”, second line displays the current temperature. Temperature is updated in 3 seconds interval.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/cc7241c234ba5658deafe928641afce2-1686547886590-56.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/cc7241c234ba5658deafe928641afce2-1686547886590-56.png)
 
 Lesson 20: How humid & hot is the air
 
@@ -1743,7 +1781,7 @@ Temperature and humidity is vital to our well beings. In this lesson, we will le
 
 We will first learn a little about this DHT11 Temperature and Humidity Sensor.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/14430b2bfd226aaf3e143d4b968ec477-1686547886590-57.png)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/14430b2bfd226aaf3e143d4b968ec477-1686547886590-57.png)
 
 This DHT11 Temperature and Humidity Sensor features a digital temperature and humidity sensor complex with a calibrated digital signal output. It can detect temperature and humidity of the surroundings. It has excellent quality, fast response, anti-interference ability and high cost performance advantages. Below are its specifications:
 
@@ -1758,11 +1796,12 @@ This DHT11 Temperature and Humidity Sensor features a digital temperature and hu
 
 Now, connect the DHT11 module to the D10 port of the controller board, and LCD module to IIC port using the EASY plug cables.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/256b3e217ca71ed6454089de81609ac5-1686547886590-58.png)\
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/256b3e217ca71ed6454089de81609ac5-1686547886590-58.png)\
 **Sample Code**
 
 Connect the board to your PC using the USB cable; copy below code into Arduino IDE, and click upload to upload it to your board.
 
+{% code collapsedlinecount="10" %}
 ```
 #include <Wire.h>    // Place file “Wire.h” under the directory “library” of Arduino 
 #include <LiquidCrystal_I2C.h>  // Place file “LiquidCrystal_I2C.h” under the directory “library” of Arduino
@@ -1788,9 +1827,10 @@ void loop(){
   delay(1000);
 }
 ```
+{% endcode %}
 
 **Result**
 
 After power is on, first line of LCD displays “Humid(%),Temp(C)”, second line displays current temperature and humidity. Values will be updated per second.
 
-![](https://docs.keyestudio.com/projects/KS0157/en/latest/_images/e389ee02ef6994bf230c26effb721ad3-1686547886590-59.jpeg)
+![](https://raw.githubusercontent.com/keyestudio/ks0157-keyestudio-easy-plug-learning-kit-for-Arduino-super-makers--/5eb83315d2b54d3b1363892e4f4fb894cd819848/media/e389ee02ef6994bf230c26effb721ad3-1686547886590-59.jpeg)

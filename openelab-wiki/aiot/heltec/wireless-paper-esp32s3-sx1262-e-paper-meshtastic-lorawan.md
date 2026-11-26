@@ -113,6 +113,6 @@ Yes.
 {% step %}
 How to use it?
 
-You can refer to the [Quickstart](https://docs.heltec.org/en/node/esp32/quick_start.html).&#x20;
+You can refer to the [Quickstart](https://wiki.heltec.org/docs/devices/open-source-hardware/esp32-series/esp32-quick-start).&#x20;
 {% endstep %}
 {% endstepper %}

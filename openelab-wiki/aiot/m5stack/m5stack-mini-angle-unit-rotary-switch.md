@@ -113,7 +113,7 @@ The code below is incomplete. To get the complete code, please click [here](http
 
 <figure><img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/uiflow2/guide/uiflow2_cover.png" alt=""><figcaption></figcaption></figure>
 
-[ANGLE Unit Programming Guide](https://uiflow-micropython.readthedocs.io/en/latest/units/angle.html)
+[ANGLE Unit Programming Guide](https://uiflow-micropython.readthedocs.io/en/latest/unit/angle.html)
 
 <figure><img src="https://static-cdn.m5stack.com/mpy_docs/unit/angle/example.svg" alt=""><figcaption></figcaption></figure>
 

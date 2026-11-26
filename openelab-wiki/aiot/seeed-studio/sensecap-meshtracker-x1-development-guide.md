@@ -91,6 +91,7 @@ The manufacturer recovery ZIP is specifically [X1 Bootloader.zip](https://files.
 
 This optional desktop example listens for up to 60 seconds and prints each received text packet. It sends no messages and changes no radio configuration. Use the official Meshtastic Python API, install `meshtastic`, save as `x1_receive.py`, close other serial clients and run `python x1_receive.py YOUR_PORT`.
 
+{% code collapsedlinecount="10" %}
 ```python
 import json
 import sys
@@ -116,8 +117,9 @@ try:
 finally:
     radio.close()
 ```
+{% endcode %}
 
-Expected output is one JSON line per received text packet, with RSSI/SNR only when provided by the transport. No output during a quiet minute is not proof of failure: send a known packet from the peer and check both logs. Consult the [official Python API](https://meshtastic.org/docs/software/python/) for the installed client version. The program has not been run against hardware.
+Expected output is one JSON line per received text packet, with RSSI/SNR only when provided by the transport. No output during a quiet minute is not proof of failure: send a known packet from the peer and check both logs. Consult the [official Python API](https://python.meshtastic.org/) for the installed client version. The program has not been run against hardware.
 
 ### Configure alerts without confusing pin namespaces
 
@@ -133,6 +135,7 @@ To recover X1, disconnect USB, hold the device button and connect USB promptly, 
 
 For a source build in a fresh checkout with PlatformIO installed:
 
+{% code collapsedlinecount="10" %}
 ```sh
 git clone --recursive https://github.com/meshtastic/firmware.git
 cd firmware
@@ -140,6 +143,7 @@ git checkout d0f4096788545fb3c5e22d2a7e52ac6c268caac1
 git submodule update --init --recursive
 pio run -e seeed_mesh_tracker_X1
 ```
+{% endcode %}
 
 Expected result is a successful X1 build and an X1-named artifact under `.pio/build/seeed_mesh_tracker_X1/`. This is a source-reviewed procedure, **not a reported successful build**. First compile unchanged source, retain build output and check the target in the artifact filename before any flash. Restore the specific X1 bootloader only if ordinary application recovery fails and DFU serial access is available.
 

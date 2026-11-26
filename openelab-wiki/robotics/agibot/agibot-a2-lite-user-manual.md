@@ -364,6 +364,7 @@ Different sets of software functionalities are enabled under different system mo
 
 yaml
 
+{% code collapsedlinecount="10" %}
 ```
  system_modes:
     "Startup": # Status Name
@@ -433,12 +434,13 @@ yaml
         - [ DIFF ]
         - [ activate rc ]
 ```
+{% endcode %}
 
 Upon startup, the system transitions from Startup to Ready and then to Manual. When it reaches the Manual state, the initialization of the onboard software can be considered complete.
 
 ### 4. Overview of Secondary Development Interfaces <a href="#secondary-development" id="secondary-development"></a>
 
-Most of the modules in the aforementioned software system use AimRT as the underlying framework. AimRT is a robot runtime framework that aligns with ROS2, open-sourced by Agibot Robotics in September 2024. AimRT provides two basic underlying communication methods: Channel and RPC (for more details, refer to the [AimRT official documentation](https://docs.aimrt.org/v0.10.0/tutorials/concepts/concepts.html#aimrt-channel)). These two communication methods can correspond to multiple different communication backends.
+Most of the modules in the aforementioned software system use AimRT as the underlying framework. AimRT is a robot runtime framework that aligns with ROS2, open-sourced by Agibot Robotics in September 2024. AimRT provides two basic underlying communication methods: Channel and RPC (for more details, refer to the [AimRT official documentation](https://github.com/AimRT/AimRT/blob/v0.10.0/document/sphinx-cn/tutorials/concepts/concepts.md?plain=1#L74-L94)). These two communication methods can correspond to multiple different communication backends.
 
 To reduce the cognitive burden of secondary development, we provide two forms of relatively simple and general interfaces for secondary development: HTTP JSON RPC and ROS2 Topic. HTTP JSON RPC is suitable for low-frequency, one-to-many interface calls, while ROS2 Topic is suitable for high-frequency, many-to-many interface calls. The following are diagrams of both:
 
@@ -454,11 +456,13 @@ The following is an example of a command-line RPC request to get the battery lev
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 curl -i     -H 'content-type:application/json' \
             -H 'timeout: 1000'   -X POST 'http://127.0.0.1:56421/rpc/aimdk.protocol.HalBmsService/GetBmsState' \
             -d '{}'
 ```
+{% endcode %}
 
 Where:
 
@@ -477,20 +481,24 @@ The topic interface uses native ROS2 topics. The default on the machine is **ROS
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=232
 export ROS_LOCALHOST_ONLY=0
 export FASTRTPS_DEFAULT_PROFILES_FILE=/agibot/software/v0/entry/bin/cfg/ros_dds_configuration.xml
 ```
+{% endcode %}
 
 > If your program needs to start with root privileges, change the above dds configuration file to the following:
 >
 > bash
 >
+> {% code collapsedlinecount="10" %}
 > ```
 > export FASTRTPS_DEFAULT_PROFILES_FILE=/agibot/software/v0/entry/bin/cfg/privileged_ros_dds_configuration.xml
 > ```
+> {% endcode %}
 >
 > In `ros_dds_configuration.xml`, both shared memory communication and UDP communication are enabled, while in `privileged_ros_dds_configuration.xml`, only UDP communication is enabled to avoid permission issues with shared memory.
 
@@ -500,11 +508,13 @@ Additionally, note that the default QoS for topics on the machine is:
 
 yaml
 
+{% code collapsedlinecount="10" %}
 ```
   history: keep_last
   depth: 10
   reliability: best_effort
 ```
+{% endcode %}
 
 When using, ensure that the QoS is consistent to guarantee smooth communication.
 
@@ -514,6 +524,7 @@ The following is an example script for subscribing to joint states via ROS2 Topi
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 #!/usr/bin/env python3
 import rclpy
@@ -557,6 +568,7 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 ```
+{% endcode %}
 
 **4.2.4 External PC Communication for ROS2 Topics**
 
@@ -564,6 +576,7 @@ To ensure the stability of ROS2 communication on the machine, we have modified t
 
 xml
 
+{% code collapsedlinecount="10" %}
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <dds>
@@ -597,6 +610,7 @@ xml
   </profiles>
 </dds>
 ```
+{% endcode %}
 
 The whitelist for network interfaces is configured with two IPs: 127.0.0.1 and 10.42.0.100, which are the local loopback IP and the IP for the remote control network interface, respectively. If you need to receive and send the corresponding ROS2 Topics on a third-party PC or an added industrial control computer, you need to add the IP of the local network interface (generally, you can choose **192.168.2.50**, which is the fixed IP for the debugging network port on the back of the robot, or the reserved IP for the added computing board **192.168.100.100**) to the whitelist (both **privileged** and non-privileged need to be added). After adding, restart the robot and connect via a wired connection to the corresponding network port to perform the communication.
 
@@ -630,9 +644,11 @@ After the robot is powered on, you should be able to ping 192.168.2.50 from your
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 ping 192.168.2.50
 ```
+{% endcode %}
 
 **6.1.2 Adding DDS Configuration Whitelist**
 
@@ -640,31 +656,38 @@ First, SSH into the robot, back up the relevant configuration files, and then mo
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 ssh agi@192.168.2.50
 ```
+{% endcode %}
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 cd /agibot/software/v0/entry/bin/cfg/
 cp ros_dds_configuration.xml ros_dds_configuration.xml.original
 cp privileged_ros_dds_configuration.xml privileged_ros_dds_configuration.xml.original
 ```
+{% endcode %}
 
 Then use vim to modify the above two configuration files.
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 vim ros_dds_configuration.xml
 vim privileged_ros_dds_configuration.xml
 ```
+{% endcode %}
 
 Here is only the modified segment (the same for both files):
 
 yaml
 
+{% code collapsedlinecount="10" %}
 ```
         <interfaceWhiteList>
           <address>127.0.0.1</address>
@@ -672,11 +695,13 @@ yaml
           <address>192.168.2.50</address>
         </interfaceWhiteList>
 ```
+{% endcode %}
 
 After modifying, restart the robot. Once the robot has completed initialization, execute the following command on your personal PC. You should be able to see many topics and echo the corresponding topics successfully.
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=232
@@ -684,6 +709,7 @@ export ROS_LOCALHOST_ONLY=0
 ros2 topic list --no-daemon
 ros2 topic echo /motion/control/arm_joint_state
 ```
+{% endcode %}
 
 #### 6.2 Example of Running a Battery Level Retrieval Program <a href="#web-06-6-2-example-of-running-a-battery-level-retrieval-program" id="web-06-6-2-example-of-running-a-battery-level-retrieval-program"></a>
 
@@ -693,16 +719,19 @@ Run the following script directly on your personal PC:
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 curl -i     -H 'content-type:application/json' \
             -H 'timeout: 1000'   -X POST 'http://192.168.2.50:56421/rpc/aimdk.protocol.HalBmsService/GetBmsState' \
             -d '{}'
 ```
+{% endcode %}
 
 The returned result should be as follows (the specific field meanings are explained in detail in the subsequent interface section):
 
 text
 
+{% code collapsedlinecount="10" %}
 ```
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
@@ -711,6 +740,7 @@ Content-Length: 709
 
 {"data":{"ver":{"hardware_major":49,"hardware_minor":48,"hardware_revision":49,"software_major":53,"software_minor":48,"software_revision":49},"voltage":54200,"current":28,"power":0,"temperature":285,"capacity":14090,"charge":100,"power_supply_health":"PowerSupplyHealth_GOOD","power_supply_status":"PowerSupplyStatus_IDEL","cycles_num":100,"cycles_capacity":10,"abnormal_state":"PowerAbnormalStatus_OVERVOLTAGE","charger_state":"ChargerConnected","bms_state":"BatteryStatus_Connected","max_current":29568,"battery_firmware_type":"BatteryFirmwareType_OLD","battery_key_state":"BatteryKeyStatus_SHORT_CURCUIT","battery_pack_state":"BatteryPackStatus_NORMAL","battery_comm_state":"BatteryCommunication_NORMAL"}}
 ```
+{% endcode %}
 
 #### 6.3 Example of Retrieving Robot Upper Limb Joint Status <a href="#web-06-6-3-example-of-retrieving-robot-upper-limb-joint-status" id="web-06-6-3-example-of-retrieving-robot-upper-limb-joint-status"></a>
 
@@ -720,6 +750,7 @@ Save the following code on your PC as `joint_state.py`.
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 #!/usr/bin/env python3
 import rclpy
@@ -763,17 +794,20 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 ```
+{% endcode %}
 
 Then execute the following command:
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=232
 export ROS_LOCALHOST_ONLY=0
 python3 joint_state.py
 ```
+{% endcode %}
 
 #### 6.4 Example of Controlling Head Shaking Interface <a href="#web-06-6-4-example-of-controlling-head-shaking-interface" id="web-06-6-4-example-of-controlling-head-shaking-interface"></a>
 
@@ -785,6 +819,7 @@ Using the HTTP interface for control is relatively simple. Here is the script:
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 #!/usr/bin/env python3
 
@@ -847,6 +882,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+{% endcode %}
 
 Note that `idx28_head_joint2` is invalid but must be retained. The Lite model robot has only one degree of freedom for head shaking, where `velocity` and `effort` are invalid, and only `position` will take effect.
 
@@ -857,18 +893,18 @@ Using the ROS2 interface to call the head shaking program requires some prerequi
 1. First, switch the state machine of the motion control module to the RL\_LOCOMOTION\_ARM\_EXT\_JOINT\_SERVO state. This can be done on AimMaster, and the detailed interface explanation will also cover how to switch using program interfaces.
 2.  Call the following command to release the control of the upper body joints by the action playback module.bash
 
-    ```
-    curl -i \
+    <pre data-collapsed-line-count="10"><code>curl -i \
         -H 'content-type:application/json' \
         -H 'timeout: 1000' \
         -X POST http://192.168.2.50:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer \
         -d '{}'
-    ```
+    </code></pre>
 
 Next, save the following script as `neck.py`:
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 #!/usr/bin/env python3
 import rclpy
@@ -921,17 +957,20 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 ```
+{% endcode %}
 
 Then run:
 
 yaml
 
+{% code collapsedlinecount="10" %}
 ```
 source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=232
 export ROS_LOCALHOST_ONLY=0
 python3 neck.py
 ```
+{% endcode %}
 
 ### 7. Detailed Interface Documentation <a href="#web-07-7-detailed-interface-documentation" id="web-07-7-detailed-interface-documentation"></a>
 
@@ -972,7 +1011,7 @@ Descriptions of each state are as follows:
 
 > It is generally not recommended to switch between non-force control states using the program. Only switching between force control states is recommended. Other state transitions, which involve lifting and lowering the robot, should be performed manually.### 7.1.2 State Machine Switching and Query RPC Interface
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McActionService/SetAction</code></td></tr><tr><td>Function Overview</td><td>Switch the motion control state machine</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McActionService/SetAction</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McActionService/SetAction</code></td></tr><tr><td>Function Overview</td><td>Switch the motion control state machine</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McActionService/SetAction</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "timestamp": {
       "seconds": 1762800293,
@@ -986,7 +1025,7 @@ Descriptions of each state are as follows:
     "ext_action": "RL_JOINT_DEFAULT"
   }
 }
-</code></pre><ul><li>action: Fixed to McAction_USE_EXT_CMD</li><li>ext_action: The actual motion control action to switch to</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>action: Fixed to McAction_USE_EXT_CMD</li><li>ext_action: The actual motion control action to switch to</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "called successfully.",
@@ -1002,8 +1041,8 @@ Descriptions of each state are as follows:
 }
 </code></pre><ul><li>state: The status of the request call</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_control/SetAction.py</td></tr><tr><td>Notes</td><td><ul><li>Asynchronous interface, completion of the call does not mean the switch is complete; use the GetAction interface to check if the switch is complete</li><li>This interface has no action restrictions</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McActionService/GetAction</code></td></tr><tr><td>Function Overview</td><td>Query the motion control state machine</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McActionService/GetAction</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McActionService/GetAction</code></td></tr><tr><td>Function Overview</td><td>Query the motion control state machine</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McActionService/GetAction</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "called successfully.",
@@ -1027,6 +1066,7 @@ Generally, the above two interfaces are used together, as shown in the following
 
 python
 
+{% code collapsedlinecount="10" %}
 ```
 def ensure_action(action_name: str, retries=3, retry_interval=1.0, mc_ip: str = "127.0.0.1"):
     try:
@@ -1040,10 +1080,11 @@ def ensure_action(action_name: str, retries=3, retry_interval=1.0, mc_ip: str = 
         return False
     return False
 ```
+{% endcode %}
 
 **7.1.3 Locomotion Control Command Topic Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>/motion/control/locomotion_velocity</code></td></tr><tr><td>Function Overview</td><td>Locomotion control command</td></tr><tr><td>Interface Type</td><td>ROS2 Topic</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>/motion/control/locomotion_velocity</code></td></tr><tr><td>Function Overview</td><td>Locomotion control command</td></tr><tr><td>Interface Type</td><td>ROS2 Topic</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "mode": 0,
     "forward_velocity": 0.1,
@@ -1053,7 +1094,7 @@ def ensure_action(action_name: str, retries=3, retry_interval=1.0, mc_ip: str = 
 }
 </code></pre><ul><li><p>mode: Velocity control mode</p><ul><li>0 for remote control scenarios</li><li>1 for navigation mode, with faster velocity response; 0.05 m/s activates stepping, and stepping stops after 500 ms without a velocity command</li></ul></li><li>forward_velocity: Forward velocity, range -0.3-0.8 m/s</li><li>lateral_velocity: Lateral velocity, range -0.25-0.25 m/s</li><li>angular_velocity: Angular velocity, range -0.5-0.5 rad/s</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_control/walk.py</td></tr><tr><td>Notes</td><td><ul><li>The ROS2 message type is ros2_plugin_proto/msg/RosMsgWrapper, which requires sourcing prebuilt/ros2_plugin_proto_x86_64/share/ros2_plugin_proto/local_setup.bash before use.</li><li>The call code for this interface is <strong>T1</strong>, and commands work better under RL_LOCOMOTION_DEFAULT</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>/motion/control/move_waist</code></td></tr><tr><td>Function Overview</td><td>Waist control instruction</td></tr><tr><td>Interface Type</td><td>ROS2 Topic</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>/motion/control/move_waist</code></td></tr><tr><td>Function Overview</td><td>Waist control instruction</td></tr><tr><td>Interface Type</td><td>ROS2 Topic</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "x": 0.0,
     "y": 0.0,
@@ -1085,7 +1126,7 @@ def ensure_action(action_name: str, retries=3, retry_interval=1.0, mc_ip: str = 
 
 The above neck control topic interface is suitable for scenarios requiring continuous and precise control of the neck angle, such as remote operation, and can only be called in JOINT\_SERVO mode. For certain scenarios where simple control to a specific angle is needed, the following RPC interface can be used.
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/SetNeckCommand</code></td></tr><tr><td>Function Overview</td><td>Set neck command</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/SetNeckCommand</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/SetNeckCommand</code></td></tr><tr><td>Function Overview</td><td>Set neck command</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/SetNeckCommand</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "shake": {
       "name": "idx27_head_joint1",
@@ -1101,7 +1142,7 @@ The above neck control topic interface is suitable for scenarios requiring conti
     }
   }
 }
-</code></pre><ul><li>Only the position field in the shake section is meaningful; the other fields should remain unchanged. The range is -0.785 to 0.785 rad.</li><li>The nod-related content is not meaningful and should be filled out as is.</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>Only the position field in the shake section is meaningful; the other fields should remain unchanged. The range is -0.785 to 0.785 rad.</li><li>The nod-related content is not meaningful and should be filled out as is.</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "called successfully.",
@@ -1117,8 +1158,8 @@ The above neck control topic interface is suitable for scenarios requiring conti
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_control/SetNeckCommand.py</td></tr><tr><td>Notes</td><td><ul><li>This interface has no Action restrictions.</li><li>Note that in JOINT_SERVO mode, this interface is taken over by the motion_player module by default. Please disable it using examples/motion_player/disable_motion_player before sending commands.</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/GetNeckState</code></td></tr><tr><td>Function Overview</td><td>Get neck state</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetNeckState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/GetNeckState</code></td></tr><tr><td>Function Overview</td><td>Get neck state</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetNeckState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "called successfully.",
@@ -1149,7 +1190,7 @@ The above neck control topic interface is suitable for scenarios requiring conti
 }
 </code></pre><ul><li>state: Call request status</li><li>Only the position field in the shake section is meaningful, with a range of -0.785 to 0.785 rad. The other fields can be ignored.</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_control/GetNeckState.py</td></tr><tr><td>Notes</td><td>This interface has no Action restrictions.</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>/motion/control/arm_joint_command</code></td></tr><tr><td>Function Overview</td><td>Arm joint control command</td></tr><tr><td>Interface Type</td><td>ROS2 Topic</td></tr><tr><td>Input Parameters</td><td><p><a href="https://docs.ros.org/en/humble/p/sensor_msgs/msg/JointState.html">sensor_msgs::msg::JointState</a></p><ul><li>name: Joint names, fixed to ["idx13_left_arm_joint1", "idx14_left_arm_joint2", "idx15_left_arm_joint3", "idx16_left_arm_joint4", "idx17_left_arm_joint5", "idx18_left_arm_joint6", "idx19_left_arm_joint7", "idx20_right_arm_joint1", "idx21_right_arm_joint2", "idx22_right_arm_joint3", "idx23_right_arm_joint4", "idx24_right_arm_joint5", "idx25_right_arm_joint6", "idx26_right_arm_joint7"], joints 6 and 7 of both arms are invalid but need to be filled as placeholders</li><li>position: Joint angles, must fill in the angle values for 14 joints, where joints 6 and 7 of both arms are invalid but need to be filled as placeholders</li><li>velocity: Invalid field, set to 0.0</li><li>effort: Invalid field, set to 0.0</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_control/arm.py</td></tr><tr><td>Notes</td><td><ul><li>The call code for this interface is <strong>T2</strong>, and it can only be called in modes with the suffix JOINT_SERVO</li><li><p>Note that in JOINT_SERVO mode, this interface is taken over by the motion_player module by default. Please disable it using examples/motion_player/disable_motion_player before sending commands.</p><ul><li>This interface is recommended to be called at a frequency of 100 Hz. When calling, ensure that the interval between adjacent commands does not exceed 0.03, ensuring that the <strong>speed does not exceed 3 rad/s and the maximum acceleration does not exceed 6.28 rad/s^2</strong>. The commands should be as smooth as possible; otherwise, there may be jitter. It is recommended to use at least a basic low-pass filter method: y(k) = (1 - a) * y(k - 1) + a * x(k).</li></ul></li><li><p>Angle limits are as follows (in radians)</p><ul><li>idx13_left_arm_joint1: -2.91 ~ 2.91</li><li>idx14_left_arm_joint2: -0.46 ~ 1.60</li><li>idx15_left_arm_joint3: -2.91 ~ 2.91</li><li>idx16_left_arm_joint4: -2.00 ~ -0.03</li><li>idx17_left_arm_joint5: -2.94 ~ 2.94</li><li>idx20_right_arm_joint1: -2.91 ~ 2.91</li><li>idx21_right_arm_joint2: -1.60 ~ 0.46</li><li>idx22_right_arm_joint3: -2.91 ~ 2.94</li><li>idx23_right_arm_joint4: 0.03 ~ 2.00</li><li>idx24_right_arm_joint5: -2.94 ~ 2.94</li><li><p><strong>7.1.10 Full-Body Dance Playback RPC Interface</strong></p><h3 id="web-09-7-2-action-playback-section">7.2 Action Playback Section</h3><p><strong>7.2.1 Overview</strong></p><p>The A2 Lite provides basic preset action playback capabilities, with some preset actions pre-installed on the machine (additional actions can be recorded using remote operation devices to meet more personalized needs; for more information, please refer to the relevant documentation on remote operation). The list of default preset actions is as follows:</p><p>text</p><pre><code>wave-both-hands/wave-both-hands
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>/motion/control/arm_joint_command</code></td></tr><tr><td>Function Overview</td><td>Arm joint control command</td></tr><tr><td>Interface Type</td><td>ROS2 Topic</td></tr><tr><td>Input Parameters</td><td><p><a href="https://docs.ros.org/en/humble/p/sensor_msgs/msg/JointState.html">sensor_msgs::msg::JointState</a></p><ul><li>name: Joint names, fixed to ["idx13_left_arm_joint1", "idx14_left_arm_joint2", "idx15_left_arm_joint3", "idx16_left_arm_joint4", "idx17_left_arm_joint5", "idx18_left_arm_joint6", "idx19_left_arm_joint7", "idx20_right_arm_joint1", "idx21_right_arm_joint2", "idx22_right_arm_joint3", "idx23_right_arm_joint4", "idx24_right_arm_joint5", "idx25_right_arm_joint6", "idx26_right_arm_joint7"], joints 6 and 7 of both arms are invalid but need to be filled as placeholders</li><li>position: Joint angles, must fill in the angle values for 14 joints, where joints 6 and 7 of both arms are invalid but need to be filled as placeholders</li><li>velocity: Invalid field, set to 0.0</li><li>effort: Invalid field, set to 0.0</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_control/arm.py</td></tr><tr><td>Notes</td><td><ul><li>The call code for this interface is <strong>T2</strong>, and it can only be called in modes with the suffix JOINT_SERVO</li><li><p>Note that in JOINT_SERVO mode, this interface is taken over by the motion_player module by default. Please disable it using examples/motion_player/disable_motion_player before sending commands.</p><ul><li>This interface is recommended to be called at a frequency of 100 Hz. When calling, ensure that the interval between adjacent commands does not exceed 0.03, ensuring that the <strong>speed does not exceed 3 rad/s and the maximum acceleration does not exceed 6.28 rad/s^2</strong>. The commands should be as smooth as possible; otherwise, there may be jitter. It is recommended to use at least a basic low-pass filter method: y(k) = (1 - a) * y(k - 1) + a * x(k).</li></ul></li><li><p>Angle limits are as follows (in radians)</p><ul><li>idx13_left_arm_joint1: -2.91 ~ 2.91</li><li>idx14_left_arm_joint2: -0.46 ~ 1.60</li><li>idx15_left_arm_joint3: -2.91 ~ 2.91</li><li>idx16_left_arm_joint4: -2.00 ~ -0.03</li><li>idx17_left_arm_joint5: -2.94 ~ 2.94</li><li>idx20_right_arm_joint1: -2.91 ~ 2.91</li><li>idx21_right_arm_joint2: -1.60 ~ 0.46</li><li>idx22_right_arm_joint3: -2.91 ~ 2.94</li><li>idx23_right_arm_joint4: 0.03 ~ 2.00</li><li>idx24_right_arm_joint5: -2.94 ~ 2.94</li><li><p><strong>7.1.10 Full-Body Dance Playback RPC Interface</strong></p><h3 id="web-09-7-2-action-playback-section">7.2 Action Playback Section</h3><p><strong>7.2.1 Overview</strong></p><p>The A2 Lite provides basic preset action playback capabilities, with some preset actions pre-installed on the machine (additional actions can be recorded using remote operation devices to meet more personalized needs; for more information, please refer to the relevant documentation on remote operation). The list of default preset actions is as follows:</p><p>text</p><pre data-collapsed-line-count="10"><code>wave-both-hands/wave-both-hands
 wave-right-hand/wave-right-hand
 right-hand-handshake/right-hand-handshake
 right-hand-handshake_long/right-hand-handshake_long
@@ -1166,11 +1207,11 @@ look-at-right-hand/1758104294863353043
 look-at-right-arm/1758103484383524451
 look-at-left-hand/175810431583786588
 look-at-left-arm/1758103505321711264
-</code></pre><p>The above action files are located in the x86 directory <code>/agibot/data/resources/default/motion/motion_player/default</code>. Custom recorded actions should be placed in the <code>/agibot/data/resources/default/motion/motion_player/custom</code> directory. The above list is obtained by specifying the following command in the corresponding directory:</p><p>bash</p><pre><code>find . -name "*.db" -type f | sed 's|^\./\([^/]*\)/\(.*\)\.db|\1/\2|' | sort
-</code></pre><p>The specific action effects can be viewed using the motion control simulation provided in subsequent chapters or directly on the real machine.</p><p>Onboard action playback is handled by the <code>motion_player</code> module, which controls the arm and neck joints in JOINT_SERVO mode. The basic control principle involves reading and parsing the specified action file, playing the action file at 100 Hz, and sending <code>/motion/control/arm_joint_command</code> and <code>/motion/control/neck_joint_command</code> to the motion control module, which then performs the corresponding actions.</p><p><strong>7.2.2 Action Playback RPC Interface</strong></p><p><strong>7.2.3 Action Playback Status Query RPC Interface</strong></p><p><strong>7.2.4 Disable and Enable Action Playback Module RPC Interface</strong></p><p>The action playback module continuously sends /motion/control/arm_joint_command and /motion/control/neck_joint_command control instructions to the motion control module in JOINT_SERVO mode. If a secondary program also sends instructions, it can cause conflicts. You can use the following interfaces to disable and enable the action playback module.</p><p><strong>7.2.5 Disable and Enable Neck Control for Action Playback RPC Interface</strong></p><p>In some cases, it is necessary to disable the neck's action playback function separately, thereby transferring control of the neck to a secondary program for head tracking, etc. You can use the following interfaces to disable and enable neck control for action playback.</p><h3 id="web-10-7-3-audio-playback-section">7.3 Audio Playback Section</h3><p><strong>7.3.1 Overview</strong></p><p>The A2 Lite robot does not have a microphone and thus cannot perform voice interaction functions. However, it is equipped with a speaker that can play basic audio files and adjust volume. It also supports queue playback, playback status queries, and interruption control logic.</p><p><strong>7.3.2 Audio File Playback RPC Interface</strong></p><p><strong>7.3.3 Audio File Playback Status Query RPC Interface</strong></p><p><strong>7.3.4 Audio File Playback Interruption RPC Interface</strong></p><p>We provide interfaces for interrupting a single file playback and clearing the entire playback queue.</p><p><strong>7.3.5 Volume Get and Set RPC Interfaces</strong></p><h3 id="fault-diagnosis">7.4 Fault Diagnosis Section</h3><p><strong>7.4.1 Overview</strong></p><p>The robot itself provides basic fault diagnosis and health monitoring capabilities, capable of monitoring some basic anomalies and faults, such as joint overheating, sensor failure, system occupancy consistently too high, low battery power, etc.</p><p>There are two basic concepts in fault diagnosis: Alert and Exception. An Alert is a cluster of Exceptions. An Alert represents a broad category of faults, while an Exception is a specific fault. For example, repositioning failure is an Alert, which corresponds to many different failure reasons, each being a specific Exception. AimMaster generally displays Alerts, as Exceptions can be numerous and less intuitive. If you need to continuously monitor the robot's abnormal state, it is recommended to query the current alert list at regular intervals (not too frequently, a frequency of 0.2 Hz or lower is recommended).</p><p>The full list of alerts can be found in the file <code>/agibot/software/v0/config/hds_master/database/alert_info.yaml</code> on the x86 machine.</p><p><strong>7.4.2 Get Current Alert List RPC Interface</strong></p><p><strong>7.4.3 Attempt to Clear Alert RPC Interface</strong></p><h3 id="web-12-7-5-system-status-section">7.5 System Status Section</h3><p><strong>7.5.1 Overview</strong></p><p>System status refers to the state of the software system, which can be referenced in the previous section <em>Software System Overview</em>.</p><p><strong>7.5.2 System Status Retrieval RPC Interface</strong></p><p><strong>7.5.3 BMS Status Retrieval RPC Interface</strong></p><p><strong>7.5.4 Emergency Stop Status Retrieval RPC Interface</strong></p><p>When an emergency stop is triggered, an alert will also be issued, and the emergency stop status can be obtained through the GetAlertList. This section provides a separate interface to query the emergency stop status.</p><p><strong>7.5.5 Software Version Retrieval RPC Interface</strong></p><h3 id="web-13-8-guide-to-motion-control-simulation">8. Guide to Motion Control Simulation</h3><h4 id="web-13-8-1-simulation-description">8.1 Simulation Description</h4><p>We provide a mujoco-based simulation system for the A2 robot, designed to serve as a testing ground for basic calls to the A2 robot's motion control and action playback interfaces. This serves as a basic validation before actual operation, reducing the risk of damaging the robot while facilitating the debugging of secondary development program logic.</p><div><figure><img src="../../.gitbook/assets/unknown (145).webp" alt="Official AgiBot illustration"><figcaption><p>Official AgiBot illustration</p></figcaption></figure></div><p>The system runs the mujoco_sim, motion_control, and motion_player components. mujoco_sim acts as the underlying simulation engine, simulating the robot's physical body and hal_ethercat. motion_control interacts with mujoco_sim to exchange control commands and status, thereby controlling the simulated robot. motion_player, on the other hand, calls the high-level interfaces provided by motion_control to play actions. The motion_control and motion_player components are identical to those on the real robot, allowing the system to call all interfaces of the motion control and action playback modules.</p><h4 id="web-13-8-2-prerequisites">8.2 Prerequisites</h4><p>This simulation system is provided as a container image, containing executable files for each component, action resource files, and calling scripts. To use this simulation system, the following conditions must be met:</p><ol><li>An x86_64 architecture Linux system with Docker installed.</li><li><p>An X11 desktop system.</p><ul><li>You can check this by running <code>echo $XDG_SESSION_TYPE</code>, and the expected output should be <code>x11</code>.</li></ul></li></ol><h4 id="web-13-8-3-usage-tutorial">8.3 Usage Tutorial</h4><p><strong>8.3.1 Pulling the Image</strong></p><ol><li>Log in to the read-only account of the image repository</li></ol><p>bash</p><pre><code>docker login tongyong-public-cn-shanghai.cr.volces.com -u crrobot@aima-public-reader -p Aima123456
-</code></pre><ol start="2"><li>Pull the corresponding image</li></ol><p>bash</p><pre><code>docker pull tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
-</code></pre><p><strong>8.3.2 Starting the Image</strong></p><ol><li><p>Allow Docker to access the display, which is used to configure the access control list for the X Window System. Running <code>xhost +</code> will allow all hosts to connect to the current user's X server, effectively disabling access control for the X server and allowing any user to access and operate it.bash</p><pre><code>xhost +
-</code></pre></li><li><p>Start the Docker containerbash</p><pre><code>docker run -it \
+</code></pre><p>The above action files are located in the x86 directory <code>/agibot/data/resources/default/motion/motion_player/default</code>. Custom recorded actions should be placed in the <code>/agibot/data/resources/default/motion/motion_player/custom</code> directory. The above list is obtained by specifying the following command in the corresponding directory:</p><p>bash</p><pre data-collapsed-line-count="10"><code>find . -name "*.db" -type f | sed 's|^\./\([^/]*\)/\(.*\)\.db|\1/\2|' | sort
+</code></pre><p>The specific action effects can be viewed using the motion control simulation provided in subsequent chapters or directly on the real machine.</p><p>Onboard action playback is handled by the <code>motion_player</code> module, which controls the arm and neck joints in JOINT_SERVO mode. The basic control principle involves reading and parsing the specified action file, playing the action file at 100 Hz, and sending <code>/motion/control/arm_joint_command</code> and <code>/motion/control/neck_joint_command</code> to the motion control module, which then performs the corresponding actions.</p><p><strong>7.2.2 Action Playback RPC Interface</strong></p><p><strong>7.2.3 Action Playback Status Query RPC Interface</strong></p><p><strong>7.2.4 Disable and Enable Action Playback Module RPC Interface</strong></p><p>The action playback module continuously sends /motion/control/arm_joint_command and /motion/control/neck_joint_command control instructions to the motion control module in JOINT_SERVO mode. If a secondary program also sends instructions, it can cause conflicts. You can use the following interfaces to disable and enable the action playback module.</p><p><strong>7.2.5 Disable and Enable Neck Control for Action Playback RPC Interface</strong></p><p>In some cases, it is necessary to disable the neck's action playback function separately, thereby transferring control of the neck to a secondary program for head tracking, etc. You can use the following interfaces to disable and enable neck control for action playback.</p><h3 id="web-10-7-3-audio-playback-section">7.3 Audio Playback Section</h3><p><strong>7.3.1 Overview</strong></p><p>The A2 Lite robot does not have a microphone and thus cannot perform voice interaction functions. However, it is equipped with a speaker that can play basic audio files and adjust volume. It also supports queue playback, playback status queries, and interruption control logic.</p><p><strong>7.3.2 Audio File Playback RPC Interface</strong></p><p><strong>7.3.3 Audio File Playback Status Query RPC Interface</strong></p><p><strong>7.3.4 Audio File Playback Interruption RPC Interface</strong></p><p>We provide interfaces for interrupting a single file playback and clearing the entire playback queue.</p><p><strong>7.3.5 Volume Get and Set RPC Interfaces</strong></p><h3 id="fault-diagnosis">7.4 Fault Diagnosis Section</h3><p><strong>7.4.1 Overview</strong></p><p>The robot itself provides basic fault diagnosis and health monitoring capabilities, capable of monitoring some basic anomalies and faults, such as joint overheating, sensor failure, system occupancy consistently too high, low battery power, etc.</p><p>There are two basic concepts in fault diagnosis: Alert and Exception. An Alert is a cluster of Exceptions. An Alert represents a broad category of faults, while an Exception is a specific fault. For example, repositioning failure is an Alert, which corresponds to many different failure reasons, each being a specific Exception. AimMaster generally displays Alerts, as Exceptions can be numerous and less intuitive. If you need to continuously monitor the robot's abnormal state, it is recommended to query the current alert list at regular intervals (not too frequently, a frequency of 0.2 Hz or lower is recommended).</p><p>The full list of alerts can be found in the file <code>/agibot/software/v0/config/hds_master/database/alert_info.yaml</code> on the x86 machine.</p><p><strong>7.4.2 Get Current Alert List RPC Interface</strong></p><p><strong>7.4.3 Attempt to Clear Alert RPC Interface</strong></p><h3 id="web-12-7-5-system-status-section">7.5 System Status Section</h3><p><strong>7.5.1 Overview</strong></p><p>System status refers to the state of the software system, which can be referenced in the previous section <em>Software System Overview</em>.</p><p><strong>7.5.2 System Status Retrieval RPC Interface</strong></p><p><strong>7.5.3 BMS Status Retrieval RPC Interface</strong></p><p><strong>7.5.4 Emergency Stop Status Retrieval RPC Interface</strong></p><p>When an emergency stop is triggered, an alert will also be issued, and the emergency stop status can be obtained through the GetAlertList. This section provides a separate interface to query the emergency stop status.</p><p><strong>7.5.5 Software Version Retrieval RPC Interface</strong></p><h3 id="web-13-8-guide-to-motion-control-simulation">8. Guide to Motion Control Simulation</h3><h4 id="web-13-8-1-simulation-description">8.1 Simulation Description</h4><p>We provide a mujoco-based simulation system for the A2 robot, designed to serve as a testing ground for basic calls to the A2 robot's motion control and action playback interfaces. This serves as a basic validation before actual operation, reducing the risk of damaging the robot while facilitating the debugging of secondary development program logic.</p><div><figure><img src="../../.gitbook/assets/unknown (145).webp" alt="Official AgiBot illustration"><figcaption><p>Official AgiBot illustration</p></figcaption></figure></div><p>The system runs the mujoco_sim, motion_control, and motion_player components. mujoco_sim acts as the underlying simulation engine, simulating the robot's physical body and hal_ethercat. motion_control interacts with mujoco_sim to exchange control commands and status, thereby controlling the simulated robot. motion_player, on the other hand, calls the high-level interfaces provided by motion_control to play actions. The motion_control and motion_player components are identical to those on the real robot, allowing the system to call all interfaces of the motion control and action playback modules.</p><h4 id="web-13-8-2-prerequisites">8.2 Prerequisites</h4><p>This simulation system is provided as a container image, containing executable files for each component, action resource files, and calling scripts. To use this simulation system, the following conditions must be met:</p><ol><li>An x86_64 architecture Linux system with Docker installed.</li><li><p>An X11 desktop system.</p><ul><li>You can check this by running <code>echo $XDG_SESSION_TYPE</code>, and the expected output should be <code>x11</code>.</li></ul></li></ol><h4 id="web-13-8-3-usage-tutorial">8.3 Usage Tutorial</h4><p><strong>8.3.1 Pulling the Image</strong></p><ol><li>Log in to the read-only account of the image repository</li></ol><p>bash</p><pre data-collapsed-line-count="10"><code>docker login tongyong-public-cn-shanghai.cr.volces.com -u crrobot@aima-public-reader -p Aima123456
+</code></pre><ol start="2"><li>Pull the corresponding image</li></ol><p>bash</p><pre data-collapsed-line-count="10"><code>docker pull tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
+</code></pre><p><strong>8.3.2 Starting the Image</strong></p><ol><li><p>Allow Docker to access the display, which is used to configure the access control list for the X Window System. Running <code>xhost +</code> will allow all hosts to connect to the current user's X server, effectively disabling access control for the X server and allowing any user to access and operate it.bash</p><pre data-collapsed-line-count="10"><code>xhost +
+</code></pre></li><li><p>Start the Docker containerbash</p><pre data-collapsed-line-count="10"><code>docker run -it \
 --name=a2-lite-sim \
 --privileged \
 --net=host \
@@ -1180,7 +1221,7 @@ look-at-left-arm/1758103505321711264
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro \
 -d tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
-</code></pre><p><br>If you find that the simulation interface runs sluggishly on a machine with an NVIDIA graphics card after starting the container with the above command, try using the following command to start the container:bash</p><pre><code>docker run -it \
+</code></pre><p><br>If you find that the simulation interface runs sluggishly on a machine with an NVIDIA graphics card after starting the container with the above command, try using the following command to start the container:bash</p><pre data-collapsed-line-count="10"><code>docker run -it \
         --name=a2-lite-sim \
         --gpus all \
         --privileged \
@@ -1193,42 +1234,42 @@ look-at-left-arm/1758103505321711264
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro \
         -d tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
-</code></pre></li><li><p>Enter the containerbash</p><pre><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
-</code></pre></li></ol><p><strong>8.3.3 Starting the Simulation, Motion Control, and Action Playback Modules</strong></p><ol><li><p>After entering the image, run the following command to start the simulationbash</p><pre><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
+</code></pre></li><li><p>Enter the containerbash</p><pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
+</code></pre></li></ol><p><strong>8.3.3 Starting the Simulation, Motion Control, and Action Playback Modules</strong></p><ol><li><p>After entering the image, run the following command to start the simulationbash</p><pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
 
 cd /home/agi/a2_simulation/mujoco_sim/bin
 ./start_a2_lite.sh
-</code></pre></li><li><p>In a new window, connect to the container and start the motion control programbash</p><pre><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
+</code></pre></li><li><p>In a new window, connect to the container and start the motion control programbash</p><pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
 
 cd /home/agi/a2_simulation/motion_control_lite_2.0.10/scripts/motion_control
 ./start_motion_control.sh
-</code></pre></li><li><p>In another new window, connect to the container and start the action playback programbash</p><pre><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
+</code></pre></li><li><p>In another new window, connect to the container and start the action playback programbash</p><pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
 
 cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 ./start_motion_player.sh
-</code></pre></li></ol><p><strong>8.3.4 Controlling Robot Walking</strong></p><p>Here, we will use robot walking as an example to explain the basic logic of calling a motion control interface. For other interfaces, refer to the motion control interface documentation and example scripts.</p><ol><li><p>Open a new window, enter the container, and switch the motion control Action to the joint standing mode (RL_JOINT_DEFAULT)bash</p><pre><code>cd /home/agi/a2_simulation/tools-lite/motion_control
+</code></pre></li></ol><p><strong>8.3.4 Controlling Robot Walking</strong></p><p>Here, we will use robot walking as an example to explain the basic logic of calling a motion control interface. For other interfaces, refer to the motion control interface documentation and example scripts.</p><ol><li><p>Open a new window, enter the container, and switch the motion control Action to the joint standing mode (RL_JOINT_DEFAULT)bash</p><pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_control
 ./SetAction.py # Select the number corresponding to RL_JOINT_DEFAULT
-</code></pre></li><li><p>Click the Load-Key button in the mujoco_sim interface to stabilize the robot<br></p><div><figure><img src="../../.gitbook/assets/unknown (146).webp" alt="Official AgiBot illustration"><figcaption><p>Official AgiBot illustration</p></figcaption></figure></div></li><li><p>Continue to switch the motion control Action to the enhanced walking mode (RL_LOCOMOTION_DEFAULT)bash</p><pre><code>cd /home/agi/a2_simulation/tools-lite/motion_control
+</code></pre></li><li><p>Click the Load-Key button in the mujoco_sim interface to stabilize the robot<br></p><div><figure><img src="../../.gitbook/assets/unknown (146).webp" alt="Official AgiBot illustration"><figcaption><p>Official AgiBot illustration</p></figcaption></figure></div></li><li><p>Continue to switch the motion control Action to the enhanced walking mode (RL_LOCOMOTION_DEFAULT)bash</p><pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_control
 ./SetAction.py # Select the number corresponding to RL_LOCOMOTION_DEFAULT
-</code></pre></li><li><p>Call the walking example scriptbash</p><pre><code>source /home/agi/a2_simulation/prebuilt/ros2_plugin_proto_x86_64/share/ros2_plugin_proto/local_setup.bash
+</code></pre></li><li><p>Call the walking example scriptbash</p><pre data-collapsed-line-count="10"><code>source /home/agi/a2_simulation/prebuilt/ros2_plugin_proto_x86_64/share/ros2_plugin_proto/local_setup.bash
 ./walk.py
-</code></pre></li></ol><p><strong>8.3.5 Controlling Robot to Perform Actions</strong></p><ol><li><p>Switch the motion control state to the enhanced walking upper limb servo mode (RL_LOCOMOTION_ARM_EXT_JOINT_SERVO)bash</p><pre><code>cd /home/agi/a2_simulation/tools-lite/motion_control
+</code></pre></li></ol><p><strong>8.3.5 Controlling Robot to Perform Actions</strong></p><ol><li><p>Switch the motion control state to the enhanced walking upper limb servo mode (RL_LOCOMOTION_ARM_EXT_JOINT_SERVO)bash</p><pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_control
 ./SetAction.py # Select the number corresponding to RL_LOCOMOTION_ARM_EXT_JOINT_SERVO
-</code></pre></li><li><p>Call the SendMotionCommand interface to perform the actionbash</p><pre><code>cd /home/agi/a2_simulation/tools-lite/motion_player
+</code></pre></li><li><p>Call the SendMotionCommand interface to perform the actionbash</p><pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_player
 ./send_motion_id.sh /agibot/data/resources/default/motion/motion_player/default/wave-both-hands/wave-both-hands
-</code></pre></li></ol><h3 id="troubleshooting-interface-calls">9. Troubleshooting Interface Call Issues</h3><h4 id="web-14-9-1-troubleshooting-approach">9.1 Troubleshooting Approach</h4><p>The general troubleshooting methods for HTTP JSON RPC and ROS2 Topic are different, but there are also some common troubleshooting methods for on-board issues.</p><p><strong>9.1.1 HTTP JSON RPC</strong></p><ol><li>Check if the corresponding IP is the correct x86 industrial PC IP and if it can be pinged.</li><li>Check if the HTTP URL is correct; you can refer to the example scripts or interface documentation.</li><li>Check if the corresponding service is started on the port. After SSHing into the x86, you can use the command <code>lsof -i:xxxx</code> in the terminal to check if the service is running on the port.</li><li>If you get a "Connection Refused" error, it means the IP might not be reachable or the service on the port has not started.</li><li>If you get an "HTTP deserialize failed" error, it means the JSON body fields might be incorrectly filled. You can refer to the example scripts or interface documentation for comparison.</li></ol><p><strong>9.1.2 ROS2 Topic</strong></p><ol><li>Check if the on-board ROS2 DDS configuration includes the IP of the network card being used. Ensure that both privileged and non-privileged configurations correctly add the network card IP. After adding, a full reboot is required.</li><li>Check if you are using the ROS2 Humble with Fastdds version.</li><li>Check if the local environment variables <code>ROS_DOMAIN_ID=232</code> and <code>ROS_LOCALHOST_ONLY=0</code> are loaded. The exported environment variables only take effect in the current terminal. A new terminal will need to re-export these variables. You can use the command <code>env | grep ROS</code> to view the relevant environment variable settings in the current terminal.</li><li><p>Ensure that the QoS of the topic is consistent with the default QoS on the board.yaml</p><pre><code>  history: keep_last
+</code></pre></li></ol><h3 id="troubleshooting-interface-calls">9. Troubleshooting Interface Call Issues</h3><h4 id="web-14-9-1-troubleshooting-approach">9.1 Troubleshooting Approach</h4><p>The general troubleshooting methods for HTTP JSON RPC and ROS2 Topic are different, but there are also some common troubleshooting methods for on-board issues.</p><p><strong>9.1.1 HTTP JSON RPC</strong></p><ol><li>Check if the corresponding IP is the correct x86 industrial PC IP and if it can be pinged.</li><li>Check if the HTTP URL is correct; you can refer to the example scripts or interface documentation.</li><li>Check if the corresponding service is started on the port. After SSHing into the x86, you can use the command <code>lsof -i:xxxx</code> in the terminal to check if the service is running on the port.</li><li>If you get a "Connection Refused" error, it means the IP might not be reachable or the service on the port has not started.</li><li>If you get an "HTTP deserialize failed" error, it means the JSON body fields might be incorrectly filled. You can refer to the example scripts or interface documentation for comparison.</li></ol><p><strong>9.1.2 ROS2 Topic</strong></p><ol><li>Check if the on-board ROS2 DDS configuration includes the IP of the network card being used. Ensure that both privileged and non-privileged configurations correctly add the network card IP. After adding, a full reboot is required.</li><li>Check if you are using the ROS2 Humble with Fastdds version.</li><li>Check if the local environment variables <code>ROS_DOMAIN_ID=232</code> and <code>ROS_LOCALHOST_ONLY=0</code> are loaded. The exported environment variables only take effect in the current terminal. A new terminal will need to re-export these variables. You can use the command <code>env | grep ROS</code> to view the relevant environment variable settings in the current terminal.</li><li><p>Ensure that the QoS of the topic is consistent with the default QoS on the board.yaml</p><pre data-collapsed-line-count="10"><code>  history: keep_last
   depth: 10
   reliability: best_effort
-</code></pre></li><li>After SSHing into the x86 industrial PC, execute <code>aima em load-env</code> (to load the ROS2 environment variables) and then use the <code>ros2 topic</code> command to check if the related topics are being sent or received by any modules.</li></ol><p><strong>9.1.3 Common Troubleshooting Methods</strong></p><ol><li>Use AimMaster to check if the robot has any health alerts. In the case of a robot fault, it may affect some interface calls. For example, if there is a joint fault, the motion control interface may not function properly.</li><li>If not connected to AimMaster, you can log in to the robot's x86 industrial PC and execute the <code>aima doctor</code> command to quickly view health alert information.</li></ol><h4 id="web-14-9-2-common-interface-questions">9.2 Common Interface Questions</h4><ol><li><p>Why does calling the upper limb action interface or neck interface result in no response or severe shaking?</p><ol><li>First, confirm that the robot is in the corresponding Action mode, which should end with JOINT_SERVO.</li><li>In the JOINT_SERVO mode, the control of the upper limbs and neck is preempted by the motion playback module. You need to call the DisableMotionPlayer interface to disable the control of the motion playback module before you can normally call the upper limb or neck control interfaces.</li></ol><p>yaml</p><pre><code>curl -i \
+</code></pre></li><li>After SSHing into the x86 industrial PC, execute <code>aima em load-env</code> (to load the ROS2 environment variables) and then use the <code>ros2 topic</code> command to check if the related topics are being sent or received by any modules.</li></ol><p><strong>9.1.3 Common Troubleshooting Methods</strong></p><ol><li>Use AimMaster to check if the robot has any health alerts. In the case of a robot fault, it may affect some interface calls. For example, if there is a joint fault, the motion control interface may not function properly.</li><li>If not connected to AimMaster, you can log in to the robot's x86 industrial PC and execute the <code>aima doctor</code> command to quickly view health alert information.</li></ol><h4 id="web-14-9-2-common-interface-questions">9.2 Common Interface Questions</h4><ol><li><p>Why does calling the upper limb action interface or neck interface result in no response or severe shaking?</p><ol><li>First, confirm that the robot is in the corresponding Action mode, which should end with JOINT_SERVO.</li><li>In the JOINT_SERVO mode, the control of the upper limbs and neck is preempted by the motion playback module. You need to call the DisableMotionPlayer interface to disable the control of the motion playback module before you can normally call the upper limb or neck control interfaces.</li></ol><p>yaml</p><pre data-collapsed-line-count="10"><code>curl -i \
     -H 'content-type:application/json' \
     -H 'timeout: 1000' \
     -X POST http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer \
     -d '{}'
-</code></pre></li><li><p>Why does calling any motion playback only result in the right hand lifting action?</p><ol><li>This is the default action of the motion playback module. When the <code>motion_id</code> parameter is incorrect, it will default to this action.</li><li><p>A correct motion path should find the corresponding .db file and pass the complete path without the .db suffix, for example:bash</p><pre><code>/agibot/data/resources/default/motion/motion_player/default/wave-both-hands/wave-both-hands
+</code></pre></li><li><p>Why does calling any motion playback only result in the right hand lifting action?</p><ol><li>This is the default action of the motion playback module. When the <code>motion_id</code> parameter is incorrect, it will default to this action.</li><li><p>A correct motion path should find the corresponding .db file and pass the complete path without the .db suffix, for example:bash</p><pre data-collapsed-line-count="10"><code>/agibot/data/resources/default/motion/motion_player/default/wave-both-hands/wave-both-hands
 </code></pre></li></ol></li></ol><h4 id="web-14-9-3-feedback-channels">9.3 Feedback Channels</h4><p>If you encounter bugs in secondary development interfaces, you can provide feedback through the following channels:</p><p><a href="https://agirobot.feishu.cn/share/base/form/shrcndpGW6r8FIdt2mT3uX02z6k">https://agirobot.feishu.cn/share/base/form/shrcndpGW6r8FIdt2mT3uX02z6k</a></p><p>Note</p><ol><li>This channel is only for answering questions or reporting bugs related to secondary development interfaces. For robot body faults or after-sales maintenance, please contact the delivery, operation, and after-sales teams directly. Unrelated issues will not be responded to.</li><li>Please describe the problem in detail in the form, preferably providing reproducible steps. Clear and detailed problem descriptions will be given priority, while vague and general descriptions will have lower priority and may be ignored.</li><li>Please fill out all information carefully. Inconsistent or casually filled forms will be ignored.</li><li>Each ticket should focus on a single or similar issue. Do not mix multiple issues in one ticket, as this will significantly delay the processing time.</li></ol><h4 id="web-15-title-2-frequently-asked-questions-hideh1-true">title: 2. Frequently Asked Questions hideH1: true</h4><h3 id="frequently-asked-questions">2. Frequently Asked Questions</h3><h4 id="web-15-2-1-what-is-the-onboard-software-version">2.1 What is the onboard software version?</h4><p>The A2 robot comes with a series of onboard software, which will be upgraded along with the OTA (Over-The-Air) updates.</p><p>Generally, the software version (current application version) is printed when you ssh into the robot, and it can also be viewed through the AimMaster software. The version number is usually in the format of 1.2.x.</p><h4 id="web-15-2-2-what-are-p1-and-t3">2.2 What are P1 and T3?</h4><p>P1 and T3 are the hardware models of the A2 robot. The main difference between these hardware models lies in the configuration of the industrial PC, including network card configurations, but the system performance and upper-layer interfaces are generally unified.</p><p>After logging into the x86 industrial PC via ssh, you can check the /etc/bsp_version file to confirm the version. If this file exists, it is P1; if it does not exist, it is T3.</p><h4 id="web-15-2-3-how-to-handle-the-over-speed-anomaly-reported-by-the-arm-joint-motor">2.3 How to handle the over-speed anomaly reported by the arm joint motor?</h4><div><figure><img src="../../.gitbook/assets/unknown (147).webp" alt="2.3 How to handle the over-speed anomaly reported by the arm joint motor?"><figcaption><p>2.3 How to handle the over-speed anomaly reported by the arm joint motor?</p></figcaption></figure></div><p>Reason: When calling the arm interface, there is a step change between the input position and the current position, leading to an over-speed condition that triggers current limiting. At this point, the embedded system will disable the joint for protection and report the alarm.</p><p>Solution: In most cases, restarting the robot will resolve the issue. To avoid this problem, when calling the arm ROS2 Topic interface, filter and smooth the joint positions before passing them in, ensuring that the input values do not have a large step change compared to the current state.</p><h4 id="web-15-2-4-is-it-possible-to-develop-your-own-motion-control-program">2.4 Is it possible to develop your own motion control program?</h4><p>By default, the low-level control interfaces for the lower limb joint motors are not open, and they can only be controlled through high-level speed commands. If you need to develop your own motion control algorithms to replace the ones provided by Agibot, please contact the sales or project manager to obtain the motion control development and deployment guide.</p></li></ul></li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.OTAService/GetRobotOtaInfo</code></td></tr><tr><td>Function Summary</td><td>Retrieve software version information</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:57900/rpc/aimdk.protocol.OTAService/GetRobotOtaInfo</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.OTAService/GetRobotOtaInfo</code></td></tr><tr><td>Function Summary</td><td>Retrieve software version information</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:57900/rpc/aimdk.protocol.OTAService/GetRobotOtaInfo</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "robot_info": {
     "model": "A2_T3D1_LITE"
   },
@@ -1244,8 +1285,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>apk_version: Software version information</li></ul><p>Other fields are not of concern.</p></td></tr><tr><td>Example Script</td><td>examples/status/get_version_info.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalEmergencyService/GetEmergencyState</code></td></tr><tr><td>Function Summary</td><td>Retrieve emergency stop status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalEmergencyService/GetEmergencyState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalEmergencyService/GetEmergencyState</code></td></tr><tr><td>Function Summary</td><td>Retrieve emergency stop status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalEmergencyService/GetEmergencyState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "active": true,
     "reason": "Reason_WIRELESS_ESTOP",
@@ -1272,8 +1313,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>active: Whether the emergency stop is triggered</li><li>reason: Reason for the emergency stop</li><li>wireless_emergency_stop: Whether the wireless emergency stop is triggered</li><li>software_emergency_stop: Whether the software emergency stop is triggered</li></ul><p>Other fields are not of concern.</p></td></tr><tr><td>Example Script</td><td>examples/status/get_estop_status.sh</td></tr><tr><td>Notes</td><td><ul><li>The soft emergency stop interface is not yet open for secondary development, and cannot be triggered via the interface.</li><li>If an empty JSON body is returned, it indicates that all parameters are at their default values, meaning the emergency stop has not been triggered.</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalBmsService/GetBmsState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalBmsService/GetBmsState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalBmsService/GetBmsState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalBmsService/GetBmsState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "ver": {
       "hardware_major": 49,
@@ -1305,8 +1346,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>ver: Version information</li><li>voltage: Current voltage, unit mV</li><li>current: Current current, unit mA</li><li>power: Current power, unit mW</li><li>temperature: Current temperature, unit 0.1 degrees Celsius</li><li>capacity: Current capacity, unit: mAh</li><li>charge: Current charge percentage</li><li>power_supply_health: Not currently available</li><li><p>power_supply_status: Charging status</p><ul><li>PowerSupplyStatus_IDEL</li><li>PowerSupplyStatus_CHARGING</li><li>PowerSupplyStatus_FULL</li></ul></li><li>cycles_num: Number of cycles</li><li>cycles_capacity: Cycle capacity (total charge and discharge capacity of the current battery pack), unit: Ah</li><li><p>abnormal_state: Abnormal status</p><ul><li>PowerAbnormalStatus_NORMAL</li><li>PowerAbnormalStatus_SHORT_CIRCUIT</li><li>PowerAbnormalStatus_DISCHARGE_OVERCURRENT</li><li>PowerAbnormalStatus_CHARGING_OVERCURRENT</li><li>PowerAbnormalStatus_UNDERVOLTAGE</li><li>PowerAbnormalStatus_OVERVOLTAGE</li><li>PowerAbnormalStatus_EXCEED_DISCHARGE_TEMP_LIMIT</li><li>PowerAbnormalStatus_EXCEED_CHARGING_TEMP_LIMIT</li></ul></li><li><p>charger_state: Whether the charger is plugged in</p><ul><li>ChargerNotPulgin</li><li>ChargerConnected</li></ul></li><li><p>bms_state: Whether the battery is connected</p><ul><li>BatteryStatus_NotPulgin</li><li>BatteryStatus_Connected</li></ul></li><li>max_current: Maximum current</li><li><p>battery_firmware_type: Battery pack firmware version</p><ul><li>BatteryFirmwareType_OLD</li><li>BatteryFirmwareType_NEW</li></ul></li><li><p>battery_key_state: Battery pack key status</p><ul><li>BatteryKeyStatus_SHORT_CURCUIT</li><li>BatteryKeyStatus_CONNECTED</li></ul></li><li><p>battery_pack_state: Battery pack abnormal status</p><ul><li>BatteryPackStatus_NORMAL</li><li>BatteryPackStatus_ABNORMAL</li></ul></li><li><p>battery_comm_state: Battery pack communication status</p><ul><li>BatteryCommunication_NORMAL</li><li>BatteryCommunication_ABNORMAL</li></ul></li></ul></td></tr><tr><td>Example Script</td><td>examples/status/get_bms_status.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.SystemService/GetSystemState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:51011/rpc/aimdk.protocol.SystemService/GetSystemState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.SystemService/GetSystemState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:51011/rpc/aimdk.protocol.SystemService/GetSystemState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -1318,10 +1359,10 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li><p>cur_state: Current system state</p><ul><li>Startup: Starting up state</li><li>Ready: Startup completed state</li><li>Manual: Manual operation state</li><li>MotionStream: Remote operation state</li><li>OTA: Remote upgrade state</li><li>Estop: Emergency stop state</li><li>Poweroff: Power off state</li><li>Reboot: Rebooting state</li><li>Reset: Resetting state</li><li>Safe: Safe state</li></ul></li><li><p>cur_status: Current system condition</p><ul><li>SystemStatus_IN_INITIAL: Initializing</li><li>SystemStatus_IN_READY: Transition completed</li><li>SystemStatus_IN_MOVE: Transitioning</li><li>SystemStatus_IN_ROLLBACK: Rolling back</li><li>SystemStatus_IN_RECOVERY: Recovering</li></ul></li></ul></td></tr><tr><td>Example Script</td><td>examples/status/get_system_status.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/ClearAlert</code></td></tr><tr><td>Function Summary</td><td>Attempt to clear an alert, requiring the alert ID to be passed in</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/ClearAlert</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/ClearAlert</code></td></tr><tr><td>Function Summary</td><td>Attempt to clear an alert, requiring the alert ID to be passed in</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/ClearAlert</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "id": "c92f2fdd-cea5-4209-b02f-d0eb62ae18ce"
 }
-</code></pre><ul><li>id: You need to fill in the specific alert ID, which can be obtained through the GetAlertList interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>id: You need to fill in the specific alert ID, which can be obtained through the GetAlertList interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "1",
     "msg": "clear alert failed!",
@@ -1334,8 +1375,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>data: The alert ID passed in</li><li>The header returns information about whether the current clearing was successful, a code of 0 indicates success</li></ul></td></tr><tr><td>Example Script</td><td>examples/hds/clear_alert.sh</td></tr><tr><td>Notes</td><td><ul><li>Although the emergency stop alert has manual_clear set to true, it will still fail to clear. The emergency stop must be manually released before it can be cleared.</li><li>In general, do not call this interface to clear alerts. Please fully understand the meaning of the alert before considering using this interface to clear it.</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/GetAlertList</code></td></tr><tr><td>Function Summary</td><td>Get the current alert list</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/GetAlertList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/GetAlertList</code></td></tr><tr><td>Function Summary</td><td>Get the current alert list</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/GetAlertList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "alerts": [
       {
@@ -1369,11 +1410,11 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>id: The ID of this alert</li><li>appeared_timestamp: The timestamp when the alert appeared</li><li>disappeared_timestamp: The timestamp when the alert disappeared</li><li>alert_code: The alert code</li><li><p>state: The alert state</p><ul><li>AlertState_UNDEFINED: Unknown</li><li>AlertState_ACTIVE: In alert</li><li>AlertState_CLEARED: Cleared</li><li>AlertState_ExceptionChanged: Alert with changed exception</li><li>AlertState_Recovering: Recovering</li></ul></li><li>exception_list: The list of exceptions</li><li><p>exception_list[i].type: The type of exception</p><ul><li>ExceptionType_Normal: Normal type, this type of exception needs to be reported periodically</li><li>ExceptionType_Trigger_Appear: Triggered exception (reported once when the exception occurs), set this exception to the occurrence state</li><li>ExceptionType_Trigger_Disappear: Triggered exception (reported once when the exception disappears), set this exception to the disappearance state</li></ul></li><li>exception_list[i].module_id: The ID of the module where the exception occurred</li><li>exception_list[i].code: The module exception code</li><li>exception_list[i].info: The exception information</li><li>exception_list[i].module_name: The name of the module</li><li>description: The alert description</li><li><p>level: The alert level</p><ul><li>AlertLevel_UNDEFINED: No alert</li><li>AlertLevel_FATAL: Fatal alert</li><li>AlertLevel_SERIOUS: Serious alert</li><li>AlertLevel_WARNING: Warning alert</li><li>AlertLevel_HIDDEN_DANGERS: The current system has potential hazards</li><li>AlertLevel_STATUS: The current system has status-related alerts</li></ul></li><li>manual_clear: Whether manual clearing is supported</li><li><p>show_type: The type of alert display</p><ul><li>AlertShowType_Normal</li><li>AlertShowType_Toast</li></ul></li><li>solution_list: The list of solutions</li><li>solution_list[i].type: The type of solution</li><li>solution_list[i].content: The content of the solution</li></ul></td></tr><tr><td>Example Script</td><td>examples/hds/get_alert_list.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/SetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Adjust the volume</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/SetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/SetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Adjust the volume</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/SetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "audio_volume": 70,
   "is_mute": false
 }
-</code></pre><ul><li>audio_volume: Volume level, a value between 0-100. <strong>Note: Do not set the volume above 70, as exceeding this range will cause the speaker to exceed its rated operating capacity, leading to damage</strong></li><li>is_mute: Whether muted</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>audio_volume: Volume level, a value between 0-100. <strong>Note: Do not set the volume above 70, as exceeding this range will cause the speaker to exceed its rated operating capacity, leading to damage</strong></li><li>is_mute: Whether muted</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "SetAudioVolume successfully",
@@ -1385,8 +1426,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>pkg_name: Invalid field, no need to pay attention</li><li>is_success: Invalid field, no need to pay attention</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/set_audio_volume.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/GetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Get the current volume level</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/GetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/GetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Get the current volume level</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/GetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "GetAudioVolume successfully",
@@ -1398,24 +1439,24 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>audio_volume: Volume level, a value between 0-100</li><li>is_mute: Whether muted</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/get_audio_volume.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTS</code></td></tr><tr><td>Function Summary</td><td>Terminate all audio file playback, including the current playback task and all tasks in the queue</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTS</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTS</code></td></tr><tr><td>Function Summary</td><td>Terminate all audio file playback, including the current playback task and all tasks in the queue</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTS</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_UNKNOWN"
 }
 </code></pre><ul><li>state: Request status, no need to pay attention to the specific value, HTTP request returning 200 indicates success</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/stop_all.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTSTraceId</code></td></tr><tr><td>Function Summary</td><td>Interrupt a single file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTSTraceId</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTSTraceId</code></td></tr><tr><td>Function Summary</td><td>Interrupt a single file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTSTraceId</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "trace_id": "hafhjkqwjwefk"
 }
-</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_UNKNOWN"
 }
 </code></pre><ul><li>state: Request status, no need to pay attention to the specific value, HTTP request returning 200 indicates success</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/stop_trace_id.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/GetAudioStatus</code></td></tr><tr><td>Function Summary</td><td>Audio file playback status query</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/GetAudioStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/GetAudioStatus</code></td></tr><tr><td>Function Summary</td><td>Audio file playback status query</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/GetAudioStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "trace_id": "hafhjkqwjwefk"
 }
-</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "tts_status": {
     "text": "",
     "priority": 0,
@@ -1427,14 +1468,14 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li><p>tts_status: Playback status, enumeration values</p><ul><li>TTSConfigStatusType_Unknown: Unknown status</li><li>TTSStatusType_Begin: Start playback, brief, usually not queried</li><li>TTSStatusType_Playing: Playing</li><li>TTSStatusType_End: End of playback, brief, usually not queried</li><li>TTSStatusType_Stop: Pause playback/cancel playback/interrupt playback</li><li>TTSStatusType_Error: Playback failed</li><li>TTSStatusType_InQue: In the playback queue, not yet started</li><li>TTSStatusType_NOTInQue: No such text in the playback queue, not playing, enters this state after playback ends</li></ul></li><li>The rest of the fields are invalid and do not need to be paid attention to</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/get_audio_status.sh</td></tr><tr><td>Notes</td><td>A successful playback queried through this RPC interface generally returns InQue, Playing, and NOTInQue states</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/PlayMediaFile</code></td></tr><tr><td>Function Summary</td><td>Audio file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/PlayMediaFile</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/PlayMediaFile</code></td></tr><tr><td>Function Summary</td><td>Audio file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/PlayMediaFile</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "file_name": "wake.pcm",
   "priority_level": "INTERACTION_L6",
   "domain": "example",
   "trace_id": "hafhjkqwjwefk",
   "is_interrupted": true
 }
-</code></pre><ul><li>file_name: File name (stored in <code>/agibot/data/var/interaction/audio/</code>, for example, wake.pcm. The file should be a 24kHz, 16-bit, mono PCM file. A separate folder needs to be created, and the input should be in the format of folder name/file name, such as file/wake.pcm)</li><li>priority_level: Priority level, keep INTERACTION_L6</li><li>domain: Caller source identifier, you can pass in a custom client string for easier troubleshooting, etc.</li><li>trace_id: Playback ID, if you need to get the playback status, you need to pass this field and use its value as the parameter to query the playback status</li><li>is_interrupted: Whether to interrupt playback of the same priority, please default to true. For queue playback requirements, you can use false</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>file_name: File name (stored in <code>/agibot/data/var/interaction/audio/</code>, for example, wake.pcm. The file should be a 24kHz, 16-bit, mono PCM file. A separate folder needs to be created, and the input should be in the format of folder name/file name, such as file/wake.pcm)</li><li>priority_level: Priority level, keep INTERACTION_L6</li><li>domain: Caller source identifier, you can pass in a custom client string for easier troubleshooting, etc.</li><li>trace_id: Playback ID, if you need to get the playback status, you need to pass this field and use its value as the parameter to query the playback status</li><li>is_interrupted: Whether to interrupt playback of the same priority, please default to true. For queue playback requirements, you can use false</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "text": "wake.pcm",
   "priority_level": "INTERACTION_L6",
   "priority_weight": 0,
@@ -1446,32 +1487,32 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>text: File name</li><li>priority_level: Priority level, no need to pay attention</li><li>pritority_weight: Priority weight, no need to pay attention</li><li>domain: Caller source identifier, returns the custom string passed in the request for easier troubleshooting</li><li>trace_id: Playback ID, returns the custom string passed in the request for easier troubleshooting</li><li>is_success: Whether the priority check was successful, generally true, but it does not mean it will play. For example, passing an incorrect or non-existent file name will still return true. Only when there is a higher-priority content being played, such as a fault alarm, will it return true</li><li>estimated_duration: Invalid field, no need to pay attention, unable to estimate playback duration</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/play_media_file.sh</td></tr><tr><td>Notes</td><td><ul><li>Supports standard 44-byte header Linear PCM wav files. Other header formats and compressed formats are not supported. It is recommended to use 24kHz, 16-bit, mono PCM files</li><li>If an incorrect or non-existent file name is passed, it will silently fail without playing, and is_success will return true</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module to control the neck, start continuously sending neck control instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module to control the neck, start continuously sending neck control instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/enable_neck_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module from controlling the neck motor, the process will not exit, and no neck instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module from controlling the neck motor, the process will not exit, and no neck instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/disable_neck_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module, start continuously sending instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module, start continuously sending instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/enable_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module, the process will not exit, and no instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module, the process will not exit, and no instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/disable_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/</code>GetMotionStatus</td></tr><tr><td>Function Summary</td><td>Get the action playback status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/GetMotionStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/</code>GetMotionStatus</td></tr><tr><td>Function Summary</td><td>Get the action playback status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/GetMotionStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -1490,14 +1531,14 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>time_to_end_ms: Time remaining until the end of the action, in milliseconds</li><li><p>status: Action playback status</p><ul><li>MotionCommandStatus_IDLE: No action, idle</li><li>MotionCommandStatus_START: Action starts playing</li><li>MotionCommandStatus_OPERATING: Action is playing</li><li>MotionCommandStatus_PAUSE: State when calling the action playback interface with cmd_pause=true</li><li>MotionCommandStatus_STOP: State after calling DisableMotionPlayer</li></ul></li><li>is_neck_enable: Whether the neck is controlled by the motion_player</li><li>motion_id: Action name</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/get_motion_status.sh</td></tr><tr><td>Notes</td><td>This interface call code is <strong>T2</strong>, and can only be called under the JOINT_SERVO suffix motion control Action</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/SendMotionCommand</code></td></tr><tr><td>Function Summary</td><td>Play the specified action file</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/SendMotionCommand</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/SendMotionCommand</code></td></tr><tr><td>Function Summary</td><td>Play the specified action file</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/SendMotionCommand</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "motion_id": "/agibot/data/resources/default/motion/motion_player/default/Wave Both Hands/Wave Both Hands",
   "duration_ms": 10000,
   "cmd_end": true,
   "cmd_pause": false,
   "cmd_reset": false
 }
-</code></pre><ul><li><p>motion_id: Absolute path of the action file, up to the last .db file, without the .db suffix, for example:</p><ul><li>/agibot/data/resources/default/motion/motion_player/default/Wave Both Hands/Wave Both Hands</li></ul></li><li>duration_ms: An invalid field, leave it as is</li><li>cmd_end: Whether to automatically return to the initial posture after the action is executed, <code>true</code> indicates automatic reset, <code>false</code> indicates no automatic reset</li><li>cmd_pause: Action pause flag, <code>true</code> indicates pause, which will stop sending control signals to the robot, generally not used</li><li>cmd_reset: Reset flag, <code>true</code> indicates reset, <code>false</code> indicates no reset. The reset operation will reset the current action state to the initial state</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li><p>motion_id: Absolute path of the action file, up to the last .db file, without the .db suffix, for example:</p><ul><li>/agibot/data/resources/default/motion/motion_player/default/Wave Both Hands/Wave Both Hands</li></ul></li><li>duration_ms: An invalid field, leave it as is</li><li>cmd_end: Whether to automatically return to the initial posture after the action is executed, <code>true</code> indicates automatic reset, <code>false</code> indicates no automatic reset</li><li>cmd_pause: Action pause flag, <code>true</code> indicates pause, which will stop sending control signals to the robot, generally not used</li><li>cmd_reset: Reset flag, <code>true</code> indicates reset, <code>false</code> indicates no reset. The reset operation will reset the current action state to the initial state</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -1513,7 +1554,7 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/send_motion_id.sh</td></tr><tr><td>Notes</td><td>This interface call code is <strong>T2</strong>, and can only be called under the JOINT_SERVO suffix motion control Action</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/SelectDanceType</code></td></tr><tr><td>Function Overview</td><td>Full-body dance playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/SelectDanceType</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/SelectDanceType</code></td></tr><tr><td>Function Overview</td><td>Full-body dance playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/SelectDanceType</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "timestamp": {
       "seconds": 1762818960,
@@ -1524,7 +1565,7 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
   },
   "dance_name": "jiangnan"
 }
-</code></pre><ul><li>dance_name: Dance name, which needs to be obtained from the above dance list retrieval interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>dance_name: Dance name, which needs to be obtained from the above dance list retrieval interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -1540,8 +1581,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_control/SelectDanceType.py</td></tr><tr><td>Notes</td><td><ul><li>The call code for this interface is <strong>S1</strong>, and it can only be called in RL_WHOLE_BODY_DANCE mode</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/GetDanceTypeList</code></td></tr><tr><td>Function Overview</td><td>Retrieve the list of supported full-body dances</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetDanceTypeList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/GetDanceTypeList</code></td></tr><tr><td>Function Overview</td><td>Retrieve the list of supported full-body dances</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetDanceTypeList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "dance_name": [
     "Swing Dance",
     "Victory Dance"
@@ -1561,8 +1602,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>dance_name: Dance name, used for input to the play interface</li><li>dance_model_path: Location of the dance model file, no need to pay attention</li><li>dance_data_path: Location of the dance data file, no need to pay attention</li><li>dance_time: Duration of the dance in seconds</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_control/GetDanceTypeList.py</td></tr><tr><td>Notes</td><td><ul><li>This interface has no call restrictions</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McDataService/GetJointState</code></td></tr><tr><td>Function Overview</td><td>Retrieve the state of upper and lower limb joints</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetJointState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McDataService/GetJointState</code></td></tr><tr><td>Function Overview</td><td>Retrieve the state of upper and lower limb joints</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetJointState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "states": [
     {
       "name": "idx01_left_hip_roll",
@@ -1753,7 +1794,7 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 The 6th and 7th joints of both arms are invalid values
 </code></pre></td></tr><tr><td>Example Script</td><td>examples/motion_control/GetJointState.py</td></tr><tr><td>Notes</td><td>This interface has no Action restrictions</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>/motion/control/arm_joint_state</code></td></tr><tr><td>Function Overview</td><td>Arm joint state topic</td></tr><tr><td>Interface Type</td><td>ROS2 Topic</td></tr><tr><td>Output Parameters</td><td><p><a href="https://docs.ros.org/en/humble/p/sensor_msgs/msg/JointState.html">sensor_msgs::msg::JointState</a></p><ul><li>name: 14 joint names, where joints 6 and 7 of both arms are invalid</li><li>position: 14 joint angles, where joints 6 and 7 of both arms are invalid</li><li>velocity: 14 joint velocities, where joints 6 and 7 of both arms are invalid</li><li>effort: 14 joint torques, where joints 6 and 7 of both arms are invalid</li></ul></td></tr><tr><td><p></p><p></p><p><strong>7.1.10 Full-Body Dance Playback RPC Interface</strong></p><h3 id="web-09-7-2-action-playback-section">7.2 Action Playback Section</h3><p><strong>7.2.1 Overview</strong></p><p>The A2 Lite provides basic preset action playback capabilities, with some preset actions pre-installed on the machine (additional actions can be recorded using remote operation devices to meet more personalized needs; for more information, please refer to the relevant documentation on remote operation). The list of default preset actions is as follows:</p><p>text</p><pre><code>wave-both-hands/wave-both-hands
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>/motion/control/arm_joint_state</code></td></tr><tr><td>Function Overview</td><td>Arm joint state topic</td></tr><tr><td>Interface Type</td><td>ROS2 Topic</td></tr><tr><td>Output Parameters</td><td><p><a href="https://docs.ros.org/en/humble/p/sensor_msgs/msg/JointState.html">sensor_msgs::msg::JointState</a></p><ul><li>name: 14 joint names, where joints 6 and 7 of both arms are invalid</li><li>position: 14 joint angles, where joints 6 and 7 of both arms are invalid</li><li>velocity: 14 joint velocities, where joints 6 and 7 of both arms are invalid</li><li>effort: 14 joint torques, where joints 6 and 7 of both arms are invalid</li></ul></td></tr><tr><td><p></p><p></p><p><strong>7.1.10 Full-Body Dance Playback RPC Interface</strong></p><h3 id="web-09-7-2-action-playback-section">7.2 Action Playback Section</h3><p><strong>7.2.1 Overview</strong></p><p>The A2 Lite provides basic preset action playback capabilities, with some preset actions pre-installed on the machine (additional actions can be recorded using remote operation devices to meet more personalized needs; for more information, please refer to the relevant documentation on remote operation). The list of default preset actions is as follows:</p><p>text</p><pre data-collapsed-line-count="10"><code>wave-both-hands/wave-both-hands
 wave-right-hand/wave-right-hand
 right-hand-handshake/right-hand-handshake
 right-hand-handshake_long/right-hand-handshake_long
@@ -1770,11 +1811,11 @@ look-at-right-hand/1758104294863353043
 look-at-right-arm/1758103484383524451
 look-at-left-hand/175810431583786588
 look-at-left-arm/1758103505321711264
-</code></pre><p>The above action files are located in the x86 directory <code>/agibot/data/resources/default/motion/motion_player/default</code>. Custom recorded actions should be placed in the <code>/agibot/data/resources/default/motion/motion_player/custom</code> directory. The above list is obtained by specifying the following command in the corresponding directory:</p><p>bash</p><pre><code>find . -name "*.db" -type f | sed 's|^\./\([^/]*\)/\(.*\)\.db|\1/\2|' | sort
-</code></pre><p>The specific action effects can be viewed using the motion control simulation provided in subsequent chapters or directly on the real machine.</p><p>Onboard action playback is handled by the <code>motion_player</code> module, which controls the arm and neck joints in JOINT_SERVO mode. The basic control principle involves reading and parsing the specified action file, playing the action file at 100 Hz, and sending <code>/motion/control/arm_joint_command</code> and <code>/motion/control/neck_joint_command</code> to the motion control module, which then performs the corresponding actions.</p><p><strong>7.2.2 Action Playback RPC Interface</strong></p><p><strong>7.2.3 Action Playback Status Query RPC Interface</strong></p><p><strong>7.2.4 Disable and Enable Action Playback Module RPC Interface</strong></p><p>The action playback module continuously sends /motion/control/arm_joint_command and /motion/control/neck_joint_command control instructions to the motion control module in JOINT_SERVO mode. If a secondary program also sends instructions, it can cause conflicts. You can use the following interfaces to disable and enable the action playback module.</p><p><strong>7.2.5 Disable and Enable Neck Control for Action Playback RPC Interface</strong></p><p>In some cases, it is necessary to disable the neck's action playback function separately, thereby transferring control of the neck to a secondary program for head tracking, etc. You can use the following interfaces to disable and enable neck control for action playback.</p><h3 id="web-10-7-3-audio-playback-section">7.3 Audio Playback Section</h3><p><strong>7.3.1 Overview</strong></p><p>The A2 Lite robot does not have a microphone and thus cannot perform voice interaction functions. However, it is equipped with a speaker that can play basic audio files and adjust volume. It also supports queue playback, playback status queries, and interruption control logic.</p><p><strong>7.3.2 Audio File Playback RPC Interface</strong></p><p><strong>7.3.3 Audio File Playback Status Query RPC Interface</strong></p><p><strong>7.3.4 Audio File Playback Interruption RPC Interface</strong></p><p>We provide interfaces for interrupting a single file playback and clearing the entire playback queue.</p><p><strong>7.3.5 Volume Get and Set RPC Interfaces</strong></p><h3 id="fault-diagnosis">7.4 Fault Diagnosis Section</h3><p><strong>7.4.1 Overview</strong></p><p>The robot itself provides basic fault diagnosis and health monitoring capabilities, capable of monitoring some basic anomalies and faults, such as joint overheating, sensor failure, system occupancy consistently too high, low battery power, etc.</p><p>There are two basic concepts in fault diagnosis: Alert and Exception. An Alert is a cluster of Exceptions. An Alert represents a broad category of faults, while an Exception is a specific fault. For example, repositioning failure is an Alert, which corresponds to many different failure reasons, each being a specific Exception. AimMaster generally displays Alerts, as Exceptions can be numerous and less intuitive. If you need to continuously monitor the robot's abnormal state, it is recommended to query the current alert list at regular intervals (not too frequently, a frequency of 0.2 Hz or lower is recommended).</p><p>The full list of alerts can be found in the file <code>/agibot/software/v0/config/hds_master/database/alert_info.yaml</code> on the x86 machine.</p><p><strong>7.4.2 Get Current Alert List RPC Interface</strong></p><p><strong>7.4.3 Attempt to Clear Alert RPC Interface</strong></p><h3 id="web-12-7-5-system-status-section">7.5 System Status Section</h3><p><strong>7.5.1 Overview</strong></p><p>System status refers to the state of the software system, which can be referenced in the previous section <em>Software System Overview</em>.</p><p><strong>7.5.2 System Status Retrieval RPC Interface</strong></p><p><strong>7.5.3 BMS Status Retrieval RPC Interface</strong></p><p><strong>7.5.4 Emergency Stop Status Retrieval RPC Interface</strong></p><p>When an emergency stop is triggered, an alert will also be issued, and the emergency stop status can be obtained through the GetAlertList. This section provides a separate interface to query the emergency stop status.</p><p><strong>7.5.5 Software Version Retrieval RPC Interface</strong></p><h3 id="web-13-8-guide-to-motion-control-simulation">8. Guide to Motion Control Simulation</h3><h4 id="web-13-8-1-simulation-description">8.1 Simulation Description</h4><p>We provide a mujoco-based simulation system for the A2 robot, designed to serve as a testing ground for basic calls to the A2 robot's motion control and action playback interfaces. This serves as a basic validation before actual operation, reducing the risk of damaging the robot while facilitating the debugging of secondary development program logic.</p><p><img src="../../.gitbook/assets/unknown (375).webp" alt="Official AgiBot illustration" data-size="original"></p><p>The system runs the mujoco_sim, motion_control, and motion_player components. mujoco_sim acts as the underlying simulation engine, simulating the robot's physical body and hal_ethercat. motion_control interacts with mujoco_sim to exchange control commands and status, thereby controlling the simulated robot. motion_player, on the other hand, calls the high-level interfaces provided by motion_control to play actions. The motion_control and motion_player components are identical to those on the real robot, allowing the system to call all interfaces of the motion control and action playback modules.</p><h4 id="web-13-8-2-prerequisites">8.2 Prerequisites</h4><p>This simulation system is provided as a container image, containing executable files for each component, action resource files, and calling scripts. To use this simulation system, the following conditions must be met:</p><ol><li>An x86_64 architecture Linux system with Docker installed.</li><li><p>An X11 desktop system.</p><ul><li>You can check this by running <code>echo $XDG_SESSION_TYPE</code>, and the expected output should be <code>x11</code>.</li></ul></li></ol><h4 id="web-13-8-3-usage-tutorial">8.3 Usage Tutorial</h4><p><strong>8.3.1 Pulling the Image</strong></p><ol><li>Log in to the read-only account of the image repository</li></ol><p>bash</p><pre><code>docker login tongyong-public-cn-shanghai.cr.volces.com -u crrobot@aima-public-reader -p Aima123456
-</code></pre><ol start="2"><li>Pull the corresponding image</li></ol><p>bash</p><pre><code>docker pull tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
-</code></pre><p><strong>8.3.2 Starting the Image</strong></p><ol><li><p>Allow Docker to access the display, which is used to configure the access control list for the X Window System. Running <code>xhost +</code> will allow all hosts to connect to the current user's X server, effectively disabling access control for the X server and allowing any user to access and operate it.bash</p><pre><code>xhost +
-</code></pre></li><li><p>Start the Docker containerbash</p><pre><code>docker run -it \
+</code></pre><p>The above action files are located in the x86 directory <code>/agibot/data/resources/default/motion/motion_player/default</code>. Custom recorded actions should be placed in the <code>/agibot/data/resources/default/motion/motion_player/custom</code> directory. The above list is obtained by specifying the following command in the corresponding directory:</p><p>bash</p><pre data-collapsed-line-count="10"><code>find . -name "*.db" -type f | sed 's|^\./\([^/]*\)/\(.*\)\.db|\1/\2|' | sort
+</code></pre><p>The specific action effects can be viewed using the motion control simulation provided in subsequent chapters or directly on the real machine.</p><p>Onboard action playback is handled by the <code>motion_player</code> module, which controls the arm and neck joints in JOINT_SERVO mode. The basic control principle involves reading and parsing the specified action file, playing the action file at 100 Hz, and sending <code>/motion/control/arm_joint_command</code> and <code>/motion/control/neck_joint_command</code> to the motion control module, which then performs the corresponding actions.</p><p><strong>7.2.2 Action Playback RPC Interface</strong></p><p><strong>7.2.3 Action Playback Status Query RPC Interface</strong></p><p><strong>7.2.4 Disable and Enable Action Playback Module RPC Interface</strong></p><p>The action playback module continuously sends /motion/control/arm_joint_command and /motion/control/neck_joint_command control instructions to the motion control module in JOINT_SERVO mode. If a secondary program also sends instructions, it can cause conflicts. You can use the following interfaces to disable and enable the action playback module.</p><p><strong>7.2.5 Disable and Enable Neck Control for Action Playback RPC Interface</strong></p><p>In some cases, it is necessary to disable the neck's action playback function separately, thereby transferring control of the neck to a secondary program for head tracking, etc. You can use the following interfaces to disable and enable neck control for action playback.</p><h3 id="web-10-7-3-audio-playback-section">7.3 Audio Playback Section</h3><p><strong>7.3.1 Overview</strong></p><p>The A2 Lite robot does not have a microphone and thus cannot perform voice interaction functions. However, it is equipped with a speaker that can play basic audio files and adjust volume. It also supports queue playback, playback status queries, and interruption control logic.</p><p><strong>7.3.2 Audio File Playback RPC Interface</strong></p><p><strong>7.3.3 Audio File Playback Status Query RPC Interface</strong></p><p><strong>7.3.4 Audio File Playback Interruption RPC Interface</strong></p><p>We provide interfaces for interrupting a single file playback and clearing the entire playback queue.</p><p><strong>7.3.5 Volume Get and Set RPC Interfaces</strong></p><h3 id="fault-diagnosis">7.4 Fault Diagnosis Section</h3><p><strong>7.4.1 Overview</strong></p><p>The robot itself provides basic fault diagnosis and health monitoring capabilities, capable of monitoring some basic anomalies and faults, such as joint overheating, sensor failure, system occupancy consistently too high, low battery power, etc.</p><p>There are two basic concepts in fault diagnosis: Alert and Exception. An Alert is a cluster of Exceptions. An Alert represents a broad category of faults, while an Exception is a specific fault. For example, repositioning failure is an Alert, which corresponds to many different failure reasons, each being a specific Exception. AimMaster generally displays Alerts, as Exceptions can be numerous and less intuitive. If you need to continuously monitor the robot's abnormal state, it is recommended to query the current alert list at regular intervals (not too frequently, a frequency of 0.2 Hz or lower is recommended).</p><p>The full list of alerts can be found in the file <code>/agibot/software/v0/config/hds_master/database/alert_info.yaml</code> on the x86 machine.</p><p><strong>7.4.2 Get Current Alert List RPC Interface</strong></p><p><strong>7.4.3 Attempt to Clear Alert RPC Interface</strong></p><h3 id="web-12-7-5-system-status-section">7.5 System Status Section</h3><p><strong>7.5.1 Overview</strong></p><p>System status refers to the state of the software system, which can be referenced in the previous section <em>Software System Overview</em>.</p><p><strong>7.5.2 System Status Retrieval RPC Interface</strong></p><p><strong>7.5.3 BMS Status Retrieval RPC Interface</strong></p><p><strong>7.5.4 Emergency Stop Status Retrieval RPC Interface</strong></p><p>When an emergency stop is triggered, an alert will also be issued, and the emergency stop status can be obtained through the GetAlertList. This section provides a separate interface to query the emergency stop status.</p><p><strong>7.5.5 Software Version Retrieval RPC Interface</strong></p><h3 id="web-13-8-guide-to-motion-control-simulation">8. Guide to Motion Control Simulation</h3><h4 id="web-13-8-1-simulation-description">8.1 Simulation Description</h4><p>We provide a mujoco-based simulation system for the A2 robot, designed to serve as a testing ground for basic calls to the A2 robot's motion control and action playback interfaces. This serves as a basic validation before actual operation, reducing the risk of damaging the robot while facilitating the debugging of secondary development program logic.</p><p><img src="../../.gitbook/assets/unknown (375).webp" alt="Official AgiBot illustration" data-size="original"></p><p>The system runs the mujoco_sim, motion_control, and motion_player components. mujoco_sim acts as the underlying simulation engine, simulating the robot's physical body and hal_ethercat. motion_control interacts with mujoco_sim to exchange control commands and status, thereby controlling the simulated robot. motion_player, on the other hand, calls the high-level interfaces provided by motion_control to play actions. The motion_control and motion_player components are identical to those on the real robot, allowing the system to call all interfaces of the motion control and action playback modules.</p><h4 id="web-13-8-2-prerequisites">8.2 Prerequisites</h4><p>This simulation system is provided as a container image, containing executable files for each component, action resource files, and calling scripts. To use this simulation system, the following conditions must be met:</p><ol><li>An x86_64 architecture Linux system with Docker installed.</li><li><p>An X11 desktop system.</p><ul><li>You can check this by running <code>echo $XDG_SESSION_TYPE</code>, and the expected output should be <code>x11</code>.</li></ul></li></ol><h4 id="web-13-8-3-usage-tutorial">8.3 Usage Tutorial</h4><p><strong>8.3.1 Pulling the Image</strong></p><ol><li>Log in to the read-only account of the image repository</li></ol><p>bash</p><pre data-collapsed-line-count="10"><code>docker login tongyong-public-cn-shanghai.cr.volces.com -u crrobot@aima-public-reader -p Aima123456
+</code></pre><ol start="2"><li>Pull the corresponding image</li></ol><p>bash</p><pre data-collapsed-line-count="10"><code>docker pull tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
+</code></pre><p><strong>8.3.2 Starting the Image</strong></p><ol><li><p>Allow Docker to access the display, which is used to configure the access control list for the X Window System. Running <code>xhost +</code> will allow all hosts to connect to the current user's X server, effectively disabling access control for the X server and allowing any user to access and operate it.bash</p><pre data-collapsed-line-count="10"><code>xhost +
+</code></pre></li><li><p>Start the Docker containerbash</p><pre data-collapsed-line-count="10"><code>docker run -it \
 --name=a2-lite-sim \
 --privileged \
 --net=host \
@@ -1784,7 +1825,7 @@ look-at-left-arm/1758103505321711264
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro \
 -d tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
-</code></pre><p><br>If you find that the simulation interface runs sluggishly on a machine with an NVIDIA graphics card after starting the container with the above command, try using the following command to start the container:bash</p><pre><code>docker run -it \
+</code></pre><p><br>If you find that the simulation interface runs sluggishly on a machine with an NVIDIA graphics card after starting the container with the above command, try using the following command to start the container:bash</p><pre data-collapsed-line-count="10"><code>docker run -it \
         --name=a2-lite-sim \
         --gpus all \
         --privileged \
@@ -1797,42 +1838,42 @@ look-at-left-arm/1758103505321711264
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro \
         -d tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
-</code></pre></li><li><p>Enter the containerbash</p><pre><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
-</code></pre></li></ol><p><strong>8.3.3 Starting the Simulation, Motion Control, and Action Playback Modules</strong></p><ol><li><p>After entering the image, run the following command to start the simulationbash</p><pre><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
+</code></pre></li><li><p>Enter the containerbash</p><pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
+</code></pre></li></ol><p><strong>8.3.3 Starting the Simulation, Motion Control, and Action Playback Modules</strong></p><ol><li><p>After entering the image, run the following command to start the simulationbash</p><pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
 
 cd /home/agi/a2_simulation/mujoco_sim/bin
 ./start_a2_lite.sh
-</code></pre></li><li><p>In a new window, connect to the container and start the motion control programbash</p><pre><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
+</code></pre></li><li><p>In a new window, connect to the container and start the motion control programbash</p><pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
 
 cd /home/agi/a2_simulation/motion_control_lite_2.0.10/scripts/motion_control
 ./start_motion_control.sh
-</code></pre></li><li><p>In another new window, connect to the container and start the action playback programbash</p><pre><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
+</code></pre></li><li><p>In another new window, connect to the container and start the action playback programbash</p><pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
 
 cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 ./start_motion_player.sh
-</code></pre></li></ol><p><strong>8.3.4 Controlling Robot Walking</strong></p><p>Here, we will use robot walking as an example to explain the basic logic of calling a motion control interface. For other interfaces, refer to the motion control interface documentation and example scripts.</p><ol><li><p>Open a new window, enter the container, and switch the motion control Action to the joint standing mode (RL_JOINT_DEFAULT)bash</p><pre><code>cd /home/agi/a2_simulation/tools-lite/motion_control
+</code></pre></li></ol><p><strong>8.3.4 Controlling Robot Walking</strong></p><p>Here, we will use robot walking as an example to explain the basic logic of calling a motion control interface. For other interfaces, refer to the motion control interface documentation and example scripts.</p><ol><li><p>Open a new window, enter the container, and switch the motion control Action to the joint standing mode (RL_JOINT_DEFAULT)bash</p><pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_control
 ./SetAction.py # Select the number corresponding to RL_JOINT_DEFAULT
-</code></pre></li><li><p>Click the Load-Key button in the mujoco_sim interface to stabilize the robot<br></p><div><figure><img src="../../.gitbook/assets/unknown (376).webp" alt="Official AgiBot illustration"><figcaption><p>Official AgiBot illustration</p></figcaption></figure></div></li><li><p>Continue to switch the motion control Action to the enhanced walking mode (RL_LOCOMOTION_DEFAULT)bash</p><pre><code>cd /home/agi/a2_simulation/tools-lite/motion_control
+</code></pre></li><li><p>Click the Load-Key button in the mujoco_sim interface to stabilize the robot<br></p><div><figure><img src="../../.gitbook/assets/unknown (376).webp" alt="Official AgiBot illustration"><figcaption><p>Official AgiBot illustration</p></figcaption></figure></div></li><li><p>Continue to switch the motion control Action to the enhanced walking mode (RL_LOCOMOTION_DEFAULT)bash</p><pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_control
 ./SetAction.py # Select the number corresponding to RL_LOCOMOTION_DEFAULT
-</code></pre></li><li><p>Call the walking example scriptbash</p><pre><code>source /home/agi/a2_simulation/prebuilt/ros2_plugin_proto_x86_64/share/ros2_plugin_proto/local_setup.bash
+</code></pre></li><li><p>Call the walking example scriptbash</p><pre data-collapsed-line-count="10"><code>source /home/agi/a2_simulation/prebuilt/ros2_plugin_proto_x86_64/share/ros2_plugin_proto/local_setup.bash
 ./walk.py
-</code></pre></li></ol><p><strong>8.3.5 Controlling Robot to Perform Actions</strong></p><ol><li><p>Switch the motion control state to the enhanced walking upper limb servo mode (RL_LOCOMOTION_ARM_EXT_JOINT_SERVO)bash</p><pre><code>cd /home/agi/a2_simulation/tools-lite/motion_control
+</code></pre></li></ol><p><strong>8.3.5 Controlling Robot to Perform Actions</strong></p><ol><li><p>Switch the motion control state to the enhanced walking upper limb servo mode (RL_LOCOMOTION_ARM_EXT_JOINT_SERVO)bash</p><pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_control
 ./SetAction.py # Select the number corresponding to RL_LOCOMOTION_ARM_EXT_JOINT_SERVO
-</code></pre></li><li><p>Call the SendMotionCommand interface to perform the actionbash</p><pre><code>cd /home/agi/a2_simulation/tools-lite/motion_player
+</code></pre></li><li><p>Call the SendMotionCommand interface to perform the actionbash</p><pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_player
 ./send_motion_id.sh /agibot/data/resources/default/motion/motion_player/default/wave-both-hands/wave-both-hands
-</code></pre></li></ol><h3 id="troubleshooting-interface-calls">9. Troubleshooting Interface Call Issues</h3><h4 id="web-14-9-1-troubleshooting-approach">9.1 Troubleshooting Approach</h4><p>The general troubleshooting methods for HTTP JSON RPC and ROS2 Topic are different, but there are also some common troubleshooting methods for on-board issues.</p><p><strong>9.1.1 HTTP JSON RPC</strong></p><ol><li>Check if the corresponding IP is the correct x86 industrial PC IP and if it can be pinged.</li><li>Check if the HTTP URL is correct; you can refer to the example scripts or interface documentation.</li><li>Check if the corresponding service is started on the port. After SSHing into the x86, you can use the command <code>lsof -i:xxxx</code> in the terminal to check if the service is running on the port.</li><li>If you get a "Connection Refused" error, it means the IP might not be reachable or the service on the port has not started.</li><li>If you get an "HTTP deserialize failed" error, it means the JSON body fields might be incorrectly filled. You can refer to the example scripts or interface documentation for comparison.</li></ol><p><strong>9.1.2 ROS2 Topic</strong></p><ol><li>Check if the on-board ROS2 DDS configuration includes the IP of the network card being used. Ensure that both privileged and non-privileged configurations correctly add the network card IP. After adding, a full reboot is required.</li><li>Check if you are using the ROS2 Humble with Fastdds version.</li><li>Check if the local environment variables <code>ROS_DOMAIN_ID=232</code> and <code>ROS_LOCALHOST_ONLY=0</code> are loaded. The exported environment variables only take effect in the current terminal. A new terminal will need to re-export these variables. You can use the command <code>env | grep ROS</code> to view the relevant environment variable settings in the current terminal.</li><li><p>Ensure that the QoS of the topic is consistent with the default QoS on the board.yaml</p><pre><code>  history: keep_last
+</code></pre></li></ol><h3 id="troubleshooting-interface-calls">9. Troubleshooting Interface Call Issues</h3><h4 id="web-14-9-1-troubleshooting-approach">9.1 Troubleshooting Approach</h4><p>The general troubleshooting methods for HTTP JSON RPC and ROS2 Topic are different, but there are also some common troubleshooting methods for on-board issues.</p><p><strong>9.1.1 HTTP JSON RPC</strong></p><ol><li>Check if the corresponding IP is the correct x86 industrial PC IP and if it can be pinged.</li><li>Check if the HTTP URL is correct; you can refer to the example scripts or interface documentation.</li><li>Check if the corresponding service is started on the port. After SSHing into the x86, you can use the command <code>lsof -i:xxxx</code> in the terminal to check if the service is running on the port.</li><li>If you get a "Connection Refused" error, it means the IP might not be reachable or the service on the port has not started.</li><li>If you get an "HTTP deserialize failed" error, it means the JSON body fields might be incorrectly filled. You can refer to the example scripts or interface documentation for comparison.</li></ol><p><strong>9.1.2 ROS2 Topic</strong></p><ol><li>Check if the on-board ROS2 DDS configuration includes the IP of the network card being used. Ensure that both privileged and non-privileged configurations correctly add the network card IP. After adding, a full reboot is required.</li><li>Check if you are using the ROS2 Humble with Fastdds version.</li><li>Check if the local environment variables <code>ROS_DOMAIN_ID=232</code> and <code>ROS_LOCALHOST_ONLY=0</code> are loaded. The exported environment variables only take effect in the current terminal. A new terminal will need to re-export these variables. You can use the command <code>env | grep ROS</code> to view the relevant environment variable settings in the current terminal.</li><li><p>Ensure that the QoS of the topic is consistent with the default QoS on the board.yaml</p><pre data-collapsed-line-count="10"><code>  history: keep_last
   depth: 10
   reliability: best_effort
-</code></pre></li><li>After SSHing into the x86 industrial PC, execute <code>aima em load-env</code> (to load the ROS2 environment variables) and then use the <code>ros2 topic</code> command to check if the related topics are being sent or received by any modules.</li></ol><p><strong>9.1.3 Common Troubleshooting Methods</strong></p><ol><li>Use AimMaster to check if the robot has any health alerts. In the case of a robot fault, it may affect some interface calls. For example, if there is a joint fault, the motion control interface may not function properly.</li><li>If not connected to AimMaster, you can log in to the robot's x86 industrial PC and execute the <code>aima doctor</code> command to quickly view health alert information.</li></ol><h4 id="web-14-9-2-common-interface-questions">9.2 Common Interface Questions</h4><ol><li><p>Why does calling the upper limb action interface or neck interface result in no response or severe shaking?</p><ol><li>First, confirm that the robot is in the corresponding Action mode, which should end with JOINT_SERVO.</li><li>In the JOINT_SERVO mode, the control of the upper limbs and neck is preempted by the motion playback module. You need to call the DisableMotionPlayer interface to disable the control of the motion playback module before you can normally call the upper limb or neck control interfaces.</li></ol><p>yaml</p><pre><code>curl -i \
+</code></pre></li><li>After SSHing into the x86 industrial PC, execute <code>aima em load-env</code> (to load the ROS2 environment variables) and then use the <code>ros2 topic</code> command to check if the related topics are being sent or received by any modules.</li></ol><p><strong>9.1.3 Common Troubleshooting Methods</strong></p><ol><li>Use AimMaster to check if the robot has any health alerts. In the case of a robot fault, it may affect some interface calls. For example, if there is a joint fault, the motion control interface may not function properly.</li><li>If not connected to AimMaster, you can log in to the robot's x86 industrial PC and execute the <code>aima doctor</code> command to quickly view health alert information.</li></ol><h4 id="web-14-9-2-common-interface-questions">9.2 Common Interface Questions</h4><ol><li><p>Why does calling the upper limb action interface or neck interface result in no response or severe shaking?</p><ol><li>First, confirm that the robot is in the corresponding Action mode, which should end with JOINT_SERVO.</li><li>In the JOINT_SERVO mode, the control of the upper limbs and neck is preempted by the motion playback module. You need to call the DisableMotionPlayer interface to disable the control of the motion playback module before you can normally call the upper limb or neck control interfaces.</li></ol><p>yaml</p><pre data-collapsed-line-count="10"><code>curl -i \
     -H 'content-type:application/json' \
     -H 'timeout: 1000' \
     -X POST http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer \
     -d '{}'
-</code></pre></li><li><p>Why does calling any motion playback only result in the right hand lifting action?</p><ol><li>This is the default action of the motion playback module. When the <code>motion_id</code> parameter is incorrect, it will default to this action.</li><li><p>A correct motion path should find the corresponding .db file and pass the complete path without the .db suffix, for example:bash</p><pre><code>/agibot/data/resources/default/motion/motion_player/default/wave-both-hands/wave-both-hands
+</code></pre></li><li><p>Why does calling any motion playback only result in the right hand lifting action?</p><ol><li>This is the default action of the motion playback module. When the <code>motion_id</code> parameter is incorrect, it will default to this action.</li><li><p>A correct motion path should find the corresponding .db file and pass the complete path without the .db suffix, for example:bash</p><pre data-collapsed-line-count="10"><code>/agibot/data/resources/default/motion/motion_player/default/wave-both-hands/wave-both-hands
 </code></pre></li></ol></li></ol><h4 id="web-14-9-3-feedback-channels">9.3 Feedback Channels</h4><p>If you encounter bugs in secondary development interfaces, you can provide feedback through the following channels:</p><p><a href="https://agirobot.feishu.cn/share/base/form/shrcndpGW6r8FIdt2mT3uX02z6k">https://agirobot.feishu.cn/share/base/form/shrcndpGW6r8FIdt2mT3uX02z6k</a></p><p>Note</p><ol><li>This channel is only for answering questions or reporting bugs related to secondary development interfaces. For robot body faults or after-sales maintenance, please contact the delivery, operation, and after-sales teams directly. Unrelated issues will not be responded to.</li><li>Please describe the problem in detail in the form, preferably providing reproducible steps. Clear and detailed problem descriptions will be given priority, while vague and general descriptions will have lower priority and may be ignored.</li><li>Please fill out all information carefully. Inconsistent or casually filled forms will be ignored.</li><li>Each ticket should focus on a single or similar issue. Do not mix multiple issues in one ticket, as this will significantly delay the processing time.</li></ol><hr><h4 id="web-15-title-2-frequently-asked-questions-hideh1-true">title: 2. Frequently Asked Questions hideH1: true</h4><h3 id="frequently-asked-questions">2. Frequently Asked Questions</h3><h4 id="web-15-2-1-what-is-the-onboard-software-version">2.1 What is the onboard software version?</h4><p>The A2 robot comes with a series of onboard software, which will be upgraded along with the OTA (Over-The-Air) updates.</p><p>Generally, the software version (current application version) is printed when you ssh into the robot, and it can also be viewed through the AimMaster software. The version number is usually in the format of 1.2.x.</p><h4 id="web-15-2-2-what-are-p1-and-t3">2.2 What are P1 and T3?</h4><p>P1 and T3 are the hardware models of the A2 robot. The main difference between these hardware models lies in the configuration of the industrial PC, including network card configurations, but the system performance and upper-layer interfaces are generally unified.</p><p>After logging into the x86 industrial PC via ssh, you can check the /etc/bsp_version file to confirm the version. If this file exists, it is P1; if it does not exist, it is T3.</p><h4 id="web-15-2-3-how-to-handle-the-over-speed-anomaly-reported-by-the-arm-joint-motor">2.3 How to handle the over-speed anomaly reported by the arm joint motor?</h4><p><img src="../../.gitbook/assets/unknown (377).webp" alt="2.3 How to handle the over-speed anomaly reported by the arm joint motor?" data-size="original"></p><p>Reason: When calling the arm interface, there is a step change between the input position and the current position, leading to an over-speed condition that triggers current limiting. At this point, the embedded system will disable the joint for protection and report the alarm.</p><p>Solution: In most cases, restarting the robot will resolve the issue. To avoid this problem, when calling the arm ROS2 Topic interface, filter and smooth the joint positions before passing them in, ensuring that the input values do not have a large step change compared to the current state.</p><h4 id="web-15-2-4-is-it-possible-to-develop-your-own-motion-control-program">2.4 Is it possible to develop your own motion control program?</h4><p>By default, the low-level control interfaces for the lower limb joint motors are not open, and they can only be controlled through high-level speed commands. If you need to develop your own motion control algorithms to replace the ones provided by Agibot, please contact the sales or project manager to obtain the motion control development and deployment guide.Example Script</p></td><td>examples/motion_control/joint_state.py</td></tr><tr><td>Notes</td><td>This interface has no Action restrictions</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.OTAService/GetRobotOtaInfo</code></td></tr><tr><td>Function Summary</td><td>Retrieve software version information</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:57900/rpc/aimdk.protocol.OTAService/GetRobotOtaInfo</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.OTAService/GetRobotOtaInfo</code></td></tr><tr><td>Function Summary</td><td>Retrieve software version information</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:57900/rpc/aimdk.protocol.OTAService/GetRobotOtaInfo</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "robot_info": {
     "model": "A2_T3D1_LITE"
   },
@@ -1848,8 +1889,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>apk_version: Software version information</li></ul><p>Other fields are not of concern.</p></td></tr><tr><td>Example Script</td><td>examples/status/get_version_info.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalEmergencyService/GetEmergencyState</code></td></tr><tr><td>Function Summary</td><td>Retrieve emergency stop status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalEmergencyService/GetEmergencyState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalEmergencyService/GetEmergencyState</code></td></tr><tr><td>Function Summary</td><td>Retrieve emergency stop status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalEmergencyService/GetEmergencyState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "active": true,
     "reason": "Reason_WIRELESS_ESTOP",
@@ -1876,8 +1917,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>active: Whether the emergency stop is triggered</li><li>reason: Reason for the emergency stop</li><li>wireless_emergency_stop: Whether the wireless emergency stop is triggered</li><li>software_emergency_stop: Whether the software emergency stop is triggered</li></ul><p>Other fields are not of concern.</p></td></tr><tr><td>Example Script</td><td>examples/status/get_estop_status.sh</td></tr><tr><td>Notes</td><td><ul><li>The soft emergency stop interface is not yet open for secondary development, and cannot be triggered via the interface.</li><li>If an empty JSON body is returned, it indicates that all parameters are at their default values, meaning the emergency stop has not been triggered.</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalBmsService/GetBmsState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalBmsService/GetBmsState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalBmsService/GetBmsState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalBmsService/GetBmsState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "ver": {
       "hardware_major": 49,
@@ -1909,8 +1950,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>ver: Version information</li><li>voltage: Current voltage, unit mV</li><li>current: Current current, unit mA</li><li>power: Current power, unit mW</li><li>temperature: Current temperature, unit 0.1 degrees Celsius</li><li>capacity: Current capacity, unit: mAh</li><li>charge: Current charge percentage</li><li>power_supply_health: Not currently available</li><li><p>power_supply_status: Charging status</p><ul><li>PowerSupplyStatus_IDEL</li><li>PowerSupplyStatus_CHARGING</li><li>PowerSupplyStatus_FULL</li></ul></li><li>cycles_num: Number of cycles</li><li>cycles_capacity: Cycle capacity (total charge and discharge capacity of the current battery pack), unit: Ah</li><li><p>abnormal_state: Abnormal status</p><ul><li>PowerAbnormalStatus_NORMAL</li><li>PowerAbnormalStatus_SHORT_CIRCUIT</li><li>PowerAbnormalStatus_DISCHARGE_OVERCURRENT</li><li>PowerAbnormalStatus_CHARGING_OVERCURRENT</li><li>PowerAbnormalStatus_UNDERVOLTAGE</li><li>PowerAbnormalStatus_OVERVOLTAGE</li><li>PowerAbnormalStatus_EXCEED_DISCHARGE_TEMP_LIMIT</li><li>PowerAbnormalStatus_EXCEED_CHARGING_TEMP_LIMIT</li></ul></li><li><p>charger_state: Whether the charger is plugged in</p><ul><li>ChargerNotPulgin</li><li>ChargerConnected</li></ul></li><li><p>bms_state: Whether the battery is connected</p><ul><li>BatteryStatus_NotPulgin</li><li>BatteryStatus_Connected</li></ul></li><li>max_current: Maximum current</li><li><p>battery_firmware_type: Battery pack firmware version</p><ul><li>BatteryFirmwareType_OLD</li><li>BatteryFirmwareType_NEW</li></ul></li><li><p>battery_key_state: Battery pack key status</p><ul><li>BatteryKeyStatus_SHORT_CURCUIT</li><li>BatteryKeyStatus_CONNECTED</li></ul></li><li><p>battery_pack_state: Battery pack abnormal status</p><ul><li>BatteryPackStatus_NORMAL</li><li>BatteryPackStatus_ABNORMAL</li></ul></li><li><p>battery_comm_state: Battery pack communication status</p><ul><li>BatteryCommunication_NORMAL</li><li>BatteryCommunication_ABNORMAL</li></ul></li></ul></td></tr><tr><td>Example Script</td><td>examples/status/get_bms_status.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.SystemService/GetSystemState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:51011/rpc/aimdk.protocol.SystemService/GetSystemState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.SystemService/GetSystemState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:51011/rpc/aimdk.protocol.SystemService/GetSystemState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -1922,10 +1963,10 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li><p>cur_state: Current system state</p><ul><li>Startup: Starting up state</li><li>Ready: Startup completed state</li><li>Manual: Manual operation state</li><li>MotionStream: Remote operation state</li><li>OTA: Remote upgrade state</li><li>Estop: Emergency stop state</li><li>Poweroff: Power off state</li><li>Reboot: Rebooting state</li><li>Reset: Resetting state</li><li>Safe: Safe state</li></ul></li><li><p>cur_status: Current system condition</p><ul><li>SystemStatus_IN_INITIAL: Initializing</li><li>SystemStatus_IN_READY: Transition completed</li><li>SystemStatus_IN_MOVE: Transitioning</li><li>SystemStatus_IN_ROLLBACK: Rolling back</li><li>SystemStatus_IN_RECOVERY: Recovering</li></ul></li></ul></td></tr><tr><td>Example Script</td><td>examples/status/get_system_status.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/ClearAlert</code></td></tr><tr><td>Function Summary</td><td>Attempt to clear an alert, requiring the alert ID to be passed in</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/ClearAlert</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/ClearAlert</code></td></tr><tr><td>Function Summary</td><td>Attempt to clear an alert, requiring the alert ID to be passed in</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/ClearAlert</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "id": "c92f2fdd-cea5-4209-b02f-d0eb62ae18ce"
 }
-</code></pre><ul><li>id: You need to fill in the specific alert ID, which can be obtained through the GetAlertList interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>id: You need to fill in the specific alert ID, which can be obtained through the GetAlertList interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "1",
     "msg": "clear alert failed!",
@@ -1938,8 +1979,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>data: The alert ID passed in</li><li>The header returns information about whether the current clearing was successful, a code of 0 indicates success</li></ul></td></tr><tr><td>Example Script</td><td>examples/hds/clear_alert.sh</td></tr><tr><td>Notes</td><td><ul><li>Although the emergency stop alert has manual_clear set to true, it will still fail to clear. The emergency stop must be manually released before it can be cleared.</li><li>In general, do not call this interface to clear alerts. Please fully understand the meaning of the alert before considering using this interface to clear it.</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/GetAlertList</code></td></tr><tr><td>Function Summary</td><td>Get the current alert list</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/GetAlertList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/GetAlertList</code></td></tr><tr><td>Function Summary</td><td>Get the current alert list</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/GetAlertList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "alerts": [
       {
@@ -1973,11 +2014,11 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>id: The ID of this alert</li><li>appeared_timestamp: The timestamp when the alert appeared</li><li>disappeared_timestamp: The timestamp when the alert disappeared</li><li>alert_code: The alert code</li><li><p>state: The alert state</p><ul><li>AlertState_UNDEFINED: Unknown</li><li>AlertState_ACTIVE: In alert</li><li>AlertState_CLEARED: Cleared</li><li>AlertState_ExceptionChanged: Alert with changed exception</li><li>AlertState_Recovering: Recovering</li></ul></li><li>exception_list: The list of exceptions</li><li><p>exception_list[i].type: The type of exception</p><ul><li>ExceptionType_Normal: Normal type, this type of exception needs to be reported periodically</li><li>ExceptionType_Trigger_Appear: Triggered exception (reported once when the exception occurs), set this exception to the occurrence state</li><li>ExceptionType_Trigger_Disappear: Triggered exception (reported once when the exception disappears), set this exception to the disappearance state</li></ul></li><li>exception_list[i].module_id: The ID of the module where the exception occurred</li><li>exception_list[i].code: The module exception code</li><li>exception_list[i].info: The exception information</li><li>exception_list[i].module_name: The name of the module</li><li>description: The alert description</li><li><p>level: The alert level</p><ul><li>AlertLevel_UNDEFINED: No alert</li><li>AlertLevel_FATAL: Fatal alert</li><li>AlertLevel_SERIOUS: Serious alert</li><li>AlertLevel_WARNING: Warning alert</li><li>AlertLevel_HIDDEN_DANGERS: The current system has potential hazards</li><li>AlertLevel_STATUS: The current system has status-related alerts</li></ul></li><li>manual_clear: Whether manual clearing is supported</li><li><p>show_type: The type of alert display</p><ul><li>AlertShowType_Normal</li><li>AlertShowType_Toast</li></ul></li><li>solution_list: The list of solutions</li><li>solution_list[i].type: The type of solution</li><li>solution_list[i].content: The content of the solution</li></ul></td></tr><tr><td>Example Script</td><td>examples/hds/get_alert_list.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/SetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Adjust the volume</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/SetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/SetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Adjust the volume</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/SetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "audio_volume": 70,
   "is_mute": false
 }
-</code></pre><ul><li>audio_volume: Volume level, a value between 0-100. <strong>Note: Do not set the volume above 70, as exceeding this range will cause the speaker to exceed its rated operating capacity, leading to damage</strong></li><li>is_mute: Whether muted</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>audio_volume: Volume level, a value between 0-100. <strong>Note: Do not set the volume above 70, as exceeding this range will cause the speaker to exceed its rated operating capacity, leading to damage</strong></li><li>is_mute: Whether muted</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "SetAudioVolume successfully",
@@ -1989,8 +2030,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>pkg_name: Invalid field, no need to pay attention</li><li>is_success: Invalid field, no need to pay attention</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/set_audio_volume.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/GetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Get the current volume level</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/GetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/GetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Get the current volume level</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/GetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "GetAudioVolume successfully",
@@ -2002,24 +2043,24 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>audio_volume: Volume level, a value between 0-100</li><li>is_mute: Whether muted</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/get_audio_volume.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTS</code></td></tr><tr><td>Function Summary</td><td>Terminate all audio file playback, including the current playback task and all tasks in the queue</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTS</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTS</code></td></tr><tr><td>Function Summary</td><td>Terminate all audio file playback, including the current playback task and all tasks in the queue</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTS</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_UNKNOWN"
 }
 </code></pre><ul><li>state: Request status, no need to pay attention to the specific value, HTTP request returning 200 indicates success</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/stop_all.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTSTraceId</code></td></tr><tr><td>Function Summary</td><td>Interrupt a single file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTSTraceId</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTSTraceId</code></td></tr><tr><td>Function Summary</td><td>Interrupt a single file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTSTraceId</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "trace_id": "hafhjkqwjwefk"
 }
-</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_UNKNOWN"
 }
 </code></pre><ul><li>state: Request status, no need to pay attention to the specific value, HTTP request returning 200 indicates success</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/stop_trace_id.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/GetAudioStatus</code></td></tr><tr><td>Function Summary</td><td>Audio file playback status query</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/GetAudioStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/GetAudioStatus</code></td></tr><tr><td>Function Summary</td><td>Audio file playback status query</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/GetAudioStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "trace_id": "hafhjkqwjwefk"
 }
-</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "tts_status": {
     "text": "",
     "priority": 0,
@@ -2031,14 +2072,14 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li><p>tts_status: Playback status, enumeration values</p><ul><li>TTSConfigStatusType_Unknown: Unknown status</li><li>TTSStatusType_Begin: Start playback, brief, usually not queried</li><li>TTSStatusType_Playing: Playing</li><li>TTSStatusType_End: End of playback, brief, usually not queried</li><li>TTSStatusType_Stop: Pause playback/cancel playback/interrupt playback</li><li>TTSStatusType_Error: Playback failed</li><li>TTSStatusType_InQue: In the playback queue, not yet started</li><li>TTSStatusType_NOTInQue: No such text in the playback queue, not playing, enters this state after playback ends</li></ul></li><li>The rest of the fields are invalid and do not need to be paid attention to</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/get_audio_status.sh</td></tr><tr><td>Notes</td><td>A successful playback queried through this RPC interface generally returns InQue, Playing, and NOTInQue states</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/PlayMediaFile</code></td></tr><tr><td>Function Summary</td><td>Audio file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/PlayMediaFile</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/PlayMediaFile</code></td></tr><tr><td>Function Summary</td><td>Audio file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/PlayMediaFile</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "file_name": "wake.pcm",
   "priority_level": "INTERACTION_L6",
   "domain": "example",
   "trace_id": "hafhjkqwjwefk",
   "is_interrupted": true
 }
-</code></pre><ul><li>file_name: File name (stored in <code>/agibot/data/var/interaction/audio/</code>, for example, wake.pcm. The file should be a 24kHz, 16-bit, mono PCM file. A separate folder needs to be created, and the input should be in the format of folder name/file name, such as file/wake.pcm)</li><li>priority_level: Priority level, keep INTERACTION_L6</li><li>domain: Caller source identifier, you can pass in a custom client string for easier troubleshooting, etc.</li><li>trace_id: Playback ID, if you need to get the playback status, you need to pass this field and use its value as the parameter to query the playback status</li><li>is_interrupted: Whether to interrupt playback of the same priority, please default to true. For queue playback requirements, you can use false</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>file_name: File name (stored in <code>/agibot/data/var/interaction/audio/</code>, for example, wake.pcm. The file should be a 24kHz, 16-bit, mono PCM file. A separate folder needs to be created, and the input should be in the format of folder name/file name, such as file/wake.pcm)</li><li>priority_level: Priority level, keep INTERACTION_L6</li><li>domain: Caller source identifier, you can pass in a custom client string for easier troubleshooting, etc.</li><li>trace_id: Playback ID, if you need to get the playback status, you need to pass this field and use its value as the parameter to query the playback status</li><li>is_interrupted: Whether to interrupt playback of the same priority, please default to true. For queue playback requirements, you can use false</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "text": "wake.pcm",
   "priority_level": "INTERACTION_L6",
   "priority_weight": 0,
@@ -2050,32 +2091,32 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>text: File name</li><li>priority_level: Priority level, no need to pay attention</li><li>pritority_weight: Priority weight, no need to pay attention</li><li>domain: Caller source identifier, returns the custom string passed in the request for easier troubleshooting</li><li>trace_id: Playback ID, returns the custom string passed in the request for easier troubleshooting</li><li>is_success: Whether the priority check was successful, generally true, but it does not mean it will play. For example, passing an incorrect or non-existent file name will still return true. Only when there is a higher-priority content being played, such as a fault alarm, will it return true</li><li>estimated_duration: Invalid field, no need to pay attention, unable to estimate playback duration</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/play_media_file.sh</td></tr><tr><td>Notes</td><td><ul><li>Supports standard 44-byte header Linear PCM wav files. Other header formats and compressed formats are not supported. It is recommended to use 24kHz, 16-bit, mono PCM files</li><li>If an incorrect or non-existent file name is passed, it will silently fail without playing, and is_success will return true</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module to control the neck, start continuously sending neck control instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module to control the neck, start continuously sending neck control instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/enable_neck_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module from controlling the neck motor, the process will not exit, and no neck instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module from controlling the neck motor, the process will not exit, and no neck instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/disable_neck_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module, start continuously sending instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module, start continuously sending instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/enable_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module, the process will not exit, and no instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module, the process will not exit, and no instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/disable_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/</code>GetMotionStatus</td></tr><tr><td>Function Summary</td><td>Get the action playback status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/GetMotionStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/</code>GetMotionStatus</td></tr><tr><td>Function Summary</td><td>Get the action playback status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/GetMotionStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -2094,14 +2135,14 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>time_to_end_ms: Time remaining until the end of the action, in milliseconds</li><li><p>status: Action playback status</p><ul><li>MotionCommandStatus_IDLE: No action, idle</li><li>MotionCommandStatus_START: Action starts playing</li><li>MotionCommandStatus_OPERATING: Action is playing</li><li>MotionCommandStatus_PAUSE: State when calling the action playback interface with cmd_pause=true</li><li>MotionCommandStatus_STOP: State after calling DisableMotionPlayer</li></ul></li><li>is_neck_enable: Whether the neck is controlled by the motion_player</li><li>motion_id: Action name</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/get_motion_status.sh</td></tr><tr><td>Notes</td><td>This interface call code is <strong>T2</strong>, and can only be called under the JOINT_SERVO suffix motion control Action</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/SendMotionCommand</code></td></tr><tr><td>Function Summary</td><td>Play the specified action file</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/SendMotionCommand</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/SendMotionCommand</code></td></tr><tr><td>Function Summary</td><td>Play the specified action file</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/SendMotionCommand</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "motion_id": "/agibot/data/resources/default/motion/motion_player/default/Wave Both Hands/Wave Both Hands",
   "duration_ms": 10000,
   "cmd_end": true,
   "cmd_pause": false,
   "cmd_reset": false
 }
-</code></pre><ul><li><p>motion_id: Absolute path of the action file, up to the last .db file, without the .db suffix, for example:</p><ul><li>/agibot/data/resources/default/motion/motion_player/default/Wave Both Hands/Wave Both Hands</li></ul></li><li>duration_ms: An invalid field, leave it as is</li><li>cmd_end: Whether to automatically return to the initial posture after the action is executed, <code>true</code> indicates automatic reset, <code>false</code> indicates no automatic reset</li><li>cmd_pause: Action pause flag, <code>true</code> indicates pause, which will stop sending control signals to the robot, generally not used</li><li>cmd_reset: Reset flag, <code>true</code> indicates reset, <code>false</code> indicates no reset. The reset operation will reset the current action state to the initial state</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li><p>motion_id: Absolute path of the action file, up to the last .db file, without the .db suffix, for example:</p><ul><li>/agibot/data/resources/default/motion/motion_player/default/Wave Both Hands/Wave Both Hands</li></ul></li><li>duration_ms: An invalid field, leave it as is</li><li>cmd_end: Whether to automatically return to the initial posture after the action is executed, <code>true</code> indicates automatic reset, <code>false</code> indicates no automatic reset</li><li>cmd_pause: Action pause flag, <code>true</code> indicates pause, which will stop sending control signals to the robot, generally not used</li><li>cmd_reset: Reset flag, <code>true</code> indicates reset, <code>false</code> indicates no reset. The reset operation will reset the current action state to the initial state</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -2117,7 +2158,7 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/send_motion_id.sh</td></tr><tr><td>Notes</td><td>This interface call code is <strong>T2</strong>, and can only be called under the JOINT_SERVO suffix motion control Action</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/SelectDanceType</code></td></tr><tr><td>Function Overview</td><td>Full-body dance playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/SelectDanceType</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/SelectDanceType</code></td></tr><tr><td>Function Overview</td><td>Full-body dance playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/SelectDanceType</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "timestamp": {
       "seconds": 1762818960,
@@ -2128,7 +2169,7 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
   },
   "dance_name": "jiangnan"
 }
-</code></pre><ul><li>dance_name: Dance name, which needs to be obtained from the above dance list retrieval interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>dance_name: Dance name, which needs to be obtained from the above dance list retrieval interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -2144,8 +2185,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_control/SelectDanceType.py</td></tr><tr><td>Notes</td><td><ul><li>The call code for this interface is <strong>S1</strong>, and it can only be called in RL_WHOLE_BODY_DANCE mode</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/GetDanceTypeList</code></td></tr><tr><td>Function Overview</td><td>Retrieve the list of supported full-body dances</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetDanceTypeList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/GetDanceTypeList</code></td></tr><tr><td>Function Overview</td><td>Retrieve the list of supported full-body dances</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetDanceTypeList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "dance_name": [
     "Swing Dance",
     "Victory Dance"
@@ -2165,8 +2206,8 @@ cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
 }
 </code></pre><ul><li>dance_name: Dance name, used for input to the play interface</li><li>dance_model_path: Location of the dance model file, no need to pay attention</li><li>dance_data_path: Location of the dance data file, no need to pay attention</li><li>dance_time: Duration of the dance in seconds</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_control/GetDanceTypeList.py</td></tr><tr><td>Notes</td><td><ul><li>This interface has no call restrictions</li></ul></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McDataService/GetJointState</code></td></tr><tr><td>Function Overview</td><td>Retrieve the state of upper and lower limb joints</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetJointState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McDataService/GetJointState</code></td></tr><tr><td>Function Overview</td><td>Retrieve the state of upper and lower limb joints</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetJointState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "states": [
     {
       "name": "idx01_left_hip_roll",
@@ -2367,8 +2408,8 @@ The 6th and 7th joints of both arms are invalid values
 | Example Script    | examples/motion\_control/joint\_state.py                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Notes             | This interface has no Action restrictions                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McDataService/GetJointState</code></td></tr><tr><td>Function Overview</td><td>Retrieve the state of upper and lower limb joints</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetJointState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McDataService/GetJointState</code></td></tr><tr><td>Function Overview</td><td>Retrieve the state of upper and lower limb joints</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetJointState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "states": [
     {
       "name": "idx01_left_hip_roll",
@@ -2559,8 +2600,8 @@ The 6th and 7th joints of both arms are invalid values
 The 6th and 7th joints of both arms are invalid values
 </code></pre></td></tr><tr><td>Example Script</td><td>examples/motion_control/GetJointState.py</td></tr><tr><td>Notes</td><td>This interface has no Action restrictions</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/GetDanceTypeList</code></td></tr><tr><td>Function Overview</td><td>Retrieve the list of supported full-body dances</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetDanceTypeList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/GetDanceTypeList</code></td></tr><tr><td>Function Overview</td><td>Retrieve the list of supported full-body dances</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/GetDanceTypeList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "dance_name": [
     "Swing Dance",
     "Victory Dance"
@@ -2582,7 +2623,7 @@ The 6th and 7th joints of both arms are invalid values
 
 **7.1.10 Full-Body Dance Playback RPC Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/SelectDanceType</code></td></tr><tr><td>Function Overview</td><td>Full-body dance playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/SelectDanceType</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.McMotionService/SelectDanceType</code></td></tr><tr><td>Function Overview</td><td>Full-body dance playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56322/rpc/aimdk.protocol.McMotionService/SelectDanceType</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "timestamp": {
       "seconds": 1762818960,
@@ -2593,7 +2634,7 @@ The 6th and 7th joints of both arms are invalid values
   },
   "dance_name": "jiangnan"
 }
-</code></pre><ul><li>dance_name: Dance name, which needs to be obtained from the above dance list retrieval interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>dance_name: Dance name, which needs to be obtained from the above dance list retrieval interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -2617,6 +2658,7 @@ The A2 Lite provides basic preset action playback capabilities, with some preset
 
 text
 
+{% code collapsedlinecount="10" %}
 ```
 wave-both-hands/wave-both-hands
 wave-right-hand/wave-right-hand
@@ -2636,14 +2678,17 @@ look-at-right-arm/1758103484383524451
 look-at-left-hand/175810431583786588
 look-at-left-arm/1758103505321711264
 ```
+{% endcode %}
 
 The above action files are located in the x86 directory `/agibot/data/resources/default/motion/motion_player/default`. Custom recorded actions should be placed in the `/agibot/data/resources/default/motion/motion_player/custom` directory. The above list is obtained by specifying the following command in the corresponding directory:
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 find . -name "*.db" -type f | sed 's|^\./\([^/]*\)/\(.*\)\.db|\1/\2|' | sort
 ```
+{% endcode %}
 
 The specific action effects can be viewed using the motion control simulation provided in subsequent chapters or directly on the real machine.
 
@@ -2651,14 +2696,14 @@ Onboard action playback is handled by the `motion_player` module, which controls
 
 **7.2.2 Action Playback RPC Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/SendMotionCommand</code></td></tr><tr><td>Function Summary</td><td>Play the specified action file</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/SendMotionCommand</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/SendMotionCommand</code></td></tr><tr><td>Function Summary</td><td>Play the specified action file</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/SendMotionCommand</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "motion_id": "/agibot/data/resources/default/motion/motion_player/default/Wave Both Hands/Wave Both Hands",
   "duration_ms": 10000,
   "cmd_end": true,
   "cmd_pause": false,
   "cmd_reset": false
 }
-</code></pre><ul><li><p>motion_id: Absolute path of the action file, up to the last .db file, without the .db suffix, for example:</p><ul><li>/agibot/data/resources/default/motion/motion_player/default/Wave Both Hands/Wave Both Hands</li></ul></li><li>duration_ms: An invalid field, leave it as is</li><li>cmd_end: Whether to automatically return to the initial posture after the action is executed, <code>true</code> indicates automatic reset, <code>false</code> indicates no automatic reset</li><li>cmd_pause: Action pause flag, <code>true</code> indicates pause, which will stop sending control signals to the robot, generally not used</li><li>cmd_reset: Reset flag, <code>true</code> indicates reset, <code>false</code> indicates no reset. The reset operation will reset the current action state to the initial state</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li><p>motion_id: Absolute path of the action file, up to the last .db file, without the .db suffix, for example:</p><ul><li>/agibot/data/resources/default/motion/motion_player/default/Wave Both Hands/Wave Both Hands</li></ul></li><li>duration_ms: An invalid field, leave it as is</li><li>cmd_end: Whether to automatically return to the initial posture after the action is executed, <code>true</code> indicates automatic reset, <code>false</code> indicates no automatic reset</li><li>cmd_pause: Action pause flag, <code>true</code> indicates pause, which will stop sending control signals to the robot, generally not used</li><li>cmd_reset: Reset flag, <code>true</code> indicates reset, <code>false</code> indicates no reset. The reset operation will reset the current action state to the initial state</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -2676,8 +2721,8 @@ Onboard action playback is handled by the `motion_player` module, which controls
 
 **7.2.3 Action Playback Status Query RPC Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/</code>GetMotionStatus</td></tr><tr><td>Function Summary</td><td>Get the action playback status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/GetMotionStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/</code>GetMotionStatus</td></tr><tr><td>Function Summary</td><td>Get the action playback status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/GetMotionStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -2700,14 +2745,14 @@ Onboard action playback is handled by the `motion_player` module, which controls
 
 The action playback module continuously sends /motion/control/arm\_joint\_command and /motion/control/neck\_joint\_command control instructions to the motion control module in JOINT\_SERVO mode. If a secondary program also sends instructions, it can cause conflicts. You can use the following interfaces to disable and enable the action playback module.
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module, the process will not exit, and no instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module, the process will not exit, and no instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/disable_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module, start continuously sending instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module, start continuously sending instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/enable_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
@@ -2716,14 +2761,14 @@ The action playback module continuously sends /motion/control/arm\_joint\_comman
 
 In some cases, it is necessary to disable the neck's action playback function separately, thereby transferring control of the neck to a secondary program for head tracking, etc. You can use the following interfaces to disable and enable neck control for action playback.
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module from controlling the neck motor, the process will not exit, and no neck instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Disable the action playback module from controlling the neck motor, the process will not exit, and no neck instructions will be sent to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/disable_neck_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module to control the neck, start continuously sending neck control instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</code></td></tr><tr><td>Function Summary</td><td>Enable the action playback module to control the neck, start continuously sending neck control instructions to the motion control module</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/EnableNeckMotionPlayer</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_SUCCESS"
 }
 </code></pre><ul><li>state: Call request status</li></ul></td></tr><tr><td>Example Script</td><td>examples/motion_player/enable_neck_motion_player.sh</td></tr><tr><td>Notes</td><td>This interface has no call code restriction</td></tr></tbody></table>
@@ -2736,14 +2781,14 @@ The A2 Lite robot does not have a microphone and thus cannot perform voice inter
 
 **7.3.2 Audio File Playback RPC Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/PlayMediaFile</code></td></tr><tr><td>Function Summary</td><td>Audio file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/PlayMediaFile</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/PlayMediaFile</code></td></tr><tr><td>Function Summary</td><td>Audio file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/PlayMediaFile</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "file_name": "wake.pcm",
   "priority_level": "INTERACTION_L6",
   "domain": "example",
   "trace_id": "hafhjkqwjwefk",
   "is_interrupted": true
 }
-</code></pre><ul><li>file_name: File name (stored in <code>/agibot/data/var/interaction/audio/</code>, for example, wake.pcm. The file should be a 24kHz, 16-bit, mono PCM file. A separate folder needs to be created, and the input should be in the format of folder name/file name, such as file/wake.pcm)</li><li>priority_level: Priority level, keep INTERACTION_L6</li><li>domain: Caller source identifier, you can pass in a custom client string for easier troubleshooting, etc.</li><li>trace_id: Playback ID, if you need to get the playback status, you need to pass this field and use its value as the parameter to query the playback status</li><li>is_interrupted: Whether to interrupt playback of the same priority, please default to true. For queue playback requirements, you can use false</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>file_name: File name (stored in <code>/agibot/data/var/interaction/audio/</code>, for example, wake.pcm. The file should be a 24kHz, 16-bit, mono PCM file. A separate folder needs to be created, and the input should be in the format of folder name/file name, such as file/wake.pcm)</li><li>priority_level: Priority level, keep INTERACTION_L6</li><li>domain: Caller source identifier, you can pass in a custom client string for easier troubleshooting, etc.</li><li>trace_id: Playback ID, if you need to get the playback status, you need to pass this field and use its value as the parameter to query the playback status</li><li>is_interrupted: Whether to interrupt playback of the same priority, please default to true. For queue playback requirements, you can use false</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "text": "wake.pcm",
   "priority_level": "INTERACTION_L6",
   "priority_weight": 0,
@@ -2757,10 +2802,10 @@ The A2 Lite robot does not have a microphone and thus cannot perform voice inter
 
 **7.3.3 Audio File Playback Status Query RPC Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/GetAudioStatus</code></td></tr><tr><td>Function Summary</td><td>Audio file playback status query</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/GetAudioStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/GetAudioStatus</code></td></tr><tr><td>Function Summary</td><td>Audio file playback status query</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/GetAudioStatus</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "trace_id": "hafhjkqwjwefk"
 }
-</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "tts_status": {
     "text": "",
     "priority": 0,
@@ -2776,24 +2821,24 @@ The A2 Lite robot does not have a microphone and thus cannot perform voice inter
 
 We provide interfaces for interrupting a single file playback and clearing the entire playback queue.
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTSTraceId</code></td></tr><tr><td>Function Summary</td><td>Interrupt a single file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTSTraceId</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTSTraceId</code></td></tr><tr><td>Function Summary</td><td>Interrupt a single file playback</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTSTraceId</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "trace_id": "hafhjkqwjwefk"
 }
-</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_UNKNOWN"
 }
 </code></pre><ul><li>state: Request status, no need to pay attention to the specific value, HTTP request returning 200 indicates success</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/stop_trace_id.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTS</code></td></tr><tr><td>Function Summary</td><td>Terminate all audio file playback, including the current playback task and all tasks in the queue</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTS</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.TTSService/StopTTS</code></td></tr><tr><td>Function Summary</td><td>Terminate all audio file playback, including the current playback task and all tasks in the queue</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.TTSService/StopTTS</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre><ul><li>trace_id: Playback ID, fill in the custom ID passed when calling the PlayMediaFile interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "state":"CommonState_UNKNOWN"
 }
 </code></pre><ul><li>state: Request status, no need to pay attention to the specific value, HTTP request returning 200 indicates success</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/stop_all.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
 **7.3.5 Volume Get and Set RPC Interfaces**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/GetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Get the current volume level</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/GetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/GetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Get the current volume level</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/GetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "GetAudioVolume successfully",
@@ -2805,11 +2850,11 @@ We provide interfaces for interrupting a single file playback and clearing the e
 }
 </code></pre><ul><li>audio_volume: Volume level, a value between 0-100</li><li>is_mute: Whether muted</li></ul></td></tr><tr><td>Example Script</td><td>examples/audio/get_audio_volume.sh</td></tr><tr><td>Notes</td><td></td></tr></tbody></table>
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/SetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Adjust the volume</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/SetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalAudioService/SetAudioVolume</code></td></tr><tr><td>Function Summary</td><td>Adjust the volume</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:59201/rpc/aimdk.protocol.HalAudioService/SetAudioVolume</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "audio_volume": 70,
   "is_mute": false
 }
-</code></pre><ul><li>audio_volume: Volume level, a value between 0-100. <strong>Note: Do not set the volume above 70, as exceeding this range will cause the speaker to exceed its rated operating capacity, leading to damage</strong></li><li>is_mute: Whether muted</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>audio_volume: Volume level, a value between 0-100. <strong>Note: Do not set the volume above 70, as exceeding this range will cause the speaker to exceed its rated operating capacity, leading to damage</strong></li><li>is_mute: Whether muted</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "SetAudioVolume successfully",
@@ -2833,8 +2878,8 @@ The full list of alerts can be found in the file `/agibot/software/v0/config/hds
 
 **7.4.2 Get Current Alert List RPC Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/GetAlertList</code></td></tr><tr><td>Function Summary</td><td>Get the current alert list</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/GetAlertList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/GetAlertList</code></td></tr><tr><td>Function Summary</td><td>Get the current alert list</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/GetAlertList</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "alerts": [
       {
@@ -2870,10 +2915,10 @@ The full list of alerts can be found in the file `/agibot/software/v0/config/hds
 
 **7.4.3 Attempt to Clear Alert RPC Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/ClearAlert</code></td></tr><tr><td>Function Summary</td><td>Attempt to clear an alert, requiring the alert ID to be passed in</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/ClearAlert</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HDSService/ClearAlert</code></td></tr><tr><td>Function Summary</td><td>Attempt to clear an alert, requiring the alert ID to be passed in</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:50587/rpc/aimdk.protocol.HDSService/ClearAlert</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "id": "c92f2fdd-cea5-4209-b02f-d0eb62ae18ce"
 }
-</code></pre><ul><li>id: You need to fill in the specific alert ID, which can be obtained through the GetAlertList interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+</code></pre><ul><li>id: You need to fill in the specific alert ID, which can be obtained through the GetAlertList interface</li></ul></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "1",
     "msg": "clear alert failed!",
@@ -2894,8 +2939,8 @@ System status refers to the state of the software system, which can be reference
 
 **7.5.2 System Status Retrieval RPC Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.SystemService/GetSystemState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:51011/rpc/aimdk.protocol.SystemService/GetSystemState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.SystemService/GetSystemState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:51011/rpc/aimdk.protocol.SystemService/GetSystemState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "header": {
     "code": "0",
     "msg": "",
@@ -2909,8 +2954,8 @@ System status refers to the state of the software system, which can be reference
 
 **7.5.3 BMS Status Retrieval RPC Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalBmsService/GetBmsState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalBmsService/GetBmsState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalBmsService/GetBmsState</code></td></tr><tr><td>Function Summary</td><td>Retrieve system status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalBmsService/GetBmsState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "ver": {
       "hardware_major": 49,
@@ -2946,8 +2991,8 @@ System status refers to the state of the software system, which can be reference
 
 When an emergency stop is triggered, an alert will also be issued, and the emergency stop status can be obtained through the GetAlertList. This section provides a separate interface to query the emergency stop status.
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalEmergencyService/GetEmergencyState</code></td></tr><tr><td>Function Summary</td><td>Retrieve emergency stop status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalEmergencyService/GetEmergencyState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.HalEmergencyService/GetEmergencyState</code></td></tr><tr><td>Function Summary</td><td>Retrieve emergency stop status</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:56421/rpc/aimdk.protocol.HalEmergencyService/GetEmergencyState</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "data": {
     "active": true,
     "reason": "Reason_WIRELESS_ESTOP",
@@ -2976,8 +3021,8 @@ When an emergency stop is triggered, an alert will also be issued, and the emerg
 
 **7.5.5 Software Version Retrieval RPC Interface**
 
-<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.OTAService/GetRobotOtaInfo</code></td></tr><tr><td>Function Summary</td><td>Retrieve software version information</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:57900/rpc/aimdk.protocol.OTAService/GetRobotOtaInfo</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{}
-</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json"><code class="lang-json">{
+<table data-header-hidden><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Interface Name</td><td><code>pb:/aimdk.protocol.OTAService/GetRobotOtaInfo</code></td></tr><tr><td>Function Summary</td><td>Retrieve software version information</td></tr><tr><td>Interface Type</td><td>HTTP JSON RPC</td></tr><tr><td>URL</td><td>http://127.0.0.1:57900/rpc/aimdk.protocol.OTAService/GetRobotOtaInfo</td></tr><tr><td>Input Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{}
+</code></pre></td></tr><tr><td>Output Parameters</td><td><p>text</p><pre class="language-json" data-collapsed-line-count="10"><code class="lang-json">{
   "robot_info": {
     "model": "A2_T3D1_LITE"
   },
@@ -3019,29 +3064,31 @@ This simulation system is provided as a container image, containing executable f
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 docker login tongyong-public-cn-shanghai.cr.volces.com -u crrobot@aima-public-reader -p Aima123456
 ```
+{% endcode %}
 
 2. Pull the corresponding image
 
 bash
 
+{% code collapsedlinecount="10" %}
 ```
 docker pull tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
 ```
+{% endcode %}
 
 **8.3.2 Starting the Image**
 
 1.  Allow Docker to access the display, which is used to configure the access control list for the X Window System. Running `xhost +` will allow all hosts to connect to the current user's X server, effectively disabling access control for the X server and allowing any user to access and operate it.bash
 
-    ```
-    xhost +
-    ```
+    <pre data-collapsed-line-count="10"><code>xhost +
+    </code></pre>
 2.  Start the Docker containerbash
 
-    ```
-    docker run -it \
+    <pre data-collapsed-line-count="10"><code>docker run -it \
     --name=a2-lite-sim \
     --privileged \
     --net=host \
@@ -3051,13 +3098,12 @@ docker pull tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simula
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro \
     -d tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
-    ```
+    </code></pre>
 
     \
     If you find that the simulation interface runs sluggishly on a machine with an NVIDIA graphics card after starting the container with the above command, try using the following command to start the container:bash
 
-    ```
-    docker run -it \
+    <pre data-collapsed-line-count="10"><code>docker run -it \
             --name=a2-lite-sim \
             --gpus all \
             --privileged \
@@ -3070,39 +3116,35 @@ docker pull tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simula
             -v /tmp/.X11-unix:/tmp/.X11-unix \
             -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro \
             -d tongyong-public-cn-shanghai.cr.volces.com/aima-public/a2-lite-simulator:v2.0
-    ```
+    </code></pre>
 3.  Enter the containerbash
 
-    ```
-    docker start a2-lite-sim && docker exec -it a2-lite-sim /bin/bash
-    ```
+    <pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
+    </code></pre>
 
 **8.3.3 Starting the Simulation, Motion Control, and Action Playback Modules**
 
 1.  After entering the image, run the following command to start the simulationbash
 
-    ```
-    docker start a2-lite-sim && docker exec -it a2-lite-sim /bin/bash
+    <pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
 
     cd /home/agi/a2_simulation/mujoco_sim/bin
     ./start_a2_lite.sh
-    ```
+    </code></pre>
 2.  In a new window, connect to the container and start the motion control programbash
 
-    ```
-    docker start a2-lite-sim && docker exec -it a2-lite-sim /bin/bash
+    <pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
 
     cd /home/agi/a2_simulation/motion_control_lite_2.0.10/scripts/motion_control
     ./start_motion_control.sh
-    ```
+    </code></pre>
 3.  In another new window, connect to the container and start the action playback programbash
 
-    ```
-    docker start a2-lite-sim && docker exec -it a2-lite-sim /bin/bash
+    <pre data-collapsed-line-count="10"><code>docker start a2-lite-sim &#x26;&#x26; docker exec -it a2-lite-sim /bin/bash
 
     cd /home/agi/a2_simulation/motion_player_lite_2.0.10/scripts/motion_player
     ./start_motion_player.sh
-    ```
+    </code></pre>
 
 **8.3.4 Controlling Robot Walking**
 
@@ -3110,40 +3152,35 @@ Here, we will use robot walking as an example to explain the basic logic of call
 
 1.  Open a new window, enter the container, and switch the motion control Action to the joint standing mode (RL\_JOINT\_DEFAULT)bash
 
-    ```
-    cd /home/agi/a2_simulation/tools-lite/motion_control
+    <pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_control
     ./SetAction.py # Select the number corresponding to RL_JOINT_DEFAULT
-    ```
+    </code></pre>
 2.  Click the Load-Key button in the mujoco\_sim interface to stabilize the robot<br>
 
     <figure><img src="../../.gitbook/assets/unknown (379).webp" alt="Official AgiBot illustration"><figcaption><p>Official AgiBot illustration</p></figcaption></figure>
 3.  Continue to switch the motion control Action to the enhanced walking mode (RL\_LOCOMOTION\_DEFAULT)bash
 
-    ```
-    cd /home/agi/a2_simulation/tools-lite/motion_control
+    <pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_control
     ./SetAction.py # Select the number corresponding to RL_LOCOMOTION_DEFAULT
-    ```
+    </code></pre>
 4.  Call the walking example scriptbash
 
-    ```
-    source /home/agi/a2_simulation/prebuilt/ros2_plugin_proto_x86_64/share/ros2_plugin_proto/local_setup.bash
+    <pre data-collapsed-line-count="10"><code>source /home/agi/a2_simulation/prebuilt/ros2_plugin_proto_x86_64/share/ros2_plugin_proto/local_setup.bash
     ./walk.py
-    ```
+    </code></pre>
 
 **8.3.5 Controlling Robot to Perform Actions**
 
 1.  Switch the motion control state to the enhanced walking upper limb servo mode (RL\_LOCOMOTION\_ARM\_EXT\_JOINT\_SERVO)bash
 
-    ```
-    cd /home/agi/a2_simulation/tools-lite/motion_control
+    <pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_control
     ./SetAction.py # Select the number corresponding to RL_LOCOMOTION_ARM_EXT_JOINT_SERVO
-    ```
+    </code></pre>
 2.  Call the SendMotionCommand interface to perform the actionbash
 
-    ```
-    cd /home/agi/a2_simulation/tools-lite/motion_player
+    <pre data-collapsed-line-count="10"><code>cd /home/agi/a2_simulation/tools-lite/motion_player
     ./send_motion_id.sh /agibot/data/resources/default/motion/motion_player/default/wave-both-hands/wave-both-hands
-    ```
+    </code></pre>
 
 ### 9. Troubleshooting Interface Call Issues <a href="#troubleshooting-interface-calls" id="troubleshooting-interface-calls"></a>
 
@@ -3166,11 +3203,10 @@ The general troubleshooting methods for HTTP JSON RPC and ROS2 Topic are differe
 3. Check if the local environment variables `ROS_DOMAIN_ID=232` and `ROS_LOCALHOST_ONLY=0` are loaded. The exported environment variables only take effect in the current terminal. A new terminal will need to re-export these variables. You can use the command `env | grep ROS` to view the relevant environment variable settings in the current terminal.
 4.  Ensure that the QoS of the topic is consistent with the default QoS on the board.yaml
 
-    ```
-      history: keep_last
+    <pre data-collapsed-line-count="10"><code>  history: keep_last
       depth: 10
       reliability: best_effort
-    ```
+    </code></pre>
 5. After SSHing into the x86 industrial PC, execute `aima em load-env` (to load the ROS2 environment variables) and then use the `ros2 topic` command to check if the related topics are being sent or received by any modules.
 
 **9.1.3 Common Troubleshooting Methods**
@@ -3187,20 +3223,18 @@ The general troubleshooting methods for HTTP JSON RPC and ROS2 Topic are differe
 
     yaml
 
-    ```
-    curl -i \
+    <pre data-collapsed-line-count="10"><code>curl -i \
         -H 'content-type:application/json' \
         -H 'timeout: 1000' \
         -X POST http://127.0.0.1:56444/rpc/aimdk.protocol.MotionCommandService/DisableMotionPlayer \
         -d '{}'
-    ```
+    </code></pre>
 2. Why does calling any motion playback only result in the right hand lifting action?
    1. This is the default action of the motion playback module. When the `motion_id` parameter is incorrect, it will default to this action.
    2.  A correct motion path should find the corresponding .db file and pass the complete path without the .db suffix, for example:bash
 
-       ```
-       /agibot/data/resources/default/motion/motion_player/default/wave-both-hands/wave-both-hands
-       ```
+       <pre data-collapsed-line-count="10"><code>/agibot/data/resources/default/motion/motion_player/default/wave-both-hands/wave-both-hands
+       </code></pre>
 
 #### 9.3 Feedback Channels <a href="#web-14-9-3-feedback-channels" id="web-14-9-3-feedback-channels"></a>
 

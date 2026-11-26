@@ -128,7 +128,7 @@ The relay coil is turned on and off, and the contact is used as a switch for cir
 
 [UIFlow2.0](https://docs.m5stack.com/en/uiflow2/uiflow_web)[UIFlow2.0](https://docs.m5stack.com/en/uiflow2/uiflow_web)This tutorial will show you how to initialize the configuration using the UIFlow2.0 graphical programming platform
 
-[Relay Unit Programming Guide](https://uiflow-micropython.readthedocs.io/en/latest/units/relay.html)
+[Relay Unit Programming Guide](https://uiflow-micropython.readthedocs.io/en/latest/unit/relay.html)
 
 <figure><img src="https://static-cdn.m5stack.com/mpy_docs/unit/relay/example.svg" alt=""><figcaption></figcaption></figure>
 

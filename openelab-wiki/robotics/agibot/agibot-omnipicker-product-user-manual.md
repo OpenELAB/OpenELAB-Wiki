@@ -180,7 +180,7 @@ If users connect OmniPicker to other robotic arms, it is allowed to refer to the
 
 ![Official OmniPicker figure 6](<../../.gitbook/assets/Official OmniPicker figure 6>) ![Official OmniPicker figure 7](<../../.gitbook/assets/Official OmniPicker figure 7>)
 
-[3D model.zip](https://www.agibot.com/file/ueditor/php/upload/file/20260804/1785824210732112.zip)
+[3D model.zip](https://cms-tos.agibot.com/legacy/agibot-en/en/file/ueditor/php/upload/file/20260804/1785824210732112.zip)
 
 #### 3.4 Troubleshooting
 
@@ -275,7 +275,7 @@ The host can modify parameters via the commands. It is recommended to fully unde
 
 **6.2.1 How to use**
 
-Prepare a Windows computer and download the host software  [**REF-CLI v1.0.3.exe**](https://www.zhiyuan-robot.com/file/ueditor/php/upload/file/20250114/x1/REF-CLI%20v1.0.3.exe) .
+Prepare a Windows computer and download the host software  [**REF-CLI v1.0.3.exe**](https://cms-tos.agibot.com/legacy-recovered/en/file/ueditor/php/upload/file/20250114/x1/REF-CLI%20v1.0.3.exe) .
 
 First, make sure that there are no obstacles between the stroke of the gripper, then power on the gripper. The gripper will automatically close to zero position. In case of failure, it is required to stop and check whether the gripper moves smoothly.
 
@@ -563,11 +563,11 @@ g. Put on the rear cover and tighten the screws.
 
 **6.5.2 Firmware Release**
 
-| **Version** | **Date**    | **Firmware**                                                                                                                         | **Remarks**                                                                                |
-| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| 3.3.0       |  2024.12.26 | [\[OmniPicker-fw-ota-v330.bin\]](https://www.zhiyuan-robot.com/file/ueditor/php/upload/file/20241227/OmniPicker-fw-ota-v330.bin)     | 1. Serial communication support is added (TTL/485)2. CAN protocol message support is added |
-| 3.3.3       | 2025.1.10   | [**\[OmniPicker-fw-ota-v333.bin\]**](https://www.zhiyuan-robot.com/file/ueditor/php/upload/file/20250114/OmniPicker-fw-ota-v333.bin) | 1.   Serial port communication support（TTL）                                                |
-| 3.3.5       | 2025.12.23  | [**\[OmniPicker-fw-ota-v335.bin\]**](https://www.agibot.com/public/uploads/file/OmniPicker-fw-ota-v335.bin)                          | 1.   Supports Modbus RTU communication                                                     |
+| **Version** | **Date**    | **Firmware**                                                                                                                                          | **Remarks**                                                                                |
+| ----------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| 3.3.0       |  2024.12.26 | [\[OmniPicker-fw-ota-v330.bin\]](https://cms-tos.agibot.com/legacy-recovered/en/file/ueditor/php/upload/file/20241227/OmniPicker-fw-ota-v330.bin)     | 1. Serial communication support is added (TTL/485)2. CAN protocol message support is added |
+| 3.3.3       | 2025.1.10   | [**\[OmniPicker-fw-ota-v333.bin\]**](https://cms-tos.agibot.com/legacy-recovered/en/file/ueditor/php/upload/file/20250114/OmniPicker-fw-ota-v333.bin) | 1.   Serial port communication support（TTL）                                                |
+| 3.3.5       | 2025.12.23  | [**\[OmniPicker-fw-ota-v335.bin\]**](https://cms-tos.agibot.com/legacy/agibot-en/en/public/uploads/file/OmniPicker-fw-ota-v335.bin)                   | 1.   Supports Modbus RTU communication                                                     |
 
 ### 7. Others
 
@@ -577,8 +577,8 @@ For other matters not specified herein, please refer to AGIBOT official website 
 
 ### 8. Appendix
 
-[**URDF**](https://www.agibot.com/file/ueditor/php/upload/file/20260804/1785825470874678.zip)
+[**URDF**](https://cms-tos.agibot.com/legacy/agibot-en/en/file/ueditor/php/upload/file/20260804/1785825470874678.zip)
 
 Please use ROS2 Humble to load the URDF file of the gripper.<br>
 
-[**OmniPicker 3D Model**](https://www.agibot.com/file/ueditor/php/upload/file/20260804/1785825554443031.zip)
+[**OmniPicker 3D Model**](https://cms-tos.agibot.com/legacy/agibot-en/en/file/ueditor/php/upload/file/20260804/1785825554443031.zip)

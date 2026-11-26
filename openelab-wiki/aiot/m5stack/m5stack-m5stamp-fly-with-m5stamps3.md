@@ -97,7 +97,7 @@ EasyLoader is a simple and fast program burner that comes with a product-related
 * [BMP280 (Pressure Sensor Chip)](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/app/Stamp%20Fly/BMP280.PDF)
 * [BMM150 (3D Magnetometer Compass)](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/app/Stamp%20Fly/BMM150.PDF)
 * [BMI270 (6-axis Inertial Measurement Unit (IMU) Sensor)](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/app/Stamp%20Fly/BMI270.PDF)
-* [Battery anti-dork STL structure file](https://github.com/m5stack/M5_Hardware/blob/master/Structure/Stamp-Fly-Battery-Protect-Component.stl)
+* [Battery anti-dork STL structure file](https://github.com/m5stack/M5_Hardware/blob/master/Products/K138_StampFly/Structures/StampFly_Battery_Protect_Component.stl)
 
 <figure><img src="../../.gitbook/assets/QQ_1728265022401.png" alt=""><figcaption></figcaption></figure>
 

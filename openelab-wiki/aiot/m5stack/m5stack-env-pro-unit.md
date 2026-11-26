@@ -98,7 +98,7 @@ Users can utilize the BME AI-Studio tool to train the ENV Pro Unit for specific 
 
 * [ENV PRO UNIT Arduino Demo（Read temperature, humidity, pressure and indoor air quality values）](https://github.com/m5stack/M5Unit-ENV/blob/master/examples/ENV_PRO/ENV_PRO.ino)
 * [Bosch BME688 Official library document](https://github.com/boschsensortec/Bosch-BSEC2-Library)
-* [Bosch BME688 Official detection and analysis of upper computer tools](https://www.bosch-sensortec.com/software-tools/software/bme688-software/)
+* [Bosch BME688 Official detection and analysis of upper computer tools](https://www.bosch-sensortec.com/en/software-tools/software/bme688-and-bme690-software/)
 
 #### UIFlow <a href="#uiflow" id="uiflow"></a>
 
@@ -114,9 +114,11 @@ Users can utilize the BME AI-Studio tool to train the ENV Pro Unit for specific 
 
 This tutorial will show you how to initialize the configuration using the UIFlow2.0 graphical programming platform
 
-[ENV PRO Programming Guide](https://uiflow-micropython.readthedocs.io/zh-cn/latest/units/env.html)
+[ENV PRO Programming Guide](https://uiflow-micropython.readthedocs.io/zh-cn/latest/unit/envpro.html)
 
-![](https://static-cdn.m5stack.com/mpy_docs/unit/env/example.svg)
+Use the UIFlow2 ENVPROUnit API for the BME688 ENV Pro. Earlier ENV/ENV II/ENV III examples and blocks are not interchangeable with ENV Pro.
+
+![](https://static-cdn.m5stack.com/mpy_docs/unit/env_pro/example.png)
 
 * Update data
 

@@ -224,7 +224,7 @@ Product Usage
 
 Product Coordinate System
 
-The AC1 coordinate system definition is shown in Figure 5 . AC1 Coordinate System Definition Please refer to wiki for how to obtain AC1 camera and IMU external parameters: [https://robosense-wiki-en.readthedocs.io/en/latest/ac\_studio/tools.html.](https://robosense-wiki-en.readthedocs.io/en/latest/ac_studio/tools.html.)
+The AC1 coordinate system definition is shown in Figure 5 . AC1 Coordinate System Definition Please refer to wiki for how to obtain AC1 camera and IMU external parameters: [https://robosense-wiki-en.readthedocs.io/en/latest/ac\_studio/tools.html.](https://robosense-wiki-en.readthedocs.io/en/latest/ac_studio/tools.html)
 
 AC Viewer Useage
 

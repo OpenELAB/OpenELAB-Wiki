@@ -123,8 +123,8 @@ Download the `UF2` file and copy it to the `RPI-RP2` drive. Firmware should be f
 
 Download `Meshtastic` App:
 
-* [IOS App](https://meshtastic.org/docs/category/apple-apps/)
-* [Android App](https://meshtastic.org/docs/category/android-app/)
+* [IOS App](https://meshtastic.org/docs/software/apple/)
+* [Android App](https://meshtastic.org/docs/software/android/)
 
 #### Connect via App[​](https://wiki.seeedstudio.com/sensecap_indicator_meshtastic/#connect-via-app) <a href="#connect-via-app" id="connect-via-app"></a>
 

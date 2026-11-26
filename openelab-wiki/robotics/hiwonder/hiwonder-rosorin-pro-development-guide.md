@@ -157,6 +157,7 @@ The official chassis lesson contains a malformed abbreviated Twist type/layout i
 
 Run this on either assigned Orin image while the relevant factory feedback nodes are running. Save as `rosorin_stationary.py`, then `python3 rosorin_stationary.py`. If feedback nodes are absent, first enter a stopped development session and launch the **installed** documented controller/odometry and IMU bringup once. Inspect the actual graph rather than creating duplicate hardware owners.
 
+{% code collapsedlinecount="10" %}
 ```python
 import math
 import time
@@ -199,6 +200,7 @@ finally:
     node.destroy_node()
     rclpy.shutdown()
 ```
+{% endcode %}
 
 \*\*Expected result: \*\* nonzero finite feedback and a small reported stationary XY excursion. No universal pass threshold is invented: record the value and compare repeat runs with the robot physically stationary. A nonzero count does not validate encoder scale, IMU mounting or absolute navigation accuracy. If the actual image namespaces these topics, replace the names only after checking `ros2 topic list -t`.
 
@@ -212,11 +214,13 @@ The chassis course separates IMU calibration, linear scale and angular scale. Ba
 
 Stop app control while stationary, then use separate terminals:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ros2 launch slam slam.launch.py
 ros2 launch slam rviz_slam.launch.py
 ros2 launch peripherals teleop_key_control.launch.py
 ```
+{% endcode %}
 
 Drive a short closed loop in a level room, watching whether scan walls overlap and the pose moves in the physical direction. Save under a new name with the course's map-saving workflow; keep image/YAML together and verify resolution, origin and image path. The quick desktop experience can replace a prior map, so retain copies before making another.
 
@@ -303,6 +307,7 @@ For the Pro source repository, the observed `orin-nx` commit is `6c2a621fe628cc4
 
 Before changing software, record the following in the robot's own maintenance log:
 
+{% code collapsedlinecount="10" %}
 ```bash
 cat /etc/os-release
 uname -m
@@ -312,6 +317,7 @@ ros2 pkg prefix ros_robot_controller
 ros2 topic list -t
 ros2 node list
 ```
+{% endcode %}
 
 **Expected result:** an AArch64 Orin system, the intended ROS 2 environment and installed package paths consistent with the supplied workspace. A missing variable is a reason to inspect the installed startup configuration, not to assign a guessed value. The source uses `need_compile` to choose installed package shares or source directories; a stale overlay can therefore select different launch/configuration files from the ones being edited.
 
@@ -325,12 +331,14 @@ The workspace separates `driver` for controller/kinematics/servos, `peripherals`
 4. Launch the selected course once. Do not launch a second serial controller or camera driver on the same device.
 5. Stop the behavior through its stop service or a zero chassis command, verify actual rest, then terminate its processes. Only afterwards restore the app service.
 
+{% code collapsedlinecount="10" %}
 ```bash
 sudo systemctl stop start_app_node.service
 ros2 topic info /controller/cmd_vel --verbose
 # After the standalone behavior has stopped and exited:
 sudo systemctl restart start_app_node.service
 ```
+{% endcode %}
 
 These service changes are for the supplied image. `~/.stop_ros.sh` is a broader process cleanup tool; inspect its scope before using it and do not treat process termination as a guaranteed motor stop. Several course examples explicitly retain a commanded velocity after their terminal exits. [Chassis speed-control and stop notes](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/2_Chassis_Motion_Control_Course.html#_2-1-5-robot-speed-control).
 
@@ -424,11 +432,13 @@ The Pro course's controller instantiates **0.17706 m wheelbase, 0.17165 m track 
 
 Factory calibration should be retained unless measurements show a problem. Back up `~/ros2_ws/src/calibration/config/imu_calib.yaml` and `~/ros2_ws/src/driver/controller/config/calibrate_params.yaml` first. The documented IMU procedure starts the lower controller and then:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ros2 run imu_calib do_calib --ros-args \
   -r imu:=/ros_robot_controller/imu_raw \
   --param output_file:=/home/ubuntu/ros2_ws/src/calibration/config/imu_calib.yaml
 ```
+{% endcode %}
 
 Follow the six positive/negative axis orientations shown by the manufacturer, stabilizing the robot before each acquisition. Support the Pro's arm and secure its hardware; do not balance a powered mobile manipulator precariously to reproduce a diagram. Inspect orientation with `ros2 launch peripherals imu_view.launch.py`. **Expected result:** the displayed attitude follows the actual tilt direction. A successful write does not establish wheel scale or yaw accuracy. [IMU procedure and orientation figures](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/2_Chassis_Motion_Control_Course.html#_2-1-1-imu-calibration).
 
@@ -442,10 +452,12 @@ With competing owners stopped, the documented feedback paths are `ros_robot_cont
 
 The velocity article's flattened Twist example is not valid structured ROS 2 YAML. After establishing a single command owner, a zero command with an explicit message type is:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ros2 topic pub --once /controller/cmd_vel geometry_msgs/msg/Twist \
   '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
 ```
+{% endcode %}
 
 For a first physical move, use the tested gamepad with a slight deflection and release/START stop, or a bounded application that publishes zero on timeout and interruption. The course's 0.3 m/s demonstration and suggested ±0.6 m/s range are not mandatory commissioning speeds. Reserve enough space for stopping and verify that a nonzero command has actually ended before closing the terminal. A zero velocity request cannot guarantee stopping after power/communications failure.
 
@@ -491,11 +503,13 @@ The mapping article points to `simulations/rosorin_description/urdf`, while the 
 4. Save to a new map name, keeping the image and YAML together. The corrected ROS 2 command below removes the stray trailing Markdown `**` in the Pro article.
 5. Stop motion, terminate the mapping nodes cleanly and confirm the saved YAML's image path, resolution and origin. Reopen a saved map before trusting it for a navigation task.
 
+{% code collapsedlinecount="10" %}
 ```bash
 cd ~/ros2_ws/src/slam/maps
 ros2 run nav2_map_server map_saver_cli -f room_reference \
   --ros-args -p map_subscribe_transient_local:=true
 ```
+{% endcode %}
 
 **Expected result:** a coherent occupancy grid and readable `room_reference.yaml` plus its referenced image. The illustration's `map_01` is a filename choice, not a reserved map. Back up an existing file before reusing its name. `slam/config/slam.yaml` configures the documented slam\_toolbox path. The course explains scan matching, pose estimation and loop closure through Karto-related concepts; that background does not make an old ROS 1 launch compatible with the current ROS 2 wrapper. [SLAM operations and save command](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/5_Mapping_&_Navigation_Course.html#_5-1-4-slam-toolbox-mapping-algorithm).
 
@@ -527,12 +541,14 @@ The QR scripts are `example/example/qrcode/qrcode_creater.py` and `qrcode_detect
 
 Line following combines a color mask, regions of interest and the line-center error with a steering controller. The supplied scene uses a contrasting line without competing same-colored objects. First inspect the debug image while stationary; a controller cannot compensate for a missing mask or a line outside the ROI. The documented ROS 2 sequence is:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ros2 launch app line_following_node.launch.py debug:=true
 ros2 service call /line_following/enter std_srvs/srv/Trigger '{}'
 # This enables physical line following only after the motion-area checks:
 ros2 service call /line_following/set_running std_srvs/srv/SetBool '{data: true}'
 ```
+{% endcode %}
 
 Select the line in the displayed image as the course instructs. To stop, inspect the installed `set_running` service and use its false setting where supported, then issue/verify a zero chassis command before closing the node. The source's closing example repeats `enter`; an initialization call is not independent proof of a stop.
 
@@ -656,22 +672,27 @@ This Pro lesson combines a previously saved map, navigation, color alignment and
 
 1. Stop the app service and competing moving behaviors as described above. Confirm the intended camera and saved LAB color thresholds with the stationary block. Before calibration, preserve the current ROS 2 YAML and inspect the package lane:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ros2 pkg prefix example
 printenv need_compile
 cp -p /home/ubuntu/ros2_ws/src/example/config/automatic_pick_roi.yaml "/home/ubuntu/ros2_ws/src/example/config/automatic_pick_roi.yaml.before-$(date +%Y%m%d-%H%M%S)"
 ```
+{% endcode %}
 
 2. The **pinned `orin-nx` implementation** writes `/home/ubuntu/ros2_ws/src/example/config/automatic_pick_roi.yaml`. The article's `/home/ros_ws/src/hiwonder_example/config/automatic_pick_rol.yaml` is an obsolete/mismatched path and filename; do not create that path to satisfy the prose. The launch reads either the installed `example` package share (`need_compile=True`) or the source package (`False`). Check which YAML the active overlay actually loads: a successful source-file write does not automatically update a copied installed YAML. [Actual NX write path and debug logic](https://raw.githubusercontent.com/Hiwonder/ROSOrin-Pro/6c2a621fe628cc4928c48fc11d8d982594d471eb/ROS2/src_ros2/src/example/example/navigation_transport/automatic_pick.py), [launch parameter source](https://raw.githubusercontent.com/Hiwonder/ROSOrin-Pro/6c2a621fe628cc4928c48fc11d8d982594d471eb/ROS2/src_ros2/src/example/example/navigation_transport/automatic_pick.launch.py).
 3. With the chassis and arm area clear, run the calibration once:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ros2 launch example automatic_pick.launch.py debug:=true
 ```
+{% endcode %}
 
 4. The lesson acquires the colored block centered at the demonstrated gripper pickup pose, then resets/repositions the arm. Watch the image and terminal `x_y` coordinates from outside the motion area. The manual describes a completion indication; the pinned code's actual save condition is its debug-frame counter exceeding ten, after which it writes the pickup coordinate and clears debug. It does **not** establish ten independently validated successful block detections. A log line alone is therefore insufficient: confirm that the recorded center belongs to the visible target, not a failed/no-target result.
 5. Stop the calibration behavior and verify physical rest before inspecting or adjusting the target. Read the saved arrays without changing them:
 
+{% code collapsedlinecount="10" %}
 ```bash
 python3 - <<'CHECK_ROI'
 from pathlib import Path
@@ -685,15 +706,18 @@ for key in ('pick_stop_pixel_coordinate', 'place_stop_pixel_coordinate'):
     print(key, value)
 CHECK_ROI
 ```
+{% endcode %}
 
 The automatic procedure saves **only `pick_stop_pixel_coordinate`**, under `/**/ros__parameters`. `place_stop_pixel_coordinate` is a separate array used by the placement alignment path. Do not replace both with the newly acquired pickup center or treat the repository's example pixels as a universal camera calibration. The source interprets the first value as image x and the second as image y; the manual's left/right and closer/farther adjustment descriptions apply to its illustrated camera mounting. Verify the direction with the actual image before a small manual change. [Exact two-key YAML](https://raw.githubusercontent.com/Hiwonder/ROSOrin-Pro/6c2a621fe628cc4928c48fc11d8d982594d471eb/ROS2/src_ros2/src/example/config/automatic_pick_roi.yaml).
 
 6. If the launch consumes an installed copy, rebuild/install through that workspace's normal package procedure, source the resulting overlay and restart the behavior so it loads the reviewed values. Compare active parameters using the observed node name/namespace from `ros2 node list`; do not assume another running node or an old terminal has reloaded the file. Keep the backup until a complete controlled pickup/placement cycle succeeds.
 7. Start the combined task with the already verified map. The default **`place_without_color:=true`** places at the preset navigation destination without requiring a detected placement-color marker. For color-guided placement, deliberately select **false** and provide the source's red placement target:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ros2 launch example navigation_transport.launch.py map:=map_01 place_without_color:=false
 ```
+{% endcode %}
 
 Only use `map_01` if it is the intended saved map. Confirm localization with **2D Pose Estimate** before requesting a destination; do not tune pickup pixels to compensate for a wrong map pose. First verify approach/pickup, then the separate placement alignment and release. If color-guided placement is inaccurate, adjust **placement** coordinates with a clear stage and a backed-up file; rerunning pickup debug does not calibrate placement. The article describes one pick/place cycle per feature launch, so inspect completion before deliberately restarting for another cycle.
 
@@ -723,14 +747,17 @@ The workstation VM is separate from the **assigned Pro Ultimate / Orin NX Super 
 2. In the imported VM's settings, choose **Network Adapter → Bridged** for the course's later two-computer workflow. Its display instructions uncheck **Accelerate 3D graphics**. Those are this VM's source settings, not a claim that every hypervisor/GPU behaves identically. For the initial simulation-only exercises, keep the **physical robot powered off**, disconnect the VM's virtual network adapter and leave the physical-controller/servo bridges stopped. Matching a robot's domain later must be a deliberate transition.
 3. Inside the VM, open a terminal and inspect `cat /etc/os-release`, `uname -m` and `printenv ROS_DISTRO ROS_VERSION`. Use the supplied VM's ROS 2 environment; do not replace it with an AArch64 robot overlay or assume that an unrelated ROS release has the same Gazebo plugins. Copy the course's `simulations.zip` and `.typerc` to the VM home directory. Inspect the archive before extraction:
 
+{% code collapsedlinecount="10" %}
 ```bash
 unzip -l ~/simulations.zip
 mkdir -p ~/ros2_ws/src
 ls -ld ~/ros2_ws/src/simulations ~/ros2_ws/.typerc
 ```
+{% endcode %}
 
 If either destination already exists, preserve it before continuing; the `ls` errors on absent paths are expected on a fresh VM. The article expects a top-level `simulations` directory, but the individual downloaded archive was not inspected here. If its listing differs, resolve that package layout rather than nesting another workspace blindly. On a fresh destination, extract/build the supplied packages:
 
+{% code collapsedlinecount="10" %}
 ```bash
 test ! -e ~/ros2_ws/src/simulations && unzip ~/simulations.zip -d ~/ros2_ws/src
 cp -n ~/.typerc ~/ros2_ws/.typerc
@@ -743,6 +770,7 @@ ros2 pkg prefix hiwonder_moveit_config
 ros2 pkg prefix robot_gazebo
 printenv ROS_DISTRO ROS_DOMAIN_ID
 ```
+{% endcode %}
 
 4. Stop if extraction or compilation fails. `colcon list` should identify the imported packages, and the two prefix queries should resolve this VM's workspace rather than an unrelated installation. A populated source directory alone is not a built overlay. The `cp -n` keeps an existing workspace `.typerc`; compare it with the supplied file rather than silently overwriting either configuration.
 5. After successful loading, inspect `~/.bashrc`. If the following two source lines are absent, add them **once**, in this order: `source ~/ros2_ws/install/setup.bash`, then `source ~/ros2_ws/.typerc`. Open a new terminal and repeat the prefix/environment checks. Repeatedly appending the lines can cause confusing overlay precedence; editing a source file does not change an already-running node's environment.
@@ -758,9 +786,11 @@ The course says the factory configuration is already supplied and normally needs
 2. Using the VM file manager, copy the **entire package directory outside `~/ros2_ws/src`**, for example into a dated backup directory under the home directory. Keep the original package name inside that backup and record the active package prefix. A duplicate package left inside the source workspace can itself break a subsequent build. Retain referenced URDF/Xacro/meshes if they live in a separate description package.
 3. Launch the assistant from the same sourced environment:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ros2 launch moveit_setup_assistant setup_assistant.launch.py
 ```
+{% endcode %}
 
 4. Select **Edit Existing MoveIt Configuration Package → Browse**, choose the observed source directory, then **Load Files**. Wait for loading to reach 100% and for the expected robot/arm model to appear. Failure to load is a package/path/description checkpoint; do not create a new generic arm to bypass it.
 5. Inspect the **Self-Collisions** matrix, **Virtual Joints**, **Planning Groups**, **Robot Poses**, **Passive Joints**, **ROS 2 Controllers** and **ros2\_control URDF Modifications**. The course's virtual connection is `base_footprint` to `world_frame`; retain its intended frame relationship. Its self-collision sampling default is **10,000** configurations. Disabled pairs need a geometric justification: the matrix is not a way to suppress an arm–camera collision. Preserve the `arm` group, named `home`/`p1` states and controller/joint correspondence unless a specific model change requires revision.
@@ -772,9 +802,11 @@ ros2 launch moveit_setup_assistant setup_assistant.launch.py
 
 Keep the robot powered off and physical bridges absent for these exercises. Start the source-supported interface on the isolated VM:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ros2 launch hiwonder_moveit_config demo.launch.py
 ```
+{% endcode %}
 
 1. In RViz, open **MotionPlanning → Planning** and choose planning group **arm**. Use **current** for the starting state. Confirm that the displayed model contains the base, camera and gripper collision geometry before choosing a target.
 2. Move the end-effector interactive marker a small, reachable distance, or open **Joints** and adjust one joint slider. Read the displayed reference frame and axis labels. The manufacturer's screenshot uses green for its x/left direction, red for y/forward and blue for z/up; color alone is not a portable frame definition. A goal marker is a requested state, not measured hardware feedback.
@@ -857,7 +889,7 @@ The group-control course uses one leader and followers. Configure a unique name/
 
 The ROS environment file is `~/ros2_ws/.typerc`, with example leader `robot_1` and follower `robot_2`; inspect HOST/MASTER and the sourced shell configuration on both machines. Compare clocks before starting the controllers. The course's `date -s` value is an old example timestamp, not a time to copy. Synchronize to the actual current reference and verify the measured difference. Matching clocks do not fix duplicate namespaces or blocked discovery traffic.
 
-The leader runs `multi multi_controller.launch.py`, the course's `ros2_ws/src/multi/launch/joystick_control_multi.py` and `joy joy_node`. Followers run `multi multi_controller.launch.py`. Stop factory app owners on **every** robot first, prove each individual stop, then start the group with large separation. START is the illustrated stop/reset control. Lateral joystick motion applies to Mecanum; a source table's “differential” wording does not give a two-wheel chassis lateral mobility. **Expected result:** commands reach the intended named robots with consistent direction and stopping, without unintended cross-control. [Pro group course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/11_Group_Control.html), [Standard group course](https://wiki.hiwonder.com/projects/ROSOrin/en/jetson-orin-nano-version/docs/11_Group_Control.html).
+The leader runs `multi multi_controller.launch.py`, the course's `ros2_ws/src/multi/launch/joystick_control_multi.py` and `joy joy_node`. Followers run `multi multi_controller.launch.py`. Stop factory app owners on **every** robot first, prove each individual stop, then start the group with large separation. START is the illustrated stop/reset control. Lateral joystick motion applies to Mecanum; a source table's “differential” wording does not give a two-wheel chassis lateral mobility. **Expected result:** commands reach the intended named robots with consistent direction and stopping, without unintended cross-control. [Pro group course](https://wiki.hiwonder.com/projects/rosorin-pro/en/latest/docs/11_Group_Control.html).
 
 ## Large-model foundations and staged integration <a href="#rosorin-reference-large-models" id="rosorin-reference-large-models"></a>
 
@@ -896,6 +928,7 @@ Use the model/voice resources delivered for the installed release. The Pro cours
 1. Stop competing app/voice behaviors, leave moving robot tools disabled and inspect `arecord -l`. Select the actual USB input/output in the robot's Sound settings; the course's `Analog Input-XFM-DP-V0.0.18` and `Speakers-USB Audio Device` are observed labels, not a permanent ALSA card number. Confirm a short capture/playback as described in the audio section before diagnosing ASR.
 2. In a terminal on the **robot host**, check the matching four assets and supplied microphone script. The following check reads file existence only; it does not validate model contents or obtain missing downloads:
 
+{% code collapsedlinecount="10" %}
 ```bash
 cd ~/third_party/sherpa-onnx
 python3 - <<'CHECK_ASR'
@@ -910,9 +943,11 @@ if missing:
 print('Matched asset filenames and microphone script are present')
 CHECK_ASR
 ```
+{% endcode %}
 
 3. From that same directory, start the direct recognizer with explicit component paths:
 
+{% code collapsedlinecount="10" %}
 ```bash
 python3 python-api-examples/speech-recognition-from-microphone-with-endpoint-detection.py \
   --encoder ./sherpa-onnx-streaming-zipformer-zh-xlarge-int8-2025-06-30/encoder.int8.onnx \
@@ -920,6 +955,7 @@ python3 python-api-examples/speech-recognition-from-microphone-with-endpoint-det
   --joiner ./sherpa-onnx-streaming-zipformer-zh-xlarge-int8-2025-06-30/joiner.int8.onnx \
   --tokens ./sherpa-onnx-streaming-zipformer-zh-xlarge-int8-2025-06-30/tokens.txt
 ```
+{% endcode %}
 
 4. Wait for the input-ready indication, speak a short utterance appropriate to this Chinese model and pause for endpoint detection. The article describes 100ms audio chunks and intermediate text followed by a completed recognition segment. Stop this microphone-owning process before starting the separate recording-client exercise.
 
@@ -929,6 +965,7 @@ python3 python-api-examples/speech-recognition-from-microphone-with-endpoint-det
 
 1. Keep the direct recognizer stopped so it does not compete for capture. In terminal A on the robot host, work from **the home directory**: the article's server paths are relative to it. Verify that `~/third_party/sherpa-onnx/python-api-examples/streaming_server.py` and its `web` directory exist, as well as the four checked model files. Start the installed server with an explicit web root and port:
 
+{% code collapsedlinecount="10" %}
 ```bash
 cd ~
 python3 third_party/sherpa-onnx/python-api-examples/streaming_server.py \
@@ -939,21 +976,26 @@ python3 third_party/sherpa-onnx/python-api-examples/streaming_server.py \
   --doc-root third_party/sherpa-onnx/python-api-examples/web \
   --port 6006
 ```
+{% endcode %}
 
 2. Keep that terminal open. The embedded server parser defaults to **6006** and checks that the document-root directory exists. It receives audio over a WebSocket interface, performs recognition and returns text/segment results. Confirm model-loading/listening output; if the port is already occupied, identify the existing process instead of starting duplicate servers. The source binds the server's network listener without restricting it to loopback; use the intended robot network and its reviewed access policy. If the installed recording client's ASR endpoint was changed, reconcile its host/port with this actual server rather than assuming a different release's client defaults.
 3. In terminal B, start the **separate** client from its own directory so its relative resource paths resolve:
 
+{% code collapsedlinecount="10" %}
 ```bash
 cd ~/large_models
 python3 offline_asr_demo.py
 ```
+{% endcode %}
 
 4. Wait for **Recording…**, speak the short test utterance, then inspect the transcript. The source client passes `./resources/audio/test_recording.wav` to `speech.OfflineRealTimeASR`; check the recording separately after it has been written:
 
+{% code collapsedlinecount="10" %}
 ```bash
 ls -l ~/large_models/resources/audio/test_recording.wav
 aplay ~/large_models/resources/audio/test_recording.wav
 ```
+{% endcode %}
 
 5. Stop the recording client, then the server with Ctrl+C when finished. Preserve a useful sample and the model/runtime versions before changing settings. To use the robot's offline action lane later, select **ASR Mode → offline**, use **Save**, require **Save Success**, then reopen/inspect that setting. That backend selection does not itself start all required services or validate a moving tool.
 
@@ -986,6 +1028,7 @@ The AprilTag interaction course separately starts `apriltag_control_node.launch.
 
 This original example reads only a supplied hexadecimal string. It opens no serial port and sends no commands. Its default is a **synthetic** successful bus-servo-position report, corresponding to raw position 833 for servo 5, not an observed robot measurement or a claim that 833 means a particular angle. CRC is checked against the pinned SDK's actual algorithm.
 
+{% code collapsedlinecount="10" %}
 ```python
 import json
 import struct
@@ -1038,6 +1081,7 @@ if __name__ == '__main__':
     for record in decode(data):
         print(json.dumps(record, sort_keys=True))
 ```
+{% endcode %}
 
 Save as `rrc_capture_review.py` and run `python3 rrc_capture_review.py`. **Expected result:** one CRC-valid synthetic function-5 record with servo ID 5, success status 0 and `position_units` 833. Supply a copied capture as a quoted hex argument to inspect real logs; changing the final byte should produce `bad_crc`, while removing it reports truncation. Unknown functions remain raw records instead of being decoded with another model's schema. This parser does not establish electrical compatibility, authentication, timestamps or replay safety.
 

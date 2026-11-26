@@ -179,27 +179,35 @@ The 5G HAT has two SIM card slots onboard, a dual SIM card, and single standby, 
 
 * SIM card 1 is selected by default, You can use the following command to query and confirm:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QUIMSLOT?
 ```
+{% endcode %}
 
 * To switch SIM card 2, please use the following command:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QUIMSLOT=2
 ```
+{% endcode %}
 
 * Switch back to SIM card 1, please use the following command:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QUIMSLOT=1
 ```
+{% endcode %}
 
 * Check whether the corresponding card slot recognizes the SIM card:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+CPIN?
 ```
+{% endcode %}
 
 RM500U-CN and RM500Q-GL support Dual SIMs, but RM500Q-AE and RM502Q-AE modules do not support dual SIM cards.
 
@@ -207,17 +215,20 @@ RM500U-CN and RM500Q-GL support Dual SIMs, but RM500Q-AE and RM502Q-AE modules d
 
 **RM500U-CNV MBIM Dial-up Network Access**
 
+{% code collapsedlinecount="10" %}
 ```
 AT+CPIN?
 AT+QCFG="usbnet",2
 AT+CFUN=1,1
 AT+QNETDEVCTL=2,3,1
 ```
+{% endcode %}
 
 #### RNDIS Dial-up Internet Access
 
 * Open the RM50X AT port and send the following commands to dial up the Internet:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QENG="servingcell"
 AT+QCFG="ethernet",0
@@ -226,6 +237,7 @@ AT+QCFG="usbnet",3
 AT+QNETDEVCTL=2,3,1
 AT+CFUN=1,1
 ```
+{% endcode %}
 
 * And then you can find that there are some unrecognized devices in the Device Manager on the computer, such as RNDIS (with an exclamation mark).
 * Right-click the 'RNDIS', search "Update Divers" and select "Let me pick from a list of available drivers on my computer", then select "Network adapters" from the device list.
@@ -233,27 +245,35 @@ AT+CFUN=1,1
 * Click 'Next' and wait for the installation to finish, the RNDIS Kitl device will be installed successfully.
 *
 
+{% code collapsedlinecount="10" %}
 ```
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up01.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
 ```
+{% endcode %}
 
 *
 
+{% code collapsedlinecount="10" %}
 ```
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up02.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
 ```
+{% endcode %}
 
 *
 
+{% code collapsedlinecount="10" %}
 ```
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up03.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
 ```
+{% endcode %}
 
 *
 
+{% code collapsedlinecount="10" %}
 ```
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=RNDIS_Dial-up04.png&#x26;width=120" alt=""><figcaption></figcaption></figure>
 ```
+{% endcode %}
 
 * If it cannot connect to the network, please set it to obtain the IP automatically.
 
@@ -283,14 +303,16 @@ RM500U is based on the Zhanrui platform, and the dial-up Internet access in the 
 
 #### Ubuntu System Use
 
-* Raspberry Pi programming [Ubuntu 22.04 system](https://cdimage.ubuntu.com/releases/22.04.1/release/ubuntu-22.04.1-preinstalled-desktop-arm64+raspi.img.xz) image.
+* Raspberry Pi programming [Ubuntu 22.04 system](https://old-releases.ubuntu.com/releases/22.04.1/ubuntu-22.04.1-preinstalled-desktop-arm64+raspi.img.xz) image.
 * Confirm system version information:
 
+{% code collapsedlinecount="10" %}
 ```
  sudo apt-get install screenfetch
  screen fetch
  uname -r
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/upload/3/3a/800px-RM500U_ubuntu_uname.png" alt=""><figcaption></figcaption></figure>
 
@@ -300,39 +322,48 @@ In order to identify a module, the module's VID and PID needs to be added to the
 
 * Check the VID and PID of RM500U.
 
+{% code collapsedlinecount="10" %}
 ```
  lsusb
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/upload/b/b2/RM500U_ubuntu_lsusb.png" alt=""><figcaption></figcaption></figure>
 
 * Install gcc and make tools
 
+{% code collapsedlinecount="10" %}
 ```
  sudo apt-get install gcc
  sudo apt-get install make
 ```
+{% endcode %}
 
 * Add VID and PID:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo su
 sudo modprobe option
 sudo sh -c 'echo "2c7c 0900" > /sys/bus/usb-serial/drivers/option1/new_id'
 sudo echo 2c7c 0900 > /sys/bus/usb-serial/drivers/generic/new_id
 ```
+{% endcode %}
 
 #### ECM Dial-up
 
 * Open minicom:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get install minicom
 sudo minicom -D /dev/ttyUSB2
 ```
+{% endcode %}
 
 * Send the following commands in minicom for ECM dialing:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+CPIN?
 AT+QENG="servingcell"
@@ -343,32 +374,39 @@ AT+QNETDEVCTL=1,1,1
 AT+QCFG="nat",0
 AT+CFUN=1,1
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/upload/1/10/RM500U_RNDIS_DIAL.png" alt=""><figcaption></figcaption></figure>
 
 * After configuring the ECM mode, CTRL+A -> X -> Yes to exit minicom.
 * Use the following commands to get IP and set DNS:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo dhclient -v enxe2f1fbfdd5e7
 sudo apt-get install udhcpc
 sudo udhcpc -i enxe2f1fbfdd5e7
 sudo route add -net 0.0.0.0 enxe2f1fbfdd5e7
 ```
+{% endcode %}
 
 * After dialing, the Raspberry Pi can see that enxe2f1fbfdd5e7 has obtained the IP through the following command (different systems are different, so the actual obtained IP shall prevail):
 
+{% code collapsedlinecount="10" %}
 ```
  ifconfig
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/upload/6/6c/RM500U_ubuntu_ifconfig.png" alt=""><figcaption></figcaption></figure>
 
 * Test enxe2f1fbfdd5e7 network status:
 
+{% code collapsedlinecount="10" %}
 ```
   ping -I enxe2f1fbfdd5e7 www.baidu.com
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/upload/c/c2/RM500U_ubuntu_ping.png" alt=""><figcaption></figcaption></figure>
 
@@ -376,18 +414,22 @@ sudo route add -net 0.0.0.0 enxe2f1fbfdd5e7
 
 #### Add VID & PID
 
+{% code collapsedlinecount="10" %}
 ```
 sudo su
 sudo modprobe option
 sudo sh -c 'echo "2c7c 0900" > /sys/bus/usb-serial/drivers/option1/new_id'
 sudo echo 2c7c 0900 > /sys/bus/usb-serial/drivers/generic/new_id
 ```
+{% endcode %}
 
 * After successfully adding the PID and restarting the Raspberry Pi, enter the following command in the command line interface, and five device descriptors USB0-UBS4 will appear:
 
+{% code collapsedlinecount="10" %}
 ```
 ls /dev/ttyUSB*
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/upload/b/be/RM500U_ubuntu_ttyUSB.png" alt=""><figcaption></figcaption></figure>
 
@@ -395,13 +437,16 @@ ls /dev/ttyUSB*
 
 * Open minicom.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get install minicom
 sudo minicom -D /dev/ttyUSB2
 ```
+{% endcode %}
 
 * Send the following command RNDIS dial in minicom:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QCFG="nat",1
 AT+CPIN?
@@ -410,11 +455,13 @@ AT+QCFG="usbnet",3
 AT+QNETDEVCTL=2,3,1
 AT+CFUN=1,1
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/upload/1/10/RM500U_RNDIS_DIAL.png" alt=""><figcaption></figcaption></figure>
 
 * If the IP is not obtained or the network is not connected, you can use the following commands to get it:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo dhclient -v usb0
 sudo apt-get install udhcpc
@@ -423,14 +470,17 @@ sudo route add -net 0.0.0.0 usb0
 auto usb0
 iface usb0 inet dhcp
 ```
+{% endcode %}
 
 #### Raspberry Pi Serial Port Enable
 
 Since the Raspberry Pi serial port is used for terminal debugging by default, if you need to use the serial port, you need to modify the Raspberry Pi settings. Execute the following command to enter the Raspberry Pi configuration:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo raspi-config
 ```
+{% endcode %}
 
 Select Interfacing Options ->Serial ->NO ->YES to disable serial debugging.\
 \
@@ -438,9 +488,11 @@ Open the /boot/config.txt file, and find the following configuration statement t
 
 <figure><img src="https://www.waveshare.com/w/upload/4/45/Serial_port.png" alt=""><figcaption></figcaption></figure>
 
+{% code collapsedlinecount="10" %}
 ```
 enable_uart=1
 ```
+{% endcode %}
 
 Restart to take effect:
 
@@ -450,21 +502,27 @@ Restart to take effect:
 
 <figure><img src="https://www.waveshare.com/w/upload/a/ac/Minicom-serial.png" alt=""><figcaption></figcaption></figure>
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get install minicom
 ```
+{% endcode %}
 
 3\. Open ttyS0 through minicom——ttyS0 is the serial port of Raspberry Pi 3B/3B+/4B, the default baud rate is 115200;
 
+{% code collapsedlinecount="10" %}
 ```
 sudo minicom -D /dev/ttyS0
 ```
+{% endcode %}
 
 4\. For Raspberry Pi 2B/zero, the user serial device number is ttyAMA0; you can use the following command line to confirm, serial0 is the selected serial device number, as shown below:
 
+{% code collapsedlinecount="10" %}
 ```
 ls -l /dev/serial*
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/upload/2/22/RM500U-CN_5G_HAT_9.png" alt=""><figcaption></figcaption></figure>
 
@@ -519,6 +577,7 @@ At this point, you can connect to the OpenWrt web management interface or termin
 * Insert the SIM card into the slot of the communication module -> All 5G antennas are connected, after connecting to the Raspberry Pi 4B via USB -> Power on;
 * Change the mobile communication module to RNDIS mode (USB network sharing mode), which can be changed in Openwrt by sending the following command via minicom:
 
+{% code collapsedlinecount="10" %}
 ```
 sh -c 'echo "2c7c 0900" > /sys/bus/usb-serial/drivers/option1/new_id'
 sudo minicom -D /dev/ttyUSB2    
@@ -526,12 +585,15 @@ AT+QENG="servingcell"
 AT+QCFG="usbnet",3
 AT+QNETDEVCTL=2,3,1
 ```
+{% endcode %}
 
 To switch ECM mode, use this command:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QCFG="usbnet",1
 ```
+{% endcode %}
 
 * Add new interface: Network -> Interfaces -> Add New Interface.
 
@@ -564,13 +626,16 @@ In order to identify the module, the module's VID and PID information needs to b
 
 * View VID and PID of RM500U:
 
+{% code collapsedlinecount="10" %}
 ```
 lsusb
 ```
+{% endcode %}
 
 [![Usb-load.png](https://www.waveshare.com/w/upload/6/6b/Usb-load.png)](https://www.waveshare.com/wiki/File:Usb-load.png)\
 Added VID sum PID
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get install unzip
 wget https://files.waveshare.com/upload/9/93/RM500U_CN_For_Jetson_nano.zip
@@ -580,14 +645,17 @@ cd RM500U_CN_For_Jetson_nano
 sudo ./install.sh
 sudo reboot
 ```
+{% endcode %}
 
 Please do not delete or modify the four directory files of option directory, default.script and install.sh, otherwise it will affect the loading of device descriptors!
 
 After successfully adding the PID and restarting Jetson nano, enter the following command in the command line interface to display five device symbols USB0-USB4.
 
+{% code collapsedlinecount="10" %}
 ```
 ls /dev/ttyUSB*
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/upload/2/28/Jetson-nano-vid.png" alt=""><figcaption></figcaption></figure>
 
@@ -595,50 +663,62 @@ ls /dev/ttyUSB*
 
 * Enable minicom.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get install minicom
 sudo minicom -D /dev/ttyUSB2
 ```
+{% endcode %}
 
 * Send the following command ECM in minicom.
 
+{% code collapsedlinecount="10" %}
 ```
 AT+CPIN?
 AT+QCFG="usbnet",3
 AT+QNETDEVCTL=2,3,1
 AT+CFUN=1,1
 ```
+{% endcode %}
 
 After the module restarts and the NET light is on, use the following command to check the network status (optional).
 
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=Rndis-dial.png&#x26;width=600" alt=""><figcaption></figcaption></figure>
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QENG="servingcell"
 ```
+{% endcode %}
 
 Get the IP and set the DNS with the following commands:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo dhclient -v usb1
 sudo apt-get install udhcpc
 sudo udhcpc -i usb1
 sudo route add -net 0.0.0.0 usb1
 ```
+{% endcode %}
 
 After dialing, you can see that usb1 gets the IP through the following command:
 
+{% code collapsedlinecount="10" %}
 ```
 ip route
 ```
+{% endcode %}
 
 Test usb1 networking status.<br>
 
 <figure><img src="https://www.waveshare.com/w/upload/1/13/Ip-route.png" alt=""><figcaption></figcaption></figure>
 
+{% code collapsedlinecount="10" %}
 ```
  ping -I usb1 www.baidu.com
 ```
+{% endcode %}
 
 <figure><img src="https://www.waveshare.com/w/A6Y79bcq/Kdy80nYY.php?f=Ip-route2.png&#x26;width=600" alt=""><figcaption></figcaption></figure>
 
@@ -684,6 +764,7 @@ As the 5G power consumption is relatively high, and the host computer's USB port
 
 RM500U-CN and RM500Q-GL modules support installing two SIM cards at the same time, and you can enable one SIM card to work with AT commands:
 
+{% code collapsedlinecount="10" %}
 ```
 *Select SIM card 1 by default, and check it with the following command:  
  AT+QUIMSLOT?
@@ -694,6 +775,7 @@ RM500U-CN and RM500Q-GL modules support installing two SIM cards at the same tim
 *Query whether the corresponding card slot identify the SIM card:  
  AT+CPIN?
 ```
+{% endcode %}
 
 [![Quectel-dual-sim.jpg](https://www.waveshare.com/w/upload/4/45/Quectel-dual-sim.jpg)](https://www.waveshare.com/wiki/File:Quectel-dual-sim.jpg)
 
@@ -709,6 +791,7 @@ RM500U-CN and RM500Q-GL modules support installing two SIM cards at the same tim
 
 Quectel/Qualcomm:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QENG="servingcell"
 at+qcfg="pcie/mode",1
@@ -717,9 +800,11 @@ at+qeth="eth_driver","r8125",1
 AT+QMAPWAC=1
 at+qmap="mpdn_rule",0,1,0,1,1,"FF:FF:FF:FF:FF:FF"
 ```
+{% endcode %}
 
 Quectel/Spreadtrum:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QCFG="pcie/mode",1
 AT+QCFG="ethernet",1
@@ -727,6 +812,7 @@ AT+QNETDEVCTL=1,1,1
 AT+QCFG="ethernet",1
 AT+QCFG="nat",0
 ```
+{% endcode %}
 
 </details>
 
@@ -736,9 +822,11 @@ AT+QCFG="nat",0
 
 Please use the following commands to set it to the stable router mode:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QCFG="nat",1
 ```
+{% endcode %}
 
 </details>
 
@@ -749,6 +837,7 @@ AT+QCFG="nat",1
 * Please check whether the SIM card is connected to four antennas.
 * Please check hardware connection is right and check the network with the following AT Log:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+CMEE=2
 AT+CPIN?
@@ -758,6 +847,7 @@ AT+QENG="servingcell"
 AT+CGDCONT?
 AT+QNWPREFCFG="mode_pref"
 ```
+{% endcode %}
 
 [![RM.png](https://www.waveshare.com/w/upload/2/28/RM.png)](https://www.waveshare.com/wiki/File:RM.png)
 
@@ -769,11 +859,13 @@ AT+QNWPREFCFG="mode_pref"
 
 * The following modules that support it after testing:
 
+{% code collapsedlinecount="10" %}
 ```
 Fibocom: FM650-CN FM160-EAU	
 SIMCOM: SIM8202G-M2 SIM8262E-M2 SIM8262A-M2
 Quectel: (AA version) RM500U-CNV RM500Q-GL/RM502Q-AE RM520N-GL RM530N-GL
 ```
+{% endcode %}
 
 * 5G modules are NOT included. If used with other modules and the pin compatibility should be tested.
 
@@ -811,9 +903,11 @@ When using the external power supply, the Raspberry Pi reboots and RM500U does n
 
 Use the following command to turn on the echo, and press Enter after entering: (Blind typing is required here):
 
+{% code collapsedlinecount="10" %}
 ```
 ATE1
 ```
+{% endcode %}
 
 </details>
 
@@ -831,9 +925,11 @@ It can be inquired at the following website: [https://www.frequencycheck.com](ht
 
 * Raspberry PI 2B/zero, the user serial port device number is ttyAMA0;
 
+{% code collapsedlinecount="10" %}
 ```
 ls -l /dev/serial*
 ```
+{% endcode %}
 
 * The following command line can be used to confirm that serial0 is the serial port device number selected, as shown in the figure below:
 
@@ -856,6 +952,7 @@ The USB power supply capability of the Raspberry Pi is worse than that of the co
 
 There are the following dial types:
 
+{% code collapsedlinecount="10" %}
 ```
 AT+QCFG="usbnet",0 driver type is NDIS(QMI));
 AT+QCFG="usbnet",1 The driver type is ECM;
@@ -863,6 +960,7 @@ AT+QCFG="usbnet",2 The driver type is MBIM; (RM5XXQ support)
 AT+QCFG="usbnet",3 The driver type is RNDIS
 AT+QCFG="usbnet",5 The driver type is NCM;
 ```
+{% endcode %}
 
 </details>
 
@@ -880,10 +978,12 @@ Yes.
 
 Please use the following command to enable the Ethernet port to access the network.
 
+{% code collapsedlinecount="10" %}
 ```
 AT+GTUSBMODE=36
 AT+GTAUTOCONNECT=1
 ```
+{% endcode %}
 
 </details>
 

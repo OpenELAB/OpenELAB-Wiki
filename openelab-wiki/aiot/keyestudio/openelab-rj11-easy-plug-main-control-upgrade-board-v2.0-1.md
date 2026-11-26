@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# OpenELAB RJ11 EASY Plug Main Control Upgrade Board V2.0
+# Keyestudio RJ11 EASY Plug Main Control Upgrade Board V2.0
 
 ### OpenELAB RJ11 EASY Plug Main Control Upgrade Board V2.0
 
@@ -123,7 +123,7 @@ Wait for the installing process, if appear the interface of Window Security, jus
 Double-click the icon of Arduino software downloaded well, you will get the interface shown below.\
 [![Ks0313图片1.png](https://wiki.keyestudio.com/images/4/4f/Ks0313%E5%9B%BE%E7%89%871.png)](https://wiki.keyestudio.com/File:Ks0313%E5%9B%BE%E7%89%871.png)\
 \
-(Note: if the Arduino software loads in the wrong language, you can change it in the preferences dialog. See [the environment page](https://www.arduino.cc/en/Guide/Environment-Languages) for details.)<br>
+(Note: if the Arduino software loads in the wrong language, you can change it in the preferences dialog. See [the environment page](https://support.arduino.cc/hc/en-us/articles/4403365287826-Change-the-language-in-Arduino-IDE) for details.)<br>
 
 <figure><img src="https://wiki.keyestudio.com/images/5/5d/717.png" alt=""><figcaption></figcaption></figure>
 
@@ -197,6 +197,7 @@ Note: to avoid errors, the COM Port should keep the same as the Ports shown on D
 
 Below is an example code for displaying the Hello World! Copy and paste the code to the Arduino environment IDE.
 
+{% code collapsedlinecount="10" %}
 ```
 int val;
 int ledpin=13;
@@ -218,6 +219,7 @@ Serial.println("Hello World!");
 }
 }
 ```
+{% endcode %}
 
 Then click verify button to check the errors. If compiling successfully, the message "Done compiling." will appear in the status bar.
 

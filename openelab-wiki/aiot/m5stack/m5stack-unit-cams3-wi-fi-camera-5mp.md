@@ -45,7 +45,9 @@ To download the program: When using the [Grove2USB-C ](https://docs.m5stack.com/
 
 <figure><img src="../../.gitbook/assets/image (451).png" alt=""><figcaption></figcaption></figure>
 
-[M5CamS3 5MP Getting Started Tutorial](https://docs.m5stack.com/en/guide/wifi_camera/m5cams3/m5cams3)[M5CamS3 5MP Getting Started Tutorial](https://docs.m5stack.com/en/guide/wifi_camera/m5cams3/m5cams3)This tutorial will show you how to burn firmware and features to an M5CAMS3 5MP device using Burner
+[M5CamS3 5MP Getting Started Tutorial](https://docs.m5stack.com/en/guide/unit_cam_s3/webcam)[M5CamS3 5MP Getting Started Tutorial](https://docs.m5stack.com/en/guide/unit_cam_s3/webcam)This tutorial will show you how to burn firmware and features to an M5CAMS3 5MP device using Burner
+
+For Unit CamS3-5MP (U174-B), select the UnitCamS3 5MP firmware in M5Burner; the UnitCamS3 build is for different camera hardware.
 
 ### Features <a href="#features" id="features"></a>
 

@@ -48,7 +48,9 @@ It is important to confirm the version of T-Halow you have.
 
 Version 1 and version 2 of T-Halow use the same [AT commands](https://github.com/Xinyuan-LilyGO/T-Halow/blob/master/docs/AT_cmd.md).
 
-Regarding the SDK of the TX-AH module, Taixin does not provide detailed API instructions. If you want to compile it yourself, you can use this project. [hgSDK](https://github.com/Xinyuan-LilyGO/T-Halow/blob/master/SDK/hgSDK-v1.6.4.3-29063-wnb)
+Regarding the SDK of the TX-AH module, Taixin does not provide detailed API instructions. If you want to compile it yourself, you can use this project. [hgSDK v1.6.4.3-29063-wnb (archived official source)](https://github.com/Xinyuan-LilyGO/T-Halow/tree/35e4e3e8485c4516611fb45fa9baac8034ba1f6d/SDK/hgSDK-v1.6.4.3-29063-wnb)
+
+This is the archived official SDK source directory for the named version. Confirm the delivered T-HaLow revision and toolchain before building or flashing it.
 
 ### Firmware download
 

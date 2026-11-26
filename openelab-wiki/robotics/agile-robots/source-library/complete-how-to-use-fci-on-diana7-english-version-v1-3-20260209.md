@@ -41,6 +41,7 @@ Diana FCI support is restricted to the configurations and release conditions in 
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 1 
 www.agile-robots.com
@@ -65,6 +66,7 @@ Software Version      V3.3.0
 FCI Version             V0.18.2 
 Document Version        V1.3
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -78,6 +80,7 @@ Document Version        V1.3
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 1 
 Contents 
@@ -96,6 +99,7 @@ Contents
 4.4 . Official Examples ........................................................................................................................................... 15 
 5. Disclaimer ............................................................................................ 15
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -111,6 +115,7 @@ Contents
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 2 
 1. Introduction 
@@ -146,6 +151,7 @@ The above does not include all safety precautions for using the robot arm. Befor
 operating the robot arm, please read the Diana robot arm user manual and the CB-FS-
 3.2T control box user manual carefully and follow the instructions strictly.
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -159,6 +165,7 @@ operating the robot arm, please read the Diana robot arm user manual and the CB-
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 3 
 2.2. FCI Client Connection 
@@ -174,6 +181,7 @@ Set a static IP address using the GUI on Ubuntu 20.04. If you prefer to use the
 command line, please follow the official Ubuntu guide. 
 First, open the Settings page and click on Network, as shown in Figure 2.
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -189,6 +197,7 @@ First, open the Settings page and click on Network, as shown in Figure 2.
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 4 
  
@@ -200,6 +209,7 @@ Figure 3 Setting the Network Name
 Next, click on the IPv4 Settings tab, set the method to Manual, and then enter the 
 address and subnet mask in the Address bar, as shown in Figure 4.
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -215,6 +225,7 @@ address and subnet mask in the Address bar, as shown in Figure 4.
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 5 
  
@@ -230,6 +241,7 @@ In the upper right corner of the teach pendant's main menu, there is a switch op
 for the FCI function, as shown in Figure 5. The switch option is in red, indicating that 
 the FCI function is disabled.
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -245,6 +257,7 @@ the FCI function is disabled.
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 6 
  
@@ -255,6 +268,7 @@ turns green, and the FCI function is enabled, as shown in Figure 7.
  
 Figure 6 Confirmation Pop-up Window for Enable FCI
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -270,6 +284,7 @@ Figure 6 Confirmation Pop-up Window for Enable FCI
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 7 
  
@@ -281,6 +296,7 @@ will turn red, and the FCI function is disabled, as shown in Figure 5.
 Figure 8 Confirmation Pop-up Window for Disable FCI  
 When the FCI client is running a program but not controlling the movement of the
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -296,6 +312,7 @@ When the FCI client is running a program but not controlling the movement of the
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 8 
 robot arm, the teach pendant interface will pop up a prompt "FCI client is connected. 
@@ -310,6 +327,7 @@ controlling the robot arm. Stop control, disconnect, and disable FCI service?", 
 in Figure 10. Click "Yes" will disconnect the connection, the FCI service will be 
 disabled, and the FCI client will receive a motion control termination prompt.
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -325,6 +343,7 @@ disabled, and the FCI client will receive a motion control termination prompt.
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 9 
  
@@ -345,6 +364,7 @@ this time, you need to clear the error on the teach pendant and restore the robo
 normal state before the FCI client can start the program again to control the movement 
 of the robot arm.
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -358,6 +378,7 @@ of the robot arm.
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 10 
 2.5. Robot Parameter Description 
@@ -485,6 +506,7 @@ Acceleration
 Joint Range 
 （°）
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -498,6 +520,7 @@ Joint Range
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 11 
 Diana7G2_
@@ -569,10 +592,11 @@ minimum Linux operating system is Ubuntu 20.04 LTS Focal Fossa. The Diana robot'
 system software version is V3.3.0. Please check Diana's software version before using 
 FCI to confirm if an upgrade is needed.
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
-**Original PDF links:** [Source link 1](https://frankaemika.github.io/libfranka) · [Source link 2](https://frankaemika.github.io/docs/installation_linux.html)
+**Original PDF links:** [Source link 1](https://frankarobotics.github.io/libfranka) · [Source link 2](https://github.com/frankarobotics/docs/blob/b103b37e9439dda4aaf3af33427de059079ed116/source/installation_linux.rst?plain=1)
 
 ## PDF page 13
 
@@ -584,6 +608,7 @@ FCI to confirm if an upgrade is needed.
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 12 
 For the minimum system and network requirements for the FCI client, please refer 
@@ -622,10 +647,11 @@ thresholds;
  setCartesianImpedance: which sets the impedance parameters for the internal 
 Cartesian impedance controllers;
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
-**Original PDF links:** [Source link 1](https://frankaemika.github.io/docs/installation_linux.html#setting-up-the-real-time-kernel) · [Source link 2](https://github.com/frankaemika/libfranka/blob/main/README.md)
+**Original PDF links:** [Source link 1](https://github.com/frankarobotics/docs/blob/b103b37e9439dda4aaf3af33427de059079ed116/source/installation_linux.rst?plain=1#L83-L282) · [Source link 2](https://github.com/frankarobotics/libfranka/blob/0.18.2/README.rst)
 
 ## PDF page 14
 
@@ -637,6 +663,7 @@ Cartesian impedance controllers;
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 13 
  setJointImpedance: which sets the impedance parameters for the internal 
@@ -669,10 +696,11 @@ external controller, internal joint impedance, and internal Cartesian
 impedance. 
 For real-time instruction description, refer to:
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
-**Original PDF links:** [Source link 1](https://frankaemika.github.io/docs/libfranka.html#non-realtime-commands) · [Source link 2](https://frankaemika.github.io/libfranka/0.15.0/robot_8h.html) · [Source link 3](https://frankaemika.github.io/libfranka/0.15.0/robot_8h_source.html)
+**Original PDF links:** [Source link 1](https://github.com/frankarobotics/docs/blob/b103b37e9439dda4aaf3af33427de059079ed116/source/libfranka.rst?plain=1#L28-L89) · [Source link 2](https://frankarobotics.github.io/libfranka/0.15.0/robot_8h.html) · [Source link 3](https://frankarobotics.github.io/libfranka/0.15.0/robot_8h_source.html)
 
 ## PDF page 15
 
@@ -684,6 +712,7 @@ For real-time instruction description, refer to:
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 14 
 https://frankarobotics.github.io/docs/libfranka.html#realtime-commands 
@@ -705,10 +734,11 @@ https://frankarobotics.github.io/libfranka/0.15.0/robot__state_8h.html
 https://frankarobotics.github.io/libfranka/0.15.0/robot__state_8h_source.html 
 For error code manual and source code, refer to:
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
-**Original PDF links:** [Source link 1](https://frankaemika.github.io/docs/libfranka.html#realtime-commands) · [Source link 2](https://frankaemika.github.io/libfranka/0.15.0/control__types_8h.html) · [Source link 3](https://frankaemika.github.io/libfranka/0.15.0/control__types_8h_source.html) · [Source link 4](https://frankaemika.github.io/docs/libfranka.html#robot-state) · [Source link 5](https://frankaemika.github.io/libfranka/0.15.0/robot__state_8h.html) · [Source link 6](https://frankaemika.github.io/libfranka/0.15.0/robot__state_8h_source.html)
+**Original PDF links:** [Source link 1](https://github.com/frankarobotics/docs/blob/b103b37e9439dda4aaf3af33427de059079ed116/source/libfranka.rst?plain=1#L91-L385) · [Source link 2](https://frankarobotics.github.io/libfranka/0.15.0/control__types_8h.html) · [Source link 3](https://frankarobotics.github.io/libfranka/0.15.0/control__types_8h_source.html) · [Source link 4](https://github.com/frankarobotics/docs/blob/b103b37e9439dda4aaf3af33427de059079ed116/source/libfranka.rst?plain=1#L386-L426) · [Source link 5](https://frankarobotics.github.io/libfranka/0.15.0/robot__state_8h.html) · [Source link 6](https://frankarobotics.github.io/libfranka/0.15.0/robot__state_8h_source.html)
 
 ## PDF page 16
 
@@ -720,6 +750,7 @@ For error code manual and source code, refer to:
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 15 
 https://frankarobotics.github.io/libfranka/0.15.0/errors_8h.html 
@@ -752,10 +783,11 @@ Our ongoing improvements and updates to the user manual demonstrate our
 commitment to customer satisfaction and service quality. We appreciate your 
 understanding and support and welcome any feedback to help us improve our products
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
-**Original PDF links:** [Source link 1](https://frankaemika.github.io/libfranka/0.15.0/errors_8h.html) · [Source link 2](https://frankaemika.github.io/libfranka/0.15.0/errors_8h_source.html) · [Source link 3](https://frankaemika.github.io/libfranka/0.15.0/examples.html)
+**Original PDF links:** [Source link 1](https://frankarobotics.github.io/libfranka/0.15.0/errors_8h.html) · [Source link 2](https://frankarobotics.github.io/libfranka/0.15.0/errors_8h_source.html) · [Source link 3](https://frankarobotics.github.io/libfranka/0.15.0/examples.html)
 
 ## PDF page 17
 
@@ -767,9 +799,11 @@ understanding and support and welcome any feedback to help us improve our produc
 {% endtab %}
 
 {% tab title="Searchable text" %}
+{% code collapsedlinecount="10" %}
 ```
 16 
 and services.
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}

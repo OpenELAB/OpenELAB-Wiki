@@ -145,16 +145,20 @@ PS: If you are using the system of the Bullseye branch, you need to change "apt-
 
 * Open terminal, use command to enter the configuration page
 
+{% code collapsedlinecount="10" %}
 ```
 sudo raspi-config
 Choose Interfacing Options -> SPI -> Yes  to enable SPI interface
 ```
+{% endcode %}
 
 Reboot Raspberry Pi：
 
+{% code collapsedlinecount="10" %}
 ```
 sudo reboot
 ```
+{% endcode %}
 
 Please make sure the SPI is not occupied by other devices, you can check in the middle of /boot/config.txt
 
@@ -164,6 +168,7 @@ If you use bookworm system, only the lgpio library is available, bcm2835 and wir
 
 #### BCM2835
 
+{% code collapsedlinecount="10" %}
 ```
 #Open the Raspberry Pi terminal and run the following command
 wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.71.tar.gz
@@ -172,9 +177,11 @@ cd bcm2835-1.71/
 sudo ./configure && sudo make && sudo make check && sudo make install
 # For more, you can refer to the official website at: http://www.airspayce.com/mikem/bcm2835/
 ```
+{% endcode %}
 
 #### WiringPi
 
+{% code collapsedlinecount="10" %}
 ```
 #Open the Raspberry Pi terminal and run the following command
 cd
@@ -192,9 +199,11 @@ cd WiringPi
 gpio -v
 # Run gpio -v and version 2.70 will appear, if it doesn't it means there was an installation error
 ```
+{% endcode %}
 
 #### lgpio
 
+{% code collapsedlinecount="10" %}
 ```
 #Open the Raspberry Pi terminal and run the following command
 wget https://github.com/joan2937/lg/archive/master.zip
@@ -205,9 +214,11 @@ sudo make install
 sudo apt install python3-rpi-lgpio
 #For more details, you can refer to https://github.com/gpiozero/lg
 ```
+{% endcode %}
 
 #### Python
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get update
 sudo apt-get install python3-pip
@@ -215,17 +226,20 @@ sudo apt-get install python3-pil
 sudo apt-get install python3-numpy
 sudo pip3 install spidev
 ```
+{% endcode %}
 
 ### Download Examples
 
 Open Raspberry Pi terminal and run the following command
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get install unzip -y
 sudo wget https://files.waveshare.com/upload/8/8d/LCD_Module_RPI_code.zip
 sudo unzip ./LCD_Module_RPI_code.zip 
 cd LCD_Module_RPI_code/RaspberryPi/
 ```
+{% endcode %}
 
 ### Run the demo codes
 
@@ -235,20 +249,25 @@ Please go into the RaspberryPi directory (demo codes) first and run the commands
 
 * Re-compile the demo codes
 
+{% code collapsedlinecount="10" %}
 ```
 cd c
 sudo make clean
 sudo make -j 8
 ```
+{% endcode %}
 
 * The test program of all screens can be called directly by entering the corresponding size
 
+{% code collapsedlinecount="10" %}
 ```
 sudo ./main Screen Size
 ```
+{% endcode %}
 
 Depending on the LCD, one of the following commands should be entered:
 
+{% code collapsedlinecount="10" %}
 ```
 #0.96inch LCD Module
 sudo ./main 0.96
@@ -269,15 +288,18 @@ sudo ./main 2
 #2.4inch LCD Module
 sudo ./main 2.4
 ```
+{% endcode %}
 
 #### python
 
 * Enter the python program directory and run the command ls -l
 
+{% code collapsedlinecount="10" %}
 ```
 cd python/examples
 ls -l
 ```
+{% endcode %}
 
 [![LCD rpi python examples.png](https://www.waveshare.com/w/upload/f/f6/LCD_rpi_python_examples.png)](https://www.waveshare.com/wiki/File:LCD_rpi_python_examples.png)\
 Test programs for all screens can be viewed, sorted by size:\
@@ -293,6 +315,7 @@ Test programs for all screens can be viewed, sorted by size:\
 
 * Just run the program corresponding to the screen, the program supports python2/3
 
+{% code collapsedlinecount="10" %}
 ```
 # python2
 sudo python 0inch96_LCD_test.py
@@ -315,6 +338,7 @@ sudo python3 1inch8_LCD_test.py
 sudo python3 2inch_LCD_test.py
 sudo python3 2inch4_LCD_test.py
 ```
+{% endcode %}
 
 ### API Description
 
@@ -328,42 +352,52 @@ The program is divided into bottom-layer hardware interface, middle-layer LCD sc
 We have carried out the low-level encapsulation, if you need to know the internal implementation can go to the corresponding directory to check, for the reason the hardware platform and the internal implementation are different.\
 You can open DEV\_Config.c(.h) to see definitions,which in the directory RaspberryPi\c\lib\Config.
 
+{% code collapsedlinecount="10" %}
 ```
 1. There are three ways for C to drive: BCM2835 library, WiringPi library, and Dev library respectively
 2. We use Dev libraries by default. If you need to change to BCM2835 or WiringPi libraries, please open RaspberryPi\c\Makefile and modify lines 13-15 as follows:  
 ```
+{% endcode %}
 
 [![RPI open spi1.png](https://www.waveshare.com/w/upload/6/65/RPI_open_spi1.png)](https://www.waveshare.com/wiki/File:RPI_open_spi1.png)
 
 * Data type:
 
+{% code collapsedlinecount="10" %}
 ```
 #define UBYTE      uint8_t
 #define UWORD      uint16_t
 #define UDOUBLE    uint32_t
 ```
+{% endcode %}
 
 * Module initialization and exit processing.
 
+{% code collapsedlinecount="10" %}
 ```
 void DEV_Module_Init(void);
 void DEV_Module_Exit(void);
 Note: 
   Here is some GPIO processing before and after using the LCD screen.
 ```
+{% endcode %}
 
 * GPIO read and write:
 
+{% code collapsedlinecount="10" %}
 ```
 void 	DEV_Digital_Write(UWORD Pin, UBYTE Value);
 UBYTE 	DEV_Digital_Read(UWORD Pin);
 ```
+{% endcode %}
 
 * SPI write data:
 
+{% code collapsedlinecount="10" %}
 ```
 void DEV_SPI_WriteByte(UBYTE Value);
 ```
+{% endcode %}
 
 **Upper application**
 
@@ -377,6 +411,7 @@ The fonts can be found in RaspberryPi\c\lib\Fonts directory.
 
 * New Image Properties: Create a new image buffer, this property includes the image buffer name, width, height, flip Angle, and color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_NewImage(UBYTE *image, UWORD Width, UWORD Height, UWORD Rotate, UWORD Color)
 Parameters:
@@ -386,35 +421,43 @@ Parameters:
       Rotate: Indicates the rotation Angle of an image
       Color: the initial Color of the image;
 ```
+{% endcode %}
 
 * Select image buffer: The purpose of the selection is that you can create multiple image attributes, there can be multiple images buffer, you can select each image you create.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SelectImage(UBYTE *image)
 Parameters:
        Image: the name of the image buffer, which is actually a pointer to the first address of the image buffer;
 ```
+{% endcode %}
 
 * Image Rotation: Set the rotation Angle of the selected image, preferably after Paint\_SelectImage(), you can choose to rotate 0, 90, 180, 270.
 
 <figure><img src="https://www.waveshare.com/w/upload/a/a4/Rotation-lcd.png" alt=""><figcaption></figcaption></figure>
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetRotate(UWORD Rotate)
 Parameters:
         Rotate: ROTATE_0, ROTATE_90, ROTATE_180, and ROTATE_270 correspond to 0, 90, 180, and 270 degrees.
 ```
+{% endcode %}
 
 * Image mirror flip: Set the mirror flip of the selected image. You can choose no mirror, horizontal mirror, vertical mirror, or image center mirror
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetMirroring(UBYTE mirror)
 Parameters:
         Mirror: indicates the image mirroring mode. MIRROR_NONE, MIRROR_HORIZONTAL, MIRROR_VERTICAL, MIRROR_ORIGIN correspond to no mirror, horizontal mirror, vertical mirror, and image center mirror respectively.
 ```
+{% endcode %}
 
 * Set points of the display position and color in the buffer: here is the core GUI function, processing points display position and color in the buffer.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetPixel(UWORD Xpoint, UWORD Ypoint, UWORD Color)
 Parameters:
@@ -422,17 +465,21 @@ Parameters:
         Ypoint: Y position of a point in the image buffer
         Color: indicates the Color of the dot
 ```
+{% endcode %}
 
 * Image buffer fill color: Fills the image buffer with a color, usually used to flash the screen into blank.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_Clear(UWORD Color)
 Parameters:
         Color: fill Color
 ```
+{% endcode %}
 
 * The fill color of a certain window in the image buffer: the image buffer part of the window filled with a certain color, usually used to fresh the screen into blank, often used for time display, fresh the last second of the screen.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_ClearWindows(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color)
 Parameters:
@@ -442,9 +489,11 @@ Parameters:
         Yend: the y-end coordinate of the window
         Color: fill Color
 ```
+{% endcode %}
 
 * Draw point: In the image buffer, draw points on (Xpoint, Ypoint), you can choose the color, the size of the point, the style of the point.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawPoint(UWORD Xpoint, UWORD Ypoint, UWORD Color, DOT_PIXEL Dot_Pixel, DOT_STYLE Dot_Style)
 Parameters:
@@ -468,9 +517,11 @@ Parameters:
                      DOT_FILL_RIGHTUP,
                   } DOT_STYLE;
 ```
+{% endcode %}
 
 * Draw line: In the image buffer, draw line from (Xstart, Ystart) to (Xend, Yend), you can choose the color, the width and the style of the line.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawLine(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, LINE_STYLE Line_Style ,  LINE_STYLE Line_Style)
 Parameters:
@@ -496,9 +547,11 @@ Parameters:
                  LINE_STYLE_DOTTED,
               } LINE_STYLE;
 ```
+{% endcode %}
 
 * Draw rectangle: In the image buffer, draw a rectangle from (Xstart, Ystart) to (Xend, Yend), you can choose the color, the width of the line, whether to fill the inside of the rectangle.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width,  DRAW_FILL Draw_Fill)
 Parameters:
@@ -524,9 +577,11 @@ Parameters:
                  	DRAW_FILL_FULL,
               } DRAW_FILL;
 ```
+{% endcode %}
 
 * Draw circle: In the image buffer, draw a circle of Radius with (X\_Center Y\_Center) as the center. You can choose the color, the width of the line, and whether to fill the inside of the circle.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawCircle(UWORD X_Center, UWORD Y_Center, UWORD Radius, UWORD Color, DOT_PIXEL Line_width,  DRAW_FILL Draw_Fill)
 Parameters:
@@ -551,9 +606,11 @@ Parameters:
                  	DRAW_FILL_FULL,
               } DRAW_FILL;
 ```
+{% endcode %}
 
 * Write Ascii character: In the image buffer, use (Xstart Ystart) as the left vertex, write an Ascii character, you can select Ascii visual character library, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawChar(UWORD Xstart, UWORD Ystart, const char Ascii_Char, sFONT* Font, UWORD Color_Foreground,  UWORD Color_Background)
 Parameters:
@@ -569,9 +626,11 @@ Parameters:
   	Color_Foreground: Font color
   	Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Write English string: In the image buffer, use (Xstart Ystart) as the left vertex, write a string of English characters, you can choose Ascii visual character library, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawString_EN(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Foreground,  UWORD Color_Background)
 Parameters:
@@ -587,9 +646,11 @@ Parameters:
 	Color_Foreground: Font color
   	Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Write Chinese string: in the image buffer, use (Xstart Ystart) as the left vertex, write a string of Chinese characters, you can choose character font, font foreground color, and font background color of the GB2312 encoding.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawString_CN(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Foreground,  UWORD Color_Background)
 Parameters:
@@ -602,9 +663,11 @@ Parameters:
 	Color_Foreground: Font color
 	Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Write numbers: In the image buffer,use (Xstart Ystart) as the left vertex, write a string of numbers, you can choose Ascii visual character library, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawNum(UWORD Xpoint, UWORD Ypoint, double Nummber, sFONT* Font, UWORD Digit, UWORD Color_Foreground,   UWORD Color_Background)
 Parameters:
@@ -621,9 +684,11 @@ Parameters:
 	Color_Foreground: Font color
 	Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Display time: in the image buffer,use (Xstart Ystart) as the left vertex, display time,you can choose Ascii visual character font, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawTime(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, UWORD Color_Background,  UWORD Color_Foreground)
 Parameters:
@@ -639,11 +704,13 @@ Parameters:
   	Color_Foreground: Font color
   	Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Read the local bmp image and write it to the cache.
 
 For Linux operating systems such as Raspberry Pi, you can read and write pictures. For Raspberry Pi, in the directory: RaspberryPi\c\lib\GUI\GUI\_BMPfile.c(.h).
 
+{% code collapsedlinecount="10" %}
 ```
 UBYTE GUI_ReadBmp(const char *path, UWORD Xstart, UWORD Ystart)
 parameter:
@@ -651,6 +718,7 @@ parameter:
        Xstart: The X coordinate of the left vertex of the image, generally 0 is passed by default
        Ystart: The Y coordinate of the left vertex of the picture, generally 0 by default
 ```
+{% endcode %}
 
 **Testing Code for Users**
 
@@ -661,11 +729,13 @@ For Raspberry Pi, in the directory: RaspberryPi\c\examples, for all the test cod
 If you need to run the 0.96-inch LCD test program, you need to add 0.96 as a parameter when running the main demo.\
 Re-execute in Linux command mode as follows:
 
+{% code collapsedlinecount="10" %}
 ```
 make clean
 make
 sudo ./main 0.96
 ```
+{% endcode %}
 
 #### Python (for Raspberry Pi)
 
@@ -679,6 +749,7 @@ Raspberry Pi: RaspberryPi\python\lib\\
 
 * Module initialization and exit processing.
 
+{% code collapsedlinecount="10" %}
 ```
 def module_init()
 def module_exit()
@@ -686,19 +757,24 @@ Note:
 1. Here is some GPIO processing before and after using the LCD screen.
 2. The module_init() function is automatically called in the INIT () initializer on the LCD, but the module_exit() function needs to be called by itself.
 ```
+{% endcode %}
 
 * GPIO read and write:
 
+{% code collapsedlinecount="10" %}
 ```
 def  digital_write(pin, value)
 def  digital_read(pin)
 ```
+{% endcode %}
 
 * SPI write data.
 
+{% code collapsedlinecount="10" %}
 ```
 def spi_writebyte(data)
 ```
+{% endcode %}
 
 * xxx\_LCD\_test.py (xxx indicates the size, if it is a 0.96inch LCD, it is 0inch96\_LCD\_test.py, and so on)
 
@@ -709,23 +785,29 @@ Raspberry Pi: RaspberryPi\python\examples\\
 
 If your python version is python2 and you need to run the 0.96inch LCD test program, re-execute it as follows in linux command mode:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo python 0inch96_LCD_test.py
 ```
+{% endcode %}
 
 If your python version is python3 and you need to run the 0.96inch LCD test program, re-execute the following in linux command mode:
 
+{% code collapsedlinecount="10" %}
 ```
 sudo python3 0inch96_LCD_test.py
 ```
+{% endcode %}
 
 **About Rotation Settings**
 
 If you need to set the screen rotation in the python program, you can set it by the statement im\_r= image1.rotate(270).
 
+{% code collapsedlinecount="10" %}
 ```
 im_r= image1.rotate(270)
 ```
+{% endcode %}
 
 Rotation effect, take 1.54 as an example, the order is 0°, 90°, 180°, 270°
 
@@ -733,65 +815,81 @@ Rotation effect, take 1.54 as an example, the order is 0°, 90°, 180°, 270°
 
 **GUI Functions**
 
-Python has an image library [PIL official library link](http://effbot.org/imagingbook), it does not need to write code from the logical layer like C and can directly call to the image library for image processing. The following will take a 1.54-inch LCD as an example, we provide a brief description of the demo.
+Python has an image library [Pillow (PIL-compatible) handbook](https://pillow.readthedocs.io/en/stable/handbook/index.html), it does not need to write code from the logical layer like C and can directly call to the image library for image processing. The following will take a 1.54-inch LCD as an example, we provide a brief description of the demo.
 
 * It needs to use the image library and install the library.
 
+{% code collapsedlinecount="10" %}
 ```
 sudo apt-get install python3-pil  
 ```
+{% endcode %}
 
 And then import the library
 
+{% code collapsedlinecount="10" %}
 ```
 from PIL import Image,ImageDraw,ImageFont.
 ```
+{% endcode %}
 
 Among them, Image is the basic library, ImageDraw is the drawing function, and ImageFont is the text function.
 
 * Define an image cache to facilitate drawing, writing, and other functions on the picture.
 
+{% code collapsedlinecount="10" %}
 ```
 image1 = Image.new("RGB", (disp.width, disp.height), "WHITE")
 ```
+{% endcode %}
 
 The first parameter defines the color depth of the image, which is defined as "1" to indicate the bitmap of one-bit depth. The second parameter is a tuple that defines the width and height of the image. The third parameter defines the default color of the buffer, which is defined as "WHITE".
 
 * Create a drawing object based on Image1 on which all drawing operations will be performed on here.
 
+{% code collapsedlinecount="10" %}
 ```
 draw = ImageDraw.Draw(image1)
 ```
+{% endcode %}
 
 * Draw a line.
 
+{% code collapsedlinecount="10" %}
 ```
 draw.line([(20, 10),(70, 60)], fill = "RED",width = 1)
 ```
+{% endcode %}
 
 The first parameter is a four-element tuple starting at (0, 0) and ending at (127,0). Draw a line. Fill ="0" means the color of the line is white.
 
 * Draw a rectangle.
 
+{% code collapsedlinecount="10" %}
 ```
 draw.rectangle([(20,10),(70,60)],fill = "WHITE",outline="BLACK")
 ```
+{% endcode %}
 
 The first argument is a tuple of four elements. (20,10) is the coordinate value in the upper left corner of the rectangle, and (70,60) is the coordinate value in the lower right corner of the rectangle. Fill =" WHITE" means BLACK inside, and outline="BLACK" means the color of the outline is black.
 
 * Draw a circle.
 
+{% code collapsedlinecount="10" %}
 ```
 draw.arc((150,15,190,55),0, 360, fill =(0,255,0)
 ```
+{% endcode %}
 
 Draw an inscribed circle in the square, the first parameter is a tuple of 4 elements, with (150, 15) as the upper left corner vertex of the square, (190, 55) as the lower right corner vertex of the square, specifying the level median line of the rectangular frame is the angle of 0 degrees, the second parameter indicates the starting angle, the third parameter indicates the ending angle, and fill = 0 indicates that the color of the line is white. If the figure is not square according to the coordination, you will get an ellipse.
 
 Besides the arc function, you can also use the chord function for drawing a solid circle.
 
+{% code collapsedlinecount="10" %}
 ```
 draw.ellipse((150,65,190,105), fill = 0)
 ```
+{% endcode %}
 
 The first parameter is the coordination of the enclosing rectangle. The second and third parameters are the beginning and end degrees of the circle. The fourth parameter is the fill color of the circle.
 
@@ -799,34 +897,40 @@ The first parameter is the coordination of the enclosing rectangle. The second a
 
 The ImageFont module needs to be imported and instantiated:
 
+{% code collapsedlinecount="10" %}
 ```
 Font1 = ImageFont.truetype("../Font/Font01.ttf",25)
 Font2 = ImageFont.truetype("../Font/Font01.ttf",35)
 Font3 = ImageFont.truetype("../Font/Font02.ttf",32)
 ```
+{% endcode %}
 
 You can use the fonts of Windows or other fonts which is in ttc format..\
 Note: Each character library contains different characters; If some characters cannot be displayed, it is recommended that you can refer to the encoding set ro used. To draw English characters, you can directly use the fonts; for Chinese characters, you need to add a symbol u:
 
+{% code collapsedlinecount="10" %}
 ```
 draw.text((40, 50), 'WaveShare', fill = (128,255,128),font=Font2)
 text= u"微雪电子"
 draw.text((74, 150),text, fill = "WHITE",font=Font3)
 ```
+{% endcode %}
 
 The first parameter is a tuple of 2 elements, with (40, 50) as the left vertex, the font is Font2, and the fill is the font color. You can directly make fill = "WHITE", because the regular color value is already defined Well, of course, you can also use fill = (128,255,128), the parentheses correspond to the values of the three RGB colors so that you can precisely control the color you want. The second sentence shows Micro Snow Electronics, using Font3, the font color is white.
 
 * read local image
 
+{% code collapsedlinecount="10" %}
 ```
 image = Image.open('../pic/LCD_1inch28.jpg')
 ```
+{% endcode %}
 
 The parameter is the image path.
 
 * Other functions.
 
-For more information, you can refer to [http://effbot.org/imagingbook](http://effbot.org/imagingbook) pil
+For more information, you can refer to [Pillow (PIL-compatible) handbook](https://pillow.readthedocs.io/en/stable/handbook/index.html) pil
 
 ### Using with STM32
 
@@ -854,14 +958,17 @@ LCD\_2in\_test() 2inch LCD test program
 
 * Data type
 
+{% code collapsedlinecount="10" %}
 ```
 #define UBYTE      uint8_t
 #define UWORD      uint16_t
 #define UDOUBLE    uint32_t
 ```
+{% endcode %}
 
 * Module initialization and exit processing
 
+{% code collapsedlinecount="10" %}
 ```
 UBYTE	System_Init(void);
 void    System_Exit(void);
@@ -869,19 +976,24 @@ Note:
 1.here is some GPIO processing before and after using the LCD screen.
 2.After the System_Exit(void) function is used, the OLED display will be turned off;
 ```
+{% endcode %}
 
 * Write and read GPIO
 
+{% code collapsedlinecount="10" %}
 ```
 void 	DEV_Digital_Write(UWORD Pin, UBYTE Value);
 UBYTE 	DEV_Digital_Read(UWORD Pin);
 ```
+{% endcode %}
 
 * SPI write data
 
+{% code collapsedlinecount="10" %}
 ```
 UBYTE	 SPI4W_Write_Byte(uint8_t value);
 ```
+{% endcode %}
 
 #### The upper application
 
@@ -896,6 +1008,7 @@ The character font which GUI dependent is in the directory STM32\STM32F103RB\Use
 
 * New Image Properties: Create a new image property, this property includes the image buffer name, width, height, flip Angle, color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_NewImage(UWORD Width, UWORD Height, UWORD Rotate, UWORD Color)
 Parameters:
@@ -904,49 +1017,61 @@ Parameters:
     Rotate: Indicates the rotation Angle of an image
     Color: the initial Color of the image;
 ```
+{% endcode %}
 
 * Set the clear screen function, usually call the clear function of LCD directly.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetClearFuntion(void (*Clear)(UWORD));
 parameter:
     Clear : Pointer to the clear screen function, used to quickly clear the screen to a certain color;
 ```
+{% endcode %}
 
 * Set the drawing pixel function
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetDisplayFuntion(void (*Display)(UWORD,UWORD,UWORD));
 parameter:
     Display: Pointer to the pixel drawing function, which is used to write data to the specified location in the internal RAM of the LCD;
 ```
+{% endcode %}
 
 * Select image buffer:the purpose of the selection is that you can create multiple image attributes, image buffer can exist multiple, you can select each image you create.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SelectImage(UBYTE *image)
 Parameters:
     Image: the name of the image cache, which is actually a pointer to the first address of the image buffer
 ```
+{% endcode %}
 
 * Image Rotation: Set the selected image rotation Angle, preferably after Paint\_SelectImage(), you can choose to rotate 0, 90, 180, 270.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetRotate(UWORD Rotate)
 Parameters:
     Rotate: ROTATE_0, ROTATE_90, ROTATE_180, and ROTATE_270 correspond to 0, 90, 180, and 270 degrees respectively;
 ```
+{% endcode %}
 
 * Image mirror flip: Set the mirror flip of the selected image. You can choose no mirror, horizontal mirror, vertical mirror, or image center mirror.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetMirroring(UBYTE mirror)
 Parameters:
     Mirror: indicates the image mirroring mode. MIRROR_NONE, MIRROR_HORIZONTAL, MIRROR_VERTICAL, MIRROR_ORIGIN correspond to no mirror, horizontal mirror, vertical mirror, and about image center mirror respectively.
 ```
+{% endcode %}
 
 * Set points of display position and color in the buffer: here is the core GUI function, processing points display position and color in the buffer.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetPixel(UWORD Xpoint, UWORD Ypoint, UWORD Color)
 Parameters:
@@ -954,17 +1079,21 @@ Parameters:
     Ypoint: Y position of a point in the image buffer
     Color: indicates the Color of the dot
 ```
+{% endcode %}
 
 * Image buffer fill color: Fills the image buffer with a color, usually used to flash the screen into blank.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_Clear(UWORD Color)
 Parameters:
     Color: fill Color
 ```
+{% endcode %}
 
 * Image buffer part of the window filling color: the image buffer part of the window filled with a certain color, generally as a window whitewashing function, often used for time display, whitewashing on a second
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_ClearWindows(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color)
 Parameters:
@@ -974,9 +1103,11 @@ Parameters:
     Yend: indicates the y-end coordinate of the window
     Color: fill Color
 ```
+{% endcode %}
 
 * Draw points: In the image buffer, draw points on (Xpoint, Ypoint), you can choose the color, the size of the point, the style of the point.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawPoint(UWORD Xpoint, UWORD Ypoint, UWORD Color, DOT_PIXEL Dot_Pixel, DOT_STYLE Dot_Style)
 Parameters:
@@ -1000,9 +1131,11 @@ Parameters:
             DOT_FILL_RIGHTUP,
         } DOT_STYLE;
 ```
+{% endcode %}
 
 * Line drawing: In the image buffer, line from (Xstart, Ystart) to (Xend, Yend), you can choose the color, line width, line style.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawLine(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, LINE_STYLE Line_Style ,  LINE_STYLE Line_Style)
 Parameters:
@@ -1028,9 +1161,11 @@ Parameters:
             LINE_STYLE_DOTTED,
         } LINE_STYLE;
 ```
+{% endcode %}
 
 * Draw rectangle: In the image buffer, draw a rectangle from (Xstart, Ystart) to (Xend, Yend), you can choose the color, the width of the line, whether to fill the inside of the rectangle.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width,  DRAW_FILL Draw_Fill)
 Parameters:
@@ -1056,9 +1191,11 @@ Parameters:
                 DRAW_FILL_FULL,
             } DRAW_FILL;
 ```
+{% endcode %}
 
 * Draw circle: In the image buffer, draw a circle of Radius with (X\_Center Y\_Center) as the center. You can choose the color, the width of the line, and whether to fill the inside of the circle.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawCircle(UWORD X_Center, UWORD Y_Center, UWORD Radius, UWORD Color, DOT_PIXEL Line_width,  DRAW_FILL Draw_Fill)
 Parameters:
@@ -1083,9 +1220,11 @@ Parameters:
             DRAW_FILL_FULL,
         } DRAW_FILL;
 ```
+{% endcode %}
 
 * Write Ascii character: In the image buffer, at (Xstart Ystart) as the left vertex, write an Ascii character, you can select Ascii visual character library, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawChar(UWORD Xstart, UWORD Ystart, const char Ascii_Char, sFONT* Font, UWORD Color_Foreground,  UWORD Color_Background)
 Parameters:
@@ -1101,9 +1240,11 @@ Parameters:
     Color_Foreground: Font color
     Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Write English string: In the image buffer, use (Xstart Ystart) as the left vertex, write a string of English characters, can choose Ascii visual character library, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawString_EN(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Foreground,  UWORD Color_Background)
 Parameters:
@@ -1119,9 +1260,11 @@ Parameters:
      Color_Foreground: Font color
      Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Write Chinese string: in the image buffer, use (Xstart Ystart) as the left vertex, write a string of Chinese characters, you can choose GB2312 encoding character font, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawString_CN(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Foreground,  UWORD Color_Background)
 Parameters:
@@ -1134,9 +1277,11 @@ Parameters:
     Color_Foreground: Font color
     Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Write numbers: In the image buffer,use (Xstart Ystart) as the left vertex, write a string of numbers, you can choose Ascii visual character library, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawNum(UWORD Xpoint, UWORD Ypoint, double Nummber, sFONT* Font, UWORD Digit, UWORD Color_Foreground,   UWORD Color_Background)
 Parameters:
@@ -1153,9 +1298,11 @@ Parameters:
     Color_Foreground: Font color
     Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Display time: in the image buffer,use (Xstart Ystart) as the left vertex, display time,you can choose Ascii visual character font, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawTime(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, UWORD Color_Background,  UWORD Color_Foreground)
 Parameters:
@@ -1171,6 +1318,7 @@ Parameters:
     Color_Foreground: Font color
     Color_Background: indicates the background color
 ```
+{% endcode %}
 
 ### Arduino Software Description
 
@@ -1223,33 +1371,41 @@ The hardware interface is defined in the two files DEV\_Config.cpp(.h), and func
 
 * write pin level
 
+{% code collapsedlinecount="10" %}
 ```
 void DEV_Digital_Write(int pin, int value)
 ```
+{% endcode %}
 
 The first parameter is the pin, and the second is the high and low level.
 
 * Read pin level
 
+{% code collapsedlinecount="10" %}
 ```
 int DEV_Digital_Read(int pin)
 ```
+{% endcode %}
 
 The parameter is the pin, and the return value is the level of the read pin.
 
 * Delay
 
+{% code collapsedlinecount="10" %}
 ```
 DEV_Delay_ms(unsigned int delaytime)
 ```
+{% endcode %}
 
 millisecond level delay.
 
 * SPI output data
 
+{% code collapsedlinecount="10" %}
 ```
 DEV_SPI_WRITE(unsigned char data)
 ```
+{% endcode %}
 
 The parameter is char type, occupying 8 bits.
 
@@ -1266,6 +1422,7 @@ The fonts used by the GUI all depend on the font\*.cpp(h) files under the same f
 
 * New Image Properties: Create a new image property, this property includes the image buffer name, width, height, flip Angle, color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_NewImage(UWORD Width, UWORD Height, UWORD Rotate, UWORD Color)
 Parameters:
@@ -1274,49 +1431,61 @@ Parameters:
     Rotate: Indicates the rotation Angle of an image
     Color: the initial Color of the image;
 ```
+{% endcode %}
 
 * Set the clear screen function, usually call the clear function of LCD directly.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetClearFuntion(void (*Clear)(UWORD));
 parameter:
     Clear : Pointer to the clear screen function, used to quickly clear the screen to a certain color;
 ```
+{% endcode %}
 
 * Set the drawing pixel function.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetDisplayFuntion(void (*Display)(UWORD,UWORD,UWORD));
 parameter:
     Display: Pointer to the pixel drawing function, which is used to write data to the specified location in the internal RAM of the LCD;
 ```
+{% endcode %}
 
 * Select image buffer:the purpose of the selection is that you can create multiple image attributes, image buffer can exist multiple, you can select each image you create.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SelectImage(UBYTE *image)
 Parameters:
     Image: the name of the image cache, which is actually a pointer to the first address of the image buffer
 ```
+{% endcode %}
 
 * Image Rotation: Set the selected image rotation Angle, preferably after Paint\_SelectImage(), you can choose to rotate 0, 90, 180, 270.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetRotate(UWORD Rotate)
 Parameters:
     Rotate: ROTATE_0, ROTATE_90, ROTATE_180, and ROTATE_270 correspond to 0, 90, 180, and 270 degrees respectively;
 ```
+{% endcode %}
 
 * Image mirror flip: Set the mirror flip of the selected image. You can choose no mirror, horizontal mirror, vertical mirror,or image center mirror.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetMirroring(UBYTE mirror)
 Parameters:
     Mirror: indicates the image mirroring mode. MIRROR_NONE, MIRROR_HORIZONTAL, MIRROR_VERTICAL, MIRROR_ORIGIN correspond to no mirror, horizontal mirror, vertical mirror, and about image center mirror respectively.
 ```
+{% endcode %}
 
 * Set points of display position and color in the buffer: here is the core GUI function, processing points display position and color in the buffer.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_SetPixel(UWORD Xpoint, UWORD Ypoint, UWORD Color)
 Parameters:
@@ -1324,9 +1493,11 @@ Parameters:
     Ypoint: Y position of a point in the image buffer
     Color: indicates the Color of the dot
 ```
+{% endcode %}
 
 * Image buffer fill color: Fills the image buffer with a color, usually used to flash the screen into blank.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_ClearWindows(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color)
 Parameters:
@@ -1336,9 +1507,11 @@ Parameters:
     Yend: indicates the y-end coordinate of the window
     Color: fill Color
 ```
+{% endcode %}
 
 * Draw points: In the image buffer, draw points on (Xpoint, Ypoint), you can choose the color, the size of the point, the style of the point.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawPoint(UWORD Xpoint, UWORD Ypoint, UWORD Color, DOT_PIXEL Dot_Pixel, DOT_STYLE Dot_Style)
 Parameters:
@@ -1362,9 +1535,11 @@ Parameters:
                 DOT_FILL_RIGHTUP,
         } DOT_STYLE;
 ```
+{% endcode %}
 
 * Line drawing: In the image buffer, line from (Xstart, Ystart) to (Xend, Yend), you can choose the color, line width, line style.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawLine(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, LINE_STYLE Line_Style ,  LINE_STYLE Line_Style)
 Parameters:
@@ -1390,9 +1565,11 @@ Parameters:
                         LINE_STYLE_DOTTED,
                 } LINE_STYLE;
 ```
+{% endcode %}
 
 * Draw rectangle: In the image buffer, draw a rectangle from (Xstart, Ystart) to (Xend, Yend), you can choose the color, the width of the line, whether to fill the inside of the rectangle.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width,  DRAW_FILL Draw_Fill)
 Parameters:
@@ -1418,9 +1595,11 @@ Parameters:
                 DRAW_FILL_FULL,
         } DRAW_FILL;
 ```
+{% endcode %}
 
 * Draw circle: In the image buffer, draw a circle of Radius with (X\_Center Y\_Center) as the center. You can choose the color, the width of the line, and whether to fill the inside of the circle.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawCircle(UWORD X_Center, UWORD Y_Center, UWORD Radius, UWORD Color, DOT_PIXEL Line_width,  DRAW_FILL Draw_Fill)
 Parameters:
@@ -1445,9 +1624,11 @@ Parameters:
                 DRAW_FILL_FULL,
         } DRAW_FILL;
 ```
+{% endcode %}
 
 * Write Ascii character: In the image buffer, at (Xstart Ystart) as the left vertex, write an Ascii character, you can select Ascii visual character library, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawChar(UWORD Xstart, UWORD Ystart, const char Ascii_Char, sFONT* Font, UWORD Color_Foreground,  UWORD Color_Background)
 Parameters:
@@ -1463,9 +1644,11 @@ Parameters:
         Color_Foreground: Font color
         Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Write English string: In the image buffer, use (Xstart Ystart) as the left vertex, write a string of English characters, can choose Ascii visual character library, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawString_EN(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Foreground,  UWORD Color_Background)
 Parameters:
@@ -1481,9 +1664,11 @@ Parameters:
         Color_Foreground: Font color
         Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Write Chinese string: in the image buffer, use (Xstart Ystart) as the left vertex, write a string of Chinese characters, you can choose GB2312 encoding character font, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawString_CN(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Foreground,  UWORD Color_Background)
 Parameters:
@@ -1496,9 +1681,11 @@ Parameters:
                 Color_Foreground: Font color
                 Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Write numbers: In the image buffer,use (Xstart Ystart) as the left vertex, write a string of numbers, you can choose Ascii visual character library, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawNum(UWORD Xpoint, UWORD Ypoint, double Nummber, sFONT* Font, UWORD Digit, UWORD Color_Foreground,   UWORD Color_Background)
 Parameters:
@@ -1515,9 +1702,11 @@ Parameters:
         Color_Foreground: Font color
         Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Write numbers with decimals: at (Xstart Ystart) as the left vertex, write a string of numbers with decimals, you can choose Ascii code visual character font, font foreground color, font background color
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawFloatNum(UWORD Xpoint, UWORD Ypoint, double Nummber, UBYTE Decimal_Point, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background);
 parameter:
@@ -1534,9 +1723,11 @@ parameter:
         Color_Foreground: font color
         Color_Background: background color
 ```
+{% endcode %}
 
 * Display time: in the image buffer,use (Xstart Ystart) as the left vertex, display time,you can choose Ascii visual character font, font foreground color, font background color.
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawTime(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, UWORD Color_Background,  UWORD Color_Foreground)
 Parameters:
@@ -1552,9 +1743,11 @@ Parameters:
         Color_Foreground: Font color
         Color_Background: indicates the background color
 ```
+{% endcode %}
 
 * Display image: at (Xstart Ystart) as the left vertex, display an image whose width is W\_Image and height is H\_Image;
 
+{% code collapsedlinecount="10" %}
 ```
 void Paint_DrawImage(const unsigned char *image, UWORD xStart, UWORD yStart, UWORD W_Image, UWORD H_Image)
 parameter:
@@ -1564,6 +1757,7 @@ parameter:
        W_Image: Image width
        H_Image: Image height
 ```
+{% endcode %}
 
 ### VisionFive2
 
@@ -1595,24 +1789,29 @@ parameter:
 
 #### Install Corresponding Libraries
 
+{% code collapsedlinecount="10" %}
 ```
 apt-get install pip
 pip install VisionFive.gpio
 apt-get install python3-numpy
 apt-get install python3-pil
 ```
+{% endcode %}
 
 #### Demo Download
 
+{% code collapsedlinecount="10" %}
 ```
 apt-get install p7zip-full
 wget https://files.waveshare.com/upload/e/e9/LCD_Module_code.7z
 7z x LCD_Module_code.7z -o./LCD_Module_code
 cd LCD_Module_code/VisionFive/python/example/
 ```
+{% endcode %}
 
 #### Run the Corresponding Demo According to the Screen You Purchased
 
+{% code collapsedlinecount="10" %}
 ```
 python3 0inch96_LCD_test.py
 python3 1inch14_LCD_test.py
@@ -1623,6 +1822,7 @@ python3 1inch8_LCD_test.py
 python3 2inch_LCD_test.py
 python3 2inch4_LCD_test.py
 ```
+{% endcode %}
 
 ### Resources
 
